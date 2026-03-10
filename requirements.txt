@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+pydantic
+requests
+python-dotenv
+gitpython
+lxml
+networkx
+simple-salesforce
+chromadb
+sentence-transformers
+
+python-multipart
+numpy
+Pillow
+imageio
+imageio-ffmpeg

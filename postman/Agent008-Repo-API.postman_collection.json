@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "Agent008 Repo API",
+    "_postman_id": "b6c6b3a1-2a54-4a0d-b2aa-9fefb522b4f1",
+    "description": "Postman collection for repo search/explain and user story analysis endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Search and Explain",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-Key",
+            "value": "{{api_key}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"CTM_Custom_Notification_to_Quote_Status\",\n  \"model\": \"gpt-oss:20b\",\n  \"max_lines\": 1200\n}\n"
+        },
+        "url": {
+          "raw": "{{base_url}}/repo/search-explain",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "repo",
+            "search-explain"
+          ]
+        }
+      }
+    },
+    {
+      "name": "User Story Analysis",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-Key",
+            "value": "{{api_key}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"story\": \"As a sales rep, when a Quote status changes to Approved, notify the owner and log an audit record.\",\n  \"model\": \"gpt-oss:20b\",\n  \"max_lines\": 2000\n}\n"
+        },
+        "url": {
+          "raw": "{{base_url}}/repo/user-story",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "repo",
+            "user-story"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Data + Prompt",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-API-Key",
+            "value": "{{api_key}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"prompt\": \"Summarize the key fields and purpose.\",\n  \"data\": \"Object: Account\\nFields: Name, Industry, Rating, NATT_Product_Family__c\\nNotes: Custom field used for segmentation\",\n  \"model\": \"gpt-oss:20b\"\n}\n"
+        },
+        "url": {
+          "raw": "{{base_url}}/repo/data-prompt",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "repo",
+            "data-prompt"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "api_key",
+      "value": "your_secret_key_here"
+    }
+  ]
+}

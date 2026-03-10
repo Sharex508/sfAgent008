@@ -1,0 +1,18 @@
+# Local environment and data
+.env
+.venv/
+.idea/
+.pytest_cache/
+__pycache__/
+*/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+server_log.txt
+ngrok.zip
+data/artifacts/
+data/uploads/
+data/chroma/
+data/metadata/docs.jsonl
+data/metadata/graph.edgelist
