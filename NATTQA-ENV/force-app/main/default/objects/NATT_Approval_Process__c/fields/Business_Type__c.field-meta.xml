@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Business_Type__c</fullName>
+    <label>Business Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NATT</fullName>
+                <default>false</default>
+                <label>NATT</label>
+            </value>
+            <value>
+                <fullName>CTM</fullName>
+                <default>false</default>
+                <label>CTM</label>
+            </value>
+            <value>
+                <fullName>CTBR</fullName>
+                <default>false</default>
+                <label>CTBR</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

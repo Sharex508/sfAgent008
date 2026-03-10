@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllAccounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>ACCOUNT.RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <label>All Accounts</label>
+    <sharedTo>
+        <roleAndSubordinates>NA</roleAndSubordinates>
+        <roleAndSubordinates>NA_Parts_Manager</roleAndSubordinates>
+        <roleAndSubordinates>NA_Parts_Sales</roleAndSubordinates>
+        <roleAndSubordinates>NA_Units_Manager</roleAndSubordinates>
+        <roleAndSubordinates>NA_Units_Sales</roleAndSubordinates>
+        <roleAndSubordinatesInternal>Container</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

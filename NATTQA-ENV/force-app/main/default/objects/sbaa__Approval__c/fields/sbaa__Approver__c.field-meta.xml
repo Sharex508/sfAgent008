@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Approver__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>Lookup to the Approver associated with this Approval.</description>
+    <inlineHelpText>Lookup to the Approver associated with this Approval.</inlineHelpText>
+    <label>Approver</label>
+    <referenceTo>sbaa__Approver__c</referenceTo>
+    <relationshipLabel>Approvals</relationshipLabel>
+    <relationshipName>Approvals</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

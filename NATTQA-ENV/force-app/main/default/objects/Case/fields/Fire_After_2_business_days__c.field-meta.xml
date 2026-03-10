@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fire_After_2_business_days__c</fullName>
+    <description>This field is created for NPS Case escalation</description>
+    <formula>CASE(
+  WEEKDAY( DATEVALUE(CreatedDate) ),
+  1, DATEVALUE(CreatedDate) + 2,   /* Sun -&gt; Tue */
+  2, DATEVALUE(CreatedDate) + 2,   /* Mon -&gt; Wed */
+  3, DATEVALUE(CreatedDate) + 2,   /* Tue -&gt; Thu */
+  4, DATEVALUE(CreatedDate) + 2,   /* Wed -&gt; Fri */
+  5, DATEVALUE(CreatedDate) + 4,   /* Thu -&gt; Mon */
+  6, DATEVALUE(CreatedDate) + 4,   /* Fri -&gt; Tue */
+  7, DATEVALUE(CreatedDate) + 3,   /* Sat -&gt; Tue */
+  DATEVALUE(CreatedDate) + 2
+)</formula>
+    <inlineHelpText>This field is created for NPS Case escalation</inlineHelpText>
+    <label>Fire After 2 business days</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Quote_Template_Summary_Section__c</fullName>
+    <description>NATT</description>
+    <externalId>false</externalId>
+    <formula>&quot;Control #: &quot; + BR() +
+
+&quot;Contact Information&quot; + BR()+
+
+&quot;Name: &quot; + SBQQ__Account__r.Name   + BR() +
+
+&quot;Phone: &quot; + SBQQ__Account__r.Phone + BR() +
+
+&quot;Email:  &quot; + SBQQ__Account__r.WOD_2_Email__c  + BR() +
+
+&quot;Customer: &quot; + NATT_Customer_Type__c  + BR() +
+
+&quot;Customer Market Segment: &quot; + Text(SBQQ__Account__r.NATT_Market_Segment2__c ) + BR() +
+
+&quot;Dealer AR Code: &quot; +  SBQQ__Account__r.CT_BaaN_customer_code__c   + BR() +
+
+&quot;JDE AR Code: &quot; + SBQQ__Account__r.NATT_AR_Code_JDE_AR_Code__c</formula>
+    <label>NATT Quote Template Summary Section</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

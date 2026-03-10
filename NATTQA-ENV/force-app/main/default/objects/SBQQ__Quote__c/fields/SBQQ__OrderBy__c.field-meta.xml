@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBQQ__OrderBy__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The Quote Line field used to determine order grouping.</description>
+    <inlineHelpText>The Quote Line field used to determine order grouping.</inlineHelpText>
+    <label>Order By</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ProductFamily__c</fullName>
+                <default>false</default>
+                <label>ProductFamily__c</label>
+            </value>
+            <value>
+                <fullName>QuantityBasedFormulaField__c</fullName>
+                <default>false</default>
+                <label>QuantityBasedFormulaField__c</label>
+            </value>
+            <value>
+                <fullName>NATT_Requested_Ship_Date__c</fullName>
+                <default>false</default>
+                <label>NATT_Requested_Ship_Date__c</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

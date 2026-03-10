@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "3f63849d-9592-4d1b-aa2c-e6595dafea17",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "NATT_End_Customer_Community"
+      }
+    },
+    "targetId" : "5c50e217-7902-4b92-be10-5da2b7f0bccc",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_10_Component_Properties",
+  "id" : "896fccc6-34b4-4fd6-9494-30630ae99d04",
+  "type" : "experienceVariation"
+}

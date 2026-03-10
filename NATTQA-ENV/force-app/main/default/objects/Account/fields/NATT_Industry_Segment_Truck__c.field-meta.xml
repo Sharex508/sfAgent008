@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Industry_Segment_Truck__c</fullName>
+    <description>Represents the industry segments for the ruck business type</description>
+    <label>Industry Segment - Truck</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Dairy</fullName>
+                <default>false</default>
+                <label>Dairy</label>
+            </value>
+            <value>
+                <fullName>Ice</fullName>
+                <default>false</default>
+                <label>Ice</label>
+            </value>
+            <value>
+                <fullName>Meat</fullName>
+                <default>false</default>
+                <label>Meat</label>
+            </value>
+            <value>
+                <fullName>Seafood</fullName>
+                <default>false</default>
+                <label>Seafood</label>
+            </value>
+            <value>
+                <fullName>Produce</fullName>
+                <default>false</default>
+                <label>Produce</label>
+            </value>
+            <value>
+                <fullName>Florist</fullName>
+                <default>false</default>
+                <label>Florist</label>
+            </value>
+            <value>
+                <fullName>Beverage</fullName>
+                <default>false</default>
+                <label>Beverage</label>
+            </value>
+            <value>
+                <fullName>General Distribution</fullName>
+                <default>false</default>
+                <label>General Distribution</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

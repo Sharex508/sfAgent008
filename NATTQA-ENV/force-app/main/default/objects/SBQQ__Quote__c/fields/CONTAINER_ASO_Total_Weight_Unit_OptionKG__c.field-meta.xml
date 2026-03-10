@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_ASO_Total_Weight_Unit_OptionKG__c</fullName>
+    <description>Used for ASO document generation</description>
+    <externalId>false</externalId>
+    <formula>ROUND( CONTAINER_Total_Weight_Unit_Options_Kg__c ,0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>ASO Total Weight Unit Options_kg</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_CTBR_Opportunities</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>NATT_End_Customer__c</columns>
+    <columns>NATT_Stock__c</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>SBQQ__PrimaryQuote__c</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Opportunity.CTBR_Units,Opportunity.CTBR_BluEdge</value>
+    </filters>
+    <label>Todas as Oportunidades</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>CTBR</roleAndSubordinates>
+    </sharedTo>
+</ListView>

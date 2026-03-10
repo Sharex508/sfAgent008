@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Account</object>
+        <objectField>NATT_Dealer_Account_Sharing__c</objectField>
+        <userField>Account.NATT_Dealer_Account_Sharing__c</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Read</accessLevel>
+        <object>Case</object>
+        <objectField>Account</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Opportunity</object>
+        <objectField>Account.NATT_Dealer_Account_Sharing__c</objectField>
+        <userField>Account.NATT_Dealer_Account_Sharing__c</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Opportunity_Scheduled_Pick_Date__c</object>
+        <objectField>Opportunity__c.Account</objectField>
+        <userField>Contact.Account</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>SBQQ__Quote__c</object>
+        <objectField>SBQQ__Account__c.NATT_Dealer_Account_Sharing__c</objectField>
+        <userField>Account.NATT_Dealer_Account_Sharing__c</userField>
+    </accessMappings>
+    <name>Share Dealer Customer</name>
+    <profiles>natt full access community</profiles>
+    <profiles>natt sales only community</profiles>
+</SharingSet>

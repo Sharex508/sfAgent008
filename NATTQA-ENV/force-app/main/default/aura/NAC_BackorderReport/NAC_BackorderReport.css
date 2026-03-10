@@ -1,0 +1,34 @@
+.THIS.c-container {
+    border: 1px solid #d8dde6;
+    background-color: #d8dde6;
+    margin: 10px 0 20px 0;
+}
+
+.THIS .custom-box {
+    text-align: center;
+    background-color: #f4f6f9;
+    padding: 1rem;
+    border: 1px solid #d8dde6;
+}
+
+.THIS .wrapped-header-datatable .slds-table .slds-th__action .slds-truncate{
+    /* max-width: 100%; */
+    /* overflow: hidden; */
+    /* text-overflow: unset; */
+    /* white-space: pre-line; */
+    /* word-wrap: break-word; */
+}
+
+.THIS .wrapped-header-datatable .slds-table .slds-th__action {
+    /* height: 5rem; */
+    justify-content: center;
+}
+
+/* .THIS .wrapped-header-datatable .slds-table .slds-line-height_reset{
+    height: 5rem;
+} */
+
+.THIS .strong-text {
+    /* font-weight: bold; */
+    color: #152c73
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Original_case_Owner_id__c</fullName>
+    <description>The survey can be triggered by an event on a case (e.g. closure). This field shows who the owner of the original case is.</description>
+    <externalId>false</externalId>
+    <label>Original case - Owner id</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

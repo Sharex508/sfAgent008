@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "97a05abb-b3a4-417b-8988-c598811c8bf1",
+    "propertyOverrides" : {
+      "activeViewId" : "fb09243b-cac2-4493-bfbf-9e49aa776122"
+    },
+    "targetId" : "82d1d395-92e2-4b9e-af02-55e17fb26e15",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Home_CTM_Cases_Page",
+  "id" : "1f22ec48-aa30-4b1f-87c3-b7ebe8213467",
+  "type" : "experienceVariation"
+}

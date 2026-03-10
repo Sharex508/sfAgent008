@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalAIModel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationSourceType>ARTICLE_RECOMMENDATION</applicationSourceType>
+    <externalModelKey>e6dffe6b-0a3c-466c-ab2d-7ab68bd3e670</externalModelKey>
+    <externalModelStatus>DISABLED</externalModelStatus>
+    <name>HAWKING_ARTICLE_RECOMMENDATION_1741406185722</name>
+    <trainingJobName>83dd99da-ca97-4e0a-994d-3dc376a34fc1_1</trainingJobName>
+</ExternalAIModel>

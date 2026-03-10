@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal_Accounts1</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>NATT_City_State__c</columns>
+    <columns>NATT_JDE_Unit_Bill_To_Code__c</columns>
+    <columns>NATT_JDE_Parts_Bill_To_Code__c</columns>
+    <columns>ACCOUNT.IS_BUYER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Internal</value>
+    </filters>
+    <filters>
+        <field>NATT_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>Internal Accounts</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>NA_Parts_Manager</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NA_Parts_Sales</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NA_Units_Manager</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NA_Units_Sales</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,6 @@
+El siguiente Caso ha sido escalado:
+Compañía: {!Account.Name}
+Caso: {!Case.CaseNumber}: {!Case.Subject}
+Dueño: (Usuario/Servicio al Cliente) {!Case.OwnerFullName}
+
+Clic en la liga para acceder al caso: {!Case.Link}

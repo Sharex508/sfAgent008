@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Container Service Email Template for Case Approval</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CONTAINER Service Case Approval Template</name>
+    <style>none</style>
+    <subject>A case has been sent for approval</subject>
+    <textOnly>The following case has been sent for approval- Company: {!Case.Account} Case: {!Case.CaseNumber}: {!Case.Subject} Owner: {!Case.OwnerFullName} Click on the link to access the case: {!Case.Link} Click on the link to approve the case: {!ApprovalRequest.Internal_URL}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

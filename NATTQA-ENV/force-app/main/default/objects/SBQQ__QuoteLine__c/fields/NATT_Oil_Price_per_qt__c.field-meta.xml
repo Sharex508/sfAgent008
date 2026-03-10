@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Oil_Price_per_qt__c</fullName>
+    <description>used to calculate the price of oil for CMRA</description>
+    <formula>IF(LEFT(TEXT(NATT_Unit__c),8) = &quot;Supra S6&quot;, IF(ISPICKVAL(NATT_Oil_Type__c,&quot;Mineral&quot;), 4.71, 10.69),
+IF(OR(LEFT(TEXT(NATT_Unit__c),8)= &quot;Supra S7&quot;, LEFT(TEXT(NATT_Unit__c),8)= &quot;Supra S8&quot;), IF(ISPICKVAL(NATT_Oil_Type__c, &quot;Mineral&quot;), 4.71, 10.69), IF(ISPICKVAL(NATT_Oil_Type__c, &quot;Mineral&quot;),4.71,10.69)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>zDeleteOil Price (per qt)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,8 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.notificationShade {
+    background-color: #f3f2f2;
+}

@@ -1,0 +1,97 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "388a5dce-368c-4e6b-a0a2-52130b83d5c4",
+  "label" : "Whats New",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "e7b65d24-5c07-4b63-a35a-8c411391c7c2",
+          "columns" : [ {
+            "UUID" : "032ba397-923d-4e53-919e-9ac6f766cf28",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "e7b65d24-5c07-4b63-a35a-8c411391c7c2",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "enableInlineEdit" : true,
+            "filterName" : "00BP0000007txnlMAA",
+            "layout" : "STANDARD",
+            "pageSize" : 25,
+            "scope" : "Product2",
+            "showActionBar" : true,
+            "showChartsPanel" : true,
+            "showDisplay" : "showall",
+            "showFilterPanel" : true,
+            "showImageIcon" : true,
+            "showManualRefreshButton" : true,
+            "showObjectName" : true,
+            "showPinnedList" : true,
+            "showSearchBar" : true
+          },
+          "componentName" : "forceCommunity:objectHome",
+          "id" : "4c74091f-a9b3-430d-a8ad-9b764f9d55bf",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_TesWhatsNew",
+          "id" : "086a9998-ea19-4283-bd6c-9dcc049d23bd",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_TesWhatsNew",
+          "id" : "c123ef6c-f821-4ba3-8e1a-ac680418e9f0",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "032ba397-923d-4e53-919e-9ac6f766cf28",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0337493c-03ae-4cfa-9725-4108d26a5920",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Whats New"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "00fdca31-1843-42ce-816e-a4cf3f164469",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5e9cb09d-b407-4fd4-9c74-b9cc2b520a76",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-whats-new"
+}

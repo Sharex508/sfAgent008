@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>brenda.damaceno@carrier.com</email>
+    <name>CTBR Equipamentos</name>
+    <queueMembers>
+        <users>
+            <user>alexandre.reis1@carrier.com</user>
+            <user>alexandre.reis2@carrier.com</user>
+            <user>alexandre.reis@carrier.com</user>
+            <user>brenda.damaceno@carrier.com</user>
+            <user>joaopaulo.brugnago@carrier.com</user>
+            <user>fabio.pimenteldonascimento@carrier.com</user>
+            <user>nathalia.pereiradasilva@carrier.com</user>
+            <user>theo.storck@carrier.com</user>
+            <user>wagner.r.wink@carrier.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__SmartApprovalIgnoresConditionsMet__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Checking this box will cause this Approval Rule to reevaluate Smart Approval conditions even if Conditions Met is set to All or Custom. If any Smart Approval Condition returns True upon reevaluation, the reevaluation is stopped and the Rule Conditions are considered met.</description>
+    <inlineHelpText>Check to reevaluate Smart Approval conditions even if Conditions Met is set to All or Custom. If any Smart Approval Condition returns True, the reevaluation stops and Rule Conditions are considered met.</inlineHelpText>
+    <label>Reevaluate Smart Approvals Individually</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

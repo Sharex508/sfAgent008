@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_R513a_Units__c</fullName>
+    <description>Container Service field</description>
+    <label>R513a Units</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lb</fullName>
+                <default>false</default>
+                <label>Lb</label>
+            </value>
+            <value>
+                <fullName>Kg</fullName>
+                <default>false</default>
+                <label>Kg</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

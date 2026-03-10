@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Shipping_Address_Id__c</fullName>
+    <description>NATT: Used in the B2B checkout flow to store the address Id to pass to NATT_Shipping_Address__c</description>
+    <externalId>false</externalId>
+    <label>NATT Shipping Address Id</label>
+    <length>18</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

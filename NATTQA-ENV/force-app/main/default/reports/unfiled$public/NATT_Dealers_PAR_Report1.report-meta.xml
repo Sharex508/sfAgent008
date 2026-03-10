@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>NATT_PAR__c.NATT_State__c</field>
+    </columns>
+    <columns>
+        <field>NATT_PAR__c.NATT_County__c</field>
+    </columns>
+    <columns>
+        <field>NATT_PAR__c.NATT_Country__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>NATT_PAR__c.NATT_Trailer__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>NATT_PAR__c.NATT_Truck__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Primary Area of Responsibilities assigned to NATT Dealers</description>
+    <format>Tabular</format>
+    <name>NATT Dealers - PAR Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountCustomEntity$NATT_PAR__c</reportType>
+    <scope>user</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

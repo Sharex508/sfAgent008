@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Cannot_Create_and_Edit_Account</fullName>
+    <active>true</active>
+    <description>Inactive Contacts are not allowed to Create or Edit Accounts</description>
+    <errorConditionFormula>$User.NATT_Inactive_Contact__c</errorConditionFormula>
+    <errorMessage>Inactive Contacts are not allowed to Create or Edit Accounts</errorMessage>
+</ValidationRule>

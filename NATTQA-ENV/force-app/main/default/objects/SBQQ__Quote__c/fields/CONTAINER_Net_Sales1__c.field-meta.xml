@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Net_Sales1__c</fullName>
+    <formula>( CONTAINER_Cost_Contract_Price__c  - (CONTAINER_Total_Contract_Obligation__c  +  CONTAINER_Total_Extended_AppliedSales__c  +  CONTAINER_Total_Spare_Parts__c  +  CONTAINER_Total_ORBCOMM_AppliedCost__c +  CONTAINER_Total_Freight_Applied_to_Sales__c  ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Net Sales</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

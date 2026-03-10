@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Sales_Rep_is_Dealer__c</fullName>
+    <description>checked if the sales rep is a dealer</description>
+    <formula>NOT(TEXT(SBQQ__SalesRep__r.UserType)=&quot;Standard&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sales Rep is Dealer</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

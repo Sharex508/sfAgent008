@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Is_Commissioning_Child_Record__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Process to check whether existing record is child or master.</description>
+    <label>Is Commissioning Child Record</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

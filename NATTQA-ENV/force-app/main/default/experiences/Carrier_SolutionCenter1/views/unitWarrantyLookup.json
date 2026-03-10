@@ -1,0 +1,68 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "761b9d7d-7539-4c50-b99d-b8e295a547f9",
+  "label" : "Unit Warranty Lookup",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "452b5cf7-13d9-47ad-9feb-389b47819741",
+          "columns" : [ {
+            "UUID" : "f22256e4-9b5d-4213-922e-6da815aa0ea3",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "452b5cf7-13d9-47ad-9feb-389b47819741",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:SearchComponentForInternalUser",
+          "id" : "711eee75-3aaa-466e-98d6-cc97912ff2f4",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "f22256e4-9b5d-4213-922e-6da815aa0ea3",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c7a40c85-6365-459d-bb08-2ee7750fc11e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Unit Warranty Lookup"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "8c080746-3e26-491c-bdc9-02760f22b043",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5c903a43-2f5a-4252-8083-75c996f89d8f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-unit-warranty-lookup"
+}

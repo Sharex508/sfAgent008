@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Parts_Handling__c</fullName>
+    <description>Container Service field</description>
+    <formula>IF( ISPICKVAL( CONTAINER_Level__c , &apos;L1&apos;) , 0.35 , 
+IF( ISPICKVAL( CONTAINER_Level__c , &apos;L2&apos;) , 0.25 ,
+IF( ISPICKVAL( CONTAINER_Level__c , &apos;L3&apos;) , 0.15 , 0.15)
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Parts  Handling</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

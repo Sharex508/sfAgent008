@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_AccountNameLenLess32</fullName>
+    <active>false</active>
+    <description>Account Name length has to be &lt; 32 for NATT Accounts</description>
+    <errorConditionFormula>AND(
+	Len(Name)&gt;32,
+	OR(
+		$RecordType.Name=&quot;Dealer&quot;,
+		$RecordType.Name=&quot;Customer&quot;,
+		$RecordType.Name=&quot;NATT Group Ownership&quot;,
+                $RecordType.Name=&quot;NATT OEM&quot;
+	))</errorConditionFormula>
+    <errorDisplayField>NATT_24_Hour_Service__c</errorDisplayField>
+    <errorMessage>Account Name field length cannot exceed 32 characters</errorMessage>
+</ValidationRule>

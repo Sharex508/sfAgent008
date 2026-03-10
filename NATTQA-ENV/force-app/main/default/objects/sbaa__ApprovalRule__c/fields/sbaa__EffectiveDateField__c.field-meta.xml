@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__EffectiveDateField__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Type of date field from the selected Target Object that Effective Start and End Dates reference when applying Approval Rules</description>
+    <inlineHelpText>Type of date field from the selected Target Object that Effective Start and End Dates reference when applying Approval Rules</inlineHelpText>
+    <label>Effective Date Field</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Created Date</fullName>
+                <default>false</default>
+                <label>Created Date</label>
+            </value>
+            <value>
+                <fullName>Submitted Date</fullName>
+                <default>false</default>
+                <label>Submitted Date</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

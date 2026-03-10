@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Invoice_Detail_FSM_access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read/write access for Service FSM</description>
+        <label>CONTAINER Invoice Detail FSM access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_FSM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Invoice_Detail_Warranty_Admin_access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read/write access for Warranty admin</description>
+        <label>CONTAINER Invoice Detail  Warranty Admin access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_Warranty_Administrator</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Invoice_Details_Service_Admin_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read/write access form Service admin</description>
+        <label>CONTAINER Invoice Details Service Admin Access</label>
+        <sharedTo>
+            <role>Container_Service_Admin</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

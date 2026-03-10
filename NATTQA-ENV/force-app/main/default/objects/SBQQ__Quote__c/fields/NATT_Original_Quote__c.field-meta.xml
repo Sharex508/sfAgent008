@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Original_Quote__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>link back to the original quote</description>
+    <label>Original Quote</label>
+    <referenceTo>SBQQ__Quote__c</referenceTo>
+    <relationshipLabel>Quotes (Original Quote)</relationshipLabel>
+    <relationshipName>NATTQuotes</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

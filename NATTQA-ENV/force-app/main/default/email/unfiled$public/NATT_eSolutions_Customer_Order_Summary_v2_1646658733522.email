@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="overflow-y: hidden;">
+<head>
+	<title></title>
+	<meta content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initialscale=1.0"><meta content="IE=edge">
+	<style type="text/css">@media screen and (max-width: 480px) {slot[style] {margin-right: 0 !important;}.columnDiv {margin-right: 0 !important;}}@media screen and (min-width: 480px) {slot[style] {margin-bottom: 0 !important;}.columnDiv {margin-bottom: 0 !important;}}
+	</style>
+	<style type="text/css">@media screen and (max-width: 480px) {.contentbuilderBaseColumnRow .columnCell {display:inline-block;width:100%}}
+	</style>
+	<style type="text/css">.contentpageDefaultEmailTemplatePageTemplate .contentRoot {width: 600px;}@media only screen and (max-width: 480px) {.contentpageDefaultEmailTemplatePageTemplate .contentRoot {width: 320px;}}
+	</style>
+</head>
+<body style="height: auto; min-height: auto;">
+<div id="contentpage_emailTemplatePreheader" style="; display: none; visibility: hidden; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;</div>
+
+<table cellpadding="0" cellspacing="0" class="contentpageDefaultEmailTemplatePageTemplate" id="contentpage_emailTemplateBodyContent" style="background-color: #E9EAEC;" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" width="100%">
+			<table bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" class="contentRoot" width="600">
+				<tbody>
+					<tr>
+						<td style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">
+						<table bgcolor="" cellpadding="0" cellspacing="0" class="contentbuilderBaseColumnRow" width="100%">
+							<tbody>
+								<tr valign="top">
+									<td class="columnCell" style="vertical-align: top;display: inline-block;" width="100%">
+									<table style="width: 100%; border-collapse: collapse; word-break: break-word;">
+										<tbody>
+											<tr>
+												<td>
+												<table cellpadding="0" cellspacing="0" id="contentRegion" style="; width: 100%; border-collapse: collapse; word-break: break-word; font-size: 14px">
+													<tbody>
+														<tr>
+															<td class="manual" style="font-family: Arial, Helvetica, sans-serif;"><u><b>Order Summary</b></u><br />
+															<br />
+															Order Date:&nbsp;{{{SBQQ__Quote__c.NATT_Final_Approval_Date__c}}}<br />
+															<br />
+															Order Status:&nbsp;{{{SBQQ__Quote__c.NATT_Status_Fx__c}}}<br />
+															<br />
+															Dealer Name:&nbsp;{{{SBQQ__Quote__c.SBQQ__Account__c}}}<br />
+															<br />
+															End Customer:&nbsp;{{{SBQQ__Quote__c.NATT_End_Customer__c}}}<br />
+															<br />
+															Data Plan: {{{SBQQ__Quote__c.NATT_eSolutions_Plans_For_Email__c}}}<br />
+															<br />
+															&nbsp;
+															<p><span style="font-size:11pt"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.5pt"><span style="background:white"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:black">Dear Valued Customer,</span></span></span></span></span></span></span></span><br />
+															<br />
+															<span style="font-size:11pt"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.5pt"><span style="background:white"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:black">A Carrier Transicold Lynx Fleet telematics account request has been placed on your behalf by your authorized Carrier Transicold Dealer.</span></span></span></span></span><br />
+															<br />
+															<span style="font-size:10.5pt"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:black"><span style="background:white">This order and your use of Carrier Transicold&#39;s Lynx Fleet equipment and/or service are subject to all terms and conditions contained in the </span></span></span></span></span></span></span></span><a href="https://tta.lynxfleet.carrier.com/sensornet/html5/iapp/login/html/terms.html" style="color:blue; text-decoration:underline">Lynx Fleet Terms and Conditions of Use</a> <span style="font-size:11pt"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.5pt"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="background:white"><span style="color:black"> and the </span></span></span></span></span></span></span></span><a href="https://tta.lynxfleet.carrier.com/sensornet/html5/iapp/login/html/privacy.html" style="color:blue; text-decoration:underline">Lynx Fleet Privacy and Data Usage Notice</a><span style="font-size:11pt"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.5pt"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="background:white"><span style="color:black">.</span></span><br />
+															<br />
+															<span style="color:black">To complete your Lynx Fleet account set up, please review the documents contained in the links above.&nbsp; Next, type &quot;<b>CONFIRM</b>&quot; in the subject line of this email and forward it to <b><a href="mailto:lynxfleet.americas@carrier.com" style="color:#0563c1; text-decoration:underline">lynxfleet.americas@carrier.com</a></b>.</span></span></span></span></span></span></span><br />
+															<br />
+															<span style="font-size:11pt"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.5pt"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:black"><span style="background:white">That acknowledgment will ensure your awareness and confirm your acceptance of all terms and conditions contained in these documents, which govern your firm&#39;s use of the Carrier Transicold Lynx Fleet service.</span></span></span></span></span></span></span></span><br />
+															<br />
+															<span style="font-size:11pt"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.5pt"><span style="background:white"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:black">Thank you,</span></span></span></span></span></span></span></span><br />
+															<span style="font-size:11pt"><span style="line-height:107%"><span style="font-family:Calibri,sans-serif"><span style="font-size:10.5pt"><span style="background:white"><span style="line-height:107%"><span style="font-family:&quot;Arial&quot;,sans-serif"><span style="color:black">Lynx Fleet Support Team</span></span></span></span></span></span></span></span></p>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

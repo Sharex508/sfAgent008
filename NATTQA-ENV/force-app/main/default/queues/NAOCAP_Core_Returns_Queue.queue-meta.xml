@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <email>tausif.nakhuda@carrier.com</email>
+    <name>NAOCAP Core Returns Queue</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>NAOCAP_Customer_Service_users</publicGroup>
+            <publicGroup>NAOCAP_PPG</publicGroup>
+        </publicGroups>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

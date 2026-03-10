@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Inactive_Contact</fullName>
+    <active>true</active>
+    <description>NATT Inactive Contact</description>
+    <label>NATT Inactive Contact</label>
+    <picklistValues>
+        <picklist>Contact_Influence__c</picklist>
+        <values>
+            <fullName>Decision Influencer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Decision Maker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product and Service Buyer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product and Service User</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Contact_Type__c</picklist>
+        <values>
+            <fullName>Parts Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Contact</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty Contact</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Cold call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone call</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Seen on the road</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NAC_Contact_Type__c</picklist>
+        <values>
+            <fullName>Finance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parts Ordering</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NAC_Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Account_Contact_Role__c</picklist>
+        <values>
+            <fullName>Account Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billing Admin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parts Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>President</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vice-President</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty Manager</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Distribution_Method__c</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fax</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Web</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Key_Business_Role__c</picklist>
+        <values>
+            <fullName>Administrador de Facturación</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Administrador de Garantías</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Billing Admin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Branch Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Co-Principal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corporate Officer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Admin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente Administrativo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente de Garantías</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente de Negocios</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente de Oficina</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente de Operaciones</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente de Partes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente de Servicio</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente de Sucursal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gerente de Ventas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Office Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Oficial corporativo</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parts Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parts Sales Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Principal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subdirector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subgerente</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technician</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Técnico</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Sales Person</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VP%2FDirector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vendedor de Partes</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vendedor de Unidades</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vice-Presidente%2FDirector</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty Admin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty Manager</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Name</picklist>
+        <values>
+            <fullName>Dr%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mr%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mrs%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ms%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prof%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>UCP_Permission_Set__c</picklist>
+        <values>
+            <fullName>UCP All</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UCP Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UCP Purchase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UCP Warranty</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>UCP_Region__c</picklist>
+        <values>
+            <fullName>AUS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Americas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SG%2FHK</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>nps_Role__c</picklist>
+        <values>
+            <fullName>Decision Maker</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Influencer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Procurement</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Contact_Dealer</fullName>
+    <fields>Name</fields>
+    <fields>NATT_Key_Business_Role__c</fields>
+    <fields>AccountId</fields>
+    <fields>Phone</fields>
+    <fields>Email</fields>
+    <label>NATT - Contact Dealer</label>
+</CompactLayout>

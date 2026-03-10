@@ -1,0 +1,24 @@
+<template>
+    <template if:true={showProducts}>
+        <div >
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                    <div class="slds-text-heading_large" >{title}</div>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <div class="slds-text-align_right slds-text-heading_small">
+                        <button class="slds-button" onclick={handleViewAll}>View All</button>
+                    </div>
+                </div>
+            </div>
+            <div style="background-color:rgb(243, 243, 243);">
+            <c-search-layout effective-account-id={effectiveAccountId} display-data={displayData.layoutData} config={config.layoutConfig}
+                button-label={buttonLabel} oncalltoaction={handleAction} onshowdetail={handleShowDetail} selected-warehouse={selectedWarehouse}>
+            </c-search-layout>
+            <template if:true={showSpinner}>
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </template>
+            </div>
+        </div>
+    </template>
+</template>

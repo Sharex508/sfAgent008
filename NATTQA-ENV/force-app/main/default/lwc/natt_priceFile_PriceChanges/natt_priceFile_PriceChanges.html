@@ -1,0 +1,96 @@
+<template>
+  <div class="section slds-section slds-is-open">
+      <h3 class="section slds-section__title slds-theme_shade">
+        <span class="slds-text-heading_medium slds-p-bottom_medium" title={label.PriceChangesLabel}>{label.PriceChangesLabel}</span>
+      </h3>
+  </div>
+
+  <!-- Loading Spinner -->
+  <lightning-spinner alternative-text="Loading" size="medium" if:false={priceFileList}></lightning-spinner>
+
+  <div class="slds-grid slds-gutters">
+      <div class="slds-col">
+        <span>
+          <!-- Select Amount of Time Since Update Dropdown menu -->
+          <lightning-combobox
+              name="daysSinceUpdate"
+              label={label.SelectAmountofTimeSinceUpdateLabel}
+              value={dayValue}
+              placeholder={label.SelectAmountLabel}
+              options={dayOptions}
+              onchange={handleDayChange} 
+              if:false={disableTimeDropdown}>
+          </lightning-combobox>
+        </span>
+      </div>
+      <div class="slds-col">
+        <span> 
+        </span>
+      </div>
+      <div class="slds-col">
+          <span> 
+          </span>
+      </div>
+  </div>
+  
+  <!-- Text that displays if accessed without CPG value -->
+  <template if:true={disableDownloadButton}>
+    <div class="slds-m-around_medium">
+      <lightning-layout horizontal-align="space">
+        {errorText}
+      </lightning-layout>
+    </div>
+  </template>
+    <div class="slds-m-around_medium">
+      <template if:false={disableDownloadButton}>
+        <lightning-layout horizontal-align="space">
+          <lightning-layout-item flexibility="auto">
+          </lightning-layout-item>
+          <lightning-layout-item flexibility="auto">
+            <!-- Download as CSV button -->
+            <lightning-button icon-name="utility:download" label={label.DownloadAsCsvLabel} title="Download CSV File" onclick={downloadCSVFile} if:false={disableDownloadButton} ></lightning-button>
+          </lightning-layout-item>
+          <lightning-layout-item flexibility="auto">
+          </lightning-layout-item>
+        </lightning-layout>
+        &nbsp;
+        <!-- Main Datatable for Price Files -->
+        <lightning-datatable
+            class="datatable"
+            data={priceFileList} 
+            columns={columns} 
+            key-field="Id"
+            onsort={handleSort}
+            sorted-by={sortedField}
+            sorted-direction={sortedDirection}
+            onrowselection={handleRowSelect}
+            hide-checkbox-column="true" >
+        </lightning-datatable>
+        </br>
+
+        <!-- Navigation buttons -->
+        <lightning-layout horizontal-align="space">
+            <lightning-layout-item flexibility="auto">
+              <lightning-button label={label.FirstLabel} icon-name="utility:jump_to_left" 
+                  onclick={handleFirst} disabled={disableFirstButton}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto">
+                <lightning-button label={label.PreviousLabel} icon-name="utility:chevronleft" 
+                  onclick={previousHandler} disabled={disablePreviousButton}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto">
+              {label.PageLabel} {page} {label.OfLabel} {totalPage}
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto">
+                <lightning-button label={label.NextLabel} icon-name="utility:chevronright" icon-position="right"
+                  onclick={nextHandler} disabled={disableNextButton}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto">
+              <lightning-button label={label.LastLabel} icon-name="utility:jump_to_right" icon-position="right"
+                  onclick={handleLast} disabled={disableLastButton}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+      </template>
+
+    </div>
+</template>

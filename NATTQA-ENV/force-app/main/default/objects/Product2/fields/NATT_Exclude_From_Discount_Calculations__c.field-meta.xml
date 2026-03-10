@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Exclude_From_Discount_Calculations__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>defines if this product should be included in discount percentage calculations</description>
+    <label>Exclude From Discount Calculations</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

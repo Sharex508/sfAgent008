@@ -1,0 +1,22 @@
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+      </template>
+    <div class="slds-box">
+    <div class="slds-p-bottom_large"></div>
+    <div class="row">  
+ 
+        <lightning-input name="contactFirstName" type="text" label={labels.contactFirstNameLabel} value={signupInformation.contactPartsFirstName}
+        onblur={handleContactFirstNamechange} placeholder="Contact First Name" maxlength="40" required></lightning-input>
+
+        <lightning-input name="contactLastName" type="text" label={labels.contactLastNameLabel} value={signupInformation.contactPartsLastName}
+        onblur={handleContactLastNamechange} placeholder="Contact Last Name" maxlength="80" required></lightning-input>
+
+        <lightning-input type="tel" label={labels.phoneNumberLabel} value={signupInformation.contactPartsPhoneNumber}
+        onblur={handlePhoneNumberchange} maxlength="20" required field-level-help="Please enter a valid phone number with Country code"></lightning-input>
+
+        <lightning-input type="email" name="emailAddress" data-id="email" label={labels.emailAddressLabel}
+         placeholder="username@example.com" value={signupInformation.contactPartsEmailAddress} onblur={handleEmailValidation} maxlength="80" required></lightning-input> 
+        </div>
+    </div>
+</template>

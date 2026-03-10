@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EMEA_Agreements_2024</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTAINER_Legal_Name__c</columns>
+    <columns>CONTAINER_Mailing_Country__c</columns>
+    <columns>CONTAINER_Level__c</columns>
+    <columns>CONTAINER_Current_Agreement_Expires__c</columns>
+    <columns>CONTAINER_Internal_Account_Number__c</columns>
+    <columns>CONTAINER_Field_Service_Manager__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CONTAINER_Authorized_Service_Provider</value>
+    </filters>
+    <filters>
+        <field>CONTAINER_Warranty_AR_Code__c</field>
+        <operation>equals</operation>
+        <value>48001256</value>
+    </filters>
+    <filters>
+        <field>NATT_Warranty_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>PARENT_NAME</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CONTAINER_Current_Agreement_Expires__c</field>
+        <operation>equals</operation>
+        <value>12/31/2023</value>
+    </filters>
+    <label>EMEA Agreements 2024</label>
+    <sharedTo>
+        <group>CONTAINER_FSM_EMEA_Case</group>
+    </sharedTo>
+</ListView>

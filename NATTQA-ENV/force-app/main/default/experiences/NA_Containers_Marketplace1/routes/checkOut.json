@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "bfbba8aa-1462-4003-838d-9675a7cedb2f",
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "Check_out__c",
+  "id" : "3ac18944-4f2c-4cf5-9073-dce9e31f9786",
+  "label" : "Check-out",
+  "pageAccess" : "RequiresLogin",
+  "routeType" : "custom-check-out",
+  "type" : "route",
+  "urlPrefix" : "check-out"
+}

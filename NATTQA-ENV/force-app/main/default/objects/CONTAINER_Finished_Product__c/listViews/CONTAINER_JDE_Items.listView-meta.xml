@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_JDE_Items</fullName>
+    <columns>NAME</columns>
+    <columns>CONTAINER_Item__c</columns>
+    <columns>CONTAINER_Source_System__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTAINER_Source_System__c</field>
+        <operation>equals</operation>
+        <value>JDE</value>
+    </filters>
+    <label>JDE Items</label>
+    <sharedTo>
+        <group>CONTAINER_RSM_APO_Case</group>
+        <group>CONTAINER_RSM_EMEA_Case</group>
+        <group>CONTAINER_RSM_NAO_Case</group>
+        <group>CONTAINER_Sales_Admin</group>
+        <group>CONTAINER_Sales_CAM</group>
+        <group>CONTAINER_Sales_CAM_GENSET</group>
+        <group>CONTAINER_Sales_CAM_NT</group>
+        <group>CONTAINER_Sales_CS</group>
+        <group>CONTAINER_Sales_CS_GENSET</group>
+        <group>CONTAINER_Sales_CS_NT</group>
+        <group>CONTAINER_Sales_PM</group>
+        <group>CONTAINER_Sales_PM_GENSET</group>
+        <group>CONTAINER_Sales_PM_NT</group>
+        <group>CONTAINER_Sales_RSD_APO</group>
+        <group>CONTAINER_Sales_RSD_EMEA</group>
+        <group>CONTAINER_Sales_RSD_NAO</group>
+        <group>CONTAINER_Sales_VP</group>
+    </sharedTo>
+</ListView>

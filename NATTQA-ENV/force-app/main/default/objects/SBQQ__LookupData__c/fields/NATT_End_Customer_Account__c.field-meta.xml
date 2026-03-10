@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_End_Customer_Account__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>End Customer Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Lookup Data (End Customer Account)</relationshipLabel>
+    <relationshipName>Lookup_Data1</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

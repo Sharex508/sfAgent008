@@ -1,0 +1,114 @@
+{
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "cf0b7091-6221-43c4-8e5f-a07458dd37bf",
+  "label" : "Price Files",
+  "regions" : [ {
+    "id" : "a91c519f-73c2-4eb9-85ac-1854974eca8f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "35c45a83-95fb-48c3-b0dc-09024fbe7bc2",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "7826820c-1542-45e0-8a73-a5c9027859bb",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Complete Price Files"
+          }, {
+            "UUID" : "24357330-0fef-4c0c-b6b5-44f0739eeec2",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "2",
+            "tabName" : "Price Changes"
+          }, {
+            "UUID" : "f134f9a0-fa2f-4e66-9fed-3a6763f825d6",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "3",
+            "tabName" : "Advanced Books"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabset",
+      "id" : "35c45a83-95fb-48c3-b0dc-09024fbe7bc2",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_priceFile",
+          "id" : "9dd833c2-add3-4d48-b857-550c852af980",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "7826820c-1542-45e0-8a73-a5c9027859bb",
+        "regionLabel" : "Complete Price Files",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_priceFile_PriceChanges",
+          "id" : "cfcfe7f3-c7bc-4464-a815-ce4f729c6879",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "24357330-0fef-4c0c-b6b5-44f0739eeec2",
+        "regionLabel" : "Price Changes",
+        "regionName" : "2",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_priceFile_AdvancedBooks",
+          "id" : "ec411480-2dfd-4963-add8-756ecadfdf34",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "f134f9a0-fa2f-4e66-9fed-3a6763f825d6",
+        "regionLabel" : "Advanced Books",
+        "regionName" : "3",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ba17e1c0-4bb5-40ad-a8ab-830fd8b762c3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "50e981e4-aec1-4cfa-98a4-d472bb88bb7d",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Price Files"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b9723a2d-d5ba-4791-b5ca-bc77bf74ec12",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dd9f73ca-f6cf-435b-ab77-6041ac410da8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-price-files"
+}

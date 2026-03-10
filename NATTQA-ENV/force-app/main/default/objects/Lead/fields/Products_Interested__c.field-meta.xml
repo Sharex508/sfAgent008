@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Products_Interested__c</fullName>
+    <label>Products Interested</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>LYNX Fleet (Reefer Telematics)</fullName>
+                <default>false</default>
+                <label>LYNX Fleet (Reefer Telematics)</label>
+            </value>
+            <value>
+                <fullName>LYNX API</fullName>
+                <default>false</default>
+                <label>LYNX API</label>
+            </value>
+            <value>
+                <fullName>Vessel Control Tower (VCT)</fullName>
+                <default>false</default>
+                <label>Vessel Control Tower (VCT)</label>
+            </value>
+            <value>
+                <fullName>IoTPASS (Dry Box Telematics)</fullName>
+                <default>false</default>
+                <label>IoTPASS (Dry Box Telematics)</label>
+            </value>
+            <value>
+                <fullName>BluEdge Partner channel program</fullName>
+                <default>false</default>
+                <label>BluEdge Partner channel program</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

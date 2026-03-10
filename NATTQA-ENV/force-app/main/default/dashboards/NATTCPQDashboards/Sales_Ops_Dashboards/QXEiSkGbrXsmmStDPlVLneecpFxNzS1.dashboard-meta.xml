@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dashboard xmlns="http://soap.sforce.com/2006/04/metadata">
+    <backgroundEndColor>#FFFFFF</backgroundEndColor>
+    <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
+    <backgroundStartColor>#FFFFFF</backgroundStartColor>
+    <chartTheme>light</chartTheme>
+    <colorPalette>unity</colorPalette>
+    <dashboardChartTheme>light</dashboardChartTheme>
+    <dashboardColorPalette>unity</dashboardColorPalette>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Trailer</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Diesel Truck</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Direct Drive</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>APU</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Solara</values>
+        </dashboardFilterOptions>
+        <name>Opportunity: Product Family</name>
+    </dashboardFilters>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Atlantic Carrier Transicold - Dartmouth NS,Atlantic Carrier Transicold - Moncton NB,Atlantic Carrier Transicold - Paradise NL,Atlantic Carrier Transicold - Truro NS</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Bay Area Transport Refrig - Hayward CA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Central Transport Refrig - Winnipeg MB</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>CNR Refrigeration Co. - Hempstead NY</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Coast Truck Centers - Klamath Falls OR,Coast Truck Centers - Troutdale OR,Coast Truck Centers - W. Sacramento CA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>ColdFront - Calgary AB,ColdFront - Edmonton AB,ColdFront - Lethbridge AB,ColdFront - Surrey BC</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Crosspoint Power &amp; Ref - Fort Wayne IN,Crosspoint Power &amp; Ref - Indianapolis IN,Crossroads Trailer Sales - Albert Lea MN</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Crossroads Trailer Sales - Albert Lea MN</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Crow&apos;s Truck Service - Memphis TN</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>CT Detroit - Lincoln Park MI,CT Detroit - Saginaw MI</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>CT of Boston - Wakefield MA,CT of Maine - Portland ME,CT of New Jersey - Matawan NJ,CT of Penn Central - York Haven PA,CT of Penn East - Fleetwood PA,CT of Penn East - Philadelphia PA,CT of Penn East - West Deptford NJ,CT of Penn Northeast - Muncy PA,CT of Penn Northeast - Wilkes-Barre PA,CT of Penn West - Bedford PA,CT of Penn West - Cranberry Twp PA,CT of Penn West - Erie PA,CT of Rhode Island - Cranston RI,CT of Upstate New York - Binghamton NY,CT of Upstate New York - Buffalo NY,CT of Upstate New York - Rochester NY,CT of Upstate New York - Syracuse NY,CT of West Virginia - Mineral Wells WV</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>CT Power - Albuquerque NM,CT Power - Columbus OH,CT Power - Commerce City CO,CT Power - Hamilton OH,CT Power - Jeffersonville IN,CT Power - North Las Vegas NV,CT Power - Phoenix AZ,CT Power - Richfield OH,CT Power - Yuma AZ</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>CTSNE - Cheshire CT,CTSNE - Groton VT,CTSNE - Milford CT,CTSNE - Springfield MA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>CT West - Caldwell ID,CT West - Salt Lake City UT,CT West - Shelley ID,CT West - Sparks NV,CT West - Spokane Valley WA,CT West - St. George UT</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>D &amp; S Express LLC - Casper WY</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Durham Pentz Truck Center - Durham CA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Dysart&apos;s Service - Hermon ME</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Eickhoff Enterprises - Marshall MN</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Eqt Yvan Lemay Enrg - Chicoutimi-Nord QC</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Evolution T&amp;T Service - Niagara Falls ON</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Fleet-Guide T&amp;T Repair - Saskatoon SK</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Fleet Refrigeration,Inc. - Amarillo TX</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Gateway Truck &amp; Refrig - Collinsville IL,Gateway Truck &amp; Refrig - DeForest WI,Gateway Truck &amp; Refrig - De Pere WI,Gateway Truck &amp; Refrig - Franksville WI,Gateway Truck &amp; Refrig - Justice IL,Gateway Truck &amp; Refrig - Matthews  MO,Gateway Truck &amp; Refrig - McLean IL,Gateway Truck &amp; Refrig - Mt. Vernon IL,Gateway Truck &amp; Refrig - Nashville TN,Gateway Truck &amp; Refrig - Plover WI,Gateway Truck &amp; Refrig - Quincy IL,Gateway Truck &amp; Refrig - Rockford IL,Gateway Truck &amp; Refrig - Sparta WI</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Interstate Power Sys. - Billings MT,Interstate Power Sys. - Cedar Rapids IA,Interstate Power Sys. - Davenport IA,Interstate Power Sys. - Fargo ND,Interstate Power Sys. - Grand Forks ND,Interstate Power Sys. - Lakeville MN,Interstate Power Sys. - St. Cloud MN,Interstate Power Sys. - Waterloo IA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>I-State Truck Center - Great Falls MT,I-State Truck Center - Missoula MT</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Jim&apos;s Pacific Garages - Pasco WA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Keizer Refrigeration - Sioux City IA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Kile Truck Refrigeration - Nashville TN</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Lewis Motor Sales,Inc. - Barrie ON</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Lubbock Truck Sales,Inc. - Lubbock TX</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Luc Daigle Refrig - La Présentation QC</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>MCT Companies - Bakersfield CA,MCT Companies - Charlotte NC,MCT Companies - City of Industry CA,MCT Companies - Columbia SC,MCT Companies - Dodge City KS,MCT Companies - Florence SC,MCT Companies - Fresno CA,MCT Companies - Garden City KS,MCT Companies - Garner NC,MCT Companies - Grand Island NE,MCT Companies - Greenville SC,MCT Companies - Jurupa Valley CA,MCT Companies - Kernersville NC,MCT Companies - North Platte NE,MCT Companies - Omaha NE,MCT Companies - Salina KS,MCT Companies - San Diego CA,MCT Companies - Wichita KS</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>MHC Carrier Transicold - Birmingham AL,MHC Carrier Transicold - Chattanooga TN,MHC Carrier Transicold - Columbia MO,MHC Carrier Transicold - Gainesville GA,MHC Carrier Transicold - Kansas City KS,MHC Carrier Transicold - Knoxville TN,MHC Carrier Transicold - Lake City GA,MHC Carrier Transicold - Little Rock AR,MHC Carrier Transicold - Mobile,AL,MHC Carrier Transicold - Montgomery AL,MHC Carrier Transicold - Saint Rose LA,MHC Carrier Transicold - Springfield MO,MHC Carrier Transicold - Statesboro GA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Michael&apos;s Refrigeration - Montgomery AL</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Multimarine Services - Baltimore MD,Multimarine Services - Salisbury MD</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Nordic Refrigeration - St-Laurent QC</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Northway Transport Refrig - Castleton NY</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Penn Power RDC - Wilkes-Barre PA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Quality Services,Inc - Des Moines IA,Inc - Marshalltown IA,Inc - Ottumwa IA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Reefer Cool,Inc. - Davie FL</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Reefer Sales &amp; Service - Belleville ON,Reefer Sales &amp; Service - Brampton ON,Reefer Sales &amp; Service - Cambridge ON,Reefer Sales &amp; Service - Cornwall ON,Reefer Sales &amp; Service - Guelph ON,Reefer Sales &amp; Service - Kingston ON,Reefer Sales &amp; Service - Ottawa ON,Reefer Sales &amp; Service - Whitby ON</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Reefer Service,Inc. - Cadillac MI,Inc. - Hudsonville MI</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Ryder Vehicle Purchasing (Leasing),Ryder Vehicle Purchasing (Rental)</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Shasta Transport Refrig - Redding CA</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Southern States Utility - Richland MS</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Sunbelt Transport Ref - Ft. Myers FL,Sunbelt Transport Ref - Ft. Pierce FL,Sunbelt Transport Ref - Jacksonville FL,Sunbelt Transport Ref - Miami FL,Sunbelt Transport Ref - Orlando FL,Sunbelt Transport Ref - Tampa FL,Sunbelt Transport Ref - W. Palm Beach FL</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Transport Refrig of SD - Sioux Falls SD</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Utility Trailer &amp; Eqt NW - Anchorage AK,Utility Trailer &amp; Eqt NW - Auburn WA,Utility Trailer &amp; Eqt NW - Mt Vernon WA,Utility Trailer &amp; Eqt NW - Richland WA,Utility Trailer Central Cal - Fresno CA,Utility Trailer Central Cal - Lathrop CA,Utility Trailer Sales - Boise ID,Utility Trailer Sales - Idaho Falls ID,Utility Trailer Sales - Spokane WA,Utility Trailer SE Texas - El Paso TX</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>W.W. Williams - Hubbard OH,W.W. Williams - Tucson AZ</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>W &amp; B Service Co - Amarillo TX,W &amp; B Service Co - Austin TX,W &amp; B Service Co - Blue Mound TX,W &amp; B Service Co - Converse TX,W &amp; B Service Co - Duncanville TX,W &amp; B Service Co - Harlingen TX,W &amp; B Service Co - Houston TX,W &amp; B Service Co - Laredo TX,W &amp; B Service Co - Longview TX,W &amp; B Service Co - Lowell AR,W &amp; B Service Co - Lufkin TX,W &amp; B Service Co - Oklahoma City OK,W &amp; B Service Co - Pharr TX,W &amp; B Service Co - Pottsville AR,W &amp; B Service Co - Shreveport LA,W &amp; B Service Co - Sulphur Springs TX,W &amp; B Service Co - Temple TX,W &amp; B Service Co - Texarkana AR,W &amp; B Service Co - Toledo OH,W &amp; B Service Co - Tulsa OK,W &amp; B Service Co - Van Buren AR</values>
+        </dashboardFilterOptions>
+        <name>Opportunity: Account Name</name>
+    </dashboardFilters>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>greaterThan</operator>
+            <values>70</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>between</operator>
+            <values>31</values>
+            <values>69</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>lessThan</operator>
+            <values>30</values>
+        </dashboardFilterOptions>
+        <name>Opportunity: Opportunity %</name>
+    </dashboardFilters>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>West,National</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>East</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>South</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Central</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>National</values>
+        </dashboardFilterOptions>
+        <name>Opportunity: Region</name>
+    </dashboardFilters>
+    <dashboardFilters>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Benjamin Wray</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Jason Walle</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Nigel Selby</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Harrison Huffstetler</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Steve Borini</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Karl Knudsen</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Kevin Blackman</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Elroy Sperle</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Jim Covington</values>
+        </dashboardFilterOptions>
+        <dashboardFilterOptions>
+            <operator>equals</operator>
+            <values>Kurtis Elvey</values>
+        </dashboardFilterOptions>
+        <name>Opportunity: Executive Account Manager (EAM)</name>
+    </dashboardFilters>
+    <dashboardGridLayout>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <componentType>RichText</componentType>
+                <dashboardComponentContents>
+                    <richTextContent>[{\&amp;quot;attributes\&amp;quot;:{\&amp;quot;color\&amp;quot;:\&amp;quot;#001668\&amp;quot;,\&amp;quot;size\&amp;quot;:\&amp;quot;52px\&amp;quot;,\&amp;quot;bold\&amp;quot;:true},\&amp;quot;insert\&amp;quot;:\&amp;quot;NATT Open Pipeline\&amp;quot;},{\&amp;quot;attributes\&amp;quot;:{\&amp;quot;align\&amp;quot;:\&amp;quot;center\&amp;quot;},\&amp;quot;insert\&amp;quot;:\&amp;quot;\\n\&amp;quot;}]</richTextContent>
+                </dashboardComponentContents>
+                <groupingSortProperties/>
+            </dashboardComponent>
+            <rowIndex>0</rowIndex>
+            <rowSpan>2</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>8</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</column>
+                </chartSummary>
+                <componentChartTheme>dark</componentChartTheme>
+                <componentType>Column</componentType>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Product_Family__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_ACC_NAME</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Opportunity_Percentage__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_Region__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_EAM__c</column>
+                </dashboardFilterColumns>
+                <decimalPrecision>-1</decimalPrecision>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <groupingColumn>Opportunity_Scheduled_Pick_Date__c.Scheduled_Date__c</groupingColumn>
+                <groupingSortProperties>
+                    <groupingSorts>
+                        <groupingLevel>g1</groupingLevel>
+                        <sortOrder>a</sortOrder>
+                    </groupingSorts>
+                </groupingSortProperties>
+                <header>NATT Pipeline - By family West</header>
+                <legendPosition>Bottom</legendPosition>
+                <report>NATT_Sales_Ops/NATT_Pipeline_By_family_West</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <sortLegendValues>true</sortLegendValues>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>2</rowIndex>
+            <rowSpan>11</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>4</colSpan>
+            <columnIndex>8</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</column>
+                </chartSummary>
+                <componentChartTheme>dark</componentChartTheme>
+                <componentType>Donut</componentType>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Product_Family__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_ACC_NAME</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Opportunity_Percentage__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_Region__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_EAM__c</column>
+                </dashboardFilterColumns>
+                <decimalPrecision>-1</decimalPrecision>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <groupingColumn>FK_$Opportunity.NATT_Unit__c</groupingColumn>
+                <groupingSortProperties>
+                    <groupingSorts>
+                        <groupingLevel>g1</groupingLevel>
+                        <sortColumn>s!Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</sortColumn>
+                        <sortOrder>d</sortOrder>
+                    </groupingSorts>
+                </groupingSortProperties>
+                <header>NATT Pipeline - By unit</header>
+                <legendPosition>Right</legendPosition>
+                <maxValuesDisplayed>10</maxValuesDisplayed>
+                <report>NATTPipeline/NATT_Pipeline_data_By_family_F95</report>
+                <showPercentage>false</showPercentage>
+                <showTotal>true</showTotal>
+                <showValues>true</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <sortLegendValues>true</sortLegendValues>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>2</rowIndex>
+            <rowSpan>11</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</column>
+                </chartSummary>
+                <componentChartTheme>dark</componentChartTheme>
+                <componentType>Column</componentType>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Product_Family__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_ACC_NAME</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Opportunity_Percentage__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_Region__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_EAM__c</column>
+                </dashboardFilterColumns>
+                <decimalPrecision>-1</decimalPrecision>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <groupingColumn>FK_ACC_NAME</groupingColumn>
+                <groupingSortProperties>
+                    <groupingSorts>
+                        <groupingLevel>g1</groupingLevel>
+                        <sortColumn>s!Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</sortColumn>
+                        <sortOrder>d</sortOrder>
+                    </groupingSorts>
+                </groupingSortProperties>
+                <header>NATT Pipeline - By Account</header>
+                <legendPosition>Bottom</legendPosition>
+                <maxValuesDisplayed>40</maxValuesDisplayed>
+                <report>NATTPipeline/NATT_Pipeline_data_By_Account_Rk2</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <sortLegendValues>true</sortLegendValues>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>13</rowIndex>
+            <rowSpan>8</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>6</colSpan>
+            <columnIndex>6</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <chartAxisRange>Auto</chartAxisRange>
+                <chartSummary>
+                    <aggregate>Sum</aggregate>
+                    <axisBinding>y</axisBinding>
+                    <column>Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</column>
+                </chartSummary>
+                <componentChartTheme>dark</componentChartTheme>
+                <componentType>Column</componentType>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Product_Family__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_ACC_NAME</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Opportunity_Percentage__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_Region__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_EAM__c</column>
+                </dashboardFilterColumns>
+                <decimalPrecision>-1</decimalPrecision>
+                <displayUnits>Auto</displayUnits>
+                <drillEnabled>false</drillEnabled>
+                <drillToDetailEnabled>false</drillToDetailEnabled>
+                <enableHover>false</enableHover>
+                <expandOthers>false</expandOthers>
+                <groupingColumn>FK_$Opportunity.NATT_End_Customer__c</groupingColumn>
+                <groupingSortProperties>
+                    <groupingSorts>
+                        <groupingLevel>g1</groupingLevel>
+                        <sortColumn>s!Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</sortColumn>
+                        <sortOrder>d</sortOrder>
+                    </groupingSorts>
+                </groupingSortProperties>
+                <header>NATT Pipeline data - By End User</header>
+                <legendPosition>Bottom</legendPosition>
+                <report>NATTPipeline/NATT_Pipeline_data_By_End_User</report>
+                <showPercentage>false</showPercentage>
+                <showValues>true</showValues>
+                <sortBy>RowLabelAscending</sortBy>
+                <sortLegendValues>true</sortLegendValues>
+                <useReportChart>false</useReportChart>
+            </dashboardComponent>
+            <rowIndex>13</rowIndex>
+            <rowSpan>8</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
+                <componentChartTheme>dark</componentChartTheme>
+                <componentType>FlexTable</componentType>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Product_Family__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_ACC_NAME</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Opportunity.NATT_Opportunity_Percentage__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_Region__c</column>
+                </dashboardFilterColumns>
+                <dashboardFilterColumns>
+                    <column>FK_$Account.NATT_EAM__c</column>
+                </dashboardFilterColumns>
+                <flexComponentProperties>
+                    <decimalPrecision>-1</decimalPrecision>
+                    <flexTableColumn>
+                        <reportColumn>FK_ACC_NAME</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>FK_Opportunity.NATT_Unit__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>FK_Opportunity.NATT_Product_Family__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>FK_NAME</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>FK_Opportunity.NATT_End_Customer__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>FK_OPP_STAGE_NAME</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>FK_Opportunity.NATT_Opportunity_Percentage__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>Opportunity_Scheduled_Pick_Date__c.Scheduled_Date__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableColumn>
+                        <reportColumn>FK_Account.NATT_EAM__c</reportColumn>
+                        <showSubTotal>false</showSubTotal>
+                        <showTotal>false</showTotal>
+                        <type>detail</type>
+                    </flexTableColumn>
+                    <flexTableSortInfo>
+                        <sortColumn>Opportunity_Scheduled_Pick_Date__c.Scheduled_Quantity__c</sortColumn>
+                        <sortOrder>2</sortOrder>
+                    </flexTableSortInfo>
+                    <hideChatterPhotos>true</hideChatterPhotos>
+                </flexComponentProperties>
+                <groupingSortProperties/>
+                <header>NATT Pipeline - Top 10 Opportunities</header>
+                <report>NATTPipeline/NATT_Pipeline_data_JnR</report>
+            </dashboardComponent>
+            <rowIndex>21</rowIndex>
+            <rowSpan>10</rowSpan>
+        </dashboardGridComponents>
+        <dashboardGridComponents>
+            <colSpan>12</colSpan>
+            <columnIndex>0</columnIndex>
+            <dashboardComponent>
+                <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
+                <componentType>Image</componentType>
+                <dashboardComponentContents>
+                    <additionalInfo>{&quot;contentDocumentId&quot;:&quot;069aJ00000FLYw3QAH&quot;,&quot;fileAssetName&quot;:&quot;Capture_dcran_20250527_164557png&quot;,&quot;inlineWidgetStyle&quot;:{},&quot;namespacePrefix&quot;:&quot;&quot;}</additionalInfo>
+                    <fileName>Capture d&apos;écran 2025-05-27 164557.png</fileName>
+                    <fit>fitwidth</fit>
+                    <horizontalAlignment>left</horizontalAlignment>
+                    <verticalAlignment>top</verticalAlignment>
+                </dashboardComponentContents>
+                <groupingSortProperties/>
+            </dashboardComponent>
+            <rowIndex>31</rowIndex>
+            <rowSpan>8</rowSpan>
+        </dashboardGridComponents>
+        <numberOfColumns>12</numberOfColumns>
+        <rowHeight>36</rowHeight>
+    </dashboardGridLayout>
+    <dashboardType>SpecifiedUser</dashboardType>
+    <isGridLayout>true</isGridLayout>
+    <owner>steven.mcdonald@carrier.com.corp</owner>
+    <runningUser>steven.mcdonald@carrier.com.corp</runningUser>
+    <textColor>#000000</textColor>
+    <title>NATT Opportunity Dashboard</title>
+    <titleColor>#000000</titleColor>
+    <titleSize>12</titleSize>
+</Dashboard>

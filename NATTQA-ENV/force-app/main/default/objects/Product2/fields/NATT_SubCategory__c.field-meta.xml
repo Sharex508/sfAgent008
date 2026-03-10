@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_SubCategory__c</fullName>
+    <description>Sub Category for TES Products.</description>
+    <label>Sub Category</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>426, X426, X430 Parts</fullName>
+                <default>false</default>
+                <label>426, X426, X430 Parts</label>
+            </value>
+            <value>
+                <fullName>Alternators</fullName>
+                <default>false</default>
+                <label>Alternators</label>
+            </value>
+            <value>
+                <fullName>Auxillary Power Unit Parts</fullName>
+                <default>false</default>
+                <label>Auxillary Power Unit Parts</label>
+            </value>
+            <value>
+                <fullName>Battery Accessories</fullName>
+                <default>false</default>
+                <label>Battery Accessories</label>
+            </value>
+            <value>
+                <fullName>Bearing Dampers</fullName>
+                <default>false</default>
+                <label>Bearing Dampers</label>
+            </value>
+            <value>
+                <fullName>Bearings</fullName>
+                <default>false</default>
+                <label>Bearings</label>
+            </value>
+            <value>
+                <fullName>Bearings, Camshaft</fullName>
+                <default>false</default>
+                <label>Bearings, Camshaft</label>
+            </value>
+            <value>
+                <fullName>Bearings, Connecting Rod</fullName>
+                <default>false</default>
+                <label>Bearings, Connecting Rod</label>
+            </value>
+            <value>
+                <fullName>Bearings, Crankshaft</fullName>
+                <default>false</default>
+                <label>Bearings, Crankshaft</label>
+            </value>
+            <value>
+                <fullName>Bearings, Main</fullName>
+                <default>false</default>
+                <label>Bearings, Main</label>
+            </value>
+            <value>
+                <fullName>Bearings, Thrust</fullName>
+                <default>false</default>
+                <label>Bearings, Thrust</label>
+            </value>
+            <value>
+                <fullName>Belts</fullName>
+                <default>false</default>
+                <label>Belts</label>
+            </value>
+            <value>
+                <fullName>Blowers</fullName>
+                <default>false</default>
+                <label>Blowers</label>
+            </value>
+            <value>
+                <fullName>Bolts</fullName>
+                <default>false</default>
+                <label>Bolts</label>
+            </value>
+            <value>
+                <fullName>Bolts, Thermistor</fullName>
+                <default>false</default>
+                <label>Bolts, Thermistor</label>
+            </value>
+            <value>
+                <fullName>Brackets</fullName>
+                <default>false</default>
+                <label>Brackets</label>
+            </value>
+            <value>
+                <fullName>Brushes</fullName>
+                <default>false</default>
+                <label>Brushes</label>
+            </value>
+            <value>
+                <fullName>Bushings, Camshaft</fullName>
+                <default>false</default>
+                <label>Bushings, Camshaft</label>
+            </value>
+            <value>
+                <fullName>Bushings, Connecting Rod</fullName>
+                <default>false</default>
+                <label>Bushings, Connecting Rod</label>
+            </value>
+            <value>
+                <fullName>Bushings, Coupler</fullName>
+                <default>false</default>
+                <label>Bushings, Coupler</label>
+            </value>
+            <value>
+                <fullName>Check Valves</fullName>
+                <default>false</default>
+                <label>Check Valves</label>
+            </value>
+            <value>
+                <fullName>Circuit Breakers</fullName>
+                <default>false</default>
+                <label>Circuit Breakers</label>
+            </value>
+            <value>
+                <fullName>Clutches</fullName>
+                <default>false</default>
+                <label>Clutches</label>
+            </value>
+            <value>
+                <fullName>Coils</fullName>
+                <default>false</default>
+                <label>Coils</label>
+            </value>
+            <value>
+                <fullName>Compressor Gasket Sets</fullName>
+                <default>false</default>
+                <label>Compressor Gasket Sets</label>
+            </value>
+            <value>
+                <fullName>Compressor Gaskets</fullName>
+                <default>false</default>
+                <label>Compressor Gaskets</label>
+            </value>
+            <value>
+                <fullName>Connecting Rods</fullName>
+                <default>false</default>
+                <label>Connecting Rods</label>
+            </value>
+            <value>
+                <fullName>Couplers</fullName>
+                <default>false</default>
+                <label>Couplers</label>
+            </value>
+            <value>
+                <fullName>Covers</fullName>
+                <default>false</default>
+                <label>Covers</label>
+            </value>
+            <value>
+                <fullName>Covers, Thermostat</fullName>
+                <default>false</default>
+                <label>Covers, Thermostat</label>
+            </value>
+            <value>
+                <fullName>Crankcases</fullName>
+                <default>false</default>
+                <label>Crankcases</label>
+            </value>
+            <value>
+                <fullName>Crankshafts</fullName>
+                <default>false</default>
+                <label>Crankshafts</label>
+            </value>
+            <value>
+                <fullName>Cutout Assemblies</fullName>
+                <default>false</default>
+                <label>Cutout Assemblies</label>
+            </value>
+            <value>
+                <fullName>Cylinder Heads</fullName>
+                <default>false</default>
+                <label>Cylinder Heads</label>
+            </value>
+            <value>
+                <fullName>Cylinder Liners</fullName>
+                <default>false</default>
+                <label>Cylinder Liners</label>
+            </value>
+            <value>
+                <fullName>D214 &amp; X214 Parts</fullName>
+                <default>false</default>
+                <label>D214 &amp; X214 Parts</label>
+            </value>
+            <value>
+                <fullName>Dehydrators</fullName>
+                <default>false</default>
+                <label>Dehydrators</label>
+            </value>
+            <value>
+                <fullName>Doors &amp; Door Hardware</fullName>
+                <default>false</default>
+                <label>Doors &amp; Door Hardware</label>
+            </value>
+            <value>
+                <fullName>Dowel Pins</fullName>
+                <default>false</default>
+                <label>Dowel Pins</label>
+            </value>
+            <value>
+                <fullName>Engine Gasket Sets</fullName>
+                <default>false</default>
+                <label>Engine Gasket Sets</label>
+            </value>
+            <value>
+                <fullName>Engine Gaskets</fullName>
+                <default>false</default>
+                <label>Engine Gaskets</label>
+            </value>
+            <value>
+                <fullName>Engine Mounts</fullName>
+                <default>false</default>
+                <label>Engine Mounts</label>
+            </value>
+            <value>
+                <fullName>Fans</fullName>
+                <default>false</default>
+                <label>Fans</label>
+            </value>
+            <value>
+                <fullName>Filters</fullName>
+                <default>false</default>
+                <label>Filters</label>
+            </value>
+            <value>
+                <fullName>Filters, Air</fullName>
+                <default>false</default>
+                <label>Filters, Air</label>
+            </value>
+            <value>
+                <fullName>Filters, Fuel</fullName>
+                <default>false</default>
+                <label>Filters, Fuel</label>
+            </value>
+            <value>
+                <fullName>Filters, Oil</fullName>
+                <default>false</default>
+                <label>Filters, Oil</label>
+            </value>
+            <value>
+                <fullName>Freeze Plugs</fullName>
+                <default>false</default>
+                <label>Freeze Plugs</label>
+            </value>
+            <value>
+                <fullName>Fuel Pumps</fullName>
+                <default>false</default>
+                <label>Fuel Pumps</label>
+            </value>
+            <value>
+                <fullName>Fuel Tank Accessories</fullName>
+                <default>false</default>
+                <label>Fuel Tank Accessories</label>
+            </value>
+            <value>
+                <fullName>Fuses</fullName>
+                <default>false</default>
+                <label>Fuses</label>
+            </value>
+            <value>
+                <fullName>Gauges</fullName>
+                <default>false</default>
+                <label>Gauges</label>
+            </value>
+            <value>
+                <fullName>Glow Plugs</fullName>
+                <default>false</default>
+                <label>Glow Plugs</label>
+            </value>
+            <value>
+                <fullName>Guards</fullName>
+                <default>false</default>
+                <label>Guards</label>
+            </value>
+            <value>
+                <fullName>Harness Assemblies</fullName>
+                <default>false</default>
+                <label>Harness Assemblies</label>
+            </value>
+            <value>
+                <fullName>Heavy Duty Alternator</fullName>
+                <default>false</default>
+                <label>Heavy Duty Alternator</label>
+            </value>
+            <value>
+                <fullName>Heavy Duty Starter</fullName>
+                <default>false</default>
+                <label>Heavy Duty Starter</label>
+            </value>
+            <value>
+                <fullName>Hoses</fullName>
+                <default>false</default>
+                <label>Hoses</label>
+            </value>
+            <value>
+                <fullName>Hourmeters</fullName>
+                <default>false</default>
+                <label>Hourmeters</label>
+            </value>
+            <value>
+                <fullName>Injector Assemblies</fullName>
+                <default>false</default>
+                <label>Injector Assemblies</label>
+            </value>
+            <value>
+                <fullName>Keys</fullName>
+                <default>false</default>
+                <label>Keys</label>
+            </value>
+            <value>
+                <fullName>Manifolds</fullName>
+                <default>false</default>
+                <label>Manifolds</label>
+            </value>
+            <value>
+                <fullName>Microprocessor Accessories</fullName>
+                <default>false</default>
+                <label>Microprocessor Accessories</label>
+            </value>
+            <value>
+                <fullName>Motors, Fan</fullName>
+                <default>false</default>
+                <label>Motors, Fan</label>
+            </value>
+            <value>
+                <fullName>Mufflers</fullName>
+                <default>false</default>
+                <label>Mufflers</label>
+            </value>
+            <value>
+                <fullName>New Compressors</fullName>
+                <default>false</default>
+                <label>New Compressors</label>
+            </value>
+            <value>
+                <fullName>Nozzles</fullName>
+                <default>false</default>
+                <label>Nozzles</label>
+            </value>
+            <value>
+                <fullName>Oil</fullName>
+                <default>false</default>
+                <label>Oil</label>
+            </value>
+            <value>
+                <fullName>Oil Pickup Tubes</fullName>
+                <default>false</default>
+                <label>Oil Pickup Tubes</label>
+            </value>
+            <value>
+                <fullName>Oil Pumps</fullName>
+                <default>false</default>
+                <label>Oil Pumps</label>
+            </value>
+            <value>
+                <fullName>Oil Sumps</fullName>
+                <default>false</default>
+                <label>Oil Sumps</label>
+            </value>
+            <value>
+                <fullName>Overhaul &amp; Conversion Kits</fullName>
+                <default>false</default>
+                <label>Overhaul &amp; Conversion Kits</label>
+            </value>
+            <value>
+                <fullName>Overhaul Kits</fullName>
+                <default>false</default>
+                <label>Overhaul Kits</label>
+            </value>
+            <value>
+                <fullName>Parts for Isuzu* 2.2 D.I.</fullName>
+                <default>false</default>
+                <label>Parts for Isuzu* 2.2 D.I.</label>
+            </value>
+            <value>
+                <fullName>Parts for Isuzu* C-201</fullName>
+                <default>false</default>
+                <label>Parts for Isuzu* C-201</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 235</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 235</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 249</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 249</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 353</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 353</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 366</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 366</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 370</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 370</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 374</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 374</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 376</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 376</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 388</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 388</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 395</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 395</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 482</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 482</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 486</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 486</label>
+            </value>
+            <value>
+                <fullName>Parts for Yanmar* 486V</fullName>
+                <default>false</default>
+                <label>Parts for Yanmar* 486V</label>
+            </value>
+            <value>
+                <fullName>Pistons</fullName>
+                <default>false</default>
+                <label>Pistons</label>
+            </value>
+            <value>
+                <fullName>Plates</fullName>
+                <default>false</default>
+                <label>Plates</label>
+            </value>
+            <value>
+                <fullName>Plugs</fullName>
+                <default>false</default>
+                <label>Plugs</label>
+            </value>
+            <value>
+                <fullName>Pulleys, Boss</fullName>
+                <default>false</default>
+                <label>Pulleys, Boss</label>
+            </value>
+            <value>
+                <fullName>Pulleys, Idler</fullName>
+                <default>false</default>
+                <label>Pulleys, Idler</label>
+            </value>
+            <value>
+                <fullName>Pumps, Fuel</fullName>
+                <default>false</default>
+                <label>Pumps, Fuel</label>
+            </value>
+            <value>
+                <fullName>Pumps, Oil</fullName>
+                <default>false</default>
+                <label>Pumps, Oil</label>
+            </value>
+            <value>
+                <fullName>Pumps, Water</fullName>
+                <default>false</default>
+                <label>Pumps, Water</label>
+            </value>
+            <value>
+                <fullName>Radiator Caps</fullName>
+                <default>false</default>
+                <label>Radiator Caps</label>
+            </value>
+            <value>
+                <fullName>Reed Valves</fullName>
+                <default>false</default>
+                <label>Reed Valves</label>
+            </value>
+            <value>
+                <fullName>Regulators</fullName>
+                <default>false</default>
+                <label>Regulators</label>
+            </value>
+            <value>
+                <fullName>Relays</fullName>
+                <default>false</default>
+                <label>Relays</label>
+            </value>
+            <value>
+                <fullName>Remanufactured Compressors</fullName>
+                <default>false</default>
+                <label>Remanufactured Compressors</label>
+            </value>
+            <value>
+                <fullName>Remotes</fullName>
+                <default>false</default>
+                <label>Remotes</label>
+            </value>
+            <value>
+                <fullName>Repair Kits</fullName>
+                <default>false</default>
+                <label>Repair Kits</label>
+            </value>
+            <value>
+                <fullName>Ring Gear</fullName>
+                <default>false</default>
+                <label>Ring Gear</label>
+            </value>
+            <value>
+                <fullName>Rocker Arms</fullName>
+                <default>false</default>
+                <label>Rocker Arms</label>
+            </value>
+            <value>
+                <fullName>Seals</fullName>
+                <default>false</default>
+                <label>Seals</label>
+            </value>
+            <value>
+                <fullName>Sensors</fullName>
+                <default>false</default>
+                <label>Sensors</label>
+            </value>
+            <value>
+                <fullName>Shaft Repair Kits</fullName>
+                <default>false</default>
+                <label>Shaft Repair Kits</label>
+            </value>
+            <value>
+                <fullName>Solenoids</fullName>
+                <default>false</default>
+                <label>Solenoids</label>
+            </value>
+            <value>
+                <fullName>Spacers</fullName>
+                <default>false</default>
+                <label>Spacers</label>
+            </value>
+            <value>
+                <fullName>Speedi-Sleeve</fullName>
+                <default>false</default>
+                <label>Speedi-Sleeve</label>
+            </value>
+            <value>
+                <fullName>Starters</fullName>
+                <default>false</default>
+                <label>Starters</label>
+            </value>
+            <value>
+                <fullName>Suction Screen</fullName>
+                <default>false</default>
+                <label>Suction Screen</label>
+            </value>
+            <value>
+                <fullName>Switches</fullName>
+                <default>false</default>
+                <label>Switches</label>
+            </value>
+            <value>
+                <fullName>Switches, Air</fullName>
+                <default>false</default>
+                <label>Switches, Air</label>
+            </value>
+            <value>
+                <fullName>Tappets</fullName>
+                <default>false</default>
+                <label>Tappets</label>
+            </value>
+            <value>
+                <fullName>Tensioner</fullName>
+                <default>false</default>
+                <label>Tensioner</label>
+            </value>
+            <value>
+                <fullName>Thermostats</fullName>
+                <default>false</default>
+                <label>Thermostats</label>
+            </value>
+            <value>
+                <fullName>TM Series</fullName>
+                <default>false</default>
+                <label>TM Series</label>
+            </value>
+            <value>
+                <fullName>Tools</fullName>
+                <default>false</default>
+                <label>Tools</label>
+            </value>
+            <value>
+                <fullName>Valve Guides</fullName>
+                <default>false</default>
+                <label>Valve Guides</label>
+            </value>
+            <value>
+                <fullName>Valve Plates</fullName>
+                <default>false</default>
+                <label>Valve Plates</label>
+            </value>
+            <value>
+                <fullName>Valves, Exhaust</fullName>
+                <default>false</default>
+                <label>Valves, Exhaust</label>
+            </value>
+            <value>
+                <fullName>Valves, Intake</fullName>
+                <default>false</default>
+                <label>Valves, Intake</label>
+            </value>
+            <value>
+                <fullName>Valves, Oil Drain</fullName>
+                <default>false</default>
+                <label>Valves, Oil Drain</label>
+            </value>
+            <value>
+                <fullName>Valves, Relief</fullName>
+                <default>false</default>
+                <label>Valves, Relief</label>
+            </value>
+            <value>
+                <fullName>Valves, Service</fullName>
+                <default>false</default>
+                <label>Valves, Service</label>
+            </value>
+            <value>
+                <fullName>Valves, Solenoid</fullName>
+                <default>false</default>
+                <label>Valves, Solenoid</label>
+            </value>
+            <value>
+                <fullName>Valves, Spring</fullName>
+                <default>false</default>
+                <label>Valves, Spring</label>
+            </value>
+            <value>
+                <fullName>Valves, Stem Seal</fullName>
+                <default>false</default>
+                <label>Valves, Stem Seal</label>
+            </value>
+            <value>
+                <fullName>Valves, TXV</fullName>
+                <default>false</default>
+                <label>Valves, TXV</label>
+            </value>
+            <value>
+                <fullName>Vibrasorbers</fullName>
+                <default>false</default>
+                <label>Vibrasorbers</label>
+            </value>
+            <value>
+                <fullName>Washers</fullName>
+                <default>false</default>
+                <label>Washers</label>
+            </value>
+            <value>
+                <fullName>X430 C5 Large Shaft</fullName>
+                <default>false</default>
+                <label>X430 C5 Large Shaft</label>
+            </value>
+            <value>
+                <fullName>#N/A</fullName>
+                <default>false</default>
+                <label>#N/A</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

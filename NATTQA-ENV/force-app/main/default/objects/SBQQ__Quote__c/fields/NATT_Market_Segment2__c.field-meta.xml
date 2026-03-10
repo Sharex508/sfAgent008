@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Market_Segment2__c</fullName>
+    <description>to be manually updated on the quote and sent to the order via twin field</description>
+    <label>Market Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>NATT_Product_Family__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>NATT_Market_Segment</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>TEM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>TBO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>TDO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>TFO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>TGO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>TIO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>TLO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>TSO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>DEM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>DDO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>DFO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>DGO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>DLO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>DSO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>VDO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>VFO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>VGO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>VLO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>VSO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>AEM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>ADY</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>ADO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>AFO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>AGO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>ALO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>ASO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>HEM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>HDO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>HFO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>HGO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>HIO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>HLO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>HSO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>eTruck/Distribution</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>eTruck/For HIre</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>eTruck/Dairy &amp; Grocery</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>eTruck/Leasing</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

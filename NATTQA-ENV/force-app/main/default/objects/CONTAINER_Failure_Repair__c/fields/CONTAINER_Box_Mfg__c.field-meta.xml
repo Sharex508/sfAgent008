@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Box_Mfg__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Box Mfg</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Failure_Reports1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

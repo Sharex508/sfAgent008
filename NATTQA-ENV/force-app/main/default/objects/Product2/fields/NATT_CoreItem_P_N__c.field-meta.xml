@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_CoreItem_P_N__c</fullName>
+    <description>Text field containing the part number of the core item. Core items are not stored in the product catalog.</description>
+    <externalId>false</externalId>
+    <label>Core Item P/N</label>
+    <length>32</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

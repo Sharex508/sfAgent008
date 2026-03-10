@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "8d65ccc3-4c46-4beb-81ff-a0f84a4ee17d",
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "configurationTags" : [ ],
+  "devName" : "All_Knowledge__c",
+  "id" : "83c66e5c-ea22-4eb4-ae30-6ab143373ea1",
+  "label" : "All Knowledge",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-all-knowledge",
+  "type" : "route",
+  "urlPrefix" : "all-knowledge"
+}

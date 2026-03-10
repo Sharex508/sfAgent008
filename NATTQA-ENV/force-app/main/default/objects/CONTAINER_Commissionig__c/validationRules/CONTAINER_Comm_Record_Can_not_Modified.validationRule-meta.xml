@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Comm_Record_Can_not_Modified</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISPICKVAL(CONTAINER_Commisioning_Status__c, &apos;Completed&apos;),
+OR(
+ISCHANGED(Name),
+ISCHANGED(OwnerId),
+ISCHANGED(CONTAINER_Job_Quantity__c),
+ISCHANGED(CONTAINER_Job_Start_Date__c),
+ISCHANGED(CONTAINER_Model_Number__c),
+ISCHANGED(CONTAINER_PID_Number__c),
+ISCHANGED(CONTAINER_Commissioning_Revision__c),
+ISCHANGED(CONTAINER_Build_Plant__c),
+ISCHANGED(CONTAINER_Shipment_Completed__c),
+ISCHANGED(CONTAINER_Shipment_Start_Date__c),
+ISCHANGED(CONTAINER_Special_Instructions__c),
+ISCHANGED(CONTAINER_Account_Region__c),
+ISCHANGED(CONTAINER_Commissioning__c),
+ISCHANGED(CONTAINER_Unit_Warranty__c),
+ISCHANGED(CONTAINER_Compressor__c),
+ISCHANGED(CONTAINER_Motors__c),
+ISCHANGED(CONTAINER_Dynamic_Options_from_ASO__c),
+ISCHANGED(CONTAINER_Installation_Location_Box__c),
+ISCHANGED(CONTAINER_Commisioning_Region__c),
+ISCHANGED(CONTAINER_Commisioning_Agent__c),
+ISCHANGED(CONTAINER_Contract_Issued__c),
+ISCHANGED(Container_Commissioning_Contact__c)
+),
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule ))</errorConditionFormula>
+    <errorMessage>You can not modify the record once commissioning status is marked completed.</errorMessage>
+</ValidationRule>

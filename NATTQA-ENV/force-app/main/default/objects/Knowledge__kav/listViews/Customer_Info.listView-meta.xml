@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Info</fullName>
+    <columns>TITLE</columns>
+    <columns>NATT_Department__c</columns>
+    <columns>NATT_Segment__c</columns>
+    <columns>NATT_Document_Type__c</columns>
+    <columns>NATT_Doc_Number__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>PUBLISH_STATUS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PUBLISH_STATUS</field>
+        <operation>equals</operation>
+        <value>1,2,3</value>
+    </filters>
+    <filters>
+        <field>IS_CHANNEL_CSP</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Customer Knowledge Articles</label>
+    <sharedTo>
+        <group>NATT_Associate</group>
+        <group>NATT_Case_Escalation</group>
+        <group>NATT_Core_Ret_Carrier_Carlyle_Comp</group>
+        <group>NATT_Core_Ret_Carrier_Trans_Elec</group>
+        <group>NATT_Core_Ret_Carrier_Trans_X430</group>
+        <group>NATT_Core_Ret_Starter_Alt</group>
+        <group>NATT_Core_Ret_Weitron_Refrig</group>
+        <group>NATT_Customer</group>
+        <group>NATT_Customer_Portal_User</group>
+        <group>NATT_Dealer</group>
+        <group>NATT_Dealer_Principal</group>
+        <group>NATT_Internal</group>
+        <group>NATT_SolutionCenter_Dealer</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,29 @@
+<template>
+    <div class="slds-text-heading_large">{labels.signUp}</div>
+    <div class="slds-p-bottom_small"></div>
+    <div class="slds-box">
+        <div class="slds-p-bottom_small"></div>
+        <div class="slds-text-heading_small">{labels.chooseAccountType}</div>
+        <div class="slds-p-bottom_small"></div>
+        <div class="slds-box " style="background-color: #EDFEFE;">
+            <div>
+                <div class="slds-p-top_x-large"></div>
+                <div class="slds-align_absolute-center"> 
+                    <button class="slds-button slds-button_outline-brand slds-theme_inverse slds-col slds-size_4-of-12" onclick={navigateToCreateNewAccountPage} >{labels.createNewCustomerAccount}</button>
+                    <div class="slds-p-bottom_small"></div> 
+                </div> 
+               
+                <div class="slds-p-top_x-large"></div>
+                <div class="slds-align_absolute-center">{labels.oRLabel}</div>
+                <div class="slds-p-top_x-large"></div>
+                <div class="slds-align_absolute-center">
+                    {labels.alreadyAccountLabel} <button class="slds-button" onclick={navigateToLoginPage}>{labels.clickHereToLogin}</button>
+                    <div class="slds-p-around_medium">
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</template>

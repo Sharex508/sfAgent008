@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "84074b94-191b-4496-a7ff-ad01cc192dc5",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "User_Login__c",
+  "id" : "0322ccf0-fa0e-4af0-8657-54232e20a349",
+  "label" : "User Login",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-user-login",
+  "type" : "route",
+  "urlPrefix" : "user-login"
+}

@@ -1,0 +1,57 @@
+{
+  "appPageId" : "67fdd0d7-93bd-4b41-9583-aca992e410a8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "bd4a7bf7-7b7f-4c03-b3a6-d399e1625ce9",
+  "label" : "Order Confirmation",
+  "regions" : [ {
+    "id" : "7247f660-419c-49cd-abfe-7fd3e3c49f2d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "forceCommunity:commerceOrderConfirmation",
+      "id" : "22b3f5f9-3a2a-4293-a423-751869de86d9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "cartId" : "",
+        "showShipping" : true,
+        "showSubtotal" : true,
+        "showTax" : true,
+        "showTotal" : true
+      },
+      "componentName" : "forceCommunity:commerceCheckoutSummary",
+      "id" : "ca32d517-a52b-4db7-8a50-0094749d521f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "cartId" : "",
+        "contactPointAddressId" : "",
+        "readonly" : true,
+        "shippingInstructions" : "",
+        "showShippingInstructions" : true
+      },
+      "componentName" : "forceCommunity:commerceDelivery",
+      "id" : "c178e564-8619-40b8-acbc-da71f8d5def9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "20620b43-66b4-4d5f-9f04-2350d2224178",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "76d67202-08dc-42f1-ad03-99872ac5a332",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "orderconfirmation"
+}

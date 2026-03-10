@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "63e0c810-20f3-486e-9fca-9aecb796b586",
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "Backorder_Report__c",
+  "id" : "1b557b9d-73a5-4947-88c7-bebd35b948aa",
+  "label" : "Backorder Report",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-backorder-report",
+  "type" : "route",
+  "urlPrefix" : "backorder-report"
+}

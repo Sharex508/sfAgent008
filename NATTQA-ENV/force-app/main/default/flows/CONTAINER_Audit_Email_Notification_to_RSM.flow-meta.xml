@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>CONTAINER Send Email to RSM APO Public group users</description>
+        <name>Send_Email_to_APO_Users</name>
+        <label>Send Email to APO Users</label>
+        <locationX>314</locationX>
+        <locationY>791</locationY>
+        <actionName>CONTAINER_Audit__c.CONTAINER_Send_Email_to_RSM_APO_Public_group_users</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>CONTAINER_Audit__c.CONTAINER_Send_Email_to_RSM_APO_Public_group_users</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>CONTAINER Send Email to RSM EMEA Public group users</description>
+        <name>Send_Email_to_EMEA_Users</name>
+        <label>Send Email to EMEA Users</label>
+        <locationX>578</locationX>
+        <locationY>791</locationY>
+        <actionName>CONTAINER_Audit__c.CONTAINER_Send_Email_to_RSM_EMEA_Public_group_users</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>CONTAINER_Audit__c.CONTAINER_Send_Email_to_RSM_EMEA_Public_group_users</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>CONTAINER Send Email to RSM NAO Public group users</description>
+        <name>Send_Email_to_NAO_users</name>
+        <label>Send Email to NAO users</label>
+        <locationX>50</locationX>
+        <locationY>791</locationY>
+        <actionName>CONTAINER_Audit__c.CONTAINER_Send_Email_to_RSM_NAO_Public_group_users</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>CONTAINER_Audit__c.CONTAINER_Send_Email_to_RSM_NAO_Public_group_users</nameSegment>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Checking the record is New or Older one.</description>
+        <name>Check_for_New_record_or_Old</name>
+        <label>Check for New record or Old</label>
+        <locationX>446</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>IS_New</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.CONTAINER_Audit_Result__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CONTAINER_Check_Region_for_Audit_Record</targetReference>
+            </connector>
+            <label>IS New</label>
+        </rules>
+        <rules>
+            <name>Existing_Record</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.CONTAINER_Audit_Result__c</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CONTAINER_Check_Region_for_Audit_Record</targetReference>
+            </connector>
+            <label>Existing Record</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>To distuinguish Audit record belong to a Region.</description>
+        <name>CONTAINER_Check_Region_for_Audit_Record</name>
+        <label>Check Region for Audit Record</label>
+        <locationX>446</locationX>
+        <locationY>671</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Region_NAO</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Operating_Region__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>NAO</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pass</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Fail</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_to_NAO_users</targetReference>
+            </connector>
+            <label>Is Region NAO</label>
+        </rules>
+        <rules>
+            <name>Is_Region_APO</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Operating_Region__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>APO</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pass</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Fail</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_to_APO_Users</targetReference>
+            </connector>
+            <label>Is Region APO</label>
+        </rules>
+        <rules>
+            <name>Is_Region_EMEA</name>
+            <conditionLogic>1 AND ( 2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Operating_Region__c</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>EMEA</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pass</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Audit_Result__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Fail</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_to_EMEA_Users</targetReference>
+            </connector>
+            <label>Is Region EMEA</label>
+        </rules>
+    </decisions>
+    <description>To send Audit Email Notification to RSM user as per Region</description>
+    <environments>Default</environments>
+    <interviewLabel>Audit Email Notification to RSM {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Audit Email Notification to RSM</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>320</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_for_New_record_or_Old</targetReference>
+        </connector>
+        <filterLogic>(1 OR 2 ) AND 3</filterLogic>
+        <filters>
+            <field>CONTAINER_Audit_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Pass</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>CONTAINER_Audit_Result__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Fail</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>CONTAINER_Operating_Region__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </filters>
+        <object>CONTAINER_Audit__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>APO Region</description>
+        <name>APO</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>APO</text>
+    </textTemplates>
+    <textTemplates>
+        <description>EMEA Region</description>
+        <name>EMEA</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>EMEA</text>
+    </textTemplates>
+    <textTemplates>
+        <description>NAO Region</description>
+        <name>NAO</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>NAO</text>
+    </textTemplates>
+</Flow>

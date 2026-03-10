@@ -1,0 +1,83 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "bc327f2d-d485-4b17-8f92-551a6893fca4",
+  "label" : "Dealer Required Parts and Tools",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "e42e3370-af5e-4a0c-9a7e-a360d996d420",
+          "columns" : [ {
+            "UUID" : "86a85050-426f-4d84-8fe0-4d340b8cff11",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "e42e3370-af5e-4a0c-9a7e-a360d996d420",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "enableInlineEdit" : true,
+            "filterName" : "Dealer_Required_Parts_Tools_Documents",
+            "layout" : "FULL",
+            "pageSize" : 25,
+            "scope" : "Knowledge__kav",
+            "showActionBar" : true,
+            "showChartsPanel" : true,
+            "showDisplay" : "showall",
+            "showFilterPanel" : true,
+            "showImageIcon" : true,
+            "showManualRefreshButton" : true,
+            "showObjectName" : true,
+            "showPinnedList" : false,
+            "showSearchBar" : true
+          },
+          "componentName" : "forceCommunity:objectHome",
+          "id" : "6321a1eb-ef97-42b6-b839-cd134a7b2201",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "86a85050-426f-4d84-8fe0-4d340b8cff11",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d7d8b34e-406e-4ec5-adc2-0d5151b1d700",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Dealer Required Parts and Tools"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0d3b7126-e32f-4d6e-b8ea-8f0517dd5a38",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7e1e3007-8e02-4465-88cb-93075c765ca4",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-dealer-required-parts-and-tools"
+}

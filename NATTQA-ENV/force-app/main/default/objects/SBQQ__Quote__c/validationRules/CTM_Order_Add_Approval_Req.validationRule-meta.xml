@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_Order_Add_Approval_Req</fullName>
+    <active>true</active>
+    <description>Primary Quote needs to have product number to be ordered</description>
+    <errorConditionFormula>AND(
+  RecordType.DeveloperName = &apos;MX_Units_Quote&apos;,
+  NOT(ISBLANK(NATT_Purchase_Order__c)),
+  TEXT(SBQQ__Status__c) &lt;&gt; &quot;Approved&quot;
+)</errorConditionFormula>
+    <errorDisplayField>NATT_Purchase_Order__c</errorDisplayField>
+    <errorMessage>The quote must be approved in order to enter a Purchase Order # and convert this to an order</errorMessage>
+</ValidationRule>

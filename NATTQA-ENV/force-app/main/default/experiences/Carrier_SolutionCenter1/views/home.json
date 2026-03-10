@@ -1,0 +1,163 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "8809591e-555e-4d36-8968-5bae381fdaed",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "b439b0ee-ea5e-48ff-a74a-0d0d233bdca9",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "carouselTransitionTime" : 4,
+        "titleText" : ""
+      },
+      "componentName" : "c:natt_articleCarouselRecentlyModified",
+      "id" : "43ce5190-59c2-4fcf-a434-8bcd51ef30b5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "038ede76-afe3-4d4e-aefb-44eeaddb0df3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "f1aca400-c237-41c7-aa4d-1576096b9b89",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "382b1354-fa7f-45fd-868a-9e2af5255c4e",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Links"
+          }, {
+            "UUID" : "b2dc6cc4-30d2-4920-99d0-7444e1d143d3",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "2",
+            "tabName" : "Chatter & Updates"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabset",
+      "id" : "f1aca400-c237-41c7-aa4d-1576096b9b89",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "titleText" : "PRODUCT AND SERVICE UPDATES"
+          },
+          "componentName" : "c:natt_alertCarousel",
+          "id" : "21088ea1-b01c-4ce2-803b-87bf5af2740d",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "382b1354-fa7f-45fd-868a-9e2af5255c4e",
+        "regionLabel" : "Links",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "canChangeSorting" : true,
+            "defaultFilter" : "",
+            "defaultSortOrderHomeFeed" : "Relevance",
+            "defaultSortOrderTopicsFeed" : "Relevance",
+            "feedDesign" : "DEFAULT",
+            "hasFeedSearch" : true,
+            "subjectId" : "{!recordId}",
+            "type" : "News"
+          },
+          "componentName" : "forceCommunity:forceCommunityFeed",
+          "id" : "843b0328-086d-4dbe-a81d-e41207588d36",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "b2dc6cc4-30d2-4920-99d0-7444e1d143d3",
+        "regionLabel" : "Chatter & Updates",
+        "regionName" : "2",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_whosWho",
+      "id" : "fa04cec4-072d-4fc8-b4b1-0158fef3f653",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"background-color:#e2e0e2; font-size:20px; text-align:center\"><a href=\"https://www.transcentral.carrier.com/\" target=\"_blank\" rel=\"noreferrer noopener\">Legacy TransCentral</a></p>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "715bccff-b9e6-4169-95e7-329eff66d9cc",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"background: #007FFF;text-align: center;\">\n    <a style=\"color: white !important; font-size: 20px; display: block; width: 100%; padding: 3px;\" \n       href=\"/carriersolutioncenter/s/unit-warranty-lookup\" target=\"_blank\"\n       rel=\"noreferrer noopener\">Unit Warranty Lookup</a>\n</p>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "edb39137-81b4-4778-883e-6c45ca91e20e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"background:#607080;text-align: center;\">\n    <a style=\"color: white !important; font-size: 20px; display: block; width: 100%; padding: 3px;\" \n       href=\"https://www2.carrier.transicold.com/servicerequest.nsf/mainfrm?OpenForm\" target=\"_blank\"\n       rel=\"noreferrer noopener\">IT Service Request Form</a>\n</p>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "be733cb2-3f0e-44b7-8c8c-a54bbaee076a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"background:#007FFF;text-align: center;\">\n       <a style=\"color: white !important; font-size: 20px; display: block; width: 100%; padding: 3px;\"\n          href=\"https://www.carrier.com/truck-trailer/en/north-america/\" target=\"_blank\"\n          rel=\"noreferrer noopener\">Truck / Trailer Refrigeration North America</a>\n   </p>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "104c9073-f9fd-4d63-a432-ae5f1a8dbc90",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9dae5ac1-e2ab-4585-8a25-f750532397af",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "22ebae44-8010-4ff0-a04e-c64887cd7cbd",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b83b605f-c262-4916-bb50-1b9f311fb75f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "32f3324d-f087-464f-a533-b43b3a5a27ac",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

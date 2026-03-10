@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Commissioning_FSM_access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read/Write Access for the FSM user</description>
+        <label>CONTAINER Commissioning FSM access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_FSM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Commissioning_Sales_access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Read access for sales users</description>
+        <label>CONTAINER Commissioning Sales access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Sales</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Commissioning_Service_Admin_access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read/Write access for service admin</description>
+        <label>CONTAINER Commissioning  Service Admin access</label>
+        <sharedTo>
+            <role>Container_Service_Admin</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Commissioning_Service_access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Read/Write access for service users</description>
+        <label>CONTAINER Commissioning Service access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Commissioning_Warranty_Admin_access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read/write access for warranty admin</description>
+        <label>CONTAINER Commissioning  Warranty Admin access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_Warranty_Administrator</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_External_Commissioning_Agent_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>External Commissioning Agent Access</label>
+        <sharedTo>
+            <role>CONTAINER_External_Commissioning_Agent</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

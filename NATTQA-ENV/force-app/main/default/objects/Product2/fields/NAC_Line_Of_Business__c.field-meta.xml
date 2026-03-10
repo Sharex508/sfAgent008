@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAC_Line_Of_Business__c</fullName>
+    <description>Line of business formula based on Item price Group</description>
+    <externalId>false</externalId>
+    <formula>CASE( NATT_ItemPriceGroup__c , 
+&quot;111&quot;,&quot;A&quot;,&quot;120&quot;,&quot;G&quot;,&quot;123&quot;,&quot;A&quot;,&quot;128&quot;,&quot;G&quot;,&quot;300&quot;,&quot;C&quot;,&quot;301&quot;,&quot;C&quot;,&quot;302&quot;,&quot;C&quot;,&quot;306&quot;,&quot;C&quot;,&quot;310&quot;,&quot;C&quot;,&quot;317&quot;,&quot;C&quot;,&quot;320&quot;,&quot;C&quot;,&quot;500&quot;,&quot;G&quot;,&quot;510&quot;,&quot;G&quot;,&quot;517&quot;,&quot;G&quot;,&quot;600&quot;,&quot;G&quot;,&quot;601&quot;,&quot;G&quot;,&quot;602&quot;,&quot;G&quot;,&quot;603&quot;,&quot;G&quot;,&quot;604&quot;,&quot;G&quot;,&quot;610&quot;,&quot;G&quot;,&quot;611&quot;,&quot;G&quot;,&quot;612&quot;,&quot;G&quot;,&quot;Unknown&quot;)</formula>
+    <label>Line Of Business</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

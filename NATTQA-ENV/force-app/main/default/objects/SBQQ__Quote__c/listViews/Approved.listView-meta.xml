@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Approved</fullName>
+    <columns>NAME</columns>
+    <columns>CONTAINER_Type__c</columns>
+    <columns>CONTAINER_Product_Type__c</columns>
+    <columns>CONTAINER_Sales_Region__c</columns>
+    <columns>SBQQ__Account__c</columns>
+    <columns>NATT_Parent_Account_Name__c</columns>
+    <columns>CONTAINER_Status__c</columns>
+    <columns>ApprovalStatus__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>CONTAINER_Job__c</columns>
+    <columns>CONTAINER_ASO_ID__c</columns>
+    <columns>CONTAINER_Qty__c</columns>
+    <columns>CONTAINER_Model_Number__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTAINER_Status__c</field>
+        <operation>equals</operation>
+        <value>Approved</value>
+    </filters>
+    <label>Approved</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Container</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

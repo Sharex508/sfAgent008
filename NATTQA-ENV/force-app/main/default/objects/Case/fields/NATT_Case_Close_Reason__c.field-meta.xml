@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Case_Close_Reason__c</fullName>
+    <description>Reason required to close case</description>
+    <inlineHelpText>Reason required to close case</inlineHelpText>
+    <label>Case Close Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Provided Technical Information</fullName>
+                <default>false</default>
+                <label>Provided Technical Information</label>
+            </value>
+            <value>
+                <fullName>Shipped Parts</fullName>
+                <default>false</default>
+                <label>Shipped Parts</label>
+            </value>
+            <value>
+                <fullName>Addressed Billing Discrepancy</fullName>
+                <default>false</default>
+                <label>Addressed Billing Discrepancy</label>
+            </value>
+            <value>
+                <fullName>Dealer/Customer Resolved</fullName>
+                <default>false</default>
+                <label>Dealer/Customer Resolved</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

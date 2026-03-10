@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Type__c</fullName>
+    <description>NATT</description>
+    <label>Type</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Billing</fullName>
+                <default>false</default>
+                <label>Billing</label>
+            </value>
+            <value>
+                <fullName>Corporate</fullName>
+                <default>false</default>
+                <label>Corporate</label>
+            </value>
+            <value>
+                <fullName>Dealer Agreement</fullName>
+                <default>false</default>
+                <label>Dealer Agreement</label>
+            </value>
+            <value>
+                <fullName>Distribution Centers</fullName>
+                <default>false</default>
+                <label>Distribution Centers</label>
+            </value>
+            <value>
+                <fullName>Headquarters</fullName>
+                <default>false</default>
+                <label>Headquarters</label>
+            </value>
+            <value>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+                <label>Mailing</label>
+            </value>
+            <value>
+                <fullName>Other Mailing</fullName>
+                <default>false</default>
+                <label>Other Mailing</label>
+            </value>
+            <value>
+                <fullName>Parts Ship To</fullName>
+                <default>false</default>
+                <label>Parts Ship To</label>
+            </value>
+            <value>
+                <fullName>Physical</fullName>
+                <default>false</default>
+                <label>Physical</label>
+            </value>
+            <value>
+                <fullName>Regional Offices</fullName>
+                <default>false</default>
+                <label>Regional Offices</label>
+            </value>
+            <value>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+                <label>Shipping</label>
+            </value>
+            <value>
+                <fullName>Units Ship To</fullName>
+                <default>false</default>
+                <label>Units Ship To</label>
+            </value>
+            <value>
+                <fullName>Bill To</fullName>
+                <default>false</default>
+                <label>Bill To</label>
+            </value>
+            <value>
+                <fullName>Ship To</fullName>
+                <default>false</default>
+                <label>Ship To</label>
+            </value>
+            <value>
+                <fullName>TES Ship To</fullName>
+                <default>false</default>
+                <label>TES Ship To</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Net_Cost1__c</fullName>
+    <formula>( (CONTAINER_Total_Commission__c  +  CONTAINER_Total_Certification__c  +  CONTAINER_Total_Check_Out__c  +  CONTAINER_Total_Extended_Applied_Cost__c + CONTAINER_Total_Freight_AppliedCost__c + CONTAINER_Total_Job_Cost__c  +  CONTAINER_Total_ORBCOMM_RI_AppliedCost__c)  +  CONTAINER_Cost_Unit_Base_Price__c  +  CONTAINER_Standard_Option_Cost__c  +  CONTAINER_Special_Options_Cost__c  +  CONTAINER_Extended_Warranty_Cost__c  +  CONTAINER_Special_Requirement_Cost__c  +  CONTAINER_Cost_CorrectionFx__c  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Net Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

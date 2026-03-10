@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_UnitPrice_Lookup_Key__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+ISBLANK(TEXT(SBQQ__Quote__r.CTBR_Warehouse__c)),
+&quot;&quot;,
+IF(
+TEXT(SBQQ__Quote__r.CTBR_Warehouse__c) =SBQQ__Quote__r.SBQQ__BillingState__c,
+CASE(
+TEXT(SBQQ__Quote__r.CTBR_Warehouse__c),
+&quot;CTB02&quot;, &quot;1&quot;,
+&quot;CTB01&quot;, &quot;2&quot;,
+&quot;Santa Catarina&quot;, &quot;3&quot;,
+&quot;0&quot;
+),
+&quot;4&quot;
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CTBR UnitPrice Lookup Key</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

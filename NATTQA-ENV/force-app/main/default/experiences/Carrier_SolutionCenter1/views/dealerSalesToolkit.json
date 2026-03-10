@@ -1,0 +1,83 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "d31f28df-b655-4c44-8abf-d24a3d081c77",
+  "label" : "Dealer Sales Toolkit",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "a7a5fef7-add4-4a9b-b188-f825f6d22812",
+          "columns" : [ {
+            "UUID" : "39de6a15-b752-4727-874f-72f6329510ee",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "a7a5fef7-add4-4a9b-b188-f825f6d22812",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "enableInlineEdit" : true,
+            "filterName" : "Dealer_Sales_ToolKit_Documents",
+            "layout" : "FULL",
+            "pageSize" : 25,
+            "scope" : "Knowledge__kav",
+            "showActionBar" : true,
+            "showChartsPanel" : true,
+            "showDisplay" : "showall",
+            "showFilterPanel" : true,
+            "showImageIcon" : true,
+            "showManualRefreshButton" : true,
+            "showObjectName" : true,
+            "showPinnedList" : false,
+            "showSearchBar" : true
+          },
+          "componentName" : "forceCommunity:objectHome",
+          "id" : "7b09a93e-e68b-4912-a7f0-c496aa8961b2",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "39de6a15-b752-4727-874f-72f6329510ee",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7fa9a683-a035-4e5f-ac71-741e6a729cca",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Dealer Sales Toolkit"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7d395d2c-4f0d-437e-a43f-ee0923251942",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "10321f9e-0d29-46fd-821a-976d088e1ece",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-dealer-sales-toolkit"
+}

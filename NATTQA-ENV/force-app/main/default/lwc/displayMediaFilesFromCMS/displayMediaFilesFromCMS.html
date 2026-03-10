@@ -1,0 +1,50 @@
+<template>
+    <lightning-card>
+        <div>
+            <div style="margin-left: 90%;">
+                <lightning-button variant="brand" label="Download" onclick={downloadSelectedImages}></lightning-button>
+            </div>
+            <div style="margin-left: 5%;">
+                <lightning-input type="checkbox" label="Select All" onchange={handleChange} checked={selectAllChecked}></lightning-input>
+            </div>
+            <div style="margin-left: 20%; margin-right: 20%;">
+                <lightning-input type="text" value={searchTerm} onchange={handleSearchTermChange} placeholder="Enter Product Number Here"></lightning-input>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin: 30px 30px 0;"></div>
+        <div class="grid-container">
+            <template if:true={isFilteredResults}>
+                <template for:each={filteredResults} for:item="result">
+                    <div key={result.id} class="grid-item">
+                        <img src={result.url} style="width: 150px; height: 150px;" />
+                        <p>{result.title}</p>
+                        <lightning-input type="checkbox" name={result.url} label="Select" data-id="checkbox" data-title={result.title} onchange={handleCheckboxChange}></lightning-input>
+                    </div>
+                </template>
+            </template>
+            <template if:true={searchtermtrue}>
+                <template for:each={paginatedResults} for:item="image">
+                    <div key={image.id} class="grid-item">
+                        <img src={image.url} style="width: 150px; height: 150px;" />
+                        <p>{image.title}</p>
+                        <lightning-input type="checkbox" name={image.url} label="Select" data-id="checkbox" data-title={image.title} onchange={handleCheckboxChange}></lightning-input>
+                    </div>
+                </template>
+            </template>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin: 50px 50px 0;"></div>
+        <template if:true={previousnext}>
+            <div class="container">
+                <div style="display: flex;  margin-left: 30px;" if:true={showPrevious}>
+                    <lightning-button label="Previous" onclick={handlePrevious}></lightning-button>
+                </div>
+                <div class="slds-text-title slds-m-left_x-small pagination-info">
+                    Page {currentPage} of {totalPages}
+                </div>
+                <div style="display: flex; justify-content: flex-end; margin-right: 30px;" if:true={showNext}>
+                    <lightning-button label="Next" onclick={handleNext}></lightning-button>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,80 @@
+<template>
+    <lightning-quick-action-panel title="Quick Action Title">
+        <template if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </template> 
+    <div class="slds-text-heading_large slds-align_absolute-center">Create New Case Line Item</div>    
+    <div class="slds-p-bottom_large"></div> 
+    <lightning-button label="Clear Selected" onclick={handleClearSelectedPerformancePart}
+    disabled={perfPartdisableClearSelectedButton} class="slds-m-left_x-small">
+    </lightning-button>
+    <lightning-button variant="brand" label={perfPartaddMoreItemLabel} onclick={createNewCaseLineItem}
+        class="slds-m-left_x-small">
+    </lightning-button>
+    <div class="slds-p-bottom_large"></div>   
+    <div class="slds-text-body_small">Note : Please enter N/A if NOT VALID for selected case reason.</div>    
+    <div class="slds-p-bottom_large"></div>                      
+    <lightning-layout class="header-row cell-container">
+        <template for:each={columnHeaderPerformance} for:item="col">            
+            <lightning-layout-item class={col.class} key={col.label}>      
+                <template if:true={col.showCheckbox}>
+                    <lightning-input type="checkbox" label="" variant="label-hidden" value={perfPartheaderCheckBox}
+                        class="slds-p-right_xxx-small slds-float_left" data-id="ppheaderCheckBox" onchange={perfPartHandleCheckAll}>
+                    </lightning-input>
+                </template>  
+                      
+                <div class="slds-grid slds-grid_vertical-align-center cell-with-cursor">
+                    <span class="col-header-text" title={col.label}>{col.label}</span>
+                   
+                </div>                   
+                            
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+    <div class="slds-p-bottom_large"></div>
+    <template for:each={perfPartReturnProductList} for:item="prod">
+        <lightning-layout key={prod.Id} class="onhover data-row cell-container">
+            <template for:each={prod.value} for:item="field">
+                <lightning-layout-item class={field.class} key={field.label}>
+                    <template if:true={field.isEditable}>
+                        <template if:false={field.isdelete}>
+                            <template if:true={field.showCheckbox}>
+                                <lightning-input type="checkbox" label="" variant="label-hidden" value={prod.checkbox}
+                                class="slds-p-right_xx-small slds-float_left" data-id={prod.Id} onchange={pphandleCheck}>
+                                </lightning-input>
+                                <input class="slds-input inputclass data-cell slds-p-left_xx-small" type={field.type} value={field.value} data-id={prod.Id}
+                                data-fieldname={field.label} onchange={pphandleFieldChange} min="1" step="1" maxlength={field.maxlength}/>
+                            </template>
+                            <template if:false={field.showCheckbox}>  
+                                <template if:false={field.isCombobox}>
+                                    <input class="slds-input inputclass data-cell " type={field.type} value={field.value} data-id={prod.Id}
+                                     data-fieldname={field.label} onchange={pphandleFieldChange} min="1" step="1" maxlength={field.maxlength}/>
+                                </template>                                              
+                                
+                            </template>
+                            
+                        </template>
+                        
+                    </template>
+
+                    <template if:false={field.isEditable}>
+                        <template if:true={field.isdelete}>
+                            <template if:true={field.isdelete}>
+                                <lightning-icon icon-name="utility:delete" size="small" variant="error" class="iconClass" data-id={prod.Id} onclick={ppdeleteRow}></lightning-icon>
+                            </template>
+                        </template>
+                    </template>                 
+                    
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </template>
+    <div class="slds-p-bottom_large"></div>
+
+<div slot="footer">
+    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+    <lightning-button variant="brand" label="Save" title="Save" disabled={isSaveDisabled} onclick={perfPartSubmitCase} class="slds-m-left_x-small"></lightning-button>
+</div>
+
+</lightning-quick-action-panel>
+</template>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Mobile Recall</description>
+    <height>250</height>
+    <icon>sbaa__RecallMobile</icon>
+    <label>Recall Approvals</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>sbaa__RecallOpportunity</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

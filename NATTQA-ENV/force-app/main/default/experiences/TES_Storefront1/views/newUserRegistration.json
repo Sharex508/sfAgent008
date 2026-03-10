@@ -1,0 +1,79 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "0a263f51-2a55-4c69-b0ef-86779b5e2b62",
+  "label" : "New User Registration",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "14ba6f97-b872-43f5-81f4-45e50f854d02",
+          "columns" : [ {
+            "UUID" : "f2fc9035-036a-48d6-911f-8659645825d3",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "14ba6f97-b872-43f5-81f4-45e50f854d02",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "emailValue" : "",
+            "nameValue" : "",
+            "passwordValue" : "Teja4288"
+          },
+          "componentName" : "c:natt_NewUserRegistration_Aura",
+          "id" : "42b2f002-f511-46cd-b22d-7c5e46086ec5",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_tesStoreFooter",
+          "id" : "75b14e22-d81e-4579-9848-79a5389cc42b",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "f2fc9035-036a-48d6-911f-8659645825d3",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0dcbe501-1dc2-48cd-a42a-2eb4ffd36be6",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "New User Registration"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "5a151102-6477-45e3-a71d-74277a92f28a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a819ed0c-a43b-4d04-94d3-cf656e5d7019",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-new-user-registration"
+}

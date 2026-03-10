@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "235b671f-2e90-46e9-8cb1-931e738dd664",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "UCP_Warranty_Americas_Menu"
+      }
+    },
+    "targetId" : "a988fe4c-427f-4407-8101-85fd0a38571e",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_13_Component_Properties",
+  "id" : "b1818b41-c071-418c-a4bb-ba41ee312535",
+  "type" : "experienceVariation"
+}

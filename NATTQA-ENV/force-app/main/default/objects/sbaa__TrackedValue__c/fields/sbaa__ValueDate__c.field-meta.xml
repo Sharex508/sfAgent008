@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__ValueDate__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Stored value if data type is date</description>
+    <inlineHelpText>Stored value if data type is date</inlineHelpText>
+    <label>Value (Date)</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

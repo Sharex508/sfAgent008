@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Change_of_Rec_Type_in_SolutionCenter</fullName>
+    <active>true</active>
+    <description>Dealers cannot change the Record Type of a Case once it is created.</description>
+    <errorConditionFormula>AND(
+     NOT(ISBLANK($User.ContactId)),
+     ISCHANGED( RecordTypeId ),
+     NOT(ISNEW())
+    )</errorConditionFormula>
+    <errorMessage>You are not permitted to change the Record Type.</errorMessage>
+</ValidationRule>

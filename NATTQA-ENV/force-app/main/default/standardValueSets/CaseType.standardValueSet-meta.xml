@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>true</sorted>
+    <standardValue>
+        <fullName>Avaria no recebimento de Peças ou Produtos</fullName>
+        <default>false</default>
+        <label>Avaria no recebimento de Peças ou Produtos</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Bank Bill</fullName>
+        <default>false</default>
+        <label>Bank Bill</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Billing</fullName>
+        <default>false</default>
+        <label>Billing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>BluEdge</fullName>
+        <default>false</default>
+        <label>BluEdge</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Boletos de Clientes</fullName>
+        <default>false</default>
+        <label>Boletos de Clientes</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cadastro</fullName>
+        <default>false</default>
+        <label>Cadastro</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cadastro de cliente</fullName>
+        <default>false</default>
+        <label>Cadastro de cliente</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cadastro de cliente - Documentos</fullName>
+        <default>false</default>
+        <label>Cadastro de cliente - Documentos</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Campaign Monitoring</fullName>
+        <default>false</default>
+        <label>Campaign Monitoring</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cobranças</fullName>
+        <default>false</default>
+        <label>Cobranças</label>
+    </standardValue>
+    <standardValue>
+        <fullName>COMISSÕES DOS DEALERS</fullName>
+        <default>false</default>
+        <label>COMISSÕES DOS DEALERS</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Commissioning</fullName>
+        <default>false</default>
+        <label>Commissioning</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Complaint</fullName>
+        <default>false</default>
+        <label>Complaint</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Concession Request</fullName>
+        <default>false</default>
+        <label>Concession Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Core Return</fullName>
+        <default>false</default>
+        <label>Core Return</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Decommissioning and uninstall</fullName>
+        <default>false</default>
+        <label>Decommissioning and uninstall</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Devolução de vendas</fullName>
+        <default>false</default>
+        <label>Devolução de vendas</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Devoluções de Peças ou Produtos</fullName>
+        <default>false</default>
+        <label>Devoluções de Peças ou Produtos</label>
+    </standardValue>
+    <standardValue>
+        <fullName>DOA Application</fullName>
+        <default>false</default>
+        <label>DOA Application</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Documentation</fullName>
+        <default>false</default>
+        <label>Documentation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Document Change Request</fullName>
+        <default>false</default>
+        <label>Document Change Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Engine Authorization Request</fullName>
+        <default>false</default>
+        <label>Engine Authorization Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Equipment Conversion</fullName>
+        <default>false</default>
+        <label>Equipment Conversion</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Falhas procedente do Armazém</fullName>
+        <default>false</default>
+        <label>Falhas procedente do Armazém</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Feature Request</fullName>
+        <default>false</default>
+        <label>Feature Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Field Assistance</fullName>
+        <default>false</default>
+        <label>Field Assistance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Finance</fullName>
+        <default>false</default>
+        <label>Finance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Financial Negotiations</fullName>
+        <default>false</default>
+        <label>Financial Negotiations</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Gerenciamento de Peças</fullName>
+        <default>false</default>
+        <label>Gerenciamento de Peças</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Gerenciamento de pedidos de Produtos</fullName>
+        <default>false</default>
+        <label>Gerenciamento de pedidos de Produtos</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Information</fullName>
+        <default>false</default>
+        <label>Information</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Information/Technical Support</fullName>
+        <default>false</default>
+        <label>Information/Technical Support</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Issues</fullName>
+        <default>false</default>
+        <label>Issues</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Item Registration</fullName>
+        <default>false</default>
+        <label>Item Registration</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Major Component</fullName>
+        <default>false</default>
+        <label>Major Component</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Manual Print Request</fullName>
+        <default>false</default>
+        <label>Manual Print Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New/Change Address</fullName>
+        <default>false</default>
+        <label>New/Change Address</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Part Set-Up/Pricing</fullName>
+        <default>false</default>
+        <label>New Part Set-Up/Pricing</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Novo usuarios</fullName>
+        <default>false</default>
+        <label>Novo usuarios</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Order Issues</fullName>
+        <default>false</default>
+        <label>Order Issues</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Order Management</fullName>
+        <default>false</default>
+        <label>Order Management</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Overage/Shortage Discrepancy</fullName>
+        <default>false</default>
+        <label>Overage/Shortage Discrepancy</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Pagamentos</fullName>
+        <default>false</default>
+        <label>Pagamentos</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Parts</fullName>
+        <default>false</default>
+        <label>Parts</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Portal de Vendas de Peças</fullName>
+        <default>false</default>
+        <label>Portal de Vendas de Peças</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Previsão de Entrega Danfe Vendas</fullName>
+        <default>false</default>
+        <label>Previsão de Entrega Danfe Vendas</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Problem</fullName>
+        <default>false</default>
+        <label>Problem</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Problemas de entrega com frete CIF</fullName>
+        <default>false</default>
+        <label>Problemas de entrega com frete CIF</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product</fullName>
+        <default>false</default>
+        <label>Product</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product Information</fullName>
+        <default>false</default>
+        <label>Product Information</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product Quality</fullName>
+        <default>false</default>
+        <label>Product Quality</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Product Quality Report</fullName>
+        <default>false</default>
+        <label>Product Quality Report</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Question</fullName>
+        <default>false</default>
+        <label>Question</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Regional Issue</fullName>
+        <default>false</default>
+        <label>Regional Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Registration Update</fullName>
+        <default>false</default>
+        <label>Registration Update</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Resetar senha</fullName>
+        <default>false</default>
+        <label>Resetar senha</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Returns</fullName>
+        <default>false</default>
+        <label>Returns</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales</fullName>
+        <default>false</default>
+        <label>Sales</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Order Inquiry</fullName>
+        <default>false</default>
+        <label>Sales Order Inquiry</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seguimiento Orden</fullName>
+        <default>false</default>
+        <label>Seguimiento Orden</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service</fullName>
+        <default>false</default>
+        <label>Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service/Technical Issue</fullName>
+        <default>false</default>
+        <label>Service/Technical Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Shipment</fullName>
+        <default>false</default>
+        <label>Shipment</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Shipment Issues</fullName>
+        <default>false</default>
+        <label>Shipment Issues</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Software</fullName>
+        <default>false</default>
+        <label>Software</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Solicitação</fullName>
+        <default>false</default>
+        <label>Solicitação</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Solicitação Interna entre  Carrier x Porto Seco Centro Oeste</fullName>
+        <default>false</default>
+        <label>Solicitação Interna entre  Carrier x Porto Seco Centro Oeste</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Spare Part</fullName>
+        <default>false</default>
+        <label>Spare Part</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Special Projects</fullName>
+        <default>false</default>
+        <label>Special Projects</label>
+    </standardValue>
+    <standardValue>
+        <fullName>SRT Change Request</fullName>
+        <default>false</default>
+        <label>SRT Change Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Study Request</fullName>
+        <default>false</default>
+        <label>Study Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tax Information</fullName>
+        <default>false</default>
+        <label>Tax Information</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technical/Service</fullName>
+        <default>false</default>
+        <label>Technical/Service</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technical assistance</fullName>
+        <default>false</default>
+        <label>Technical assistance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technical Inquiry</fullName>
+        <default>false</default>
+        <label>Technical Inquiry</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technical Issue</fullName>
+        <default>false</default>
+        <label>Technical Issue</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Technical Support</fullName>
+        <default>false</default>
+        <label>Technical Support</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Training</fullName>
+        <default>false</default>
+        <label>Training</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Training Request</fullName>
+        <default>false</default>
+        <label>Training Request</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Tributário</fullName>
+        <default>false</default>
+        <label>Tributário</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unit</fullName>
+        <default>false</default>
+        <label>Unit</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unit Download Review</fullName>
+        <default>false</default>
+        <label>Unit Download Review</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unit Order Maintenance</fullName>
+        <default>false</default>
+        <label>Unit Order Maintenance</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Warranty</fullName>
+        <default>false</default>
+        <label>Warranty</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Warranty Portal</fullName>
+        <default>false</default>
+        <label>Warranty Portal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Warranty Support</fullName>
+        <default>false</default>
+        <label>Warranty Support</label>
+    </standardValue>
+</StandardValueSet>

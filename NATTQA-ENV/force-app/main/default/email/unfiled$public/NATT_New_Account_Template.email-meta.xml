@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Template used for new Account creation</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Greetings_2016</letterhead>
+    <name>NATT New Account Template</name>
+    <style>freeForm</style>
+    <subject>New Account Creation: {!Account.RecordType}</subject>
+    <textOnly>Hi A/R Manager,
+
+A new {!Account.RecordType} Account was created.
+
+Please, follow up and review the information.
+
+Account Name: {!Account.Name}
+Owner: {!Account.OwnerFullName}
+Type: {!Account.Type}
+
+For further details, see the link below:
+
+{!Account.Link}</textOnly>
+    <type>html</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

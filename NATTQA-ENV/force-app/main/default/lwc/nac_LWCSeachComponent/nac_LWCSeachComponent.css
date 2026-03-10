@@ -1,0 +1,4 @@
+.slds-input-has-icon .slds-input__icon:not(button) {
+    pointer-events: all;
+    cursor: pointer;
+}

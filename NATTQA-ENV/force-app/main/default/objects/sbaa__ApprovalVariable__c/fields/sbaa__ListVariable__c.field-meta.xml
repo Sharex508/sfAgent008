@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__ListVariable__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>Approval Variable responsible for calculating Total List</description>
+    <inlineHelpText>Approval Variable responsible for calculating Total List</inlineHelpText>
+    <label>List Variable</label>
+    <referenceTo>sbaa__ApprovalVariable__c</referenceTo>
+    <relationshipLabel>Approval Variables (List Variable)</relationshipLabel>
+    <relationshipName>ListSummaryVariables</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

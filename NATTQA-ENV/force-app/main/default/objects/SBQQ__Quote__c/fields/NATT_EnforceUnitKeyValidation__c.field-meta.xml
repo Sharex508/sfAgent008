@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_EnforceUnitKeyValidation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field is automatically selected by the QCP, and used by the Product Validation rule to throw messages if the bundle configuration doesn&apos;t match.</description>
+    <label>Enforce Unit Key Validation</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

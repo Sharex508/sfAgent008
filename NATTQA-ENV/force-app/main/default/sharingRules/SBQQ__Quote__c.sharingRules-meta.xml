@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_CAM_GENSET</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales CAM GENSET</description>
+        <label>CONTAINER Sales Quotes Shared to Sales CAM GENSET</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CAM_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_CAM_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales CAM NT</description>
+        <label>CONTAINER Sales Quotes Shared to Sales CAM NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CAM_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container NT Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_CS_GN</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales CS GENSET Product Lines</description>
+        <label>CONTAINER Sales Quotes Shared to Sales CS GN</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CS_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_CS_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales CS NT</description>
+        <label>CONTAINER Sales Quotes Shared to Sales CS NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CS_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container NT Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_GENSET_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales GENSET VP</description>
+        <label>CONTAINER Sales Quotes Shared to Sales GENSET VP</label>
+        <sharedTo>
+            <group>Container_Sales_VP_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_GSD</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales GSD to all regions and all Product lines</description>
+        <label>CONTAINER Sales Quotes Shared to Sales GSD</label>
+        <sharedTo>
+            <group>CONTAINER_Global_Sales_Director</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote,Container NT Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_NT_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales NT VP</description>
+        <label>CONTAINER Sales Quotes Shared to Sales NT VP</label>
+        <sharedTo>
+            <group>Container_Sales_VP_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container NT Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_PM_GN</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales PM GN</description>
+        <label>CONTAINER Sales Quotes Shared to Sales PM GN</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_PM_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_PM_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales PM NT</description>
+        <label>CONTAINER Sales Quotes Shared to Sales PM NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_PM_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container NT Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_RSD_APO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales RSD APO</description>
+        <label>CONTAINER Sales Quotes Shared to Sales RSD APO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_APO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote,Container NT Quote</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Sales_Region__c</field>
+            <operation>equals</operation>
+            <value>APO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_RSD_EMEA</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales RSD EMEA</description>
+        <label>CONTAINER Sales Quotes Shared to Sales RSD EMEA</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_EMEA</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote,Container NT Quote</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Sales_Region__c</field>
+            <operation>equals</operation>
+            <value>EMEA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_RSD_NAO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales RSD NAO</description>
+        <label>CONTAINER Sales Quotes Shared to Sales RSD NAO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_NAO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote,Container NT Quote</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Sales_Region__c</field>
+            <operation>equals</operation>
+            <value>NAO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_RSM_APO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales RSM APO</description>
+        <label>CONTAINER Sales Quotes Shared to Sales RSM APO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_APO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote,Container NT Quote</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Sales_Region__c</field>
+            <operation>equals</operation>
+            <value>APO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_RSM_EMEA</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales RSM EMEA</description>
+        <label>CONTAINER Sales Quotes Shared to Sales RSM EMEA</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_EMEA</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote,Container NT Quote</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Sales_Region__c</field>
+            <operation>equals</operation>
+            <value>EMEA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_RSM_NAO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales RSM NAO</description>
+        <label>CONTAINER Sales Quotes Shared to Sales RSM NAO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_NAO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote,Container NT Quote</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Sales_Region__c</field>
+            <operation>equals</operation>
+            <value>NAO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Quotes_Shared_to_Sales_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Quotes Shared to Sales VP</description>
+        <label>CONTAINER Sales Quotes Shared to Sales VP</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_VP</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container GENSET Quote,Container NT Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTBR_Quote_Sharing_Internal</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>CTBR Quote Sharing Internal</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CTBR</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTBR BluEdge,CTBR Units Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Direct_Sales_Amendment_Quote_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Direct Sales Amendment Quote Sharing</label>
+        <sharedTo>
+            <group>Natt_Direct_Sales</group>
+        </sharedTo>
+        <booleanFilter>1</booleanFilter>
+        <criteriaItems>
+            <field>NATT_Quote_Record_Type_Developer_Name__c</field>
+            <operation>contains</operation>
+            <value>NATT_Direct_Sales</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MX_Quote_Sharing_Internal</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>shares quotes with internal mx users</description>
+        <label>MX Quote Sharing Internal</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CTM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTM Units Quote (Approved),CTM Units Quote</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Direct_Sales_Quote_CSR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT Direct Sales Quote CSR</label>
+        <sharedTo>
+            <group>Natt_Direct_Sales_CSR_Group</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NATT Direct Sales</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Read_Only_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Read Only Access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>NA</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NATT Units Quote,NATT Internal Customer,NATT Units Quote Amendment,NATT Lynx Fleet,NATT BluEdge</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>NATT_CT_of_New_Jersey</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT CT of New Jersey</label>
+        <sharedTo>
+            <group>NATT_CT_of_Penn_East</group>
+        </sharedTo>
+        <sharedFrom>
+            <portalRole>CarrierTransicoldofNewJerseyMatawanNJPartnerUser</portalRole>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>NATT_CT_of_Penn_Central_York_Haven</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT CT of Penn Central - York Haven</label>
+        <sharedTo>
+            <group>NATT_CT_of_Penn_East</group>
+        </sharedTo>
+        <sharedFrom>
+            <portalRole>CarrierTransicoldofPennsylvaniaCentralYorkHavenPAPartnerUser</portalRole>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>NATT_CT_of_Penn_East_Philadelphia</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT CT of Penn East - Philadelphia</label>
+        <sharedTo>
+            <group>NATT_CT_of_Penn_East</group>
+        </sharedTo>
+        <sharedFrom>
+            <portalRole>CarrierTransicoldofPennsylvaniaEastPhiladelphiaPAPartnerUser</portalRole>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>NATT_CT_of_Penn_East_Wilkes</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT CT of Penn East - Wilkes</label>
+        <sharedTo>
+            <group>NATT_CT_of_Penn_East</group>
+        </sharedTo>
+        <sharedFrom>
+            <portalRole>CarrierTransicoldofPennsylvaniaNortheastWilkesBarrePAPartnerUser</portalRole>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>NATT_CT_of_Penn_West_Cranberry</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT CT of Penn West - Cranberry</label>
+        <sharedTo>
+            <group>NATT_CT_of_Penn_East</group>
+        </sharedTo>
+        <sharedFrom>
+            <portalRole>CarrierTransicoldofPennsylvaniaWestCranberryTownshipPPartnerUser</portalRole>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>NATT_CT_of_Upstate_New_York_Syracuse</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT CT of Upstate New York - Syracuse</label>
+        <sharedTo>
+            <group>NATT_CT_of_Penn_East</group>
+        </sharedTo>
+        <sharedFrom>
+            <portalRole>CarrierTransicoldofUpstateNewYorkSyracuseNYPartnerUser</portalRole>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>NATT_Direct_Sales</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT Direct Sales</label>
+        <sharedTo>
+            <group>NATT_Direct_Sales_April</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>NATT_Direct_Sales_Donna</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

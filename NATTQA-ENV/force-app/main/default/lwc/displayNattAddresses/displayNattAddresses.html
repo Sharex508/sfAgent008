@@ -1,0 +1,52 @@
+<template>
+    <div class="form-grid">
+        
+        <div class="form-full">
+            <lightning-input label="Name" value={name} onchange={handleNameChange}  required message-when-value-missing="Name is required" data-id="nameInput"></lightning-input>
+        </div>
+
+        
+        <div class="form-full">
+            <lightning-textarea label="Street" value={address} onchange={handleAddressChange} required  message-when-value-missing="Street is required"></lightning-textarea>
+        </div>
+
+       
+        <div class="form-row">
+            <div class="form-field">
+                <lightning-input label="City" value={city} onchange={handleCityChange} required message-when-value-missing="City is required"></lightning-input>
+            </div>
+            <div class="form-field">
+                <lightning-combobox
+                    label="State/Province"
+                    value={selectedState}
+                    options={filteredStateOptions}
+                    onchange={handleStateChange}
+                    >
+                </lightning-combobox>
+            </div>
+        </div>
+
+        
+        <div class="form-row">
+            <div class="form-field">
+                <lightning-input label="Zip/Postal Code" value={postalCode} onchange={handlePostalCodeChange} required message-when-value-missing="Postal Code is required"></lightning-input>
+            </div>
+            <div class="form-field">
+                <lightning-combobox
+                    label="Country"
+                    value={selectedCountry}
+                    options={countryOptions}
+                    onchange={handleCountryChange}
+                    required message-when-value-missing="Country is required">
+                </lightning-combobox>
+            </div>
+        </div>
+
+        
+        <div class="form-actions">
+            <lightning-button label={actionLabel}  onclick={createAddressRecord} variant="brand"></lightning-button>
+            <lightning-button label="Cancel" onclick={handleCancel} variant="neutral"></lightning-button>
+        </div>
+
+    </div>
+</template>

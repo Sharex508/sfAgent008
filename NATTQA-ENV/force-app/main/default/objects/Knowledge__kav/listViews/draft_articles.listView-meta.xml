@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>draft_articles</fullName>
+    <columns>TITLE</columns>
+    <columns>NATT_Doc_Number__c</columns>
+    <columns>NATT_Segment__c</columns>
+    <columns>NATT_Document_Type__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>URL_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PUBLISH_STATUS</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>NATT_Year__c</field>
+        <operation>contains</operation>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Knowledge__kav.NATT</value>
+    </filters>
+    <label>Draft Articles</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Container_Service</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NA</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

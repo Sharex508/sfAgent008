@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Extended Basic</fullName>
+        <default>false</default>
+        <label>Extended Basic</label>
+    </customValue>
+    <customValue>
+        <fullName>Major Component</fullName>
+        <default>false</default>
+        <label>Major Component</label>
+    </customValue>
+    <customValue>
+        <fullName>Optional Coverage</fullName>
+        <default>false</default>
+        <label>Optional Coverage</label>
+    </customValue>
+    <customValue>
+        <fullName>Deductible</fullName>
+        <default>false</default>
+        <label>Deductible</label>
+    </customValue>
+    <customValue>
+        <fullName>Elite Repair</fullName>
+        <default>false</default>
+        <label>Elite Repair</label>
+    </customValue>
+    <customValue>
+        <fullName>Maintenance</fullName>
+        <default>false</default>
+        <label>Maintenance</label>
+    </customValue>
+    <description>NATT - used for price lookup table</description>
+    <masterLabel>NATT_BluEdge Price Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

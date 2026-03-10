@@ -1,0 +1,125 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "e6ff6458-9adf-4747-879e-6579c131d9c9",
+  "label" : "Cart",
+  "regions" : [ {
+    "id" : "e4561da9-6860-4765-b91e-25ae9e98c3fe",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "cartCountDisplay" : "TotalProductCount",
+        "discountAmountFontColor" : "rgb(46, 132, 74)",
+        "emptyCartBodyLabel" : "Search or browse products, and add them to your cart. Your selections appear here.",
+        "emptyCartHeaderLabel" : "Your cart’s empty",
+        "incrementValueGuideText" : "Sold in increments of {0}",
+        "maximumValueGuideText" : "Maximum quantity is {0}",
+        "minimumValueGuideText" : "Minimum quantity is {0}",
+        "negotiatedPriceFontColor" : "rgb(79,79,79)",
+        "negotiatedPriceFontSize" : "large",
+        "originalPriceFontColor" : "rgb(151, 151, 151)",
+        "originalPriceFontSize" : "small",
+        "productFieldMapping" : "[{\"name\":\"NATT_P_N__c\",\"label\":\"Part Number\",\"type\":\"STRING\"}]",
+        "promotionsAppliedDetailsFontSize" : "small",
+        "promotionsAppliedDetailsNameTextColor" : "rgb(79,79,79)",
+        "promotionsAppliedDetailsPopoverHeaderText" : "Promotions Applied",
+        "promotionsAppliedSavingsButtonBackgroundColor" : "rgb(46, 132, 74)",
+        "promotionsAppliedSavingsButtonBackgroundHoverColor" : "rgb(46, 132, 74)",
+        "promotionsAppliedSavingsButtonBorderColor" : "rgb(46, 132, 74)",
+        "promotionsAppliedSavingsButtonBorderRadius" : "5",
+        "promotionsAppliedSavingsButtonFontSize" : "small",
+        "promotionsAppliedSavingsButtonPadding" : "3",
+        "promotionsAppliedSavingsButtonText" : "Saved {amount}",
+        "promotionsAppliedSavingsButtonTextColor" : "",
+        "promotionsAppliedSavingsButtonTextHoverColor" : "",
+        "quantitySelectorLabel" : "QTY",
+        "showAddAllToListButton" : true,
+        "showDiscountAmount" : true,
+        "showNegotiatedPrice" : true,
+        "showOriginalPrice" : true,
+        "showPricePerUnit" : true,
+        "showProductImage" : true,
+        "showPromotions" : true,
+        "showSku" : false,
+        "showTermsAndConditions" : true,
+        "skuLabel" : "SKU#",
+        "termsAndConditionsTitleText" : "Terms and Conditions"
+      },
+      "componentName" : "b2b_buyer_builder:cartContents",
+      "id" : "f9e05d4c-ec8d-425b-9459-045d2e67c345",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1bed8d75-67fc-47e4-8756-66b5fb586c3a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "backgroundColor" : "rgb(241, 241, 241)",
+        "discountAmountFontColor" : "",
+        "discountAmountFontSize" : "small",
+        "finalPriceFontColor" : "rgb(79,79,79)",
+        "finalPriceFontSize" : "medium",
+        "originalPriceFontColor" : "",
+        "originalPriceFontSize" : "small",
+        "showDiscountAmount" : true,
+        "showOriginalPrice" : true,
+        "showSubtotalPrice" : false,
+        "subtotalPriceFontColor" : "rgb(79,79,79)",
+        "subtotalPriceFontSize" : "small"
+      },
+      "componentName" : "b2b_buyer_builder:cartSummary",
+      "id" : "a5a25b31-b3e2-4c38-ae1b-4589936d9eba",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "buttonAlignment" : "left",
+        "buttonBgColor" : "",
+        "buttonBgHoverColor" : "",
+        "buttonBorderColor" : "",
+        "buttonMaxWidth" : "100",
+        "buttonRadius" : "0",
+        "buttonText" : "Proceed To Checkout",
+        "buttonTextColor" : "",
+        "buttonTextHoverColor" : ""
+      },
+      "componentName" : "b2b_buyer_builder:checkoutButtonWrapper",
+      "id" : "792b4cbc-92dc-4dbc-879b-5cae6f646422",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_TesNewCartButton",
+      "id" : "288841ec-5ce9-49e8-abc9-f76369587834",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7d3584bb-2442-4351-ae0e-1dd3a05adcff",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_tesStoreFooter",
+      "id" : "004da743-d388-42fd-b20b-274bd39ed97c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2246be71-27ad-405d-92ab-4c1614f23990",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-0a6"
+}

@@ -1,0 +1,31 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.grid-item {
+    text-align: center;
+}.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+.footer{
+    min-width:1430px !important;
+}
+.pagination-info {
+    /* margin-right: 15rem;
+    margin-left: 30rem; */
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+}
+.container {
+  display: flex;
+}
+
+.container>div {
+  flex-direction: row;
+}

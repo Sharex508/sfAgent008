@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Locked__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>set by integration. this is the field that should be evaluated for most validations for cpq reconfiguration</description>
+    <label>Locked</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

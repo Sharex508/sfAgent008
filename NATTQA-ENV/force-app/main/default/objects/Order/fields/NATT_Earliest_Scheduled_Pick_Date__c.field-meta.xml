@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Earliest_Scheduled_Pick_Date__c</fullName>
+    <label>Earliest Scheduled Pick Date</label>
+    <summarizedField>OrderItem.NATT_Scheduled_Pick_Date__c</summarizedField>
+    <summaryFilterItems>
+        <field>OrderItem.NATT_Is_Base_Unit__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+    <summaryOperation>min</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

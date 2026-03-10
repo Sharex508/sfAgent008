@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSI_Case_Status_Transition_Validation</fullName>
+    <active>true</active>
+    <description>Customer Survey Index: prevent backward status changes.
+        Allowed transitions</description>
+    <errorConditionFormula>AND(
+            RecordType.DeveloperName = &apos;Customer_Survey_Index&apos;,
+            ISCHANGED(Status),
+            NOT(
+                OR(
+                    /* From New: can go to any later status */
+                    AND(
+                        TEXT(PRIORVALUE(Status)) = &apos;New&apos;,
+                        OR(
+                            ISPICKVAL(Status, &apos;In Progress&apos;),
+                            ISPICKVAL(Status, &apos;Overdue&apos;),
+                            ISPICKVAL(Status, &apos;Escalated&apos;),
+                            ISPICKVAL(Status, &apos;Closed&apos;)
+                        )
+                    ),
+                    /* From In Progress: can go to Overdue, Escalated, Closed */
+                    AND(
+                        TEXT(PRIORVALUE(Status)) = &apos;In Progress&apos;,
+                        OR(
+                            ISPICKVAL(Status, &apos;Overdue&apos;),
+                            ISPICKVAL(Status, &apos;Escalated&apos;),
+                            ISPICKVAL(Status, &apos;Closed&apos;)
+                        )
+                    ),
+                    /* From Overdue: can go to Escalated, Closed */
+                    AND(
+                        TEXT(PRIORVALUE(Status)) = &apos;Overdue&apos;,
+                        OR(
+                            ISPICKVAL(Status, &apos;Escalated&apos;),
+                            ISPICKVAL(Status, &apos;Closed&apos;)
+                        )
+                    ),
+                    /* From Escalated: can go only to Closed */
+                    AND(
+                        TEXT(PRIORVALUE(Status)) = &apos;Escalated&apos;,
+                        ISPICKVAL(Status, &apos;Closed&apos;)
+                    )
+                    /* From Closed: no change allowed — any change will fail the allowed list above */
+                )
+            )
+        )</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>Backward move not allowed. Allowed path is New → In Progress → Overdue → Escalated → Closed</errorMessage>
+</ValidationRule>

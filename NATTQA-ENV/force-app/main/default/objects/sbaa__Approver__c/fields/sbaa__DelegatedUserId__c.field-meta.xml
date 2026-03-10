@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__DelegatedUserId__c</fullName>
+    <deprecated>false</deprecated>
+    <description>User associated with the Delegated Approver</description>
+    <externalId>false</externalId>
+    <formula>sbaa__DelegatedApprover__r.sbaa__User__c</formula>
+    <inlineHelpText>User associated with the Delegated Approver</inlineHelpText>
+    <label>Delegated User Id</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

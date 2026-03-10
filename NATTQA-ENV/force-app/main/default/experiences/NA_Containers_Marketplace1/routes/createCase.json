@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "07413f41-1cf6-4560-9f35-32c6aef7e37f",
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "Create_Case__c",
+  "id" : "707ffe77-7c18-4ccb-b707-ce62dc3c5afd",
+  "label" : "Create Case",
+  "pageAccess" : "RequiresLogin",
+  "routeType" : "custom-create-case",
+  "type" : "route",
+  "urlPrefix" : "create-case"
+}

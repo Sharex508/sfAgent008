@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>false</isExposed>
+    <masterLabel>TES New User Registration</masterLabel>
+    <description>TES New User Registration</description>
+      <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+    <target>lightning__FlowScreen</target>
+  </targets>
+</LightningComponentBundle>

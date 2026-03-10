@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Container_Web_To_Lead</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Container Web To Lead</label>
+        <sharedTo>
+            <group>Container_Web_To_Lead</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>LeadSource</field>
+            <operation>equals</operation>
+            <value>Container Web To Lead</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Leads_Editable_By_Owner_Readonly_by_Others</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Leads Editable By Owner Readonly by Others</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>NA</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NATT Lead</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_CTBR_Orders</fullName>
+    <columns>ORDERS.ORDER_NUMBER</columns>
+    <columns>SALES.ACCOUNT.NAME</columns>
+    <columns>NATT_End_Customer__c</columns>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>SBQQ__Quote__c</columns>
+    <columns>NATT_Purchase_Order__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ORDER.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Order.CTBR_Units_Order</value>
+    </filters>
+    <label>Todos os Pedidos</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>CTBR</roleAndSubordinates>
+    </sharedTo>
+</ListView>

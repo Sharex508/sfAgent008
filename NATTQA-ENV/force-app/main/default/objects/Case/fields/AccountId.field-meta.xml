@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountId</fullName>
+    <inlineHelpText>Company for Case communications. End Users should be included as Customers.</inlineHelpText>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Customer, CTM Customer,CTBR Customer, CTBR Dealer</value>
+        </filterItems>
+        <filterItems>
+            <field>$Source.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NAOCAP Aftermarket Part, NAOCAP Core Return, CTBR Parts T&amp;T, CTBR Unit Sales, CTBR Finance, CTBR Logistica, CTBR IT, CTBR Container, CTBR Lynx Fleet, CTBR Warranty, CTBR Warehouse GO, CTBR Warehouse RS</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

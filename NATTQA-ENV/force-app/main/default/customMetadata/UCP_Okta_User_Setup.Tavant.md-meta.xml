@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Tavant</label>
+    <protected>false</protected>
+    <values>
+        <field>Okta_App_Token__c</field>
+        <value xsi:type="xsd:string">00gkdmaj86gYskWFZ4x7</value>
+    </values>
+    <values>
+        <field>UCP_Region__c</field>
+        <value xsi:type="xsd:string">Tavant</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,72 @@
+<template>
+    <div class="slds-box slds-grid slds-grid_vertical slds-p-top_medium">
+        <lightning-accordion active-section-name="orderSummary" allow-multiple-sections-open>
+            <lightning-accordion-section name="orderSummary" label="Order Summary">
+                <div class="slds-p-bottom_large"></div>
+                Selected Warehouse: <lightning-formatted-text value={prices.selectedBranchplant} ></lightning-formatted-text>
+                <div class="slds-p-bottom_large"></div>
+                <table class="pricingTable">
+                    <tr>
+                        
+                        <td class="slds-text-align_left slds-p-right_xx-small">                            
+                            <template if:true={prices.canReceiveRushOrderCharge}>
+                            Sub Total:
+                            </template>
+                            <template if:false={prices.canReceiveRushOrderCharge}>
+                                Total:
+                            </template>
+
+                        </td>
+                        <td class="slds-text-align_right slds-p-right_xx-small">
+                            <lightning-formatted-number class="slds-p-right_medium slds-text-heading_medium"
+                                format-style="currency" currency-code={currencyCode} currency-display-as="symbol"
+                                maximum-fraction-digits="2" value={prices.finalPrice}></lightning-formatted-number>
+                        </td>
+                    </tr>
+                    
+                    <template if:true={prices.canReceiveRushOrderCharge}>
+                    <tr>
+                            <td class="slds-text-align_left slds-p-right_xxx-small">
+                            {prices.rushPercentage}% rush order fee:
+                            </td>
+                            <td class="slds-text-align_right slds-p-right_xxx-small">
+                                <lightning-formatted-number class="slds-p-right_medium slds-text-heading_medium"
+                                    format-style="currency" currency-code={currencyCode} currency-display-as="symbol"
+                                    maximum-fraction-digits="2" value={prices.rushFee}></lightning-formatted-number>
+                            </td>
+                        </tr>
+                    </template>
+                    
+                    <tr>
+                        <template if:true={prices.canReceiveRushOrderCharge}>
+                        <td class="slds-text-align_left slds-p-right_xxx-small">
+                                
+                            <div class="slds-border_top"></div>
+                        </td>
+                        <td class="slds-text-align_left slds-p-right_xxx-small">
+                                
+                            <div class="slds-border_top"></div>
+                        </td>
+                        </template>
+                    </tr>
+                    <tr>
+                        <template if:true={prices.canReceiveRushOrderCharge}>
+                            <td class="slds-text-align_left slds-p-right_xxx-small">
+                                
+                                <div >Total:</div>
+                            </td>
+                            <td class="slds-text-align_right slds-p-right_xxx-small">
+                                <div><lightning-formatted-number class="slds-p-right_medium slds-text-heading_medium"
+                                    format-style="currency" currency-code={currencyCode} currency-display-as="symbol"
+                                    maximum-fraction-digits="2" value={prices.totalPrice}></lightning-formatted-number>
+                                </div>
+                            </td>
+                        </template>
+                    </tr>
+
+                </table>
+
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </div>
+</template>

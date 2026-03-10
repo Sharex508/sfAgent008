@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Week_Number_Cannot_Be_More_Than_53</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( OR( ISNEW(), ISCHANGED(CONTAINER_Week__c)) , CONTAINER_Week__c &gt; 53)</errorConditionFormula>
+    <errorDisplayField>CONTAINER_Week__c</errorDisplayField>
+    <errorMessage>Week number cannot be more than 53 weeks.</errorMessage>
+</ValidationRule>

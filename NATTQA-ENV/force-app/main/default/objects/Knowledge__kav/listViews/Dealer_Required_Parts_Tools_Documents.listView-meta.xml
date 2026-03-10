@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer_Required_Parts_Tools_Documents</fullName>
+    <columns>TITLE</columns>
+    <columns>NATT_Doc_Number__c</columns>
+    <columns>NATT_Department__c</columns>
+    <columns>NATT_Document_Type__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NATT_Segment__c</field>
+        <operation>equals</operation>
+        <value>Dealer Required Parts/Tools</value>
+    </filters>
+    <label>Dealer Required Parts/Tools Documents</label>
+    <sharedTo>
+        <roleAndSubordinates>NA</roleAndSubordinates>
+        <roleAndSubordinates>NA_Parts_Manager</roleAndSubordinates>
+        <roleAndSubordinates>NA_Parts_Sales</roleAndSubordinates>
+        <roleAndSubordinates>NA_Units_Manager</roleAndSubordinates>
+        <roleAndSubordinates>NA_Units_Sales</roleAndSubordinates>
+    </sharedTo>
+</ListView>

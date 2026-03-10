@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>CONTAINER Case Closed Email Notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CONTAINER Case Closed Email Notification</name>
+    <style>none</style>
+    <subject>The case has been closed</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>CONTAINER Case New One Email Notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CONTAINER Case New one Email Notification</name>
+    <style>none</style>
+    <subject>New Case has been Assigned</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

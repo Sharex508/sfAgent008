@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Model__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( TEXT(NATT_Tavant_Id__c)=&quot;&quot; &amp;&amp; NATT_P_N__c &lt;&gt; &quot;BLUEDGE ENHANCE&quot; &amp;&amp; NATT_P_N__c &lt;&gt; &quot;BLUEDGE ELITE&quot;,&quot;&quot;, NATT_Model_Number2__c)</formula>
+    <label>Model</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

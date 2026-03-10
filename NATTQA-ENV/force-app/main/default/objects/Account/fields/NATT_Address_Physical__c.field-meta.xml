@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Address_Physical__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>NATT</description>
+    <label>Physical</label>
+    <referenceTo>NATT_Address__c</referenceTo>
+    <relationshipLabel>Accounts (NATT Address Physical)</relationshipLabel>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

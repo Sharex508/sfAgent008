@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Total_Work_Order_Count</name>
+        <label>Total Work Order Count</label>
+        <locationX>182</locationX>
+        <locationY>575</locationY>
+        <assignmentItems>
+            <assignToReference>totalWorkOrdeCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Master_Commissioning_Record</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Validate_Commissioning_Agent</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Check_If_Created_Updated</name>
+        <label>Check If Created/Updated</label>
+        <locationX>468</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Is_Created</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Master_Commissioning_Record</targetReference>
+            </connector>
+            <label>Is Created</label>
+        </rules>
+        <rules>
+            <name>Is_Revised</name>
+            <conditionLogic>(1 OR 3) AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Revision__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Parent_Account_Name_0</targetReference>
+            </connector>
+            <label>Is Revised</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Check whether Commissioning agent assigned to the Child Commissioning record.</description>
+        <name>Validate_Commissioning_Agent</name>
+        <label>Validate Commissioning Agent</label>
+        <locationX>182</locationX>
+        <locationY>695</locationY>
+        <defaultConnector>
+            <targetReference>Update_Work_Order_Fields</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Commissioning_Agent_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Commisioning_Agent__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Parent_Account_Name</targetReference>
+            </connector>
+            <label>Commissioning Agent Available</label>
+        </rules>
+    </decisions>
+    <description>CONTAINER Work Order auto populate Field value on creation.</description>
+    <formulas>
+        <name>AWODocusign</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Name}&amp;&apos;_&apos;&amp;TEXT({!totalWorkOrdeCount})&amp;&apos;AO&apos;</expression>
+    </formulas>
+    <formulas>
+        <name>IsNewRecord</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <formulas>
+        <name>RevisedAWONumber</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.CONTAINER_Revision__c}),
+{!$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Name}&amp;&apos;_&apos;&amp;TEXT({!$Record.CONTAINER_AWO_Number__c})&amp;&apos;AO&apos;&amp; {!$Record.CONTAINER_Commissioning__r.CONTAINER_Commisioning_Agent__r.AccountNumber}&amp;&apos;_&apos;&amp; {!ParentAccountName},
+{!$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Name}&amp;&apos;_&apos;&amp;TEXT({!$Record.CONTAINER_AWO_Number__c})&amp;&apos;AO&apos;&amp; {!$Record.CONTAINER_Commissioning__r.CONTAINER_Commisioning_Agent__r.AccountNumber}&amp;&apos;_&apos;&amp; {!ParentAccountName} &amp;&apos;_Rev:&apos;&amp;TEXT({!$Record.CONTAINER_Revision__c})
+)</expression>
+    </formulas>
+    <formulas>
+        <name>RevisedDocSignAWO</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Name}&amp;&apos;_&apos;&amp;TEXT({!$Record.CONTAINER_AWO_Number__c})&amp;&apos;AO&apos;</expression>
+    </formulas>
+    <formulas>
+        <description>Formula to populate Work no of work order</description>
+        <name>WorkNo_AWO</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!$Record.CONTAINER_Revision__c}),
+{!$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Name}&amp;&apos;_&apos;&amp;TEXT({!totalWorkOrdeCount})&amp;&apos;AO&apos;&amp; {!$Record.CONTAINER_Commissioning__r.CONTAINER_Commisioning_Agent__r.AccountNumber}&amp;&apos;_&apos;&amp; {!ParentAccountName},
+{!$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Name}&amp;&apos;_&apos;&amp;TEXT({!totalWorkOrdeCount})&amp;&apos;AO&apos;&amp; {!$Record.CONTAINER_Commissioning__r.CONTAINER_Commisioning_Agent__r.AccountNumber}&amp;&apos;_&apos;&amp; {!ParentAccountName} &amp;&apos;_Rev:&apos;&amp;TEXT({!$Record.CONTAINER_Revision__c})
+)</expression>
+    </formulas>
+    <interviewLabel>CONTAINER Work Order - Field Updates {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CONTAINER Work Order - Field Updates</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Get Master Commissioning Record</description>
+        <name>Get_Master_Commissioning_Record</name>
+        <label>Get Master Commissioning Record</label>
+        <locationX>182</locationX>
+        <locationY>455</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Total_Work_Order_Count</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>CONTAINER_Commissioning__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CONTAINER_Commissioning__r.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>CONTAINER_Work_Order__c</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get Commissioning Account Parent Account Name</description>
+        <name>Get_Parent_Account_Name</name>
+        <label>Get Parent Account Name</label>
+        <locationX>50</locationX>
+        <locationY>815</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Work_Order_Fields</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Installation_Location_Box__r.ParentId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>ParentAccountName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordLookups>
+        <description>Get Commissioning Account Parent Account Name</description>
+        <name>Get_Parent_Account_Name_0</name>
+        <label>Get Parent Account Name</label>
+        <locationX>490</locationX>
+        <locationY>455</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Records_Revision</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Installation_Location_Box__r.ParentId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+        <outputAssignments>
+            <assignToReference>ParentAccountName</assignToReference>
+            <field>Name</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_Records_Revision</name>
+        <label>Update Records Revision</label>
+        <locationX>490</locationX>
+        <locationY>575</locationY>
+        <inputAssignments>
+            <field>CONTAINER_AWO_DocSign__c</field>
+            <value>
+                <elementReference>RevisedDocSignAWO</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>RevisedAWONumber</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Work Order Name field based on Parent Account name, job number and wo count.</description>
+        <name>Update_Work_Order_Fields</name>
+        <label>Update Work Order Fields</label>
+        <locationX>182</locationX>
+        <locationY>1031</locationY>
+        <inputAssignments>
+            <field>CONTAINER_AWO_DocSign__c</field>
+            <value>
+                <elementReference>AWODocusign</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CONTAINER_AWO_Number__c</field>
+            <value>
+                <elementReference>totalWorkOrdeCount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>WorkNo_AWO</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>342</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_If_Created_Updated</targetReference>
+        </connector>
+        <object>CONTAINER_Work_Order__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>ParentAccountName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>total_Workorder_count</description>
+        <name>totalWorkOrdeCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

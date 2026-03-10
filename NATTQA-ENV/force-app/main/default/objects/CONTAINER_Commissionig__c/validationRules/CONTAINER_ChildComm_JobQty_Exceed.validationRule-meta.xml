@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_ChildComm_JobQty_Exceed</fullName>
+    <active>true</active>
+    <description>CONTAINER_ChildComm_JobQty_Exceed</description>
+    <errorConditionFormula>AND(
+NOT($Permission.CONTAINER_Bypass_Validation_Rule ),
+CONTAINER_Job_Quantity__c &gt; CONTAINER_Commissioning__r.CONTAINER_Job_Quantity__c ,
+ISNEW()
+)</errorConditionFormula>
+    <errorMessage>Child commissioning job quantity cannot exceed parent commissioning total job quantity.</errorMessage>
+</ValidationRule>

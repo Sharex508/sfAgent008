@@ -1,0 +1,6 @@
+The following case has been escalated:
+Company: {!Account.Name}
+Case: {!Case.CaseNumber}: {!Case.Subject}
+Owner:(User/Queue) {!Case.OwnerFullName}
+
+Click on the link to access the case: {!Case.Link}

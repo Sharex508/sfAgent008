@@ -1,0 +1,21 @@
+<apex:component controller="ContainerQuote_ASO_QL_Warranty" access="global">
+    <apex:attribute name="QId" type="Id" description="Id of the account" assignTo="{!quoteId}"/>
+    <table border = "0">
+        <tr>
+            <td colspan="2">Warranty Options</td>
+        </tr>
+        <tr>
+            <td colspan="2">-------------------------------------------</td>
+        </tr>
+        <apex:repeat value="{!warrantyRecords}" var="tp">
+            <tr>
+                <td style="text-align:center"> <apex:outPutText value="{!tp.CONTAINER_Feature__c}"/></td>
+                <td style="text-align:center"> <apex:outputText value="{!tp.CONTAINER_Warranty_Years__c}"/></td>
+              
+             </tr>
+        </apex:repeat> 
+        <tr>
+            <td colspan="2">-------------------------------------------</td>
+        </tr>
+    </table>
+</apex:component>

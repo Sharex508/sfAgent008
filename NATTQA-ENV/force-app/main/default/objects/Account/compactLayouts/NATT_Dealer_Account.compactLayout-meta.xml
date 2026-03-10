@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Dealer_Account</fullName>
+    <fields>Name</fields>
+    <fields>RecordTypeId</fields>
+    <fields>NATT_Primary_Location_Type__c</fields>
+    <fields>NATT_City_State__c</fields>
+    <fields>NATT_Dealer_Principal__c</fields>
+    <fields>NATT_Status__c</fields>
+    <label>NATT Dealer Account</label>
+</CompactLayout>

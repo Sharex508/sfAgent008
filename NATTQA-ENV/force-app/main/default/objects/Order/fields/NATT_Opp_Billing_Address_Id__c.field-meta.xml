@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Opp_Billing_Address_Id__c</fullName>
+    <description>NATT: used in order trigger to prevent query</description>
+    <externalId>false</externalId>
+    <formula>Opportunity.NATT_Billing_Address__r.Id</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>NATT Opp Billing Address Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

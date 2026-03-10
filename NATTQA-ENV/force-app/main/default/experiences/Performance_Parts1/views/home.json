@@ -1,0 +1,79 @@
+{
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "a668b279-7e9c-47f8-879d-e3add995dc29",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "cf2a0748-1dec-49ad-8a34-8357d4f62c97",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "AccountId" : "{!CurrentUser.effectiveAccountId}",
+        "RelatedField" : "AccountId",
+        "RelatedObject" : "Order"
+      },
+      "componentName" : "c:natt_customListView",
+      "id" : "de5283bc-90cd-45be-9461-2eed674edd03",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "381af16d-93b3-43d4-a857-f32700055093",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "addEntryText" : "Add Line",
+        "addToCartButtonBackgroundColor" : "",
+        "addToCartButtonBackgroundHoverColor" : "",
+        "addToCartButtonBorderColor" : "",
+        "addToCartButtonBorderRadius" : "0",
+        "addToCartButtonDisabledBackgroundColor" : "rgb(201, 199, 197)",
+        "addToCartButtonText" : "Add To Cart",
+        "addToCartButtonTextColor" : "",
+        "addToCartButtonTextHoverColor" : "",
+        "numberOfLineItemsToAddEachTime" : 1,
+        "numberOfLineItemsToStart" : 5,
+        "productPlaceholderText" : "Item SKU",
+        "productText" : "Product",
+        "quantityText" : "Quantity",
+        "showAddEntryIcon" : true,
+        "title" : "Quick Order"
+      },
+      "componentName" : "b2b_buyer_builder:quickOrderPage",
+      "id" : "4891553d-10f2-4e0d-9057-c67f19f66448",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "52e81942-5bba-4fb2-b751-8fa328a644b7",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "89f4ffae-dac1-47e7-b6ef-b7f7727ead34",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "b2dfb6bb-7ec1-4042-81f3-18493de1f348",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "47eacaca-6e9e-46fb-a991-fda9d0f33522",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Home",
+  "type" : "view",
+  "viewType" : "home"
+}

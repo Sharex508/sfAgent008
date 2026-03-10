@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Part_Handling_Cap__c</fullName>
+    <description>Container Service field</description>
+    <formula>IF( ISPICKVAL( CONTAINER_Level__c , &apos;L1&apos;) , 400 ,
+IF( ISPICKVAL( CONTAINER_Level__c , &apos;L2&apos;) , 300 ,
+IF( ISPICKVAL( CONTAINER_Level__c , &apos;L3&apos;) , 200 , 200)
+))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Part Handling CAP</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Check to see if the Product (lookup) has been specified</description>
+        <name>Link_to_Product_Exists</name>
+        <label>Link to Product Exists</label>
+        <locationX>167</locationX>
+        <locationY>363</locationY>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.NATT_Product__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Part_Number_and_Description</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <description>Sets the Part Number on the Case - Products records</description>
+    <interviewLabel>Update Case - Products {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Case - Products</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Add P/N #</description>
+        <name>Update_Part_Number_and_Description</name>
+        <label>Update Part Number and Description</label>
+        <locationX>337</locationX>
+        <locationY>356</locationY>
+        <inputAssignments>
+            <field>NATT_Part_Number__c</field>
+            <value>
+                <elementReference>$Record.NATT_Product__r.NATT_P_N__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Link_to_Product_Exists</targetReference>
+        </connector>
+        <object>NATT_Case_Product__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

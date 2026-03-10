@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TravelPrice__c</fullName>
+    <description>calculates the would be price if the quote line is elite or enhance</description>
+    <formula>IF(OR(NATT_P_N__c = &quot;BLUEDGE ELITE&quot;, NATT_P_N__c = &quot;BLUEDGE ENHANCE&quot;),
+
+(NATT_Miles__c * 2.84 * NATT_CMRA_Term_Hours__c)/NATT_Interim_Interval_hours__c,null)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Travel Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "e0dfab43-7697-46cf-a0b7-792000e3f0de",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "586c43a0-40a4-4497-a75b-bb32394b2355",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Cart_Checkout_Button_Component",
+  "id" : "84b90630-3a65-42f9-9ff3-28498a500d90",
+  "type" : "experienceVariation"
+}

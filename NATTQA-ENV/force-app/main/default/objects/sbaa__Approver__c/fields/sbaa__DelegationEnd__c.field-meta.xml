@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__DelegationEnd__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Approval delegations end at the end of this date</description>
+    <inlineHelpText>Approval delegations end at the end of this date</inlineHelpText>
+    <label>Delegation End</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

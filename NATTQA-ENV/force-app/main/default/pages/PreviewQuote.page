@@ -1,0 +1,9 @@
+<apex:page standardController="SBQQ__Quote__c" extensions="QuoteExtController" lightningStyleSheets="true" action="{!onPreview}">
+<h2 style="text-align:center"> PREVIEW APPROVALS </h2>
+<apex:form >
+<apex:commandButton style="float:right;font-weight:bold" value="Return to Quote" action="{!returnToQuote}"/>
+<apex:commandButton style="float:right;font-weight:bold" value="Submit for Approval" action="{!onSubmit}"/>
+</apex:form>
+<apex:pageMessages />
+<sbaa:approvalPreview approvals="{!approvals}"/>
+</apex:page>

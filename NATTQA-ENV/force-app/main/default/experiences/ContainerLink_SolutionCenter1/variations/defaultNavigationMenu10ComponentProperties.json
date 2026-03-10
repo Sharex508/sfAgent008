@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "24f8438b-bc1e-467d-ac37-58f24e60b86d",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "UCP_EMEA_Purchase_Menu"
+      }
+    },
+    "targetId" : "a988fe4c-427f-4407-8101-85fd0a38571e",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_10_Component_Properties",
+  "id" : "6f0d822a-f515-47f4-93e1-8a737d0ed96c",
+  "type" : "experienceVariation"
+}

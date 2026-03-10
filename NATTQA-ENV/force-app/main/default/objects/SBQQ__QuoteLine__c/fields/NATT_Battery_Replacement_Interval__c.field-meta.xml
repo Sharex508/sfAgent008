@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Battery_Replacement_Interval__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(NATT_Battery_Type__c, &quot;Excluded&quot;),0,
+  IF(ISPICKVAL(NATT_Battery_Type__c, &quot;Wet Cell&quot;),3000,9000))</formula>
+    <label>zDeleteBattery Replacement Interval</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

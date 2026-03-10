@@ -1,0 +1,27 @@
+<template>
+    <template if:true={isSuperseded}>
+        <div>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                    <h1 class="slds-text-title_caps slds-p-bottom_x-small" style="font-size: 1.2em;">{title}</h1>
+                </div>
+            </div>
+            <div style="background-color:rgb(243, 243, 243);">
+                <template if:true={hasSupersededProducts}>
+                    <c-search-layout effective-account-id={effectiveAccountId} display-data={displayData.layoutData}
+                        config={config.layoutConfig} button-label={buttonLabel} oncalltoaction={handleAction}
+                        onshowdetail={handleShowDetail}>
+                    </c-search-layout>
+                </template>
+                <template if:false={hasSupersededProducts}>
+                    <div class="slds-box slds-theme_alert-texture slds-theme_warning">
+                        <p>{label.supersededMessage}</p>
+                      </div>
+                </template>
+            </div>
+        </div>
+    </template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+</template>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to Customers when status = Approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NATT Lynx Fleet Customer Order Summary v2</name>
+    <relatedEntityType>SBQQ__Quote__c</relatedEntityType>
+    <style>none</style>
+    <subject>ORDER STATUS Lynx Fleet Data Service Plan for Order {{{SBQQ__Quote__c.Name}}}</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

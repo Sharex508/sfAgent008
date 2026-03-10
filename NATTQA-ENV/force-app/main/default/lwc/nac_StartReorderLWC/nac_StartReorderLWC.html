@@ -1,0 +1,73 @@
+<template>
+    <template if:true={loading}>
+        <div class="slds-box slds-theme_shade slds-theme_alert-texture">
+            <div>
+                <lightning-dynamic-icon type="eq" option="play" class="slds-float_left slds-p-right_x-small">
+                </lightning-dynamic-icon>
+                <div>{label.naocapStartReorderAddingMessage}</div>
+                <div>{label.naocapStartReorder100ItemWarning}</div>
+            </div>
+        </div>
+    </template>
+    <template if:false={loading}>
+        <template if:true={error}>
+            <div class="slds-box slds-theme_alert-texture slds-theme_error">
+                <p>An Error occoured while adding the items to cart. Please contact your system admin for more details
+                </p>
+            </div>
+        </template>
+        <template if:true={errorNotOrderable}>
+            <div class="slds-box slds-theme_alert-texture slds-theme_error">
+                <p>The Order Item(s) is not orderable.Please contact customer service for availability</p>
+            </div>
+        </template>
+        <template if:false={error}>
+            <template if:false={errorNotOrderable}>
+                <div class="slds-box slds-theme_alert-texture slds-theme_success">
+                    <div>{label.naocapStartReorderSuccessMessage}</div>
+                    <div>{label.naocapStartReorder100ItemWarning}</div>
+                </div>
+            </template>
+        </template>
+    </template>
+    <template if:true={showWarehouseModal}>
+        <c-nac_ware-house-modal disable-slds-backdrop-open={disableSldsBackdropOpen}
+            oncalltoaction={handleWarehouseSelection} oncalltoclose={handleModelClose}></c-nac_ware-house-modal>
+    </template>
+    <template if:true={openDisclaimerModal}>
+        <section class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container" style="width: 100%;">
+            <div class="slds-modal__content slds-p-around_medium">
+                These items are not orderable for {selectedWareHouseName} warehouse, and they are not added
+                to the cart:
+                </br>
+                <div class="slds-p-bottom_medium"></div>
+                <table class="slds-table ">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">
+                                <div title="Key">Product Code</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={notOrderableProductCode} for:item="productCode">
+                            <tr key={productCode}>
+                                <th scope="col">
+                                    <div title={productCode}>{productCode}</div>
+                                </th>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <div class="slds-p-bottom_xx-large"></div>
+                <div class="slds-grid slds-gutters slds-align_absolute-center">
+                    <lightning-button variant="brand" label='Ok' title='Ok'
+                        onclick={handleCloseDisclaimerModal} class="slds-m-left_x-small">
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+        </section>
+    </template>
+</template>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Checking_Quote_Status</name>
+        <label>Checking Quote Status</label>
+        <locationX>660</locationX>
+        <locationY>383</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_Status_is_PendingRSMAcceptance</name>
+            <conditionLogic>1 AND (2 OR 3)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pending VP Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CONTAINER_GENSET_Quote</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CONTAINER_NT_Quote</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Updating_Flag_on_RequestedShipDate_to_false</targetReference>
+            </connector>
+            <label>If Status is PendingRSMAcceptance</label>
+        </rules>
+        <rules>
+            <name>If_Status_is_Pending_VP_Approval</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_IS_TentativeProdSchd_Updated__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>False</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Updating_tentativeprodschd_flag_on_quote_to_false_after_rsm_acceptance</targetReference>
+            </connector>
+            <label>If Status is Pending VP Approval</label>
+        </rules>
+    </decisions>
+    <interviewLabel>CONTAINER Updating Flag on RequestedShipDate on Quote status change {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CONTAINER Updating Flag on RequestedShipDate on Quote status change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Updating_Flag_on_RequestedShipDate_to_false</name>
+        <label>Updating Flag on RequestedShipDate to false</label>
+        <locationX>519</locationX>
+        <locationY>595</locationY>
+        <inputAssignments>
+            <field>CONTAINER_Is_RequestedShipDate_Updated__c</field>
+            <value>
+                <stringValue>False</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Updating_tentativeprodschd_flag_on_quote_to_false_after_rsm_acceptance</name>
+        <label>Updating tentativeprodschd flag on quote to false after rsm acceptance</label>
+        <locationX>838</locationX>
+        <locationY>600</locationY>
+        <inputAssignments>
+            <field>CONTAINER_IS_TentativeProdSchd_Updated__c</field>
+            <value>
+                <stringValue>False</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>543</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Checking_Quote_Status</targetReference>
+        </connector>
+        <object>SBQQ__Quote__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

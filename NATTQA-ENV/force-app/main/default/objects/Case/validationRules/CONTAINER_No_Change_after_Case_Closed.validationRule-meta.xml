@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_No_Change_after_Case_Closed</fullName>
+    <active>true</active>
+    <description>User should not allowed to Edit the Case record once its closed.</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+$RecordType.Name = &quot;CONTAINER Service Engineering&quot;,
+ISPICKVAL(PRIORVALUE(Status),&quot;Closed&quot;),
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule )  
+)</errorConditionFormula>
+    <errorMessage>Case status cannot be changed for a closed case.</errorMessage>
+</ValidationRule>

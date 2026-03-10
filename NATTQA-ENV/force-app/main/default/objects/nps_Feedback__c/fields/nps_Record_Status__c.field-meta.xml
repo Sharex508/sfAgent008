@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Record_Status__c</fullName>
+    <description>This field shows where the record is in its lifecycle (e.g. invitation, survey completed, etc.)</description>
+    <label>Record - Status</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Delivery Failed</fullName>
+                <default>false</default>
+                <label>Delivery Failed</label>
+            </value>
+            <value>
+                <fullName>Delivery bounced</fullName>
+                <default>false</default>
+                <label>Delivery bounced</label>
+            </value>
+            <value>
+                <fullName>Reminded</fullName>
+                <default>false</default>
+                <label>Reminded</label>
+            </value>
+            <value>
+                <fullName>Opted Out</fullName>
+                <default>false</default>
+                <label>Opted Out</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Invited</fullName>
+                <default>false</default>
+                <label>Invited</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,197 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "1086d458-2668-41d1-a06f-7b8de0c5815e",
+  "label" : "CTM Home",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "d0eb28a7-3637-46c2-9d55-fe0e93130d17",
+          "columns" : [ {
+            "UUID" : "c3dc728e-4375-44f7-95ef-1c092d56c93a",
+            "columnKey" : "61df4",
+            "columnName" : "Column 1",
+            "columnWidth" : "8",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "2bc0ede7-ccb1-400d-b13e-477091adb56c",
+            "columnKey" : "7110b",
+            "columnName" : "Column 2",
+            "columnWidth" : "4",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 400
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "d0eb28a7-3637-46c2-9d55-fe0e93130d17",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "carouselTransitionTime" : 4,
+            "titleText" : ""
+          },
+          "componentName" : "c:natt_articleCarouselRecentlyModified",
+          "id" : "2b0eeaaf-7ed4-4bcf-8ff4-004e9f1ca150",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "c3dc728e-4375-44f7-95ef-1c092d56c93a",
+        "regionLabel" : "Column 2",
+        "regionName" : "61df4",
+        "renditionMap" : {
+          "es_mx" : "84cad157-09e6-4816-b716-3f8ece3d72ec"
+        },
+        "renditions" : [ {
+          "id" : "84cad157-09e6-4816-b716-3f8ece3d72ec",
+          "renditionValue" : {
+            "regionLabel" : "Column 1"
+          },
+          "type" : "renditionComponent"
+        } ],
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "tabsetConfig" : {
+              "UUID" : "52837583-7029-4fbb-8df9-aa702629d222",
+              "activeTab" : "",
+              "tabs" : [ {
+                "UUID" : "1a466617-449d-4110-a1c2-30fcc375e7a5",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "1",
+                "tabName" : "Enlace"
+              }, {
+                "UUID" : "e517d360-1577-41f7-bfd6-02df4bab560c",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "3",
+                "tabName" : "Chatter y actualizaciones"
+              } ],
+              "useOverflowMenu" : false
+            }
+          },
+          "componentName" : "forceCommunity:tabset",
+          "id" : "52837583-7029-4fbb-8df9-aa702629d222",
+          "regions" : [ {
+            "components" : [ {
+              "componentAttributes" : {
+                "titleText" : "PRODUCT AND SERVICE UPDATES"
+              },
+              "componentName" : "c:natt_alertCarousel",
+              "id" : "c6166202-9b69-48ec-81b9-c082500fd336",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "1a466617-449d-4110-a1c2-30fcc375e7a5",
+            "regionLabel" : "Tab 1",
+            "regionName" : "1",
+            "renditionMap" : {
+              "es_mx" : "34049e2b-6da0-422d-adea-e428dd5e4954"
+            },
+            "renditions" : [ {
+              "id" : "34049e2b-6da0-422d-adea-e428dd5e4954",
+              "renditionValue" : {
+                "regionLabel" : "Enlace"
+              },
+              "type" : "renditionComponent"
+            } ],
+            "type" : "region"
+          }, {
+            "id" : "e517d360-1577-41f7-bfd6-02df4bab560c",
+            "regionLabel" : "Tab 3",
+            "regionName" : "3",
+            "renditionMap" : {
+              "es_mx" : "db2db6df-8dae-4cff-9a25-7f52532b4afc"
+            },
+            "renditions" : [ {
+              "id" : "db2db6df-8dae-4cff-9a25-7f52532b4afc",
+              "renditionValue" : {
+                "regionLabel" : "Chatter y actualizaciones"
+              },
+              "type" : "renditionComponent"
+            } ],
+            "type" : "region"
+          } ],
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "richTextValue" : "<p>Use this HTML Editor to add your own markup.</p>"
+          },
+          "componentName" : "forceCommunity:htmlBlock",
+          "id" : "04e5deb3-1415-4665-8fb8-0ae719b9fe63",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : {
+            "es_mx" : "5f1ed70a-93d5-41ea-a8ec-a329dd896d39"
+          },
+          "renditions" : [ {
+            "id" : "5f1ed70a-93d5-41ea-a8ec-a329dd896d39",
+            "renditionValue" : {
+              "componentAttributes" : {
+                "richTextValue" : "<p style=\"background:#607080;text-align: center;\">\n    <a style=\"color: white !important; font-size: 20px; display: block; width: 100%; padding: 3px;\" \n       href=\"https://www2.carrier.transicold.com/servicerequest.nsf/mainfrm?OpenForm\" target=\"_blank\"\n       rel=\"noreferrer noopener\">IT Formulario de solicitud de servicio</a>\n</p>"
+              }
+            },
+            "type" : "renditionComponent"
+          } ],
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_whosWho",
+          "id" : "9a76cda6-1f62-4471-81a7-b52321024f93",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "2bc0ede7-ccb1-400d-b13e-477091adb56c",
+        "regionLabel" : "Column 3",
+        "regionName" : "7110b",
+        "renditionMap" : {
+          "es_mx" : "e368d4ea-dffe-42c6-b767-8d915a50fa6f"
+        },
+        "renditions" : [ {
+          "id" : "e368d4ea-dffe-42c6-b767-8d915a50fa6f",
+          "renditionValue" : {
+            "regionLabel" : "Column 2"
+          },
+          "type" : "renditionComponent"
+        } ],
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "267e8fa0-37ec-4e36-a52d-7c19566cda54",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "97779885-86e3-4c55-977b-a9f4f25a5445",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0a0e4179-103a-483d-a37b-67730626e1a2",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Add_From_Stock</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Add From Stock</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/lightning/o/CONTAINER_Tentative_Production_Schedule__c/new?nooverride=true&amp;
+
+defaultFieldValues=CONTAINER_Quote_Number__c={!SBQQ__Quote__c.Id},
+CONTAINER_Quote_Product_Type__c={!IF(SBQQ__Quote__c.CONTAINER_Product_Type__c==&apos;GENSET&apos;,1,2)}&amp;
+
+recordTypeId=0127V000000JQcKQAW&amp;
+
+backgroundContext=/lightning/r/SBQQ__Quote__c/{!SBQQ__Quote__c.Id}/view</url>
+</WebLink>

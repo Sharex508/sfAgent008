@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__AssignedTo__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>Lookup to the User to which the Approval is assigned</description>
+    <inlineHelpText>Lookup to the User to which the Approval is assigned</inlineHelpText>
+    <label>Assigned To</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Approvals</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

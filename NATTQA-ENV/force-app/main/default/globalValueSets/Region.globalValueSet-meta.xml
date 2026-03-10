@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>East</fullName>
+        <default>false</default>
+        <label>East</label>
+    </customValue>
+    <customValue>
+        <fullName>West</fullName>
+        <default>false</default>
+        <label>West</label>
+    </customValue>
+    <customValue>
+        <fullName>South</fullName>
+        <default>false</default>
+        <label>South</label>
+    </customValue>
+    <customValue>
+        <fullName>Central</fullName>
+        <default>false</default>
+        <label>Central</label>
+    </customValue>
+    <customValue>
+        <fullName>National</fullName>
+        <default>false</default>
+        <label>National</label>
+    </customValue>
+    <customValue>
+        <fullName>LAO</fullName>
+        <default>false</default>
+        <label>LAO</label>
+    </customValue>
+    <customValue>
+        <fullName>Mexico</fullName>
+        <default>false</default>
+        <label>Mexico</label>
+    </customValue>
+    <customValue>
+        <fullName>Latin America</fullName>
+        <default>false</default>
+        <label>Latin America</label>
+    </customValue>
+    <customValue>
+        <fullName>Brazil</fullName>
+        <default>false</default>
+        <label>Brazil</label>
+    </customValue>
+    <customValue>
+        <fullName>Region 1</fullName>
+        <default>false</default>
+        <label>Region 1</label>
+    </customValue>
+    <customValue>
+        <fullName>Region 2</fullName>
+        <default>false</default>
+        <label>Region 2</label>
+    </customValue>
+    <customValue>
+        <fullName>Region 3</fullName>
+        <default>false</default>
+        <label>Region 3</label>
+    </customValue>
+    <customValue>
+        <fullName>Northeast</fullName>
+        <default>false</default>
+        <label>Northeast</label>
+    </customValue>
+    <customValue>
+        <fullName>Southeast</fullName>
+        <default>false</default>
+        <label>Southeast</label>
+    </customValue>
+    <customValue>
+        <fullName>Midwest</fullName>
+        <default>false</default>
+        <label>Midwest</label>
+    </customValue>
+    <customValue>
+        <fullName>North</fullName>
+        <default>false</default>
+        <label>North</label>
+    </customValue>
+    <customValue>
+        <fullName>Europe, Middle East and Africa</fullName>
+        <default>false</default>
+        <label>Europe, Middle East and Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>North America</fullName>
+        <default>false</default>
+        <label>North America</label>
+    </customValue>
+    <customValue>
+        <fullName>Asia Pacific and Oceania</fullName>
+        <default>false</default>
+        <label>Asia Pacific and Oceania</label>
+    </customValue>
+    <customValue>
+        <fullName>Americas</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Americas</label>
+    </customValue>
+    <customValue>
+        <fullName>undefined</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>undefined</label>
+    </customValue>
+    <customValue>
+        <fullName>Asia</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Asia</label>
+    </customValue>
+    <masterLabel>Region</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

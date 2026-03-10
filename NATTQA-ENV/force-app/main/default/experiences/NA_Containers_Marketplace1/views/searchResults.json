@@ -1,0 +1,43 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "4f6b686c-aa8f-47f3-963d-069371661cda",
+  "label" : "Search Results",
+  "regions" : [ {
+    "id" : "e7e2482d-1397-4ea3-986b-b4da9ba476c5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "dispayCategories" : false,
+        "dispayFilters" : true,
+        "dispayPageSize" : false,
+        "dispaySearchCategories" : true,
+        "dispaySorting" : true,
+        "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}",
+        "recordId" : "{!recordId}",
+        "resultsLayout" : "grid",
+        "showProductImage" : true,
+        "term" : "{!term}",
+        "type" : "termSearchResult"
+      },
+      "componentName" : "c:searchResults",
+      "id" : "b561facb-bbf5-4946-a6b3-89f0fc22e6b5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d378a70b-eff4-46d3-88ed-2abc4d38a872",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "ae46c995-6514-4851-be08-30cc31e95c60",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "global-search"
+}

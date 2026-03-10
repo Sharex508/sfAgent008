@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Update_the_lost_Cancelled_Reason</fullName>
+    <active>true</active>
+    <description>To update the Lost/Cancelled Reason to move the quote status.</description>
+    <errorConditionFormula>AND(
+NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+NOT(ISNEW()),
+OR($RecordType.Name = &quot;Container GENSET Quote&quot;,$RecordType.Name = &quot;Container NT Quote&quot;),
+OR(OR(ISPICKVAL( CONTAINER_Status__c , &quot;Lost&quot;), ISPICKVAL(CONTAINER_Status__c, &quot;Cancelled&quot;)),
+ISPICKVAL(CONTAINER_QuotePath__c, &quot;Lost/Cancelled&quot;)) ,
+ISBLANK( CONTAINER_Reason_for_won_or_lost__c ) 
+)</errorConditionFormula>
+    <errorMessage>Update the &quot;Reason for &apos;won&apos; or lost&apos; or &apos; no-order&apos;&quot; to move the quote status.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Contact_Id__c</fullName>
+    <description>This field is used to link the feedback to an existing contact is Salesforce. The contact object has additional summary fields to calculate insights</description>
+    <label>Contact - Id</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipName>Responses</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>true</writeRequiresMasterRead>
+</CustomField>

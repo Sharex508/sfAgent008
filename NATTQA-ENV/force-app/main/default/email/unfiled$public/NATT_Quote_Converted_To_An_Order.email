@@ -1,0 +1,24 @@
+<messaging:emailTemplate subject="Quote {!relatedTo.NATT_Quote_Name__c} has been converted to an Order {!relatedTo.OrderNumber}" recipientType="User" relatedToType="Order">
+    <messaging:htmlEmailBody >
+        <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+            <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #eee;">
+                <center role="article" aria-roledescription="email" lang="en" style="width: 100%; height=100%; background-color: #eee;">
+                     <div style="max-width: 600px;" class="email-container">
+                          <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" height="100%" style="margin: auto; background-color: #ffffff">
+                              <tr>
+                                  <td style="padding: 20px 20px 20px 20px; font-family: sans-serif; font-size: 14px; line-height: 25px; color: #000000;">
+                                      <p style="margin: 0 0 10px 0;color: #000000;"><b>Your Quote {!relatedTo.NATT_Quote_Name__c} has been converted to an order. Please see details below.</b></p>
+                                      <p style="margin: 0 0 5px 0;font-size: 14px;"><b>Quote #:</b> <a href="{!relatedTo.SBQQ__Quote__r.Quote_Community_Link__c}">{!relatedTo.NATT_Quote_Name__c}</a></p>
+                                      <p style="margin: 0 0 5px 0;font-size: 14px;"><b>Order #:</b> <a href="{!relatedTo.Order_Community_Link__c}">{!relatedTo.OrderNumber}</a></p>
+                                      <p style="margin: 0 0 5px 0;font-size: 14px;"><b>Unit:</b> <span style="color:#000000">{!relatedTo.SBQQ__Quote__r.NATT_Unit__c}</span></p>
+                                      <p style="margin: 0 0 5px 0;font-size: 14px;"><b>Fully Approved Date: </b><span style="color:#000000">
+                                      <apex:outputText value="{0,date,MM/dd/YYYY}"><apex:param value="{!relatedTo.SBQQ__Quote__r.NATT_Final_Approval_Date__c}" /></apex:outputText></span></p>
+                                  </td>
+                              </tr>
+                          </table>
+                     </div>
+                </center>
+            </body>
+        </html>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

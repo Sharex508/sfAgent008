@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:searchInterface">
+    <aura:attribute name="placeholder" type="String"/>
+    <aura:attribute name="effectiveAccountId" type="String"/>
+    <c:nac_LWCSeachComponent placeholder="{!v.placeholder}"></c:nac_LWCSeachComponent>
+</aura:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Container Service Engineering APO</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>CONTAINER_FSM_APO_Case</publicGroup>
+            <publicGroup>CONTAINER_RSM_APO_Case</publicGroup>
+            <publicGroup>CONTAINER_Service_Admin</publicGroup>
+            <publicGroup>CONTAINER_Warranty_Admin_APO_Case</publicGroup>
+        </publicGroups>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

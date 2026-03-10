@@ -1,0 +1,48 @@
+/*
+* — Host Element —
+*/
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+* — Cart Header -
+*/
+header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--lwc-colorBorderSeparator);
+}
+
+/* Screens larger than phone */
+@media only screen and (min-width: 64em) {
+    header {
+        padding-bottom: 0.94rem;
+    }
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Phone screens */
+@media only screen and (max-width: 64em) {
+    header {
+        align-items: center;
+    }
+    h1 {
+        font-size: 1.125rem;
+    }
+}
+
+/*
+* — Cart Items Sort Menu -
+*/
+.sort-menu {
+    display: flex;
+    align-items: center;
+}
+
+.pointer {
+    cursor: pointer;
+}

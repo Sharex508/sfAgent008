@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__DealDeskInactiveApproveIconURL__c</fullName>
+    <deprecated>false</deprecated>
+    <description>URL for inactive approve icon on Deal Desk page.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>URL for inactive approve icon on Deal Desk page.</inlineHelpText>
+    <label>Inactive Approve Icon URL</label>
+    <length>200</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

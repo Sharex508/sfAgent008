@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Performance_Parts_Orders</fullName>
+    <columns>ORDERS.ORDER_NUMBER</columns>
+    <columns>NATT_Purchase_Order__c</columns>
+    <columns>NATT_JDE_Sales_Order_Number__c</columns>
+    <columns>NATT_JdeOrderTypeName__c</columns>
+    <columns>ORDERS.EFFECTIVE_DATE</columns>
+    <columns>ORDERS.LAST_UPDATE</columns>
+    <columns>ORDERS.TOTAL_AMOUNT</columns>
+    <columns>NATT_CustomerBilltoCode__c</columns>
+    <columns>SALES.ACCOUNT.NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ORDER.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Order.NATT_Parts_Order</value>
+    </filters>
+    <label>Performance Parts Orders</label>
+</ListView>

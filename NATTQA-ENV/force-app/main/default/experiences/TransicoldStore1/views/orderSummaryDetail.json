@@ -1,0 +1,60 @@
+{
+  "appPageId" : "67fdd0d7-93bd-4b41-9583-aca992e410a8",
+  "componentName" : "siteforce:sldsTwoCol48Layout",
+  "dataProviders" : [ ],
+  "id" : "55e8d316-a821-4f12-8a7a-81ab5945dfae",
+  "label" : "Order Summary Detail",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "a1c9f460-d83d-4e9a-a7ff-f37c7ced52d9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9f12c0a2-2b28-4485-99f2-69b4dbcbbc38",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "columns" : [ "OrderSummary.TotalAdjustedProductAmount.TotalAdjustedProductAmount", "OrderSummary.TotalAdjDistAmount.TotalAdjDistAmount", "OrderSummary.TotalAdjustedDeliveryAmount.TotalAdjustedDeliveryAmount", "OrderSummary.TotalTaxAmount.TotalTaxAmount", "OrderSummary.GrandTotalAmount.GrandTotalAmount" ],
+        "showTaxColumn" : true,
+        "taxColumn" : "OrderSummary.TotalTaxAmount.TotalTaxAmount",
+        "taxLabel" : "Tax (included)",
+        "title" : "Totals",
+        "vatColumns" : [ "OrderSummary.TotalAdjProductAmtWithTax.TotalAdjProductAmtWithTax", "OrderSummary.TotalAdjDistAmountWithTax.TotalAdjDistAmountWithTax", "OrderSummary.TotalAdjDeliveryAmtWithTax.TotalAdjDeliveryAmtWithTax", "OrderSummary.GrandTotalAmount.GrandTotalAmount" ]
+      },
+      "componentName" : "runtime_commerce_oms:OrderSummary",
+      "id" : "14ced281-ad44-432b-909b-0ead7c0629f5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "41b91fb7-63f3-4b61-93a6-6b99cea6cc60",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "runtime_commerce_oms:deliveryGroup",
+      "id" : "a1c828a5-bcc9-427f-8b7e-b14891da9180",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fd785825-5d62-48e6-8b4c-eea8302d7198",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "8b7d8691-4018-41b4-a868-8ec6b9d84156",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-1Os"
+}

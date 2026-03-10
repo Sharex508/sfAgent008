@@ -1,0 +1,46 @@
+{
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "f87d62af-7a1b-4fef-9de8-5044d3439152",
+  "label" : "Backorder Report",
+  "regions" : [ {
+    "id" : "d9e3430e-d558-4fec-b4ff-80f543f11808",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:NATT_BackorderReport",
+      "id" : "bc3ee563-569b-4eac-9a11-389ff95cb744",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "84aab426-03db-4e4e-bcea-5fbf8fa81970",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "5b6e1564-482e-437e-afd2-a7f4a84ffcd7",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Backorder Report"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "35a61eb7-2052-4c4b-891a-be65b51ecdd1",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7c7ef27b-0dfe-4cf7-a6f9-6ef9454bbb47",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-backorder-report"
+}

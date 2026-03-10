@@ -1,0 +1,17 @@
+.THIS.error-message-display{
+    color:red;
+}
+.THIS.slds-form-element__label{
+    color: white !important;
+}
+.THIS .btnCustomStyle{
+    padding-left: 0.5rem!important;
+    padding-right: 0.5rem!important;
+}
+.THIS .formatted-text_success{
+    color:green !important;
+    font-weight: bold !important;
+}
+.THIS .slds-tabs_card{
+    box-shadow: 1px 2px 5px black !important;
+}

@@ -1,0 +1,9 @@
+.THIS.c-container {
+    border: 1px solid #d8dde6;
+
+    background-color: #acbfe4;
+    margin: 10px 0 20px 0;
+}
+.THIS .error-message {
+    color: red;
+}

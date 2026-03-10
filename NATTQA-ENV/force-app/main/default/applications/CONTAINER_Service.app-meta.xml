@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Invoice_Detail_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>CONTAINER_Invoice_Detail__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Invoice_Detail_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>CONTAINER_Invoice_Detail__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>Container Service APP</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>CONTAINER Service</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Sales_Account_Record_Page_for_Service</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Sales_Account_Record_Page_for_Service</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER External Commissioning Agent</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER External Commissioning Agent</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Integration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Integration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER External Commissioning Agent</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER External Commissioning Agent</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Integration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Integration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Work_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Work_Order__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Agreement_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Service_Agreement__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Agreement_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Service_Agreement__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Agreement_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Service_Agreement__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Agreement_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Service_Agreement__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Commissioning_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>CONTAINER_Commissionig__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER_FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.CONTAINER_Contact</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.CONTAINER_Contact</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.CONTAINER_Contact</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.CONTAINER_Contact</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Authorized_Service_Provider</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Authorized_Service_Provider</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Authorized_Service_Provider</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Authorized_Service_Provider</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Repair_Co_Terminal</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Repair_Co_Terminal</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Repair_Co_Terminal</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Service_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Repair_Co_Terminal</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Case_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.CONTAINER_Service_Engineering_Field_Service</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.CONTAINER_Service_Engineering_Field_Service</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Case_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.CONTAINER_Service_Engineering_Field_Service</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+        <recordType>Case.CONTAINER_Service_Engineering_Field_Service</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Sales_Account_Record_Page_for_Service</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Sales_Account_Record_Page_for_Service</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.CONTAINER_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CAP</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CAP</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CAP</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CAP</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CAP</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CAP</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CAP</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CAP</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER_FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER_FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Sales</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER_FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER_FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER_FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER_FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.CONTAINER_FAQ</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Opportunity</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Container_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CONTAINER_Opportunity</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Container_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>CONTAINER Service</profile>
+    </profileActionOverrides>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Case</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>CONTAINER_Audit__c</tabs>
+    <tabs>CONTAINER_Service_Agreement__c</tabs>
+    <tabs>CONTAINER_Commissionig__c</tabs>
+    <tabs>standard-report</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>CONTAINER_Service_UtilityBar</utilityBar>
+</CustomApplication>

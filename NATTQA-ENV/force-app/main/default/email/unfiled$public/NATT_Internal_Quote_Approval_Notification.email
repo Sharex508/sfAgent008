@@ -1,0 +1,20 @@
+APPROVAL NOTIFICATION
+Please do not reply to this message. If you need assistance or have questions, please contact your local representative<p>
+Dear Discount Approver,<p>
+<p>
+This mail is sent to you to notify Quote with Engineless Products needs your discount approval : <p>
+<p>
+- End Customer Company :{!SBQQ__Quote__c.NATT_End_Customer_Company__c}<p>
+- Parent account name : {!SBQQ__Quote__c.NATT_Parent_Account_Name__c}<p>
+- Account name : {!SBQQ__Quote__c.SBQQ__Account__c}<p>
+- Account owner : {!SBQQ__Quote__c.NATT_Account_Owner__c}<p>
+- Opportunity name : {!SBQQ__Quote__c.NATT_Opportunity_Name__c}<p>
+- Quote Number : {!SBQQ__Quote__c.Name}<p>
+- Opportunity Probability : {!SBQQ__Quote__c.NATT_Opportunity_Probability__c} %<p>
+- Amount : {!SBQQ__Quote__c.NATT_Opportunity_Amount__c}<p>
+
+Direct link to Opportunity: {!SBQQ__Quote__c.NATT_Opportunity_Link__c}<p>
+Direct link to Quote : {!SBQQ__Quote__c.Link}<p>
+
+Best regards,<p>
+The Administration Team<p>

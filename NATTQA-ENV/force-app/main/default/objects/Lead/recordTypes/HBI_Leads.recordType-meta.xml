@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HBI_Leads</fullName>
+    <active>true</active>
+    <businessProcess>HBI SPIFF</businessProcess>
+    <label>HBI Leads</label>
+    <picklistValues>
+        <picklist>Contact_Details__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Details__c</picklist>
+        <values>
+            <fullName>Building Owner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Design Build Contractor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>HBI_Lead_Status__c</picklist>
+        <values>
+            <fullName>Abandoned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Accepted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Contacted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualified</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rejected</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Won Booked</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Industry</picklist>
+        <values>
+            <fullName>Aerospace</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BPO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bank%2FFinancial</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Casino</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Cinema%2CTheatre%2C Convert hall</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Clinics%2F Medical Centers</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial Real Estate %28Propery Management%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Corporate Campus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data Centres</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diagnostic Center</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>District Cooling</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Embassy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Energy%2F Nuclear Power Plant</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Entertainment facilities%2Fparks</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Government Building%2FFacility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gym%2F Recreation facility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Healthcare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Higher Education %28Universities%2FColleges%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hospital</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hotels%2F Motels %28lodging%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IT Park</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Logistics -Warehouse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Logistics- Distribution%2F Fulfilment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Long term Care</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medical College</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Military Base</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nursing Home</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Office Building</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Office Complex %28multi buildings%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Religious Buildings%2FFacility</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Resorts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Restaurants%2F Banquet Hall%2FPubs%2F Resorts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Salon%2F Spa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Schools %28K-12%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ships</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sporting Facilities%2C Stadium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telecommunications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transportation Airport%2F Hanger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transportation Automotive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transportation Ports%2F Marinas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Transportation Rail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Utilities</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Language__c</picklist>
+        <values>
+            <fullName>English</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>French</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>German</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>LeadSource</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Customer_Category__c</picklist>
+        <values>
+            <fullName>Existing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Previously Lost</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Division__c</picklist>
+        <values>
+            <fullName>Container</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Passenger Rail</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Truck Trailer</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Geography__c</picklist>
+        <values>
+            <fullName>NATT</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Market_Segment__c</picklist>
+        <values>
+            <fullName>None</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Region__c</picklist>
+        <values>
+            <fullName>Brazil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Central</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>East</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>National</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>South</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>West</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Name</picklist>
+        <values>
+            <fullName>Dr%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mr%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mrs%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ms%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prof%2E</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Products_Interested__c</picklist>
+        <values>
+            <fullName>BluEdge Partner channel program</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>IoTPASS %28Dry Box Telematics%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LYNX API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LYNX Fleet %28Reefer Telematics%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vessel Control Tower %28VCT%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Rating</picklist>
+        <values>
+            <fullName>Cold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Hot</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warm</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Receiving_Business__c</picklist>
+        <values>
+            <fullName>BSG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial HVAC Equipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Commercial HVAC Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FSP Global Access - LENEL S2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FSP Global Access - ONITY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HVAC Controls</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NORESCO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Sending_Business__c</picklist>
+        <values>
+            <fullName>FSP Global Access - LENEL S2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FSP Global Access - ONITY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NORESCO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Solutions_Interested__c</picklist>
+        <values>
+            <fullName>ActivAir HHT air terminal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ActivAir%28TM%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advanced Access Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Advanced airside system</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BlueDiamond%28TM%29 touchless access</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DirectKey%28TM%29 mobile access solution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Emergency Assets</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Environmental Index</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Filtration Technology%28Hepa Filters%2FUV lights%2FAglon%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Indoor Air Quality Assessment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>MyWay%28TM%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OptiClean%28TM%29 Negative Air Machine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote Airside Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Remote Energy Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Safe Start Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Security Assessment %26 Upgrade Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wellness Services</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Visit_Purpose__c</picklist>
+        <values>
+            <fullName>Digital Product Information</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospection</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Purchase</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Relationship</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

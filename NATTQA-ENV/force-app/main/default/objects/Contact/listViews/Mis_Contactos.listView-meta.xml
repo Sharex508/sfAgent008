@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mis_Contactos</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <label>Mis Contactos</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>CTM</role>
+        <role>CTM_Dealer</role>
+        <role>CTM_General_Manager</role>
+        <role>CTM_IT_Support</role>
+        <role>CTM_Manager</role>
+        <role>CTM_Sales_User</role>
+        <role>CTM_Support</role>
+    </sharedTo>
+</ListView>

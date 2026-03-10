@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Over_25M_Equipment_Sales__c</fullName>
+    <description>Over $25M Equipment Sales</description>
+    <inlineHelpText>Approval Refrigeration President &amp; CFO</inlineHelpText>
+    <label>Over $25M Equipment Sales</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

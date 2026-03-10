@@ -1,0 +1,27 @@
+.slds-docked-form-footer{
+    /* background-color: rgb(219, 217, 217) !important;  */
+    background-color: #0376ab !important; 
+  }
+  .sectionTwo{
+    /* background-color: rgb(219, 217, 217) !important;  */
+    background-color: #22252c !important; 
+  }
+  .header{
+    font-weight: bold;
+  }
+
+  /*.THIS.slds-align_absolute-center a{
+    color: white !important;
+  }*/
+
+  a:link{
+    color:white;
+  }
+
+  a:visited{
+    color:white;
+  }
+
+ .THIS .columnOption a{
+    color:white !important;
+  }

@@ -1,0 +1,41 @@
+.overlay {
+    height: 22%;
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 100;
+    left: 1;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.selected {
+    background-color: aliceblue;
+}
+
+.iconHover:hover {
+    transform: scale(1.2);
+}
+.aliceBlue{
+    background-color: aliceblue;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius:5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

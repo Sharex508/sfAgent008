@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_JDE_Product_Type__c</fullName>
+    <label>CTM JDE Product Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Containers</fullName>
+                <default>false</default>
+                <label>Containers</label>
+            </value>
+            <value>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+                <label>Trailer</label>
+            </value>
+            <value>
+                <fullName>Diesel Truck</fullName>
+                <default>false</default>
+                <label>Diesel Truck</label>
+            </value>
+            <value>
+                <fullName>Direct Drive</fullName>
+                <default>false</default>
+                <label>Direct Drive</label>
+            </value>
+            <value>
+                <fullName>Auxiliar Power Unit</fullName>
+                <default>false</default>
+                <label>Auxiliar Power Unit</label>
+            </value>
+            <value>
+                <fullName>Spare Parts</fullName>
+                <default>false</default>
+                <label>Spare Parts</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

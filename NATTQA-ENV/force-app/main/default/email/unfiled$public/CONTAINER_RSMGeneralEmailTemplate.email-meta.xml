@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>General Template for NAO/APO/EMEA region users in Container Service.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CONTAINER RSMGeneralEmailTemplate</name>
+    <style>none</style>
+    <subject>Audit Email Notification</subject>
+    <textOnly>Hello, {!CONTAINER_Audit__c.Name} has been {!CONTAINER_Audit__c.CONTAINER_Audit_Result__c}. Audit details- Account Name : {!CONTAINER_Audit__c.CONTAINER_ASP_Nmae_Audited__c} Audit Number: {!CONTAINER_Audit__c.Name} Audit Record Created by: {!CONTAINER_Audit__c.CreatedBy} Actions Required: {!CONTAINER_Audit__c.CONTAINER_Actions_Required__c} Click on the link to access the case: {!CONTAINER_Audit__c.Link}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

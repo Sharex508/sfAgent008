@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Major_Components</fullName>
+    <columns>NAME</columns>
+    <columns>NATT_Unit__c</columns>
+    <columns>NATT_BluEdge_Component_Id__c</columns>
+    <columns>NATT_BluEdge_Price_Type__c</columns>
+    <columns>NATT_Months__c</columns>
+    <columns>NATT_Hours__c</columns>
+    <columns>NATT_Price__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NATT_BluEdge_Price_Type__c</field>
+        <operation>equals</operation>
+        <value>Major Component</value>
+    </filters>
+    <label>Major Components</label>
+    <language>en_US</language>
+</ListView>

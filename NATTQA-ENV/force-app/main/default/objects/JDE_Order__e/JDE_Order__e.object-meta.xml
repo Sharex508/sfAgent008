@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to send a notification for Boomi to pick up an order</description>
+    <eventType>HighVolume</eventType>
+    <label>JDE Order</label>
+    <pluralLabel>JDE Orders</pluralLabel>
+    <publishBehavior>PublishAfterCommit</publishBehavior>
+</CustomObject>

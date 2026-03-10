@@ -1,0 +1,64 @@
+<apex:page showHeader="false" sidebar="false" cache="false" contentType="text/xml" controller="ContainerQuoteASOTentativeRecords">
+    
+    <block color="#000000" font-weight="bold" font-size="9pt" background-color = "rgb(204, 204, 204)" padding="2px">
+    <apex:outputText escape="false" value="{!breakLine}"/>
+	</block>
+
+<table table-layout="fixed" width="100%" border="1 solid black">
+    <table-column column-width="25%" />
+    <table-column column-width="25%" />
+    <table-column column-width="25%" />
+    <table-column column-width="25%" />
+    <table-body>
+		<table-row  font-weight="bold" font-size="9pt">
+            <table-cell>
+                <block>
+                   <apex:outputText value="Date" />
+                </block>
+            </table-cell>
+            <table-cell padding="2pt">
+                <block>
+                    <apex:outputText value="Qty"/>
+                </block>
+            </table-cell>  
+            
+			<table-cell padding="2pt">
+                <block>
+                    <apex:outputText value="Factory"/>
+                </block>
+            </table-cell>  
+            <table-cell>
+                <block>
+                   <apex:outputText value="Job Stock"/>
+                </block>
+            </table-cell> 
+        </table-row>
+		<apex:repeat value="{!tentativeRecords}" var="tp">
+        <table-row>
+             <table-cell>
+                <block>
+                  <apex:outputText value="{0, date, MM/dd/yyy}"> <apex:Param value="{!tp.CONTAINER_Week_Of__c}"/> </apex:outputText>
+                </block>
+            </table-cell> 
+            <table-cell padding="2pt">
+                <block>
+                    <apex:outputText value="{!tp.CONTAINER_TentativeProductionSchd_Qty__c}"/>
+                </block>
+            </table-cell>  
+           
+			<table-cell padding="2pt">
+                <block>
+                   <apex:outputtext value="{!tp.CONTAINER_Factory__c}"/>
+                </block>
+            </table-cell>  
+            <table-cell>
+                <block>
+                   <apex:outputtext value="{!tp.CONTAINER_TentativeProdSchd_Job__c}"/>
+                </block>
+            </table-cell> 	
+        </table-row>
+		</apex:repeat>
+    </table-body>
+</table>
+    
+</apex:page>

@@ -1,0 +1,33 @@
+<template>
+    
+    <div class="slds-m-top_medium slds-m-bottom_x-large lgc-bg">
+        <h2 class="slds-text-heading_small slds-p-around_medium">
+            Account Hierarchy
+        </h2>
+        
+        <template if:true={showData}>
+            <div class="slds-p-around_medium">
+                <lightning-tree-grid
+                    columns={gridColumns}
+                    data={gridData}
+                    key-field="name"
+                    expanded-rows={gridExpandedRows}
+                    ontoggle={handleRowToggle}
+                    hide-checkbox-column=true
+                    is-loading={gridLoadingState}
+                ></lightning-tree-grid>
+            </div>
+        </template>
+
+        <template if:false={showData}>
+            <p class="slds-p-around_medium">There are no data to show.</p>
+        </template>
+        
+    </div>
+
+    <!-- Spinner -->
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template> 
+    
+</template>

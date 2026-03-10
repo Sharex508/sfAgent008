@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAC_Billing_Delivery_Term__c</fullName>
+    <label>NAC Billing Delivery Term</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BIL</fullName>
+                <default>false</default>
+                <label>BIL - Bill to Customer</label>
+            </value>
+            <value>
+                <fullName>PPD</fullName>
+                <default>false</default>
+                <label>PPD - Prepaid Freight</label>
+            </value>
+            <value>
+                <fullName>CPU</fullName>
+                <default>false</default>
+                <label>CPU - Customer Pick Up</label>
+            </value>
+            <value>
+                <fullName>COL</fullName>
+                <default>false</default>
+                <label>COL - Collect</label>
+            </value>
+            <value>
+                <fullName>EXW</fullName>
+                <default>false</default>
+                <label>EXW - EX Works</label>
+            </value>
+            <value>
+                <fullName>CIF</fullName>
+                <default>false</default>
+                <label>CIF - COST INSURANCE AND FREIGHT</label>
+            </value>
+            <value>
+                <fullName>1</fullName>
+                <default>false</default>
+                <label>1 - Transport by sea</label>
+            </value>
+            <value>
+                <fullName>2</fullName>
+                <default>false</default>
+                <label>2 - Transport by rail</label>
+            </value>
+            <value>
+                <fullName>3</fullName>
+                <default>false</default>
+                <label>3 - Transport by road</label>
+            </value>
+            <value>
+                <fullName>3PB</fullName>
+                <default>false</default>
+                <label>3PB - FOB SHPPT 3RD PTY BL</label>
+            </value>
+            <value>
+                <fullName>3PC</fullName>
+                <default>false</default>
+                <label>3PC - Third Party Collect</label>
+            </value>
+            <value>
+                <fullName>4</fullName>
+                <default>false</default>
+                <label>4 - Transport by air</label>
+            </value>
+            <value>
+                <fullName>5</fullName>
+                <default>false</default>
+                <label>5 - Consignments by post</label>
+            </value>
+            <value>
+                <fullName>6</fullName>
+                <default>false</default>
+                <label>6 - Fixed transport installations</label>
+            </value>
+            <value>
+                <fullName>7</fullName>
+                <default>false</default>
+                <label>7 - Transport by inland waterway</label>
+            </value>
+            <value>
+                <fullName>8</fullName>
+                <default>false</default>
+                <label>8 - Own propulsion</label>
+            </value>
+            <value>
+                <fullName>9</fullName>
+                <default>false</default>
+                <label>9 - Customer Pick Up</label>
+            </value>
+            <value>
+                <fullName>A</fullName>
+                <default>false</default>
+                <label>A - Free Alongside Ship</label>
+            </value>
+            <value>
+                <fullName>AIR</fullName>
+                <default>false</default>
+                <label>AIR - Air Freight</label>
+            </value>
+            <value>
+                <fullName>ALL</fullName>
+                <default>false</default>
+                <label>ALL - Default</label>
+            </value>
+            <value>
+                <fullName>AOS</fullName>
+                <default>false</default>
+                <label>AOS - FOB Air Over Sea Collect</label>
+            </value>
+            <value>
+                <fullName>AR1</fullName>
+                <default>false</default>
+                <label>AR1 - FOB Ship Air Collect</label>
+            </value>
+            <value>
+                <fullName>BRR</fullName>
+                <default>false</default>
+                <label>BRR - Bypass Routing and Rating</label>
+            </value>
+            <value>
+                <fullName>C</fullName>
+                <default>false</default>
+                <label>C - Freight Collect</label>
+            </value>
+            <value>
+                <fullName>CFR</fullName>
+                <default>false</default>
+                <label>CFR - COST AND FREIGHT</label>
+            </value>
+            <value>
+                <fullName>CIP</fullName>
+                <default>false</default>
+                <label>CIP - CARRIAGE AND INSURANCE PAID TO</label>
+            </value>
+            <value>
+                <fullName>CPT</fullName>
+                <default>false</default>
+                <label>CPT - CARRIAGE PAID TO</label>
+            </value>
+            <value>
+                <fullName>D</fullName>
+                <default>false</default>
+                <label>D - Delivered, Duty Paid</label>
+            </value>
+            <value>
+                <fullName>DAP</fullName>
+                <default>false</default>
+                <label>DAP - DELIVERED AT PLACE</label>
+            </value>
+            <value>
+                <fullName>DDP</fullName>
+                <default>false</default>
+                <label>DDP - DELIVERED DUTY PAID</label>
+            </value>
+            <value>
+                <fullName>EX</fullName>
+                <default>false</default>
+                <label>EX - Ex-Works</label>
+            </value>
+            <value>
+                <fullName>EXA</fullName>
+                <default>false</default>
+                <label>EXA - EXWKS Air Collect - Athens</label>
+            </value>
+            <value>
+                <fullName>EXO</fullName>
+                <default>false</default>
+                <label>EXO - EXWKS OCN Collect - Athens</label>
+            </value>
+            <value>
+                <fullName>F</fullName>
+                <default>false</default>
+                <label>F - Free On Board - Our Dock</label>
+            </value>
+            <value>
+                <fullName>FAS</fullName>
+                <default>false</default>
+                <label>FAS - FREE ALONGSIDE SHIP</label>
+            </value>
+            <value>
+                <fullName>FCA</fullName>
+                <default>false</default>
+                <label>FCA - FREE CARRIER</label>
+            </value>
+            <value>
+                <fullName>FOB</fullName>
+                <default>false</default>
+                <label>FOB - FREE ON BOARD</label>
+            </value>
+            <value>
+                <fullName>FP</fullName>
+                <default>false</default>
+                <label>FP - Freight Pre-pay and Add</label>
+            </value>
+            <value>
+                <fullName>G</fullName>
+                <default>false</default>
+                <label>G - Free On Board - Their Dock</label>
+            </value>
+            <value>
+                <fullName>I</fullName>
+                <default>false</default>
+                <label>I - Cost, Insurance, Freight</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A - NOT APPLICABLE</label>
+            </value>
+            <value>
+                <fullName>OCN</fullName>
+                <default>false</default>
+                <label>OCN - FOB Ocean Collect</label>
+            </value>
+            <value>
+                <fullName>OF</fullName>
+                <default>false</default>
+                <label>OF - Overall Freight</label>
+            </value>
+            <value>
+                <fullName>OPB</fullName>
+                <default>false</default>
+                <label>OPB - Ocean PPD &amp; Billed</label>
+            </value>
+            <value>
+                <fullName>P</fullName>
+                <default>false</default>
+                <label>P - Pickup with our Truck</label>
+            </value>
+            <value>
+                <fullName>PB1</fullName>
+                <default>false</default>
+                <label>PB1 - Prepaid and Billed</label>
+            </value>
+            <value>
+                <fullName>PP</fullName>
+                <default>false</default>
+                <label>PP - Freight Prepaid</label>
+            </value>
+            <value>
+                <fullName>PPA</fullName>
+                <default>false</default>
+                <label>PPA - FOB SHPPT PREPAID &amp; ALLOWED</label>
+            </value>
+            <value>
+                <fullName>PPB</fullName>
+                <default>false</default>
+                <label>PPB - FOB SHPPT PREPAID &amp; BILLED</label>
+            </value>
+            <value>
+                <fullName>TPB</fullName>
+                <default>false</default>
+                <label>TPB - Third Party Bill</label>
+            </value>
+            <value>
+                <fullName>U</fullName>
+                <default>false</default>
+                <label>U - Delivered, Duty UnPaid</label>
+            </value>
+            <value>
+                <fullName>VSL</fullName>
+                <default>false</default>
+                <label>VSL - VSL</label>
+            </value>
+            <value>
+                <fullName>Y</fullName>
+                <default>false</default>
+                <label>Y - Ship</label>
+            </value>
+            <value>
+                <fullName>YCL</fullName>
+                <default>false</default>
+                <label>YCL - Shipped Fac. Collect</label>
+            </value>
+            <value>
+                <fullName>YPA</fullName>
+                <default>false</default>
+                <label>YPA - FOB Shipped PPD Allowed</label>
+            </value>
+            <value>
+                <fullName>YPB</fullName>
+                <default>false</default>
+                <label>YPB - FOB Shipped PPD Billed</label>
+            </value>
+            <value>
+                <fullName>PPD/FOB (free on board)</fullName>
+                <default>false</default>
+                <label>PPD/FOB (free on board)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

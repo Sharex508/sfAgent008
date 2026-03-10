@@ -1,0 +1,98 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "356446d4-39fe-48d9-98b7-2bf3fc43d6fd",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "5b4d19a1-391d-40c1-bbc0-d499a0237997",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:nac_HomePageComponent",
+      "id" : "d9ee478c-76e9-4648-b1ee-9333e7167555",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "cardContentMapping" : "ProductCode,Name,Description",
+        "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}",
+        "numofTiles" : 4,
+        "resultsLayout" : "grid",
+        "showProductImage" : true,
+        "type" : "displayRecentlyOrderedProducts"
+      },
+      "componentName" : "c:nac_displayProducts",
+      "id" : "df93cdcf-9e8e-4f24-ac65-4a2f39b61162",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+      },
+      "componentName" : "c:nac_StoreLocator",
+      "id" : "d0adf090-8a29-4ec9-ab6a-442d5ad4d221",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9999eb3e-e4a5-4f3b-a1d3-0a2fa16338fc",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "addEntryText" : "Add Line",
+        "addToCartButtonBackgroundColor" : "",
+        "addToCartButtonBackgroundHoverColor" : "",
+        "addToCartButtonBorderColor" : "",
+        "addToCartButtonBorderRadius" : "0",
+        "addToCartButtonDisabledBackgroundColor" : "rgb(201, 199, 197)",
+        "addToCartButtonText" : "Add To Cart",
+        "addToCartButtonTextColor" : "",
+        "addToCartButtonTextHoverColor" : "",
+        "numberOfLineItemsToAddEachTime" : 1,
+        "numberOfLineItemsToStart" : 5,
+        "productPlaceholderText" : "Item SKU",
+        "productText" : "Product",
+        "quantityText" : "Quantity",
+        "showAddEntryIcon" : true,
+        "title" : "Quick Order"
+      },
+      "componentName" : "b2b_buyer_builder:quickOrderPage",
+      "id" : "35c493da-7538-4db9-8c51-875b54acbf01",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "689a691e-5108-464f-945c-c9e1ec37cf39",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "ae448082-a6b5-4278-93ef-c4962ba95e7a",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f4adde87-d3c1-4aec-9663-b8054949d75c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "40cf4a95-78a6-4dc5-9cb4-0c0b7ffe503f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Home",
+  "type" : "view",
+  "viewType" : "home"
+}

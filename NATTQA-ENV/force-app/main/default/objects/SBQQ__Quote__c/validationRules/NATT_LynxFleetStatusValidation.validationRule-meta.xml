@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_LynxFleetStatusValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &quot;NATT_eSolutions&quot;,
+ISPICKVAL(SBQQ__Status__c,&quot;Processed&quot;),
+ISCHANGED(SBQQ__Status__c),
+NOT($User.NATT_Lynx_Fleet__c),
+NOT(CONTAINS($Profile.Name, &apos;Admin&apos;))
+)</errorConditionFormula>
+    <errorMessage>You are not allowed to change the status to processed.</errorMessage>
+</ValidationRule>

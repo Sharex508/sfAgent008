@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Test_2</fullName>
+    <columns>TITLE</columns>
+    <columns>NATT_Doc_Number__c</columns>
+    <columns>NATT_Department__c</columns>
+    <columns>NATT_Document_Type__c</columns>
+    <columns>NATT_Year__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>TITLE</field>
+        <operation>contains</operation>
+        <value>SolutionCenter</value>
+    </filters>
+    <filters>
+        <field>NATT_Search_Key_Words_Meta_tags__c</field>
+        <operation>contains</operation>
+        <value>training guide</value>
+    </filters>
+    <label>SolutionCenter Training Guides</label>
+</ListView>

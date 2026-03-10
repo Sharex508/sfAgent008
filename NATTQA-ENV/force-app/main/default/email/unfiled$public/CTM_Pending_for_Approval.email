@@ -1,0 +1,24 @@
+APPROVAL NOTIFICATION
+Please do not reply to this message. If you need assistance or have questions, please contact your local representative<p>
+Dear Approver,<p>
+<p>
+This mail is sent to you to notify Quote {!SBQQ__Quote__c.Name}  needs your approval : <p>
+<p>
+- End Customer Company :{!SBQQ__Quote__c.NATT_End_Customer_Company__c}<br>
+- Account name : {!SBQQ__Quote__c.SBQQ__Account__c}<br>
+- Account owner : {!SBQQ__Quote__c.NATT_Account_Owner__c}<br>
+- Opportunity name : {!SBQQ__Quote__c.NATT_Opportunity_Name__c}<br>
+- Quote Number : {!SBQQ__Quote__c.Name}<br>
+- Opportunity Probability : {!SBQQ__Quote__c.NATT_Opportunity_Probability__c} %<br>
+- Amount : {!SBQQ__Quote__c.NATT_Opportunity_Amount__c}<br>
+- Quote average discount : {!SBQQ__Quote__c.SBQQ__AverageCustomerDiscount__c} %<br>
+- Max Discount: {!SBQQ__Quote__c.NATT_Max_Discount__c} %<br>
+- Quote Validity: {!SBQQ__Quote__c.SBQQ__ExpirationDate__c}<br>
+- Payment Terms: {!SBQQ__Quote__c.SBQQ__PaymentTerms__c}<br>
+- End Customer Payment Terms: {!SBQQ__Quote__c.Condiciones_de_Pago__c}<br>
+- End Customer Quotation Expiration Date: {!SBQQ__Quote__c.Vigencia_de_la_cotizaci_n__c}<br>
+<p>
+Direct link to Opportunity: {!SBQQ__Quote__c.NATT_Opportunity_Link__c}<p>
+Direct link to Quote: {!SBQQ__Quote__c.Quote_Link__c}<p>
+
+Thank you!

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Supra 750 SIII</fullName>
+        <default>false</default>
+        <label>Supra 750 SIII</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 850 SIII</fullName>
+        <default>false</default>
+        <label>Supra 850 SIII</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 1250</fullName>
+        <default>false</default>
+        <label>Supra 1250</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 1250 MT</fullName>
+        <default>false</default>
+        <label>Supra 1250 MT</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 1150</fullName>
+        <default>false</default>
+        <label>Supra 1150</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 1150 MT</fullName>
+        <default>false</default>
+        <label>Supra 1150 MT</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100</fullName>
+        <default>false</default>
+        <label>Vector 8100</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500</fullName>
+        <default>false</default>
+        <label>Vector 8500</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300</fullName>
+        <default>false</default>
+        <label>X4 7300</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500</fullName>
+        <default>false</default>
+        <label>X4 7500</label>
+    </customValue>
+    <masterLabel>CTBR BluEdge Unit</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

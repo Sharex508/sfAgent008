@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Payment_Terms__c</fullName>
+    <description>Picklist field to be added under Production &amp; Scheduling Tab of Quote</description>
+    <label>Payment Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CONTAINER_Sales_Region__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>0 DAYS CN RETURN PAY</fullName>
+                <default>false</default>
+                <label>0 DAYS CN RETURN PAY</label>
+            </value>
+            <value>
+                <fullName>102 DAYS PAYMENT TERM - 102</fullName>
+                <default>false</default>
+                <label>102 DAYS PAYMENT TERM - 102</label>
+            </value>
+            <value>
+                <fullName>12 DAYS PAYMENT TERM - 12</fullName>
+                <default>false</default>
+                <label>12 DAYS PAYMENT TERM - 12</label>
+            </value>
+            <value>
+                <fullName>14 DAYS PAYMENT TERM - 14</fullName>
+                <default>false</default>
+                <label>14 DAYS PAYMENT TERM - 14</label>
+            </value>
+            <value>
+                <fullName>15 DAYS PAYMENT TERM - 15</fullName>
+                <default>false</default>
+                <label>15 DAYS PAYMENT TERM - 15</label>
+            </value>
+            <value>
+                <fullName>21 DAYS PAYMENT TERM - 21</fullName>
+                <default>false</default>
+                <label>21 DAYS PAYMENT TERM - 21</label>
+            </value>
+            <value>
+                <fullName>30 DAYS PAYMENT TERM - 30</fullName>
+                <default>false</default>
+                <label>30 DAYS PAYMENT TERM - 30</label>
+            </value>
+            <value>
+                <fullName>40 DAYS PAYMENT TERM - 40</fullName>
+                <default>false</default>
+                <label>40 DAYS PAYMENT TERM - 40</label>
+            </value>
+            <value>
+                <fullName>45 DAYS PAYMENT TERM - 45</fullName>
+                <default>false</default>
+                <label>45 DAYS PAYMENT TERM - 45</label>
+            </value>
+            <value>
+                <fullName>46 DAYS PAYMENT TERM - 46</fullName>
+                <default>false</default>
+                <label>46 DAYS PAYMENT TERM - 46</label>
+            </value>
+            <value>
+                <fullName>50 DAYS PAYMENT TERM - 50</fullName>
+                <default>false</default>
+                <label>50 DAYS PAYMENT TERM - 50</label>
+            </value>
+            <value>
+                <fullName>60 DAYS PAYMENT TERM - 60</fullName>
+                <default>false</default>
+                <label>60 DAYS PAYMENT TERM - 60</label>
+            </value>
+            <value>
+                <fullName>65 DAYS PAYMENT TERM - 65</fullName>
+                <default>false</default>
+                <label>65 DAYS PAYMENT TERM - 65</label>
+            </value>
+            <value>
+                <fullName>90 DAYS PAYMENT TERM - 90</fullName>
+                <default>false</default>
+                <label>90 DAYS PAYMENT TERM - 90</label>
+            </value>
+            <value>
+                <fullName>120 DAYS PAYMENT TERM - 120</fullName>
+                <default>false</default>
+                <label>120 DAYS PAYMENT TERM - 120</label>
+            </value>
+            <value>
+                <fullName>CASH IN ADVANCE - CIA</fullName>
+                <default>false</default>
+                <label>CASH IN ADVANCE - CIA</label>
+            </value>
+            <value>
+                <fullName>CASH ON DELIVERY - COD</fullName>
+                <default>false</default>
+                <label>CASH ON DELIVERY - COD</label>
+            </value>
+            <value>
+                <fullName>LETTER OF CREDIT - LOC</fullName>
+                <default>false</default>
+                <label>LETTER OF CREDIT - LOC</label>
+            </value>
+            <value>
+                <fullName>NET 30 DAYS – N30</fullName>
+                <default>false</default>
+                <label>NET 30 DAYS – N30</label>
+            </value>
+            <value>
+                <fullName>NET 45 DAYS – N45</fullName>
+                <default>false</default>
+                <label>NET 45 DAYS – N45</label>
+            </value>
+            <value>
+                <fullName>NET 60 DAYS – N60</fullName>
+                <default>false</default>
+                <label>NET 60 DAYS – N60</label>
+            </value>
+            <value>
+                <fullName>NOT APPLICABLE - NAO</fullName>
+                <default>false</default>
+                <label>NOT APPLICABLE - NAO</label>
+            </value>
+            <value>
+                <fullName>NET 365 DAYS – N75</fullName>
+                <default>false</default>
+                <label>NET 365 DAYS – N75</label>
+            </value>
+            <value>
+                <fullName>NET 75 DAYS – N97</fullName>
+                <default>false</default>
+                <label>NET 75 DAYS – N97</label>
+            </value>
+            <value>
+                <fullName>NET 90 DAYS – N78</fullName>
+                <default>false</default>
+                <label>NET 90 DAYS – N78</label>
+            </value>
+            <value>
+                <fullName>LC 30 DAYS FROM BL D - L30</fullName>
+                <default>false</default>
+                <label>LC 30 DAYS FROM BL D - L30</label>
+            </value>
+            <value>
+                <fullName>LC 45 DAYS FROM BL D - L45</fullName>
+                <default>false</default>
+                <label>LC 45 DAYS FROM BL D - L45</label>
+            </value>
+            <value>
+                <fullName>LC AT SIGHT - 21 DAY - L00</fullName>
+                <default>false</default>
+                <label>LC AT SIGHT - 21 DAY - L00</label>
+            </value>
+            <value>
+                <fullName>50% CASH IN ADVANCE - CIA 50%</fullName>
+                <default>false</default>
+                <label>50% CASH IN ADVANCE - CIA 50%</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Not Applicable - N/A</fullName>
+                <default>false</default>
+                <label>Not Applicable - N/A</label>
+            </value>
+            <value>
+                <fullName>102 DAYS PAYMENT TERM (102)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>102 DAYS PAYMENT TERM (102)</label>
+            </value>
+            <value>
+                <fullName>12 DAYS PAYMENT TERM (12)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>12 DAYS PAYMENT TERM (12)</label>
+            </value>
+            <value>
+                <fullName>120 DAYS PAYMENT TERM (120)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>120 DAYS PAYMENT TERM (120)</label>
+            </value>
+            <value>
+                <fullName>14 DAYS PAYMENT TERM (14)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>14 DAYS PAYMENT TERM (14)</label>
+            </value>
+            <value>
+                <fullName>15 DAYS PAYMENT TERM (15)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>15 DAYS PAYMENT TERM (15)</label>
+            </value>
+            <value>
+                <fullName>21 DAYS PAYMENT TERM (21)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>21 DAYS PAYMENT TERM (21)</label>
+            </value>
+            <value>
+                <fullName>30 DAYS PAYMENT TERM (30)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>30 DAYS PAYMENT TERM (30)</label>
+            </value>
+            <value>
+                <fullName>40 DAYS PAYMENT TERM (40)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>40 DAYS PAYMENT TERM (40)</label>
+            </value>
+            <value>
+                <fullName>45 DAYS PAYMENT TERM (45)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>45 DAYS PAYMENT TERM (45)</label>
+            </value>
+            <value>
+                <fullName>46 DAYS PAYMENT TERM (46)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>46 DAYS PAYMENT TERM (46)</label>
+            </value>
+            <value>
+                <fullName>50 DAYS PAYMENT TERM (50)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>50 DAYS PAYMENT TERM (50)</label>
+            </value>
+            <value>
+                <fullName>60 DAYS PAYMENT TERM (60)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>60 DAYS PAYMENT TERM (60)</label>
+            </value>
+            <value>
+                <fullName>65 DAYS PAYMENT TERM (65)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>65 DAYS PAYMENT TERM (65)</label>
+            </value>
+            <value>
+                <fullName>90 DAYS PAYMENT TERM (90)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>90 DAYS PAYMENT TERM (90)</label>
+            </value>
+            <value>
+                <fullName>LC AT SIGHT-- 21 DAY - L00</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LC AT SIGHT-- 21 DAY - L00</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>30 DAYS PAYMENT TERM - 30</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>45 DAYS PAYMENT TERM - 45</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>46 DAYS PAYMENT TERM - 46</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>60 DAYS PAYMENT TERM - 60</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>90 DAYS PAYMENT TERM - 90</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>120 DAYS PAYMENT TERM - 120</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>CASH IN ADVANCE - CIA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>CASH ON DELIVERY - COD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>LC 30 DAYS FROM BL D - L30</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>LC 45 DAYS FROM BL D - L45</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>LC AT SIGHT - 21 DAY - L00</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>50% CASH IN ADVANCE - CIA 50%</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>Not Applicable - N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>LETTER OF CREDIT - LOC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>NET 30 DAYS – N30</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>NET 45 DAYS – N45</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>NET 60 DAYS – N60</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>NOT APPLICABLE - NAO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>NET 365 DAYS – N75</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>NET 75 DAYS – N97</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>NET 90 DAYS – N78</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

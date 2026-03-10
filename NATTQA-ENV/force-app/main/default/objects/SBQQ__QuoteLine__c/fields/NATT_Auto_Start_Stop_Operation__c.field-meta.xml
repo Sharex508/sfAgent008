@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Auto_Start_Stop_Operation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>natt bluedge</description>
+    <label>zDeleteAuto-Start/Stop Operation</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

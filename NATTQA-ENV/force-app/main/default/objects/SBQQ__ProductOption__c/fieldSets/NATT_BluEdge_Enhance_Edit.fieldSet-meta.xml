@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_BluEdge_Enhance_Edit</fullName>
+    <description>for configuring be enhanced in the configurator</description>
+    <label>NATT BluEdge Enhance Edit</label>
+</FieldSet>

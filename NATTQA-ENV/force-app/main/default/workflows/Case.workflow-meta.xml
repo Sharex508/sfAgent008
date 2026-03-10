@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CONTAINER_Case_Closed_Email_Notification</fullName>
+        <description>CONTAINER Case Closed Email Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CONTAINER_Case_Closed_Email_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>CONTAINER_Case_Monitor_Email_Notification</fullName>
+        <description>CONTAINER Case Monitor Email Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CONTAINER_Case_Monitor_Email_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>CONTAINER_Send_Approved_Case_alert_to_users</fullName>
+        <description>CONTAINER Send Approved Case alert to users</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CONTAINER_Service_Case_Approved_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>CONTAINER_Send_Rejected_Case_alert_to_users</fullName>
+        <description>CONTAINER Send Rejected Case alert to users</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CONTAINER_Service_Case_Rejected_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>NAC_After_Market_General_enquiry_alert</fullName>
+        <description>NAC After Market General enquiry alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>capnaoissues@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAOCAP_Notify_when_New_AfterMarket_Case_Created</template>
+    </alerts>
+    <alerts>
+        <fullName>NAC_CoreReturnCaseClosureAlert</fullName>
+        <description>NAC_CoreReturnCaseClosureAlert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>capnaoissues@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAC_core_return_case_closure_template</template>
+    </alerts>
+    <alerts>
+        <fullName>NAC_CoreReturnNewCaseAlert</fullName>
+        <description>NAC_CoreReturnNewCaseAlert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>capnaoissues@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAOCAP_Notify_when_New_core_return_Case_Created</template>
+    </alerts>
+    <alerts>
+        <fullName>NAC_General_enquiry_Closure_Alert</fullName>
+        <description>NAC_General enquiry Closure Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>capnaoissues@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAC_General_Enquiry_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>NAOCAP_Aftermarket_Part_Case_Creation_Email_Alert</fullName>
+        <ccEmails>capnaoissues@carrier.com</ccEmails>
+        <description>NAOCAP Aftermarket Part Case Creation Email Alert</description>
+        <protected>false</protected>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>NAOCAP_Email_Template/NAOCAP_General_Enquiry_Case_Assignment_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>NAOCAP_Core_Return_Case_Creation_Email_Alert</fullName>
+        <ccEmails>capnaoissues@carrier.com</ccEmails>
+        <description>NAOCAP Core Return Case Creation Email Alert</description>
+        <protected>false</protected>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>NAOCAP_Email_Template/NAOCAP_Core_Return_Case_Assignment_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>NATT_Case_Closed_Email_notification</fullName>
+        <description>NATT Case Closed Email notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/NATT_Case_Closed_Email_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>NATT_Case_creation_email_Notification</fullName>
+        <description>NATT Case creation email Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>ContactEmail</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Case_creation_Email_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>New_one</fullName>
+        <description>CONTAINER Case New One Email Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CONTAINER_Case_New_one_Email_Notification</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Assign_BluEdge_Warranty_case_to_BW_queue</fullName>
+        <description>Assign case owner to BW(BluEdge/Warranty) queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_BluEdge_Warranty</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign BluEdge Warranty case to BW queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_Service_Eng_Field_case_to_queue</fullName>
+        <description>Changes case owner to Service Engineering / Field Service queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_Service_Engineering_Field_Service</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign Service Eng/Field case to queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_case_to_queue</fullName>
+        <description>Assign case owner to eSolutions queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_eSolutions</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign case to queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_eSolutions_case_to_queue</fullName>
+        <description>Change case owner to eSolution queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_eSolutions</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign eSolutions case to queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Assign_priority_cases_to_case_escalation</fullName>
+        <description>Assign priority cases to case escalation queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_Case_Escalation</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Assign priority cases to case escalation</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CONTAINER_Update_Case_to_Approved</fullName>
+        <description>In Container Service -Updating Case status to Approved when record is submitted for approval and gets Approved.</description>
+        <field>Status</field>
+        <literalValue>Approved</literalValue>
+        <name>CONTAINER Update Case to Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CONTAINER_Update_Case_to_Pending</fullName>
+        <description>In Container Service -Updating Case status to Pending Approval when record is submitted for Approval.</description>
+        <field>Status</field>
+        <literalValue>Pending Approval</literalValue>
+        <name>CONTAINER Update Case to Pending</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>CONTAINER_Update_Case_to_Rejected</fullName>
+        <description>In Container Service -Updating Case status to Rejected when record is submitted for Approval and gets Rejected.</description>
+        <field>Status</field>
+        <literalValue>Rejected</literalValue>
+        <name>CONTAINER Update Case to Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Assign_Application_Engineering_case</fullName>
+        <description>Case Owner changes to Application Engineering queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_Application_Engineering</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>NATT Assign Application Engineering case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Assign_Core_Returns_case_to_CRqueue</fullName>
+        <description>Changes case owner to Core Returns queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_Core_Returns</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>NATT Assign Core Returns case to CRqueue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Assign_Performance_Parts_case</fullName>
+        <description>Changes case owner to Performance Parts queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_Performance_Parts</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>NATT Assign Performance Parts case</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Assign_Unit_Sales_case_to_queue</fullName>
+        <description>Changes case owner to Unit Sales queue</description>
+        <field>OwnerId</field>
+        <lookupValue>NATT_Unit_Sales</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>NATT Assign Unit Sales case to queue</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>NATT Assign Application Engineering case to Application Engineering queue</fullName>
+        <actions>
+            <name>NATT_Assign_Application_Engineering_case</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>NATT Full Access Community</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Application Engineering</value>
+        </criteriaItems>
+        <description>NATT Assign Application Engineering case to Application Engineering queue. when Profile is NATT Full Access Community</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Assign BluEdge%2FWarranty  case to BluEdge%2FWarranty queue</fullName>
+        <actions>
+            <name>Assign_BluEdge_Warranty_case_to_BW_queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>NATT Full Access Community</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>BluEdge / Warranty</value>
+        </criteriaItems>
+        <description>NATT Assign BluEdge/Warranty case to BluEdge/Warranty queue when Profile is NATT Full Access Community</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Assign Core Returns case to Core Returns queue</fullName>
+        <actions>
+            <name>NATT_Assign_Core_Returns_case_to_CRqueue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>NATT Full Access Community</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Core Returns</value>
+        </criteriaItems>
+        <description>NATT Assign Core Returns to Core Returns queue. when Profile is NATT Full Access Community</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Assign Performance Parts case to Performance Parts queue</fullName>
+        <actions>
+            <name>NATT_Assign_Performance_Parts_case</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>NATT Full Access Community</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Performance Parts</value>
+        </criteriaItems>
+        <description>NATT Assign Performance Parts case to Performance Parts queue when Profile is NATT Full Access Community</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Assign Service Eng %2F Field Service case to Service Eng %2F Field Service queue</fullName>
+        <actions>
+            <name>Assign_Service_Eng_Field_case_to_queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>NATT Full Access Community</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Service Engineering / Field Service</value>
+        </criteriaItems>
+        <description>NATT Assign Service Engineering / Field Service case to Service Engineering / Field Service queue when Profile is NATT Full Access Community</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Assign Unit Sales case to Unit Sales queue</fullName>
+        <actions>
+            <name>NATT_Assign_Unit_Sales_case_to_queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>NATT Full Access Community</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Unit Sales</value>
+        </criteriaItems>
+        <description>NATT Assign Unit Sales to Unit Sales queue. when Profile is NATT Full Access Community</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Assign eSolutions case to eSolutions queue</fullName>
+        <actions>
+            <name>Assign_eSolutions_case_to_queue</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>User.ProfileId</field>
+            <operation>equals</operation>
+            <value>NATT Full Access Community</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>eSolutions</value>
+        </criteriaItems>
+        <description>NATT Assign eSolutions case to eSolutions queue, when Profile is NATT Full Access Community</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Assign priority cases to case escalation queue</fullName>
+        <actions>
+            <name>Assign_priority_cases_to_case_escalation</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.IsClosed</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Priority</field>
+            <operation>equals</operation>
+            <value>Critical,High,Medium,Low</value>
+        </criteriaItems>
+        <description>Assign priority cases to case escalation queue</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Case Creation Email Notification</fullName>
+        <actions>
+            <name>NATT_Case_creation_email_Notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>New</value>
+        </criteriaItems>
+        <description>Case Creation Email Notification</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Close case notification</fullName>
+        <actions>
+            <name>NATT_Case_Closed_Email_notification</name>
+            <type>Alert</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </criteriaItems>
+        <description>Close Case Email notification</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

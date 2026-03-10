@@ -1,0 +1,43 @@
+.c-container {
+    padding: 1rem;
+    background-color: #174771;
+}
+.page-section {
+    border: solid 1px #ccc;
+    padding: 1rem;
+}
+.page-header,
+.page-footer {
+    height: 50px;
+}
+.page-main {
+    background: #f8f8f8;
+}
+.page-left,
+.page-right {
+    background: #f0efef;
+}
+
+.box-section{
+    padding: 2rem;
+    margin: 0.5rem;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 12px 8px 20px 0 #353538;
+}
+
+.header{
+    font-size: 2rem;
+    font-weight: 600;
+    background-color: #fff;
+    min-width: 50%;
+    max-width:fit-content;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 12px 8px 20px 0 #353538;
+}
+
+.footer-note{
+    color:#949698;
+    font-style: italic;
+}

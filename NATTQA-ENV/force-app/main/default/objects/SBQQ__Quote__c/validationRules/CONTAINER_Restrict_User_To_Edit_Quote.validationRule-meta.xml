@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Restrict_User_To_Edit_Quote</fullName>
+    <active>true</active>
+    <description>Only CAM and CS are allowed to edit the quote</description>
+    <errorConditionFormula>AND( 
+NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR( RecordType.Name = &apos;Container GENSET Quote&apos;,RecordType.Name = &apos;Container NT Quote&apos;),
+NOT(ISNEW()),
+ NOT( ISCHANGED( CONTAINER_Status__c ) ) ,
+OR(ISPICKVAL(CONTAINER_Status__c, &apos;Order/Pending for Job #&apos;), ISPICKVAL(CONTAINER_Status__c, &apos;Job # Issued&apos;), ISPICKVAL(CONTAINER_Status__c, &apos;ASO Released&apos;), ISPICKVAL(CONTAINER_Status__c, &apos;SO Released&apos;), ISPICKVAL(CONTAINER_Status__c, &apos;Lost&apos;), ISPICKVAL(CONTAINER_Status__c, &apos;Cancelled&apos;)), NOT($Permission.Restrict_All_Except_CAM_and_CS))</errorConditionFormula>
+    <errorMessage>You are not allowed to make any changes on Quote as Quote is Converted to Order.</errorMessage>
+</ValidationRule>

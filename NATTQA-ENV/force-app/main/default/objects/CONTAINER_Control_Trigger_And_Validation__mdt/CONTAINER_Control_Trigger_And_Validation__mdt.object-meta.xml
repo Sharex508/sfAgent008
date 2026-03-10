@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This metadata type is created for general utility class to control triggers</description>
+    <label>CONTAINER Control Trigger And Validation</label>
+    <pluralLabel>CONTAINER Control Trigger And Validation</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

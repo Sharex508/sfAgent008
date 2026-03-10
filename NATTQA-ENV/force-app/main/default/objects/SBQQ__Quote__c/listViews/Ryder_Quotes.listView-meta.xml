@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ryder_Quotes</fullName>
+    <columns>SBQQ__Account__c</columns>
+    <columns>NAME</columns>
+    <columns>NATT_Opportunity_Name__c</columns>
+    <columns>NATT_Product_Family__c</columns>
+    <columns>NATT_Purchase_Order__c</columns>
+    <columns>NATT_Unit__c</columns>
+    <columns>NATT_Total_Without_EMCC2__c</columns>
+    <columns>NATT_Status_Fx__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>SBQQ__Account__c</field>
+        <operation>contains</operation>
+        <value>Ryder</value>
+    </filters>
+    <label>Ryder Quotes</label>
+</ListView>

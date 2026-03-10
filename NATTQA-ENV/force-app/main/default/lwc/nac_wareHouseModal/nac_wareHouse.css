@@ -1,0 +1,7 @@
+.slds-modal__header {
+    border-bottom: 0 none;
+}
+
+.slds-modal__footer {
+    border-top: 0 none;
+}

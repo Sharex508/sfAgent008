@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Commercial Consultant Approval Queue</name>
+    <queueMembers>
+        <users>
+            <user>alexandre.reis@carrier.com</user>
+            <user>alexandre.reis1@carrier.com</user>
+            <user>alexandre.reis2@carrier.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>SBQQ__Quote__c</sobjectType>
+    </queueSobject>
+</Queue>

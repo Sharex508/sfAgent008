@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>NA Containers Marketplace</container>
+    <containerType>Network</containerType>
+    <label>Default Navigation</label>
+    <navigationMenuItem>
+        <label>Storefront Categories</label>
+        <position>1</position>
+        <publiclyAvailable>true</publiclyAvailable>
+        <target>StorefrontCategories</target>
+        <type>DataSourceDriven</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Upload Order</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/bulk-upload-order</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Download Price Book</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/download-price-book</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Orders</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/order-summary</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Backorder Report</label>
+        <position>5</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/backorder-report</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Documents</label>
+        <position>6</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>https://www.doccentral.carrier.com/launch.html</target>
+        <type>ExternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Cases</label>
+        <position>7</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/case/Case/00B7V000008JjFgUAK</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Plus for Container</label>
+        <position>8</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>https://c-plus.carrier.com/InService/delivery/#/V=2/home</target>
+        <type>ExternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

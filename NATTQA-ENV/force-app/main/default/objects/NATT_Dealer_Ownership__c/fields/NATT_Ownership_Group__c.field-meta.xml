@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Ownership_Group__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>NATT - the owned ownership group</description>
+    <label>Ownership Group</label>
+    <referenceTo>NATT_Dealer_Ownership__c</referenceTo>
+    <relationshipLabel>Ownership Members</relationshipLabel>
+    <relationshipName>Ownership_Members</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

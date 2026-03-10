@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_DirectDelivery__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates if this product item is available for direct delivery. JDE passed a 1.00 if direct delivered [checked] and &apos;0&apos; if the part is not a direct delivered item [unchecked].</description>
+    <label>Direct Delivery</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

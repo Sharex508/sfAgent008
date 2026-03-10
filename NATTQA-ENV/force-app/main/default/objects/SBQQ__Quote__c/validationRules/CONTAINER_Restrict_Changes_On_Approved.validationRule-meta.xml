@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Restrict_Changes_On_Approved</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR( RecordType.Name = &apos;Container GENSET Quote&apos;, 
+RecordType.Name = &apos;Container NT Quote&apos;),
+ISPICKVAL(CONTAINER_Status__c, &apos;Approved&apos;), 
+ISPICKVAL( ApprovalStatus__c , &apos;Approved&apos;),
+OR( 
+ISCHANGED( Container_Special_Requirement_Comments__c ) ,
+ISCHANGED( CONTAINER_Special_Req_Price_Update__c ) ,
+ISCHANGED( CONTAINER_Feature_Option_Map_Check__c ) ,
+ISCHANGED(CONTAINER_Requested_Ship_Date_Up_Check__c) , ISCHANGED(CONTAINER_Tentative_Ship_Sc_Update_Check__c) , ISCHANGED(CONTAINER_Tentative_Ship_Sc_Update_Check__c))
+)</errorConditionFormula>
+    <errorMessage>Please Recall Approvals before making changes.</errorMessage>
+</ValidationRule>

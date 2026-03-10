@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UCP_Permission_Set__c</fullName>
+    <label>UCP Permission Set</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>UCP All</fullName>
+                <default>false</default>
+                <label>UCP All</label>
+            </value>
+            <value>
+                <fullName>UCP Purchase</fullName>
+                <default>false</default>
+                <label>UCP Purchase</label>
+            </value>
+            <value>
+                <fullName>UCP Warranty</fullName>
+                <default>false</default>
+                <label>UCP Warranty</label>
+            </value>
+            <value>
+                <fullName>UCP Only</fullName>
+                <default>false</default>
+                <label>UCP Only</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Truck</fullName>
+        <default>false</default>
+        <label>Truck</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer</fullName>
+        <default>false</default>
+        <label>Trailer</label>
+    </customValue>
+    <customValue>
+        <fullName>Rail</fullName>
+        <default>false</default>
+        <label>Rail</label>
+    </customValue>
+    <customValue>
+        <fullName>Auxiliary Power Unit</fullName>
+        <default>false</default>
+        <label>Auxiliary Power Unit</label>
+    </customValue>
+    <description>Used with NATT CPQ Solution</description>
+    <masterLabel>Model Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

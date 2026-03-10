@@ -1,0 +1,88 @@
+<messaging:emailTemplate subject="{!relatedTo.CONTAINER_Product_Type__c}: Quote converted to Lost - Quote ID: {!relatedTo.Name} for {!ROUND(relatedTo.CONTAINER_Qty__c,0)} {!relatedTo.CONTAINER_Model_Number__c} units for Customer:
+{!IF(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'NAO',IF(relatedTo.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c != '',relatedTo.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c + ' - ' ,''),'')}
+{!IF(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'APO',IF(relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c + ' - ' ,''),'')}
+{!IF(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'EMEA',IF(relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c + ' - ' ,''),'')}
+{!relatedTo.SBQQ__Account__r.Name}" recipientType="User" relatedToType="SBQQ__Quote__c">
+<messaging:htmlEmailBody >
+    <html>
+        <body>
+           <p>
+           The below quote has been marked as "Lost": <br/>
+           ____________________________________________________________<br/>
+           Quote ID: {!relatedTo.Name} <br/><br/><br/>
+           Customer: 
+           <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'NAO',true,false)}"> 
+              <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c != '',true,false)}"> 
+                 {!relatedTo.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c} - 
+             </apex:outputpanel>
+           </apex:outputpanel>
+           <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'APO',true,false)}"> 
+              <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',true,false)}"> 
+                 {!relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c} - 
+             </apex:outputpanel>
+           </apex:outputpanel>
+           <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'EMEA',true,false)}"> 
+              <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',true,false)}"> 
+                 {!relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c} - 
+             </apex:outputpanel>
+           </apex:outputpanel>
+           {!relatedTo.SBQQ__Account__r.Name} <br/>
+          
+           Quantity:   {!ROUND(relatedTo.CONTAINER_Qty__c,0)} <br/>
+           Model:      {!relatedTo.CONTAINER_Model_Number__c} <br/>
+           PID:        {!relatedTo.CONTAINER_PID__c} <br/><br/>
+              <c:ContainerQuoteRelatedTentativeRecords QId="{!relatedTo.Id}" /><br/><br/>  
+           ____________________________________________________________<br/>
+           COMPETITOR INFORMATION <br/>
+           ____________________________________________________________<br/><br/>
+          <apex:outputPanel rendered="{!If(relatedTo.CONTAINER_Competitor_Name__c != '',true,false)}"> 
+           Competitor 1(Winning Competitor): {!relatedTo.CONTAINER_Competitor_Name__c}<br/>
+           Box Manufacturer: {!relatedTo.CONTAINER_Box_Manufacturer__c}<br/>
+           Options: {!relatedTo.CONTAINER_Competitor_Model_1__c}<br/>
+           Order Date: <apex:outputText value="{0, date, MM/dd/yyy}"> <apex:Param value="{!relatedTo.CONTAINER_Order__c}"/> </apex:outputText><br/>
+           Estimated Ship Date: <apex:outputText value="{0, date, MM/dd/yyy}"> <apex:Param value="{!relatedTo.CONTAINER_Estimated_ship_date__c}"/> </apex:outputText><br/>
+           Quantity:   {!relatedTo.CONTAINER_Quantity__c} <br/>
+           Net Sales Price: {!relatedTo.CONTAINER_Net_Sales_Price__c}<br/>
+           Contract Price: {!relatedTo.CONTAINER_Competitor_Contract_price__c}<br/>
+           Concessions (comments): {!relatedTo.CONTAINER_Concessions_Comments__c}  <br/>
+           ____________________________________________________________<br/>
+           </apex:outputpanel>
+           <apex:outputPanel rendered="{!If(relatedTo.CONTAINER_Competitor_Name_2__c != '',true,false)}"> 
+           Competitor 2(Winning Competitor): {!relatedTo.CONTAINER_Competitor_Name_2__c}<br/>
+           Box Manufacturer: {!relatedTo.CONTAINER_Box_Manufacturer_2__c}<br/>
+           Options: {!relatedTo.CONTAINER_Competitor_Model_2__c}<br/>
+           Order Date: <apex:outputText value="{0, date, MM/dd/yyy}"> <apex:Param value="{!relatedTo.CONTAINER_Competitor_Order_Date_2__c}"/> </apex:outputText><br/>
+           Estimated Ship Date: <apex:outputText value="{0, date, MM/dd/yyy}"> <apex:Param value="{!relatedTo.CONTAINER_Estimated_ship_date_2__c}"/> </apex:outputText><br/>
+           Quantity:   {!relatedTo.CONTAINER_Quantity_2__c} <br/>
+           Net Sales Price: {!relatedTo.CONTAINER_Net_Sales_Price_2__c}<br/>
+           Contract Price: {!relatedTo.CONTAINER_Competitor_Contract_Price_2__c}<br/>
+           Concessions (comments): {!relatedTo.CONTAINER_Concessions_Comments_2__c}  <br/>
+           ____________________________________________________________<br/>
+           </apex:outputpanel>
+           <apex:outputPanel rendered="{!If(relatedTo.CONTAINER_Competitor_Name_3__c != '',true,false)}"> 
+           Competitor 3(Winning Competitor): {!relatedTo.CONTAINER_Competitor_Name_3__c}<br/>
+           Box Manufacturer: {!relatedTo.CONTAINER_Box_Manufacturer_3__c}<br/>
+           Options: {!relatedTo.CONTAINER_Competitor_Model_3__c}<br/>
+           Order Date: <apex:outputText value="{0, date, MM/dd/yyy}"> <apex:Param value="{!relatedTo.CONTAINER_Competitor_Order_Date_3__c}"/> </apex:outputText><br/>
+           Estimated Ship Date: <apex:outputText value="{0, date, MM/dd/yyy}"> <apex:Param value="{!relatedTo.CONTAINER_Estimated_ship_date_3__c}"/> </apex:outputText><br/>
+           Quantity:   {!relatedTo.CONTAINER_Quantity_3__c} <br/>
+           Net Sales Price: {!relatedTo.CONTAINER_Net_Sales_Price_3__c}<br/>
+           Contract Price: {!relatedTo.CONTAINER_Competitor_Contract_Price_3__c}<br/>
+           Concessions (comments): {!relatedTo.CONTAINER_Concessions_Comments_3__c}  <br/>
+           ____________________________________________________________<br/>
+           </apex:outputpanel>
+           ____________________________________________________________<br/><br/>
+           WINNING COMPETITOR(S): <apex:outputPanel rendered="{!If(relatedTo.CONTAINER_Competitor_Name__c != '',true,false)}"> {!relatedTo.CONTAINER_Competitor_Name__c} </apex:outputpanel>
+           <apex:outputPanel rendered="{!If(relatedTo.CONTAINER_Competitor_Name_2__c != '',true,false)}">,{!relatedTo.CONTAINER_Competitor_Name_2__c} </apex:outputpanel>
+           <apex:outputPanel rendered="{!If(relatedTo.CONTAINER_Competitor_Name_3__c != '',true,false)}">,{!relatedTo.CONTAINER_Competitor_Name_3__c} </apex:outputpanel><br/>
+           ____________________________________________________________<br/><br/>
+           Reason for "Lost":
+              {!relatedTo.CONTAINER_Reason_for_won_or_lost__c}<br/>
+              ____________________________________________________________<br/>
+           Click link below to review <br/>
+            <a href="{!relatedTo.CONTAINER_DomainName__c}lightning/r/SBQQ__Quote__c/{!relatedTo.Id}/view">{!relatedTo.CONTAINER_DomainName__c}lightning/r/SBQQ__Quote__c/{!relatedTo.Id}/view</a> <br/>
+            </p>
+        </body>
+    </html>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

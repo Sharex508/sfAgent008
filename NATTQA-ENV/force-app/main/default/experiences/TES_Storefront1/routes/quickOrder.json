@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "d20d6911-fa37-4b26-aaa8-632275855891",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Quick_Order",
+  "id" : "8d7ac409-47a6-412c-b0aa-d80a8ae0d6b5",
+  "label" : "Quick Order",
+  "routeType" : "quickorder",
+  "type" : "route",
+  "urlPrefix" : "quickorder"
+}

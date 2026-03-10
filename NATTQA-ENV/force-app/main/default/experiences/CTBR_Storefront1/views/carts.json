@@ -1,0 +1,70 @@
+{
+  "appPageId" : "36896620-400e-426c-89d6-c320936ce4fb",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "c6894b76-d5ea-463a-a95e-3e6081e67452",
+  "label" : "Carts",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "8048ce78-77db-444c-86fd-356760e3151d",
+          "columns" : [ {
+            "UUID" : "77b9b35f-170f-435a-88a9-80fce68baf9f",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "8048ce78-77db-444c-86fd-356760e3151d",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+          },
+          "componentName" : "c:natt_AccountInformationCartPage",
+          "id" : "0cbbb760-3e5e-4a45-9234-9d58527f1f6f",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "77b9b35f-170f-435a-88a9-80fce68baf9f",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2b2fd85f-90f5-4913-ab60-84068b733ca7",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Carts"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "c91a270a-30bc-4dd2-9c75-9d0e15de0b1f",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b44bb9d3-17d4-4107-a437-02aa1b0bfbff",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-carts"
+}

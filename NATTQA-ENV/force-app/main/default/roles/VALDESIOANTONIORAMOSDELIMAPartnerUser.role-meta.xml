@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>VALDESIO ANTONIO RAMOS DE LIMA Partner User</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>VALDESIO ANTONIO RAMOS DE LIMA Partner User</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>CTBR</parentRole>
+</Role>

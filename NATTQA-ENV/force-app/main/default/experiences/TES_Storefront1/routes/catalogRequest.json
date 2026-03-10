@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "e1ada2cc-9009-41c1-befb-5a8f742f3fbb",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Catalog_Request__c",
+  "id" : "074c62ea-43a2-4b22-b7b3-00b1f40c3583",
+  "label" : "Catalog Request",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-catalog-request",
+  "type" : "route",
+  "urlPrefix" : "catalog-request"
+}

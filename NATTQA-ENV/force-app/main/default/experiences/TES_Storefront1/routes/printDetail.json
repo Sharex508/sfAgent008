@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "f1666862-252d-4ce8-8db1-96af427f9b9b",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Print_Detail_Page__c",
+  "id" : "4a1bbbc6-31d6-46b1-8766-1d7d04e230a4",
+  "label" : "Print Detail",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-print-detail",
+  "type" : "route",
+  "urlPrefix" : "print-detail"
+}

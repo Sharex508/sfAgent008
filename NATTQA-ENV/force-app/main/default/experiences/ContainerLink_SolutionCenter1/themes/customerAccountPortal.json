@@ -1,0 +1,148 @@
+{
+  "activeBrandingSetId" : "d9e65553-b12b-41e6-b30d-3489f9b5dedd",
+  "customCSS" : "@media only screen and (min-width: 1200px) {\n\t.cHeaderTop {\n\t\tbackground-image: url('/sfsites/c/resource/UCP_Community_Assets/CommunityAssets/bg-header10.png');\n        background-repeat: no-repeat;\n\t\tpadding-top: 0 !important;\n        height: 130px;\n\t\twidth:100%;\n\t}\n\n\t.cHeaderTopInternalWrapper {\n\t\tdisplay: block;\n\t\theight: inherit;\n\t\tpadding: 0 !important;\n\t}\n\n\n\n\t.cLogo {\n\t\tdisplay: none;\n\t}\n\n\n\n\t.cptNavBar {\n\t\t/*background: #1B347E;*/\n\t\tbottom: 0;\n\t\tposition: absolute;\n\t\twidth: 100%;\n\t}\n\n\n\n\t.siteforceCptBody .comm-navigation {\n\t\tmax-width: 100% !important;\n\t}\n\n\n\n\t.forceCommunityGlobalNavigation>* {\n\t\tmargin: 0 !important;\n\t}\n\n\t.comm-navigation__item > button, .comm-navigation__item > a {\n\t\ttext-transform: uppercase !important;\n\t}\n\n\n\t.comm-navigation__item ul li.slds-list__item button {\n\t\tcolor: #1B347E !important;\n\t}\n\n\n\t.cSearchContainer {\n\t\tposition: absolute;\n\t\tright: 3%;\n\t\ttop: 50px;\n        width:20% !important;\n        min-width:20% !important;\n\t}\n\n\n\n\t.cNotifications {\n\t\tposition: absolute;\n\t\tright: 0;\n\t\ttop: 15px;\n\t}\n\n\n\n\t.cProfileMenu {\n\t\tposition: absolute;\n\t\tright: 3%;\n\t\ttop: 5px;\n\t}\n\n\n\n\t.selfServiceUserProfileMenu a.trigger-link {\n\t\tcolor: white !important;\n\t}\n\n\n\n\t.forceCommunityGlobalSearchInput .inputWrapper {\n\t\tbackground: white;\n\t}\n\n\n\n\t.forceSearchInputDesktop .contentWrapper {\n\t\tborder-radius: 50px !important;\n\t}\n\n\n\n\t.slds-icon-utility-notification svg[data-key=\"notification\"] {fill: white !important;}\n\n\t.siteforceContentArea {\n\t\tpadding: 0 100px;\n\t}\n\n\t.siteforceContentArea.siteforceSldsOneColLayout, .siteforceContentArea.siteforceDynamicLayout {\n\t\tpadding: 0 !important;\n\t}\n}\n\n\n\n@media only screen and (max-width: 30em) {\n\t#CustomerPortalTemplate {\n\toverflow-x: hidden !important;\n\t}\n\n\t.siteforceCptBody .cHeader .cAltToggleNav .slds-button__icon {\n\tcolor:white!important;\n\t}\n\n\t.siteforceCptBody .cHeader .cSearchInvokeMobile .slds-icon {\n\tfill:white!important;\n\t}\n\n\t.siteforceCptBody .cHeader .selfServiceProfileMenuTrigger .profileName{\n\tcolor:white!important;\n\t}\n    \n    .slds-global-actions__notifications{\n        display:none !important;\n    }\n}\n\n\n\n@media only screen and (min-width: 30em) and (max-width: 48em) {\n\t.cSearchContainer {\n\t\tposition: absolute;\n\t\tright: 20%;\n\t\ttop: 10px;\n\t\twidth:21% !important;\n        min-width:21% !important;\n\t}\n\n\n\n\t.cNotifications {\n\t\tposition: absolute;\n\t\tright: 14%;\n\t\ttop: 15px;\n\t}\n\n\n\n\t.cProfileMenu {\n\t\tposition: absolute;\n\t\tright: 1%;\n\t\ttop: 15px;\n\t}\n\n\t.siteforceContentArea {\n\t\tpadding: 0 !important;\n\t}\n\n\t.siteforceCptBody .cHeader .cAltToggleNav .slds-button__icon {\n\t\tcolor:white;\n\t}\n\n\t.siteforceCptBody .cHeader .cSearchInvokeMobile .slds-icon {\n\t\tfill:white;\n\t}\n\n\t.siteforceCptBody .cHeader .selfServiceProfileMenuTrigger .profileName{\n\t\tcolor:white;\n\t}\n}\n\n\n\n@media screen and (min-width: 1024px) and (max-width: 1366px) {\n\t.siteforceContentArea {\n\t\tpadding: 0 !important;\n\t}\n\n}\n\n/* Hide Edit Button on My Profile */\n.forceCommunityUserProfileDetail .userDetailHeader{ \n        display:none !important;\n    }\n\n/* Hide Global Search */\n.forceCommunityGlobalSearchInput{\n    display:none !important;\n}\n\n/* Hide Bell Notification */\n.unsNotificationsCounter .headerButtonBody{\n    display:none !important;\n}\n\n/* Hide Notififcation Box */\n.slds-global-actions__notifications{\n    display:none !important;\n}\n\ndiv[data-target-selection-name*='.Follow'] {    display: none;}\nli[data-target-selection-name*='.FeedItem.ContentNote'] {    display: none;}\nli[data-target-selection-name=\"sfdc:StandardButton.AttachedContentDocument.AttachFileFromDevice\"] { display:none;}\n.forceContentRelatedListPreviewFileList .lightningInput .slds-file-selector__dropzone {display:none;}\n.forceCommunityFileDetailPage .slds-size_1-of-3 {display:none;}",
+  "developerName" : "cpt",
+  "id" : "c99567d5-d174-402e-954f-6277875d03f3",
+  "label" : "Customer Account Portal",
+  "layouts" : {
+    "Inner" : "efef4ac5-a0f3-454f-a0d9-580956cafdd8",
+    "Login" : "9919d023-e6bc-4242-b1e0-de7cba9b56c3",
+    "ServiceNotAvailable" : "b3106f1d-0ecc-4368-8b89-c5ecfafa29cf"
+  },
+  "type" : "theme",
+  "views" : [ {
+    "componentAttributes" : { },
+    "componentName" : "salesforceIdentity:loginBody2",
+    "id" : "9919d023-e6bc-4242-b1e0-de7cba9b56c3",
+    "label" : "Login",
+    "regions" : [ {
+      "id" : "60d7d72d-3658-4b05-a971-86b74bd868bc",
+      "regionName" : "header",
+      "type" : "region"
+    }, {
+      "id" : "720fdc01-7bfb-434c-b00c-339e6f0faf1c",
+      "regionName" : "content",
+      "type" : "region"
+    }, {
+      "id" : "3cb5e56f-fb00-479f-9da9-b6fab7d6850c",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "IsDefaultHeaderHidden" : false,
+      "IsDefaultHeaderPositionFixed" : true,
+      "IsDefaultNotificationsHidden" : false,
+      "IsSearchBarHidden" : false,
+      "fixedPageWidth" : 1400,
+      "isPageWidthFixed" : true
+    },
+    "componentName" : "siteforce:cptBody",
+    "id" : "efef4ac5-a0f3-454f-a0d9-580956cafdd8",
+    "label" : "Default",
+    "regions" : [ {
+      "id" : "8793cf37-8c19-4dc6-aef1-3c4e4a280252",
+      "regionName" : "customHeader",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "maxAutoCompleteResults" : 5,
+          "searchLabel" : "Search...",
+          "searchObjects" : [ {
+            "isPublic" : true,
+            "name" : "KnowledgeArticleVersion"
+          }, {
+            "isPublic" : false,
+            "name" : "Case"
+          }, {
+            "isPublic" : true,
+            "name" : "ContentDocument"
+          } ]
+        },
+        "componentName" : "forceCommunity:globalSearchInput",
+        "id" : "f8b1bd8f-d669-43cf-8b37-248469eb5489",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "83c67880-0ab8-4b03-bdf7-4c24aaea455a",
+      "regionName" : "search",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "accountManagementLabel" : "Account Management",
+          "communityBuilderLabel" : "Experience Builder",
+          "communitySetupLabel" : "Salesforce Setup",
+          "contactSupportLabel" : "Contact Support",
+          "filterName" : "MyCases",
+          "homeLabel" : "Home",
+          "includeContactSupport" : false,
+          "includeMessages" : false,
+          "loginLabel" : "Login",
+          "logoutLabel" : "Logout",
+          "myAccountLabel" : "My Account",
+          "showAccountManagement" : false,
+          "showUserSettings" : false,
+          "userSettingsLabel" : "My Settings",
+          "viewProfileLabel" : "My Profile"
+        },
+        "componentName" : "selfService:userProfileMenu",
+        "id" : "c26826f1-0b59-4f2b-a3d6-64ae7dcab9af",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "7321190f-bb14-4d8e-a099-eb5b8b625047",
+      "regionName" : "profileMenu",
+      "type" : "region"
+    }, {
+      "components" : [ {
+        "componentAttributes" : {
+          "NavigationMenuEditorRefresh" : "",
+          "hideAppLauncher" : false,
+          "hideHomeText" : false
+        },
+        "componentName" : "forceCommunity:globalNavigation",
+        "id" : "a988fe4c-427f-4407-8101-85fd0a38571e",
+        "renditionMap" : { },
+        "type" : "component"
+      } ],
+      "id" : "ddfed41c-6c77-4518-970b-eeaf6cde2479",
+      "regionName" : "navBar",
+      "type" : "region"
+    }, {
+      "id" : "675bd3f0-011c-4124-83e1-eba98a651320",
+      "regionName" : "customRegion",
+      "type" : "region"
+    }, {
+      "id" : "b31e6713-8653-4bc0-b3c6-1c6d3fc7fb3c",
+      "regionName" : "footer",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  }, {
+    "componentAttributes" : {
+      "fixedPageWidth" : 1170,
+      "headerBgColor" : "rgba(0, 0, 0, 0)",
+      "isHeaderPinned" : false,
+      "isHeroUnderHeader" : false,
+      "isPageWidthFixed" : true,
+      "showHeader" : true,
+      "showHero" : true
+    },
+    "componentName" : "siteforce:themeLayoutStarter",
+    "id" : "b3106f1d-0ecc-4368-8b89-c5ecfafa29cf",
+    "label" : "ServiceNotAvailable",
+    "regions" : [ {
+      "id" : "d97ebc07-10e5-48ae-84e7-77a9ca9c9557",
+      "regionName" : "themeHeader",
+      "type" : "region"
+    }, {
+      "id" : "a3a01a25-19a6-42c3-a7da-1c3adebdcb49",
+      "regionName" : "themeFooter",
+      "type" : "region"
+    } ],
+    "type" : "view"
+  } ]
+}

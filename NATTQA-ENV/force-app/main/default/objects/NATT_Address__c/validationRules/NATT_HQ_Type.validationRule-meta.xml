@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_HQ_Type</fullName>
+    <active>true</active>
+    <description>NATT: Allows users with the NATT Bypass HQ Address custom permission to use the HQ type</description>
+    <errorConditionFormula>AND($Permission.NATT_Bypass_HQ_Address=false,
+RecordType.DeveloperName=&apos;NATT_Address&apos;,
+TEXT(NATT_Type__c) = &apos;Headquarters&apos;,
+NATT_Account__r.RecordType.DeveloperName = &quot;Dealer&quot;
+)</errorConditionFormula>
+    <errorDisplayField>NATT_Type__c</errorDisplayField>
+    <errorMessage>You do not have permission to modify a Headquarter address</errorMessage>
+</ValidationRule>

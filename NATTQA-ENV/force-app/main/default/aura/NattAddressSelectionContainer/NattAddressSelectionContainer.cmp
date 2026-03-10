@@ -1,0 +1,27 @@
+<aura:component controller="NattAddressSelectionCon" implements="force:hasRecordId,forceCommunity:availableForAllPageTypes,flexipage:availableforallpagetypes,force:lightningQuickActionWithoutHeader">    
+    <aura:attribute name="selectedShippingAddressId" type="String"/>
+    <aura:attribute name="selectedBillingAddressId" type="String"/>
+    <aura:attribute name="endCustomerId" type="String"/>
+    <aura:attribute name="dealerId" type="String"/>
+    <aura:attribute name="oppId" type="String"/>
+    <aura:attribute name="isProcessing" type="boolean" default="false"/>
+	<aura:handler event="force:refreshView" action="{!c.doInit}" />    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div class="slds-is-relative">
+        <aura:if isTrue="{!v.isProcessing}">
+            <lightning:spinner alternativeText="Loading..."/>
+        </aura:if>
+        <div class="slds-grid slds-wrap slds-theme_default">
+            <lightning:messages />
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-left_small">
+                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" endCustomerId="{!v.endCustomerId}" dealerId="{!v.dealerId}" addressType="Units Ship To"/>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-left_small">
+                <c:NattAddressSelection selectedAddressId="{!v.selectedBillingAddressId}" endCustomerId="{!v.endCustomerId}" dealerId="{!v.dealerId}" addressType="Billing"/>
+            </div>        
+            <div class="slds-m-top_medium slds-m-bottom_medium slds-p-left_small">            
+                <lightning:button label="Save Address" onclick="{!c.handleAddressChange}"/>
+            </div>
+        </div>    
+    </div>
+</aura:component>

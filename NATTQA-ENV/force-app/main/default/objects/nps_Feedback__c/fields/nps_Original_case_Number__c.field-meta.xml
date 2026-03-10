@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Original_case_Number__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The survey can be triggered by an event on a case (e.g. closure). This field links the feedback to the original case.</description>
+    <label>Original case - Number</label>
+    <referenceTo>Case</referenceTo>
+    <relationshipName>NPS_Feedbacks1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

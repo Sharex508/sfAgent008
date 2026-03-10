@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Approved Quote</masterLabel>
+        <translation><!-- Approved Quote --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closed Lost</masterLabel>
+        <translation>Fechado Perdido</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closed Won</masterLabel>
+        <translation>Fechado Ganhado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closing</masterLabel>
+        <translation>Fechado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Demo/Presentation</masterLabel>
+        <translation>Demonstração/Apresentação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Needs Analysis</masterLabel>
+        <translation>Precisa de análise</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Negotiation</masterLabel>
+        <translation>Negociação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Order Released</masterLabel>
+        <translation>Pedido liberado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Proposal</masterLabel>
+        <translation>Proposta</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Prospecting</masterLabel>
+        <translation>Prospecção</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Qualification</masterLabel>
+        <translation>Qualificação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Quotation</masterLabel>
+        <translation>Cotação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Quoting</masterLabel>
+        <translation>Cotando</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Shipped</masterLabel>
+        <translation>Enviado</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Name_Not_Editable_By_Community_Users</fullName>
+    <active>true</active>
+    <description>Validation rule to avoid name edit by NATT community users for dealer accounts.</description>
+    <errorConditionFormula>AND( ISCHANGED(Name), CONTAINS($Profile.Name, &apos;Community&apos;), CONTAINS($Profile.Name, &apos;NATT&apos;), OR( NATT_Record_Type_Developer_Name__c==&apos;Dealer&apos;,
+NATT_Record_Type_Developer_Name__c==&apos;NATT_Group_Ownership&apos;,
+NATT_Record_Type_Developer_Name__c==&apos;NATT_OEM&apos;))</errorConditionFormula>
+    <errorMessage>Account name can only be changed by an administrator.</errorMessage>
+</ValidationRule>

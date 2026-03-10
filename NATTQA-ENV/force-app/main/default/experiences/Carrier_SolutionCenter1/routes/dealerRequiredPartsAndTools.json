@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "bc327f2d-d485-4b17-8f92-551a6893fca4",
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "configurationTags" : [ ],
+  "devName" : "Dealer_Required_Parts_and_Tools__c",
+  "id" : "b1bb4afb-69ff-431a-bb3b-5d0d5cefd900",
+  "label" : "Dealer Required Parts and Tools",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-dealer-required-parts-and-tools",
+  "type" : "route",
+  "urlPrefix" : "dealer-required-parts-and-tools"
+}

@@ -1,0 +1,1360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>CTM_Case_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>CTM_Case_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Case</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>App de Ventas para Carrier Transicold - México</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Ventas en México - CTM</label>
+    <navType>Console</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Account_Record_Pageb2b</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+        <recordType>Contact.MX_Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CTM_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+        <recordType>Knowledge__kav.MX</recordType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM Customer Master Responsible</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM General Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM IT Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM Manager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM Sales Director</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM Sales User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>CTM_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>CTM Support User</profile>
+    </profileActionOverrides>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Feed</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>SBQQ__Quote__c</tabs>
+    <tabs>standard-Order</tabs>
+    <tabs>standard-Case</tabs>
+    <tabs>standard-ProcessInstanceWorkitem</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>standard-Task</tabs>
+    <tabs>standard-Event</tabs>
+    <tabs>NATT_Team_Calendar__c</tabs>
+    <tabs>NATT_Dealer_Ownership__c</tabs>
+    <tabs>Knowledge__kav</tabs>
+    <tabs>NATT_Case_Sales_Order__c</tabs>
+    <tabs>Engine_Authorization_Request__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Ventas_en_M_xico_CTM_UtilityBar1</utilityBar>
+    <workspaceConfig>
+        <mappings>
+            <tab>Engine_Authorization_Request__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Knowledge__kav</tab>
+        </mappings>
+        <mappings>
+            <tab>NATT_Case_Sales_Order__c</tab>
+        </mappings>
+        <mappings>
+            <tab>NATT_Dealer_Ownership__c</tab>
+        </mappings>
+        <mappings>
+            <tab>NATT_Team_Calendar__c</tab>
+        </mappings>
+        <mappings>
+            <tab>SBQQ__Quote__c</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Account</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Case</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Contact</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Dashboard</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Event</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Feed</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Opportunity</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Order</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-ProcessInstanceWorkitem</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Task</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-home</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-report</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>

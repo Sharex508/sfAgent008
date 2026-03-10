@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Change_of_Core_Ret_Loc_is_Soln_Cent</fullName>
+    <active>true</active>
+    <description>Once a Return Item is added to a Core Return Case the Core Return Location Cannot be changed by a Dealer</description>
+    <errorConditionFormula>AND(
+    NATT_Number_of_Return_Line_Items__c &gt; 0,
+    NOT(ISBLANK($User.ContactId)),
+    ISCHANGED( NATT_Core_Return_Location__c ),
+    NOT(ISNEW()),
+    NOT( ISBLANK( PRIORVALUE( NATT_Core_Return_Location__c ) ) )
+    
+
+    )</errorConditionFormula>
+    <errorDisplayField>NATT_Core_Return_Location_Account__c</errorDisplayField>
+    <errorMessage>You cannot modify the Core Return Location once it is set.  Please contact Carrier if you need further assistance.</errorMessage>
+</ValidationRule>

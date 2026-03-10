@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CLF_PCI__c</fullName>
+    <label>Primary customer Issues</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CLF_PCI_1</fullName>
+                <default>false</default>
+                <label>Professionalism / Friendliness</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_2</fullName>
+                <default>false</default>
+                <label>Timeliness / Responsiveness</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_3</fullName>
+                <default>false</default>
+                <label>Training / Expertise</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_4</fullName>
+                <default>false</default>
+                <label>Communication</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_5</fullName>
+                <default>false</default>
+                <label>Products/Parts Availability</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_6</fullName>
+                <default>false</default>
+                <label>On-Time Delivery</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_7</fullName>
+                <default>false</default>
+                <label>Order Fulfillment</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_8</fullName>
+                <default>false</default>
+                <label>Scheduling Availability</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_9</fullName>
+                <default>false</default>
+                <label>Installation Quality</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_10</fullName>
+                <default>false</default>
+                <label>Product Quality</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_11</fullName>
+                <default>false</default>
+                <label>Service Quality</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_12</fullName>
+                <default>false</default>
+                <label>Documentation</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_13</fullName>
+                <default>false</default>
+                <label>Invoicing</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_14</fullName>
+                <default>false</default>
+                <label>Price</label>
+            </value>
+            <value>
+                <fullName>CLF_PCI_15</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

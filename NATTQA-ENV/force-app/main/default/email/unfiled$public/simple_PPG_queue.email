@@ -1,0 +1,6 @@
+New case created for PPG queue
+
+Case ID: {!Case.Id}
+Case number: {!Case.CaseNumber}
+Case Description: {!Case.Description}
+Click for case details: {!Case.Link}

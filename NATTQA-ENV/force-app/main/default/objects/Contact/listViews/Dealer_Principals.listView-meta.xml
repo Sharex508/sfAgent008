@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer_Principals</fullName>
+    <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FULL_NAME</columns>
+    <columns>NATT_Key_Business_Role__c</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NATT_Key_Business_Role__c</field>
+        <operation>equals</operation>
+        <value>Principal,Co-Principal</value>
+    </filters>
+    <filters>
+        <field>Account.NATT_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.NATT_Dealer</value>
+    </filters>
+    <filters>
+        <field>Account.NATT_Primary_Location_Type__c</field>
+        <operation>equals</operation>
+        <value>Full Dealer,Parts and Service</value>
+    </filters>
+    <label>Dealer Principals</label>
+</ListView>

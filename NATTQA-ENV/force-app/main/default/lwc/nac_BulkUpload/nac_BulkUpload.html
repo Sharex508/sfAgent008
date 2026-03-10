@@ -1,0 +1,255 @@
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <template if:true={showToast}>
+        <div class="toast" data-id="toast">
+            <div class="slds-notify_container slds-is-relative" style="min-width : 39.7rem">
+                <div class="slds-notify slds-notify_toast slds-theme_error">
+                    <span
+                        class="slds-icon_container slds-icon-utility-error slds-m-right_small slds-no-flex slds-align-top">
+                        <lightning-icon icon-name="utility:error" size="small" variant="inverse"></lightning-icon>
+                    </span>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small ">Error
+                        </h2>
+                        {label.errorMessage1}
+                    </div>
+                    <div class="slds-notify__close">
+                        <button class="slds-button slds-button_icon slds-button_icon-inverse" title="Close"
+                            onclick={closeToast}>
+                            <lightning-icon icon-name="utility:close" size="small" variant="inverse"></lightning-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <lightning-breadcrumbs class="slds-p-top_large">
+        <template for:each={breadcrumbs} for:item="crumbs">
+            <lightning-breadcrumb key={crumbs.id} label={crumbs.label} name={crumbs.name} onclick={handleNavigateTo}>
+            </lightning-breadcrumb>
+        </template>
+    </lightning-breadcrumbs>
+    <template if:false={showData}>
+        <div class="slds-float_right">
+            <lightning-button variant="brand-outline" label="Download .CSV Template" title="Download .CSV Template"
+                onclick={downloadTemplate}></lightning-button>
+        </div>
+    </template>
+    <h1 class="slds-p-top_large" style="font-size: 1.8em;">Upload Order</h1>
+    <div class="slds-grid slds-gutters slds-p-top_large">
+        <div class="slds-col slds-size_1-of-3">
+            <h1>Bulk Order Upload</h1>
+        </div>
+        <div class="slds-col slds-size_1-of-3">
+            <template if:true={showData}>
+                <template if:true={numberofItems}>
+                    <div class="slds-text-align_center">File uploaded successfully with {numberofItems} products and core products if applicable</div>
+                </template>
+            </template>
+        </div>
+    </div>
+    <div class="slds-p-horizontal_small slds-p-top_large">
+        <template if:false={showData}>
+            <div class="slds-scoped-notification slds-media slds-media_center slds-scoped-notification_light notificationShade"
+                role="status">
+                <div class="slds-media__figure">
+                    <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+                </div>
+                <div class="slds-media__body">
+                    <p>{label.helpText}</p>
+                </div>
+            </div>
+            <div class="slds-p-bottom_medium"></div>
+            <lightning-file-upload class="file-selector-image" onuploadfinished={handleUploadFinished}
+                accept={acceptedFormats} variant="label-hidden" onclick={closeToast}>
+            </lightning-file-upload>
+        </template>
+        <template if:true={showData}>
+            <div class="slds-p-horizontal_xx-large">
+                <div class="slds-box">
+                    <h1>Order Details</h1>
+                    <div class="slds-p-horizontal_large slds-p-top_x-large">
+                        <table
+                            class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped slds-no-row-hover">
+                            <tr class="slds-line-height_reset slds-grid slds-wrap notificationShade">
+                                <th class="slds-col slds-size_1-of-3" scope="col">
+                                    <h3 class="slds-truncate" title="Part Number">Part Number</h3>
+                                </th>
+                                <th class="slds-col slds-size_1-of-3" scope="col">
+                                    <h3 class="slds-truncate" title="Quantity">Qty</h3>
+                                </th>
+                                <th class="slds-col slds-size_1-of-3" scope="col">
+                                    <h3 class="slds-truncate" title="Status">Status</h3>
+                                </th>
+                            </tr>
+                            <tbody>
+                                <template for:each={displayResultData} for:item="prod">
+                                    <tr class="slds-hint-parent slds-grid slds-wrap" key={prod.index}>
+                                        <td class="slds-col slds-size_1-of-3" data-label="Product Name">
+                                            <div class="slds-truncate" title={prod.name}> {prod.name}</div>
+                                        </td>
+                                        <td class="slds-col slds-size_1-of-3" data-label="Quantity">
+                                            <div class="slds-truncate" title={prod.quantity}>{prod.quantity}</div>
+                                        </td>
+                                        <td class="slds-col slds-size_1-of-3" data-label="Status">
+                                            <template if:false={prod.hasError}>
+                                                <div class="slds-truncate" title="No Error Found">
+                                                    <div class="slds-text-color_success">No Error Found</div>
+                                                </div>
+                                                <template if:true={prod.isSuperseded}>
+                                                    <div class="slds-text-color_success slds-truncate" title={prod.supersededText}>{prod.supersededText}</div>
+                                                </template>
+                                            </template>
+                                            <template if:true={prod.hasError}>
+                                                <div class="slds-truncate" title={prod.errorMessageList}>
+                                                    <div class="slds-text-color_error">{prod.errorMessageList}</div>
+                                                </div>
+                                            </template>
+                                        </td>
+                                    </tr>
+                                    <!--core product-->
+                                    <template if:true={prod.isCoreItem}>
+                                        <tr class="slds-hint-parent slds-grid slds-wrap" key={prod.index}>
+                                            <td class="slds-col slds-size_1-of-3" data-label="Product Name">
+                                                <div class="slds-truncate" title={prod.name}> {prod.corePrName}</div>
+                                            </td>
+                                            <td class="slds-col slds-size_1-of-3" data-label="Quantity">
+                                                <div class="slds-truncate" title={prod.quantity}>{prod.corePrQuantity}
+                                                </div>
+                                            </td>
+                                            <td class="slds-col slds-size_1-of-3" data-label="Status">
+                                                <div class="slds-truncate" title="Core Found" style="color: orange">
+                                                    <div class="slds-text-color_success">This is a core Item Product for
+                                                        {prod.name}</div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="slds-p-bottom_medium"></div>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <ul class="slds-list_horizontal slds-has-inline-block-links_space">
+                            <li>
+                                <h4 class="slds-p-right_small">Results Showing</h4>
+                            </li>
+                            <template for:each={pageSizeOptions} for:item="option">
+                                <li key={option.value}>
+                                    <template if:true={option.selected}>
+                                        <h4 class="slds-p-right_small">{option.value}</h4>
+                                    </template>
+                                    <template if:false={option.selected}>
+                                        <span class="slds-p-right_small pointer" data-value={option.value}
+                                            onclick={handleChangePageSize}>{option.value}
+                                        </span>
+                                    </template>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-float_right">
+                        <template if:true={showPagination}>
+                            <div class="pagination slds-float_right">
+                                <div data-id="jumpToLeft" onclick={handleFirstPage}>
+                                    <lightning-icon icon-name="utility:jump_to_left" size="x-small"></lightning-icon>
+                                </div>
+                                <div data-id="chevronLeft" onclick={handlePrevious}>
+                                    <lightning-icon icon-name="utility:chevronleft" size="xx-small"></lightning-icon>
+                                </div>
+                                <template for:each={pageNumberOptions} for:item="option">
+                                    <template if:true={option.selected}>
+                                        <div class="active" key={option.value}>{option.value}</div>
+                                    </template>
+                                    <template if:false={option.selected}>
+                                        <div key={option.value} onclick={handlePageNumberClick}
+                                            data-value={option.value}>
+                                            {option.value}</div>
+                                    </template>
+                                </template>
+                                <div data-id="chevronRight" onclick={handleNext}>
+                                    <lightning-icon icon-name="utility:chevronright" size="xx-small"></lightning-icon>
+                                </div>
+                                <div data-id="jumpToRight" onclick={handleLastPage}>
+                                    <lightning-icon icon-name="utility:jump_to_right" size="x-small"></lightning-icon>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+                <div class="slds-p-bottom_medium"></div>
+                <div class="slds-float_right">
+                    <lightning-button label="Cancel" title="Cancel" onclick={handleCancel} class="slds-m-left_x-small">
+                    </lightning-button>
+                    <lightning-button variant="brand" label="Add to Cart" title="Add to Cart"
+                        onclick={handleAddItemToCart} class="slds-m-left_x-small"></lightning-button>
+                </div>
+                <div class="slds-p-bottom_medium"></div>
+                <div class="slds-p-bottom_medium"></div>
+            </div>
+        </template>
+    </div>
+    <template if:true={cancelPopUp}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container ">
+                <header class="slds-modal__header border-0 slds-theme_default">
+                    <p class="slds-text-heading_medium slds-hyphenate">
+                        {label.canceheader}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="slds-align_absolute-center">
+                        <div>
+                            <h4>{label.cancelContent1}</h4>
+                            <div class="slds-p-bottom_xx-small"></div>
+                            {label.cancelContent2}
+                        </div>
+                    </div>
+                    <div class="slds-p-bottom_small"></div>
+                    <div class="slds-grid slds-gutters slds-align_absolute-center">
+                        <lightning-button label="No" title="No" onclick={handleCancelNo} class="slds-m-left_x-small">
+                        </lightning-button>
+                        <lightning-button variant="brand" label="Yes" title="Yes" onclick={handleCancelYes}
+                            class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <template if:true={confirmPopUp}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container ">
+                <header class="slds-modal__header border-0 slds-theme_default">
+                    <p class="slds-text-heading_medium slds-hyphenate">
+                        {label.pleaseConfirm}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="slds-align_absolute-center">
+                        <div>
+                            <h4>{label.confirmContent1}</h4>
+                            <div class="slds-p-bottom_xx-small"></div>
+                            {label.confirmContent2}
+                        </div>
+                    </div>
+                    <div class="slds-p-bottom_small"></div>
+                    <div class="slds-grid slds-gutters slds-align_absolute-center">
+                        <lightning-button label={label.cancelLabel} title={label.cancelLabel}
+                            onclick={handleAddItemToCartCancel} class="slds-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label={label.okLabel} title={label.okLabel}
+                            onclick={handleAddItemToCartYes} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+    <template if:true={isShowModal}>
+        <c-nac_ware-house-modal effective-account-id={effectiveAccountId} oncalltoaction={closeModal}
+            oncalltoclose={keepModalOpen}></c-nac_ware-house-modal>
+    </template>
+</template>

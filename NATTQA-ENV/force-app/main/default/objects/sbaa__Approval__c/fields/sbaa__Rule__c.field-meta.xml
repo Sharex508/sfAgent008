@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Rule__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>Approval rule that generated this approval.</description>
+    <inlineHelpText>Approval rule that generated this approval.</inlineHelpText>
+    <label>Rule</label>
+    <referenceTo>sbaa__ApprovalRule__c</referenceTo>
+    <relationshipLabel>Approvals</relationshipLabel>
+    <relationshipName>Approvals</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

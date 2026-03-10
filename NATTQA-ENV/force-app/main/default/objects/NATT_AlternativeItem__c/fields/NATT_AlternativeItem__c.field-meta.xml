@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_AlternativeItem__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Item that is being provided as an alternative to the Product Item</description>
+    <inlineHelpText>Item that is being provided as an alternative to the Product Item</inlineHelpText>
+    <label>Alternative Item</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>NATT Alternative Items (Alternative Item)</relationshipLabel>
+    <relationshipName>NATT_Alternative_Items1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

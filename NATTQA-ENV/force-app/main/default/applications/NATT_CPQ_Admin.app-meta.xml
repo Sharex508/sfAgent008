@@ -1,0 +1,2037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Knowledge_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Knowledge_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Knowledge__kav</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_PAR_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>NATT_PAR__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_PAR_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>NATT_PAR__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Campaign_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Campaign</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Campaign_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Campaign</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Sales_Contact_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Contact</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Lead_Record_Page1</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Lead_Record_Page1</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Sales_Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Sales_Opportunity_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Opportunity_Product_Layout</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>OpportunityLineItem</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Opportunity_Product_Layout</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>OpportunityLineItem</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Order</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Order_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Order</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Product_Layout</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Product2</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NATT_Product_Layout</content>
+        <formFactor>Small</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Product2</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>NATT_Sales_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>Transicold_Logo2</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>NATT CPQ Admin</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account_Dealer_Master_User</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account_Dealer_Master_User</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account_Field_Staff_Read_Only</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account_Field_Staff_Read_Only</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account_Field_Staff_Read_Only</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account_Field_Staff_Read_Only</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account_Super_User</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account_Super_User</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>Carrier SolutionCenter Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>Carrier SolutionCenter Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Competitor</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>Carrier SolutionCenter Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>Carrier SolutionCenter Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>Carrier SolutionCenter Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>Carrier SolutionCenter Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>Carrier SolutionCenter Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>Carrier SolutionCenter Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Warranty Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Sales Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts Only Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate Without Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Customer</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_OEM</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Dealer_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Dealer</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Associate With Tavant Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Group_Account</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.NATT_Group_Ownership</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Full Access Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Technical Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_End_User_Account_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Internal</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Parts and Service Community</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_eSolutions</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_BluEdge</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Field Staff</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>CGI Administrator</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Account Super User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Accounts Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>NATT Dealer Master User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>NATT_Non_Unit_Quote_Record_Page</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>SBQQ__Quote__c</pageOrSobjectType>
+        <recordType>SBQQ__Quote__c.NATT_Internal_Customer</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>SBQQ__Quote__c</tabs>
+    <tabs>standard-Product2</tabs>
+    <tabs>SBQQ__ProductRule__c</tabs>
+    <tabs>SBQQ__PriceRule__c</tabs>
+    <tabs>SBQQ__SummaryVariable__c</tabs>
+    <tabs>SBQQ__SearchFilter__c</tabs>
+    <tabs>SBQQ__QuoteTemplate__c</tabs>
+    <tabs>NATT_ItemPriceStaging__c</tabs>
+    <tabs>Asset_Amend</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>NATT_CPQ_Admin_UtilityBar1</utilityBar>
+</CustomApplication>

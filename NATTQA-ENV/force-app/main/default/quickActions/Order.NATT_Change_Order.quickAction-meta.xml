@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldOverrides>
+        <field>NATT_End_Customer__c</field>
+        <formula>Order.NATT_End_Customer__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>NATT_Mark_For_Special_Delivery_Instructi__c</field>
+        <formula>Order.NATT_Mark_For_Special_Delivery_Instructi__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>NATT_Purchase_Order__c</field>
+        <formula>Order.NATT_Purchase_Order__c</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>Status</field>
+        <literalValue>Unlocked for Changes</literalValue>
+    </fieldOverrides>
+    <label>Change Order Header</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>NATT_Mark_For_Special_Delivery_Instructi__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>NATT_Purchase_Order__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>NATT_End_Customer__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>NATT_Unlock_Ship_To_Address_For_Changes__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>NATT_Unlock_Requested_Ship_Date__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>NATT_Change_Order_Comments__c</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <successMessage>Your changes have been updated. You many continue with address changes, requested ship date changes, and click Submit Changes to continue.</successMessage>
+    <type>Update</type>
+</QuickAction>

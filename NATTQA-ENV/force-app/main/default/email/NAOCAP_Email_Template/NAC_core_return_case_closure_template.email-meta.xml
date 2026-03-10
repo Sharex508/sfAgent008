@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <available>true</available>
+    <description>This email template is being used for core return case closure</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NAC_core return case closure template</name>
+    <style>none</style>
+    <subject>Your core return case with case id   was processed and closed</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

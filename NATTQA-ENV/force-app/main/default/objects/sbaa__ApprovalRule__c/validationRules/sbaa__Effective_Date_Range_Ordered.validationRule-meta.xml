@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Effective_Date_Range_Ordered</fullName>
+    <active>true</active>
+    <description>Effective End Date must not come before Effective Start Date.</description>
+    <errorConditionFormula>sbaa__EffectiveStartDate__c&gt;sbaa__EffectiveEndDate__c</errorConditionFormula>
+    <errorMessage>Effective End Date must not come before Effective Start Date.</errorMessage>
+</ValidationRule>

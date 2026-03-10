@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_EffectiveDate__c</fullName>
+    <description>Date the alternative item effectively supersedes the product item</description>
+    <inlineHelpText>Date the alternative item effectively supersedes the product item</inlineHelpText>
+    <label>Effective Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Network.NetworkMembers$Member</field>
+    </columns>
+    <columns>
+        <field>Network.NetworkMembers$Username</field>
+    </columns>
+    <columns>
+        <field>Network.NetworkMembers$Id</field>
+    </columns>
+    <columns>
+        <field>Network.NetworkMembers$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Network.NetworkMembers$Member.LastLoginDate</field>
+    </columns>
+    <description>Total number of community members, grouped by user type.</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Network.NetworkMembers$UserType</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Total Members</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ca_collab_2_0__Network_Members_30__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Network.NetworkMembers$Member.LastLoginDate</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Network$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

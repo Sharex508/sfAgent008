@@ -1,0 +1,66 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "75449ba5-6971-4aca-9d6a-11a4de305dd2",
+  "label" : "Order Detail",
+  "regions" : [ {
+    "id" : "27bec959-a0c7-4f27-9ad1-6d4a1dae2473",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "2c9cb3e8-d5cc-4b73-9e8d-492bbdf45f54",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordDetail",
+      "id" : "2bead981-7922-4168-bd55-e7c9d3c49745",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "c:nac_Shipment",
+      "id" : "4319b9c1-1ac2-4139-a5be-af01ecc50fa2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fa40dc18-833b-4a78-b05a-63aed5e9fa9e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "a00b8c1a-14fa-48af-8b91-5ebfa4248cb0",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7074c351-9de6-4195-a04e-61bc53db708d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e468454d-1f89-43ff-bb93-ce45e0b0569e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-801"
+}

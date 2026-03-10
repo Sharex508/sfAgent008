@@ -1,0 +1,68 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "03583c28-9d0c-4cde-83c2-1ecc082fd33c",
+  "label" : "Invoice Detail",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "feaa37c1-5c8a-4ec1-b97c-f6f96aecdad1",
+          "columns" : [ {
+            "UUID" : "c5c2636f-ea13-414c-9f40-b5073922a363",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "feaa37c1-5c8a-4ec1-b97c-f6f96aecdad1",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_TesInvoiceDetailsComponent",
+          "id" : "3078a7b1-3173-434b-a70f-a6f376249fff",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "c5c2636f-ea13-414c-9f40-b5073922a363",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e4b0cb21-03c8-410d-b159-bb57adb93973",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Invoice Detail"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "3d13d39a-81da-4a99-86a5-f7114d5063ca",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ddd97120-0d7d-472e-9e37-caea820d10a8",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "I9U9BZDKU53ClG3keXDsDn1X6EQJPp",
+  "type" : "view",
+  "viewType" : "custom-invoice-detail"
+}

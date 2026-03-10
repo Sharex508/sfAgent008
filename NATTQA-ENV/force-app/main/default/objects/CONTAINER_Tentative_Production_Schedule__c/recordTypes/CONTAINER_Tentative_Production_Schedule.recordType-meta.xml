@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Tentative_Production_Schedule</fullName>
+    <active>true</active>
+    <label>Tentative Production Schedule</label>
+    <picklistValues>
+        <picklist>CONTAINER_Factory__c</picklist>
+        <values>
+            <fullName>ATHENS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ATHENS STOCK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SING STOCK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SINGAPORE</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

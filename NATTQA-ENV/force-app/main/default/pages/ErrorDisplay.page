@@ -1,0 +1,25 @@
+<apex:page sidebar="false" standardController="Opportunity" extensions="ErrorDisplayController">
+    <head>
+        <style type="text/css">
+            .container{
+            font-family: "Calibri";
+            font-size: xx-large;
+            }
+            
+            .button{
+            font-size: small;
+            float: right;
+            }        
+        </style>
+    </head>
+    <apex:form >
+        <apex:pageBlock >
+            <div class='button'>
+                <apex:commandButton value="X" action="{!doRedirect}" />
+            </div>
+            <div class='container'>
+                <center><b>You may not create a record using this button.</b></center>
+            </div>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

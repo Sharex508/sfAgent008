@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>NA Containers Marketplace</container>
+    <containerType>Network</containerType>
+    <label>UCP Download Price List Menu</label>
+    <navigationMenuItem>
+        <label>Download Price Book</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/download-price-book</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

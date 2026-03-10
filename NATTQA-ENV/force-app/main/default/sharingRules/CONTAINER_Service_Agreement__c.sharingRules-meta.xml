@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_RSM_RW</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Service Agreement Read Write RSM</description>
+        <label>CONTAINER RSM RW</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_RSM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Read_All</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Read Only Access for Service Agreement.</description>
+        <label>CONTAINER Read All</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Admin_RW</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read Write access for service agreement record.</description>
+        <label>CONTAINER Service Admin RW</label>
+        <sharedTo>
+            <role>Container_Service_Admin</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Warranty_Admin_RW</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Service Agreement Read Write Warranty Admin.</description>
+        <label>CONTAINER Warranty Admin RW</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_Warranty_Administrator</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

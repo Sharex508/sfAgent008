@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_External_Agreements__c</fullName>
+    <description>Container Service field</description>
+    <label>External Agreements</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TK</fullName>
+                <default>false</default>
+                <label>TK</label>
+            </value>
+            <value>
+                <fullName>MHI</fullName>
+                <default>false</default>
+                <label>MHI</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Daikin</fullName>
+                <default>false</default>
+                <label>Daikin</label>
+            </value>
+            <value>
+                <fullName>Starcool</fullName>
+                <default>false</default>
+                <label>Starcool</label>
+            </value>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>6</visibleLines>
+</CustomField>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audits_EMEA_2023</fullName>
+    <columns>NAME</columns>
+    <columns>CONTAINER_ASP_Nmae_Audited__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>CONTAINER_Final_Audit_Result__c</columns>
+    <columns>CONTAINER_Audit_Year__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTAINER_Operating_Region__c</field>
+        <operation>equals</operation>
+        <value>EMEA</value>
+    </filters>
+    <filters>
+        <field>CONTAINER_Audit_Year__c</field>
+        <operation>equals</operation>
+        <value>,2023</value>
+    </filters>
+    <label>Audits EMEA 2023</label>
+    <sharedTo>
+        <group>CONTAINER_FSM_EMEA_Case</group>
+        <group>CONTAINER_RSM_EMEA_Case</group>
+    </sharedTo>
+</ListView>

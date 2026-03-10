@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_NT_Quotes</fullName>
+    <columns>NAME</columns>
+    <columns>CONTAINER_Type__c</columns>
+    <columns>CONTAINER_Sales_Region__c</columns>
+    <columns>SBQQ__Account__c</columns>
+    <columns>NATT_Parent_Account_Name__c</columns>
+    <columns>CONTAINER_Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>CONTAINER_Job__c</columns>
+    <columns>CONTAINER_ASO_ID__c</columns>
+    <columns>CONTAINER_ASO_Rev__c</columns>
+    <columns>CONTAINER_Qty__c</columns>
+    <columns>CONTAINER_Model_Number__c</columns>
+    <columns>CONTAINER_PID__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>SBQQ__Quote__c.CONTAINER_NT_Quote</value>
+    </filters>
+    <label>NT Quotes</label>
+    <sharedTo>
+        <group>CONTAINER_Global_Sales_Director</group>
+        <group>CONTAINER_RSM_APO_Case</group>
+        <group>CONTAINER_RSM_EMEA_Case</group>
+        <group>CONTAINER_RSM_NAO_Case</group>
+        <group>CONTAINER_Sales_CAM</group>
+        <group>CONTAINER_Sales_CAM_GENSET</group>
+        <group>CONTAINER_Sales_CAM_NT</group>
+        <group>CONTAINER_Sales_CS</group>
+        <group>CONTAINER_Sales_CS_GENSET</group>
+        <group>CONTAINER_Sales_CS_NT</group>
+        <group>CONTAINER_Sales_PM</group>
+        <group>CONTAINER_Sales_PM_GENSET</group>
+        <group>CONTAINER_Sales_PM_NT</group>
+        <group>CONTAINER_Sales_RSD_APO</group>
+        <group>CONTAINER_Sales_RSD_EMEA</group>
+        <group>CONTAINER_Sales_RSD_NAO</group>
+        <group>CONTAINER_Sales_RSM_APO</group>
+        <group>CONTAINER_Sales_RSM_EMEA</group>
+        <group>CONTAINER_Sales_RSM_NAO</group>
+        <group>CONTAINER_Sales_VP</group>
+        <group>Container_Sales_VP_NT</group>
+    </sharedTo>
+</ListView>

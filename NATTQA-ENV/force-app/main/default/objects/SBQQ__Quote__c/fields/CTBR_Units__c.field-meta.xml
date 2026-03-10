@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Units__c</fullName>
+    <label>CTBR Units</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CITIMAX 280 12V LA</fullName>
+                <default>false</default>
+                <label>CITIMAX 280 12V LA</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 280 24V LA</fullName>
+                <default>false</default>
+                <label>CITIMAX 280 24V LA</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 400 12V LA</fullName>
+                <default>false</default>
+                <label>CITIMAX 400 12V LA</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 400 24V LA</fullName>
+                <default>false</default>
+                <label>CITIMAX 400 24V LA</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 500 12V AE</fullName>
+                <default>false</default>
+                <label>CITIMAX 500 12V AE</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 500 12V ACOPLADO</fullName>
+                <default>false</default>
+                <label>CITIMAX 500 12V ACOPLADO</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 500 24V AE</fullName>
+                <default>false</default>
+                <label>CITIMAX 500 24V AE</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 500 24V ACOPLADO</fullName>
+                <default>false</default>
+                <label>CITIMAX 500 24V ACOPLADO</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 600 12V AE</fullName>
+                <default>false</default>
+                <label>CITIMAX 600 12V AE</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 600 12V ACOPLADO</fullName>
+                <default>false</default>
+                <label>CITIMAX 600 12V ACOPLADO</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 600 24V AE</fullName>
+                <default>false</default>
+                <label>CITIMAX 600 24V AE</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 600 24V ACOPLADO</fullName>
+                <default>false</default>
+                <label>CITIMAX 600 24V ACOPLADO</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 700 12V AE</fullName>
+                <default>false</default>
+                <label>CITIMAX 700 12V AE</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 700 12V ACOPLADO</fullName>
+                <default>false</default>
+                <label>CITIMAX 700 12V ACOPLADO</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 700 24V AE</fullName>
+                <default>false</default>
+                <label>CITIMAX 700 24V AE</label>
+            </value>
+            <value>
+                <fullName>CITIMAX 700 24V ACOPLADO</fullName>
+                <default>false</default>
+                <label>CITIMAX 700 24V ACOPLADO</label>
+            </value>
+            <value>
+                <fullName>SUPRA S7</fullName>
+                <default>false</default>
+                <label>SUPRA S7</label>
+            </value>
+            <value>
+                <fullName>SUPRA S8</fullName>
+                <default>false</default>
+                <label>SUPRA S8</label>
+            </value>
+            <value>
+                <fullName>SUPRA S9</fullName>
+                <default>false</default>
+                <label>SUPRA S9</label>
+            </value>
+            <value>
+                <fullName>SUPRA 750 STD-BY</fullName>
+                <default>false</default>
+                <label>SUPRA 750 STD-BY</label>
+            </value>
+            <value>
+                <fullName>SUPRA 850 STD-BY</fullName>
+                <default>false</default>
+                <label>SUPRA 850 STD-BY</label>
+            </value>
+            <value>
+                <fullName>SUPRA 1250 STD-BY</fullName>
+                <default>false</default>
+                <label>SUPRA 1250 STD-BY</label>
+            </value>
+            <value>
+                <fullName>VECTOR 8500</fullName>
+                <default>false</default>
+                <label>VECTOR 8500</label>
+            </value>
+            <value>
+                <fullName>X4 7500</fullName>
+                <default>false</default>
+                <label>X4 7500</label>
+            </value>
+            <value>
+                <fullName>X4 7700</fullName>
+                <default>false</default>
+                <label>X4 7700</label>
+            </value>
+            <value>
+                <fullName>Vector HE19</fullName>
+                <default>false</default>
+                <label>Vector HE19</label>
+            </value>
+            <value>
+                <fullName>Vector 8600 MT</fullName>
+                <default>false</default>
+                <label>Vector 8600 MT</label>
+            </value>
+            <value>
+                <fullName>SUPRA 750  STD-BY</fullName>
+                <default>false</default>
+                <label>SUPRA 750  STD-BY</label>
+            </value>
+            <value>
+                <fullName>Supra 850 MT</fullName>
+                <default>false</default>
+                <label>Supra 850 MT</label>
+            </value>
+            <value>
+                <fullName>Supra 1150 STD-BY</fullName>
+                <default>false</default>
+                <label>Supra 1150 STD-BY</label>
+            </value>
+            <value>
+                <fullName>Supra 1150 MT</fullName>
+                <default>false</default>
+                <label>Supra 1150 MT</label>
+            </value>
+            <value>
+                <fullName>Supra 1250 MT</fullName>
+                <default>false</default>
+                <label>Supra 1250 MT</label>
+            </value>
+            <value>
+                <fullName>Xarios 6 R2 24V 220/3/60</fullName>
+                <default>false</default>
+                <label>Xarios 6 R2 24V 220/3/60</label>
+            </value>
+            <value>
+                <fullName>Xarios 6 R2 12V 220/3/60</fullName>
+                <default>false</default>
+                <label>Xarios 6 R2 12V 220/3/60</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

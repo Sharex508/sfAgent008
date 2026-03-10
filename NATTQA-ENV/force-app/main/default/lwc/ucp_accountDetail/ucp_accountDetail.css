@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f4f4; /* Light gray background */
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd; /* Optional border */
+  }
+  
+  .logo {
+    width: 50px; /* Adjust as needed for your logo */
+  }
+  
+  .logo img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .nav {
+    flex-grow: 1;
+    
+  }

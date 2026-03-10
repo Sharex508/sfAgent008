@@ -1,0 +1,140 @@
+<template>
+    <!-- <div class="section slds-section slds-is-open">
+    </div> -->
+            <!-- <h3 class="section slds-section__title slds-theme_shade">
+            <lightning-input type="text" field-name="Email Address" onchange={handleEmail} value={emailAddressValue} label="Email Address">
+            </lightning-input>
+            </h3>-->
+    <!-- Customer Name & Email Address -->
+<h3 class="slds-theme_shade">
+<!-- <div class="slds-p-around_x-small">slds-tabs_card -->
+<div class="slds-tabs_card">
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="nameField" variant="standard" type="text" field-name="Customer Name" onchange={handleChange} value={nameValue} label="First Name" required>
+            </lightning-input>
+        </div>
+    </div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="lastnameField" type="text" field-name="Last Name" onchange={handleChange} value={lastnameValue} label="Last Name" required>
+            </lightning-input>
+        </div>
+    </div>
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <!-- <lightning-input data-id="emailField" type="email" field-name="Email Address" onchange={handleChange} value={emailAddressValue} label="Email Address"  pattern="[A-Za-z0-9._-]+@[a-z0-9-]+.[a-z]{2,}$" message-when-pattern-mismatch="Please enter a valid email" required>
+            </lightning-input> -->
+            <lightning-input data-id="emailField" type="email" field-name="Email Address" onchange={handleChange} value={emailAddressValue} label="Email Address"  pattern="[A-Za-z0-9._-]+@[a-z0-9-]+.[a-z]{2,}$"
+            placeholder="username@example.com" message-when-pattern-mismatch="Please enter a valid email" required>
+            </lightning-input>
+        </div>
+    </div>
+    
+    <!-- Password Confirmation -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="passwordField" type="password" field-name="Password" onchange={handleChange} value={passwordValue} label="Password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" message-when-pattern-mismatch="Password must be a minimum of 8 characters, contain at least one letter, one number & one special character." required>
+            </lightning-input>
+        </div>
+        <div>
+            <!-- <lightning-badge label="{passwordStrength}" aura-id="psBadge" class="slds-theme--error" /> -->
+        </div>
+    </div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="password2Field" type="password" field-name="Confirm Password" onchange={handleChange} value={password2Value} label="Confirm Password" required>
+            </lightning-input>
+            <div class="password-error-text">
+                {passwordErrorMessage}
+            </div>
+        </div>
+    </div>
+    <!-- Company Telephone -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="companyField" type="text" field-name="Company" onchange={handleChange} value={companyValue} label="Company">
+            </lightning-input>
+        </div>
+    </div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <!-- <lightning-input data-id="telephoneField" type="text" field-name="Telephone" onchange={handleChange} value={telephoneValue} label="Telephone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}$" message-when-pattern-mismatch="Please enter a valid phone number" required> -->
+            <lightning-input data-id="telephoneField" type="text" field-name="Telephone" onchange={handleChange} value={telephoneValue} label="Telephone">
+            </lightning-input>
+        </div>
+    </div>
+
+    <!-- Street Addresses -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <!-- <lightning-input data-id="streetField" type="textarea" field-name="Street Address" onchange={handleChange} value={streetValue} label="Street Address">
+            </lightning-input> -->
+            <lightning-textarea data-id="streetField" field-name="Street Address" onchange={handleChange} value={streetValue} label="Street Address" required></lightning-textarea>
+        </div>
+    </div>
+    <!-- <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input data-id="street2Field" type="text" field-name="Street Address 2" onchange={handleChange} value={street2Value} label="Street Address2">
+            </lightning-input>
+        </div>
+    </div> -->
+    <!-- City State -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="cityField" type="text" field-name="City" onchange={handleChange} value={cityValue} label="City" required>
+            </lightning-input>
+        </div>
+    </div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <!-- <lightning-input data-id="stateField" type="text" field-name="State" onchange={handleChange} value={stateValue} label="State">
+            </lightning-input> -->
+            <lightning-combobox  
+                data-id="stateField"      
+                label={label}        
+                placeholder='Select a State'
+                options={choices}
+                onchange={handleChange}
+                disabled={stateDisabled}
+                >
+            </lightning-combobox>
+        </div>
+    </div>
+    <!-- Postal Code Country -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="postalCodeField" type="text" field-name="Postal Code" onchange={handleChange} value={postalCodeValue} label="Postal Code">
+            </lightning-input>
+        </div>
+    </div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <!-- <lightning-input data-id="countryField" type="text" field-name="Country" onchange={handleChange} value={countryValue} label="Country">
+            </lightning-input> -->
+                <lightning-combobox  
+                    data-id="countryField"      
+                    label='Country'        
+                    placeholder='Select a Country'
+                    options={choicesCountry}
+                    onchange={handleChange}
+                    required
+                    >
+                </lightning-combobox>
+            
+             <!-- <lightning-combobox  
+                    data-id="countryField"      
+                    label={labelCountry}     
+                    placeholder='Select a Country'
+                    options={choicesCountry}
+                    onchange={handleChange}
+                    >
+            </lightning-combobox> -->
+            
+        </div>
+    </div>
+</div>
+</h3>
+    <!-- <lightning-button label="Neutral" title="Value Check" onclick={handleClick} class="slds-m-left_x-small"></lightning-button> -->
+</template>

@@ -1,0 +1,82 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "ThankYouPage",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"905eb2b6-b3dd-41ab-be21-270108b92473\",\"columns\":[{\"UUID\":\"a52f4b6b-9237-4d3c-a055-bffb7925ad8a\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "imageInfos" : "",
+                "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 14px; font-family: &quot;Atlassian Sans&quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, &quot;Helvetica Neue&quot;, sans-serif; color: rgb(41, 42, 46);\">Thank you</span><span style=\"font-size: 18px; font-family: &quot;Atlassian Sans&quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, &quot;Helvetica Neue&quot;, sans-serif; color: rgb(41, 42, 46);\">﻿</span><span style=\"font-size: 14px; font-family: &quot;Atlassian Sans&quot;, ui-sans-serif, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Ubuntu, &quot;Helvetica Neue&quot;, sans-serif; color: rgb(41, 42, 46);\"> for your submission. A Carrier representative will reach out soon.</span></p>"
+              },
+              "definition" : "community_builder:richTextEditor",
+              "id" : "0119166d-7d2c-4817-8945-a19dd619f854",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "alignment" : "center",
+                "size" : "standard",
+                "stretch" : "standard",
+                "text" : "Create Another Request",
+                "type" : "primary",
+                "url" : "{\"linkInfo\":{\"pageReference\":{\"type\":\"comm__namedPage\",\"attributes\":{\"name\":\"Home\"}}}}"
+              },
+              "definition" : "dxp_base:button",
+              "id" : "27c79c09-fb08-4496-9787-67ed51f183fd",
+              "type" : "component"
+            } ],
+            "id" : "a52f4b6b-9237-4d3c-a055-bffb7925ad8a",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "905eb2b6-b3dd-41ab-be21-270108b92473",
+          "type" : "component"
+        } ],
+        "id" : "edb6d3a5-5ec7-4cf4-ac5e-16dbef6997e5",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "pageTitle" : "ThankYouPage",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "e4943fa1-81cd-4e8d-86f4-26a98aad6c82",
+          "type" : "component"
+        } ],
+        "id" : "4c7a0437-c0ee-44e6-9626-6ba3b56d6af0",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "ca0ed847-95a1-41df-a73c-a987c52a4524",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-thankyoupage"
+  },
+  "urlName" : "thankyoupage"
+}

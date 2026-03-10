@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>CONTAINER Case Monitor Email Notification</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CONTAINER Case Monitor Email Notification</name>
+    <style>none</style>
+    <subject>The case has been moved to monitor state</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

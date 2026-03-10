@@ -1,0 +1,75 @@
+{
+  "appPageId" : "ef8a2e60-638f-40e5-9483-8dbdde9127cb",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "98ace9d9-b3b8-4bab-a479-9b4aca2c0fed",
+  "label" : "Login",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "forgotPasswordLabel" : "Forgot your password?",
+        "forgotPasswordUrl" : "/ForgotPassword",
+        "loginButtonLabel" : "Log in",
+        "passwordLabel" : "Password",
+        "selfRegisterLabel" : "Not a member?",
+        "selfRegisterUrl" : "/SelfRegister",
+        "startUrl" : "",
+        "usernameLabel" : "Username"
+      },
+      "componentName" : "salesforceIdentity:loginForm2",
+      "id" : "6995fb39-1564-4417-a0db-92ac6e55321b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a7ebf065-19c0-44bd-8b55-e8abb0a5dd77",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Login"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "6df65556-0da5-49d0-aff3-011f82ee116b",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d07e4976-705d-4d34-9e45-5bd4071027f4",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "id" : "6866adcf-de9c-450d-83dd-99d2e1cbca99",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "bfeda9d9-2f6f-4fbe-ae45-7bb9e0d71268",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "334c19e3-c44e-4e72-b1cc-48d0c82ea100",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "headerText" : "",
+        "showHeader" : false,
+        "useCommunityDomainSso" : true
+      },
+      "componentName" : "salesforceIdentity:socialLogin2",
+      "id" : "02e486cf-99e5-4d8c-b938-ece6f43bce86",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1019c87d-2233-43e2-8b17-9df332e9b896",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "login-home"
+}

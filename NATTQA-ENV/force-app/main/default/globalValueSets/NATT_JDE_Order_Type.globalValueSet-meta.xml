@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>4</fullName>
+        <default>false</default>
+        <label>Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>2</fullName>
+        <default>false</default>
+        <label>Same Day</label>
+    </customValue>
+    <customValue>
+        <fullName>1</fullName>
+        <default>false</default>
+        <label>Unit Down</label>
+    </customValue>
+    <description>Values for order prioritity</description>
+    <masterLabel>JDE Order Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

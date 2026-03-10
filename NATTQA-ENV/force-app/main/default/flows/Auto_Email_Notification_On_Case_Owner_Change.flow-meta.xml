@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>On change of the case owner there should be an email notification to the new owner</description>
+        <name>email_notification_to_the_new_case_owner</name>
+        <label>email notification to the new case owner</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Owner:User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Case # {!$Record.CaseNumber}: {!$Record.Subject} has been assigned to you.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>CaseTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <constants>
+        <description>Service Engineering Record Type API Name</description>
+        <name>ServiceEngineeringType</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>NATT_Service_Engineering_Field_Service</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <description>Only for Service Engineering Cases</description>
+        <name>Case_Record_Type_Validation</name>
+        <label>Case Record Type Validation</label>
+        <locationX>182</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>True</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ServiceEngineeringType</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>email_notification_to_the_new_case_owner</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <description>when owner of the Service Engineering case is changed there should be an email notification to the new owner each time</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>CaseContactName</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.Contact.FirstName} + {!$Record.Contact.LastName}</expression>
+    </formulas>
+    <formulas>
+        <description>link to access the case</description>
+        <name>recordURL</name>
+        <dataType>String</dataType>
+        <expression>LEFT({!$Api.Partner_Server_URL_520},FIND(&apos;/services&apos;,{!$Api.Partner_Server_URL_520}))&amp;{!$Record.Id}</expression>
+    </formulas>
+    <interviewLabel>Auto Email Notification On Case Owner Change {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Auto Email Notification On Case Owner Change</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Case_Record_Type_Validation</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>OwnerId</field>
+            <operator>IsChanged</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Case</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>CaseSubject</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;&lt;span style=&quot;background-color: rgb(248, 248, 248); font-size: 11.36px; font-family: Arial, Helvetica, sans-serif; color: rgb(0, 0, 0);&quot;&gt;Case # {!$Record.CaseNumber}: {!$Record.Subject} has been assigned to you.&lt;/span&gt;&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Case Email Template</description>
+        <name>CaseTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>*** NEW CASE ASSIGNMENT NOTIFICATION ***
+
+The following case has been assigned to you.
+Company: {!$Record.Account.Name}
+Contact Name: {!CaseContactName}
+Case #: {!$Record.CaseNumber}
+Subject: {!$Record.Subject}
+Description: {!$Record.Description}
+
+Click on the link to access the case: {!recordURL}</text>
+    </textTemplates>
+</Flow>

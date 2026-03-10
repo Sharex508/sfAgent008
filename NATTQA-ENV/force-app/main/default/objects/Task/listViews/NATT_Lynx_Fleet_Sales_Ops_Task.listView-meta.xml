@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Lynx_Fleet_Sales_Ops_Task</fullName>
+    <filterScope>Queue</filterScope>
+    <label>NATT Lynx Fleet Sales Ops</label>
+    <queue>NATT_Lynx_Fleet_Sales_Ops</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

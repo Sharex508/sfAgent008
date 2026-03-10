@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Is_main_product__c</fullName>
+    <formula>AND(ISBLANK(SBQQ__QuoteLine__r.SBQQ__OptionLevel__c),ISBLANK(SBQQ__QuoteLine__r.SBQQ__RequiredBy__c),SBQQ__QuoteLine__r.SBQQ__Bundle__c)</formula>
+    <label>Is main product</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

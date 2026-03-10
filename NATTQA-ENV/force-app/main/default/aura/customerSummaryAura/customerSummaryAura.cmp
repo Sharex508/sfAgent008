@@ -1,0 +1,5 @@
+<aura:component implements="force:hasRecordId,force:hasSObjectName,force:lightningQuickActionWithoutHeader,flexipage:availableForAllPageTypes,force:appHostable" access="global">
+    <!--style to incraee width-->
+
+    <c:customerSummary class="tempclass" recordId="{!v.recordId}" objectApiName="{!v.sObjectName}" onclosemodal="{!c.closeModal}" />
+</aura:component>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "09e582aa-f39a-41c7-8180-4de7dca59dc8",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Terms_of_Sale__c",
+  "id" : "412a27f2-c381-4732-824e-4c3b717cbc85",
+  "label" : "Terms of Sale",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-terms-of-sale",
+  "type" : "route",
+  "urlPrefix" : "termsofsale"
+}

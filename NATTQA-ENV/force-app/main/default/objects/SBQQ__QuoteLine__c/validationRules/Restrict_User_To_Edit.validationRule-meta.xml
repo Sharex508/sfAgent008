@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_User_To_Edit</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(OR(  SBQQ__Quote__r.RecordType.Name  = &apos;Container GENSET Quote&apos;, SBQQ__Quote__r.RecordType.Name  = &apos;Container NT Quote&apos;),
+NOT(ISNEW()),
+OR(ISPICKVAL(SBQQ__Quote__r.CONTAINER_Status__c, 	&apos;Order/Pending for Job #&apos;), ISPICKVAL(SBQQ__Quote__r.CONTAINER_Status__c, 	&apos;Job # Issued&apos;),ISPICKVAL(SBQQ__Quote__r.CONTAINER_Status__c, 	&apos;ASO Released&apos;),ISPICKVAL(SBQQ__Quote__r.CONTAINER_Status__c, 	&apos;SO Released&apos;),ISPICKVAL(SBQQ__Quote__r.CONTAINER_Status__c, 	&apos;Lost&apos;),ISPICKVAL(SBQQ__Quote__r.CONTAINER_Status__c, 	&apos;Cancelled&apos;)),NOT($Permission.Restrict_All_Except_CAM_and_CS))</errorConditionFormula>
+    <errorMessage>You are not allowed to make any changes as quote converted to order.</errorMessage>
+</ValidationRule>

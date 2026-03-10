@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>APU - PC6023 DPF</fullName>
+        <default>false</default>
+        <label>APU - PC6023 DPF</label>
+    </customValue>
+    <customValue>
+        <fullName>PC6022 APU</fullName>
+        <default>false</default>
+        <label>PC6022 APU</label>
+    </customValue>
+    <customValue>
+        <fullName>PC6024 APU</fullName>
+        <default>false</default>
+        <label>PC6024 APU</label>
+    </customValue>
+    <customValue>
+        <fullName>PC6112 APU</fullName>
+        <default>false</default>
+        <label>PC6112 APU</label>
+    </customValue>
+    <customValue>
+        <fullName>30S ROAD</fullName>
+        <default>false</default>
+        <label>30S ROAD</label>
+    </customValue>
+    <customValue>
+        <fullName>30S STD-BY</fullName>
+        <default>false</default>
+        <label>30S STD-BY</label>
+    </customValue>
+    <customValue>
+        <fullName>35X ROAD</fullName>
+        <default>false</default>
+        <label>35X ROAD</label>
+    </customValue>
+    <customValue>
+        <fullName>40X ROAD</fullName>
+        <default>false</default>
+        <label>40X ROAD</label>
+    </customValue>
+    <customValue>
+        <fullName>40X STD-BY</fullName>
+        <default>false</default>
+        <label>40X STD-BY</label>
+    </customValue>
+    <customValue>
+        <fullName>50X ROAD</fullName>
+        <default>false</default>
+        <label>50X ROAD</label>
+    </customValue>
+    <customValue>
+        <fullName>50X STD-BY</fullName>
+        <default>false</default>
+        <label>50X STD-BY</label>
+    </customValue>
+    <customValue>
+        <fullName>950 M/T</fullName>
+        <default>false</default>
+        <label>950 M/T</label>
+    </customValue>
+    <customValue>
+        <fullName>TDB56NDTP</fullName>
+        <default>false</default>
+        <label>TDB56NDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDB57NDTP</fullName>
+        <default>false</default>
+        <label>TDB57NDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDB58NDTP</fullName>
+        <default>false</default>
+        <label>TDB58NDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDB59NDTP</fullName>
+        <default>false</default>
+        <label>TDB59NDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDB960</fullName>
+        <default>false</default>
+        <label>TDB960</label>
+    </customValue>
+    <customValue>
+        <fullName>TDS56NDTP</fullName>
+        <default>false</default>
+        <label>TDS56NDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDS57NDTP</fullName>
+        <default>false</default>
+        <label>TDS57NDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDS58NDTP</fullName>
+        <default>false</default>
+        <label>TDS58NDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDS59NDTP</fullName>
+        <default>false</default>
+        <label>TDS59NDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDS5BNDTP</fullName>
+        <default>false</default>
+        <label>TDS5BNDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>TDS860</fullName>
+        <default>false</default>
+        <label>TDS860</label>
+    </customValue>
+    <customValue>
+        <fullName>TDS960</fullName>
+        <default>false</default>
+        <label>TDS960</label>
+    </customValue>
+    <customValue>
+        <fullName>SOLARA-HEAT</fullName>
+        <default>false</default>
+        <label>SOLARA-HEAT</label>
+    </customValue>
+    <customValue>
+        <fullName>ADE S/T</fullName>
+        <default>false</default>
+        <label>ADE S/T</label>
+    </customValue>
+    <customValue>
+        <fullName>V8500</fullName>
+        <default>false</default>
+        <label>V8500</label>
+    </customValue>
+    <customValue>
+        <fullName>V8500R</fullName>
+        <default>false</default>
+        <label>V8500R</label>
+    </customValue>
+    <customValue>
+        <fullName>V86 DUAL EVAP</fullName>
+        <default>false</default>
+        <label>V86 DUAL EVAP</label>
+    </customValue>
+    <customValue>
+        <fullName>V8600</fullName>
+        <default>false</default>
+        <label>V8600</label>
+    </customValue>
+    <customValue>
+        <fullName>VECTOR 19 HE R2 S</fullName>
+        <default>false</default>
+        <label>VECTOR 19 HE R2 S</label>
+    </customValue>
+    <customValue>
+        <fullName>X7300</fullName>
+        <default>false</default>
+        <label>X7300</label>
+    </customValue>
+    <customValue>
+        <fullName>X7300 EES</fullName>
+        <default>false</default>
+        <label>X7300 EES</label>
+    </customValue>
+    <customValue>
+        <fullName>X7500</fullName>
+        <default>false</default>
+        <label>X7500</label>
+    </customValue>
+    <customValue>
+        <fullName>X7500R</fullName>
+        <default>false</default>
+        <label>X7500R</label>
+    </customValue>
+    <customValue>
+        <fullName>RG</fullName>
+        <default>false</default>
+        <label>RG</label>
+    </customValue>
+    <customValue>
+        <fullName>UG</fullName>
+        <default>false</default>
+        <label>UG</label>
+    </customValue>
+    <customValue>
+        <fullName>CA</fullName>
+        <default>false</default>
+        <label>CA</label>
+    </customValue>
+    <customValue>
+        <fullName>EliteLINE</fullName>
+        <default>false</default>
+        <label>EliteLINE</label>
+    </customValue>
+    <customValue>
+        <fullName>NaturaLINE</fullName>
+        <default>false</default>
+        <label>NaturaLINE</label>
+    </customValue>
+    <customValue>
+        <fullName>PrimeLINE</fullName>
+        <default>false</default>
+        <label>PrimeLINE</label>
+    </customValue>
+    <customValue>
+        <fullName>TELEMATICS</fullName>
+        <default>false</default>
+        <label>TELEMATICS</label>
+    </customValue>
+    <customValue>
+        <fullName>ThinLINE</fullName>
+        <default>false</default>
+        <label>ThinLINE</label>
+    </customValue>
+    <customValue>
+        <fullName>TripLINK</fullName>
+        <default>false</default>
+        <label>TripLINK</label>
+    </customValue>
+    <customValue>
+        <fullName>XtendFRESH</fullName>
+        <default>false</default>
+        <label>XtendFRESH</label>
+    </customValue>
+    <customValue>
+        <fullName>A-INT</fullName>
+        <default>false</default>
+        <label>A-INT</label>
+    </customValue>
+    <customValue>
+        <fullName>A-SKY</fullName>
+        <default>false</default>
+        <label>A-SKY</label>
+    </customValue>
+    <customValue>
+        <fullName>A-STA</fullName>
+        <default>false</default>
+        <label>A-STA</label>
+    </customValue>
+    <customValue>
+        <fullName>200INT APU</fullName>
+        <default>false</default>
+        <label>200INT APU</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR APU</fullName>
+        <default>false</default>
+        <label>220PWR APU</label>
+    </customValue>
+    <customValue>
+        <fullName>TDB5BNDTP</fullName>
+        <default>false</default>
+        <label>TDB5BNDTP</label>
+    </customValue>
+    <customValue>
+        <fullName>V8100</fullName>
+        <default>false</default>
+        <label>V8100</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS APU</fullName>
+        <default>false</default>
+        <label>240EPS APU</label>
+    </customValue>
+    <customValue>
+        <fullName>ADE M/T</fullName>
+        <default>false</default>
+        <label>ADE M/T</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA APU</fullName>
+        <default>false</default>
+        <label>210STA APU</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY APU DPF</fullName>
+        <default>false</default>
+        <label>230SKY APU DPF</label>
+    </customValue>
+    <customValue>
+        <fullName>250ION APU</fullName>
+        <default>false</default>
+        <label>250ION APU</label>
+    </customValue>
+    <customValue>
+        <fullName>X7700</fullName>
+        <default>false</default>
+        <label>X7700</label>
+    </customValue>
+    <customValue>
+        <fullName>35X STD-BY</fullName>
+        <default>false</default>
+        <label>35X STD-BY</label>
+    </customValue>
+    <customValue>
+        <fullName>V8700</fullName>
+        <default>false</default>
+        <label>V8700</label>
+    </customValue>
+    <customValue>
+        <fullName>V8800</fullName>
+        <default>false</default>
+        <label>V8800</label>
+    </customValue>
+    <customValue>
+        <fullName>A-PWR</fullName>
+        <default>false</default>
+        <label>A-PWR</label>
+    </customValue>
+    <customValue>
+        <fullName>NEOS</fullName>
+        <default>false</default>
+        <label>NEOS</label>
+    </customValue>
+    <customValue>
+        <fullName>V8700R</fullName>
+        <default>false</default>
+        <label>V8700R</label>
+    </customValue>
+    <customValue>
+        <fullName>20X ROAD</fullName>
+        <default>false</default>
+        <label>20X ROAD</label>
+    </customValue>
+    <customValue>
+        <fullName>OptimaLINE</fullName>
+        <default>false</default>
+        <label>OptimaLINE</label>
+    </customValue>
+    <masterLabel>Product Line</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

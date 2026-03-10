@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "8d2bda22-ef68-46bf-94d1-b28f2e6fa18f",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Order_Summary_Related_List",
+  "id" : "153cee51-e6ef-4db0-9b01-e23edb3bf729",
+  "label" : "Order Summary Related List",
+  "routeType" : "relatedlist-1Os",
+  "type" : "route",
+  "urlPrefix" : "OrderSummary"
+}

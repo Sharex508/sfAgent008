@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Quote_Line_View__c</fullName>
+    <defaultValue>&quot;Pricing/ Discounts&quot;</defaultValue>
+    <label>Quote Line View</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pricing/ Discounts</fullName>
+                <default>true</default>
+                <label>Pricing/ Discounts</label>
+            </value>
+            <value>
+                <fullName>BluEdge - Extended Basic</fullName>
+                <default>false</default>
+                <label>BluEdge - Extended Basic</label>
+            </value>
+            <value>
+                <fullName>BluEdge - Major Component</fullName>
+                <default>false</default>
+                <label>BluEdge - Major Component</label>
+            </value>
+            <value>
+                <fullName>BluEdge - Extended Basic + Major Component</fullName>
+                <default>false</default>
+                <label>BluEdge - Extended Basic + Major Component</label>
+            </value>
+            <value>
+                <fullName>BluEdge - Optional Coverage</fullName>
+                <default>false</default>
+                <label>BluEdge - Optional Coverage</label>
+            </value>
+            <value>
+                <fullName>BluEdge - Elite Repair</fullName>
+                <default>false</default>
+                <label>BluEdge - Elite Repair</label>
+            </value>
+            <value>
+                <fullName>Admin Testing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Admin Testing</label>
+            </value>
+            <value>
+                <fullName>BluEdge Details</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>BluEdge Details</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

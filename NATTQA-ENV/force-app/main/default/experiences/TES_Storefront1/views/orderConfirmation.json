@@ -1,0 +1,35 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "16178282-dad4-4294-9bb1-a02eab9af598",
+  "label" : "Order Confirmation",
+  "regions" : [ {
+    "id" : "a5c87b6f-940e-4031-a2de-7a361111b47f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "cartId" : "{!recordId}",
+        "isReadOnly" : true,
+        "orderDeliveryMethodId" : ""
+      },
+      "componentName" : "commerce_checkout:deliveryMethod",
+      "id" : "36d5e462-0037-4db9-b9a6-c5cce7e03bf2",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "046619ff-7124-4c38-b8d0-7004d9517680",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "d8deb75d-4ec4-4d2b-ba06-692d7d57766e",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "orderconfirmation"
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Tested_Target_Validation</fullName>
+    <active>true</active>
+    <description>A value must be provided for either Tested Field or Tested Variable.</description>
+    <errorConditionFormula>(ISBLANK(sbaa__TestedVariable__c) &amp;&amp; ISPICKVAL(sbaa__TestedField__c, &apos;&apos;)) ||
+(NOT(ISBLANK(sbaa__TestedVariable__c)) &amp;&amp; NOT(ISPICKVAL(sbaa__TestedField__c, &apos;&apos;)))</errorConditionFormula>
+    <errorMessage>You must provide a value for either Tested Field or Tested Variable.</errorMessage>
+</ValidationRule>

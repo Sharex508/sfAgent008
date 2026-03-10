@@ -1,0 +1,7 @@
+O seguinte caso foi escalado:
+
+Empresa: {!Account.Name}
+Caso: {!Case.CaseNumber}: {!Case.Subject}
+Responsável:(User/Queue) {!Case.OwnerFullName}
+
+Click no link para acessar o caso: {!Case.Link}

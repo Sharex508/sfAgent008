@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Natt_Units_Approver_Sales_Ops_Quote</fullName>
+    <filterScope>Queue</filterScope>
+    <label>Natt Units Approver Sales Ops</label>
+    <queue>Natt_Units_Approver_Sales_Ops</queue>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

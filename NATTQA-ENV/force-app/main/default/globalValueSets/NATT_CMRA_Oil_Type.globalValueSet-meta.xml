@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Mineral</fullName>
+        <default>false</default>
+        <label>Mineral</label>
+    </customValue>
+    <customValue>
+        <fullName>Synthetic</fullName>
+        <default>false</default>
+        <label>Synthetic</label>
+    </customValue>
+    <description>for BlueEdge</description>
+    <masterLabel>NATT CMRA Oil Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

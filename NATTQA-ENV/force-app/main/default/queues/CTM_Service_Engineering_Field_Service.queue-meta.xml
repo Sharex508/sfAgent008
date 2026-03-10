@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>pedro.gonzalez@carrier.com</email>
+    <name>Servicio de ingeniería Servicio de campo</name>
+    <queueMembers>
+        <users>
+            <user>carlos.priegogutierrez@carrier.com.prod</user>
+            <user>carlos.priego@carrier.com</user>
+            <user>migueloldair.garcia@carrier.com</user>
+            <user>migueloldair.garcia@carrier.com.prod</user>
+            <user>pedro.gonzalez@carrier.com.prod</user>
+            <user>pedro.gonzalez@carrier.com.corp</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

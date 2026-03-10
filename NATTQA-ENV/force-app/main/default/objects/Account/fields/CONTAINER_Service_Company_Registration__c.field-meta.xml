@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Service_Company_Registration__c</fullName>
+    <description>Container Service field</description>
+    <label>Company Registration</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Corporation</fullName>
+                <default>false</default>
+                <label>Corporation</label>
+            </value>
+            <value>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+                <label>Partnership</label>
+            </value>
+            <value>
+                <fullName>Limited Liability Company</fullName>
+                <default>false</default>
+                <label>Limited Liability Company</label>
+            </value>
+            <value>
+                <fullName>Sole Proprietary</fullName>
+                <default>false</default>
+                <label>Sole Proprietary</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

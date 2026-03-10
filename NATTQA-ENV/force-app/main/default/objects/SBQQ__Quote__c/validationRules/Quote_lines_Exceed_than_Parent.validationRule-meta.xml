@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quote_lines_Exceed_than_Parent</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT(ISBLANK(SBQQ__Opportunity2__r.Opportunity_Source__c)) &amp;&amp;
+  SBQQ__Opportunity2__r.Direct_Sales_Units__c &gt;  Source_Opportunity__r.Remaining_Units__c</errorConditionFormula>
+    <errorMessage>&quot;You have added more lines than allowed at the parent level. This quote will now require approval before it can proceed.&quot;</errorMessage>
+</ValidationRule>

@@ -1,0 +1,5 @@
+<aura:component implements="lightning:isUrlAddressable,force:lightningQuickAction,force:hasRecordId,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" controller="NATT_ParExportToCsvController">
+    <aura:attribute name="recordId" type="String" />
+    
+    <c:natt_Account_PAR_Export_CSV accountId="{!v.recordId}" onclose="{!c.closeQA}"/>
+</aura:component>

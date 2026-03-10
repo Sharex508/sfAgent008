@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Geolocation_cannot_be_blank</fullName>
+    <active>false</active>
+    <description>Service Center Geolocation field cannot be blank</description>
+    <errorConditionFormula>AND( 
+OR( ISBLANK(CONTAINER_Service_Center_Geolocation__Latitude__s),
+ISBLANK(CONTAINER_Service_Center_Geolocation__Longitude__s)),
+OR(RecordType.DeveloperName = &apos;CONTAINER_Authorized_Service_Provider&apos;,
+RecordType.DeveloperName = &apos;CONTAINER_Repair_Co_Terminal&apos;),
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule )
+)</errorConditionFormula>
+    <errorMessage>Service Center Geolocation is required</errorMessage>
+</ValidationRule>

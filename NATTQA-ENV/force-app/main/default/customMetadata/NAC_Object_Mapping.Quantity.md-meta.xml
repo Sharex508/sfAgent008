@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Quantity</label>
+    <protected>false</protected>
+    <values>
+        <field>Is_Line_Item_Field__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>Order_Summary__c</field>
+        <value xsi:type="xsd:string">Quantity</value>
+    </values>
+    <values>
+        <field>Order__c</field>
+        <value xsi:type="xsd:string">Quantity</value>
+    </values>
+    <values>
+        <field>Web_Cart__c</field>
+        <value xsi:type="xsd:string">Quantity</value>
+    </values>
+</CustomMetadata>

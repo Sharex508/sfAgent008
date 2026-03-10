@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Download_Priority_Justification</fullName>
+    <active>true</active>
+    <description>When Priority for Unit Download Review is set to High or Critical a justification is required.</description>
+    <errorConditionFormula>AND(
+OR(RecordType.DeveloperName = &quot;NATT_Service_Engineering_Field_Service&quot;, RecordType.DeveloperName = &quot;CTM_Service_Engineering_Field_Service&quot;), 
+ISPICKVAL(Type, &quot;Unit Download Review&quot;),
+OR(ISPICKVAL(Priority, &quot;High&quot;),ISPICKVAL(Priority, &quot;Critical&quot;)),  
+NATT_Unit_Download_Priority_Just__c = &quot;&quot;
+)</errorConditionFormula>
+    <errorDisplayField>NATT_Unit_Download_Priority_Just__c</errorDisplayField>
+    <errorMessage>You must add a justification if the Priority for Unit Download Review is High or Critical</errorMessage>
+</ValidationRule>

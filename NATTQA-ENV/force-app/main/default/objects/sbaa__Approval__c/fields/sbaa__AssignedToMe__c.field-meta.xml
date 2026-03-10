@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__AssignedToMe__c</fullName>
+    <deprecated>false</deprecated>
+    <description>True if the current User is also the Assigned To User</description>
+    <formula>sbaa__AssignedTo__r.Id = $User.Id</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>True if the current User is also the Assigned To User</inlineHelpText>
+    <label>Assigned To Me</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

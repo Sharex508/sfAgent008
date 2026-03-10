@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_JDE_Shipping_Address_Id__c</fullName>
+    <description>pull JDE Id of the Shipping Address from Address</description>
+    <externalId>false</externalId>
+    <formula>CASESAFEID(SBQQ__Opportunity2__r.NATT_Shipping_Address__r.NATT_JDE_Address_ID__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CTBR JDE Shipping Address Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

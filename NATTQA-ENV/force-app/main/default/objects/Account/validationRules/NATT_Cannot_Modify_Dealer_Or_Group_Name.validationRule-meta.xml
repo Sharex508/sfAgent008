@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Cannot_Modify_Dealer_Or_Group_Name</fullName>
+    <active>true</active>
+    <description>prevent users from editing the dealer or group account name.</description>
+    <errorConditionFormula>And($Permission.NATT_Bypass_Dealer_Account_Name = false,
+ISCHANGED(Name),
+OR(RecordType.DeveloperName = &quot;Dealer&quot;,RecordType.DeveloperName = &quot;NATT_Group_Ownership&quot;)
+
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>You don&apos;t have permission to modify this Dealer Account Name</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_AdjustmentValue__c</fullName>
+    <description>Contains the decimal percentage value that the list price or standard cost should be adjusted. If the value in NATT_AdjustmentName__c == SURCHG, this field will be interpreted as a MARKUP, if REGD, then will be interpreted as a discount.</description>
+    <label>Adjustment Value</label>
+    <precision>10</precision>
+    <required>false</required>
+    <scale>4</scale>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

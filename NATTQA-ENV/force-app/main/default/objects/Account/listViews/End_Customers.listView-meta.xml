@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>End_Customers</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>NATT_Company_Legal_name__c</columns>
+    <columns>ACCOUNT.IS_CUSTOMERSUCCESS</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>NATT_FSE__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Customer</value>
+    </filters>
+    <label>Customer Accounts</label>
+    <sharedTo>
+        <roleAndSubordinates>NA</roleAndSubordinates>
+        <roleAndSubordinates>NA_Parts_Manager</roleAndSubordinates>
+        <roleAndSubordinates>NA_Parts_Sales</roleAndSubordinates>
+        <roleAndSubordinates>NA_Units_Manager</roleAndSubordinates>
+        <roleAndSubordinates>NA_Units_Sales</roleAndSubordinates>
+        <roleAndSubordinates>Test_Dealer_Partner_User</roleAndSubordinates>
+    </sharedTo>
+</ListView>

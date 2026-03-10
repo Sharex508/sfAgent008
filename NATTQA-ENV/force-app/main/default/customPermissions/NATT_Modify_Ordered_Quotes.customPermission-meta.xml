@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>permission to modify ordered quotes for NATT</description>
+    <isLicensed>false</isLicensed>
+    <label>NATT Modify Ordered  Quotes</label>
+</CustomPermission>

@@ -1,0 +1,66 @@
+<template>        
+    <lightning-card title={label.performancePartsOrdersLabel}>  
+        <!--<lightning-button label=”New” slot=”actions” onclick={createNew}></lightning-button>-->
+        <div>
+            <lightning-layout horizontal-align="spread" vertical-align="center" multiple-rows="true">
+                <lightning-layout-item size="2">
+                    <lightning-input type=“text” label={label.jdeSoNumberLabel} class="slds-p-around_small" data-name="carrierOrderNumber" onkeypress={handleEnter}> </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <lightning-input type=“text” label={label.poAccountNumberLabel} class="slds-p-around_small" data-name="poOrAccount" onkeypress={handleEnter}> </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <lightning-input type="text" label={label.partNumberLabel} class="slds-p-around_small" data-name="partNumber" onkeypress={handleEnter}> </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <!--<lightning-input type=“text” label={label.statusLabel} class="slds-p-around_small" data-name="status" onkeypress={handleEnter}> </lightning-input>-->
+                    <lightning-combobox
+                        data-name="status"
+                        label={label.statusLabel}
+                        value={statusValue}                        
+                        options={picklistValues}
+                        onchange={handleStatusChange} ></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <lightning-input type='date' label={label.fromLabel} class="slds-p-around_small" data-name="fromDate" onkeypress={handleEnter}> </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="2">
+                    <lightning-input type='date' label={label.toLabel} class="slds-p-around_small" data-name="toDate" onkeypress={handleEnter}></lightning-input>                
+                </lightning-layout-item>
+                <lightning-layout-item size="4">
+                    <div class="slds-p-left_small slds-p-bottom_small">
+                        <lightning-button label={label.searchLabel} onclick={handleSearch}></lightning-button>
+                        <lightning-button label={label.clearLabel}  onclick={handleClearSearch}></lightning-button>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        
+        <template if:true = {listRecs}>  
+            <div style="height: 50rem;">                
+                <lightning-datatable key-field="Id"  
+                                        data={listRecs}  
+                                        columns={columns}  
+                                        hide-checkbox-column=”true”  
+                                        show-row-number-column=”true”
+                                        default-sort-direction={defaultSortDirection}
+                                        sorted-direction={sortDirection}
+                                        sorted-by={sortedBy}
+                                        onsort={onHandleSort}
+                                        onrowaction={handleRowAction}
+                                        enable-infinite-loading
+                                        onloadmore={handleLoadMore}                                        
+                                        column-widths-mode="auto">  
+                </lightning-datatable>  
+            </div>
+        </template>
+        <template if:true={error}>  
+            {error}
+        </template>
+    </lightning-card>
+    <div if:true={showSpinner}>
+        <lightning-spinner
+          alternative-text="Loading..."
+          variant="brand"></lightning-spinner>
+    </div>    
+</template>

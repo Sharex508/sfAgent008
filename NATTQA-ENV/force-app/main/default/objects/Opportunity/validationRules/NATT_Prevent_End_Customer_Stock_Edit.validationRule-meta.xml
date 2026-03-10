@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Prevent_End_Customer_Stock_Edit</fullName>
+    <active>true</active>
+    <description>Prevent Users from updating End Customer and Stock on Opportunity</description>
+    <errorConditionFormula>AND(
+OR(ISCHANGED(NATT_Stock__c),ISCHANGED(NATT_End_Customer__c)),
+NOT(ISNEW()),
+OR(RecordType.DeveloperName =&apos;NATT_Opportunity_Units&apos;,RecordType.DeveloperName =&apos;NATT_Opportunity_BluEdge&apos;,RecordType.DeveloperName =&apos;NATT_Opportunity_eSolutions&apos;),
+OR(NATT_Stock__c &lt;&gt; SBQQ__PrimaryQuote__r.NATT_Stock__c,NATT_End_Customer__c &lt;&gt; SBQQ__PrimaryQuote__r.NATT_End_Customer__c)
+)</errorConditionFormula>
+    <errorMessage>Go to the Quote record to update End Customer or Stock field</errorMessage>
+</ValidationRule>

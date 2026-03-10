@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_LocallyControlled_Purchases_APU__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Determines a locally controlled APU purchase</description>
+    <label>Locally Controlled Purchases - APU</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

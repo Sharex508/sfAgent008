@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_QuotePath__c</fullName>
+    <description>Container Sales Quote Path which updates based on Quote Status field</description>
+    <label>Path</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Draft</fullName>
+                <default>true</default>
+                <label>Draft</label>
+            </value>
+            <value>
+                <fullName>Pending PM Approval</fullName>
+                <default>false</default>
+                <label>Pending PM Approval</label>
+            </value>
+            <value>
+                <fullName>Pending CAM Approval</fullName>
+                <default>false</default>
+                <label>Pending CAM Approval</label>
+            </value>
+            <value>
+                <fullName>Pending VP Approval</fullName>
+                <default>false</default>
+                <label>Pending VP Approval</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Order/Pending for Job #</fullName>
+                <default>false</default>
+                <label>Order/Pending for Job #</label>
+            </value>
+            <value>
+                <fullName>Job # Issued</fullName>
+                <default>false</default>
+                <label>Job # Issued</label>
+            </value>
+            <value>
+                <fullName>ASO Released</fullName>
+                <default>false</default>
+                <label>ASO Released</label>
+            </value>
+            <value>
+                <fullName>SO Released</fullName>
+                <default>false</default>
+                <label>SO Released</label>
+            </value>
+            <value>
+                <fullName>Lost/Cancelled</fullName>
+                <default>false</default>
+                <label>Lost/Cancelled</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

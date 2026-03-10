@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Follow_up_case_Number__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>A follow-up case can be created in Salesforce to mirror an alert raised in NPS. This field link the feedback to the case.</description>
+    <label>Follow-up case - Number</label>
+    <referenceTo>Case</referenceTo>
+    <relationshipName>NPS_Feedbacks</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

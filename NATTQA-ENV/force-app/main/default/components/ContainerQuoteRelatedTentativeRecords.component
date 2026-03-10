@@ -1,0 +1,48 @@
+<apex:component controller="ContainerQuoteRelatedTentativeRecords" access="global">
+    <apex:attribute name="QId" type="Id" description="Id of the account" assignTo="{!quoteId}"/>
+    <apex:variable value="{!0}" var="Total"/>
+    <table border = "0" width="100%">
+        <tr>
+            <td colspan="4">Tentative Production Schedule</td>
+        </tr>
+        <tr>
+            <td colspan="4">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+        </tr>
+        <tr> 
+            <th>Qty</th>
+            
+            <th>Week of</th>
+            
+            <th>Factory</th>
+            
+            <th>Job Stock</th>
+            
+        </tr>
+        <tr>
+            <td colspan="4">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+        </tr>
+        <apex:repeat value="{!tentativeRecords}" var="tp">
+            <tr>
+                <td style="text-align:center"> <apex:outPutText value="{!tp.CONTAINER_TentativeProductionSchd_Qty__c}"/></td>
+               
+                <td style="text-align:center"> <apex:outputText value="{0, date, MM/dd/yyy}"> <apex:Param value="{!tp.CONTAINER_Week_Of__c}"/> </apex:outputText> </td>
+               
+                <td style="text-align:center"> <apex:outputtext value="{!tp.CONTAINER_Factory__c}"/></td>
+               
+                <td style="text-align:center"> <apex:outputtext value="{!tp.CONTAINER_TentativeProdSchd_Job__c}"/></td>
+               
+                <apex:variable var="Total" value="{!Total + IF(tp.CONTAINER_TentativeProductionSchd_Qty__c=null,0,tp.CONTAINER_TentativeProductionSchd_Qty__c)}"/>
+            </tr>
+        </apex:repeat> 
+        <tr>
+            <td colspan="4">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+        </tr>
+        <tr>
+            <td>Total:      {!Total}</td>
+            <td colspan="3" ></td>
+        </tr>
+        <tr>
+            <td colspan="4">--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</td>
+        </tr>
+    </table>
+</apex:component>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EMCC_Classification__c</fullName>
+    <description>For EMCC</description>
+    <externalId>false</externalId>
+    <formula>CASE(NATT_Unit__c,
+&quot;200INT ComfortPro Integrated APU&quot;,&quot;Special Product&quot;,
+&quot;210STA ComfortPro Stand-alone APU  &quot;,&quot;Special Product&quot;,
+&quot;220PWR ComfortPro Power-only APU  &quot;,&quot;Special Product&quot;,
+&quot;230SKY ComfortPro ClearSky DPF APU  &quot;,&quot;Special Product&quot;,
+&quot;240EPS ComfortPro Electric APU  &quot;,&quot;Special Product&quot;,
+&quot;Supra 950 MT - System A  &quot;,&quot;Multi-Temp (Truck)&quot;,
+&quot;Supra 950 MT - System B  &quot;,&quot;Multi-Temp (Truck)&quot;,
+&quot;Supra S6 Road Only  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Supra S6 with 230v-3ph-60Hz  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Supra S7 Road Only  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Supra S7 with 230v-3ph-60Hz  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Supra S8 Road Only  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Supra S8 with 230v-3ph-60Hz  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Supra S9 Road Only  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Supra S9 with 230v-3ph-60Hz  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Solara APX  &quot;,&quot;APX Series (Trailer)&quot;,
+&quot;Vector 8100  &quot;,&quot;Vector Single Temp (Trailer)&quot;,
+&quot;Vector 8500  &quot;,&quot;Vector Single Temp (Trailer)&quot;,
+&quot;Vector 8500R Rail Edition  &quot;,&quot;Single-Temp (Rail)&quot;,
+&quot;Vector 8600 - System 01  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 02  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 03  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 04  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 05  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 06  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 07  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 13  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 14  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 15  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8600 - System 16  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector 8611MT  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;Vector HE19  &quot;,&quot;Vector Multi-Temp (Trailer)&quot;,
+&quot;X4 7300  &quot;,&quot;Vector Single Temp (Trailer)&quot;,
+&quot;X4 7300R Rail Edition  &quot;,&quot;Single-Temp (Rail)&quot;,
+&quot;X4 7500  &quot;,&quot;Vector Single Temp (Trailer)&quot;,
+&quot;X4 7500R Rail Edition  &quot;,&quot;Single-Temp (Rail)&quot;,
+&quot;Supra 960 Road Only  &quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;Supra 960 with 230v-3ph-60Hz Standby&quot;,&quot;Single-Temp (Truck)&quot;,
+&quot;None&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>EMCC Classification</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

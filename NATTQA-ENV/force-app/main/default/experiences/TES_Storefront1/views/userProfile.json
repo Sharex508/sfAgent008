@@ -1,0 +1,46 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "8a53af1a-8893-4df8-bc99-a555c7b283e0",
+  "label" : "User Profile",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "id" : "{!recordId}",
+        "profileTabLabel" : "Profile",
+        "richTextValue" : "<p>&nbsp;</p>",
+        "settingsTabLabel" : "Settings & Preferences",
+        "showBannerImage" : false,
+        "showSettingsTab" : true
+      },
+      "componentName" : "forceCommunity:userProfileWithBanner",
+      "id" : "76964541-5cd7-4238-91e8-0253e2982770",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "37971c34-5497-4cf7-8e47-abd8c4f99150",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "17f661f6-3aa0-4129-baaa-973aa1e6debe",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_tesStoreFooter",
+      "id" : "8c3d8777-fa5f-4fa0-99c9-565e663eabb5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e2d81be9-bdcf-4ae0-93b4-e0d8d9717f0c",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-005"
+}

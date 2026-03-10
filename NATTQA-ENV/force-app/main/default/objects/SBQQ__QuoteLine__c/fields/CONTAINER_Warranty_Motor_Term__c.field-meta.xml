@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Warranty_Motor_Term__c</fullName>
+    <label>Warranty Motor Term</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 yr</fullName>
+                <default>false</default>
+                <label>1 yr</label>
+            </value>
+            <value>
+                <fullName>2 yrs</fullName>
+                <default>false</default>
+                <label>2 yrs</label>
+            </value>
+            <value>
+                <fullName>3 yrs</fullName>
+                <default>false</default>
+                <label>3 yrs</label>
+            </value>
+            <value>
+                <fullName>4 yrs</fullName>
+                <default>false</default>
+                <label>4 yrs</label>
+            </value>
+            <value>
+                <fullName>5 yrs</fullName>
+                <default>false</default>
+                <label>5 yrs</label>
+            </value>
+            <value>
+                <fullName>6 yrs</fullName>
+                <default>false</default>
+                <label>6 yrs</label>
+            </value>
+            <value>
+                <fullName>7 yrs</fullName>
+                <default>false</default>
+                <label>7 yrs</label>
+            </value>
+            <value>
+                <fullName>8 yrs</fullName>
+                <default>false</default>
+                <label>8 yrs</label>
+            </value>
+            <value>
+                <fullName>9 yrs</fullName>
+                <default>false</default>
+                <label>9 yrs</label>
+            </value>
+            <value>
+                <fullName>10 yrs</fullName>
+                <default>false</default>
+                <label>10 yrs</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

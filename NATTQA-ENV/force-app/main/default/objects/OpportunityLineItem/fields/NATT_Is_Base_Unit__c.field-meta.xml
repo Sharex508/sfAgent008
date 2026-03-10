@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Is_Base_Unit__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>represents that this line is a base unit</description>
+    <label>Is Base Unit</label>
+    <type>Checkbox</type>
+</CustomField>

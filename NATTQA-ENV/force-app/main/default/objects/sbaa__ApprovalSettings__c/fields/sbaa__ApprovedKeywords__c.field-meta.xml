@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__ApprovedKeywords__c</fullName>
+    <defaultValue>&quot;Approved,Approve,Yes&quot;</defaultValue>
+    <deprecated>false</deprecated>
+    <description>Comma-delimited list of keywords used for approving via email</description>
+    <inlineHelpText>Comma-delimited list of keywords used for approving via email</inlineHelpText>
+    <label>Approved Keywords</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

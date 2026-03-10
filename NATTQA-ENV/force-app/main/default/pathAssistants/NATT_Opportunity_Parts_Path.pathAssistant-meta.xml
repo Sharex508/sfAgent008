@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>NATT Opportunity Parts Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Preforming credit checks on the Dealer &lt;/li&gt;&lt;li&gt;If indirect (Dealers involved) opportunities of $1M or greater go through Finance for approval&lt;/li&gt;&lt;li&gt;If direct (no Dealer involved) opportunities of $500K or greater go through Finance for approval  &lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Closed Won</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Purchase Order Received from Dealer&lt;/li&gt;&lt;li&gt;Adjusting the contractual terms, delivery terms and dates as necessary &lt;/li&gt;&lt;li&gt;Obtaining the P.O. from the dealer. The Dealer gets the PO from the Customer &lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Closing</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Technical Application Fit Confirmed &lt;/li&gt;&lt;li&gt;Purchasing Ability Budget Confirmed &lt;/li&gt;&lt;li&gt;Identify additional decision markers &lt;/li&gt;&lt;li&gt;Determining if purchase is a group is an individual decision &lt;/li&gt;&lt;li&gt;Strategizing with the dealer on approach  &lt;/li&gt;&lt;li&gt;Confirming the technical fit &lt;/li&gt;&lt;li&gt;Demo-ing the product &lt;/li&gt;&lt;li&gt;Confirm funding is available for the purchase &lt;/li&gt;&lt;li&gt;(for direct customer) Gathering data on the required specifications &lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Demo/Presentation</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;ID Purchasing, Owner or Decision Maker&lt;/li&gt;&lt;li&gt;Financial Ability Checked&lt;/li&gt;&lt;li&gt;Ongoing Communication with the Dealer&lt;/li&gt;&lt;li&gt;Gathering Customer information (technical and financial) &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Qualification</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Customer Needs Confirmed&lt;/li&gt;&lt;li&gt;Proposal Completed&lt;/li&gt;&lt;li&gt;Customer contractual terms with the dealer. Adjusting necessary&lt;/li&gt;&lt;li&gt;Confirming delivery terms and date. Adjusting as necessary   &lt;/li&gt;&lt;li&gt;Finalizing the proposal&lt;/li&gt;&lt;li&gt;The Dealer checks the Customer´s credit&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Quoting</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>NATT_Opportunity_Parts</recordTypeName>
+</PathAssistant>

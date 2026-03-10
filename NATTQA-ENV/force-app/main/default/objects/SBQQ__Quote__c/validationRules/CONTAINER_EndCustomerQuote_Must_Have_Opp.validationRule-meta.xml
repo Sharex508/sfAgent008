@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_EndCustomerQuote_Must_Have_Opp</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+IF( RecordType.DeveloperName = &apos;CONTAINER_GENSET_Quote&apos;, 
+AND(ISPICKVAL( CONTAINER_Type__c ,&apos;End Customer Quote&apos;), 
+OR(ISBLANK( SBQQ__Account__c ),ISBLANK(SBQQ__Opportunity2__c))), 
+IF(RecordType.DeveloperName = &apos;CONTAINER_NT_Quote&apos;, AND(ISPICKVAL( CONTAINER_Type__c ,&apos;End Customer Quote&apos;), 
+OR(ISBLANK( SBQQ__Account__c ),ISBLANK(SBQQ__Opportunity2__c))), False) )
+)</errorConditionFormula>
+    <errorDisplayField>CONATINER_3rd_Party_Commission__c</errorDisplayField>
+    <errorMessage>End Customer Quote can not be created without Opportunity and Account</errorMessage>
+</ValidationRule>

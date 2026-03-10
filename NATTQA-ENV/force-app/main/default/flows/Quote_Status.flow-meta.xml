@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Update_Ordered_checkbox</name>
+        <label>Update Ordered checkbox</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
+        <assignmentItems>
+            <assignToReference>QuoteId.CONTAINER_Ordered__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>QuoteId.CONTAINER_Status__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>SO Released</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>QuoteId.CONTAINER_QuotePath__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>SO Released</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>QuoteId.SBQQ__Ordered__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote_0</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Won_Date_on_Quote</name>
+        <label>Won Date on Quote</label>
+        <locationX>314</locationX>
+        <locationY>455</locationY>
+        <assignmentItems>
+            <assignToReference>QuoteId.CONTAINER_WON_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$System.OriginDateTime</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_Quote_0</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Quote_not_blank_on_Order</name>
+        <label>Quote not blank on Order</label>
+        <locationX>314</locationX>
+        <locationY>335</locationY>
+        <defaultConnector>
+            <targetReference>Update_Quote_0</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Quote_Not_Blank</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__Quote__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.SBQQ__Quote__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>QuoteId.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Ordered_checkbox</targetReference>
+            </connector>
+            <label>Quote Not Blank</label>
+        </rules>
+        <rules>
+            <name>Is_Ordered</name>
+            <conditionLogic>(1 OR 2) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>QuoteId.CONTAINER_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Order/Pending for Job #</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>QuoteId.CONTAINER_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Order/Pending for Job #</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>QuoteId.CONTAINER_QuotePath__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Order/Pending for Job #</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Won_Date_on_Quote</targetReference>
+            </connector>
+            <label>Is Ordered</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Quote Status {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CONTAINER Quote Status FOR WON DATE</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Quote_0</name>
+        <label>Update Quote</label>
+        <locationX>314</locationX>
+        <locationY>671</locationY>
+        <inputReference>QuoteId</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Quote_not_blank_on_Order</targetReference>
+        </connector>
+        <object>Order</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <variables>
+        <name>QuoteId</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__Quote__c</objectType>
+    </variables>
+</Flow>

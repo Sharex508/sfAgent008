@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Product_Family__c</fullName>
+    <label>CTBR Product Family</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+                <label>Trailer</label>
+            </value>
+            <value>
+                <fullName>Diesel Truck</fullName>
+                <default>false</default>
+                <label>Diesel Truck</label>
+            </value>
+            <value>
+                <fullName>Direct Drive</fullName>
+                <default>false</default>
+                <label>Direct Drive</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

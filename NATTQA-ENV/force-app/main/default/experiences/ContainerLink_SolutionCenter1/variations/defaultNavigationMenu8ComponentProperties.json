@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "5cd62871-b1ab-416f-83be-dcac908f1eb9",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "UCP_Warantty_APO_SG_HK"
+      }
+    },
+    "targetId" : "a988fe4c-427f-4407-8101-85fd0a38571e",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_8_Component_Properties",
+  "id" : "009535a4-5cae-41c7-8fd1-15e91cd847fd",
+  "type" : "experienceVariation"
+}

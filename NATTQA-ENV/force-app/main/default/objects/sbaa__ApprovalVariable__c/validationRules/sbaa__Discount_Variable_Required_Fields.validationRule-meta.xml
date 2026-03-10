@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Discount_Variable_Required_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(sbaa__Type__c, &apos;Discount&apos;) &amp;&amp; (ISBLANK(sbaa__ListVariable__c) || ISBLANK(sbaa__NetVariable__c ))</errorConditionFormula>
+    <errorMessage>Values for List Variable and Net Variable are required for Discount Variables</errorMessage>
+</ValidationRule>

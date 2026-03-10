@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NATT Internal Quote Approval Notification</name>
+    <style>none</style>
+    <subject>NATT Product Opportunity Alert</subject>
+    <textOnly>APPROVAL NOTIFICATION Please do not reply to this message. If you need assistance or have questions, please contact your local representative
+
+Dear Discount Approver,
+
+
+This mail is sent to you to notify Quote with Engineless Products needs your discount approval :
+
+
+- End Customer Company :{!SBQQ__Quote__c.NATT_End_Customer_Company__c}
+
+- Parent account name : {!SBQQ__Quote__c.NATT_Parent_Account_Name__c}
+
+- Account name : {!SBQQ__Quote__c.SBQQ__Account__c}
+
+- Account owner : {!SBQQ__Quote__c.NATT_Account_Owner__c}
+
+- Opportunity name : {!SBQQ__Quote__c.NATT_Opportunity_Name__c}
+
+- Quote Number : {!SBQQ__Quote__c.Name}
+
+- Opportunity Probability : {!SBQQ__Quote__c.NATT_Opportunity_Probability__c} %
+
+- Amount : {!SBQQ__Quote__c.NATT_Opportunity_Amount__c}
+
+Direct link to Opportunity: {!SBQQ__Quote__c.NATT_Opportunity_Link__c}
+
+Direct link to Quote : {!SBQQ__Quote__c.Link}
+
+Best regards,
+
+The Administration Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

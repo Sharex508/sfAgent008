@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Display_Terms_Button__c</fullName>
+    <description>used to display button - custom action</description>
+    <formula>OR(
+ISPICKVAL(NATT_BluEdge_Price_Type__c,&quot;Major Component&quot;),
+ISPICKVAL(NATT_BluEdge_Price_Type__c,&quot;Optional Coverage&quot;),
+ISPICKVAL(NATT_BluEdge_Price_Type__c,&quot;Extended Basic&quot;)
+)</formula>
+    <label>Display Terms Button</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

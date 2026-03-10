@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Master_Accounts</fullName>
+    <booleanFilter>1 AND 2</booleanFilter>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTAINER_JDE_Bill_To_Code__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>CONTAINER_BaaN_Bill_To_Code__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Container Master Accounts</label>
+    <sharedTo>
+        <group>CONTAINER_Global_Sales_Director</group>
+        <group>CONTAINER_Sales_Admin</group>
+        <group>CONTAINER_Sales_CAM</group>
+        <group>CONTAINER_Sales_CAM_GENSET</group>
+        <group>CONTAINER_Sales_CAM_NT</group>
+        <group>CONTAINER_Sales_CS</group>
+        <group>CONTAINER_Sales_CS_GENSET</group>
+        <group>CONTAINER_Sales_CS_NT</group>
+        <group>CONTAINER_Sales_PM</group>
+        <group>CONTAINER_Sales_PM_GENSET</group>
+        <group>CONTAINER_Sales_PM_NT</group>
+        <group>CONTAINER_Sales_RSD_APO</group>
+        <group>CONTAINER_Sales_RSD_EMEA</group>
+        <group>CONTAINER_Sales_RSD_NAO</group>
+        <group>CONTAINER_Sales_RSM_APO</group>
+        <group>CONTAINER_Sales_RSM_EMEA</group>
+        <group>CONTAINER_Sales_RSM_NAO</group>
+        <group>CONTAINER_Sales_VP</group>
+    </sharedTo>
+</ListView>

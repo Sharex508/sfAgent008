@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Reason_Other</fullName>
+    <active>true</active>
+    <description>When Case reason other value is selected. Field(Case reason explanation) MUST not be blank.</description>
+    <errorConditionFormula>AND(ISPICKVAL(NATT_Close_Reason__c, &quot;Other&quot;), ISBLANK(NATT_Close_Reason_Explanation__c),
+OR(BEGINS($RecordType.DeveloperName,&quot;NATT_&quot;), BEGINS($RecordType.DeveloperName,&quot;CTM_&quot;), BEGINS($RecordType.DeveloperName,&quot;CTBR_&quot;)))</errorConditionFormula>
+    <errorMessage>Enter the reason on the close reason explanation</errorMessage>
+</ValidationRule>

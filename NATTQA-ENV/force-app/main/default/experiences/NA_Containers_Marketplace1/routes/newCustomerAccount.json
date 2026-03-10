@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "f6bda645-2410-4396-b70e-3ee04af6d8ba",
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "New_Customer_Account__c",
+  "id" : "725fd07d-bb25-48fb-a9a2-94da6b1b5f76",
+  "label" : "New Customer Account",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-new-customer-account",
+  "type" : "route",
+  "urlPrefix" : "new-customer-account"
+}

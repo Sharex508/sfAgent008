@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Converted_Unit_Price__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NOT(CTBR_Unit_Price_USD__c=0),
+&quot;USD &quot; + TEXT(CTBR_Unit_Price_USD__c) + &quot; (BRL &quot; + TEXT(ROUND(CTBR_Unit_Price_USD__c*$CustomMetadata.CTBR_Exchange_Rate__mdt.CTBR_Units.Current_Rate__c,2)) + &quot;)&quot; ,&apos;USD 0.00&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CTBR Converted Unit Price</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

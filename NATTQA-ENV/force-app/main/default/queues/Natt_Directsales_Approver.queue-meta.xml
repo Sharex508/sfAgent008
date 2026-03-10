@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Natt Directsales Approver</name>
+    <queueMembers>
+        <users>
+            <user>april.jaillett@carrier.com.corp</user>
+            <user>donna.dowell@carrier.com.corp</user>
+            <user>dorothy.thornton@carrier.com.corp</user>
+            <user>jim.covington@carrier.com.corp</user>
+            <user>marixela.lopez@carrier.com.corp</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>SBQQ__Quote__c</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,38 @@
+<template>
+    <div class="slds-form-element" onmouseleave={toggleResult} data-source="lookupContainer">
+        <div class="slds-combobox_container slds-has-selection">
+            <div class="lookupInputContainer slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click"
+                aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                <div class="slds-form-element">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                        <lightning-icon size="x-small"
+                            class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default"
+                            icon-name="utility:search" onclick={handleSearch}></lightning-icon>
+                        <input type="text" id="text-input-id-1" value={searchKey} placeholder={placeholder}
+                            data-source="searchInputField" onclick={toggleResult} onkeyup={handleKeyChange}
+                            class="slds-input" />
+                    </div>
+                </div>
+
+                <div style="margin-top:0px" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid"
+                    role="listbox">
+                    <ul class="slds-listbox slds-listbox_vertical">
+                        <template for:each={lstResult} for:item="obj">
+                            <li key={obj} role="presentation" class="slds-listbox__item" style="text-align:left">
+                                <div onclick={handelSelectedRecord}
+                                    class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                    role="option">
+                                    <span class="slds-media__body">
+                                        <span class="slds-listbox__option-text slds-listbox__option-text_entity"
+                                            data-item={obj}>{obj}</span>
+                                    </span>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

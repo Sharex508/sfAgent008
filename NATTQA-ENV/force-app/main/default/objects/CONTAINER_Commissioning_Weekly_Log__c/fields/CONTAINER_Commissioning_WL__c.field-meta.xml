@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Commissioning_WL__c</fullName>
+    <description>Master detail relationship between Commissioning object and Commissioning Weekly Log object.</description>
+    <label>Commissioning</label>
+    <referenceTo>CONTAINER_Commissionig__c</referenceTo>
+    <relationshipLabel>Commissioning Weekly Logs</relationshipLabel>
+    <relationshipName>Commissioning_Weekly_Logs</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

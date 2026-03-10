@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSR_cant_edit_NATTBilling_Shipping_Addre</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    $Profile.Name = &quot;NATT CSR Profile&quot;,
+    OR(
+        ISCHANGED(NATT_Billing_Address__c),
+        ISCHANGED(NATT_Shipping_Address__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>You do not have permission to edit Billing or Shipping Address fields.</errorMessage>
+</ValidationRule>

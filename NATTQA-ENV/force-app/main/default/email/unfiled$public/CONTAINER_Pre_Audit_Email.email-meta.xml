@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>CONTAINER Pre-Audit Email for Audit object to sent an email to service center</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CONTAINER Pre-Audit Email</name>
+    <style>none</style>
+    <subject>Pre-Audit Email For Service Center</subject>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

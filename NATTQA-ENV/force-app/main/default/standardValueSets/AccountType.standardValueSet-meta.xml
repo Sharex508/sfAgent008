@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Analyst</fullName>
+        <default>false</default>
+        <label>Analyst</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Competitor</fullName>
+        <default>false</default>
+        <label>Competitor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer</fullName>
+        <default>false</default>
+        <label>Customer</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Integrator</fullName>
+        <default>false</default>
+        <label>Integrator</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Investor</fullName>
+        <default>false</default>
+        <label>Investor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partner</fullName>
+        <default>false</default>
+        <label>Partner</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Press</fullName>
+        <default>false</default>
+        <label>Press</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Prospect</fullName>
+        <default>false</default>
+        <label>Prospect</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Reseller</fullName>
+        <default>false</default>
+        <label>Reseller</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Customer and supplier</fullName>
+        <default>false</default>
+        <label>Customer and supplier</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Current</fullName>
+        <default>false</default>
+        <label>Current</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Investigate</fullName>
+        <default>false</default>
+        <label>Investigate</label>
+    </standardValue>
+    <standardValue>
+        <fullName>New Actor</fullName>
+        <default>false</default>
+        <label>New Actor</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Supplier</fullName>
+        <default>false</default>
+        <label>Supplier</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Potential Entrant</fullName>
+        <default>false</default>
+        <label>Potential Entrant</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Lease</fullName>
+        <default>false</default>
+        <label>Lease</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Ship</fullName>
+        <default>false</default>
+        <label>Ship</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Box Mfg</fullName>
+        <default>false</default>
+        <label>Box Mfg</label>
+    </standardValue>
+</StandardValueSet>

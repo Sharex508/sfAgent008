@@ -1,0 +1,480 @@
+<template>
+  <div>
+    <template if:true={isCtmStorefront}>
+    <span class="slds-text-heading_medium slds-p-bottom_medium" title="Section Title">CTM Partes {label.OrderLabel}
+      #{OrderNumber}</span>
+    </template>
+    <template if:false={isCtmStorefront}>
+      <span class="slds-text-heading_medium slds-p-bottom_medium" title="Section Title">PartsNet {label.OrderLabel}
+        #{OrderNumber}</span>
+      </template>
+    <div class="section slds-section slds-is-open">
+      <h3 class="section slds-section__title slds-theme_shade">
+        <span class="section slds-truncate slds-p-horizontal_small"
+          title="Section Title">{label.CustomerInformationLabel}</span>
+      </h3>
+    </div>
+    <div class="slds-m-around_medium">
+      <lightning-record-view-form record-id={recordId} object-api-name="Order">
+        <div class="slds-grid slds-wrap">
+          <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            <div class="slds-form-element slds-form-element_horizontal">
+              <label class="slds-form-element__label">{label.CustomerLabel}</label>
+              <div class="slds-form-element__control">
+                <lightning-output-field field-name="NATT_CustomerName__c" variant="label-hidden">
+                </lightning-output-field>
+              </div>
+            </div>
+            <div class="slds-border_bottom"></div>
+          </div>
+          <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            <div class="slds-form-element slds-form-element_horizontal">
+              <label class="slds-form-element__label">{label.ContactNameLabel}</label>
+              <lightning-output-field field-name="NATT_Contact_Name__c" variant="label-hidden"></lightning-output-field>
+            </div>
+            <div class="slds-border_bottom"></div>
+          </div>
+          <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            <div class="slds-form-element slds-form-element_horizontal">
+              <label class="slds-form-element__label">{label.CustomerNumberLabel}</label>
+              <lightning-output-field field-name="NATT_CustomerBilltoCode__c" variant="label-hidden">
+              </lightning-output-field>
+            </div>
+            <div class="slds-border_bottom"></div>
+          </div>
+          <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            <div class="slds-form-element slds-form-element_horizontal">
+              <label class="slds-form-element__label">{label.ContactEmailLabel}</label>
+              <lightning-output-field field-name="NATT_Contact_Email__c" variant="label-hidden">
+              </lightning-output-field>
+            </div>
+            <div class="slds-border_bottom"></div>
+          </div>
+          <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            <div class="slds-form-element slds-form-element_horizontal">
+              <label class="slds-form-element__label">{label.POLabel}</label>
+              <lightning-output-field field-name="NATT_Purchase_Order__c" variant="label-hidden">
+              </lightning-output-field>
+            </div>
+            <div class="slds-border_bottom"></div>
+          </div>
+          <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            <div class="slds-form-element slds-form-element_horizontal">
+              <label class="slds-form-element__label">{label.ContactPhoneLabel}</label>
+              <lightning-output-field field-name="NATT_Contact_Phone__c" variant="label-hidden">
+              </lightning-output-field>
+            </div>
+            <div class="slds-border_bottom"></div>
+          </div>
+        </div>
+      </lightning-record-view-form>
+    </div>
+  </div>
+
+  <div>
+    <div class="section slds-section slds-is-open">
+      <h3 class="section slds-section__title slds-theme_shade">
+        <span class="section slds-truncate slds-p-horizontal_small"
+          title="Section Title">{label.OrderInformationLabel}</span>
+      </h3>
+    </div>
+    <div class="slds-m-around_medium slds-m-horizontal_xx-large">
+      <lightning-record-view-form record-id={recordId} object-api-name="Order">
+        <div class="slds-grid slds-wrap">
+          <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            <div class="slds-grid slds-wrap">
+              <div class="slds-form-element slds-form-element_horizontal slds-border_bottom">
+                <lightning-output-field field-name="NATT_JDE_Sales_Order_Number__c"></lightning-output-field>
+              </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+              <!-- <div class="slds-col  slds-size_11-of-12 slds-border_bottom"> -->
+                <div class="slds-form-element slds-form-element_horizontal slds-border_bottom">
+
+                <lightning-output-field field-name="OrderedDate"></lightning-output-field>
+              </div>
+            </div>
+            <div class="slds-grid slds-wrap">
+              <!-- <div class="slds-col  slds-size_11-of-12 slds-border_bottom">
+                <lightning-output-field field-name="NATT_JdeOrderTypeName__c"></lightning-output-field>
+              </div> -->
+              <div class="slds-form-element slds-form-element_horizontal slds-border_bottom">
+                <label class="slds-form-element__label">{label.OrderTypeLabel}</label>
+                <lightning-output-field field-name="NATT_JdeOrderTypeName__c" variant="label-hidden">
+                </lightning-output-field>
+              </div>
+            </div>
+            <template if:false={isCtmStorefront}>
+              <div class="slds-grid slds-wrap">
+                <!-- <div class="slds-col  slds-size_11-of-12 slds-border_bottom">
+                  <lightning-output-field field-name="NATT_Shipment_Method__c"></lightning-output-field>
+                </div> -->
+                <div class="slds-form-element slds-form-element_horizontal slds-border_bottom">
+                  <label class="slds-form-element__label">{label.ShipmentMethodLabel}</label>
+                  <lightning-output-field field-name="NATT_Shipment_Method__c" variant="label-hidden">
+                  </lightning-output-field>
+                </div>
+              </div>
+            </template>
+            <template if:true={isCtmStorefront}>
+              <div class="slds-grid slds-wrap">
+                <div class="slds-form-element slds-form-element_horizontal slds-border_bottom">
+                  <label class="slds-form-element__label">Incoterm</label>
+                  <lightning-output-field field-name="NATT_Incoterm__c" variant="label-hidden">
+                  </lightning-output-field>
+                </div>
+              </div>
+            </template>
+            
+          </div>
+          <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+            </div>
+            <div class="slds-grid slds-wrap">
+              <!-- Added By Rajasekharreddy Kotella CCRN-1171-->
+               
+              <div class="slds-col  slds-size_11-of-12 slds-border_bottom">
+                <lightning-output-field field-name="Shipping_Address_Name__c"></lightning-output-field>
+              </div>
+              <div class="slds-col  slds-size_11-of-12 slds-border_bottom">
+                <lightning-output-field field-name="ShippingAddress"></lightning-output-field>
+              </div>
+              
+            </div>
+            <div class="slds-grid slds-wrap">
+              <!-- <div class="slds-col  slds-size_11-of-12 slds-border_bottom">
+                <lightning-output-field field-name="NATT_Shipment_Terms__c"></lightning-output-field>
+              </div> -->
+              <div class="slds-form-element slds-form-element_horizontal slds-border_bottom">
+                <label class="slds-form-element__label">{label.ShipmentTermsLabel}</label>
+                <lightning-output-field field-name="NATT_Shipment_Terms__c" variant="label-hidden">
+                </lightning-output-field>
+              </div>
+            </div>
+
+            <template if:false={isCtmStorefront}>
+                <div class="slds-grid slds-wrap">
+                  <!-- <div class="slds-col  slds-size_11-of-12 slds-border_bottom">
+                    <lightning-output-field field-name="NATT_Freight_Account_Number__c"></lightning-output-field>
+                  </div> -->
+                  <div class="slds-form-element slds-form-element_horizontal slds-border_bottom">
+                    <label class="slds-form-element__label">{label.FreightAccountNumberLabel}</label>
+                    <lightning-output-field field-name="NATT_Freight_Account_Number__c" variant="label-hidden">
+                    </lightning-output-field>
+                  </div>
+                </div>
+            </template>
+
+            <template if:true={isCtmStorefront}>
+              <div class="slds-grid slds-wrap">
+                <!-- <div class="slds-col  slds-size_11-of-12 slds-border_bottom">
+                  <lightning-output-field field-name="NATT_Freight_Account_Number__c"></lightning-output-field>
+                </div> -->
+                <div class="slds-form-element slds-form-element_horizontal slds-border_bottom">
+                  <label class="slds-form-element__label">{label.CtmWarehouse} </label>
+                  <lightning-output-field field-name="NATT_Warehouse__c" variant="label-hidden">
+                  </lightning-output-field>
+                </div>
+              </div>
+            </template>
+            
+          </div>
+        </div>
+      </lightning-record-view-form>
+    </div>
+  </div>
+
+  <div>
+    <div class="section slds-section slds-is-open">
+      <h3 class="section slds-section__title slds-theme_shade">
+        <span class="section slds-truncate slds-p-horizontal_small">{label.OrderLinesLabel}</span>
+      </h3>
+    </div>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_bottom">
+      <thead>
+        <tr class="slds-line-height_reset">
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.LineLabel}>{label.LineLabel}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.PNLabel}>{label.PNLabel}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.DescriptionLabel}>
+              {label.DescriptionLabel}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.OrderedLabel}>{label.OrderedLabel}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.ShippedLabel}>{label.ShippedLabel}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.BackorderedLabel}>
+              {label.BackorderedLabel}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.AvailableOnLabel}>
+              {label.AvailableOnLabel}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.unitPriceLabel}>{label.unitPriceLabel}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.unitofmeasure}>{label.unitofmeasure}</div>
+          </th>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.OrderAmountLabel}>
+              {label.OrderAmountLabel}</div>
+          </th>
+          <template if:false={isCtmStorefront}>
+            <th class="tbody slds-size_1-of-12" scope="col">
+              <div class="slds-truncate slds-align_absolute-center" title={label.ShippedAmountLabel}>
+                {label.ShippedAmountLabel}</div>
+            </th>
+          </template>
+          <th class="tbody slds-size_1-of-12" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title={label.StatusLabel}>{label.StatusLabel}</div>
+          </th>
+          <template if:false={isCtmStorefront}>
+            <th class="tbody slds-size_1-of-12" scope="col">
+              <div class="slds-truncate slds-align_absolute-center" title={label.ShipmentsLabel}>{label.ShipmentsLabel}
+              </div>
+            </th>
+          </template>
+
+        </tr>
+      </thead>
+
+      <tbody>
+        <template for:each={orderLines} for:item="lines">
+          <tr key={lines.Id}>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.lineNum}>{lines.lineNum}</div>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.partNum}>{lines.partNum}</div>
+            </td>
+            <td class="slds-cell-wrap">
+              <div class="slds-truncate slds-align_absolute-center" title={lines.description}>{lines.description}</div>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.ordered}>{lines.ordered}</div>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.delivered}>{lines.delivered}</div>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.backOrdered}>{lines.backOrdered}</div>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.availablePromiseDate}>
+                {lines.availablePromiseDate}</div>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.unitPrice}>
+                <lightning-formatted-number value={lines.unitPrice} format-style="currency" currency-code="USD">
+                </lightning-formatted-number>
+              </div>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.unitOfMeasure}>{lines.unitOfMeasure}</div>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.orderItemAmount}>
+                <lightning-formatted-number value={lines.orderItemAmount} format-style="currency" currency-code="USD">
+                </lightning-formatted-number>
+              </div>
+            </td>
+            <template if:false={isCtmStorefront}>
+              <td>
+                <div class="slds-truncate slds-align_absolute-center" title={lines.shipmentItemAmount}>
+                  <lightning-formatted-number value={lines.shipmentItemAmount} format-style="currency"
+                    currency-code="USD"></lightning-formatted-number>
+                </div>
+              </td>
+            </template>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title="lines.status">{lines.status}</div>
+            </td>
+            <template if:false={isCtmStorefront}>
+              <td id={id}>
+                <div class="slds-align_absolute-center slds-truncate" title="">
+                  <template if:true={lines.shipments}>
+                    <a id={lines.Id} onclick={openModal}>{lines.shipments}</a>
+                  </template>
+                </div>
+              </td>
+            </template>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+
+    <table class="slds-table slds-table_cell-buffer">
+      <thead>
+        <tr>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+          <th class="tbody slds-size_1-of-12" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      <template if:false={isCtmStorefront}>
+        <tr>
+          <td colspan="6"></td>
+          <td class="slds-text-title_bold slds-border_bottom">{label.PartTotalLabel}:</td>
+          <td class="slds-border_bottom">
+            <div class="slds-truncate slds-align_absolute-center">
+              <lightning-formatted-number value={partTotal} format-style="currency" currency-code="USD">
+              </lightning-formatted-number>
+            </div>
+          </td>
+          <td class="slds-border_bottom">
+            <div class="slds-truncate slds-align_absolute-center">
+              <lightning-formatted-number value={shippedTotal} format-style="currency" currency-code="USD">
+              </lightning-formatted-number>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="6"></td>
+          <td class="slds-text-title_bold slds-border_bottom">
+            {label.FreightLabel}:
+          </td>
+          <td class="slds-border_bottom"></td>
+          <td class="slds-border_bottom">
+            <div class="slds-truncate slds-align_absolute-center">
+              <lightning-formatted-number value={freightTotal} format-style="currency" currency-code="USD">
+              </lightning-formatted-number>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="6"></td>
+          <td class="slds-text-title_bold">
+            {label.EstimatedRushOrderFeeLabel}:
+          </td>
+          <td></td>
+          <td>
+            <div class="slds-truncate slds-align_absolute-center">
+              <lightning-formatted-number value={rushOrderTotal} format-style="currency" currency-code="USD">
+              </lightning-formatted-number>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="6"></td>
+          <td class="slds-text-title_bold">{label.TotalLabel}:</td>
+          <td></td>
+          <td>
+            <div class="slds-truncate slds-align_absolute-center">
+              <lightning-formatted-number value={shippedOrderTotal} format-style="currency" currency-code="USD">
+              </lightning-formatted-number>
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+    </template>
+    <template if:true={isCtmStorefront}>
+      <tr>
+        <td colspan="9"></td>
+        <td class="slds-text-title_bold slds-border_bottom">{label.TotalLabel}:</td>
+        <td class="slds-border_bottom">
+          <div class="slds-truncate slds-align_absolute-center">
+            <lightning-formatted-number value={partTotal} format-style="currency" currency-code="USD">
+            </lightning-formatted-number>
+          </div>
+        </td>
+        <!-- <td class="slds-border_bottom">
+          <div class="slds-truncate slds-align_absolute-center">
+            <lightning-formatted-number value={shippedTotal} format-style="currency" currency-code="USD">
+            </lightning-formatted-number>
+          </div>
+        </td> -->
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+    </tbody>
+    </table>
+
+    <template if:true={isModalOpen}>
+      <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium"
+        aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <div class="slds-modal__container">
+          <header class="slds-modal__header">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close"
+              onclick={closeModal}>
+              <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small">
+              </lightning-icon>
+              <span class="slds-assistive-text">Close</span>
+            </button>
+            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{label.ItemShipmentDetailsLabel}
+            </h2>
+          </header>
+          <!-- Modal/Popup Box LWC body starts here -->
+          <div class="slds-modal__content slds-p-around_medium modalBody" id="modal-content-id-1">
+            <template if:true={modalLoading}>
+              <lightning-spinner alternative-text="Loading" size="medium" class="spinnerClass"></lightning-spinner>
+            </template>
+            <div class="slds-grid slds-gutters slds-border_bottom slds-p-bottom_x-small slds-p-left_large">
+              <div class="slds-col slds-size_2-of-5">
+                <div class="slds-text-heading_small slds-text-title">{label.PNLabel}</div>
+                <div class="slds-form-element">
+                  <lightning-formatted-text class="slds-text-title_bold slds-p-top_xx-small slds-form-element__static"
+                    value={partNumber}></lightning-formatted-text>
+                </div>
+              </div>
+              <div class="slds-col slds-size_3-of-4">
+                <div class="slds-text-heading_small slds-text-title">{label.DescriptionLabel}</div>
+                <div class="slds-form-element">
+                  <lightning-formatted-text class="slds-text-title_bold slds-p-top_xx-small slds-form-element__static"
+                    value={partDescription}></lightning-formatted-text>
+                </div>
+              </div>
+            </div>
+            <lightning-datatable key-field="Id" show-row-number-column data={shipMentItems}
+              columns={shipmentItemsColumns} hide-checkbox-column="true">
+            </lightning-datatable>
+          </div>
+          <!-- Modal/Popup Box LWC footer starts here -->
+          <footer class="slds-modal__footer">
+            <button class="slds-button slds-button_neutral" onclick={closeModal}>{label.CloseLabel}</button>
+          </footer>
+        </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+  </div>
+  <template if:true={hasShipments}>
+    <div class="section slds-section slds-is-open">
+      <h3 class="section slds-section__title slds-theme_shade">
+        <span class="section slds-truncate slds-p-horizontal_small">{label.InvoiceInformationLabel}</span>
+      </h3>
+    </div>
+
+    <lightning-datatable key-field="Id" show-row-number-column data={shipments} columns={shipmentscolumns}
+      hide-checkbox-column="true" onrowaction={callRowAction} sorted-by={sortBy} sorted-direction={sortDirection}
+      onsort={doSorting}>
+    </lightning-datatable>
+
+  </template>
+  <div class="slds-p-bottom_large"></div>
+</template>

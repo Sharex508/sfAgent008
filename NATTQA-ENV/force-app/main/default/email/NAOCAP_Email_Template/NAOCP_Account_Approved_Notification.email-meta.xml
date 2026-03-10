@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NAOCP Account Approved Notification</name>
+    <style>none</style>
+    <subject>New Account Request</subject>
+    <textOnly>Hi {!Account.Name} ,
+
+Your request for a new account for North America Container Aftermarket Parts has been approved. Your contacts will receive a separate email with Login details
+
+
+Thanks &amp; Regards,
+Container Aftermarket Parts Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

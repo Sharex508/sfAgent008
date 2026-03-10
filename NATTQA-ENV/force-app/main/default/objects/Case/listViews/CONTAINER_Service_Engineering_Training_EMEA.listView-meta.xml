@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Service_Engineering_Training_EMEA</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>NAME</columns>
+    <columns>CASES.RECORDTYPE</columns>
+    <columns>CONTAINER_Region__c</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>NATT_Case_Reason__c</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>OWNER_NAME</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <filterScope>Queue</filterScope>
+    <filters>
+        <field>CONTAINER_Region__c</field>
+        <operation>equals</operation>
+        <value>EMEA</value>
+    </filters>
+    <label>Service Engineering Training EMEA</label>
+    <queue>CONTAINER_Service_Engineering_Training</queue>
+    <sharedTo>
+        <group>CONTAINER_RSM_EMEA_Case</group>
+        <group>CONTAINER_Service_Admin</group>
+    </sharedTo>
+</ListView>

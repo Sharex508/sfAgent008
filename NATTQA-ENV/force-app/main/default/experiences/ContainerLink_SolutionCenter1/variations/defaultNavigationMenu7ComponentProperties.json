@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "57c4079d-188e-49b2-bbb2-09f518b99334",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "UCP_Purchase_APO_SG_HK"
+      }
+    },
+    "targetId" : "a988fe4c-427f-4407-8101-85fd0a38571e",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_7_Component_Properties",
+  "id" : "75e98dfe-482f-4151-859a-405161d3c41c",
+  "type" : "experienceVariation"
+}

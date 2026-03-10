@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Opportunity</fullName>
+    <fields>Name</fields>
+    <fields>AccountId</fields>
+    <fields>Amount</fields>
+    <fields>CloseDate</fields>
+    <fields>OwnerId</fields>
+    <label>NATT Opportunity</label>
+</CompactLayout>

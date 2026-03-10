@@ -1,0 +1,94 @@
+<aura:component controller="Natt_TesNewUserRegistrationCon" implements="forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}" />
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}" />
+    <!-- value that stores response from server. Used to process Captcha response. -->
+    <aura:attribute name="recaptchaResponse" type="String" />
+    <aura:attribute name="errorMessageValue" type="String"/> 
+    <!--Community Id Info-->
+    <aura:attribute name="communityIdValue" type="String"/>
+    <!--Current User Id Info-->
+    <aura:attribute name="userIdValue" type="String"/>
+    <!-- First Name from the LWC -->
+    <aura:attribute name="nameValue" type="String"/>
+    <!-- Last Name from the LWC -->
+    <aura:attribute name="lastnameValue" type="String"/>
+     <!-- Email from LWC -->
+    <aura:attribute name="emailValue" type="String"/>   
+    <!-- Password -->
+    <aura:attribute name="passwordValue" type="String"/> 
+    <aura:attribute name="password2Value" type="String"/> 
+    <!-- Company -->
+    <aura:attribute name="companyValue" type="String"/>   
+    <!-- Telephone -->
+    <aura:attribute name="telephoneValue" type="String"/>   
+    <!-- Street1 -->
+    <aura:attribute name="streetValue" type="String"/>   
+    <!-- Street2 -->
+    <!-- <aura:attribute name="street2Value" type="String"/>    -->
+    <!-- City -->
+    <aura:attribute name="cityValue" type="String"/>   
+    <!-- State -->
+    <aura:attribute name="stateValue" type="String"/>   
+    <!-- Postal Code -->
+    <aura:attribute name="postalCodeValue" type="String"/>  
+    <!-- Country -->
+    <aura:attribute name="countryValue" type="String"/>  
+    <!-- return value from resetValue apex controller -->
+    <aura:attribute name="passwordSubmitReturn" type="String"/>
+    <aura:attribute name="customerAccountId" type="String"/>
+    <!-- Error Message Attributes -->
+    <aura:attribute name="showError" type="Boolean"/>
+    <aura:attribute name="errorMessage" type="String"/>
+    <!-- Loading Spinner Attributes -->
+    <aura:attribute name="showLoadingSpinner" type="Boolean" default="false"/>
+    <!--Input Field or Success Message Display-->
+    <aura:attribute name="showInputFields" type="Boolean" default="true"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <!-- <lightning:button name="notice" label="Show Notice" onclick="{!c.handleShowNotice}"/> -->
+    <aura:if isTrue="{!v.showLoadingSpinner}">
+        <lightning:spinner alternativeText="Loading" size="large"/>
+    </aura:if>
+
+    <!-- If true, display input fields. If False, display return to Login. Used to represent successful login. -->
+    <aura:if isTrue ="{!v.showInputFields}">
+        <!-- Grabs the input fields from a LWC component -->
+        <c:natt_newUserRegistration onpassuserfields="{!c.getValueFromLWC}"/><br/>
+        <div class="slds-align_absolute-center" style="height:5rem">
+            <div id="recaptchaCheckbox"></div>
+        </div>
+        <br/>
+        <div class="mybtn slds-grid slds-align_absolute-center">
+            <lightning:button variant="brand" class="slds-m-right_small" label="Cancel" onclick="{!c.returnToLogin}"/>
+            <lightning:button variant="brand" class="slds-m-left_small" aura:id="myButton" label="Submit" onclick="{!c.doSubmit}" disabled="true" />
+            {!v.submitButton}
+        </div>
+        <br/>    
+        <div class="error-message-display">
+            {!v.errorMessageValue}
+        </div>
+
+        <!-- <aura:if isTrue="{!v.showError}"> -->
+            <!-- Show the message to ui -->
+            <!-- <div class="slds-notify slds-notify_toast slds-theme_error">
+                <span class="slds-assistive-text">error</span>
+                <div class="slds-notify__content">
+                    <h5 class="slds-text-heading_small slds-align_absolute-center">Error</h5>
+                    <br/>
+                    <p class="slds-align_absolute-center">{!v.errorMessage}</p>                
+                </div>
+            </div>
+        </aura:if> -->
+
+        <!-- Success Message/Navigation -->
+        <aura:set attribute="else">
+            <div class="slds-tabs_card">
+                <div class="slds-align_absolute-center" style="height:5rem">
+                    <p><lightning:formattedText class="formatted-text_success" value="Account created successfully. Return to Login and use new credentials to access website." /></p>
+                </div>
+                <div class="slds-align_absolute-center" style="height:5rem">
+                    <lightning:button variant="success" class="slds-m-right_small" label="Return to Login" onclick="{!c.returnToLogin}"/>
+                </div>
+            </div>
+        </aura:set>
+    </aura:if>
+</aura:component>

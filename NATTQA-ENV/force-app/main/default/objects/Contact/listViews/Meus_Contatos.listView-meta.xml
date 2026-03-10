@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Meus_Contatos</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>CONTACT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Contact.CTBR_Competitor,Contact.CTBR_Customer,Contact.CTBR_Dealer</value>
+    </filters>
+    <label>Meus Contatos</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>CTBR</roleAndSubordinates>
+    </sharedTo>
+</ListView>

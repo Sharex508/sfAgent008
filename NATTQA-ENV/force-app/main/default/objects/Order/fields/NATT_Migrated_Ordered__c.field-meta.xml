@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Migrated_Ordered__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Means that this order was a quote that was a part of data migration and has an order that already exists in JDE</description>
+    <label>Migrated Ordered</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

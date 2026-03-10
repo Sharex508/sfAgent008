@@ -1,0 +1,36 @@
+{
+  "forgotPasswordRouteId" : "d6eeecaa-0f99-4807-871b-79d991bfe4b0",
+  "isAvailableToGuests" : true,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : false,
+  "loginAppPageId" : "ef8a2e60-638f-40e5-9483-8dbdde9127cb",
+  "mainAppPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "preferredDomain" : "www2.refrigeration-marketplace.com",
+  "selfRegistrationRouteId" : "b3255d9a-2784-4458-a332-4431311603e4",
+  "trustedSitesForScript" : [ {
+    "id" : "8776c1b7-23be-4eb0-94e2-c2ac065dc21c",
+    "isActive" : true,
+    "trustedSiteName" : "GTM",
+    "trustedSiteUrl" : "https://www.googletagmanager.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "7741edd4-2409-49dd-92ac-ff3615af545a",
+    "isActive" : true,
+    "trustedSiteName" : "TrustArc",
+    "trustedSiteUrl" : "https://consent.trustarc.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "6a2cf158-9301-451c-8267-b1fcda818057",
+    "isActive" : true,
+    "trustedSiteName" : "TrustArc Legacy",
+    "trustedSiteUrl" : "https://consent.truste.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "da46a09d-481b-4e65-954f-9b330baaaea5",
+    "isActive" : true,
+    "trustedSiteName" : "NAOCAPREFMARKETPLACE",
+    "trustedSiteUrl" : "https://www2.refrigeration-marketplace.com",
+    "type" : "trustedSitesForScripts"
+  } ],
+  "type" : "site"
+}

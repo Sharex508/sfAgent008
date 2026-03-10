@@ -1,0 +1,60 @@
+<template>
+    <!-- Render component content only if the user has access -->
+    <template if:true={hasAccess}>
+    <lightning-card>
+        <lightning-record-edit-form object-api-name="Opportunity" onsuccess={handleSuccess} onsubmit={handleSubmit}>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <!-- First Column -->
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field field-name="Name" data-field="Name" onchange={handleInputChange}></lightning-input-field>
+                    <lightning-input-field field-name="StageName" value="Prospecting" data-field="StageName" onchange={handleInputChange}></lightning-input-field>
+                    <lightning-input-field field-name="NATT_End_Customer__c" data-field="NATT_End_Customer__c" value={opportunity.NATT_End_Customer__c} onchange={handleInputChange}></lightning-input-field>
+                    <lightning-input-field field-name="CloseDate" data-field="CloseDate" onchange={handleInputChange}></lightning-input-field>
+                    <lightning-input-field class="inputStock" value={isStock} field-name="NATT_Stock__c" data-field="NATT_Stock__c" onchange={handleInputChange}></lightning-input-field>
+                    <lightning-input-field field-name="Expected_Revenue__c" data-field="Expected_Revenue__c" onchange={handleInputChange}></lightning-input-field>
+                    <lightning-input-field field-name="Opportunity Record Type" data-field="RecordTypeId" value={recordTypeId} onchange={handleInputChange} disabled></lightning-input-field>
+                </div>
+
+                <!-- Second Column -->
+                <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field field-name="AccountId" data-field="AccountId" onchange={handleAccountChange} value={recordId}></lightning-input-field>
+                        <lightning-input-field field-name="OwnerId" data-field="OwnerId" onchange={handleInputChange}></lightning-input-field>
+                       <lightning-combobox
+                            name="Billing Address"
+                            label="Billing Address"
+                            value={billingAddress}
+                            options={billToAddressOptions}
+                            onchange={handleInputChange}
+                            required= true
+                            data-field="NATT_Billing_Address__c">
+                        </lightning-combobox>
+
+                        <lightning-combobox
+                            name="Shipping Address"
+                            label="Shipping Address"
+                            value={shippingAddress}
+                            options={unitShipToAddressOptions}
+                            onchange={handleInputChange}
+                            required= true
+                            data-field="NATT_Shipping_Address__c">
+                        </lightning-combobox>
+                    <lightning-input-field field-name="Product__c" data-field="Product__c" onchange={handleInputChange}></lightning-input-field>
+                    <lightning-input-field field-name="Total_Quantity__c" data-field="Total_Quantity__c" onchange={handleInputChange}></lightning-input-field>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <lightning-button class="slds-m-top_medium" label="Create Opportunity" variant="brand" type="submit"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+</template>
+
+    <!-- If the user does not have access, display an error message -->
+    <template if:false={hasAccess}>
+        <lightning-card title="Error">
+            <div class="slds-p-around_medium">
+                You do not have access to this component.
+            </div>
+        </lightning-card>
+    </template>
+</template>

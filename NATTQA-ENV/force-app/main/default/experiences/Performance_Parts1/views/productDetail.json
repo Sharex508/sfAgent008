@@ -1,0 +1,115 @@
+{
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "051dafb4-ccd6-4c32-a03a-dc29777043f5",
+  "label" : "Product Detail",
+  "regions" : [ {
+    "id" : "ae3684c6-804c-4256-a5b0-552d0ce34440",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "addToCartButtonBackgroundColor" : "",
+        "addToCartButtonBackgroundHoverColor" : "",
+        "addToCartButtonBorderColor" : "",
+        "addToCartButtonBorderRadius" : "0",
+        "addToCartButtonText" : "Add To Cart",
+        "addToCartButtonTextColor" : "",
+        "addToCartButtonTextHoverColor" : "",
+        "addToListButtonBackgroundColor" : "",
+        "addToListButtonBackgroundHoverColor" : "",
+        "addToListButtonBorderColor" : "",
+        "addToListButtonBorderRadius" : "0",
+        "addToListButtonText" : "Add To List",
+        "addToListButtonTextColor" : "",
+        "addToListButtonTextHoverColor" : "",
+        "breadcrumbsColor" : "",
+        "breadcrumbsFontSize" : "small",
+        "identifierName" : "",
+        "imageBorderColor" : "",
+        "incrementValueGuideText" : "Sold in increments of {0}",
+        "maximumValueGuideText" : "",
+        "minimumValueGuideText" : "",
+        "negotiatedPriceLabel" : "Net Price",
+        "negotiatedPriceTextColor" : "",
+        "negotiatedPriceTextSize" : "small",
+        "originalPriceLabel" : "List Price",
+        "originalPriceTextColor" : "",
+        "originalPriceTextSize" : "small",
+        "priceAdjustmentTiersBackgroundColor" : "rgba(0,0,0,0)",
+        "priceAdjustmentTiersBorderColor" : "",
+        "priceAdjustmentTiersBorderRadius" : "0",
+        "priceAdjustmentTiersDiscountRowLabel" : "Discount per Unit",
+        "priceAdjustmentTiersLabelTextColor" : "",
+        "priceAdjustmentTiersQuantityRowLabel" : "Quantity",
+        "priceAdjustmentTiersRowTitleTextColor" : "",
+        "priceAdjustmentTiersTextColor" : "",
+        "priceAdjustmentTiersTitleText" : "Tier Discounts",
+        "productDetailSummaryFieldMapping" : "[{\"name\":\"NATT_P_N__c\",\"label\":\"Part #:\",\"type\":\"STRING\"},{\"name\":\"NATT_Discount_Code__c\",\"label\":\"Discount Code:\",\"type\":\"STRING\"},{\"name\":\"NATT_SignalCode__c\",\"label\":\"Signal Code:\",\"type\":\"PICKLIST\"}]",
+        "productVariantTitle" : "Product options:",
+        "quantitySelectorLabel" : "QTY",
+        "showAddToListButton" : false,
+        "showBreadCrumbs" : false,
+        "showGuides" : false,
+        "showImageCarousel" : true,
+        "showNegotiatedPrice" : true,
+        "showOriginalPrice" : true,
+        "showPriceAdjustmentTiers" : true,
+        "showProductDescription" : true,
+        "showProductImage" : true,
+        "showProductVariantTitle" : true,
+        "titleTextColor" : "",
+        "titleTextSize" : "medium",
+        "unavailablePriceLabel" : ""
+      },
+      "componentName" : "b2b_buyer_builder:productDetailsSummary",
+      "id" : "7b6457bf-9581-45cf-aa3b-d3dc7994291b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "expandRelatedFilesByDefault" : true,
+        "fileIconColor" : "",
+        "openFilesInNewTab" : true,
+        "titleText" : "Resources & Bulletins"
+      },
+      "componentName" : "b2b_buyer_builder:productDetailsRelatedFiles",
+      "id" : "49e501e0-b2ea-4695-a48b-bfbbc76c4cf9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e2b117fe-c838-4822-b724-300a6bef4529",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "3894012a-1cea-45e6-a6cc-0313762e024c",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "70821e0c-86a7-424d-96ef-a622811514de",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "600aad9b-9570-4afd-bcfd-5f0a97f8a74c",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ed2136cc-9f6a-4db2-bb1b-966e6dd4b42c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-01t"
+}

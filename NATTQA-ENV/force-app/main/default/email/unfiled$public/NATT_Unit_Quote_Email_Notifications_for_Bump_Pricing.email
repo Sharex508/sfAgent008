@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html style="overflow-y: hidden;">
+<head>
+	<title></title>
+	<meta content="text/html; charset=UTF-8"><meta content="width=device-width, initialscale=1.0" name="viewport"><meta content="IE=edge">
+	<style type="text/css">@media screen and (max-width: 480px) {slot[style] {margin-right: 0 !important;}.columnDiv {margin-right: 0 !important;}}@media screen and (min-width: 480px) {slot[style] {margin-bottom: 0 !important;}.columnDiv {margin-bottom: 0 !important;}}
+	</style>
+	<style type="text/css">@media screen and (max-width: 480px) {.contentbuilderBaseColumnRow .columnCell {display:inline-block;width:100%}}
+	</style>
+	<style type="text/css">.contentpageDefaultEmailTemplatePageTemplate .contentRoot {width: 600px;}@media only screen and (max-width: 480px) {.contentpageDefaultEmailTemplatePageTemplate .contentRoot {width: 320px;}}
+	</style>
+</head>
+<body style="height: auto; min-height: auto;">
+<table cellpadding="0" cellspacing="0" class="contentpageDefaultEmailTemplatePageTemplate" id="contentpage_emailTemplateBodyContent" style="background-color: #E9EAEC;" width="100%">
+	<tbody>
+		<tr>
+			<td align="center" width="100%">
+			<table cellpadding="0" cellspacing="0" class="contentRoot" style="background-color: #FFFFFF;" width="600">
+				<tbody>
+					<tr>
+						<td style="padding-top: 10px; padding-bottom: 10px; padding-left: 10px; padding-right: 10px;">
+						<table cellpadding="0" cellspacing="0" class="contentbuilderBaseColumnRow" style="background-color:;" width="100%">
+							<tbody>
+								<tr valign="top">
+									<td class="columnCell" style="vertical-align: top;display: inline-block" width="100%">
+									<table style="width: 100%; border-collapse: collapse; word-break:break-word;">
+										<tbody>
+											<tr>
+												<td>
+												<table cellpadding="0" cellspacing="0" id="contentRegion" style="width: 100%; border-collapse: collapse; word-break: break-word; font-size: 14px">
+													<tbody>
+														<tr>
+															<td style="font-family: Arial, Helvetica, sans-serif;"><b>There has been an update to the Requested Discount Rate for your Quote. Please see details below:</b><br />
+                                                                                                                        <br />
+															Opportunity Name:&nbsp;{!SBQQ__Quote__c.SBQQ__Opportunity2__c}<br />
+
+															<br />
+															Quote #:&nbsp;<a href="{!SBQQ__Quote__c.Quote_Community_Link__c}">{!SBQQ__Quote__c.Name}</a><br />
+															<br />
+															Unit Name:&nbsp;{!SBQQ__Quote__c.NATT_Unit__c}<br />
+															<br />
+															Approved Discount Rate:&nbsp;{!SBQQ__Quote__c.NATT_Total_Discount2__c} %<br />
+															<br />
+															Approver that Updated Discount: {!SBQQ__Quote__c.LastModifiedBy}<br />
+															<br />
+															&nbsp;</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

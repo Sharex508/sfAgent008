@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Notify a contact when the status of a Case changes to Closed</description>
+        <name>Notify_Case_Contact_of_Closed_Case</name>
+        <label>Notify Case Contact of Closed Case</label>
+        <locationX>66</locationX>
+        <locationY>1314</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>CaseCloseTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Contact.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Notificação de encerramento de caso</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <actionCalls>
+        <description>When a new Case is created send a notification to the Contact</description>
+        <name>Notify_Case_Contact_of_New_Case</name>
+        <label>Notify Case Contact of New Case</label>
+        <locationX>253</locationX>
+        <locationY>1314</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>NewCaseTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Contact.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Notificação por email de criação de caso</stringValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <offset>0</offset>
+    </actionCalls>
+    <apiVersion>53.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Case_Team_Member_Check</name>
+        <label>Case Team Member Check</label>
+        <locationX>424</locationX>
+        <locationY>689</locationY>
+        <defaultConnector>
+            <targetReference>Dealer_New_Case_Check</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Exists</defaultConnectorLabel>
+        <rules>
+            <name>Exists</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Case_Team_Member_Records_for_Case_Owner.MemberId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Team_Member_Role</targetReference>
+            </connector>
+            <label>Does Not Exist</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>CloseCase</name>
+        <label>CloseCase</label>
+        <locationX>58</locationX>
+        <locationY>1138</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Close_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Notifications require that the contact has an email address</description>
+        <name>Contact_has_email_address</name>
+        <label>Contact has email address</label>
+        <locationX>426</locationX>
+        <locationY>1135</locationY>
+        <defaultConnector>
+            <targetReference>New_Case</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Yes</defaultConnectorLabel>
+        <rules>
+            <name>No_Contact_Email_Available</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Contact.Email</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Contact.Email</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>&quot;&quot;</stringValue>
+                </rightValue>
+            </conditions>
+            <label>No</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Set Defaults for a new Case submitted by a Dealer</description>
+        <name>Dealer_New_Case_Check</name>
+        <label>Dealer New Case Check</label>
+        <locationX>426</locationX>
+        <locationY>894</locationY>
+        <defaultConnector>
+            <targetReference>Contact_has_email_address</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>False</defaultConnectorLabel>
+        <rules>
+            <name>Dealer</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Owner:User.ContactId</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Contact_Name_Default</targetReference>
+            </connector>
+            <label>True</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>New_Case</name>
+        <label>New Case</label>
+        <locationX>246</locationX>
+        <locationY>1136</locationY>
+        <defaultConnector>
+            <targetReference>CloseCase</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_New_Case</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record__Prior</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Automation does not apply to Queue owned Cases</description>
+        <name>Queue_Owner</name>
+        <label>Queue Owner</label>
+        <locationX>257</locationX>
+        <locationY>515</locationY>
+        <defaultConnector>
+            <targetReference>Get_Case_Team_Member_Records_for_Case_Owner</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>No</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.OwnerId</leftValueReference>
+                <operator>StartsWith</operator>
+                <rightValue>
+                    <stringValue>00G</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>changed the email body language to Portugues.</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>frmCaseReason</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.CTBR_Case_Reason__c},
+&quot;Access Profile change&quot;, &quot;Alteração perfil&quot;,
+&quot;Additional Expense&quot;, &quot;Despesa Adicional&quot;,
+&quot;Aliquot Differential&quot;, &quot;Diferencial de aliquota&quot;,
+&quot;Arrival forecast&quot;, &quot;Previsão de chegada&quot;,
+&quot;Availability&quot;, &quot;Disponibilidade&quot;,
+&quot;Back Order&quot;, &quot;Back Order&quot;,
+&quot;Bill Copies&quot;, &quot;2a via do boleto&quot;,
+&quot;Billing Address Update&quot;, &quot;Atualização de endereço de cobrança&quot;,
+&quot;Cancellation&quot;, &quot;Cancelamento&quot;,
+&quot;CFOP&quot;, &quot;CFOP&quot;,
+&quot;Class A parts return&quot;, &quot;Retorno peças classe A&quot;,
+&quot;Commercial Warranty Extension&quot;, &quot;Extensão de Garantia Comercial&quot;,
+&quot;Complaint&quot;, &quot;Reclamação geral&quot;,
+&quot;Contract changes&quot;, &quot;Alterações de contrato&quot;,
+&quot;Coverage information&quot;, &quot;Informações de cobertura da rede&quot;,
+&quot;Credit&quot;, &quot;Crédito&quot;,
+&quot;Credit Memos&quot;, &quot;Nota de credito&quot;,
+&quot;Credit Revaluation&quot;, &quot;Reavaliação de crédito&quot;,
+&quot;Customer transfer&quot;, &quot;Transferência de cliente&quot;,
+&quot;Damage Parts&quot;, &quot;Avaria peças&quot;,
+&quot;Danfe Email Update&quot;, &quot;Atualização de email danfe&quot;,
+&quot;Dealer Level Update&quot;, &quot;Atualização de nivel&quot;,
+&quot;Debt Renegotiation&quot;, &quot;Renegociação de divida&quot;,
+&quot;Delivery address update&quot;, &quot;Atualização de endereço de entrega&quot;,
+&quot;Delivery Notes&quot;, &quot;Observação Cte&quot;,
+&quot;Delivery Time&quot;, &quot;Prazo de entrega&quot;,
+&quot;Doubts&quot;, &quot;Duvidas&quot;,
+&quot;Equipment replacement&quot;, &quot;Substituição do equipamento&quot;,
+&quot;Extension&quot;, &quot;Prorrogação&quot;,
+&quot;Freight Company Complaints&quot;, &quot;Reclamações da empresa de frete&quot;,
+&quot;Group/Subgroup/Issue&quot;, &quot;Grupo/Subgrupo/Defeito&quot;,
+&quot;ICMS&quot;, &quot;ICMS&quot;,
+&quot;Invoice issue&quot;, &quot;Problema com nota fiscal&quot;,
+&quot;Invoice Problems&quot;, &quot;Problemas Nota Fiscal&quot;,
+&quot;Missing item&quot;, &quot;Item faltante&quot;,
+&quot;New register&quot;, &quot;Novo cadastro&quot;,
+&quot;New/Cancellation/Change access&quot;, &quot;Novo/Cancelamento/Alteração acesso&quot;,
+&quot;New/Cancelling&quot;, &quot;Novo/Cancelamento acesso&quot;,
+&quot;Offline system&quot;, &quot;Sistema fora do ar&quot;,
+&quot;Order Entry Error&quot;, &quot;Erro ao adicionar pedido&quot;,
+&quot;Order status&quot;, &quot;Status do pedido&quot;,
+&quot;Order Status/Tracking&quot;, &quot;Status/rastreamento do pedido&quot;,
+&quot;Other Taxes&quot;, &quot;Outros Impostos&quot;,
+&quot;Package Labeled Wrong&quot;, &quot;Produto rotulado errado&quot;,
+&quot;Packing&quot;, &quot;Embalagem&quot;,
+&quot;Parcial order&quot;, &quot;Pedido picado&quot;,
+&quot;Part with problem&quot;, &quot;Peça com problema&quot;,
+&quot;Payment Issues&quot;, &quot;Pendencia de pagamento(Instalação)&quot;,
+&quot;Payment Terms&quot;, &quot;Condição de pagamento&quot;,
+&quot;Pending approval&quot;, &quot;Pendencia de aprovação&quot;,
+&quot;Pending payment&quot;, &quot;Pendencias de pagamento&quot;,
+&quot;PreOrder&quot;, &quot;PreOrder&quot;,
+&quot;Problem&quot;, &quot;Problema&quot;,
+&quot;Program information&quot;, &quot;Informações do plano&quot;,
+&quot;Refresh Gas Price Update&quot;, &quot;Atualização Preço Gás Refrigerante&quot;,
+&quot;Refusal&quot;, &quot;Recusa&quot;,
+&quot;Register Update&quot;, &quot;Ajuste de cadastro&quot;,
+&quot;Report error&quot;, &quot;Reportar Erro&quot;,
+&quot;Reset Password&quot;, &quot;Reset Senha&quot;,
+&quot;Return notice&quot;, &quot;Aviso de devolução&quot;,
+&quot;S/N Not found&quot;, &quot;N/S não localizado&quot;,
+&quot;Shipping Value&quot;, &quot;Valor Frete&quot;,
+&quot;Tax Substitution&quot;, &quot;Substituição tributaria&quot;,
+&quot;Technical Warranty Extension&quot;, &quot;Extensão de Garantia Técnica&quot;,
+&quot;Transfer in the fleet&quot;, &quot;Transferência na frota&quot;,
+&quot;Unsubscribe&quot;, &quot;Cancelamento de assinatura&quot;,
+&quot;Wrong amount&quot;, &quot;Quantidade errada&quot;,
+&quot;Wrong code/item&quot;, &quot;Codigo/Item errado&quot;,
+&quot;Wrong Price&quot;, &quot;Preço errado&quot;,
+&quot;Solution center&quot;,&quot;Solution center&quot;,
+&quot;Portal de vendas&quot;,&quot;Portal de vendas&quot;,
+&quot;Portal de garantias&quot;,&quot;Portal de garantias&quot;,
+&quot;Damaged/Crushed/Broken part inside packaging &quot;,&quot;Peça danficada/Amassada/Quebrada dentro da embalagem &quot;,
+&quot;Part identified with wrong code and/or No Replace label&quot;,&quot;Peça identificada com código errado e/ou Sem etiqueta de Replace&quot;,
+&quot;Missing item (listed on Danfe but did not arrive physically or came in a different quantity than requested)&quot;,&quot;Item faltante (consta na Danfe mas não veio ou veio na quantidade diferente)&quot;,
+&quot;Product or Part with a Serial Number that differs from that reported at Danfe&quot;,&quot;Produto ou Peça com o Número de Série divergente do informado na Danfe &quot;,
+&quot;Outras Solicitações de Boletos&quot;,&quot;Outras Solicitações de Boletos&quot;,
+
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>CTBR Logistica Case Reason</description>
+        <name>frmCaseReason1</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.CTBR_Case_Reason__c},
+&quot;Recusa por Produto/ Peças Danificado no transporte&quot;, &quot;Recusa por Produto/ Peças Danificado no transporte&quot;,
+&quot;Recusa Produto/ Peças Defeituosos ou não conforme especificado&quot;,&quot;Recusa Produto/ Peças Defeituosos ou não conforme especificado&quot;,
+&quot;Recusa Pedido Incorreto recebido&quot;,&quot;Recusa Pedido Incorreto recebido&quot;,
+&quot;Atraso entrega produto ou peça (fora prazo contratado)&quot;,&quot;Atraso entrega produto ou peça (fora prazo contratado)&quot;,
+&quot;Reclamações referente a transportadora&quot;,&quot;Reclamações referente a transportadora&quot;,
+&quot;Consulta prazo entrega danfe (transportadora )&quot;,&quot;Consulta prazo entrega danfe (transportadora )&quot;,
+&quot;Atraso no prazo de entrega informado pela transportadora/ Relatóruio SIM Frete&quot;,&quot;Atraso no prazo de entrega informado pela transportadora/ Relatóruio SIM Frete&quot;,
+&quot;Embalagem Danificada no transporte&quot;,&quot;Embalagem Danificada no transporte&quot;,
+&quot;Unidade de Refrigeração com falta de compoente&quot;,&quot;Unidade de Refrigeração com falta de compoente&quot;,
+&quot;Unidade de Refrigeração com tampa ou grade ou carenagem  amassada  ou outros a especificar &quot;,&quot;Unidade de Refrigeração com tampa ou grade ou carenagem  amassada  ou outros a especificar &quot;,
+&quot;Produto quebrado ou danificado devido manuseio inadequado durante transporte&quot;,&quot;Produto quebrado ou danificado devido manuseio inadequado durante transporte&quot;,
+&quot;Unidade de Refrigeração com tampa ou grade ou carenagem amassada ou outros a especificar&quot;,&quot;Unidade de Refrigeração com tampa ou grade ou carenagem amassada ou outros a especificar&quot;,
+&quot;Unidade de Refrigeração com tampa ou grade ou carenagem amassada ou outros a especificar&quot;,&quot;Unidade de Refrigeração com tampa ou grade ou carenagem amassada ou outros a especificar&quot;,
+&quot;Recusa por Produto/ Peças Danificado no transporte&quot;,&quot;Recusa por Produto/ Peças Danificado no transporte&quot;,
+&quot;Recusa por Produto/ Peças Danificado no transporte&quot;,&quot;Recusa por Produto/ Peças Danificado no transporte&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>CTBR Case Reasons for CTBR Parts &amp; TT</description>
+        <name>frmCaseReason2</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.CTBR_Case_Reason__c},
+&quot;Comprovante de pgto à vista&quot;,&quot;Comprovante de pgto à vista&quot;,
+&quot;Negociação de vendas&quot;,&quot;Negociação de vendas&quot;,
+&quot;Cotação URGENTE&quot;,&quot;Cotação URGENTE&quot;,
+&quot;Aumento de limite&quot;,&quot;Aumento de limite&quot;,
+&quot;Renovação de cadastro&quot;,&quot;Renovação de cadastro&quot;,
+&quot;Alteração de cadastro&quot;,&quot;Alteração de cadastro&quot;,
+&quot;Cotação - (erros: parada)&quot;,&quot;Cotação - (erros: parada)&quot;,
+&quot;Pedido pendente não aparecendo&quot;,&quot;Pedido pendente não aparecendo&quot;,
+&quot;Sem acesso ao portal&quot;,&quot;Sem acesso ao portal&quot;,
+&quot;Alteração de senha (Portal) &quot;,&quot;Alteração de senha (Portal) &quot;,
+&quot;Alteração de senha (Portal)&quot;,&quot;Alteração de senha (Portal)&quot;,
+&quot;Cancelar Pedido aprovada/peças&quot;,&quot;Cancelar Pedido aprovada/peças&quot;,
+&quot;Foto de peças&quot;,&quot;Foto de peças&quot;,
+&quot;Prazo de entrega (erro)&quot;,&quot;Prazo de entrega (erro)&quot;,
+&quot;Solicitação para aprovação&quot;,&quot;Solicitação para aprovação&quot;,
+&quot;Envio de auditoria&quot;,&quot;Envio de auditoria&quot;,
+&quot;Duvidas de aplicação&quot;,&quot;Duvidas de aplicação&quot;,
+&quot;Reavaliação de lista de preços&quot;,&quot;Reavaliação de lista de preços&quot;,
+&quot;New register&quot;,&quot;Novo registro&quot;,
+&quot;Register Update&quot;,&quot;Registrar atualização&quot;,
+&quot;Invoice Problems&quot;,&quot;problemas de fatura&quot;,
+&quot;Parcial order&quot;,&quot;Pedido parcial&quot;,
+&quot;Payment Terms&quot;,&quot;condições de pagamento&quot;,
+&quot;Wrong Price&quot;,&quot;Preço errado&quot;,
+&quot;Order status&quot;,&quot;Status do pedido&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>CTBR Case Reason for CTBR Unit Sales</description>
+        <name>frmCaseReason3</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.CTBR_Case_Reason__c},
+&quot;Faturamento - Venda Normal&quot;,&quot;Faturamento - Venda Normal&quot;,
+&quot;Faturamento - Venda através Devolução de Consignação/Demonstração&quot;,&quot;Faturamento - Venda através Devolução de Consignação/Demonstração&quot;,
+&quot;Faturamento - Venda CDC / Leasing / Consórcio&quot;,&quot;Faturamento - Venda CDC / Leasing / Consórcio&quot;,
+&quot;Faturamento - Consignação/Demonstração&quot;,&quot;Faturamento - Consignação/Demonstração&quot;,
+&quot;NF - Falta de Faturamento de Item&quot;,&quot;NF - Falta de Faturamento de Item&quot;,
+&quot;NF - Em desacordo com o pedido&quot;,&quot;NF - Em desacordo com o pedido&quot;,
+&quot;NF - Cancelamento (Máximo 24hs após a emissão)&quot;,&quot;NF - Cancelamento (Máximo 24hs após a emissão)&quot;,
+&quot;NF - Devolução Física de Equipamento ou Kit&quot;,&quot;NF - Devolução Física de Equipamento ou Kit&quot;,
+&quot;Cadastro - Somente Cadastro Clientes (à vista)&quot;,&quot;Cadastro - Somente Cadastro Clientes (à vista)&quot;,
+&quot;Cadastro - Análise de Crédito e Cadastro (a prazo)&quot;,&quot;Cadastro - Análise de Crédito e Cadastro (a prazo)&quot;,
+&quot;Renovação de Cadastro - Reanálise e Renovação de Crédito&quot;,&quot;Renovação de Cadastro - Reanálise e Renovação de Crédito&quot;,
+&quot;Comissões - Envio de NF para pagamento&quot;,&quot;Comissões - Envio de NF para pagamento&quot;,
+&quot;VPC - Solicitação de VPC&quot;,&quot;VPC - Solicitação de VPC&quot;,
+&quot;VPC - Envio de processo completo para pagamento de VPC (Nota débito, fotos e comprovantes)&quot;,&quot;VPC - Envio de processo completo para pagamento de VPC (Nota débito, fotos e comprovantes)&quot;,
+&quot;Pagamento de NF de Tanque de Combustível (com autorização Gerente de Vendas)&quot;,&quot;Pagamento de NF de Tanque de Combustível (com autorização Gerente de Vendas)&quot;,
+&quot;Envio de NF para pagamento de Fatura (fornecedor em geral)&quot;,&quot;Envio de NF para pagamento de Fatura (fornecedor em geral)&quot;,
+&quot;Comissões - Relatório - Alterações, inclusões, etc.&quot;,&quot;Comissões - Relatório - Alterações, inclusões, etc.&quot;,
+&quot;Renovação de cadastro a vista&quot;,&quot;Renovação de cadastro a vista&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>frmCaseReason4</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.CTBR_Case_Reason__c},
+&quot;Solicitação de Boletos atualizados&quot;,&quot;Solicitação de Boletos atualizados&quot;,
+&quot;Prorrogação de Boletos &quot;,&quot;Prorrogação de Boletos &quot;,
+&quot;Solicitação de Encontro de Contas &quot;,&quot;Solicitação de Encontro de Contas &quot;,
+&quot;Verificação de Crédito de Devolução &quot;,&quot;Verificação de Crédito de Devolução &quot;,
+&quot;Outras Solicitações de Boletos&quot;,&quot;Outras Solicitações de Boletos&quot;,
+&quot;Solicitação de Renegociação de Débitos&quot;,&quot;Solicitação de Renegociação de Débitos&quot;,
+&quot;Outras Solicitações de Cobrança&quot;,&quot;Outras Solicitações de Cobrança&quot;,
+&quot;ICMS - Imposto sob Circulação de Mercadorias&quot;,&quot;ICMS - Imposto sob Circulação de Mercadorias&quot;,
+&quot;Isenção e Benefícios SUFRAMA&quot;,&quot;Isenção e Benefícios SUFRAMA&quot;,
+&quot;Isenção e Benefícios ZONA FRANCA MANAUS&quot;,&quot;Isenção e Benefícios ZONA FRANCA MANAUS&quot;,
+&quot;Solicitação de cancelamentos&quot;,&quot;Solicitação de cancelamentos&quot;,
+&quot;Documentos Legais &quot;,&quot;Documentos Legais &quot;,
+&quot;Certidões Negativas&quot;,&quot;Certidões Negativas&quot;,
+&quot;Certificado Digital &quot;,&quot;Certificado Digital &quot;,
+&quot;Dúvidas Impostos destacados nos docs Fiscais&quot;,&quot;Dúvidas Impostos destacados nos docs Fiscais&quot;,
+&quot;Devoluções de documentos fiscais&quot;,&quot;Devoluções de documentos fiscais&quot;,
+&quot;Mercadoria Retida em Posto Fiscal&quot;,&quot;Mercadoria Retida em Posto Fiscal&quot;,
+&quot;Entrega de Obrigações Fiscais cfe Agenda Tributária do Governo Brasileiro&quot;,&quot;Entrega de Obrigações Fiscais cfe Agenda Tributária do Governo Brasileiro&quot;,
+&quot;Outras Solicitações Tributárias&quot;,&quot;Outras Solicitações Tributárias&quot;,
+&quot;Dúvidas sobre Comissões&quot;,&quot;Dúvidas sobre Comissões&quot;,
+&quot;Outras&quot;,&quot;Outras&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Used For CTBR Finance Record Type</description>
+        <name>frmCaseReason5</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.CTBR_Case_Reason__c},
+&quot;Outras Solicitações de Boletos&quot;,&quot;Outras Solicitações de Boletos&quot;,
+&quot;Prorrogação de Boletos&quot;,&quot;Prorrogação de Boletos&quot;,
+&quot;Prorrogação de Boletos	&quot;,&quot;Prorrogação de Boletos&quot;,
+&quot;Solicitação de Boletos atualizados&quot;,&quot;Solicitação de Boletos atualizados&quot;,
+&quot;Solicitação de Encontro de Contas&quot;,&quot;Solicitação de Encontro de Contas&quot;,
+&quot;Verificação de Crédito de Devolução&quot;,&quot;Verificação de Crédito de Devolução&quot;,
+&quot;Outras Solicitações de Cobrança&quot;,&quot;Outras Solicitações de Cobrança&quot;,
+&quot;Solicitação de Renegociação de Débitos&quot;,&quot;Solicitação de Renegociação de Débitos&quot;,
+&quot;Outras&quot;,&quot;Outras&quot;,
+&quot;Dúvidas sobre Comissões&quot;,&quot;Dúvidas sobre Comissões&quot;,
+&quot;Certidões Negativas&quot;,&quot;Certidões Negativas&quot;,
+&quot;Certificado Digital&quot;,&quot;Certificado Digital&quot;,
+&quot;Devoluções de documentos fiscais&quot;,&quot;Devoluções de documentos fiscais&quot;,
+&quot;Documentos Legais&quot;,&quot;Documentos Legais&quot;,
+&quot;Dúvidas Impostos destacados nos docs Fiscais&quot;,&quot;Dúvidas Impostos destacados nos docs Fiscais&quot;,
+&quot;Entrega de Obrigações Fiscais cfe Agenda Tributária do Governo Brasileiro&quot;,&quot;Entrega de Obrigações Fiscais cfe Agenda Tributária do Governo Brasileiro&quot;,
+&quot;ICMS - Imposto sob Circulação de Mercadorias&quot;,&quot;ICMS - Imposto sob Circulação de Mercadorias&quot;,
+&quot;Isenção e Benefícios SUFRAMA&quot;,&quot;Isenção e Benefícios SUFRAMA&quot;,
+&quot;Isenção e Benefícios ZONA FRANCA MANAUS&quot;,&quot;	Isenção e Benefícios ZONA FRANCA MANAUS&quot;,
+&quot;Mercadoria Retida em Posto Fiscal&quot;,&quot;Mercadoria Retida em Posto Fiscal&quot;,
+&quot;Outras Solicitações Tributárias&quot;,&quot;Outras Solicitações Tributárias&quot;,
+&quot;Solicitação de cancelamentos&quot;,&quot;Solicitação de cancelamentos&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>for CTBR Warehouse case reason</description>
+        <name>frmCaseReason6</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.CTBR_Case_Reason__c},
+&quot;Damaged/Crushed/Broken part inside packaging&quot;,&quot;Peça danificada/triturada/quebrada dentro da embalagem&quot;,
+&quot;Missing item (listed on Danfe but did not arrive physically or came in a different quantity than requested)&quot;,&quot;Item faltante (listado no Danfe mas não chegou fisicamente ou veio em quantidade diferente da solicitada)&quot;,
+&quot;Part identified with wrong code and/or No Replace label&quot;,&quot;Peça identificada com código errado e/ou etiqueta sem substituição&quot;,
+&quot;Product or Part with a Serial Number that differs from that reported at Danfe&quot;,&quot;Produto ou Peça com Número de Série diferente daquele informado na Danfe&quot;,
+&quot;Portal de garantias&quot;,&quot;Portal de garantias&quot;,
+&quot;Portal de vendas&quot;,&quot;Portal de vendas&quot;,
+&quot;Solution center&quot;,&quot;Centro de soluções&quot;,
+&quot;Peça danficada/Amassada/Quebrada dentro da embalagem ( Embalagem sem Danos/ Fita sem violação)&quot;,&quot;Peça danficada/Amassada/Quebrada dentro da embalagem ( Embalagem sem Danos/ Fita sem violação)&quot;,
+&quot;Peça identificada com código errado e/ou Sem etiqueta de Replace&quot;,&quot;Peça identificada com código errado e/ou Sem etiqueta de Replace&quot;,
+&quot;Item faltante (consta na Danfe mas não veio no fisico ou veio na quantidade diferente da solicitada)&quot;,&quot;Item faltante (consta na Danfe mas não veio no fisico ou veio na quantidade diferente da solicitada)&quot;,
+&quot;Produto ou Peça com o Número de Série divergente do informado na Danfe&quot;,&quot;Produto ou Peça com o Número de Série divergente do informado na Danfe&quot;,
+&quot;Solicitação Emissão e Pagamento GNRE&quot;,&quot;Solicitação Emissão e Pagamento GNRE&quot;,
+&quot;Análise Rejeições DANFES&quot;,&quot;Análise Rejeições DANFES&quot;,
+&quot;Abertura de Status DANFES (Devoluções)&quot;,&quot;Abertura de Status DANFES (Devoluções)&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>frmCaseType</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.Type},
+&quot;Bank Bill&quot;, &quot;Boletos&quot;,
+&quot;Cadastro de cliente&quot;,&quot;Cadastro de cliente&quot;,
+&quot;Cadastro de cliente - Documentos&quot;,&quot;Cadastro de cliente - Documentos&quot;,
+&quot;BluEdge&quot;, &quot;BluEdge&quot;,
+&quot;Commissioning&quot;, &quot;Comissionamento&quot;,
+&quot;Complaint&quot;, &quot;Reclamação&quot;,
+&quot;Decommissioning and uninstall&quot;, &quot;Decomissionamento e desinstalação&quot;,
+&quot;Financial Negotiations&quot;, &quot;Negociações financeiras&quot;,
+&quot;Item Registration&quot;, &quot;Cadastro de item&quot;,
+&quot;Order Issues&quot;, &quot;Problemas com pedido&quot;,
+&quot;Order Management&quot;, &quot;Gerenciamento de pedidos&quot;,
+&quot;Parts&quot;, &quot;Peça T&amp;T(Balcão)&quot;,
+&quot;Registration Update&quot;, &quot;Atualização cadastral&quot;,
+&quot;Returns&quot;, &quot;Devoluções&quot;,
+&quot;Shipment Issues&quot;, &quot;Problemas de entrega&quot;,
+&quot;Tax Information&quot;, &quot;Informações fiscais&quot;,
+&quot;Technical assistance&quot;, &quot;Assistência Técnica&quot;,
+&quot;Unit&quot;, &quot;Equipamento&quot;,
+&quot;Unit Order Management&quot;, &quot;Gerenciamento de pedidos de produtos&quot;,
+&quot;Warranty&quot;, &quot;Garantia&quot;,
+&quot;Warranty Portal&quot;, &quot;Portal Garantia&quot;,
+&quot;Resetar senha&quot;,&quot;Resetar senha&quot;,
+&quot;Novo usuarios&quot;,&quot;Novo usuarios&quot;,
+&quot;Warehouse Faults&quot;,&quot;Falhas procedente do Armazém &quot;,
+&quot;Devoluções de Peças ou Produtos &quot;,&quot;Devoluções de Peças ou Produtos &quot;,
+&quot;Problemas de entrega com frete CIF &quot;,&quot;Problemas de entrega com frete CIF &quot;,
+&quot;Previsão de Entrega Danfe Vendas&quot;,&quot;Previsão de Entrega Danfe Vendas&quot;,
+&quot;Avaria no recebimento de Peças ou Produtos&quot;,&quot;Avaria no recebimento de Peças ou Produtos&quot;,
+&quot;Cadastro de cliente &quot;,&quot;Cadastro de cliente &quot;,
+&quot;Portal de Vendas de Peças&quot;,&quot;Portal de Vendas de Peças&quot;,
+&quot;Devolução de vendas&quot;,&quot;Devolução de vendas&quot;,
+&quot;Gerenciamento de Peças &quot;,&quot;Gerenciamento de Peças&quot;,
+&quot;Gerenciamento de pedidos de Produtos&quot;,&quot;Gerenciamento de pedidos de Produtos&quot;,
+&quot;Solicitação &quot;,&quot;Solicitação &quot;,
+&quot;Boletos de Clientes&quot;,&quot;Boletos de Clientes&quot;,
+&quot;Cobranças&quot;,&quot;Cobranças&quot;,
+&quot;Tributário&quot;,&quot;Tributário&quot;,
+&quot;COMISSÕES DOS DEALERS&quot;,&quot;COMISSÕES DOS DEALERS&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>frmCloseReason</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.NATT_Close_Reason__c},
+&quot;Access canceled&quot;, &quot;Acesso cancelado&quot;,
+&quot;Antenna change&quot;, &quot;Troca de antena&quot;,
+&quot;Approval denied&quot;, &quot;Aprovação realizada&quot;,
+&quot;Approved&quot;, &quot;Devolução autorizada&quot;,
+&quot;Authorized&quot;, &quot;Autorizado&quot;,
+&quot;B.O. attended&quot;, &quot;B.O. Atendido&quot;,
+&quot;Canceled&quot;, &quot;Cancelado&quot;,
+&quot;Cancellation and uninstallation performed&quot;, &quot;Cancelamento e desinstalação efetuado&quot;,
+&quot;Change Completed&quot;, &quot;Ajuste realizado&quot;,
+&quot;Change denied&quot;, &quot;Alteração negada&quot;,
+&quot;Change made&quot;, &quot;Alteração efetuada&quot;,
+&quot;Change not completed&quot;, &quot;Ajuste não realizado&quot;,
+&quot;Counterproposal sent&quot;, &quot;Enviado contraproposta&quot;,
+&quot;Credit granted&quot;, &quot;Crédito concedido&quot;,
+&quot;Deadline informed&quot;, &quot;Prazo informado&quot;,
+&quot;Denied(Expired)&quot;, &quot;Reprovada(Prazo expirado)&quot;,
+&quot;Denied&quot;, &quot;Devolução não autorizada&quot;,
+&quot;Denied credit increase&quot;, &quot;Aumento de crédito negado&quot;,
+&quot;End of contract&quot;, &quot;Fim do contrato&quot;,
+&quot;Equipment replaced&quot;, &quot;Equipamento substituido&quot;,
+&quot;Equipment replacement&quot;, &quot;Troca do equipamento&quot;,
+&quot;Expired&quot;, &quot;Prazo expirado&quot;,
+&quot;Extended&quot;, &quot;Boleto prorrogado&quot;,
+&quot;Extension Approved&quot;, &quot;Extensão aprovada&quot;,
+&quot;Extension Denied&quot;, &quot;Extensão negada&quot;,
+&quot;Failed (No Review)&quot;, &quot;Reprovada(Falta Revisão)&quot;,
+&quot;Formalized negotiation&quot;, &quot;Negociação formalizada&quot;,
+&quot;Informações fornecidas&quot;, &quot;Information Provided&quot;,
+&quot;Information Provided&quot;, &quot;Informações fornecidas&quot;,
+&quot;Information provided to the commercial&quot;, &quot;Informações fornecidas ao comercial&quot;,
+&quot;Information provided to the customer&quot;, &quot;Informações fornecidas ao cliente&quot;,
+&quot;Negotiation Denied&quot;, &quot;Negociação negada&quot;,
+&quot;New access generated&quot;, &quot;Novo acesso gerado&quot;,
+&quot;Not approved&quot;, &quot;Não aprovado&quot;,
+&quot;Notary&apos;s slip&quot;, &quot;Boleto em cartório&quot;,
+&quot;Notes on Serasa&quot;, &quot;Apontamentos no Serasa&quot;,
+&quot;Other&quot;, &quot;Outros&quot;,
+&quot;Payment approved&quot;, &quot;Pagamento aprovado&quot;,
+&quot;Pending approval&quot;, &quot;Aprovação pendente&quot;,
+&quot;Problem solved&quot;, &quot;Problema resolvido&quot;,
+&quot;Profile changed&quot;, &quot;Perfil alterado&quot;,
+&quot;Protested slip&quot;, &quot;Boleto protestado&quot;,
+&quot;Received&quot;, &quot;Devolução recebida&quot;,
+&quot;Registered  not completed&quot;, &quot;Item não cadastrado&quot;,
+&quot;Registered Completed&quot;, &quot;Item cadastrado&quot;,
+&quot;Reset Password&quot;, &quot;Senha redefinida&quot;,
+&quot;S/N informed&quot;, &quot;N/S Inserido&quot;,
+&quot;Sent to commercial&quot;, &quot;Boleto encaminhado para comercial&quot;,
+&quot;Sent to customer&quot;, &quot;Boleto encaminhado para cliente&quot;,
+&quot;Service performed&quot;, &quot;Atendimento realizado&quot;,
+&quot;Support Provided&quot;, &quot;Suporte fornecido&quot;,
+&quot;System re-established&quot;, &quot;Sistema reestabelecido&quot;,
+&quot;Transfer made&quot;, &quot;Transferência efetuada&quot;,
+&quot;Unauthorized transfer&quot;, &quot;Transferência não autorizada&quot;,
+&quot;Unauthorized update&quot;, &quot;Atualização não autorizada&quot;,
+&quot;Unauthorized values&quot;, &quot;Valores não autorizados&quot;,
+&quot;Update completed&quot;, &quot;Atualização concluida&quot;,
+&quot;Updated level&quot;, &quot;Nivel atualizado&quot;,
+&quot;Updated values&quot;, &quot;Valores atualizados&quot;,
+&quot;Warranty completed&quot;, &quot;Garantia atendida&quot;,
+&quot;&quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>frmRecordTypeName</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.RecordType.DeveloperName},
+&quot;CTBR_Container&quot;, &quot;CTBR Container&quot;,
+&quot;CTBR_Customer_Service&quot;, &quot;CTBR Logistica&quot;,
+&quot;CTBR_Finance&quot;, &quot;CTBR Finanças&quot;,
+&quot;CTBR_Lynx_Fleet&quot;, &quot;CTBR Lynx Fleet&quot;,
+&quot;CTBR_Parts_T_T&quot;, &quot;CTBR Peças T&amp;T&quot;,
+&quot;CTBR_Unit_Sales&quot;, &quot;CTBR Equipamentos&quot;,
+&quot;CTBR_Warranty&quot;, &quot;CTBR Garantia&quot;,
+&quot;CTBR_IT&quot;,&quot;CTBR IT&quot;,
+&quot;CTBR_Warehouse&quot;,&quot;CTBR Armazém&quot;,
+&quot;&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Set the default value of the Subject for Core Returns cases</description>
+        <name>SubjectDefaultValue</name>
+        <dataType>String</dataType>
+        <expression>CASE({!$Record.RecordType.DeveloperName},
+&quot;CTBR_Unit_Sales&quot;, &quot;Equipamentos: &quot; &amp; {!frmCaseReason3},
+&quot;CTBR_Customer_Service&quot;, &quot;CTBR Logistica: &quot; &amp; {!frmCaseReason1},
+&quot;CTBR_Finance&quot;, &quot;Finanças: &quot; &amp; {!frmCaseReason5},
+&quot;CTBR_Warranty&quot;, &quot;Garantia: &quot; &amp; {!frmCaseReason},
+&quot;CTBR_Lynx_Fleet&quot;, &quot;Lynx Fleet: &quot; &amp; {!frmCaseType} &amp; &quot; - &quot; &amp; {!frmCaseReason},
+&quot;CTBR_Parts_T_T&quot;, &quot;Caso de Peças T&amp;T com tipo: &quot; &amp; {!frmCaseType} &amp; &quot; e motivo do caso: &quot; &amp; {!frmCaseReason2},
+&quot;CTBR_Container&quot;, &quot;Container: &quot; &amp;  {!frmCaseType},
+&quot;CTBR_IT&quot;,&quot;IT:&quot; &amp; {!frmCaseType}&amp; &quot; - &quot; &amp; {!frmCaseReason6},
+&quot;CTBR_Warehouse_RS&quot;,&quot;Armazém:&quot; &amp; {!frmCaseType}&amp; &quot; - &quot; &amp; {!frmCaseReason6},
+&quot;CTBR_Warehouse&quot;,&quot;Armazém : &quot; &amp; {!frmCaseType} &amp; &quot; - &quot; &amp; {!frmCaseReason6},
+&quot;&quot;)</expression>
+    </formulas>
+    <interviewLabel>CTBR Case Setup and Case Team Updates {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CTBR Case Setup and Case Team Updates</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Add the User as a Case Team Member</description>
+        <name>Create_Case_Team_Member</name>
+        <label>Create Case Team Member</label>
+        <locationX>670</locationX>
+        <locationY>840</locationY>
+        <connector>
+            <targetReference>Dealer_New_Case_Check</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>MemberId</field>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>ParentId</field>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>TeamRoleId</field>
+            <value>
+                <elementReference>Get_Team_Member_Role.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CaseTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Get_Case_Team_Member_Records_for_Case_Owner</name>
+        <label>Get Case Team Member Records for Case Owner</label>
+        <locationX>432</locationX>
+        <locationY>514</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Case_Team_Member_Check</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>MemberId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>ParentId</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CaseTeamMember</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>Get the Default Queue from the Case</description>
+        <name>Get_Default_Queue</name>
+        <label>Get Default Queue</label>
+        <locationX>855</locationX>
+        <locationY>1133</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Assign_Case_to_Queue</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.NATT_Default_Queue__c</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Group</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <name>Get_Team_Member_Role</name>
+        <label>Get Team Member Role</label>
+        <locationX>671</locationX>
+        <locationY>688</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Case_Team_Member</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Name</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Dealer Member</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>CaseTeamRole</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordUpdates>
+        <description>Default the Account Name to the User&apos;s Account</description>
+        <name>Account_Name_Default</name>
+        <label>Account Name Default</label>
+        <locationX>853</locationX>
+        <locationY>981</locationY>
+        <connector>
+            <targetReference>Get_Default_Queue</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>AccountId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>AccountId</field>
+            <value>
+                <elementReference>$Record.Owner:User.Contact.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>For Core Returns the Subject field will be set to &quot;Core Returns&quot;</description>
+        <name>AddSubject</name>
+        <label>AddSubject</label>
+        <locationX>265</locationX>
+        <locationY>382</locationY>
+        <connector>
+            <targetReference>Queue_Owner</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>SubjectDefaultValue</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Assign the case to the Queue for the Record Type</description>
+        <name>Assign_Case_to_Queue</name>
+        <label>Assign Case to Queue</label>
+        <locationX>668</locationX>
+        <locationY>1133</locationY>
+        <connector>
+            <targetReference>Contact_has_email_address</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_Default_Queue.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Assign the user&apos;s Contact record to the Contact Name</description>
+        <name>Contact_Name_Default</name>
+        <label>Contact Name Default</label>
+        <locationX>668</locationX>
+        <locationY>981</locationY>
+        <connector>
+            <targetReference>Account_Name_Default</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>ContactId</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>ContactId</field>
+            <value>
+                <elementReference>$Record.Owner:User.ContactId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>139</locationX>
+        <locationY>49</locationY>
+        <connector>
+            <targetReference>AddSubject</targetReference>
+        </connector>
+        <filterFormula>BEGINS({!$Record.RecordType.DeveloperName}, &quot;CTBR&quot;)</filterFormula>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>Notify Case Contact about Closing a Case</description>
+        <name>CaseCloseTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Notificaciones por correo electrónico de cierre de caso
+Cuenta:  {!$Record.Account.Name}
+Identificación del caso:  {!$Record.Id}
+Número de caso:  {!$Record.CaseNumber}
+Tipo de registro de caso:  {!frmRecordTypeName}
+Tipo de caso:  {!frmCaseType}
+Motivo del caso:  {!frmCaseReason}
+Motivo de cierre del caso: {!frmCloseReason}
+Asunto del caso:  {!$Record.Subject}
+Descripción del caso:  {!$Record.Description}</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Send an alert about a new Case</description>
+        <name>NewCaseTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Notificação por e-mail de criação de caso
+Conta: {!$Record.Account.Name}
+Identificação do caso: {!$Record.Id}
+Número do caso: {!$Record.CaseNumber}
+Tipo de registro de caso: {!frmRecordTypeName}
+Finanças Tipo de caso: {!frmCaseType}
+Motivo do caso: {!frmCaseReason}
+Assunto do caso: {!$Record.Subject}
+Descrição do caso: {!$Record.Description}</text>
+    </textTemplates>
+</Flow>

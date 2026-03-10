@@ -1,0 +1,11 @@
+{
+  "cmsSettings" : { },
+  "currentThemeId" : "e437122c-59c0-47f7-8153-8769491f19f7",
+  "headMarkup" : "<!--reCaptcha v2 Checkbox-->\n<script>\n    var grecaptchaReady = false;\n    var onloadCallback = function(){ grecaptchaReady = true; };\n    var verifyCallback = function(token) {\n        document.dispatchEvent(new CustomEvent('grecaptchaVerified', {'detail': {response: token}}));\n    };\n    var expireCallback = function() {\n        document.dispatchEvent(new Event('grecaptchaExpired'));\n    };\n    var errorCallback = function() {\n        document.dispatchEvent(new Event('grecaptchaError'));\n    };\n    document.addEventListener('grecaptchaRender', function(e) {\n        onloadCallback = function() {\n            grecaptchaReady = true;\n            grecaptcha.render(e.detail.element, {\n                'sitekey': '6Lf9FqMfAAAAAKbhR1CxSNDeNHKc1ws2FVWGrTrK',\n                'callback': verifyCallback,\n                'expired-callback': expireCallback,\n                'error-callback': errorCallback\n            });\n        };\n        if (grecaptchaReady) {\n            onloadCallback();\n        }\n    });\n    document.addEventListener('grecaptchaReset', function() {\n        grecaptcha.reset();\n    }); \n</script>\n<script src='https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback' async defer></script>",
+  "id" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "isLockerServiceEnabled" : true,
+  "isRelaxedCSPLevel" : true,
+  "label" : "main",
+  "templateName" : "B2B Commerce Template",
+  "type" : "appPage"
+}

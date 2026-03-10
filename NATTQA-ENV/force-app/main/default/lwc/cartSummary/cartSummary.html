@@ -1,0 +1,33 @@
+<template>
+
+
+    <div class="slds-grid slds-grid_vertical slds-p-top_medium">
+        <div class="slds-col slds-size_12-of-12" style="text-align:right">
+            <!-- ORIGINAL PRICE INFO -->
+            <table class="pricingTable" style="border:none;float:right">
+                <tr>
+                    <td if:true={showOriginal} class="slds-text-align_right slds-p-right_xx-small">
+                        Total List Price: 
+                    </td>
+                    <td>
+                        <lightning-formatted-number if:true={showOriginal}
+                        class="original-price slds-p-right_medium slds-text-heading_large"
+                        aria-label={ariaLabelForOriginalPrice} format-style="currency" currency-code={currencyCode}
+                        currency-display-as="symbol" maximum-fraction-digits="2" value={prices.originalPrice}>
+                    </lightning-formatted-number>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="slds-text-align_right slds-p-right_xx-small">
+                        {labels.total}: 
+                    </td>
+                    <td>
+                        <lightning-formatted-number class="slds-p-right_medium slds-text-heading_large"
+                        format-style="currency" currency-code={currencyCode} currency-display-as="symbol"
+                        maximum-fraction-digits="2" value={prices.finalPrice}></lightning-formatted-number>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</template>

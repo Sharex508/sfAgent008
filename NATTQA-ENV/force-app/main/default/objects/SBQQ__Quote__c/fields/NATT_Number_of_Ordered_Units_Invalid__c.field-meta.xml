@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Number_of_Ordered_Units_Invalid__c</fullName>
+    <description>is checked if the ordered number of base units does not match the ordered number of base units in this quote.</description>
+    <formula>NATT_Number_of_Ordered_Base_Units__c &lt;&gt;  NATT_Num_of_Ordered_Base_Units_In_Quote__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Number of Ordered Units Invalid</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

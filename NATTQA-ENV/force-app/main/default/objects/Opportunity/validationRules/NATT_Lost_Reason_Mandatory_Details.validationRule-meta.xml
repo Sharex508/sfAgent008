@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Lost_Reason_Mandatory_Details</fullName>
+    <active>true</active>
+    <description>When in Stage picklist is selected &apos;Close Lost&apos;, Lost Reason field is mandatory.</description>
+    <errorConditionFormula>AND(OR($RecordType.DeveloperName = &quot;NATT_Opportunity_Parts&quot; , $RecordType.DeveloperName = &quot;NATT_Opportunity_Units&quot;,$RecordType.DeveloperName = &quot;NATT_Opportunity_BluEdge&quot;),ISPICKVAL(StageName, &apos;Closed Lost&apos;), ISBLANK(TEXT(NATT_Lost_Reason__c)))</errorConditionFormula>
+    <errorDisplayField>NATT_Lost_Reason__c</errorDisplayField>
+    <errorMessage>You must specify a lost reason</errorMessage>
+</ValidationRule>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>exkmxrjglp38yKg9N4x7</issuer>
+    <loginUrl>https://sso.carrier.com/app/salesforce/exkmxrjglp38yKg9N4x7/sso/saml</loginUrl>
+    <name>ContainerLINK SolutionCenter</name>
+    <oauthTokenEndpoint>https://carrier-global.my.salesforce.com/services/oauth2/token?so=00D1U000000yumn</oauthTokenEndpoint>
+    <redirectBinding>true</redirectBinding>
+    <requestSignatureMethod>1</requestSignatureMethod>
+    <requestSigningCertId>0P17V00000000W4</requestSigningCertId>
+    <salesforceLoginUrl>https://carrier-global.my.salesforce.com?so=00D1U000000yumn</salesforceLoginUrl>
+    <samlEntityId>https://carrier-global.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <useConfigRequestMethod>true</useConfigRequestMethod>
+    <useSameDigestAlgoForSigning>true</useSameDigestAlgoForSigning>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIDnjCCAoagAwIBAgIGAZJ7AubnMA0GCSqGSIb3DQEBCwUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMMB2NhcnJpZXIxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMjQxMDExMDk1NjIwWhcNMzQxMDExMDk1NzIwWjCBjzELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRAwDgYDVQQDDAdjYXJyaWVyMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlCEeteHfyRrCyA+tc0Ptmcdx7zn+NgSy78endMqU9MgCso2tj7vA9aHEEuO2xf0e3lBYBD5qhkC4KzaQkrw9BWjKdF8PPqvMjTBgTfjlT6/FWYYXQP42d6ypVk3jHNwjEVS77zjB7NWSNvUF3fKTbt553y8A9V3w8wlOtcTSmGj5WpoDKxmiH0sJqPGOrvNV5RfUsp+EJ/5QNCgROJg67hz0lzJ84UugKM/x6fcO8rpMy6w2I8/plTj48Dc72+XqnAAdNH9V8Z1w94CyUw6hagw4lvUpdgOVjhEWdFcBC2538dW7Ju9z88R/YPGpP6P4VqyVcbC3eMnPeo4yhR9atQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAKz6uiTCpOoDB71CI/+4gmUk1x/CDVSuQeLx7JocrSCVTr/JZgbi8c2WZWcQ2BrTxW6m77MTr3LcJgzNy7bRZDc69fm43VGw99SEqsMkaeVWX8FtJ8jJgkc6Y6QVn7S1vW8Vhd4odem1auVwX3QFfTvX1VDC2WzZCj1rPIVCbW9fW+rsFIVTstwjAmZSGcyMbpWlhGeWDCZxcTK2JrfysMzsfBLKL3iC8Kz35Zrhw+0na6j8UIMu1/CuFU/Nvj/FX+wB23whivIIx9o36uv1kblisWUkIhrDkDR1mxwWrSDb9qdeqJTcdMlRgDvATNlvBVSE7vtnre8vFhHBg4B+WK</validationCert>
+</SamlSsoConfig>

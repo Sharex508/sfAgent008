@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Container_EMEA_Region_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>CONTAINER_Location_City__c</columns>
+    <columns>CONTAINER_Location_Country__c</columns>
+    <columns>NATT_Warranty_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CONTAINER_Repair_Co_Terminal</value>
+    </filters>
+    <filters>
+        <field>CONTAINER_Operating_Region__c</field>
+        <operation>equals</operation>
+        <value>EMEA</value>
+    </filters>
+    <label>Service EMEA Region Accounts</label>
+    <sharedTo>
+        <group>CONTAINER_Global_Sales_Director</group>
+        <group>CONTAINER_Sales_Admin</group>
+        <group>CONTAINER_Sales_CAM</group>
+        <group>CONTAINER_Sales_CS</group>
+        <group>CONTAINER_Sales_PM</group>
+        <group>CONTAINER_Sales_RSD_EMEA</group>
+        <group>CONTAINER_Sales_RSM_EMEA</group>
+        <group>CONTAINER_Sales_VP</group>
+        <group>CONTAINER_Service_Admin</group>
+        <role>Container_Service_Training</role>
+        <roleAndSubordinatesInternal>Container_Service_FSM</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Container_Service_Product_Service_Engineering</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Container_Service_RSM</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Container_Service_Technical_Publication</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Container_Service_Warranty_Administrator</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Edit_Canceled_eSolutions_Quote</fullName>
+    <active>true</active>
+    <description>if the quote is canceled, don&apos;t edit it.</description>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &quot;NATT_eSolutions&quot;,
+ISPICKVAL(SBQQ__Status__c,&quot;Canceled&quot;),
+NOT(ISCHANGED(SBQQ__Status__c))
+)</errorConditionFormula>
+    <errorMessage>You may not edit a canceled Lynx Fleet quote. Please start a new quote.</errorMessage>
+</ValidationRule>

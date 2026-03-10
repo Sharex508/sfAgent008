@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Total_Order_Net_Amount_Disc__c</fullName>
+    <description>The sum of the net amounts of all the related orders plus the net of this quote for approvals
+ (discountable only)</description>
+    <formula>NATT_Original_Order__r.NATT_Net_Amount_All_Related_Orders_Disc__c +  NATT_Net_Amount__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Total Order Standard Options Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_AdjustmentType__c</fullName>
+    <description>Alphanumeric code indicating the type of adjustment (e.x. REGD - Regular Discount, SURCHG - Surcharge)</description>
+    <externalId>false</externalId>
+    <label>Adjustment Type</label>
+    <length>8</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

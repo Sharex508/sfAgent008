@@ -1,0 +1,88 @@
+<template>
+    <div class="slds-card" style="background-color:rgb(243 243 243)" data-id="topDiv">
+        <div class="slds-text-heading_large slds-p-around_large">{label.locServiceCentreLabel}</div>
+        <lightning-layout class="slds-grid" multiple-rows>
+            <lightning-layout-item class="slds-col slds-size_2-of-3 slds-p-left_none" size="12" small-device-size="8">
+                <h3 class="slds-p-left_x-small slds-p-right_x-small slds-p-bottom_x-small">{label.searchLocatorLabel}</h3>
+                <lightning-input type="search" onchange={handleKeyChange}
+                    class="slds-p-left_x-small slds-p-right_x-small slds-p-bottom_x-small" value={searchKey}
+                    placeholder="Enter address, area name or zip code" variant="label-hidden">
+                </lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-col slds-size_1-of-3 slds-p-right_none" size="12" small-device-size="4">
+                <h3 class="slds-p-left_small slds-p-right_x-small slds-p-bottom_x-small">{label.searchRadiusLabel}</h3>
+                <lightning-combobox name="progress" value={value} placeholder="Search Radius"
+                    options={searchRadiusOptions} onchange={handleRadiusChange}
+                    class="slds-p-left_small slds-p-right_x-small slds-p-bottom_x-small" variant="label-hidden">
+                </lightning-combobox>
+            </lightning-layout-item>
+        </lightning-layout>
+        <template if:true={showMap}>
+            <div class="slds-grid slds-gutters" style="max-height:90vh">
+                <lightning-layout class="slds-grid" style="width: 100%" multiple-rows>
+                    <lightning-layout-item class="slds-col slds-size_2-of-3" size="12" small-device-size="8">
+                        <lightning-map class="slds-p-left_xx-small" map-markers={mapMarkers}
+                            markers-title={markersTitle} list-view="hidden">
+                        </lightning-map>
+                    </lightning-layout-item>
+                    <lightning-layout-item
+                        class="slds-col slds-size_1-of-3 slds-p-right_x-small slds-color-picker slds-scrollable_y"
+                        size="12" small-device-size="4" style="max-height:90vh; width: 32%">
+                        <template if:true={nearByStores}>
+                            <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+                                <template for:each={nearByStores} for:item="serviceCenterType">
+                                    <lightning-accordion-section key={serviceCenterType.label}
+                                        name={serviceCenterType.label} label={serviceCenterType.countLabel}>
+                                        <template for:each={serviceCenterType.distributorLocWrapList} for:item="store">
+                                            <div class="slds-p-bottom_x-small" key={store.id}>
+                                                <lightning-card>
+                                                    <div class="slds-p-horizontal_small">
+                                                            <div class="slds-text-heading_small slds-p-bottom_x-small">
+                                                                <a class="cursorPointer" data-item={store.id} onclick={handleTileClick}>{store.name}</a>
+                                                            </div>
+                                                        <div class="slds-p-bottom_x-small">
+                                                            <div class="slds-grid slds-wrap">
+                                                                <div class="slds-size_7-of-12">
+                                                                    <h6 style="display: inline-block;" class="slds-p-right_xx-small">{label.streetLabel}</h6>{store.location.Street}
+                                                                </div>
+                                                                <div class="slds-size_5-of-12">
+                                                                    <h6 style="display: inline-block;" class="slds-p-right_xx-small">{label.cityLabel}</h6>{store.location.City}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-p-bottom_x-small">
+                                                            <div class="slds-grid slds-wrap">
+                                                                <div class="slds-size_7-of-12">
+                                                                    <h6 style="display: inline-block;" class="slds-p-right_xx-small">{label.phoneNumberLabel}</h6>
+                                                                    <lightning-formatted-phone value={store.phoneNumber} disabled>
+                                                                    </lightning-formatted-phone>
+                                                                </div>
+                                                                <div class="slds-size_5-of-12">
+                                                                    <h6 style="display: inline-block;" class="slds-p-right_xx-small">{label.zipCodeLabel}</h6>{store.location.PostalCode}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-p-bottom_x-small">
+                                                            <div class="slds-grid slds-wrap">
+                                                                <div class="slds-size_12-of-12">
+                                                                    <h6 style="display: inline-block;" class="slds-p-right_xx-small">{label.countryLabel}</h6>{store.location.Country}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </lightning-card>
+                                            </div>
+                                        </template>
+                                    </lightning-accordion-section>
+                                </template>
+                            </lightning-accordion>                            
+                        </template>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template>
+        <template if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commissioning_Order_By_Account_by_NAO</fullName>
+    <columns>NAME</columns>
+    <columns>CONTAINER_Account__c</columns>
+    <columns>CONTAINER_Contract_Issued__c</columns>
+    <columns>CONTAINER_Job_Quantity__c</columns>
+    <columns>CONTAINER_Shipment_Start_Date__c</columns>
+    <columns>CONTAINER_Shipment_Completed__c</columns>
+    <columns>CONTAINER_Total_Price__c</columns>
+    <columns>CONTAINER_Model_Number__c</columns>
+    <columns>CONTAINER_PID_Number__c</columns>
+    <columns>CONTAINER_Installation_Location_Box__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTAINER_Account_Region__c</field>
+        <operation>equals</operation>
+        <value>NAO</value>
+    </filters>
+    <label>Commissioning Order By Account by NAO</label>
+    <sharedTo>
+        <role>Container_Service_Admin</role>
+        <role>Container_Service_Product_Service_Engineering</role>
+        <role>Container_Service_Technical_Publication</role>
+        <role>Container_Service_Training</role>
+        <roleAndSubordinatesInternal>Container_Sales</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Container_Service_FSM</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Container_Service_RSM</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>Container_Service_Warranty_Administrator</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

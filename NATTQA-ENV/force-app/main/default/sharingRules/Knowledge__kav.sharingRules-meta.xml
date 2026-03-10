@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CTBR_Dealer_Knowledge</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share with CTBR Dealers</description>
+        <label>CTBR Dealer Knowledge</label>
+        <sharedTo>
+            <group>CTBR_Dealer</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>CTBR_Dealer__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTBR_Internal_Knowledge</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share with Internal CTBR Users</description>
+        <label>CTBR Internal Knowledge</label>
+        <sharedTo>
+            <group>CTBR_Internal</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>CTBR_Internal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTM_Dealer_Region_1</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share with Region 1 CTM Dealers</description>
+        <label>CTM Dealer Region 1</label>
+        <sharedTo>
+            <group>CTM_Dealer_Region_1</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>CTM_Dealer_Region_1__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTM_Dealer_Region_2</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share with Region 2 CTM Dealers</description>
+        <label>CTM Dealer Region 2</label>
+        <sharedTo>
+            <group>CTM_Dealer_Region_2</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>CTM_Dealer_Region_2__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTM_Dealer_Region_3</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share with Region 3 CTM Dealers</description>
+        <label>CTM Dealer Region 3</label>
+        <sharedTo>
+            <group>CTM_Dealer_Region_3</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>CTM_Dealer_Region_3__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTM_Knowledge_Internal</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>CTM Knowledge Internal</label>
+        <sharedTo>
+            <group>CTM_Internal</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>MX_Mexico_Internal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Knowledge_Articel_Share_Natt_Direct_Sales</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Knowledge Articel Share Natt Direct Sales</label>
+        <sharedTo>
+            <group>Natt_Direct_Sales</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Direct_Sales__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Knowledge_CONTAINER_Sales_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Read Access for Sales Users.</description>
+        <label>Knowledge CONTAINER Sales Access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Sales</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CAP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER FAQ</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Knowledge_CONTAINER_Service_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read Write access to Service User.</description>
+        <label>Knowledge CONTAINER Service Access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service</roleAndSubordinatesInternal>
+        </sharedTo>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CAP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER FAQ</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Associate</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Associate</label>
+        <sharedTo>
+            <group>NATT_Associate</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Associate__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Customer</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Customer</label>
+        <sharedTo>
+            <group>NATT_Customer</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Customer__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Dealer</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Dealer</label>
+        <sharedTo>
+            <group>NATT_Dealer</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Dealer__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Dealer_Principal</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Dealer Principal</label>
+        <sharedTo>
+            <group>NATT_Dealer_Principal</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Dealer_Principal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Internal</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Internal</label>
+        <sharedTo>
+            <group>NATT_Internal</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Internal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Whos_Who_Article</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Whos Who Article</label>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Whos_Who__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>UCP_Global</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>UCP Global</label>
+        <sharedTo>
+            <group>UCP_Global</group>
+        </sharedTo>
+        <booleanFilter>(1 AND 2) OR (2 AND 3 AND 4)</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>UCP_Region__c</field>
+            <operation>equals</operation>
+            <value>UCP (Global)</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>NATT_Whos_Who__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>UCP_Knowledge_Sharing_with_AUS</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>UCP Knowledge Sharing with AUS</label>
+        <sharedTo>
+            <group>UCP_AUS</group>
+        </sharedTo>
+        <booleanFilter>(1 AND 2) OR (2 AND 3 AND 4)</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>UCP_Region__c</field>
+            <operation>equals</operation>
+            <value>AUS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>NATT_Whos_Who__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>UCP_Knowledge_Sharing_with_Americas</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>UCP Knowledge Sharing with Americas</label>
+        <sharedTo>
+            <group>UCP_Americas</group>
+        </sharedTo>
+        <booleanFilter>(1 AND 2) OR (2 AND 3 AND 4)</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>UCP_Region__c</field>
+            <operation>equals</operation>
+            <value>Americas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>NATT_Whos_Who__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>UCP_Knowledge_Sharing_with_EMEA</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>UCP Knowledge Sharing with EMEA</label>
+        <sharedTo>
+            <group>UCP_EMEA</group>
+        </sharedTo>
+        <booleanFilter>(1 AND 2) OR (2 AND 3 AND 4)</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>UCP_Region__c</field>
+            <operation>equals</operation>
+            <value>EMEA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>NATT_Whos_Who__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>UCP_Knowledge_Sharing_with_SG_HK</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>UCP Knowledge Sharing with SG/HK</label>
+        <sharedTo>
+            <group>UCP_SG_HK</group>
+        </sharedTo>
+        <booleanFilter>(1 AND 2) OR (2 AND 3 AND 4)</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>UCP_Region__c</field>
+            <operation>equals</operation>
+            <value>SG/HK</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>NATT_Whos_Who__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER,UCP Container</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

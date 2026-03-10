@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to Customers when status = Approved</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NATT Lynx Fleet Customer Order Summary</name>
+    <relatedEntityType>SBQQ__Quote__c</relatedEntityType>
+    <style>none</style>
+    <subject>ORDER STATUS Lynx Fleet Data Service Plan for Order {{{SBQQ__Quote__c.Name}}}</subject>
+    <textOnly>Order Summary
+
+Order Date: {{{SBQQ__Quote__c.NATT_Final_Approval_Date__c}}}
+
+Order Status: {{{SBQQ__Quote__c.NATT_Status_Fx__c}}}
+
+Dealer Name: {{{SBQQ__Quote__c.SBQQ__Account__c}}}
+
+End Customer: {{{SBQQ__Quote__c.NATT_End_Customer__c}}}
+
+Data Plan:
+
+{{{SBQQ__Quote__c.NATT_eSolutions_Plans_For_Email__c}}}
+
+Welcome to the Carrier® Transicold® Lynx Fleet™ telematics service! An order has been placed on your behalf by your authorized Carrier Transicold Dealer or another Carrier representative.
+
+That order and your use of Carrier Transicold&apos;s Lynx Fleet equipment and/or service is subject to all terms and conditions contained in the Lynx Fleet Terms and Conditions of Use (https://tta.lynxfleet.carrier.com/sensornet/html5/iapp/login/html/terms.html) and the Lynx Fleet Privacy and Data Usage Notice (https://tta.lynxfleet.carrier.com/sensornet/html5/iapp/login/html/privacy.html) found by clicking on the links above.
+
+To complete your Lynx Fleet order you MUST REPLY ALL to this email, type &quot;CONFIRM&quot; in the subject line, and send it to Carrier Transicold at esolutions@carrier.com. That acknowledgment will ensure your awareness and confirm your acceptance of all terms and conditions contained in these documents, which govern your firm&apos;s use of the Carrier Transicold Lynx Fleet service. YOUR LYNX FLEET ORDER CANNOT BE FINALIZED UNITL THIS STEP IS COMPLETE. Please keep a copy of this email for your records.</textOnly>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

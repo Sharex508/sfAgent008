@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_ProductItem__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Item that is being superseded by the item shown in the Alternative Item field</description>
+    <inlineHelpText>Item that is being superseded by the item shown in the Alternative Item field</inlineHelpText>
+    <label>Product Item</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>NATT Alternative Items</relationshipLabel>
+    <relationshipName>NATT_Alternative_Items</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Display_Terms_Without_Months__c</fullName>
+    <description>counts the number of lines to be considered for the display terms that don&apos;t have months added. used to conditionally display the Add terms button</description>
+    <label>Display Terms Without Months</label>
+    <summaryFilterItems>
+        <field>SBQQ__QuoteLine__c.NATT_Display_Terms_Button__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>SBQQ__QuoteLine__c.NATT_Display_Terms_Button_No_Months__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SBQQ__QuoteLine__c.SBQQ__Quote__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

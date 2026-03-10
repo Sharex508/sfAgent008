@@ -1,0 +1,25 @@
+<!--Created by LTI to display related list of unit information-->
+
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes"
+                access="global">
+    
+    <aura:attribute name="relatedListConfigName" type="String" default=""/>
+    <aura:attribute name="datatableId" type="String" default=""/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="tableHeader" type="String" default=""/>
+    <aura:attribute name="dataList" type="List"/>
+    <aura:attribute name="columns" type="List" default="[]"/>
+    <aura:attribute name="ifPrintPage" type="Boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    
+    <lightning:card title="">
+        <div class="body_padding">
+            <div aura:id="body"></div>
+            <c:DatatableComponent datatableId="{!v.datatableId}" pageSize="{!v.pageSize}" tableHeader="{!v.tableHeader}" dataList="{!v.dataList}" columns="{!v.columns}"
+                                  hideCheckboxColumn="true" enablePagination="{! v.ifPrintPage? false : true}"  cssClassName="myUniqueTable" />
+        </div>
+    </lightning:card>
+    
+</aura:component>

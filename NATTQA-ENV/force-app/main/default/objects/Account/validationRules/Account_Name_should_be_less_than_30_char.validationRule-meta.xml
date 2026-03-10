@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Name_should_be_less_than_30_char</fullName>
+    <active>true</active>
+    <description>Rule to restrict Account name to 30 characters for CTM Customers , since the respective field in JDE is 30 characters and no provision to increase the length. Order with account Names more than 30 characters do not sync with JDE</description>
+    <errorConditionFormula>If ( 
+( NATT_Record_Type_Developer_Name__c == &apos;MX_Customer&apos;) &amp;&amp; 
+( Len(Name) &gt; 30 ), true,false)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Account Name cannot be more than 30 characters, please update the account name.</errorMessage>
+</ValidationRule>

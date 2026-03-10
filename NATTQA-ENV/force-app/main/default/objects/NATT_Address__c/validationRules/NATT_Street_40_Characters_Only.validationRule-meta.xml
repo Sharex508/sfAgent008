@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Street_40_Characters_Only</fullName>
+    <active>true</active>
+    <description>NATT and CTM Street should be 40 characters only</description>
+    <errorConditionFormula>AND(
+OR(RecordType.DeveloperName=&apos;NATT_Address&apos;,
+RecordType.DeveloperName=&apos;CTM_Address&apos;),
+LEN(NATT_Street__c) &gt; 40)</errorConditionFormula>
+    <errorDisplayField>NATT_Street__c</errorDisplayField>
+    <errorMessage>Street should be 40 characters only</errorMessage>
+</ValidationRule>

@@ -1,0 +1,144 @@
+<template>
+    <div class="slds-box slds-p-around_large">
+        <div class="slds-text-align_center">
+            <lightning-icon icon-name="action:approval" alternative-text="Approved" title="Approved"></lightning-icon>
+            <span class="slds-text-heading_large slds-m-right_small">Thank you for your Order</span>
+        </div>
+        <div class="slds-box slds-p-around_large slds-m-top_small">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_1-of-3" style="border-right:1px solid">
+                    <table class="slds-text-align_left">
+                    <tr>
+                        <td>
+                            <h3>Order Ref. #:</h3>
+                        </td>
+                        <td>
+                            {OrderRefcap}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h3>Requested Date:</h3>
+                        </td>
+                        <td>
+                            {requestedDate}
+                        </td>
+                    </tr>
+                        <tr>
+                            <td>
+                                <h3>PO Number:</h3>
+                            </td>
+                            <td>
+                                {purchaseOrderNumber}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>Order Date:</h3>
+                            </td>
+                            <td>
+                                {orderDate}
+                            </td>
+                        </tr>
+                        <tr if:true={showRushCharge}>
+                            <td>
+                                <h3>Total Rush Charge:</h3>
+                            </td>
+                            <td>
+                                <lightning-formatted-number format-style="currency" currency-code={currencyCode} currency-display-as="symbol"
+                                maximum-fraction-digits="2" value={totalRushCharge}></lightning-formatted-number>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>Order Amount:</h3>
+                            </td>
+                            <td>
+                                <lightning-formatted-number format-style="currency" currency-code={currencyCode} currency-display-as="symbol"
+                                maximum-fraction-digits="2" value={orderAmount}></lightning-formatted-number>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="slds-col slds-size_1-of-3" style="border-right:1px solid">
+                    <div class="slds-m-bottom_medium">
+                        <h3>
+                            Shipping Address
+                        </h3>
+                        <div>
+                            {shippingstreet},{shippingcity}
+                        </div>
+                        <div>
+                            {shippingstate},{shippingzipCode},{shippingcountry}
+                        </div>
+                    </div>
+                    <h3>
+                        Billing Address
+                    </h3>
+                    <div>
+                        {billingstreet},{billingcity}
+                    </div>
+                    <div>
+                        {billingstate},{billingzipCode},{billingcountry}
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <h3 class="slds-text-title_bold slds-m-bottom_small">Shipment Information</h3>
+                    <table>
+                        <tr>
+                            <td>
+                                <h3>Shipping Method:</h3>
+                            </td>
+                            <td>
+                                {shippingMethod}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>Order Type:</h3>
+                            </td>
+                            <td>
+                                {OrderType}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>Billing Delivery Term:</h3>
+                            </td>
+                            <td>
+                                {BillingDelivery}
+                            </td>
+                        </tr>
+                    </table>
+                    <!--table>
+                        <tr>
+                            <td>
+                                <h3>Order Type:</h3>
+                            </td>
+                            <td>
+                                {OrderType}
+                            </td>
+                            
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td>
+                                <h3>Billing Delivery Term:</h3>
+                            </td>
+                            <td>
+                                {BillingDelivery}
+                            </td>
+                        </tr>
+                    </table-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slds-col slds-p-around_large">
+        <lightning-button variant="brand" label="CONTINUE SHOPPING" onclick={navigateAllProducts} class="slds-m-left_x-small slds-float_right"></lightning-button>
+    </div>
+    
+</template>

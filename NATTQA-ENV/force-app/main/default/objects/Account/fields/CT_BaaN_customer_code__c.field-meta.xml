@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CT_BaaN_customer_code__c</fullName>
+    <caseSensitive>true</caseSensitive>
+    <description>Concatenation of company code and &quot;-&quot; and JDE customer code
+Field is needed for CPQ Order Intake interface</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Concatenation of company code and &quot;-&quot; and JDE customer code
+Field is needed for CPQ Order Intake interface</inlineHelpText>
+    <label>JDE customer code</label>
+    <length>14</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

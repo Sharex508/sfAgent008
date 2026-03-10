@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>zDeleteNATT_Competitive_Unit_Model__c</fullName>
+    <description>NATT</description>
+    <label>zDeleteCompetitive Unit Model</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>zDeleteNATT_Product_Family__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>C-600</fullName>
+                <default>false</default>
+                <label>C-600</label>
+            </value>
+            <value>
+                <fullName>C-600 SmartPower</fullName>
+                <default>false</default>
+                <label>C-600 SmartPower</label>
+            </value>
+            <value>
+                <fullName>C-600 SmartPower HO</fullName>
+                <default>false</default>
+                <label>C-600 SmartPower HO</label>
+            </value>
+            <value>
+                <fullName>S-600</fullName>
+                <default>false</default>
+                <label>S-600</label>
+            </value>
+            <value>
+                <fullName>S-600 SmartPower</fullName>
+                <default>false</default>
+                <label>S-600 SmartPower</label>
+            </value>
+            <value>
+                <fullName>S-600 SmartPower HO</fullName>
+                <default>false</default>
+                <label>S-600 SmartPower HO</label>
+            </value>
+            <value>
+                <fullName>S-700</fullName>
+                <default>false</default>
+                <label>S-700</label>
+            </value>
+            <value>
+                <fullName>S-700 SmartPower</fullName>
+                <default>false</default>
+                <label>S-700 SmartPower</label>
+            </value>
+            <value>
+                <fullName>S-700 SmartPower HO</fullName>
+                <default>false</default>
+                <label>S-700 SmartPower HO</label>
+            </value>
+            <value>
+                <fullName>C-600M</fullName>
+                <default>false</default>
+                <label>C-600M</label>
+            </value>
+            <value>
+                <fullName>SLXi Local</fullName>
+                <default>false</default>
+                <label>SLXi Local</label>
+            </value>
+            <value>
+                <fullName>SLXi DRC</fullName>
+                <default>false</default>
+                <label>SLXi DRC</label>
+            </value>
+            <value>
+                <fullName>S-610M</fullName>
+                <default>false</default>
+                <label>S-610M</label>
+            </value>
+            <value>
+                <fullName>S-610M SmartPower</fullName>
+                <default>false</default>
+                <label>S-610M SmartPower</label>
+            </value>
+            <value>
+                <fullName>S-610M SmartPower HO</fullName>
+                <default>false</default>
+                <label>S-610M SmartPower HO</label>
+            </value>
+            <value>
+                <fullName>S-610DE</fullName>
+                <default>false</default>
+                <label>S-610DE</label>
+            </value>
+            <value>
+                <fullName>S-610DE SmartPower</fullName>
+                <default>false</default>
+                <label>S-610DE SmartPower</label>
+            </value>
+            <value>
+                <fullName>S-610DE SmartPower HO</fullName>
+                <default>false</default>
+                <label>S-610DE SmartPower HO</label>
+            </value>
+            <value>
+                <fullName>Heat King 450 MAX</fullName>
+                <default>false</default>
+                <label>Heat King 450 MAX</label>
+            </value>
+            <value>
+                <fullName>Heat King 450T-590</fullName>
+                <default>false</default>
+                <label>Heat King 450T-590</label>
+            </value>
+            <value>
+                <fullName>T-690</fullName>
+                <default>false</default>
+                <label>T-690</label>
+            </value>
+            <value>
+                <fullName>T-690 MAX</fullName>
+                <default>false</default>
+                <label>T-690 MAX</label>
+            </value>
+            <value>
+                <fullName>T-890</fullName>
+                <default>false</default>
+                <label>T-890</label>
+            </value>
+            <value>
+                <fullName>T-890 MAX</fullName>
+                <default>false</default>
+                <label>T-890 MAX</label>
+            </value>
+            <value>
+                <fullName>T-1090</fullName>
+                <default>false</default>
+                <label>T-1090</label>
+            </value>
+            <value>
+                <fullName>T-1090 MAX</fullName>
+                <default>false</default>
+                <label>T-1090 MAX</label>
+            </value>
+            <value>
+                <fullName>T-1090 Spectrum</fullName>
+                <default>false</default>
+                <label>T-1090 Spectrum</label>
+            </value>
+            <value>
+                <fullName>UT-1280 HO</fullName>
+                <default>false</default>
+                <label>UT-1280 HO</label>
+            </value>
+            <value>
+                <fullName>B-100</fullName>
+                <default>false</default>
+                <label>B-100</label>
+            </value>
+            <value>
+                <fullName>V-520</fullName>
+                <default>false</default>
+                <label>V-520</label>
+            </value>
+            <value>
+                <fullName>V-520 MAX</fullName>
+                <default>false</default>
+                <label>V-520 MAX</label>
+            </value>
+            <value>
+                <fullName>V-520 RT</fullName>
+                <default>false</default>
+                <label>V-520 RT</label>
+            </value>
+            <value>
+                <fullName>V-520 RT MAX</fullName>
+                <default>false</default>
+                <label>V-520 RT MAX</label>
+            </value>
+            <value>
+                <fullName>V-220</fullName>
+                <default>false</default>
+                <label>V-220</label>
+            </value>
+            <value>
+                <fullName>V-220 MAX</fullName>
+                <default>false</default>
+                <label>V-220 MAX</label>
+            </value>
+            <value>
+                <fullName>V-320</fullName>
+                <default>false</default>
+                <label>V-320</label>
+            </value>
+            <value>
+                <fullName>V-320 MAX</fullName>
+                <default>false</default>
+                <label>V-320 MAX</label>
+            </value>
+            <value>
+                <fullName>V-800</fullName>
+                <default>false</default>
+                <label>V-800</label>
+            </value>
+            <value>
+                <fullName>V-800 MAX</fullName>
+                <default>false</default>
+                <label>V-800 MAX</label>
+            </value>
+            <value>
+                <fullName>V-520 Spectrum</fullName>
+                <default>false</default>
+                <label>V-520 Spectrum</label>
+            </value>
+            <value>
+                <fullName>V-520RT Spectrum</fullName>
+                <default>false</default>
+                <label>V-520RT Spectrum</label>
+            </value>
+            <value>
+                <fullName>TriPac</fullName>
+                <default>false</default>
+                <label>TriPac</label>
+            </value>
+            <value>
+                <fullName>RigMaster</fullName>
+                <default>false</default>
+                <label>RigMaster</label>
+            </value>
+            <value>
+                <fullName>Mechron</fullName>
+                <default>false</default>
+                <label>Mechron</label>
+            </value>
+            <value>
+                <fullName>Frigette</fullName>
+                <default>false</default>
+                <label>Frigette</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600 SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600 SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600 SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600 SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700 SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700 SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600M</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>SLXi Local</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>SLXi DRC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610M</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610M SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610M SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610DE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610DE SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610DE SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>T-690</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>T-690 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>T-890</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>T-890 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>T-1090</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>T-1090 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>T-1090 Spectrum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>UT-1280 HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>B-100</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520 RT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520 RT MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-220</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-220 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-320</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-320 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-800</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-800 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520 Spectrum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520RT Spectrum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>TriPac</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>RigMaster</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Mechron</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Frigette</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>Heat King 450 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>Heat King 450T-590</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

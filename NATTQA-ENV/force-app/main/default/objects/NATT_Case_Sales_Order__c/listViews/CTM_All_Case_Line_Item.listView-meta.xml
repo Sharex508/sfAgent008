@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_All_Case_Line_Item</fullName>
+    <columns>NAME</columns>
+    <columns>NATT_Case__c</columns>
+    <columns>NATT_Case_Type__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <label>Todos</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>CTM</roleAndSubordinates>
+    </sharedTo>
+</ListView>

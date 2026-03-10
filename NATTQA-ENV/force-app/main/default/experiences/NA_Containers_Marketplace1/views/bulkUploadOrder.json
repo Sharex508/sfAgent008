@@ -1,0 +1,70 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "b4b917f2-bb0b-472a-abf0-db7157333781",
+  "label" : "Bulk Upload Order",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "f418cb5f-85bc-4a2e-b807-09a6d89fedf8",
+          "columns" : [ {
+            "UUID" : "3713698f-0a6a-4450-9e3f-5adbaeb166ef",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "f418cb5f-85bc-4a2e-b807-09a6d89fedf8",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+          },
+          "componentName" : "c:nAC_BulkUploadEnchanced",
+          "id" : "250d92f1-726a-43ef-bd58-abebaf517fba",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "3713698f-0a6a-4450-9e3f-5adbaeb166ef",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d806c54a-5654-408e-b9bf-f176cb9b5496",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Bulk Upload Order"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e2bc4ed9-ceaa-4e2e-982d-1daaf30c9702",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "921280cc-021e-4717-9476-4f3a74dfaecd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-bulk-upload-order"
+}

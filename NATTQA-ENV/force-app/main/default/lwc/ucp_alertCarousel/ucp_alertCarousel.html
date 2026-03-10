@@ -1,0 +1,62 @@
+<template>
+
+    <template if:false={showSpinner}>
+        
+        <div class="carousel__container slds-p-top_medium">            
+            <lightning-icon class="dealer__alert__icon" icon-name="utility:warning" alternative-text="Dealer Alerts" title="Dealer Alerts"></lightning-icon>
+            <h1 class="component__title">{label.DealerAlert}</h1>
+
+            <template if:false={showWarningMessage}>                
+                <div class="carousel">
+
+                    <a href="javascript:;" class="carousel__button carousel__button--left none" onclick={goPrev}>
+                        &lt;
+                    </a>
+
+                    <div class="carousel__pagination">
+                        <span>{currentPage}/{alerts.length}</span>
+                    </div>
+
+                    <a href="javascript:;" class="carousel__button carousel__button--right" onclick={goNext}>
+                        &gt;
+                    </a>
+                    
+                    <div class="carousel__track-container">
+                        
+                        <div class="carousel__track">
+                            <template for:each={alerts} for:item="alert">
+                                <div key={alert.Id} class="carousel__slide">
+                                    <div class="carousel__card">
+                                        <div class="carousel__card-body">
+                                            <a href={alert.url} class="carousel__card-title">
+                                                <lightning-formatted-rich-text value={alert.NATT_AlertText__c}></lightning-formatted-rich-text>
+                                            </a>
+                                        </div>
+                                        <!--<p class="carousel__message__from">{label.CarouselMessage}</p>-->
+                                        <div class="carousel__card-footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                        
+                    </div>
+
+                </div>  
+           
+            </template>
+
+            <template if:true={showWarningMessage}>
+                <p class="slds-text-align_center slds-m-around_small no_articles">{errorMessage}</p>
+            </template>
+
+        </div>
+        
+    </template>
+
+    <!-- Spinner -->
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template>
+    
+</template>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>NetworkFeedResponseMetric$ParentRecord</field>
+    </columns>
+    <columns>
+        <field>NetworkFeedResponseMetric$FeedItemDateTime</field>
+    </columns>
+    <columns>
+        <field>NetworkFeedResponseMetric$FeedItemCreatedBy</field>
+    </columns>
+    <columns>
+        <field>NetworkFeedResponseMetric$FirstComment.CreatedBy</field>
+    </columns>
+    <columns>
+        <field>NetworkFeedResponseMetric$FirstCommentDateTime</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>CDF1</field>
+    </columns>
+    <customDetailFormulas>
+        <calculatedFormula>((TIMEVALUE(NetworkFeedResponseMetric.FirstCommentDateTime) - TIMEVALUE(NetworkFeedResponseMetric.FeedItemDateTime)) / 1000 ) / 60</calculatedFormula>
+        <dataType>Double</dataType>
+        <developerName>CDF1</developerName>
+        <label>Time to First Answer in mins</label>
+        <scale>2</scale>
+    </customDetailFormulas>
+    <description>Average length of time it takes for a question post to get a first answer.</description>
+    <filter>
+        <criteriaItems>
+            <column>NetworkFeedResponseMetric$FirstComment.Id</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>NetworkFeedResponseMetric$Network</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Average Time to First Answer</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ca_collab_2_0__Network_Feed_Response_Metric__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>NetworkFeedResponseMetric$BestCommentDateTime</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

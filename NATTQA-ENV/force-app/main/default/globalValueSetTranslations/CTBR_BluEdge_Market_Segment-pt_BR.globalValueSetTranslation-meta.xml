@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>APU/Dairy&amp;Grocery</masterLabel>
+        <translation>APU/Laticínios e Mercearia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>APU/Distribution</masterLabel>
+        <translation>APU/Distribuição</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>APU/Dry</masterLabel>
+        <translation>APU/Dry</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>APU/For Hire</masterLabel>
+        <translation>APU/Para contratar</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>APU/Leasing</masterLabel>
+        <translation>APU/Locação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>APU/OEM</masterLabel>
+        <translation>APU/OEM</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>APU/Stock</masterLabel>
+        <translation>APU/Estoque</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Diesel/Dairy&amp;Grocery</masterLabel>
+        <translation>Diesel/Laticínios e Mercearia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Diesel/Distribution</masterLabel>
+        <translation>Diesel/Distribuição</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Diesel/For Hire</masterLabel>
+        <translation>Diesel/Para contratar</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Diesel/Leasing</masterLabel>
+        <translation>Diesel/Locação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Diesel/OEM</masterLabel>
+        <translation>Diesel/OEM</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Diesel/Stock</masterLabel>
+        <translation>Diesel/Estoque</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Heat/Box Car</masterLabel>
+        <translation>Calor/Caixa</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Heat/Dairy&amp;Grocery</masterLabel>
+        <translation>Calor/Laticínios e Mercearia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Heat/Distribution</masterLabel>
+        <translation>Calor/Distribuição</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Heat/For Hire</masterLabel>
+        <translation>Calor/Para contratar</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Heat/Intermodal</masterLabel>
+        <translation>Calor/Intermodal</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Heat/Leasing</masterLabel>
+        <translation>Calor/Locação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Heat/OEM</masterLabel>
+        <translation>Calor/OEM</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Heat/Stock</masterLabel>
+        <translation>Calor/Estoque</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trailer/Box Car</masterLabel>
+        <translation>Trailer/Vagão</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trailer/Dairy&amp;Grocery</masterLabel>
+        <translation>Trailer/Laticínios e Mercearia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trailer/Distribution</masterLabel>
+        <translation>Trailer/Distribuição</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trailer/For Hire</masterLabel>
+        <translation>Trailer/Para contratar</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trailer/Intermodal</masterLabel>
+        <translation>Trailer/Intermodal</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trailer/Leasing</masterLabel>
+        <translation>Trailer/Locação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trailer/OEM</masterLabel>
+        <translation>Trailer/OEM</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Trailer/Stock</masterLabel>
+        <translation>Trailer/Estoque</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Variable/Dairy&amp;Grocery</masterLabel>
+        <translation>Variável/Laticínios e Mercearia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Variable/Distribution</masterLabel>
+        <translation>Variável/Distribuição</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Variable/For Hire</masterLabel>
+        <translation>Variável/Para contratar</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Variable/Leasing</masterLabel>
+        <translation>Variável/Locação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Variable/OEM</masterLabel>
+        <translation>Variável/OEM</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Variable/Stock</masterLabel>
+        <translation>Variável/Estoque</translation>
+    </valueTranslation>
+</GlobalValueSetTranslation>

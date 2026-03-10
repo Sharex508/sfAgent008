@@ -1,0 +1,37 @@
+<template>
+  <!-- Gavish > For future purposes, please use more and more lightning components as much as possible
+  If Lightning components are not working then we should use HTML tags directly -->
+  <template if:true={isShowModal}>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+      aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+      <div class="slds-modal__container" data-id="modalContainer">
+        <header class="slds-modal__header border-0 slds-theme_default">
+          <p class="slds-text-heading_medium slds-hyphenate">{labels.chooseWareshouseLabel}</p>
+        </header>
+        <fieldset class="slds-text-heading_medium slds-hyphenate">
+          <div class="slds-form-element__control slds-theme_default slds-p-left_small">
+            <template for:each={WareHouses} for:item="whouse">
+              <p key={whouse.WarehouseName}>
+                <input type="radio" class="slds-form-element__label slds-text-body_regular" name="warehouse"
+                  id={whouse.WarehouseName} value={whouse.apiValue} />
+                <label class="slds-form-element__label slds-text-body_regular">
+                  <span class="slds-form-element__label slds-text-body_regular">{whouse.WarehouseName}</span>
+                  <template if:true={whouse.Help_Text_needed}>
+                    <lightning-helptext content={labels.redirected_To_external}>
+                    </lightning-helptext>
+                  </template>
+                </label>
+              </p>
+            </template>
+          </div>
+        </fieldset>
+        <footer class="slds-modal__footer border-0 slds-theme_default">
+          <button class="slds-button slds-button_brand" onclick={handleSave}>{labels.SaveLabel}</button>
+        </footer>
+      </div>
+    </section>
+    <template if:true={showBackdrop}>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+  </template>
+</template>

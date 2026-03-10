@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DiscoverySettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEinsteinAnswersPref>false</enableEinsteinAnswersPref>
+    <enableEinsteinArticleRecommendations>true</enableEinsteinArticleRecommendations>
+    <enableEinsteinArticleRecommendationsOnDC>false</enableEinsteinArticleRecommendationsOnDC>
+</DiscoverySettings>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Check_Status_Can_Not_Be_Lost</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT($Permission.CONTAINER_Bypass_Validation_Rule),              OR( RecordType.Name = &apos;Container GENSET Quote&apos;,RecordType.Name = &apos;Container NT Quote&apos;), 
+CONTAINER_Check_if_Pending_Job_status__c = &apos;True&apos;, 
+OR(ISPICKVAL( CONTAINER_Status__c , &apos;Lost&apos;), 
+ISPICKVAL( CONTAINER_Status__c , &apos;Cancelled&apos;))
+)</errorConditionFormula>
+    <errorMessage>After the quote status has been changed to “Order/Pending for Job #”, Quote can&apos;t be marked as lost or cancelled</errorMessage>
+</ValidationRule>

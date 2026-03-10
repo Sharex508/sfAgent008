@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Key_Business_Role__c</fullName>
+    <description>NATT</description>
+    <label>Key Business Role</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Principal</fullName>
+                <default>false</default>
+                <label>Principal</label>
+            </value>
+            <value>
+                <fullName>Co-Principal</fullName>
+                <default>false</default>
+                <label>Co-Principal</label>
+            </value>
+            <value>
+                <fullName>VP/Director</fullName>
+                <default>false</default>
+                <label>VP/Director</label>
+            </value>
+            <value>
+                <fullName>VP/Director - Sales</fullName>
+                <default>false</default>
+                <label>VP/Director - Sales</label>
+            </value>
+            <value>
+                <fullName>VP/Director - Parts</fullName>
+                <default>false</default>
+                <label>VP/Director - Parts</label>
+            </value>
+            <value>
+                <fullName>VP/Director - Service</fullName>
+                <default>false</default>
+                <label>VP/Director - Service</label>
+            </value>
+            <value>
+                <fullName>VP/Director – Parts &amp; Service</fullName>
+                <default>false</default>
+                <label>VP/Director – Parts &amp; Service</label>
+            </value>
+            <value>
+                <fullName>General Manager</fullName>
+                <default>false</default>
+                <label>General Manager</label>
+            </value>
+            <value>
+                <fullName>Branch Manager</fullName>
+                <default>false</default>
+                <label>Branch Manager</label>
+            </value>
+            <value>
+                <fullName>Sales Manager</fullName>
+                <default>false</default>
+                <label>Sales Manager</label>
+            </value>
+            <value>
+                <fullName>Service Manager</fullName>
+                <default>false</default>
+                <label>Service Manager</label>
+            </value>
+            <value>
+                <fullName>Parts Manager</fullName>
+                <default>false</default>
+                <label>Parts Manager</label>
+            </value>
+            <value>
+                <fullName>Warranty Manager</fullName>
+                <default>false</default>
+                <label>Warranty Manager</label>
+            </value>
+            <value>
+                <fullName>Office Manager</fullName>
+                <default>false</default>
+                <label>Office Manager</label>
+            </value>
+            <value>
+                <fullName>Unit Sales Person</fullName>
+                <default>false</default>
+                <label>Unit Sales Person</label>
+            </value>
+            <value>
+                <fullName>Parts Sales Person</fullName>
+                <default>false</default>
+                <label>Parts Sales Person</label>
+            </value>
+            <value>
+                <fullName>Technician</fullName>
+                <default>false</default>
+                <label>Technician</label>
+            </value>
+            <value>
+                <fullName>Warranty Admin</fullName>
+                <default>false</default>
+                <label>Warranty Admin</label>
+            </value>
+            <value>
+                <fullName>Billing Admin</fullName>
+                <default>false</default>
+                <label>Billing Admin</label>
+            </value>
+            <value>
+                <fullName>General Admin</fullName>
+                <default>false</default>
+                <label>General Admin</label>
+            </value>
+            <value>
+                <fullName>Corporate Officer</fullName>
+                <default>false</default>
+                <label>Corporate Officer</label>
+            </value>
+            <value>
+                <fullName>Director General</fullName>
+                <default>false</default>
+                <label>Director General</label>
+            </value>
+            <value>
+                <fullName>Subdirector</fullName>
+                <default>false</default>
+                <label>Subdirector</label>
+            </value>
+            <value>
+                <fullName>Vice-Presidente/Director</fullName>
+                <default>false</default>
+                <label>Vice-Presidente/Director</label>
+            </value>
+            <value>
+                <fullName>Gerente General</fullName>
+                <default>false</default>
+                <label>Gerente General</label>
+            </value>
+            <value>
+                <fullName>Gerente de Sucursal</fullName>
+                <default>false</default>
+                <label>Gerente de Sucursal</label>
+            </value>
+            <value>
+                <fullName>Gerente de Ventas</fullName>
+                <default>false</default>
+                <label>Gerente de Ventas</label>
+            </value>
+            <value>
+                <fullName>Gerente de Servicio</fullName>
+                <default>false</default>
+                <label>Gerente de Servicio</label>
+            </value>
+            <value>
+                <fullName>Gerente de Partes</fullName>
+                <default>false</default>
+                <label>Gerente de Partes</label>
+            </value>
+            <value>
+                <fullName>Gerente de Garantías</fullName>
+                <default>false</default>
+                <label>Gerente de Garantías</label>
+            </value>
+            <value>
+                <fullName>Gerente de Oficina</fullName>
+                <default>false</default>
+                <label>Gerente de Oficina</label>
+            </value>
+            <value>
+                <fullName>Vendedor de Unidades</fullName>
+                <default>false</default>
+                <label>Vendedor de Unidades</label>
+            </value>
+            <value>
+                <fullName>Vendedor de Partes</fullName>
+                <default>false</default>
+                <label>Vendedor de Partes</label>
+            </value>
+            <value>
+                <fullName>Técnico</fullName>
+                <default>false</default>
+                <label>Técnico</label>
+            </value>
+            <value>
+                <fullName>Administrador de Garantías</fullName>
+                <default>false</default>
+                <label>Administrador de Garantías</label>
+            </value>
+            <value>
+                <fullName>Administrador de Facturación</fullName>
+                <default>false</default>
+                <label>Administrador de Facturación</label>
+            </value>
+            <value>
+                <fullName>Gerente Administrativo</fullName>
+                <default>false</default>
+                <label>Gerente Administrativo</label>
+            </value>
+            <value>
+                <fullName>Oficial corporativo</fullName>
+                <default>false</default>
+                <label>Oficial corporativo</label>
+            </value>
+            <value>
+                <fullName>Gerente de Operaciones</fullName>
+                <default>false</default>
+                <label>Gerente de Operaciones</label>
+            </value>
+            <value>
+                <fullName>Gerente de Negocios</fullName>
+                <default>false</default>
+                <label>Gerente de Negocios</label>
+            </value>
+            <value>
+                <fullName>Subgerente</fullName>
+                <default>false</default>
+                <label>Subgerente</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

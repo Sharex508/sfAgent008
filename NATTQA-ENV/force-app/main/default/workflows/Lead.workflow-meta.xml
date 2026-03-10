@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Sender_Lead_Accepted</fullName>
+        <description>Sender - Lead Accepted</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Lead_Owner_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <field>Sender_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply.customergateway@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_to_Sender_Lead_Accepted</template>
+    </alerts>
+    <alerts>
+        <fullName>Sender_Lead_Lost</fullName>
+        <description>Sender - Lead Lost</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Sender_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply.customergateway@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_to_Sender_Lead_Lost</template>
+    </alerts>
+    <alerts>
+        <fullName>Sender_Lead_Qualified</fullName>
+        <description>Sender - Lead Qualified</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Sender_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply.customergateway@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_to_Sender_Lead_Qualified</template>
+    </alerts>
+    <alerts>
+        <fullName>Sender_Lead_Rejected</fullName>
+        <description>Sender - Lead Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Sender_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply.customergateway@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_to_Sender_Lead_Unqualified</template>
+    </alerts>
+    <alerts>
+        <fullName>Sender_Lead_Won_Booked</fullName>
+        <description>Sender - Lead Won Booked</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Sender_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>noreply.customergateway@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Email_to_Sender_Lead_Won_Booked</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>NATT_Update_Lead_Company</fullName>
+        <field>Company</field>
+        <formula>Owner:User.Contact.Account.Name</formula>
+        <name>NATT Update Lead Company</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>NATT Update Lead Account Field</fullName>
+        <actions>
+            <name>NATT_Update_Lead_Company</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If the user is a community user with natt then the company is set for them.</description>
+        <formula>NOT(ISBLANK(Owner:User.Contact.Account.Name)) &amp;&amp; Company &lt;&gt; Owner:User.Contact.Account.Name</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sender - Lead Accepted</fullName>
+        <actions>
+            <name>Sender_Lead_Accepted</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.HBI_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Accepted</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sender - Lead Lost</fullName>
+        <actions>
+            <name>Sender_Lead_Lost</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.HBI_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Lost</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sender - Lead Qualified</fullName>
+        <actions>
+            <name>Sender_Lead_Qualified</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.HBI_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Qualified</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sender - Lead Rejected</fullName>
+        <actions>
+            <name>Sender_Lead_Rejected</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.HBI_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Rejected</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sender - Lead Won Booked</fullName>
+        <actions>
+            <name>Sender_Lead_Won_Booked</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Lead.HBI_Lead_Status__c</field>
+            <operation>equals</operation>
+            <value>Won Booked</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

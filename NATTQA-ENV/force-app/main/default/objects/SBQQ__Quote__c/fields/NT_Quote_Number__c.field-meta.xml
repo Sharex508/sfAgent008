@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NT_Quote_Number__c</fullName>
+    <description>This quote number is for NT related products.</description>
+    <displayFormat>C-{00000}</displayFormat>
+    <externalId>false</externalId>
+    <inlineHelpText>This quote number is for NT related products.</inlineHelpText>
+    <label>NT Quote Number</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

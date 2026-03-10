@@ -1,0 +1,67 @@
+<apex:page standardController="Case" renderAs="pdf" extensions="NATTCasePDF" showHeader="false" applyHtmlTag="false" applyBodyTag="false">
+<html>
+ <head>
+ <style type="text/CSS">
+ @page {
+ size:landscape;
+ @bottom-right {
+ content: "Page " counter(page) " of " counter(pages);
+ }
+ }
+ </style>
+ </head>
+ <body>
+<table style="font-family:Arial Unicode MS; font-size:14px; width:100%; border:solid black; border-collapse: collapse">
+  <tr style="font-size:20px; text-align:center; bold">
+    <td colspan="9" style="border:solid black">Core Return Form</td>
+  </tr>
+  <tr style="font-size:18px; text-align:center; bold">
+       <td style="width:  50%; border:solid black; border-collapse: collapse">Customer Information</td>  
+       <td style="width:  50%; border:solid black; border-collapse: collapse">Core Receiving Location</td>
+  </tr>
+  <tr>
+    <td style="width: 50%; font-size:14px; border:solid black; vertical-align: text-top; text-align:right">
+       <table>
+          <tr><td style="width: 10%">&nbsp;</td><td style="text-align:right; width: 40%">Customer:</td><td style="text-align:left; width: 50%">{!Case.Account.Name}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Contact:</td><td colspan="2" style="text-align:left">{!Case.Contact.Name}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Phone:</td><td colspan="2" style="text-align:left">{!Case.ContactPhone}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Email:</td><td colspan="2" style="text-align:left">{!Case.ContactEmail}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Shipping Method:</td><td colspan="2" style="text-align:left">{!Case.NATT_Shipping_Method__c}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Tracking #1 (B/L):</td><td colspan="2" style="text-align:left">{!Case.NATT_Tracking_1_B_L__c}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Tracking #2 (B/L):</td><td colspan="2" style="text-align:left">{!Case.NATT_Tracking_2_B_L__c}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Bill To Code:</td><td colspan="2" style="text-align:left">{!Case.Account.NATT_JDE_Parts_Bill_To_Code__c}</td></tr> 
+          <tr><td>&nbsp;</td><td style="text-align:right">Dealer Invoice:</td><td colspan="2" style="text-align:left">{!Case.NATT_Invoice_Number__c}</td></tr>
+       </table>
+    </td>
+    <td style="width: 50%; font-size:14px; border:solid black; vertical-align: text-top; margin-left: auto; margin-right: auto">
+       <table>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left; align:center">{!Case.NATT_Core_Return_Location_Account__r.Name}</td></tr>          
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">{!Case.NATT_Core_Return_Location_Street__c}<br/>{!Case.NATT_Core_Return_Location_City__c},&nbsp;{!Case.NATT_Core_Return_Location_State_Province__c}&nbsp;&nbsp;{!Case.NATT_Core_Return_Loc_Zip_Postal_Code__c}</td></tr>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">{!Case.NATT_Core_Return_Location_Contact_Email__c}</td></tr>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">&nbsp;</td></tr>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">Internal #:  {!Case.NATT_Internal_Invoice_Number__c}</td></tr>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">&nbsp;</td></tr>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">Case #:  {!Case.CaseNumber}</td></tr>
+          
+       </table>
+    </td>
+  </tr>
+</table>
+    <apex:variable value="{!0}" var="index" />
+    <apex:pageBlock >
+        <apex:pageBlockTable var="ri" value="{!c.Return_Items__r}" style="font-family:Arial Unicode MS; font-size:14px; text-align:center; border:solid black; width:100%; -Fs-table-paginate: paginate">
+            <apex:column style="text-align:left" width="3%"> <apex:outputText >&nbsp;<apex:variable value="{!index + 1}" var="index" />{!index}</apex:outputText></apex:column>
+            <apex:column style="text-align:left" value="{!ri.NATT_Part_Number__c}" width="13%"/>
+            <apex:column value="{!ri.NATT_Quantity__c}" width="7%"/>
+            <apex:column value="{!ri.NATT_Serial__c}" width="9%"/>
+            <apex:column value="{!ri.NATT_Warranty__c}" width="9%"/>
+            <apex:column value="{!ri.NATT_MPR_Tag__c}" width="9%"/>
+            <apex:column value="{!ri.NATT_Received_Core__c}" width="7%"/>
+            <apex:column value="{!ri.NATT_Accepted_Quantity__c}" width="7%"/>
+            <apex:column value="{!ri.NATT_Rejected_Quantity__c}" width="7%"/>
+            <apex:column value="{!ri.NATT_Remarks_Notes__c}" width="29%"/>           
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+ </body>
+ </html>
+</apex:page>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_BluEdge__c</fullName>
+    <description>this field is a part of bluedge</description>
+    <formula>Product2.NATT_EMCC__c</formula>
+    <label>BluEdge</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

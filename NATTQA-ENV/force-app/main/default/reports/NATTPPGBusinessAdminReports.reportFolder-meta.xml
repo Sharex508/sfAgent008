@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <folderShares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>callmeback.app@carrier.com.prod</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <folderShares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>hollie.sharkey@carrier.com.corp</sharedTo>
+        <sharedToType>User</sharedToType>
+    </folderShares>
+    <name>NATT PPG Business Admin Reports</name>
+</ReportFolder>

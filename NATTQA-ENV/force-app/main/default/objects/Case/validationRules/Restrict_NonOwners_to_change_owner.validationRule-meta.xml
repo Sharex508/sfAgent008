@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_NonOwners_to_change_owner</fullName>
+    <active>true</active>
+    <description>For Container Division  case type prevent non-owners to change owners ( may be to themselves)</description>
+    <errorConditionFormula>AND(
+ RecordType.DeveloperName  =&apos;Container_Aftermarket_Parts&apos;, 
+ IsChanged(OwnerId),
+ NOT(PRIORVALUE(OwnerId)= $User.Id)
+)</errorConditionFormula>
+    <errorMessage>Only case owners are allowed to edit or change case owners.</errorMessage>
+</ValidationRule>

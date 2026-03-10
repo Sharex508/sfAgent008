@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Container_Sales_Customer_Type_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CONTAINER_Operating_Region__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CONTAINER_Location_Country__c</columns>
+    <columns>CONTAINER_Regional_Service_Manager__c</columns>
+    <columns>CONTAINER_Mailing_Country__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CONTAINER_Customer,Account.Customer</value>
+    </filters>
+    <label>All Customers</label>
+    <sharedTo>
+        <group>CONTAINER_Global_Sales_Director</group>
+        <group>CONTAINER_Sales_Admin</group>
+        <group>CONTAINER_Sales_CAM</group>
+        <group>CONTAINER_Sales_CS</group>
+        <group>CONTAINER_Sales_PM</group>
+        <group>CONTAINER_Sales_RSM_APO</group>
+        <group>CONTAINER_Sales_RSM_EMEA</group>
+        <group>CONTAINER_Sales_RSM_NAO</group>
+        <group>CONTAINER_Sales_VP</group>
+        <group>Container_Sales_VP_GENSET</group>
+        <group>Container_Sales_VP_NT</group>
+    </sharedTo>
+</ListView>

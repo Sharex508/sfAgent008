@@ -1,0 +1,110 @@
+{
+  "appPageId" : "36896620-400e-426c-89d6-c320936ce4fb",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "ff87228b-6c58-420a-b5e3-9d0e9d60638f",
+  "label" : "Cart",
+  "regions" : [ {
+    "id" : "09abbd4f-7bd8-45bc-a488-02363b09c509",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "cartCountDisplay" : "TotalProductCount",
+        "discountAmountFontColor" : "rgb(46, 132, 74)",
+        "emptyCartBodyLabel" : "Search or browse products, and add them to your cart. Your selections appear here.",
+        "emptyCartHeaderLabel" : "Your cart’s empty",
+        "incrementValueGuideText" : "Sold in increments of {0}",
+        "maximumValueGuideText" : "Maximum quantity is {0}",
+        "minimumValueGuideText" : "Minimum quantity is {0}",
+        "negotiatedPriceFontColor" : "rgb(79,79,79)",
+        "negotiatedPriceFontSize" : "large",
+        "originalPriceFontColor" : "rgb(151, 151, 151)",
+        "originalPriceFontSize" : "small",
+        "productFieldMapping" : "",
+        "promotionsAppliedDetailsFontSize" : "small",
+        "promotionsAppliedDetailsNameTextColor" : "rgb(79,79,79)",
+        "promotionsAppliedDetailsPopoverHeaderText" : "Promotions Applied",
+        "promotionsAppliedSavingsButtonBackgroundColor" : "rgb(46, 132, 74)",
+        "promotionsAppliedSavingsButtonBackgroundHoverColor" : "rgb(46, 132, 74)",
+        "promotionsAppliedSavingsButtonBorderColor" : "rgb(46, 132, 74)",
+        "promotionsAppliedSavingsButtonBorderRadius" : "5",
+        "promotionsAppliedSavingsButtonFontSize" : "small",
+        "promotionsAppliedSavingsButtonPadding" : "3",
+        "promotionsAppliedSavingsButtonText" : "Saved {amount}",
+        "promotionsAppliedSavingsButtonTextColor" : "",
+        "promotionsAppliedSavingsButtonTextHoverColor" : "",
+        "quantitySelectorLabel" : "QTY",
+        "showAddAllToListButton" : true,
+        "showDiscountAmount" : true,
+        "showNegotiatedPrice" : true,
+        "showOriginalPrice" : true,
+        "showPricePerUnit" : true,
+        "showProductImage" : true,
+        "showPromotions" : true,
+        "showSku" : true,
+        "showTermsAndConditions" : true,
+        "skuLabel" : "SKU#",
+        "termsAndConditionsTitleText" : "Terms and Conditions"
+      },
+      "componentName" : "b2b_buyer_builder:cartContents",
+      "id" : "0836b9e8-bec8-4626-b565-c479d0ea0fd4",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "5bcdb0a1-736a-4d99-99b8-86ea96d58024",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "backgroundColor" : "rgb(241, 241, 241)",
+        "discountAmountFontColor" : "",
+        "discountAmountFontSize" : "small",
+        "finalPriceFontColor" : "rgb(79,79,79)",
+        "finalPriceFontSize" : "large",
+        "originalPriceFontColor" : "",
+        "originalPriceFontSize" : "small",
+        "showDiscountAmount" : true,
+        "showOriginalPrice" : true,
+        "showSubtotalPrice" : false,
+        "subtotalPriceFontColor" : "rgb(79,79,79)",
+        "subtotalPriceFontSize" : "small"
+      },
+      "componentName" : "b2b_buyer_builder:cartSummary",
+      "id" : "34c4f361-2b6c-4ad6-b206-739725a7f44b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "buttonAlignment" : "left",
+        "buttonBgColor" : "",
+        "buttonBgHoverColor" : "",
+        "buttonBorderColor" : "",
+        "buttonMaxWidth" : "100",
+        "buttonRadius" : "0",
+        "buttonText" : "Prosseguir para o checkout",
+        "buttonTextColor" : "",
+        "buttonTextHoverColor" : ""
+      },
+      "componentName" : "b2b_buyer_builder:checkoutButtonWrapper",
+      "id" : "80f7bf6a-7d5e-4032-8668-d3f4edcbb0d1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "659bbc55-1ca0-425a-a73d-a2685097fd75",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "d4500406-c613-42bc-99cc-3f238b469cec",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-0a6"
+}

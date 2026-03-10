@@ -1,0 +1,101 @@
+<template>
+    <div class="slds-grid">
+        <div class="slds-col aliceBlue" style="width:100%" data-item="categories">
+            <template if:true={categoryTree}>
+                <div class="slds-text-heading_large">{label.categoriesLabel}</div>
+                <div class="slds-p-bottom_large"></div>
+                <ul class="slds-accordion">
+                    <li class="slds-accordion__list-item" style="border:none">
+                        <section class="slds-accordion__section" data-item={topMostParentCategoryId}>
+                            <div class="slds-accordion__summary">
+                                <div class="slds-accordion__summary-heading">
+                                    <button class="slds-button slds-button_reset slds-accordion__summary-action">
+                                        <span class="slds-trunsub3e" title="All Products"
+                                            data-item={topMostParentCategoryId} onclick={searchProduct}
+                                            style="width:100%">
+                                            {label.allProductsLabel}</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </li>
+                    <template for:each={categoryTree} for:item="cat">
+                        <li class="slds-accordion__list-item" style="border:none" key={cat.Id}>
+                            <section class="slds-accordion__section" data-item={cat.Id}>
+                                <div class="slds-accordion__summary">
+                                    <div class="slds-accordion__summary-heading">
+                                        <button class="slds-button slds-button_reset slds-accordion__summary-action">
+                                            <span class="slds-truncate" title={cat.Name} data-item={cat.Id}
+                                                onclick={searchProduct} style="width:100%"> {cat.Name}</span>
+                                        </button>
+                                        <template if:false={cat.childrenEmpty}>
+                                            <span class="slds-vertical-tabs__right-icon">
+                                                <template if:false={cat.Open}>
+                                                    <button
+                                                        class="slds-button slds-button_reset slds-accordion__summary-action"
+                                                        data-item={cat.Id} onclick={openToggle}>
+                                                        <lightning-icon icon-name="utility:chevronright" size="xx-small"
+                                                            class="iconHover" data-item={cat.Id}></lightning-icon>
+                                                    </button>
+                                                </template>
+                                                <template if:true={cat.Open}>
+                                                    <button
+                                                        class="slds-button slds-button_reset slds-accordion__summary-action"
+                                                        data-item={cat.Id} onclick={closeToggle}>
+                                                        <lightning-icon icon-name="utility:clear" size="xx-small"
+                                                            class="iconHover" data-item={cat.Id}></lightning-icon>
+                                                    </button>
+                                                </template>
+                                            </span>
+                                        </template>
+                                    </div>
+                                </div>
+                            </section>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+        <div class="slds-col">
+            <div class="overlay aliceBlue" data-item="overlay">
+                <div class="slds-p-around_small">
+                    <template if:true={subcategoryTree}>
+                        <button class="slds-button slds-button_reset slds-float_right">
+                            <lightning-icon icon-name="utility:close" title="close" size="x-small" class="iconHover"
+                                onclick={handleCloseSubMenu}></lightning-icon>
+                        </button>
+                        <div class="slds-text-heading_medium">{subcategoryName}</div>
+                        <div class="slds-p-bottom_large"></div>
+                        <ul class="slds-accordion">
+                            <div class="slds-grid slds-wrap slds-scrollable_y">
+                                <template for:each={formattedSubcategoryTree} for:item="cat">
+                                    <div class={subcategoryClass} key={cat}>
+                                        <div class="slds-grid slds-grid_vertical">
+                                            <template for:each={cat} for:item="subCat">
+                                                <li class="slds-accordion__list-item" style="border:none"
+                                                    key={subCat.Id}>
+                                                    <section class="slds-accordion__section" data-item={subCat.Id}>
+                                                        <div class="slds-accordion__summary">
+                                                            <div class="slds-accordion__summary-heading">
+                                                                <button
+                                                                    class="slds-button slds-button_reset slds-accordion__summary-action">
+                                                                    <span class="slds-truncate" title={subCat.Name}
+                                                                        data-item={subCat.Id} onclick={searchProduct}>
+                                                                        {subCat.Name}</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                </li>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </template>
+                            </div>
+                        </ul>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

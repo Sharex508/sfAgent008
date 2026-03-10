@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Rebate_Code__c</fullName>
+    <description>NATT Use</description>
+    <label>Rebate Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>KB</fullName>
+                <default>false</default>
+                <label>KB</label>
+            </value>
+            <value>
+                <fullName>PK</fullName>
+                <default>false</default>
+                <label>PK</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

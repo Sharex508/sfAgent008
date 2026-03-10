@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "388a5dce-368c-4e6b-a0a2-52130b83d5c4",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Whats_New__c",
+  "id" : "45253b33-2908-463b-8d2f-9ac8384a68eb",
+  "label" : "Whats New",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-whats-new",
+  "type" : "route",
+  "urlPrefix" : "whats-new"
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Cases</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.TYPE</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <columns>NATT_Case_Reason__c</columns>
+    <columns>NAME</columns>
+    <columns>NATT_Beginning_Date_Time__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>notEqual</operation>
+        <value>Closed</value>
+    </filters>
+    <label>All Open Cases</label>
+    <sharedTo>
+        <group>NATT_Associate</group>
+        <group>NATT_Case_Escalation</group>
+        <group>NATT_Core_Ret_Carrier_Carlyle_Comp</group>
+        <group>NATT_Core_Ret_Carrier_Trans_Elec</group>
+        <group>NATT_Core_Ret_Carrier_Trans_X430</group>
+        <group>NATT_Core_Ret_Starter_Alt</group>
+        <group>NATT_Core_Ret_Weitron_Refrig</group>
+        <group>NATT_Customer</group>
+        <group>NATT_Customer_Portal_User</group>
+        <group>NATT_Dealer</group>
+        <group>NATT_Dealer_Principal</group>
+        <group>NATT_Internal</group>
+        <group>NATT_SolutionCenter_Dealer</group>
+        <roleAndSubordinatesInternal>Container_Service</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

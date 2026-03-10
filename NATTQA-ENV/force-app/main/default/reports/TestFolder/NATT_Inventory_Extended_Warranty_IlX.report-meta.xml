@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>NATT_Inventory__c$Name</field>
+    </columns>
+    <columns>
+        <field>NATT_Inventory__c.NATT_Extended_Warranty__r$Name</field>
+    </columns>
+    <columns>
+        <field>NATT_Inventory__c.NATT_Extended_Warranty__r$Deductibles__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>NATT_Inventory With Extended_Warranty</description>
+    <format>Tabular</format>
+    <name>NATT_Inventory With Extended_Warranty</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>NATT_Inventory_with_NATT_Extended_Warranty__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>NATT_Inventory__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,169 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "9c3267c6-c331-4ed7-83f4-ab73370db6ac",
+  "label" : "Product Detail",
+  "regions" : [ {
+    "id" : "3d4c99b7-3be2-4f8d-9dbc-930a7298acf5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "addToCartButtonBackgroundColor" : "",
+        "addToCartButtonBackgroundHoverColor" : "",
+        "addToCartButtonBorderColor" : "",
+        "addToCartButtonBorderRadius" : "0",
+        "addToCartButtonText" : "ADD TO CART",
+        "addToCartButtonTextColor" : "",
+        "addToCartButtonTextHoverColor" : "",
+        "addToListButtonBackgroundColor" : "",
+        "addToListButtonBackgroundHoverColor" : "",
+        "addToListButtonBorderColor" : "",
+        "addToListButtonBorderRadius" : "0",
+        "addToListButtonText" : "ADD TO LIST",
+        "addToListButtonTextColor" : "",
+        "addToListButtonTextHoverColor" : "",
+        "breadcrumbsColor" : "",
+        "breadcrumbsFontSize" : "small",
+        "identifierName" : "SKU#",
+        "imageBorderColor" : "",
+        "incrementValueGuideText" : "Sold in increments of {0}",
+        "maximumValueGuideText" : "Maximum quantity is {0}",
+        "minimumValueGuideText" : "Minimum quantity is {0}",
+        "negotiatedPriceLabel" : "Your Price",
+        "negotiatedPriceTextColor" : "",
+        "negotiatedPriceTextSize" : "small",
+        "originalPriceLabel" : "Original Price",
+        "originalPriceTextColor" : "",
+        "originalPriceTextSize" : "small",
+        "priceAdjustmentTiersBackgroundColor" : "rgba(0,0,0,0)",
+        "priceAdjustmentTiersBorderColor" : "",
+        "priceAdjustmentTiersBorderRadius" : "0",
+        "priceAdjustmentTiersDiscountRowLabel" : "Discount per Unit",
+        "priceAdjustmentTiersLabelTextColor" : "",
+        "priceAdjustmentTiersQuantityRowLabel" : "Quantity",
+        "priceAdjustmentTiersRowTitleTextColor" : "",
+        "priceAdjustmentTiersTextColor" : "",
+        "priceAdjustmentTiersTitleText" : "Tier Discounts",
+        "productDetailSummaryFieldMapping" : "[{\"name\":\"NATT_P_N__c\",\"label\":\"Part Number:\",\"type\":\"STRING\"},{\"name\":\"Description\",\"label\":\"Description: \",\"type\":\"TEXTAREA\"},{\"name\":\"SBQQ__Specifications__c\",\"label\":\"Specifications:\",\"type\":\"TEXTAREA\"}]",
+        "productVariantTitle" : "Product options:",
+        "quantitySelectorLabel" : "QTY",
+        "showAddToListButton" : true,
+        "showBreadCrumbs" : true,
+        "showGuides" : true,
+        "showImageCarousel" : true,
+        "showNegotiatedPrice" : false,
+        "showOriginalPrice" : false,
+        "showPriceAdjustmentTiers" : true,
+        "showProductDescription" : true,
+        "showProductImage" : true,
+        "showProductVariantTitle" : true,
+        "titleTextColor" : "",
+        "titleTextSize" : "medium",
+        "unavailablePriceLabel" : ""
+      },
+      "componentName" : "b2b_buyer_builder:productDetailsSummary",
+      "id" : "5442e013-7352-44c0-8f7d-0ff4d83c73de",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: right;\">NOTE: In order to add items to your shopping cart, Login or Register. You can click the \"Add to Cart\" button to navigate to the Login screen.</p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "65b57c82-8239-4a58-b3d4-b48ed09d0d12",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "4df2b48f-e773-4483-9600-495bb6f0885b",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "99d173e3-e6ad-4951-bae2-e9148db4a402",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Description"
+          }, {
+            "UUID" : "d41d2e29-1e3b-4cb4-b844-3f8cc373ea75",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "2",
+            "tabName" : "Specifications"
+          }, {
+            "UUID" : "e46d0662-6245-49d0-9fac-220b5b394d76",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "3",
+            "tabName" : "Compliance"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabset",
+      "id" : "4df2b48f-e773-4483-9600-495bb6f0885b",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "lb2bt:b2bBundle",
+          "id" : "c7aee555-8146-4820-a595-37b7c8033d8f",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "99d173e3-e6ad-4951-bae2-e9148db4a402",
+        "regionLabel" : "Description",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "d41d2e29-1e3b-4cb4-b844-3f8cc373ea75",
+        "regionLabel" : "Specifications",
+        "regionName" : "2",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "id" : "e46d0662-6245-49d0-9fac-220b5b394d76",
+        "regionLabel" : "Compliance",
+        "regionName" : "3",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "65b3b88d-f5d0-417b-a80d-da7e90e05507",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "f75f6faa-9eca-4495-bdb2-621d6bd26d23",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "db8e1e96-7d63-4346-af77-cca7c437b3f0",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b2218ebe-05e4-41a3-9cc9-8c0c39c206f1",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-01t"
+}

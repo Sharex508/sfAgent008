@@ -1,0 +1,153 @@
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <h1 class="slds-p-top_large" style="font-size: 1.8em;">User Management</h1>
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_3-of-4">
+        </div>
+        <div class="slds-col slds-size_1-of-4">
+            <lightning-button variant="brand" label="Request a New Contact" title="Request a New Contact" onclick={handleRequestNewContact} class="slds-m-left_x-small"></lightning-button>
+            
+        </div>
+    </div>
+    <div class="slds-p-bottom_medium"></div>
+    <c-nac_-custom-datatable-user-management key-field="id" columns={columns} data={displayData}
+            default-sort-direction={defaultSortDirection} sorted-direction={sortDirection} sorted-by={sortedBy}
+            onsort={onHandleSort} onbuttonclick={handleButtonClick} ontextclick={handleTextClick} hide-checkbox-column>
+    </c-nac_-custom-datatable-user-management>
+    <div class="slds-p-bottom_medium"></div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <template if:true={showPageSize}>
+                <ul class="slds-list_horizontal slds-has-inline-block-links_space">
+                    <li>
+                        <h4 class="slds-p-right_small">Results Showing</h4>
+                    </li>
+                    <template for:each={pageSizeOptions} for:item="option">
+                        <li key={option.value}>
+                            <template if:true={option.selected}>
+                                <h4 class="slds-p-right_small">{option.value}</h4>
+                            </template>
+                            <template if:false={option.selected}>
+                                <span class="slds-p-right_small pointer" data-value={option.value}
+                                    onclick={handleChangePageSize}>{option.value}
+                                </span>
+                            </template>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+        <div class="slds-col slds-size_1-of-2 slds-float_right">
+            <template if:true={showPagination}>
+                <div class="pagination slds-float_right">
+                    <div data-id="jumpToLeft" onclick={handleFirstPage}>
+                        <lightning-icon icon-name="utility:jump_to_left" size="x-small"></lightning-icon>
+                    </div>
+                    <div data-id="chevronLeft" onclick={handlePrevious}>
+                        <lightning-icon icon-name="utility:chevronleft" size="xx-small"></lightning-icon>
+                    </div>
+                    <template for:each={pageNumberOptions} for:item="option">
+                        <template if:true={option.selected}>
+                            <div class="active" key={option.value}>{option.value}</div>
+                        </template>
+                        <template if:false={option.selected}>
+                            <div key={option.value} onclick={handlePageNumberClick} data-value={option.value}>
+                                {option.value}</div>
+                        </template>
+                    </template>
+                    <div data-id="chevronRight" onclick={handleNext}>
+                        <lightning-icon icon-name="utility:chevronright" size="xx-small"></lightning-icon>
+                    </div>
+                    <div data-id="jumpToRight" onclick={handleLastPage}>
+                        <lightning-icon icon-name="utility:jump_to_right" size="x-small"></lightning-icon>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+    <div class="slds-p-bottom_medium"></div>
+
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" class="slds-modal slds-fade-in-open" aria-describedby="modal-content-id-1" >
+            <div class="slds-modal__container ">
+                <header class="slds-modal__header border-0 slds-theme_default">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                            alternative-text="close"
+                            variant="inverse"
+                            size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <p class="slds-text-heading_medium slds-hyphenate">
+                        Edit Contact</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_large">
+                
+                    <lightning-record-edit-form object-api-name="Contact"
+                    onsubmit={handleContactEditSubmit} onload={handleContactEditLoad} onsuccess={handleContactEditSuccess} onerror={handleContactEditError}>
+                    <lightning-messages>
+                    </lightning-messages>
+                    <lightning-input-field field-name="FirstName" required></lightning-input-field>
+                    <lightning-input-field field-name="LastName" required></lightning-input-field>
+                    <lightning-input-field field-name="Email" class="email" required ></lightning-input-field>
+                    <lightning-input-field field-name="Title" required></lightning-input-field>
+                    <lightning-input-field field-name="Phone" required></lightning-input-field>
+                    <lightning-input-field field-name="NAC_Contact_Type__c" required></lightning-input-field>
+                                       
+                    <footer class="slds-modal__footer">
+                    
+                        <lightning-button label="Cancel" title="Cancel"
+                            onclick={handleCancel} class="slds-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label="Submit" title="Submit"
+                        type="submit"
+                            class="slds-m-left_x-small">
+                        </lightning-button>
+                    
+                </footer>
+                  
+                    </lightning-record-edit-form>
+                   
+                </div>
+                
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+
+    </template>
+
+    <template if:true={showModalDelete}>
+        
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container ">
+                    <!-- modal header start -->
+                    <header class="slds-modal__header border-0 slds-theme_default">
+                        <p class="slds-text-heading_medium slds-hyphenate">Confirm Deactivation</p>
+                    </header>
+                    <!-- modal body start -->
+                    <div class="slds-modal__content slds-p-around_medium">
+                    </br>
+                    </br>
+                        <center><p>Are you sure you want to deactivate ?</p></center>
+                    </br>
+                    <div class="slds-grid slds-gutters slds-align_absolute-center">
+                        <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+                        <button class="slds-button slds-button_neutral" onclick={handleDelete}>Ok</button>
+                                      
+                    </div>                        
+                    </br>
+                    </br>
+                </div>
+                        
+                    <!-- modal footer start-->
+                    
+                
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        
+
+    </template>
+</template>

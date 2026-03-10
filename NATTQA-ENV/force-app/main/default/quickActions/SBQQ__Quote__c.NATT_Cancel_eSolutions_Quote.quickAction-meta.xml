@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>updates the status of the quote - for Lynx Fleet only</description>
+    <fieldOverrides>
+        <field>SBQQ__Status__c</field>
+        <literalValue>Canceled</literalValue>
+    </fieldOverrides>
+    <label>Cancel Lynx Fleet Quote</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>NATT_Cancelation_Reason__c</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <successMessage>The Quote Status has been updated to Canceled.</successMessage>
+    <type>Update</type>
+</QuickAction>

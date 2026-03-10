@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NacValidateNameLength</fullName>
+    <active>true</active>
+    <description>Rule to restrict Address name to 40 characters for NAC Record type , since the respective field in JDE is 40 characters and no provision to increase the length. If the Address Names more than 40 characters do not sync with JDE</description>
+    <errorConditionFormula>If (
+(  RecordType.DeveloperName  == &apos;NAC&apos;) &amp;&amp;
+(LEN(Name)&gt;40), true,false)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>Address Name cannot be more than 40 characters, please update the address name.</errorMessage>
+</ValidationRule>

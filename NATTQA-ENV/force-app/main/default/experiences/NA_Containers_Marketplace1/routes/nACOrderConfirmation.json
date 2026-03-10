@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a5e8a42f-1652-4935-935b-82d8cca13655",
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "NAC_Order_Confirmation__c",
+  "id" : "d6d461c1-e960-4860-a5b9-b63b495f5ae2",
+  "label" : "NAC Order Confirmation",
+  "pageAccess" : "RequiresLogin",
+  "routeType" : "custom-orderconfirmation",
+  "type" : "route",
+  "urlPrefix" : "orderconfirmation"
+}

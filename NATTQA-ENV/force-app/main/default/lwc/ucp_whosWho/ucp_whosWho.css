@@ -1,0 +1,15 @@
+.whoswho {
+    background: #007FFF;    
+    text-align: center;
+}
+
+	.whoswho a, .whoswho p {
+        color: white !important;
+        font-size: 20px;
+        display: block;
+        width: 100%;
+	}
+
+		.whoswho a:hover {
+            text-decoration: none !important;
+        }

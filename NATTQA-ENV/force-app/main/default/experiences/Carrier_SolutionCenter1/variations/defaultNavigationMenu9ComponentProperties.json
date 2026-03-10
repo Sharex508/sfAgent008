@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "fccd090a-3c19-49f5-9bea-774532d92752",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "CTBR_Home_without_dashboard"
+      }
+    },
+    "targetId" : "5c50e217-7902-4b92-be10-5da2b7f0bccc",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_9_Component_Properties",
+  "id" : "ed266131-0e8f-4470-acd2-342f06d6a4b5",
+  "type" : "experienceVariation"
+}

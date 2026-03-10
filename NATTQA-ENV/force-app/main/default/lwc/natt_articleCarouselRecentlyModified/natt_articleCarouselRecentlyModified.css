@@ -1,0 +1,247 @@
+.box__carousel__container {
+    /*max-width: 73%;*/
+}
+
+.component__title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    
+}
+
+.carousel__track-container {
+    width: 100%;
+    display: block;
+    height: 100%;
+}
+
+.carousel__track {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    /*display: flex;
+    flex-direction: row;
+    align-content: center;*/
+    height: 100%;    
+    overflow: hidden;
+}
+
+.carousel__body {
+    min-height: 255px;
+    max-height: 255px;
+}
+
+.carousel__slide {
+    width: 100%;
+    height: 255px;
+    display: block;
+    background-color: rgb(14,110,214);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    z-index: 1;
+    transition: transform .25s ease-in;
+    padding: 50px 15px;
+    overflow: hidden;
+}
+
+    .carousel__slide[data-bg='NATT_dealer_news-en-US'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_dealer_news_en-US.png');}
+    .carousel__slide[data-bg='NATT_eflash-en-US'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_eflash_en-US.png');}
+    .carousel__slide[data-bg='NATT_general_bulletin-en-US'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_general_bulletin_en-US.png');}
+    .carousel__slide[data-bg='NATT_parts_bulletin-en-US'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_parts_bulletin_en-US.png');}
+    .carousel__slide[data-bg='NATT_product_manual_updates-en-US'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_product_manual_updates_en-US.png');}
+    .carousel__slide[data-bg='NATT_service_bulletin-en-US'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_service_bulletin_en-US.png');}
+    .carousel__slide[data-bg='NATT_service_bulletin-en-US'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_service_bulletin_en-US.png');}    
+    .carousel__slide[data-bg='NATT_training_bulletin-en-US'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_training_bulletin_en-US.png');}
+
+    .carousel__slide[data-bg='NATT_dealer_news-es-MX'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_dealer_news_es-MX.png');}
+    .carousel__slide[data-bg='NATT_eflash-es-MX'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_eflash_es-MX.png');}
+    .carousel__slide[data-bg='NATT_general_bulletin-es-MX'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_general_bulletin_es-MX.png');}
+    .carousel__slide[data-bg='NATT_parts_bulletin-es-MX'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_parts_bulletin_es-MX.png');}
+    .carousel__slide[data-bg='NATT_product_manual_updates-es-MX'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_product_manual_updates_es-MX.png');}
+    .carousel__slide[data-bg='NATT_service_bulletin-es-MX'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_service_bulletin_es-MX.png');}
+    .carousel__slide[data-bg='NATT_service_bulletin-es-MX'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_service_bulletin_es-MX.png');}    
+    .carousel__slide[data-bg='NATT_training_bulletin-es-MX'] {background-image: url('/sfsites/c/resource/NATT_Community_Assets/CommunityAssets/carrouselArticleTypeImage/NATT_training_bulletin_es-MX.png');}
+
+.carousel__slide[data-bg*='NATT_service_bulletin'] .container__carousel__title, .carousel__slide[data-bg*='NATT_training_bulletin'] .container__carousel__title {
+    width: 100%;
+}
+
+.carousel__slide[data-bg*='NATT_service_bulletin'] .container__carousel__title .carousel__title, .carousel__slide[data-bg*='NATT_training_bulletin'] .container__carousel__title .carousel__title {
+    padding: 0 0 0 52%;
+    text-align: left;
+    max-width: 100% !important;
+}
+
+.carousel__slide[data-bg*='NATT_service_bulletin'] .container__carousel__title .carousel__title h1, .carousel__slide[data-bg*='NATT_training_bulletin'] .container__carousel__title .carousel__title h1 {
+    text-align: left;
+}
+
+    .carousel__title {
+        max-width: 75%;
+    }
+
+        .carousel__title h1 {
+            font-size: 21px;
+        }
+
+    .carousel__slide[data-bg*='NATT_service_bulletin'] .carousel__title h1 {text-align: right;}
+    .carousel__slide[data-bg*='NATT_training_bulletin'] .carousel__title h1 {text-align: right;}
+
+    .carousel__title h1 a {
+        color: #fff;
+    }
+
+    .carousel__title p {
+        color: #fff;
+        font-size: 18px;
+    }
+
+.carousel__image {
+    text-align: center;
+    max-height: 245px;
+    min-height: 245px;
+}
+
+    .carousel__image img {min-height: inherit; max-height: inherit;}
+
+.carousel__footer {
+    background-color: #E2E0E2;
+    padding: 5px 10px;
+    border-radius: 0 0 15px 15px;
+}
+
+    .carousel__pagination {
+        text-align: center;
+    }
+
+    .carousel__pagination span {
+        color: #7B7171;
+        font-size: 30px;
+    }
+
+    .carousel__icons {margin: 5px 0 0 0;}
+
+.iconImage {cursor: pointer;}
+.iconImage.activeSlide, .col-icon.activeSlide .iconImage {
+    border-bottom: 4px solid #E59653;
+}
+.iconImageSelect {cursor: pointer;
+    border-bottom: 4px solid #E59653;}
+/* article list */
+
+    .article__list {
+        padding: 15px 0;
+        border: 1px solid #D8D7D8;
+        margin: 0 0 15px 0;
+    }
+
+        .article__list__item {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+            .article__list__item__date {font-size: 13px; font-weight: bold;}
+            .article__list__item__title {font-weight: bold;}
+
+/* end article list */
+
+/* mobile */
+
+@media screen and (max-width: 30em) {
+    .carousel__slide {
+        padding: 20px;
+    }
+    
+    .carousel__title h1 {
+        min-height: 45px;
+        max-height: 45px;
+        font-size: 15px;
+    }
+
+    .carousel__title p {
+        font-size: 13px;
+    }
+
+    .carousel__image {
+        text-align: center;
+        min-height: auto;
+        max-height: auto;
+    }
+
+    .carousel__body {
+        min-height: 205px !important;
+        max-height: 205px !important;
+    }
+
+    .article__list {border: none;}
+
+    .carousel__body {
+        min-height: 330px;
+        max-height: 330px;
+    }
+
+    .col-icon {z-index: 2;}
+}
+
+@media screen and (min-width: 30em) and (max-width: 48em) {
+    .carousel__slide {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .carousel__title h1 {
+        margin: 30px 0 0 0;
+    }
+    
+        .carousel__title h1 {
+            min-height: 45px;
+            max-height: 45px;
+            font-size: 20px;
+            /*text-align: center;*/
+        }
+
+    .carousel__title p {
+        font-size: 15px;
+    }
+
+    .article__list {border: none;}
+
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+    /*.box__carousel__container {
+        max-width: 73%;
+        margin-right: 12px;
+    }*/
+    
+    .carousel__slide {
+        width: 100% !important;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .box__carousel__container {
+        max-width: 100%;
+    }
+ 
+}
+    
+
+/* end mobile */
+
+/* helper */
+
+.absolute {position: absolute;}
+.none {display: none;}
+.line {width: 35px; height: 5px; margin: 10px 0 0 0; display: block; background-color: #0E49A2;}
+.activeSlide {z-index: 3;}

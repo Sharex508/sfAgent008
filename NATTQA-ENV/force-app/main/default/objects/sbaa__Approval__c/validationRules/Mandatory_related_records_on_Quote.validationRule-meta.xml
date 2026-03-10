@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mandatory_related_records_on_Quote</fullName>
+    <active>true</active>
+    <description>requested ship date, shipment schedule and tentative productio schedule can not be blank.</description>
+    <errorConditionFormula>AND(  ISPICKVAL(Quote__r.CONTAINER_Status__c, &apos;Pending CAM Approval&apos;),ISPICKVAL( Quote__r.ApprovalStatus__c , &apos;Pending&apos;),   
+OR( ISBLANK(Quote__r.CONTAINER_Requested_Ship_Date_Up_Check__c ), ISBLANK( Quote__r.CONTAINER_Shipment_Schedule_Update__c ),
+ISBLANK( Quote__r.CONTAINER_Tentative_Ship_Sc_Update_Check__c ) ) )</errorConditionFormula>
+    <errorMessage>Please fill Requested ship dates, Shipment schedule and Tentative production schedule records.</errorMessage>
+</ValidationRule>

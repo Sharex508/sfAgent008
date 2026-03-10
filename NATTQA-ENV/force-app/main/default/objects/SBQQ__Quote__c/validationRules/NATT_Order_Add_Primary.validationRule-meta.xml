@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Order_Add_Primary</fullName>
+    <active>true</active>
+    <description>Primary Quote must be the Primary Quote for the Opportunity in order to enter a product number</description>
+    <errorConditionFormula>AND(
+  BEGINS($RecordType.DeveloperName,&quot;NATT_Units_Quote&quot;),
+  ISPICKVAL(SBQQ__Type__c,&quot;Quote&quot;),
+  SBQQ__Primary__c = FALSE,
+  NOT(ISBLANK(NATT_Configured_Unit_Code__c))
+)</errorConditionFormula>
+    <errorDisplayField>SBQQ__Primary__c</errorDisplayField>
+    <errorMessage>In order to enter a Product Number this quote must be the primary quote for the opportunity</errorMessage>
+</ValidationRule>

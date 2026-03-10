@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Product__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Product</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <errorMessage>This is not a returnable core product</errorMessage>
+        <filterItems>
+            <field>Product2.NATT_CoreItem_P_N__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </filterItems>
+        <filterItems>
+            <field>Product2.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NAC Products</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Return Items</relationshipLabel>
+    <relationshipName>Return_Items</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

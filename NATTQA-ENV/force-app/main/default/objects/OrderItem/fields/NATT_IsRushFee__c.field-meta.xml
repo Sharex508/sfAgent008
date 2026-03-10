@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_IsRushFee__c</fullName>
+    <formula>IF(AND(TEXT(Type)==&apos;Delivery Charge&apos;,contains(Product2.Name,&apos;Rush Fee&apos;)),true,false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Rush Fee?</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

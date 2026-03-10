@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Units_Quote_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>SBQQ__Status__c</fields>
+    <fields>NATT_Unit__c</fields>
+    <fields>NATT_Total_Unit_Quantity__c</fields>
+    <fields>NATT_Net_Unit_Price__c</fields>
+    <fields>NATT_Stock_End_Customer__c</fields>
+    <fields>Margin_Flag__c</fields>
+    <label>NATT Units Quote Compact Layout</label>
+</CompactLayout>

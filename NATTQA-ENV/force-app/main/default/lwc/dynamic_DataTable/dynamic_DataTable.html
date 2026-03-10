@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-box slds-box_xx-small">
+        <div class="myheader slds-page-header">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                    <lightning-icon icon-name="utility:archive" alternative-text="Archive Field History" title="Archive Field History"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                    <div class="slds-page-header__name">
+                        <div class="slds-page-header__name-title">
+                        <h1>
+                            <span class="slds-page-header__title slds-truncate" title="Archive Field History">Archive Field History</span>
+                        </h1>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    <!--<h2><b>Archive Field History</b></h2>-->
+    <template if:true={accList}>
+        <lightning-datatable data={accList} columns={columns} key-field="Id">
+        </lightning-datatable>
+    </template>
+    <template if:true={error}>
+        {error}
+    </template>
+    </div>
+</template>

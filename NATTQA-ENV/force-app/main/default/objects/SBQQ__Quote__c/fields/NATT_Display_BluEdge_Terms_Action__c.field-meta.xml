@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Display_BluEdge_Terms_Action__c</fullName>
+    <description>used with the custom action for cpq button display</description>
+    <formula>OR(RecordType.DeveloperName = &quot;NATT_BluEdge&quot;, RecordType.DeveloperName = &quot;NATT_Units_Quote&quot; &amp;&amp;  NOT(ISPICKVAL(SBQQ__Type__c,&quot;Amendment&quot;)))
+&amp;&amp;
+NATT_Line_Count_for_Display_Terms__c &gt; 0
+&amp;&amp;
+ISBLANK($User.ContactId)</formula>
+    <label>Display BluEdge Terms Action</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

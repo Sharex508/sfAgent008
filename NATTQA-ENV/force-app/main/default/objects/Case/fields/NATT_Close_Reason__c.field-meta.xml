@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Close_Reason__c</fullName>
+    <label>Close Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Access canceled</fullName>
+                <default>false</default>
+                <label>Access canceled</label>
+            </value>
+            <value>
+                <fullName>Addressed Billing Discrepancy</fullName>
+                <default>false</default>
+                <label>Addressed Billing Discrepancy</label>
+            </value>
+            <value>
+                <fullName>Administrative Information Provided</fullName>
+                <default>false</default>
+                <label>Administrative Information Provided</label>
+            </value>
+            <value>
+                <fullName>Administrative Support Provided</fullName>
+                <default>false</default>
+                <label>Administrative Support Provided</label>
+            </value>
+            <value>
+                <fullName>Antenna change</fullName>
+                <default>false</default>
+                <label>Antenna change</label>
+            </value>
+            <value>
+                <fullName>Approval denied</fullName>
+                <default>false</default>
+                <label>Approval denied</label>
+            </value>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Authorized</fullName>
+                <default>false</default>
+                <label>Authorized</label>
+            </value>
+            <value>
+                <fullName>B.O. attended</fullName>
+                <default>false</default>
+                <label>B.O. attended</label>
+            </value>
+            <value>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+                <label>Canceled</label>
+            </value>
+            <value>
+                <fullName>Cancellation and uninstallation performed</fullName>
+                <default>false</default>
+                <label>Cancellation and uninstallation performed</label>
+            </value>
+            <value>
+                <fullName>Change Completed</fullName>
+                <default>false</default>
+                <label>Change Completed</label>
+            </value>
+            <value>
+                <fullName>Change denied</fullName>
+                <default>false</default>
+                <label>Change denied</label>
+            </value>
+            <value>
+                <fullName>Change made</fullName>
+                <default>false</default>
+                <label>Change made</label>
+            </value>
+            <value>
+                <fullName>Change not completed</fullName>
+                <default>false</default>
+                <label>Change not completed</label>
+            </value>
+            <value>
+                <fullName>Claim Updated</fullName>
+                <default>false</default>
+                <label>Claim Updated</label>
+            </value>
+            <value>
+                <fullName>Counterproposal sent</fullName>
+                <default>false</default>
+                <label>Counterproposal sent</label>
+            </value>
+            <value>
+                <fullName>Credit granted</fullName>
+                <default>false</default>
+                <label>Credit granted</label>
+            </value>
+            <value>
+                <fullName>Credit Issued</fullName>
+                <default>false</default>
+                <label>Credit Issued</label>
+            </value>
+            <value>
+                <fullName>Deadline informed</fullName>
+                <default>false</default>
+                <label>Deadline informed</label>
+            </value>
+            <value>
+                <fullName>Dealer/Customer Resolved Issue</fullName>
+                <default>false</default>
+                <label>Dealer/Customer Resolved Issue</label>
+            </value>
+            <value>
+                <fullName>Denied</fullName>
+                <default>false</default>
+                <label>Denied</label>
+            </value>
+            <value>
+                <fullName>Denied(Expired)</fullName>
+                <default>false</default>
+                <label>Denied(Expired)</label>
+            </value>
+            <value>
+                <fullName>Denied credit increase</fullName>
+                <default>false</default>
+                <label>Denied credit increase</label>
+            </value>
+            <value>
+                <fullName>Duplicate Issue</fullName>
+                <default>false</default>
+                <label>Duplicate Issue</label>
+            </value>
+            <value>
+                <fullName>End of contract</fullName>
+                <default>false</default>
+                <label>End of contract</label>
+            </value>
+            <value>
+                <fullName>Equipment replaced</fullName>
+                <default>false</default>
+                <label>Equipment replaced</label>
+            </value>
+            <value>
+                <fullName>Equipment replacement</fullName>
+                <default>false</default>
+                <label>Equipment replacement</label>
+            </value>
+            <value>
+                <fullName>Expired</fullName>
+                <default>false</default>
+                <label>Expired</label>
+            </value>
+            <value>
+                <fullName>Extended</fullName>
+                <default>false</default>
+                <label>Extended</label>
+            </value>
+            <value>
+                <fullName>Extension Approved</fullName>
+                <default>false</default>
+                <label>Extension Approved</label>
+            </value>
+            <value>
+                <fullName>Extension denied</fullName>
+                <default>false</default>
+                <label>Extension denied</label>
+            </value>
+            <value>
+                <fullName>Failed (No Review)</fullName>
+                <default>false</default>
+                <label>Failed (No Review)</label>
+            </value>
+            <value>
+                <fullName>Formalized negotiation</fullName>
+                <default>false</default>
+                <label>Formalized negotiation</label>
+            </value>
+            <value>
+                <fullName>Information Provided</fullName>
+                <default>false</default>
+                <label>Information Provided</label>
+            </value>
+            <value>
+                <fullName>Information provided to the commercial</fullName>
+                <default>false</default>
+                <label>Information provided to the commercial</label>
+            </value>
+            <value>
+                <fullName>Information provided to the customer</fullName>
+                <default>false</default>
+                <label>Information provided to the customer</label>
+            </value>
+            <value>
+                <fullName>Negotiation Denied</fullName>
+                <default>false</default>
+                <label>Negotiation Denied</label>
+            </value>
+            <value>
+                <fullName>New access generated</fullName>
+                <default>false</default>
+                <label>New access generated</label>
+            </value>
+            <value>
+                <fullName>Not approved</fullName>
+                <default>false</default>
+                <label>Not approved</label>
+            </value>
+            <value>
+                <fullName>Notary&apos;s slip</fullName>
+                <default>false</default>
+                <label>Notary&apos;s slip</label>
+            </value>
+            <value>
+                <fullName>Notes on Serasa</fullName>
+                <default>false</default>
+                <label>Notes on Serasa</label>
+            </value>
+            <value>
+                <fullName>Order/Part Shipped</fullName>
+                <default>false</default>
+                <label>Order/Part Shipped</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Part Priced</fullName>
+                <default>false</default>
+                <label>Part Priced</label>
+            </value>
+            <value>
+                <fullName>Part Set Up</fullName>
+                <default>false</default>
+                <label>Part Set Up</label>
+            </value>
+            <value>
+                <fullName>Payment approved</fullName>
+                <default>false</default>
+                <label>Payment approved</label>
+            </value>
+            <value>
+                <fullName>Pending approval</fullName>
+                <default>false</default>
+                <label>Pending approval</label>
+            </value>
+            <value>
+                <fullName>Problem solved</fullName>
+                <default>false</default>
+                <label>Problem solved</label>
+            </value>
+            <value>
+                <fullName>Profile changed</fullName>
+                <default>false</default>
+                <label>Profile changed</label>
+            </value>
+            <value>
+                <fullName>Protested slip</fullName>
+                <default>false</default>
+                <label>Protested slip</label>
+            </value>
+            <value>
+                <fullName>Received</fullName>
+                <default>false</default>
+                <label>Received</label>
+            </value>
+            <value>
+                <fullName>Registered Completed</fullName>
+                <default>false</default>
+                <label>Registered Completed</label>
+            </value>
+            <value>
+                <fullName>Registered not completed</fullName>
+                <default>false</default>
+                <label>Registered not completed</label>
+            </value>
+            <value>
+                <fullName>Reset Password</fullName>
+                <default>false</default>
+                <label>Reset Password</label>
+            </value>
+            <value>
+                <fullName>Resolved by Orbcomm</fullName>
+                <default>false</default>
+                <label>Resolved by Orbcomm</label>
+            </value>
+            <value>
+                <fullName>Return Authorization Issued</fullName>
+                <default>false</default>
+                <label>Return Authorization Issued</label>
+            </value>
+            <value>
+                <fullName>Returning Part</fullName>
+                <default>false</default>
+                <label>Returning Part</label>
+            </value>
+            <value>
+                <fullName>S/N informed</fullName>
+                <default>false</default>
+                <label>S/N informed</label>
+            </value>
+            <value>
+                <fullName>Sent to commercial</fullName>
+                <default>false</default>
+                <label>Sent to commercial</label>
+            </value>
+            <value>
+                <fullName>Sent to customer</fullName>
+                <default>false</default>
+                <label>Sent to customer</label>
+            </value>
+            <value>
+                <fullName>Service performed</fullName>
+                <default>false</default>
+                <label>Service performed</label>
+            </value>
+            <value>
+                <fullName>Shipped Parts</fullName>
+                <default>false</default>
+                <label>Shipped Parts</label>
+            </value>
+            <value>
+                <fullName>Support Provided</fullName>
+                <default>false</default>
+                <label>Support Provided</label>
+            </value>
+            <value>
+                <fullName>System re-established</fullName>
+                <default>false</default>
+                <label>System re-established</label>
+            </value>
+            <value>
+                <fullName>Technical Information Provided</fullName>
+                <default>false</default>
+                <label>Technical Information Provided</label>
+            </value>
+            <value>
+                <fullName>Technical Support Provided</fullName>
+                <default>false</default>
+                <label>Technical Support Provided</label>
+            </value>
+            <value>
+                <fullName>Transfer made</fullName>
+                <default>false</default>
+                <label>Transfer made</label>
+            </value>
+            <value>
+                <fullName>Unauthorized transfer</fullName>
+                <default>false</default>
+                <label>Unauthorized transfer</label>
+            </value>
+            <value>
+                <fullName>Unauthorized update</fullName>
+                <default>false</default>
+                <label>Unauthorized update</label>
+            </value>
+            <value>
+                <fullName>Unauthorized values</fullName>
+                <default>false</default>
+                <label>Unauthorized values</label>
+            </value>
+            <value>
+                <fullName>Update completed</fullName>
+                <default>false</default>
+                <label>Update completed</label>
+            </value>
+            <value>
+                <fullName>Updated level</fullName>
+                <default>false</default>
+                <label>Updated level</label>
+            </value>
+            <value>
+                <fullName>Updated values</fullName>
+                <default>false</default>
+                <label>Updated values</label>
+            </value>
+            <value>
+                <fullName>Warranty completed</fullName>
+                <default>false</default>
+                <label>Warranty completed</label>
+            </value>
+            <value>
+                <fullName>Website Support Provided</fullName>
+                <default>false</default>
+                <label>Website Support Provided</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

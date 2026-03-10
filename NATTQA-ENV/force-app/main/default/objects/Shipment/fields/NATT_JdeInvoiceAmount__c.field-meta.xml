@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_JdeInvoiceAmount__c</fullName>
+    <description>used to process the Credit Card amount when a shipment is created for TES(instead of the line rollup)</description>
+    <label>JDE Invoice Amount</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

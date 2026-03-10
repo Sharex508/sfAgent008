@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_AWO_Quantity_Cannot_Exceed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule ),
+OR(
+ISNew(),
+ISCHANGED(CONTAINER_Quantity__c )),
+CONTAINER_Quantity__c &gt; CONTAINER_Commissioning__r.CONTAINER_Job_Quantity__c   
+)</errorConditionFormula>
+    <errorDisplayField>CONTAINER_Quantity__c</errorDisplayField>
+    <errorMessage>AWO Quantity cannot exceed Commissioning Job Quantity.</errorMessage>
+</ValidationRule>

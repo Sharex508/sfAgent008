@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Order_Add_Approval_Req</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+RecordType.DeveloperName = &apos;CTBR_Units_Quote&apos;,
+NOT(ISBLANK(NATT_Purchase_Order__c)),
+ISCHANGED(NATT_Purchase_Order__c),
+TEXT(SBQQ__Status__c) &lt;&gt; &quot;Approved&quot;
+)</errorConditionFormula>
+    <errorDisplayField>NATT_Purchase_Order__c</errorDisplayField>
+    <errorMessage>A cotação deve ser aprovada para inserir um Nº de Pedido de Compra e convertê-lo em um pedido</errorMessage>
+</ValidationRule>

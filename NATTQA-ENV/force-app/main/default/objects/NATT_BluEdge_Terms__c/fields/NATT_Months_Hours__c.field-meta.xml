@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Months_Hours__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(OR(TEXT(NATT_BluEdge_Price_Type__c)=&quot;Extended Basic&quot;,TEXT(NATT_BluEdge_Price_Type__c)=&quot;Optional Coverage&quot;),
+TEXT(NATT_BluEdge_Price_Type__c) &amp; &quot; &quot; &amp; TEXT( NATT_Months__c )&amp;&quot; Months / &quot; &amp; TEXT(NATT_Hours__c)&amp; &quot; Hours&quot;,
+
+IF(TEXT(NATT_BluEdge_Price_Type__c)=&quot;Major Component&quot;,
+TEXT(NATT_BluEdge_Price_Type__c) &amp; &quot; &quot; &amp; TEXT( NATT_Months__c )&amp;&quot; Months / &quot; &amp; TEXT(NATT_Hours__c)&amp; &quot; Hours / &quot; &amp; TEXT(NATT_Deductible__c)&amp;&quot; Deductible&quot;,
+
+&quot;N/A&quot;))</formula>
+    <label>Months/Hours</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

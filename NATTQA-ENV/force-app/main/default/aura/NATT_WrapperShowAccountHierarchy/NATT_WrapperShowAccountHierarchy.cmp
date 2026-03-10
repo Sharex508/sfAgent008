@@ -1,0 +1,11 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
+    <aura:html tag="style">
+        .slds-modal__container{
+            max-width: 80rem !important;
+            width:80% !important;
+        }
+    </aura:html>
+
+    <aura:attribute name="recordId" type="String" />
+    <c:natt_showAccountHierarchy recordId="{!v.recordId}" />
+</aura:component>

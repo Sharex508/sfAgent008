@@ -1,0 +1,78 @@
+<messaging:emailTemplate subject="{!relatedTo.CONTAINER_Product_Type__c} Order Confirmation - Quote Id: {!relatedTo.Name} for Quantity: {!ROUND(relatedTo.CONTAINER_Qty__c,0)} of Product Name: {!relatedTo.CONTAINER_Product_Name__c} units for Customer: {!relatedTo.SBQQ__Account__r.Name}" recipientType="User" relatedToType="SBQQ__Quote__c">
+<messaging:htmlEmailBody >
+    <html>
+        <body>
+            <p>
+                We received an order confirmation from {!relatedTo.SBQQ__Account__r.Name} for {!relatedTo.CONTAINER_Product_Name__c} <br/>
+                
+                Quote ID:           {!relatedTo.Name} <br/>
+                Customer:           {!relatedTo.SBQQ__Account__r.Name} <br/>
+                Customer PO Number: {!relatedTo.CONTAINER_PO_Number__c} <br/>
+                Quantity:           {!ROUND(relatedTo.CONTAINER_Qty__c,0)} <br/>
+                Model:              {!relatedTo.CONTAINER_Model_Number__c} <br/>
+                Payment Term:       
+                <apex:outputPanel rendered="{!IF(relatedTo.CONTAINER_Product_Type__c == 'NT',true,false)}"> 
+                 {!relatedTo.CONTAINER_Payment_Terms__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(relatedTo.CONTAINER_Product_Type__c == 'GENSET',true,false)}"> 
+                 {!relatedTo.CONTAINER_Payment_Terms_GENSET__c} <br/>
+                </apex:outputpanel>
+                Contract Price:     {!relatedTo.CONTAINER_Cost_Contract_Price__c}  <br/>
+                Freight Terms:
+                <apex:outputPanel rendered="{!IF(relatedTo.CONTAINER_Product_Type__c == 'NT',true,false)}"> 
+                 {!relatedTo.CONTAINER_Freight_Terms__c}
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(relatedTo.CONTAINER_Product_Type__c == 'GENSET',true,false)}"> 
+                 {!relatedTo.CONTAINER_Freight_Terms_GENSET__c}
+                </apex:outputpanel><br/><br/>
+                 Applies to Cost: <br/>
+                 -----------------<br/>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Commission__c != null,relatedTo.CONTAINER_Total_Commission__c> 0),true,false)}"> 
+                 Total Commission {!relatedTo.CONTAINER_Total_Commission__c} <br/>
+                </apex:outputpanel> 
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Certification__c != null,relatedTo.CONTAINER_Total_Certification__c > 0),true,false)}"> 
+                 Total Certification {!relatedTo.CONTAINER_Total_Certification__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Check_Out__c != null,relatedTo.CONTAINER_Total_Check_Out__c > 0),true,false)}"> 
+                  Total Check Out {!relatedTo.CONTAINER_Total_Check_Out__c} <br/>
+                </apex:outputpanel> 
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Extended_Applied_Cost__c != null,relatedTo.CONTAINER_Total_Extended_Applied_Cost__c > 0),true,false)}"> 
+                  Total Extended Applied Cost {!relatedTo.CONTAINER_Total_Extended_Applied_Cost__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Freight_AppliedCost__c != null,relatedTo.CONTAINER_Total_Freight_AppliedCost__c > 0),true,false)}"> 
+                  Total Freight {!relatedTo.CONTAINER_Total_Freight_AppliedCost__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Job_Cost__c != null,relatedTo.CONTAINER_Total_Job_Cost__c > 0),true,false)}"> 
+                  Total Job Cost {!relatedTo.CONTAINER_Total_Job_Cost__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_ORBCOMM_RI_AppliedCost__c != null,relatedTo.CONTAINER_Total_ORBCOMM_RI_AppliedCost__c > 0),true,false)}"> 
+                  Total ORBCOMM RI {!relatedTo.CONTAINER_Total_ORBCOMM_RI_AppliedCost__c} <br/>
+                </apex:outputpanel>
+                <br/>
+                Applies to Sales: <br/>
+                -----------------<br/>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Contract_Obligation__c != null,relatedTo.CONTAINER_Total_Contract_Obligation__c > 0),true,false)}"> 
+                  Total Contract Obligation {!relatedTo.CONTAINER_Total_Contract_Obligation__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Extended_AppliedSales__c != null,relatedTo.CONTAINER_Total_Extended_AppliedSales__c > 0),true,false)}"> 
+                  Total Extended Warranty Sales {!relatedTo.CONTAINER_Total_Extended_AppliedSales__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_ORBCOMM_AppliedCost__c != null,relatedTo.CONTAINER_Total_ORBCOMM_AppliedCost__c > 0),true,false)}"> 
+                  Total ORBCOMM  {!relatedTo.CONTAINER_Total_ORBCOMM_AppliedCost__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Spare_Parts__c != null,relatedTo.CONTAINER_Total_Spare_Parts__c > 0),true,false)}"> 
+                   Total Spare Parts {!relatedTo.CONTAINER_Total_Spare_Parts__c} <br/>
+                </apex:outputpanel>
+                <apex:outputPanel rendered="{!IF(AND(relatedTo.CONTAINER_Total_Freight_Applied_to_Sales__c != null,relatedTo.CONTAINER_Total_Freight_Applied_to_Sales__c > 0),true,false)}"> 
+                  Total Freight Applied to Sales {!relatedTo.CONTAINER_Total_Freight_Applied_to_Sales__c} <br/>
+                </apex:outputpanel>
+                <c:ContainerQuote_ASO_QL_Warranty QId="{!relatedTo.Id}" /><br/><br/>
+                 Click link below to access <br/><br/>
+                   <a href="{!relatedTo.CONTAINER_DomainName__c}lightning/r/SBQQ__Quote__c/{!relatedTo.Id}/view"> 
+                   {!relatedTo.CONTAINER_DomainName__c}lightning/r/SBQQ__Quote__c/{!relatedTo.Id}/view </a><br/>
+                                  
+            </p>
+        </body>
+    </html>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

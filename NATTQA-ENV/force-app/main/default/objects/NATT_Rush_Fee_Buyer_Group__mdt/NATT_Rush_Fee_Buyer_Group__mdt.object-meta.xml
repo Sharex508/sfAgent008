@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>used to indicate that a buyer group can receive a rush fee and the amount of the fee</description>
+    <label>Rush Fee Buyer Group</label>
+    <pluralLabel>Rush Fee Buyer Groups</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

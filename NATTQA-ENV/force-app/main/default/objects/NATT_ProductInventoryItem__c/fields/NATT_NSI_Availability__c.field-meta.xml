@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_NSI_Availability__c</fullName>
+    <description>concatination of signal code and availablity</description>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(NATT_ProductItem__r.NATT_SignalCode__c , &quot;NSI&quot; ),&quot;NSI (&quot; &amp; Text(NATT_AvailableQuantity__c) &amp;&quot;)&quot;, &quot;&quot;)</formula>
+    <label>NATT NSI Availability</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

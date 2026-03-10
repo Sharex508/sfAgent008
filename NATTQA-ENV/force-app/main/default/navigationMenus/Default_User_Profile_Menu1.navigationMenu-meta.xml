@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Performance Parts</container>
+    <containerType>Network</containerType>
+    <label>Default User Profile Menu</label>
+    <navigationMenuItem>
+        <label>Profile</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/profile/home</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Account Information</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/account-information</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Switch Accounts</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>AccountSwitcher</target>
+        <type>Event</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <defaultListViewId>Performance_Parts_Orders</defaultListViewId>
+        <label>Orders</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>Order</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Contact Customer Service</label>
+        <position>5</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>https://transicold.force.com/carriersolutioncenter/s/recordlist/Case/00BP0000006H42zMAC</target>
+        <type>ExternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Log Out</label>
+        <position>6</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>Logout</target>
+        <type>Event</type>
+    </navigationMenuItem>
+</NavigationMenu>

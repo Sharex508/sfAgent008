@@ -1,0 +1,50 @@
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+      </template>
+    
+    <div class="slds-p-bottom_large"></div>
+    <div class="slds-box slds-box_small">       
+
+        <lightning-input name="Street" type="text" class="validate" label="Street" value={signupInformation.accountBillingStreetAddress}
+                     placeholder="Street"  maxlength="255" onchange={handleStreetChange} required></lightning-input>
+            <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+                <div class="slds-size_1-of-2">
+                    <lightning-input name="City" type="text" class="validate" label="City" value={signupInformation.accountBillingCity}
+                          placeholder="City"  maxlength="255" onchange={handleCityChange} required></lightning-input>
+                </div>
+                
+                <div class="slds-size_1-of-2 slds-p-left_large">
+                    
+                    <lightning-input name="ZipCode"  class="validate" label="Zip Code" value={signupInformation.accountBillingZipCode}
+                       placeholder="Zip code"  onchange={handleZipChange} 
+                       maxlength="50" required ></lightning-input> 
+                </div>
+                </div>               
+                    <lightning-combobox
+                    name="Country"
+                    label="Country"
+                    class="validate"
+                    value={signupInformation.accountBillingCountry}
+                    placeholder="Select Country"
+                    options={contList}
+                    onchange={handleCountryChange}
+                    required
+                    ></lightning-combobox>
+                      
+                    <lightning-combobox
+                        name="State"
+                        label="State"
+                        class="validate"
+                        value={signupInformation.accountBillingState}
+                        placeholder="Select State"
+                        options={stateListOptions}
+                        onchange={handleStateChange}
+                        required
+                    ></lightning-combobox>
+
+                   
+        
+    </div>
+    
+</template>

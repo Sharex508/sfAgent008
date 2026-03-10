@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_QtyShippedExceed_JobQty_Create</fullName>
+    <active>true</active>
+    <description>CONTAINER Quantity Shipped Exceed Job Qyantity</description>
+    <errorConditionFormula>AND(
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule ),
+ISNEW(), 
+(CONTAINER_Commissioning__r.CONTAINER_Quantity_Shipped__c  + CONTAINER_Quantity_Shipped__c ) &gt;  CONTAINER_Commissioning__r.CONTAINER_Job_Quantity__c 
+)</errorConditionFormula>
+    <errorMessage>Commissioning quantity shipped value cannot exceed  commissioning job quantity.</errorMessage>
+</ValidationRule>

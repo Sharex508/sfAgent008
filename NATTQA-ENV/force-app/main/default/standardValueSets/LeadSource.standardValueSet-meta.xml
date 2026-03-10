@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Website</fullName>
+        <default>false</default>
+        <label>Website</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Seen on the road</fullName>
+        <default>false</default>
+        <label>Seen on the road</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cold call</fullName>
+        <default>false</default>
+        <label>Cold call</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Phone call</fullName>
+        <default>false</default>
+        <label>Phone call</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Container Web To Lead</fullName>
+        <default>false</default>
+        <label>Container Web To Lead</label>
+    </standardValue>
+</StandardValueSet>

@@ -1,0 +1,187 @@
+<aura:component controller="NattQuoteCon" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,forceCommunity:availableForAllPageTypes,flexipage:availableforallpagetypes">
+    <aura:attribute name="opp" type="Opportunity"/>    
+    <aura:attribute name="wrap" type="Object"/>
+    <aura:attribute name="selectedShippingAddressId" type="String"/>
+    <aura:attribute name="selectedBillingAddressId" type="String"/>
+    <aura:attribute name="endCustomerId" type="String"/>
+    <aura:attribute name="stock" type="boolean" default="false"/>
+    <aura:attribute name="dealerId" type="String"/>
+    <aura:attribute name="pbId" type="String"/>
+    <aura:attribute name="selectedRtId" type="String"/>
+    <aura:attribute name="pbMap" type="Map"/>
+    <aura:attribute name="isProcessing" type="boolean" default="false"/>
+    <aura:attribute name="isBluEdge" type="boolean" default="false"/>
+    <aura:attribute name="isEsolutions" type="boolean" default="false"/>
+    <aura:attribute name="isCTMUnit" type="boolean" default="false"/>
+    <aura:attribute name="hasSelectedRt" type="boolean" default="false"/>
+    <aura:attribute name="environmentType" type="String" description="This variable is used to indicate which environment this component is displayed on, f.i. community vs standard lightning"/>
+    <aura:attribute name="showPrimaryField" type="boolean" default="false"/>
+    <!--<aura:attribute name="isCTBRBluEdge" type="boolean" default="false"/>-->
+    <aura:attribute name="isCTBRUnit" type="boolean" default="false"/>
+    <aura:attribute name="isDirectSale" type="boolean" default="false"/>
+    <aura:attribute name="countryOptions" type="list" />
+    <aura:attribute name="stateOptions" type="list" />
+    <aura:attribute name="MarkForCountry" type="String" />
+    <aura:attribute name="MarkForState" type="String" />
+    <aura:attribute name="MarkForCity" type="String"/>
+    <aura:attribute name="poNumber" type="String"/>
+    <aura:attribute name="quoteFields" type="Object" default="{}" />
+    <aura:attribute name="dirSalesQuoteRtId" type="String"/>
+    <aura:attribute name="HasFreight" type="boolean" default="false"/>
+    <aura:attribute name="CTBRBuleEdgeRecordCommunity" type="boolean" default="false"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:navigation aura:id="navService"/>
+    
+    <aura:if isTrue="{!v.isProcessing}">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </aura:if>
+    <lightning:card iconName="custom:custom93" title="{!$Label.c.NewQuote}">
+        
+        <lightning:recordEditForm objectApiName="Opportunity" recordId="{!v.recordId}" aura:id="createForm" onsubmit="{!c.handleSubmit}" onload="{!c.handleOnLoad}" onsuccess="{!c.handleOnSuccess}" onerror="{!c.handleOnError}">
+            <div class="slds-grid slds-wrap wrapper">
+                <div class="slds-col slds-size_1-of-1">
+                    
+                    <aura:if isTrue="{!and(v.recordId=='',not(v.hasSelectedRt))}">
+                        <div class="slds-grid slds-wrap wrapper">
+                            <div class="slds-col slds-size_1-of-1">
+                               
+                                <div class="slds-p-bottom_small">
+                                    <lightning:radioGroup options="{!v.wrap.oppRtList}" value="{!v.selectedRtId}" label="{!$Label.c.TypeofQuote}" required="true" type="radio" onchange="{!c.handleRadioChange}"></lightning:radioGroup>
+                                </div>
+                                <lightning:button label="{!$Label.c.NextButton}" onclick="{!c.doNext}"/>  
+                            </div>                                
+                        </div>
+                    </aura:if>
+                    
+                    <div aura:id="fieldDiv" class="slds-hide">
+                        <lightning:inputField aura:id="field" fieldName="Name" />
+                        <lightning:inputField aura:id="dealerId" fieldName="AccountId" onchange="{!c.onDealerChange}"/> 
+                        <lightning:inputField aura:id="stageName" fieldName="StageName"/>
+                        <lightning:inputField aura:id="field" fieldName="CloseDate" />                
+                        <aura:if isTrue="{!!v.isDirectSale}">
+                            <lightning:inputField aura:id="endCustomerId" fieldName="NATT_End_Customer__c" onchange="{!c.onEndCustomerChange}" required="{!v.isEsolutions}"/>
+                        </aura:if>
+                        
+                        <aura:if isTrue="{!v.isDirectSale}">
+                            <div style ="overflow:hidden">
+                                <lightning:recordEditForm  objectApiName="SBQQ__Quote__c" recordTypeId ="{!v.dirSalesQuoteRtId}"> 
+                                    <lightning:inputField auraid="HasFreightId" fieldName="NATT_Has_Freight__c" onchange="{!c.handlePicklistChange}" />
+                                    <lightning:inputField auraid="PoNumberId" fieldName="NATT_Purchase_Order__c" required="true" onchange="{!c.handlePicklistChange}"  /> 
+                                    <lightning:inputField auraid="MarkCountryId" fieldName="Mark_For_Location_Country__c" required="true" onchange="{!c.handlePicklistChange}"  />
+                                    <lightning:inputField auraid="MarkStateId" fieldName="Mark_For_Location_State__c" required="true" onchange="{!c.handlePicklistChange}" />
+                                    <lightning:inputField auraid="MarkCityId" fieldName="Mark_For_Location_City__c" required="true" onchange="{!c.handlePicklistChange}" />
+                                </lightning:recordEditForm> 
+                            </div>
+                            <!--     <div class="slds-form-element">
+                                <lightning:input label="Dealer Credit" 
+                                                 name="dealerCreditInput" 
+                                                 value="{!v.dealerCredit}" 
+                                                 type="number" 
+                                                 step="0.01" 
+                                                 formatter="currency"/>
+                                
+                            </div> -->
+                        </aura:if>
+                        <!-- <aura:if isTrue="{! not(v.isCTMUnit)}"> -->
+                        <!--  <aura:if isTrue="{!and (!not(v.isCTMUnit), (!v.isDirectSale))}">-->
+                        <aura:if isTrue="{!or(and(not(v.isCTMUnit), not(v.isDirectSale)), v.isCTMUnit)}"> 
+                            <lightning:inputField aura:id="stock" fieldName="NATT_Stock__c" onclick="{!c.onstockChange}"/>
+                        </aura:if>
+                        <aura:if isTrue="{!v.showPrimaryField}">
+                            <div class="slds-form-element slds-form-element_stacked">
+                                <label class="slds-form-element__label" for="primary">Primary</label>
+                                <div class="slds-form-element__control">
+                                    <span class="slds-checkbox slds-checkbox_standalone">
+                                        <input type="checkbox" id="primaryQuote" name="primaryQuote" />
+                                        <span class="slds-checkbox_faux"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </aura:if>
+                        <!-- CTBR Changes-->
+                        <aura:if isTrue="{!v.isCTBRUnit}">
+                            <lightning:recordEditForm  objectApiName="SBQQ__Quote__c">
+                                <!--lightning:inputField fieldName="SBQQ__Account__c" class="" value="{!v.quoteFields.SBQQ__Account__c}"/--> 
+                            <lightning:inputField aura:id="nattShipAddress" fieldName="CTBR_Shipping_Address__c" value="{!v.selectedShippingAddressId}" onchange="{!c.handleShippingAddressChange}"/> 
+                             
+                            <lightning:inputField aura:id="nattBillAddress" fieldName="CTBR_Billing_Address__c" value="{!v.selectedBillingAddressId}" onchange="{!c.handleBillingAddressChange}"/> 
+
+                            </lightning:recordEditForm>
+                        <aura:set attribute="else">
+                        <lightning:inputField aura:id="nattAddress" fieldName="NATT_Address__c" class="slds-hide"/>                    
+                        
+                        <aura:if isTrue="{!and(not(v.isEsolutions),not(v.isCTMUnit))}">
+                           <!-- <aura:if isTrue="{!and(not(v.isCTBRUnit),not(v.isCTBRBluEdge))}"> -->
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-left_small">
+                                    <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Units Ship To"/>
+                                </div>
+                           <!-- </aura:if> -->
+                        </aura:if>
+                        
+                        <aura:if isTrue="{!and(not(v.isCTBRUnit),not(v.isCTMUnit))}">
+                            <aura:if isTrue="{!not(v.isCTBRBluEdge)}">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-left_small">
+                                    <c:NattAddressSelection selectedAddressId="{!v.selectedBillingAddressId}" dealerId="{!v.dealerId}" addressType="Billing"/>
+                                </div>
+                            </aura:if>
+                        </aura:if>
+                        
+                        <!--CTBR Units && CTBR BluEdge-->
+                        <aura:if isTrue="{!or(v.isCTBRUnit,v.isCTBRBluEdge)}">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-left_small">
+                                <!--   <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Units Ship To" endCustomerId="{!v.endCustomerId}"/> -->
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedBillingAddressId}" dealerId="{!v.dealerId}" addressType="Billing" endCustomerId="{!v.endCustomerId}"/>
+                            </div>
+                        </aura:if>
+                        
+                        <!--CTM Units-->
+                        <aura:if isTrue="{!v.isCTMUnit}">
+                            <div class="slds-media">
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1>
+                                                <span class="slds-page-header__title slds-truncate" title="Address Selection">{!$Label.c.AddressSelection}</span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-left_small">
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!v.dealerId}">
+                                        <div class="slds-p-top_xxx-small" style="page-break-before: always;">
+                                            No {!v.addressType} Addresses
+                                        </div>
+                                    </aura:if>
+                                </aura:set>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Billing"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Corporate"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Dealer Agreement"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Distribution Centers"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Headquarters"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Mailing"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Other Mailing"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Parts Ship To"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Physical"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Regional Offices"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Shipping"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="TES Ship To"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Units Ship To"/>
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType=""/>
+                            </div>
+                        </aura:if>
+                                
+                            </aura:set>
+                         </aura:if>
+                        <div class="slds-m-top_medium">
+                            <lightning:button label="{!$Label.c.Cancel}" onclick="{!c.doCancel}"/>
+                            <lightning:button label="{!$Label.c.CreateQuote}" type="submit"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </lightning:recordEditForm>
+    </lightning:card>
+ </aura:component>

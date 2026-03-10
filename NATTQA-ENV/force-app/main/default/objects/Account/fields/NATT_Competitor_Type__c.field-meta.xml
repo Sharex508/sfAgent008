@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Competitor_Type__c</fullName>
+    <description>List of competitor types for NATT Dealers</description>
+    <label>Competitor Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ThermoKing</fullName>
+                <default>false</default>
+                <label>ThermoKing</label>
+            </value>
+            <value>
+                <fullName>Independent Repair Shop</fullName>
+                <default>false</default>
+                <label>Independent Repair Shop</label>
+            </value>
+            <value>
+                <fullName>Customer Self-Service Shop</fullName>
+                <default>false</default>
+                <label>Customer Self-Service Shop</label>
+            </value>
+            <value>
+                <fullName>Leasing Co Service Shop</fullName>
+                <default>false</default>
+                <label>Leasing Co Service Shop</label>
+            </value>
+            <value>
+                <fullName>Parts Seller</fullName>
+                <default>false</default>
+                <label>Parts Seller</label>
+            </value>
+            <value>
+                <fullName>APU</fullName>
+                <default>false</default>
+                <label>APU</label>
+            </value>
+            <value>
+                <fullName>Telematics</fullName>
+                <default>false</default>
+                <label>Telematics</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Lease Shop</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Lease Shop</label>
+            </value>
+            <value>
+                <fullName>Self-Service Shop</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Self-Service Shop</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to Dealer (Owner of Quote) when the bump pricing has been applied to a quote.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NATT Unit Quote Email Notifications for Bump Pricing</name>
+    <style>none</style>
+    <subject>Quote #: {!SBQQ__Quote__c.Name} Discount Rate Update</subject>
+    <textOnly>There has been an update to the Requested Discount Rate for your Quote. Please see details below:
+
+Opportunity Name: {!SBQQ__Quote__c.SBQQ__Opportunity2__c}
+
+Quote #: {!SBQQ__Quote__c.Name}
+
+Unit Name: {!SBQQ__Quote__c.NATT_Unit__c}
+
+Approved Discount Rate: {!SBQQ__Quote__c.NATT_Total_Discount2__c} %
+
+Approver that Updated Discount: {!SBQQ__Quote__c.LastModifiedBy}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

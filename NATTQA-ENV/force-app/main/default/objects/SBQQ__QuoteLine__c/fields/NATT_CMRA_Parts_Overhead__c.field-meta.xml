@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_CMRA_Parts_Overhead__c</fullName>
+    <defaultValue>0.125</defaultValue>
+    <description>for calculating cmra</description>
+    <externalId>false</externalId>
+    <label>CMRA Parts Overhead</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>3</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

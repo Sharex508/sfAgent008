@@ -1,0 +1,61 @@
+{
+  "appPageId" : "67fdd0d7-93bd-4b41-9583-aca992e410a8",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "58980b6d-95dd-4e6e-a481-9fec61744720",
+  "label" : "Search Results",
+  "regions" : [ {
+    "id" : "1724f4e5-5834-4022-8de9-f27c482f2945",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "addToCartButtonBackgroundColor" : "",
+        "addToCartButtonBackgroundHoverColor" : "",
+        "addToCartButtonBorderColor" : "",
+        "addToCartButtonBorderRadius" : "0",
+        "addToCartButtonText" : "ADD TO CART",
+        "addToCartButtonTextColor" : "",
+        "addToCartButtonTextHoverColor" : "",
+        "cardAlignment" : "center",
+        "cardBackgroundColor" : "",
+        "cardBorderColor" : "rgba(255, 255, 255, 0)",
+        "cardBorderRadius" : "0",
+        "cardContentMapping" : "",
+        "cardDividerColor" : "rgb(221, 219, 218)",
+        "gridColumnSpacing" : "small",
+        "gridMaxColumnsDisplayed" : "4",
+        "gridRowSpacing" : "large",
+        "listRowSpacing" : "small",
+        "negotiatedPriceTextColor" : "",
+        "negotiatedPriceTextSize" : "medium",
+        "originalPriceTextColor" : "",
+        "originalPriceTextSize" : "small",
+        "pageResultsType" : "searchResults",
+        "pageTitleFontColor" : "",
+        "pageTitleFontSize" : "large",
+        "resultsLayout" : "grid",
+        "showAddToCartButton" : true,
+        "showNegotiatedPrice" : true,
+        "showOriginalPrice" : true,
+        "showProductImage" : true
+      },
+      "componentName" : "b2b_search_builder:resultsDisplay",
+      "id" : "c4a6f2ca-610c-4620-b2a6-06263a0745ab",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d5a5a761-aee4-46f3-8d6c-5c30d9148205",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "98ccd5f3-7815-4f11-8d7d-9c46cf15a72a",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "global-search"
+}

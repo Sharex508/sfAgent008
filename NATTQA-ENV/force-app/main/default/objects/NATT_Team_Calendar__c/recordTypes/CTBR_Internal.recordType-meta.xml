@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Internal</fullName>
+    <active>true</active>
+    <description>Used by the CTBR Team</description>
+    <label>CTBR Internal</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Internal Travel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of the Office</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Special Dealer Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

@@ -1,0 +1,65 @@
+<template>
+    <template if:true={error}>
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">            
+            <h2>Application Error:{error}</h2>
+          </div>
+    </template>
+    <lightning-card title='Aguardando aprovação do cliente'>  
+        <div style="height: 25rem;">            
+            <lightning-accordion>
+                <template for:each={awaitingApprovalList} for:item="order">
+                    <lightning-accordion-section name="A" label={order.OrderNumber} key={order.Id}>
+                        <lightning-datatable data={order.OrderItems} columns={awaitingApprovalColumns} key-field="Id" hide-checkbox-column></lightning-datatable>
+                        <lightning-button label="Approve" data-id={order.Id} onclick={handleApproveOrder}></lightning-button> pricing valid until &nbsp;
+                        <lightning-formatted-date-time value={order.CTBR_PricingValidUntil__c} hour="2-digit" minute="2-digit" year="numeric" month="long" day="2-digit" time-zone-name="short"></lightning-formatted-date-time>
+                    </lightning-accordion-section>
+                </template>
+            </lightning-accordion>
+        </div>
+    </lightning-card>
+    <lightning-card title='Fora de stock'>  
+        <div style="height: 25rem;">
+            <lightning-datatable data-id="outOfStock"
+                    key-field="Id"
+                    data={outOfStockList}
+                    columns={outOfStockColumns}>
+            </lightning-datatable>            
+        </div>
+        <lightning-button label="Criar ordem" onclick={handleCreateOutOfStockOrder}></lightning-button>
+    </lightning-card>
+
+    <div if:true={showSpinner}>
+        <lightning-spinner
+          alternative-text="Loading..."
+          variant="brand"></lightning-spinner>      
+    </div>
+    <!--<lightning-tree-grid
+                    key-field="Id"
+                    data={awaitingApprovalList}
+                    columns={awaitingApprovalColumns}
+                    >
+            </lightning-tree-grid>
+            
+            <table>
+                <thead>
+                    <th>Order Number</th>
+                    <th>Total Payable</th>
+                    <th>Quantity</th>
+                    <th>Total ICMS</th>
+                    <th>Total ICMS ST</th>
+                    <th>Total IPI</th>
+                    <th>Taxation</th>
+                    <th>Subtotal ICMS</th>
+                </thead>
+                <tbody>                    
+                    <template for:each={awaitingApprovalList} for:item="order">
+                        <tr key={order.Id}>
+                            <td>{order.OrderNumber}</td>
+                            <td >
+                                <c-natt_ctbr-pre-quote-child-row selected-order-items={order.OrderItems}></c-natt_ctbr-pre-quote-child-row>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>-->
+</template>

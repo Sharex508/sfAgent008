@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewQuote</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>{!IF(BEGINS($Profile.Name, &quot;CONTAINER&quot;), URLFOR($Action.SBQQ__Quote__c.New, null , null, true), IF(CONTAINS($Site.CurrentSiteUrl, &quot;carriersolutioncenter&quot;),URLFOR($Action.SBQQ__Quote__c.ShowErrorDP, null , null, true),URLFOR($Action.SBQQ__Quote__c.ShowError, null , null, true)))}</url>
+</WebLink>

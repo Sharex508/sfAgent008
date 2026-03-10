@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Fail_Date_Blank</fullName>
+    <active>true</active>
+    <description>For Type field if Engine Authorization Request value is selected. Fail Date field cannot be blank.</description>
+    <errorConditionFormula>AND(ISPICKVAL(Type, &quot;Engine Authorization Request&quot;), ISBLANK(NATT_Fail_Date__c),
+BEGINS($RecordType.DeveloperName,&quot;NATT_&quot;))</errorConditionFormula>
+    <errorDisplayField>NATT_Fail_Date__c</errorDisplayField>
+    <errorMessage>Enter the date on the Fail Date field</errorMessage>
+</ValidationRule>

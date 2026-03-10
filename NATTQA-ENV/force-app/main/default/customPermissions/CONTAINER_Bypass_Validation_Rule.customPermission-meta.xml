@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>CONTAINER custom permission to bypass validation rule.</description>
+    <isLicensed>false</isLicensed>
+    <label>CONTAINER Bypass Validation Rule</label>
+</CustomPermission>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_QuantityShipped_Cannnot_0</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+CONTAINER_Quantity_Shipped__c &lt;=0
+)</errorConditionFormula>
+    <errorMessage>Quantity Shipped cannot be 0.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_PreventDifferentPricingPeriod</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(SBQQ__Quote__r.NATT_Migrated_Ordered__c,
+IF(SBQQ__Quote__r.NATT_RSD_Changed__c,
+	AND(ISPICKVAL(SBQQ__Quote__r.SBQQ__Type__c, &quot;Quote&quot;), SBQQ__OriginalPrice__c &lt;&gt; NATT_RSD_Original_Price__c),
+	false),
+AND(ISPICKVAL(SBQQ__Quote__r.SBQQ__Type__c, &quot;Quote&quot;), SBQQ__OriginalPrice__c &lt;&gt; NATT_RSD_Original_Price__c))</errorConditionFormula>
+    <errorMessage>You may not add a requested ship date from different pricing periods.</errorMessage>
+</ValidationRule>

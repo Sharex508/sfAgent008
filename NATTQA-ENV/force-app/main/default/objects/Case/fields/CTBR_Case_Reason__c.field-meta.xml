@@ -1,0 +1,1529 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Case_Reason__c</fullName>
+    <description>Reason that the Case is being created (for CTBR)</description>
+    <inlineHelpText>Reason that the Case is being created</inlineHelpText>
+    <label>CTBR Case Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Abertura de Status DANFES (Devoluções)</fullName>
+                <default>false</default>
+                <label>Abertura de Status DANFES (Devoluções)</label>
+            </value>
+            <value>
+                <fullName>Access Profile change</fullName>
+                <default>false</default>
+                <label>Access Profile change</label>
+            </value>
+            <value>
+                <fullName>Additional Expense</fullName>
+                <default>false</default>
+                <label>Additional Expense</label>
+            </value>
+            <value>
+                <fullName>Aliquot Differential</fullName>
+                <default>false</default>
+                <label>Aliquot Differential</label>
+            </value>
+            <value>
+                <fullName>Alteração de cadastro</fullName>
+                <default>false</default>
+                <label>Alteração de cadastro</label>
+            </value>
+            <value>
+                <fullName>Alteração de senha (Portal)</fullName>
+                <default>false</default>
+                <label>Alteração de senha (Portal)</label>
+            </value>
+            <value>
+                <fullName>Análise e cadastro de cliente</fullName>
+                <default>false</default>
+                <label>Análise e cadastro de cliente</label>
+            </value>
+            <value>
+                <fullName>Análise Rejeições DANFES</fullName>
+                <default>false</default>
+                <label>Análise Rejeições DANFES</label>
+            </value>
+            <value>
+                <fullName>Arrival forecast</fullName>
+                <default>false</default>
+                <label>Arrival forecast</label>
+            </value>
+            <value>
+                <fullName>Atraso entrega produto ou peça (fora prazo contratado)</fullName>
+                <default>false</default>
+                <label>Atraso entrega produto ou peça (fora prazo contratado)</label>
+            </value>
+            <value>
+                <fullName>Atraso no prazo de entrega informado pela transportadora/ Relatóruio SIM Frete</fullName>
+                <default>false</default>
+                <label>Atraso no prazo de entrega informado pela transportadora/ Relatóruio SIM Frete</label>
+            </value>
+            <value>
+                <fullName>Aumento de limite</fullName>
+                <default>false</default>
+                <label>Aumento de limite</label>
+            </value>
+            <value>
+                <fullName>Availability</fullName>
+                <default>false</default>
+                <label>Availability</label>
+            </value>
+            <value>
+                <fullName>Back Order</fullName>
+                <default>false</default>
+                <label>Back Order</label>
+            </value>
+            <value>
+                <fullName>Bill Copies</fullName>
+                <default>false</default>
+                <label>Bill Copies</label>
+            </value>
+            <value>
+                <fullName>Billing Address Update</fullName>
+                <default>false</default>
+                <label>Billing Address Update</label>
+            </value>
+            <value>
+                <fullName>Cadastrar cliente a vista</fullName>
+                <default>false</default>
+                <label>Cadastrar cliente a vista</label>
+            </value>
+            <value>
+                <fullName>Cadastro - Análise de Crédito e Cadastro (a prazo)</fullName>
+                <default>false</default>
+                <label>Cadastro - Análise de Crédito e Cadastro (a prazo)</label>
+            </value>
+            <value>
+                <fullName>Cadastro - Somente Cadastro Clientes (à vista)</fullName>
+                <default>false</default>
+                <label>Cadastro - Somente Cadastro Clientes (à vista)</label>
+            </value>
+            <value>
+                <fullName>Cancelamento de NF</fullName>
+                <default>false</default>
+                <label>Cancelamento de NF</label>
+            </value>
+            <value>
+                <fullName>Cancelar Pedido aprovada/peças</fullName>
+                <default>false</default>
+                <label>Cancelar Pedido aprovada/peças</label>
+            </value>
+            <value>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+                <label>Cancellation</label>
+            </value>
+            <value>
+                <fullName>Certidões Negativas</fullName>
+                <default>false</default>
+                <label>Certidões Negativas</label>
+            </value>
+            <value>
+                <fullName>Certificado Digital</fullName>
+                <default>false</default>
+                <label>Certificado Digital</label>
+            </value>
+            <value>
+                <fullName>CFOP</fullName>
+                <default>false</default>
+                <label>CFOP</label>
+            </value>
+            <value>
+                <fullName>Class A parts return</fullName>
+                <default>false</default>
+                <label>Class A parts return</label>
+            </value>
+            <value>
+                <fullName>Comissões - alterações, inclusões, etc.</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Comissões - alterações, inclusões, etc.</label>
+            </value>
+            <value>
+                <fullName>Comissões - Envio de NF para pagamento</fullName>
+                <default>false</default>
+                <label>Comissões - Envio de NF para pagamento</label>
+            </value>
+            <value>
+                <fullName>Comissões - Relatório - alterações, inclusões, etc.</fullName>
+                <default>false</default>
+                <label>Comissões - Relatório - alterações, inclusões, etc.</label>
+            </value>
+            <value>
+                <fullName>Commercial Warranty Extension</fullName>
+                <default>false</default>
+                <label>Commercial Warranty Extension</label>
+            </value>
+            <value>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+                <label>Complaint</label>
+            </value>
+            <value>
+                <fullName>Comprovante de pgto à vista</fullName>
+                <default>false</default>
+                <label>Comprovante de pgto à vista</label>
+            </value>
+            <value>
+                <fullName>Consulta prazo entrega danfe (transportadora )</fullName>
+                <default>false</default>
+                <label>Consulta prazo entrega danfe (transportadora )</label>
+            </value>
+            <value>
+                <fullName>Contract changes</fullName>
+                <default>false</default>
+                <label>Contract changes</label>
+            </value>
+            <value>
+                <fullName>Cotação - (erros: parada)</fullName>
+                <default>false</default>
+                <label>Cotação - (erros: parada)</label>
+            </value>
+            <value>
+                <fullName>Cotação se retorno</fullName>
+                <default>false</default>
+                <label>Cotação se retorno</label>
+            </value>
+            <value>
+                <fullName>Cotação URGENTE</fullName>
+                <default>false</default>
+                <label>Cotação URGENTE</label>
+            </value>
+            <value>
+                <fullName>Coverage information</fullName>
+                <default>false</default>
+                <label>Coverage information</label>
+            </value>
+            <value>
+                <fullName>Credit</fullName>
+                <default>false</default>
+                <label>Credit</label>
+            </value>
+            <value>
+                <fullName>Credit Memos</fullName>
+                <default>false</default>
+                <label>Credit Memos</label>
+            </value>
+            <value>
+                <fullName>Credit Revaluation</fullName>
+                <default>false</default>
+                <label>Credit Revaluation</label>
+            </value>
+            <value>
+                <fullName>Credits</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Credits</label>
+            </value>
+            <value>
+                <fullName>Customer transfer</fullName>
+                <default>false</default>
+                <label>Customer transfer</label>
+            </value>
+            <value>
+                <fullName>Damaged/Crushed/Broken part inside packaging</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Damaged/Crushed/Broken part inside packaging</label>
+            </value>
+            <value>
+                <fullName>Damage Parts</fullName>
+                <default>false</default>
+                <label>Damage Parts</label>
+            </value>
+            <value>
+                <fullName>Damages</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Damages</label>
+            </value>
+            <value>
+                <fullName>Danfe Email Update</fullName>
+                <default>false</default>
+                <label>Danfe Email Update</label>
+            </value>
+            <value>
+                <fullName>Dealer Level Update</fullName>
+                <default>false</default>
+                <label>Dealer Level Update</label>
+            </value>
+            <value>
+                <fullName>Debt Renegotiation</fullName>
+                <default>false</default>
+                <label>Debt Renegotiation</label>
+            </value>
+            <value>
+                <fullName>Delivery address update</fullName>
+                <default>false</default>
+                <label>Delivery address update</label>
+            </value>
+            <value>
+                <fullName>Delivery Notes</fullName>
+                <default>false</default>
+                <label>Delivery Notes</label>
+            </value>
+            <value>
+                <fullName>Delivery Time</fullName>
+                <default>false</default>
+                <label>Delivery Time</label>
+            </value>
+            <value>
+                <fullName>Demo/consignment return</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Demo/consignment return</label>
+            </value>
+            <value>
+                <fullName>Devolução de Equipamento/Kit</fullName>
+                <default>false</default>
+                <label>Devolução de Equipamento/Kit</label>
+            </value>
+            <value>
+                <fullName>Devoluções de documentos fiscais</fullName>
+                <default>false</default>
+                <label>Devoluções de documentos fiscais</label>
+            </value>
+            <value>
+                <fullName>Documentos Legais</fullName>
+                <default>false</default>
+                <label>Documentos Legais</label>
+            </value>
+            <value>
+                <fullName>Doubts</fullName>
+                <default>false</default>
+                <label>Doubts</label>
+            </value>
+            <value>
+                <fullName>Duvidas de aplicação</fullName>
+                <default>false</default>
+                <label>Duvidas de aplicação</label>
+            </value>
+            <value>
+                <fullName>Dúvidas Impostos destacados nos docs Fiscais</fullName>
+                <default>false</default>
+                <label>Dúvidas Impostos destacados nos docs Fiscais</label>
+            </value>
+            <value>
+                <fullName>Dúvidas sobre Comissões</fullName>
+                <default>false</default>
+                <label>Dúvidas sobre Comissões</label>
+            </value>
+            <value>
+                <fullName>Embalagem Danificada no transporte</fullName>
+                <default>false</default>
+                <label>Embalagem Danificada no transporte</label>
+            </value>
+            <value>
+                <fullName>Entrega de Obrigações Fiscais cfe Agenda Tributária do Governo Brasileiro</fullName>
+                <default>false</default>
+                <label>Entrega de Obrigações Fiscais cfe Agenda Tributária do Governo Brasileiro</label>
+            </value>
+            <value>
+                <fullName>Envio de auditoria</fullName>
+                <default>false</default>
+                <label>Envio de auditoria</label>
+            </value>
+            <value>
+                <fullName>Envio de NF para pagamento de Fatura (fornecedor em geral)</fullName>
+                <default>false</default>
+                <label>Envio de NF para pagamento de Fatura (fornecedor em geral)</label>
+            </value>
+            <value>
+                <fullName>Equipment replacement</fullName>
+                <default>false</default>
+                <label>Equipment replacement</label>
+            </value>
+            <value>
+                <fullName>Extension</fullName>
+                <default>false</default>
+                <label>Extension</label>
+            </value>
+            <value>
+                <fullName>Faturamento - Consignação/Demonstração</fullName>
+                <default>false</default>
+                <label>Faturamento - Consignação/Demonstração</label>
+            </value>
+            <value>
+                <fullName>Faturamento - Venda através Devolução de Consignação/Demonstração</fullName>
+                <default>false</default>
+                <label>Faturamento - Venda através Devolução de Consignação/Demonstração</label>
+            </value>
+            <value>
+                <fullName>Faturamento - Venda CDC / Leasing / Consórcio</fullName>
+                <default>false</default>
+                <label>Faturamento - Venda CDC / Leasing / Consórcio</label>
+            </value>
+            <value>
+                <fullName>Faturamento - Venda Normal</fullName>
+                <default>false</default>
+                <label>Faturamento - Venda Normal</label>
+            </value>
+            <value>
+                <fullName>Foto de peças</fullName>
+                <default>false</default>
+                <label>Foto de peças</label>
+            </value>
+            <value>
+                <fullName>Freight Company Complaints</fullName>
+                <default>false</default>
+                <label>Freight Company Complaints</label>
+            </value>
+            <value>
+                <fullName>Freight Company Damage</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Freight Company Damage</label>
+            </value>
+            <value>
+                <fullName>Group/Subgroup/Issue</fullName>
+                <default>false</default>
+                <label>Group/Subgroup/Issue</label>
+            </value>
+            <value>
+                <fullName>ICMS</fullName>
+                <default>false</default>
+                <label>ICMS</label>
+            </value>
+            <value>
+                <fullName>ICMS - Imposto sob Circulação de Mercadorias</fullName>
+                <default>false</default>
+                <label>ICMS - Imposto sob Circulação de Mercadorias</label>
+            </value>
+            <value>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Instructions not clear</label>
+            </value>
+            <value>
+                <fullName>Invoice issue</fullName>
+                <default>false</default>
+                <label>Invoice issue</label>
+            </value>
+            <value>
+                <fullName>Invoice Problems</fullName>
+                <default>false</default>
+                <label>Invoice Problems</label>
+            </value>
+            <value>
+                <fullName>Isenção e Benefícios SUFRAMA</fullName>
+                <default>false</default>
+                <label>Isenção e Benefícios SUFRAMA</label>
+            </value>
+            <value>
+                <fullName>Isenção e Benefícios ZONA FRANCA MANAUS</fullName>
+                <default>false</default>
+                <label>Isenção e Benefícios ZONA FRANCA MANAUS</label>
+            </value>
+            <value>
+                <fullName>Item faltante (consta na Danfe mas não veio no fisico ou veio na quantidade diferente da solicitada)</fullName>
+                <default>false</default>
+                <label>Item faltante (consta na Danfe mas não veio no fisico ou veio na quantidade diferente da solicitada)</label>
+            </value>
+            <value>
+                <fullName>Mercadoria Retida em Posto Fiscal</fullName>
+                <default>false</default>
+                <label>Mercadoria Retida em Posto Fiscal</label>
+            </value>
+            <value>
+                <fullName>Missing item</fullName>
+                <default>false</default>
+                <label>Missing item</label>
+            </value>
+            <value>
+                <fullName>Missing item (listed on Danfe but did not arrive physically or came in a different quantity than requested)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Missing item (listed on Danfe but did not arrive physically or came in a different quantity than requested)</label>
+            </value>
+            <value>
+                <fullName>Negociação de vendas</fullName>
+                <default>false</default>
+                <label>Negociação de vendas</label>
+            </value>
+            <value>
+                <fullName>New/Cancellation/Change access</fullName>
+                <default>false</default>
+                <label>New/Cancellation/Change access</label>
+            </value>
+            <value>
+                <fullName>New/Cancelling</fullName>
+                <default>false</default>
+                <label>New/Cancelling</label>
+            </value>
+            <value>
+                <fullName>New/Cancelling Access</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>New/Cancelling Access</label>
+            </value>
+            <value>
+                <fullName>New register</fullName>
+                <default>false</default>
+                <label>New register</label>
+            </value>
+            <value>
+                <fullName>NF - Cancelamento (Máximo 24hs após a emissão)</fullName>
+                <default>false</default>
+                <label>NF - Cancelamento (Máximo 24hs após a emissão)</label>
+            </value>
+            <value>
+                <fullName>NF com condição de Pagamento em desacordo com o Pedido</fullName>
+                <default>false</default>
+                <label>NF com condição de Pagamento em desacordo com o Pedido</label>
+            </value>
+            <value>
+                <fullName>NF com falta de item</fullName>
+                <default>false</default>
+                <label>NF com falta de item</label>
+            </value>
+            <value>
+                <fullName>NF com valor em desacordo com o pedido</fullName>
+                <default>false</default>
+                <label>NF com valor em desacordo com o pedido</label>
+            </value>
+            <value>
+                <fullName>NF - Devolução Física de Equipamento ou Kit</fullName>
+                <default>false</default>
+                <label>NF - Devolução Física de Equipamento ou Kit</label>
+            </value>
+            <value>
+                <fullName>NF - Em desacordo com o pedido</fullName>
+                <default>false</default>
+                <label>NF - Em desacordo com o pedido</label>
+            </value>
+            <value>
+                <fullName>NF - Falta de Faturamento de Item</fullName>
+                <default>false</default>
+                <label>NF - Falta de Faturamento de Item</label>
+            </value>
+            <value>
+                <fullName>NF faturada para CNPJ em desacordo com o pedido</fullName>
+                <default>false</default>
+                <label>NF faturada para CNPJ em desacordo com o pedido</label>
+            </value>
+            <value>
+                <fullName>Offline system</fullName>
+                <default>false</default>
+                <label>Offline system</label>
+            </value>
+            <value>
+                <fullName>Ordered in Error</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ordered in Error</label>
+            </value>
+            <value>
+                <fullName>Order Entry Error</fullName>
+                <default>false</default>
+                <label>Order Entry Error</label>
+            </value>
+            <value>
+                <fullName>Order status</fullName>
+                <default>false</default>
+                <label>Order status</label>
+            </value>
+            <value>
+                <fullName>Order Status/Tracking</fullName>
+                <default>false</default>
+                <label>Order Status/Tracking</label>
+            </value>
+            <value>
+                <fullName>Other Taxes</fullName>
+                <default>false</default>
+                <label>Other Taxes</label>
+            </value>
+            <value>
+                <fullName>Outras</fullName>
+                <default>false</default>
+                <label>Outras</label>
+            </value>
+            <value>
+                <fullName>Outras Solicitações de Boletos</fullName>
+                <default>false</default>
+                <label>Outras Solicitações de Boletos</label>
+            </value>
+            <value>
+                <fullName>Outras Solicitações de Cobrança</fullName>
+                <default>false</default>
+                <label>Outras Solicitações de Cobrança</label>
+            </value>
+            <value>
+                <fullName>Outras Solicitações Tributárias</fullName>
+                <default>false</default>
+                <label>Outras Solicitações Tributárias</label>
+            </value>
+            <value>
+                <fullName>Package Labeled Wrong</fullName>
+                <default>false</default>
+                <label>Package Labeled Wrong</label>
+            </value>
+            <value>
+                <fullName>Package Label Error</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Package Label Error</label>
+            </value>
+            <value>
+                <fullName>Packing</fullName>
+                <default>false</default>
+                <label>Packing</label>
+            </value>
+            <value>
+                <fullName>Pagamento de NF de Tanque de Combustível (com autorização Gerente de Vendas)</fullName>
+                <default>false</default>
+                <label>Pagamento de NF de Tanque de Combustível (com autorização Gerente de Vendas)</label>
+            </value>
+            <value>
+                <fullName>Parcial order</fullName>
+                <default>false</default>
+                <label>Parcial order</label>
+            </value>
+            <value>
+                <fullName>Part identified with wrong code and/or No Replace label</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Part identified with wrong code and/or No Replace label</label>
+            </value>
+            <value>
+                <fullName>Part with problem</fullName>
+                <default>false</default>
+                <label>Part with problem</label>
+            </value>
+            <value>
+                <fullName>Payment Issues</fullName>
+                <default>false</default>
+                <label>Payment Issues</label>
+            </value>
+            <value>
+                <fullName>Payment Terms</fullName>
+                <default>false</default>
+                <label>Payment Terms</label>
+            </value>
+            <value>
+                <fullName>Peça danficada/Amassada/Quebrada dentro da embalagem ( Embalagem sem Danos/ Fita sem violação)</fullName>
+                <default>false</default>
+                <label>Peça danficada/Amassada/Quebrada dentro da embalagem ( Embalagem sem Danos/ Fita sem violação)</label>
+            </value>
+            <value>
+                <fullName>Peça identificada com código errado e/ou Sem etiqueta de Replace</fullName>
+                <default>false</default>
+                <label>Peça identificada com código errado e/ou Sem etiqueta de Replace</label>
+            </value>
+            <value>
+                <fullName>Pedido pendente não aparecendo</fullName>
+                <default>false</default>
+                <label>Pedido pendente não aparecendo</label>
+            </value>
+            <value>
+                <fullName>Pending approval</fullName>
+                <default>false</default>
+                <label>Pending approval</label>
+            </value>
+            <value>
+                <fullName>Pending payment</fullName>
+                <default>false</default>
+                <label>Pending payment</label>
+            </value>
+            <value>
+                <fullName>Portal de garantias</fullName>
+                <default>false</default>
+                <label>Portal de garantias</label>
+            </value>
+            <value>
+                <fullName>Portal de vendas</fullName>
+                <default>false</default>
+                <label>Portal de vendas</label>
+            </value>
+            <value>
+                <fullName>Prazo de entrega (erro)</fullName>
+                <default>false</default>
+                <label>Prazo de entrega (erro)</label>
+            </value>
+            <value>
+                <fullName>PreOrder</fullName>
+                <default>false</default>
+                <label>PreOrder</label>
+            </value>
+            <value>
+                <fullName>Problem</fullName>
+                <default>false</default>
+                <label>Problem</label>
+            </value>
+            <value>
+                <fullName>Product or Part with a Serial Number that differs from that reported at Danfe</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Product or Part with a Serial Number that differs from that reported at Danfe</label>
+            </value>
+            <value>
+                <fullName>Produto ou Peça com o Número de Série divergente do informado na Danfe</fullName>
+                <default>false</default>
+                <label>Produto ou Peça com o Número de Série divergente do informado na Danfe</label>
+            </value>
+            <value>
+                <fullName>Produto quebrado ou danificado devido manuseio inadequado durante transporte</fullName>
+                <default>false</default>
+                <label>Produto quebrado ou danificado devido manuseio inadequado durante transporte</label>
+            </value>
+            <value>
+                <fullName>Program information</fullName>
+                <default>false</default>
+                <label>Program information</label>
+            </value>
+            <value>
+                <fullName>Prorrogação de Boletos</fullName>
+                <default>false</default>
+                <label>Prorrogação de Boletos</label>
+            </value>
+            <value>
+                <fullName>Reanálise e renovação de cadastro</fullName>
+                <default>false</default>
+                <label>Reanálise e renovação de cadastro</label>
+            </value>
+            <value>
+                <fullName>Reavaliação de lista de preços</fullName>
+                <default>false</default>
+                <label>Reavaliação de lista de preços</label>
+            </value>
+            <value>
+                <fullName>Reclamações referente a transportadora</fullName>
+                <default>false</default>
+                <label>Reclamações referente a transportadora</label>
+            </value>
+            <value>
+                <fullName>Recusa Pedido Incorreto recebido</fullName>
+                <default>false</default>
+                <label>Recusa Pedido Incorreto recebido</label>
+            </value>
+            <value>
+                <fullName>Recusa por Produto/ Peças Danificado  no transporte</fullName>
+                <default>false</default>
+                <label>Recusa por Produto/ Peças Danificado  no transporte</label>
+            </value>
+            <value>
+                <fullName>Recusa Produto/ Peças Defeituosos ou não conforme especificado</fullName>
+                <default>false</default>
+                <label>Recusa Produto/ Peças Defeituosos ou não conforme especificado</label>
+            </value>
+            <value>
+                <fullName>Refresh Gas Price Update</fullName>
+                <default>false</default>
+                <label>Refresh Gas Price Update</label>
+            </value>
+            <value>
+                <fullName>Refusal</fullName>
+                <default>false</default>
+                <label>Refusal</label>
+            </value>
+            <value>
+                <fullName>Register Update</fullName>
+                <default>false</default>
+                <label>Register Update</label>
+            </value>
+            <value>
+                <fullName>Renovação de cadastro</fullName>
+                <default>false</default>
+                <label>Renovação de cadastro</label>
+            </value>
+            <value>
+                <fullName>Renovação de cadastro a vista</fullName>
+                <default>false</default>
+                <label>Renovação de cadastro a vista</label>
+            </value>
+            <value>
+                <fullName>Renovação de Cadastro - Reanálise e Renovação de Crédito</fullName>
+                <default>false</default>
+                <label>Renovação de Cadastro - Reanálise e Renovação de Crédito</label>
+            </value>
+            <value>
+                <fullName>Report error</fullName>
+                <default>false</default>
+                <label>Report error</label>
+            </value>
+            <value>
+                <fullName>Reset Password</fullName>
+                <default>false</default>
+                <label>Reset Password</label>
+            </value>
+            <value>
+                <fullName>Return notice</fullName>
+                <default>false</default>
+                <label>Return notice</label>
+            </value>
+            <value>
+                <fullName>S/N Not found</fullName>
+                <default>false</default>
+                <label>S/N Not found</label>
+            </value>
+            <value>
+                <fullName>Sem acesso ao portal</fullName>
+                <default>false</default>
+                <label>Sem acesso ao portal</label>
+            </value>
+            <value>
+                <fullName>Shipping Value</fullName>
+                <default>false</default>
+                <label>Shipping Value</label>
+            </value>
+            <value>
+                <fullName>Short Shipment</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Short Shipment</label>
+            </value>
+            <value>
+                <fullName>Solicitação de Boletos atualizados</fullName>
+                <default>false</default>
+                <label>Solicitação de Boletos atualizados</label>
+            </value>
+            <value>
+                <fullName>Solicitação de cancelamentos</fullName>
+                <default>false</default>
+                <label>Solicitação de cancelamentos</label>
+            </value>
+            <value>
+                <fullName>Solicitação de Encontro de Contas</fullName>
+                <default>false</default>
+                <label>Solicitação de Encontro de Contas</label>
+            </value>
+            <value>
+                <fullName>Solicitação de Renegociação de Débitos</fullName>
+                <default>false</default>
+                <label>Solicitação de Renegociação de Débitos</label>
+            </value>
+            <value>
+                <fullName>Solicitação Emissão e Pagamento GNRE</fullName>
+                <default>false</default>
+                <label>Solicitação Emissão e Pagamento GNRE</label>
+            </value>
+            <value>
+                <fullName>Solicitação para aprovação</fullName>
+                <default>false</default>
+                <label>Solicitação para aprovação</label>
+            </value>
+            <value>
+                <fullName>Solution center</fullName>
+                <default>false</default>
+                <label>Solution center</label>
+            </value>
+            <value>
+                <fullName>Surplus</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Surplus</label>
+            </value>
+            <value>
+                <fullName>Tax Substitution</fullName>
+                <default>false</default>
+                <label>Tax Substitution</label>
+            </value>
+            <value>
+                <fullName>Technical Warranty Extension</fullName>
+                <default>false</default>
+                <label>Technical Warranty Extension</label>
+            </value>
+            <value>
+                <fullName>Transfer</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Transfer</label>
+            </value>
+            <value>
+                <fullName>Transfer in the fleet</fullName>
+                <default>false</default>
+                <label>Transfer in the fleet</label>
+            </value>
+            <value>
+                <fullName>Unidade de Refrigeração com falta de compoente</fullName>
+                <default>false</default>
+                <label>Unidade de Refrigeração com falta de compoente</label>
+            </value>
+            <value>
+                <fullName>Unidade de Refrigeração com tampa ou grade ou carenagem  amassada  ou outros a especificar</fullName>
+                <default>false</default>
+                <label>Unidade de Refrigeração com tampa ou grade ou carenagem  amassada  ou outros a especificar</label>
+            </value>
+            <value>
+                <fullName>Unsubscribe</fullName>
+                <default>false</default>
+                <label>Unsubscribe</label>
+            </value>
+            <value>
+                <fullName>Update Gas/Labor price</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Update Gas/Labor price</label>
+            </value>
+            <value>
+                <fullName>Verificação de Crédito de Devolução</fullName>
+                <default>false</default>
+                <label>Verificação de Crédito de Devolução</label>
+            </value>
+            <value>
+                <fullName>VPC - Envio de processo completo para pagamento de VPC (Nota débito, fotos e comprovantes)</fullName>
+                <default>false</default>
+                <label>VPC - Envio de processo completo para pagamento de VPC (Nota débito, fotos e comprovantes)</label>
+            </value>
+            <value>
+                <fullName>VPC - Solicitação de VPC</fullName>
+                <default>false</default>
+                <label>VPC - Solicitação de VPC</label>
+            </value>
+            <value>
+                <fullName>Warranty Extension</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Warranty Extension</label>
+            </value>
+            <value>
+                <fullName>Wrong amount</fullName>
+                <default>false</default>
+                <label>Wrong amount</label>
+            </value>
+            <value>
+                <fullName>Wrong code/item</fullName>
+                <default>false</default>
+                <label>Wrong code/item</label>
+            </value>
+            <value>
+                <fullName>Wrong Part Received</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Wrong Part Received</label>
+            </value>
+            <value>
+                <fullName>Wrong Price</fullName>
+                <default>false</default>
+                <label>Wrong Price</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Seguimiento Orden</controllingFieldValue>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Availability</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Seguimiento Orden</controllingFieldValue>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <controllingFieldValue>Unit</controllingFieldValue>
+            <valueName>Back Order</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Seguimiento Orden</controllingFieldValue>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <valueName>Credit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Seguimiento Orden</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Invoice issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Seguimiento Orden</controllingFieldValue>
+            <valueName>Order Status/Tracking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Avaria no recebimento de Peças ou Produtos</controllingFieldValue>
+            <valueName>Embalagem Danificada no transporte</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Avaria no recebimento de Peças ou Produtos</controllingFieldValue>
+            <valueName>Produto quebrado ou danificado devido manuseio inadequado durante transporte</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Avaria no recebimento de Peças ou Produtos</controllingFieldValue>
+            <valueName>Unidade de Refrigeração com falta de compoente</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Avaria no recebimento de Peças ou Produtos</controllingFieldValue>
+            <valueName>Unidade de Refrigeração com tampa ou grade ou carenagem  amassada  ou outros a especificar</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boletos de Clientes</controllingFieldValue>
+            <valueName>Outras Solicitações de Boletos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boletos de Clientes</controllingFieldValue>
+            <valueName>Prorrogação de Boletos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boletos de Clientes</controllingFieldValue>
+            <valueName>Solicitação de Boletos atualizados</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boletos de Clientes</controllingFieldValue>
+            <valueName>Solicitação de Encontro de Contas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Boletos de Clientes</controllingFieldValue>
+            <valueName>Verificação de Crédito de Devolução</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cadastro de cliente</controllingFieldValue>
+            <controllingFieldValue>Cadastro de cliente - Documentos</controllingFieldValue>
+            <valueName>Alteração de cadastro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cadastro de cliente</controllingFieldValue>
+            <controllingFieldValue>Cadastro de cliente - Documentos</controllingFieldValue>
+            <valueName>Aumento de limite</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cadastro de cliente</controllingFieldValue>
+            <controllingFieldValue>Cadastro de cliente - Documentos</controllingFieldValue>
+            <valueName>Renovação de cadastro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cobranças</controllingFieldValue>
+            <valueName>Outras Solicitações de Cobrança</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cobranças</controllingFieldValue>
+            <valueName>Solicitação de Renegociação de Débitos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <valueName>Arrival forecast</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <valueName>Comprovante de pgto à vista</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <valueName>Cotação URGENTE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <valueName>Negociação de vendas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <valueName>Order status</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <valueName>PreOrder</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>COMISSÕES DOS DEALERS</controllingFieldValue>
+            <valueName>Dúvidas sobre Comissões</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>COMISSÕES DOS DEALERS</controllingFieldValue>
+            <valueName>Outras</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Devolução de vendas</controllingFieldValue>
+            <valueName>Solicitação para aprovação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Devoluções de Peças ou Produtos</controllingFieldValue>
+            <valueName>Recusa Pedido Incorreto recebido</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Devoluções de Peças ou Produtos</controllingFieldValue>
+            <valueName>Recusa por Produto/ Peças Danificado  no transporte</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Devoluções de Peças ou Produtos</controllingFieldValue>
+            <valueName>Recusa Produto/ Peças Defeituosos ou não conforme especificado</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <valueName>Refusal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <valueName>Return notice</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <valueName>Coverage information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>Pending payment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <valueName>Program information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Complaint</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Credit Memos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Order Entry Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Package Labeled Wrong</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Payment Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de Peças</controllingFieldValue>
+            <valueName>Duvidas de aplicação</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de Peças</controllingFieldValue>
+            <valueName>Envio de auditoria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de Peças</controllingFieldValue>
+            <valueName>Reavaliação de lista de preços</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de pedidos de Produtos</controllingFieldValue>
+            <valueName>Faturamento - Consignação/Demonstração</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de pedidos de Produtos</controllingFieldValue>
+            <valueName>Faturamento - Venda através Devolução de Consignação/Demonstração</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de pedidos de Produtos</controllingFieldValue>
+            <valueName>Faturamento - Venda CDC / Leasing / Consórcio</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de pedidos de Produtos</controllingFieldValue>
+            <valueName>Faturamento - Venda Normal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de pedidos de Produtos</controllingFieldValue>
+            <valueName>NF - Cancelamento (Máximo 24hs após a emissão)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de pedidos de Produtos</controllingFieldValue>
+            <valueName>NF - Devolução Física de Equipamento ou Kit</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de pedidos de Produtos</controllingFieldValue>
+            <valueName>NF - Em desacordo com o pedido</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Gerenciamento de pedidos de Produtos</controllingFieldValue>
+            <valueName>NF - Falta de Faturamento de Item</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Novo usuarios</controllingFieldValue>
+            <controllingFieldValue>Resetar senha</controllingFieldValue>
+            <valueName>Portal de garantias</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Novo usuarios</controllingFieldValue>
+            <controllingFieldValue>Resetar senha</controllingFieldValue>
+            <valueName>Portal de vendas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Novo usuarios</controllingFieldValue>
+            <controllingFieldValue>Resetar senha</controllingFieldValue>
+            <valueName>Solution center</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Portal de Vendas de Peças</controllingFieldValue>
+            <valueName>Alteração de senha (Portal)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Portal de Vendas de Peças</controllingFieldValue>
+            <valueName>Cancelar Pedido aprovada/peças</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Portal de Vendas de Peças</controllingFieldValue>
+            <valueName>Cotação - (erros: parada)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Portal de Vendas de Peças</controllingFieldValue>
+            <valueName>Cotação se retorno</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Portal de Vendas de Peças</controllingFieldValue>
+            <valueName>Foto de peças</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Portal de Vendas de Peças</controllingFieldValue>
+            <valueName>Pedido pendente não aparecendo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Portal de Vendas de Peças</controllingFieldValue>
+            <valueName>Prazo de entrega (erro)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Portal de Vendas de Peças</controllingFieldValue>
+            <valueName>Sem acesso ao portal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previsão de Entrega Danfe Vendas</controllingFieldValue>
+            <valueName>Atraso no prazo de entrega informado pela transportadora/ Relatóruio SIM Frete</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Previsão de Entrega Danfe Vendas</controllingFieldValue>
+            <valueName>Consulta prazo entrega danfe (transportadora )</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Problemas de entrega com frete CIF</controllingFieldValue>
+            <valueName>Atraso entrega produto ou peça (fora prazo contratado)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Problemas de entrega com frete CIF</controllingFieldValue>
+            <valueName>Reclamações referente a transportadora</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Damage Parts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Delivery Notes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Delivery Time</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Freight Company Complaints</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Missing item</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Packing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Wrong amount</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Wrong code/item</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitação</controllingFieldValue>
+            <valueName>Análise e cadastro de cliente</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitação</controllingFieldValue>
+            <valueName>Cadastrar cliente a vista</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitação</controllingFieldValue>
+            <controllingFieldValue>Pagamentos</controllingFieldValue>
+            <valueName>Comissões - Relatório - alterações, inclusões, etc.</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitação</controllingFieldValue>
+            <valueName>Reanálise e renovação de cadastro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitação</controllingFieldValue>
+            <controllingFieldValue>Cadastro</controllingFieldValue>
+            <valueName>Renovação de cadastro a vista</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Certidões Negativas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Certificado Digital</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Devoluções de documentos fiscais</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Documentos Legais</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Dúvidas Impostos destacados nos docs Fiscais</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Entrega de Obrigações Fiscais cfe Agenda Tributária do Governo Brasileiro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>ICMS - Imposto sob Circulação de Mercadorias</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Isenção e Benefícios SUFRAMA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Isenção e Benefícios ZONA FRANCA MANAUS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Mercadoria Retida em Posto Fiscal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Outras Solicitações Tributárias</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tributário</controllingFieldValue>
+            <valueName>Solicitação de cancelamentos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Equipment replacement</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Problem</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank Bill</controllingFieldValue>
+            <valueName>Bill Copies</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank Bill</controllingFieldValue>
+            <valueName>Cancellation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank Bill</controllingFieldValue>
+            <valueName>Doubts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Bank Bill</controllingFieldValue>
+            <valueName>Extension</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commissioning</controllingFieldValue>
+            <valueName>Customer transfer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Commissioning</controllingFieldValue>
+            <valueName>Transfer in the fleet</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Decommissioning and uninstall</controllingFieldValue>
+            <valueName>Unsubscribe</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial Negotiations</controllingFieldValue>
+            <valueName>Credit Revaluation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Financial Negotiations</controllingFieldValue>
+            <valueName>Debt Renegotiation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Item Registration</controllingFieldValue>
+            <valueName>New register</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Item Registration</controllingFieldValue>
+            <valueName>Register Update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Issues</controllingFieldValue>
+            <valueName>Invoice Problems</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Issues</controllingFieldValue>
+            <valueName>Parcial order</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Issues</controllingFieldValue>
+            <valueName>Payment Terms</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Issues</controllingFieldValue>
+            <valueName>Shipping Value</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Issues</controllingFieldValue>
+            <valueName>Wrong Price</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Parts</controllingFieldValue>
+            <valueName>Part with problem</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration Update</controllingFieldValue>
+            <valueName>Billing Address Update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration Update</controllingFieldValue>
+            <valueName>Danfe Email Update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Registration Update</controllingFieldValue>
+            <valueName>Delivery address update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cadastro</controllingFieldValue>
+            <valueName>Cadastro - Análise de Crédito e Cadastro (a prazo)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cadastro</controllingFieldValue>
+            <valueName>Cadastro - Somente Cadastro Clientes (à vista)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Cadastro</controllingFieldValue>
+            <valueName>Renovação de Cadastro - Reanálise e Renovação de Crédito</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Falhas procedente do Armazém</controllingFieldValue>
+            <valueName>Item faltante (consta na Danfe mas não veio no fisico ou veio na quantidade diferente da solicitada)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Falhas procedente do Armazém</controllingFieldValue>
+            <valueName>Peça danficada/Amassada/Quebrada dentro da embalagem ( Embalagem sem Danos/ Fita sem violação)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Falhas procedente do Armazém</controllingFieldValue>
+            <valueName>Peça identificada com código errado e/ou Sem etiqueta de Replace</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Falhas procedente do Armazém</controllingFieldValue>
+            <valueName>Produto ou Peça com o Número de Série divergente do informado na Danfe</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pagamentos</controllingFieldValue>
+            <valueName>Comissões - Envio de NF para pagamento</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pagamentos</controllingFieldValue>
+            <valueName>Envio de NF para pagamento de Fatura (fornecedor em geral)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pagamentos</controllingFieldValue>
+            <valueName>Pagamento de NF de Tanque de Combustível (com autorização Gerente de Vendas)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pagamentos</controllingFieldValue>
+            <valueName>VPC - Envio de processo completo para pagamento de VPC (Nota débito, fotos e comprovantes)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Pagamentos</controllingFieldValue>
+            <valueName>VPC - Solicitação de VPC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitação Interna entre  Carrier x Porto Seco Centro Oeste</controllingFieldValue>
+            <valueName>Abertura de Status DANFES (Devoluções)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitação Interna entre  Carrier x Porto Seco Centro Oeste</controllingFieldValue>
+            <valueName>Análise Rejeições DANFES</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solicitação Interna entre  Carrier x Porto Seco Centro Oeste</controllingFieldValue>
+            <valueName>Solicitação Emissão e Pagamento GNRE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tax Information</controllingFieldValue>
+            <valueName>Aliquot Differential</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tax Information</controllingFieldValue>
+            <valueName>CFOP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tax Information</controllingFieldValue>
+            <valueName>ICMS</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tax Information</controllingFieldValue>
+            <valueName>Other Taxes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Tax Information</controllingFieldValue>
+            <valueName>Tax Substitution</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical assistance</controllingFieldValue>
+            <valueName>Access Profile change</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical assistance</controllingFieldValue>
+            <valueName>Contract changes</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical assistance</controllingFieldValue>
+            <valueName>New/Cancelling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical assistance</controllingFieldValue>
+            <valueName>Offline system</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical assistance</controllingFieldValue>
+            <valueName>Reset Password</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unit</controllingFieldValue>
+            <valueName>Commercial Warranty Extension</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unit</controllingFieldValue>
+            <valueName>S/N Not found</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unit</controllingFieldValue>
+            <valueName>Technical Warranty Extension</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>Additional Expense</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>Class A parts return</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>Dealer Level Update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>Group/Subgroup/Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>New/Cancellation/Change access</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>Pending approval</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>Refresh Gas Price Update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Warranty Portal</controllingFieldValue>
+            <valueName>Report error</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

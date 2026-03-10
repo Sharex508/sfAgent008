@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Months_in_500s</fullName>
+    <active>true</active>
+    <description>user can only enter a multiple of 500 for CMRA Term (Months)</description>
+    <errorConditionFormula>NOT(MOD(NATT_CMRA_Term_Hours__c,500) = 0)</errorConditionFormula>
+    <errorMessage>You may only enter a multiple of 500 for CMRA Term (Months)</errorMessage>
+</ValidationRule>

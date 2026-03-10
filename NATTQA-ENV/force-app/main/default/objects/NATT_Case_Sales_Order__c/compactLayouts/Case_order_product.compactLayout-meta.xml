@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_order_product</fullName>
+    <fields>NATT_Case__c</fields>
+    <fields>Name</fields>
+    <fields>NATT_Case_Type__c</fields>
+    <fields>NATT_JDE_Sales_Order__c</fields>
+    <fields>NATT_Part_Number__c</fields>
+    <fields>NATT_Part_Number_Description__c</fields>
+    <fields>NATT_Quantity__c</fields>
+    <label>Case order product</label>
+</CompactLayout>

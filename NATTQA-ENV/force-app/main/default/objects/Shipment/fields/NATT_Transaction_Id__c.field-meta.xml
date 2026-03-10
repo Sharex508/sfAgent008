@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Transaction_Id__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+				AND(TEXT(NATT_Order__r.NATT_Payment_Instruction__c)==&apos;Credit Card&apos;,NOT(ISBLANK(NATT_Order__r.NATT_Transaction_Id__c)))
+				,NATT_Order__r.NATT_Transaction_Id__c,
+				&apos;&apos;
+  )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Transaction Id</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

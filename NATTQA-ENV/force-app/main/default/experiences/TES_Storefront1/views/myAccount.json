@@ -1,0 +1,129 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "29639e42-8210-49cd-bc51-cea460a9c178",
+  "label" : "My Account",
+  "regions" : [ {
+    "id" : "94b36123-3906-44ed-a16e-84aff393ed53",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "90c5b052-0d58-4e7c-af40-1ea0be68ce5c",
+          "activeTab" : "tab1",
+          "tabs" : [ {
+            "UUID" : "a33b57da-1054-4bb9-a06c-5c488eb2113f",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ {
+              "attributes" : {
+                "recordId" : "{!CurrentUser.effectiveAccountId}"
+              },
+              "fqn" : "forceCommunity:recordDetail"
+            } ],
+            "tabKey" : "tab1",
+            "tabName" : "Account Details"
+          }, {
+            "UUID" : "5269f35f-4c06-48eb-97c6-1d98a209a6c7",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ {
+              "attributes" : {
+                "customTitle" : "Addresses",
+                "parentRecordId" : "{!CurrentUser.effectiveAccountId}",
+                "relatedListName" : "ContactPointAddresses",
+                "showBreadCrumbs" : "false",
+                "showCustomTitle" : "true",
+                "showManualRefreshButton" : "false",
+                "showRowNumbers" : "false"
+              },
+              "fqn" : "forceCommunity:relatedList"
+            } ],
+            "tabKey" : "tab3",
+            "tabName" : "Addresses"
+          }, {
+            "UUID" : "ad5e274c-ac56-48db-bde1-0c4c125b39ec",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "7e475",
+            "tabName" : "Carts"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabset",
+      "id" : "90c5b052-0d58-4e7c-af40-1ea0be68ce5c",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+          },
+          "componentName" : "c:natt_accountinformation_address",
+          "id" : "170f0c1d-f2c3-414b-aaaf-58cba350ef5a",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "a33b57da-1054-4bb9-a06c-5c488eb2113f",
+        "regionLabel" : "Account Details",
+        "regionName" : "tab1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+          },
+          "componentName" : "c:NATT_AccountInformationAddresses",
+          "id" : "b06bb556-2294-4db7-b21d-3d89b0f27904",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "5269f35f-4c06-48eb-97c6-1d98a209a6c7",
+        "regionLabel" : "Addresses",
+        "regionName" : "tab3",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+          },
+          "componentName" : "c:natt_AccountInformationCartPage",
+          "id" : "fb3b9f29-1405-4d4d-a19a-785e4ed0bb6a",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "ad5e274c-ac56-48db-bde1-0c4c125b39ec",
+        "regionLabel" : "Carts",
+        "regionName" : "7e475",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "62605646-c5c9-4270-834e-e8181a045ee7",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_tesStoreFooter",
+      "id" : "f6d3c42e-7d45-4b25-a4f5-e199ada69090",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "cdbf0131-b39c-4e5b-8167-176960399efc",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "my-account"
+}

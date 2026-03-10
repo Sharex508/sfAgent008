@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NewOpp</fullName>
+    <availability>online</availability>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>New</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <requireRowSelection>false</requireRowSelection>
+    <url>{!IF(BEGINS($Profile.Name, &quot;CONTAINER&quot;), URLFOR($Action.Opportunity.New, null , null, true), IF(CONTAINS($Site.CurrentSiteUrl, &quot;carriersolutioncenter&quot;),URLFOR($Action.Opportunity.ShowErrorDP, null , null, true),URLFOR($Action.Opportunity.ShowError, null , null, true)))}</url>
+</WebLink>

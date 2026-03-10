@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Cannot_Modify_Account_Name</fullName>
+    <active>true</active>
+    <description>prevent CTBR users from editing the dealer, customer or competitor account name with exceptions.</description>
+    <errorConditionFormula>AND(
+ISCHANGED(Name),
+OR(
+AND(
+RecordType.DeveloperName = &quot;CTBR_Dealer&quot;,
+$Profile.Name &lt;&gt; &quot;CTBR Customer Master Responsible&quot;
+)
+,
+OR(
+RecordType.DeveloperName = &quot;CTBR_Customer&quot;,
+RecordType.DeveloperName = &quot;CTBR_Competitor&quot;
+))
+)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>You are not allowed to modify this Account Name.</errorMessage>
+</ValidationRule>

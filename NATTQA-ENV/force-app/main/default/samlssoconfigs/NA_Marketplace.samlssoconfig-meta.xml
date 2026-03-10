@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>exkmxrqr8iiqv8Ro54x7</issuer>
+    <loginUrl>https://sso.carrier.com/app/salesforce/exkmxrqr8iiqv8Ro54x7/sso/saml</loginUrl>
+    <name>NA Marketplace</name>
+    <oauthTokenEndpoint>https://carrier-global.my.salesforce.com/services/oauth2/token?so=00D1U000000yumn</oauthTokenEndpoint>
+    <redirectBinding>true</redirectBinding>
+    <requestSignatureMethod>1</requestSignatureMethod>
+    <requestSigningCertId>0P17V00000000W4</requestSigningCertId>
+    <salesforceLoginUrl>https://carrier-global.my.salesforce.com?so=00D1U000000yumn</salesforceLoginUrl>
+    <samlEntityId>https://carrier-global.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <useConfigRequestMethod>true</useConfigRequestMethod>
+    <useSameDigestAlgoForSigning>true</useSameDigestAlgoForSigning>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIDnjCCAoagAwIBAgIGAZJ7EoJhMA0GCSqGSIb3DQEBCwUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMMB2NhcnJpZXIxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMjQxMDExMTAxMzIzWhcNMzQxMDExMTAxNDIzWjCBjzELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRAwDgYDVQQDDAdjYXJyaWVyMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqv2r0rfPb4g9HL1JjMZb+QAl+Ycy5bUZkTXQIYlQlQuFkTMJw3OZvG06ntKO2wolVxEKvOsIdd/Dt27g1h5/FKdM3v/lTjP3kfz26YkAoOv2KTPaNM78uMSf6My07ySlCUcslpK3Ab/VimO78n4trKVIiU+wpSPU3X6PGcgkc0J8KRbg1DZiMWwTBPH/rMAp2yZGUCRTDrL85YpjnMIfrTQv17K8zn3xEDHFPa+chgODQWb6Xz607GnAkLzMd4CtcjzHk+0P9yi3IL8OD2RCxcjtIPZXCjrGg0AHgks0ZFHeUAhju6BfHJYyFxPH76OS4tJKYGG2Oy1+XPBkYx7YYQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBWCUb5PNUCeB8T+2cAFBFt695A/cPv2ct0NN/Vs3djwDXK8ro0bv0GtLaDqx9Q1wZMjafj6ozq4zy882oSWszMYCc61mnOKScMcO+LSvIzvqcXPV/DWUDpJkzX8ripiOVKfnsM30miIUvtluylCKx0PanUL9NNbkzjZ8u4yRl2XkmHHav4MltWVEqJMltIXbwvRFwTSmCm+y2baXC7V84eWVVCPS0XP07hpufb9RyWjt8DsJAuxGSTQFSpjnZF6pBIt2kD+4anMVl8IGGfVRc3sdRO3uQO78KnDItnJWjW7x2jhc1/RxGryCABd3MXV0GuL2/gIZyREIMybWcNVexX</validationCert>
+</SamlSsoConfig>

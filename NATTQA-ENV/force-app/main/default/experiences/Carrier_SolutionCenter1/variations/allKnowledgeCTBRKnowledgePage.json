@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "1d951c2c-289d-40a6-9bff-434354be0a1e",
+    "propertyOverrides" : {
+      "activeViewId" : "9045eb79-f1ec-43d3-b5a0-d221adfceebc"
+    },
+    "targetId" : "83c66e5c-ea22-4eb4-ae30-6ab143373ea1",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "All_Knowledge_CTBR_Knowledge_Page",
+  "id" : "53c8297a-784e-4ee7-990b-df6f0aa1e2f9",
+  "type" : "experienceVariation"
+}

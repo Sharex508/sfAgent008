@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>NATT_Prod_No__c</columns>
+    <columns>NATT_Prod_Description__c</columns>
+    <columns>NATT_Bill_To_Address__c</columns>
+    <columns>NATT_Bill_To_Name__c</columns>
+    <columns>NATT_End_User__c</columns>
+    <columns>NATT_Sch_Pick_Date__c</columns>
+    <columns>NATT_BklgQty__c</columns>
+    <columns>NATT_Req_Ship_Date__c</columns>
+    <columns>NATT_SOLine__c</columns>
+    <columns>NATT_Account__c</columns>
+    <columns>OWNER.LAST_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

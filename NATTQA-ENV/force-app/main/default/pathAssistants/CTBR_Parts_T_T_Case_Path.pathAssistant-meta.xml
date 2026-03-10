@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>CTBR Parts T&amp;T Case Path</masterLabel>
+    <recordTypeName>CTBR_Parts_T_T</recordTypeName>
+</PathAssistant>

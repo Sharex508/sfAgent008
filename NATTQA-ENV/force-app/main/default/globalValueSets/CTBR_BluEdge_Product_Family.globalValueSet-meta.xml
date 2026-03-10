@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Trailer</fullName>
+        <default>false</default>
+        <label>Trailer</label>
+    </customValue>
+    <customValue>
+        <fullName>Diesel Truck</fullName>
+        <default>false</default>
+        <label>Diesel Truck</label>
+    </customValue>
+    <masterLabel>CTBR BluEdge Product Family</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

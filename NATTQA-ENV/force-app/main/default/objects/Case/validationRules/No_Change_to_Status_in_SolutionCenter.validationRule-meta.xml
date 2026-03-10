@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>No_Change_to_Status_in_SolutionCenter</fullName>
+    <active>true</active>
+    <description>Dealers should not change the status field</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK($User.ContactId)), 
+    OR(
+       ISCHANGED(Status), 
+       AND(
+           ISNEW(),
+           NOT(ISPICKVAL(Status, &quot;New&quot;))
+           )
+       )
+     )</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>Please do not change the Status field.  Contact Carrier if this field should be updated.</errorMessage>
+</ValidationRule>

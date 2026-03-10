@@ -1,0 +1,149 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "cccc22e9-7929-4678-abac-6a8726749e04",
+  "label" : "Product Detail",
+  "regions" : [ {
+    "id" : "d096a922-31d1-4b0f-a392-3f0aa8b36094",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "dispayCategories" : true,
+        "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}",
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "c:productDetails",
+      "id" : "23ebf99f-3a5c-4eea-9510-dfc5650ba20d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "cardContentMapping" : "ProductCode,Name,Description",
+        "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}",
+        "recordId" : "{!recordId}",
+        "resultsLayout" : "grid",
+        "showProductImage" : true
+      },
+      "componentName" : "c:nac_DisplaySupersessionProduct",
+      "id" : "1e5fe65e-da4a-4525-8e05-85c87763af8b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "45b66f5d-2710-4f3b-9d22-4ccdd9bfd9c5",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "b3b6c5a6-c456-47c3-a1b6-a186e65bb85d",
+            "allowGuestUser" : true,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Product Details"
+          }, {
+            "UUID" : "358668fc-a8af-487a-b715-e4d01a97e8d3",
+            "allowGuestUser" : true,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "2",
+            "tabName" : "Documents"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabset",
+      "id" : "45b66f5d-2710-4f3b-9d22-4ccdd9bfd9c5",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "expandDetailsByDefault" : true,
+            "productDetailDataContentMapping" : "[{\"name\":\"NATT_Width__c\",\"label\":\"Width (cm)\",\"type\":\"DOUBLE\"},{\"name\":\"NATT_Length__c\",\"label\":\"Length (cm)\",\"type\":\"DOUBLE\"},{\"name\":\"NATT_Height__c\",\"label\":\"Height\",\"type\":\"DOUBLE\"},{\"name\":\"NATT_Weight__c\",\"label\":\"Weight (kg)\",\"type\":\"DOUBLE\"}]",
+            "titleText" : "Details"
+          },
+          "componentName" : "b2b_buyer_builder:productDetailsTable",
+          "id" : "9b83ca90-ca5b-4d60-bbc6-531269a3eceb",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "richTextValue" : "<p><em style=\"color: rgb(230, 0, 0);\">Please note the following details are for reference only. For the latest information about HS codes and Country of Origin (CoO), please contact your local Carrier Sales rep.</em></p><p><em style=\"color: rgb(230, 0, 0);\">Because similar parts are sourced from different suppliers/countries, the country of origin and/or HS code may vary from region to region.</em></p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "6fa50b72-2634-46e3-b88c-a69fa710af49",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "expandDetailsByDefault" : true,
+            "productDetailDataContentMapping" : "[{\"name\":\"NAC_HTSUS__c\",\"label\":\"HS Code\",\"type\":\"STRING\"},{\"name\":\"NAC_Country_of_Origin_COO__c\",\"label\":\"Country of Origin\",\"type\":\"PICKLIST\"}]",
+            "titleText" : "General"
+          },
+          "componentName" : "b2b_buyer_builder:productDetailsTable",
+          "id" : "3d7858d2-ebf1-43e8-a6bf-444b69b7e40f",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "b3b6c5a6-c456-47c3-a1b6-a186e65bb85d",
+        "regionLabel" : "Product Details",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "expandRelatedFilesByDefault" : true,
+            "fileIconColor" : "",
+            "openFilesInNewTab" : true,
+            "titleText" : "Documents"
+          },
+          "componentName" : "b2b_buyer_builder:productDetailsRelatedFiles",
+          "id" : "67ae3afb-5182-4989-bf1d-846657157cea",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "358668fc-a8af-487a-b715-e4d01a97e8d3",
+        "regionLabel" : "Documents",
+        "regionName" : "2",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "74885753-ee2b-403c-8b8e-d7e7138b924d",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "7926714c-eaf2-4355-975d-4d24b7a38727",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "2e33357d-2592-4c6b-9eea-be13b813dc42",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "a86334dd-7ad7-4007-bd1b-5879c76b930d",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "547c8705-a69b-4de3-80a0-6daf44072502",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-01t"
+}

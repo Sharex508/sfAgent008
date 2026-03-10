@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_List_Price__c</fullName>
+    <formula>IF(BEGINS(RecordType.DeveloperName, &apos;CONTAINER&apos;), CONTAINER_Unit_Base_Price_Sales__c + 
+CONTAINER_Standard_Option_Sales__c + 
+CONTAINER_Special_Options_Sales__c + 
+CONTAINER_Extended_Warranty_Sales__c + 
+CONTAINER_Special_Requirement_Sales__c + 
+CONTAINER_Total_Contract_Obligation__c + 
+CONTAINER_Total_Extended_AppliedSales__c + 
+CONTAINER_Total_Spare_Parts__c  +  
+CONTAINER_Total_ORBCOMM_AppliedCost__c,  SBQQ__NetAmount__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>List Price</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

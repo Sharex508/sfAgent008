@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This button has been used to export PAR list into excel csv file.</description>
+    <height>250</height>
+    <label>PAR Export</label>
+    <lightningComponent>NATT_PAR_Export_Extract</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__RequireExplicitApproval__c</fullName>
+    <defaultValue>false</defaultValue>
+    <deprecated>false</deprecated>
+    <description>By default, approving any Approval will auto-approve all other Approvals assigned to the same User. If this box is checked, an Approval originated by this Rule will not be auto-approved and must be explicitly approved.</description>
+    <inlineHelpText>By default, approving any Approval will auto-approve all other Approvals assigned to the same User. If this box is checked, an Approval originated by this Rule will not be auto-approved and must be explicitly approved.</inlineHelpText>
+    <label>Require Explicit Approval</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

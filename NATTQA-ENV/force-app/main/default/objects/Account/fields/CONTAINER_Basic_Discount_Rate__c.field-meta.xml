@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Basic_Discount_Rate__c</fullName>
+    <description>Container Service field</description>
+    <formula>IF(  OR(ISPICKVAL( CONTAINER_Level__c , &apos;L1&apos;),ISPICKVAL( CONTAINER_Level__c , &apos;L2&apos;)) , 0.22 , 0.10)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Basic Discount Rate</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

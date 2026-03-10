@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Brazil</masterLabel>
+        <translation><!-- Brazil --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Central</masterLabel>
+        <translation>Central</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>East</masterLabel>
+        <translation>Este</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>LAO</masterLabel>
+        <translation><!-- LAO --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Latin America</masterLabel>
+        <translation><!-- Latin America --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Mexico</masterLabel>
+        <translation><!-- Mexico --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Midwest</masterLabel>
+        <translation><!-- Midwest --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>National</masterLabel>
+        <translation>Nacional</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>North</masterLabel>
+        <translation><!-- North --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Northeast</masterLabel>
+        <translation><!-- Northeast --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Region 1</masterLabel>
+        <translation><!-- Region 1 --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Region 2</masterLabel>
+        <translation><!-- Region 2 --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Region 3</masterLabel>
+        <translation><!-- Region 3 --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>South</masterLabel>
+        <translation>Sur</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Southeast</masterLabel>
+        <translation><!-- Southeast --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>West</masterLabel>
+        <translation>Oeste</translation>
+    </valueTranslation>
+</GlobalValueSetTranslation>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Subtype__c</fullName>
+    <description>Task subtype</description>
+    <label>Subtype</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sales Blitz</fullName>
+                <default>false</default>
+                <label>Sales Blitz</label>
+            </value>
+            <value>
+                <fullName>Dealer Business Review</fullName>
+                <default>false</default>
+                <label>Dealer Business Review</label>
+            </value>
+            <value>
+                <fullName>Dealer Open House</fullName>
+                <default>false</default>
+                <label>Dealer Open House</label>
+            </value>
+            <value>
+                <fullName>Tradeshow</fullName>
+                <default>false</default>
+                <label>Tradeshow</label>
+            </value>
+            <value>
+                <fullName>Sales Training</fullName>
+                <default>false</default>
+                <label>Sales Training</label>
+            </value>
+            <value>
+                <fullName>Dealer Meeting</fullName>
+                <default>false</default>
+                <label>Dealer Meeting</label>
+            </value>
+            <value>
+                <fullName>Product Overview</fullName>
+                <default>false</default>
+                <label>Product Overview</label>
+            </value>
+            <value>
+                <fullName>Customer Presentation</fullName>
+                <default>false</default>
+                <label>Customer Presentation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

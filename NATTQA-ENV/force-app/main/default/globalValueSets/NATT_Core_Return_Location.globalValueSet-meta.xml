@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Carrier/Carlyle Compressor Core Returns</fullName>
+        <default>false</default>
+        <label>Carrier/Carlyle Compressor Core Returns</label>
+    </customValue>
+    <customValue>
+        <fullName>Carrier Transicold Electronics</fullName>
+        <default>false</default>
+        <label>Carrier Transicold Electronics</label>
+    </customValue>
+    <customValue>
+        <fullName>Carrier Transicold X430 Core Return</fullName>
+        <default>false</default>
+        <label>Carrier Transicold X430 Core Return</label>
+    </customValue>
+    <customValue>
+        <fullName>Carrier Electric Motor Repair</fullName>
+        <default>false</default>
+        <label>Carrier Electric Motor Repair</label>
+    </customValue>
+    <customValue>
+        <fullName>Starter &amp; Alternator Core Returns</fullName>
+        <default>false</default>
+        <label>Starter &amp; Alternator Core Returns</label>
+    </customValue>
+    <customValue>
+        <fullName>Weitron Refrigerant Cylinder Returns</fullName>
+        <default>false</default>
+        <label>Weitron Refrigerant Cylinder Returns</label>
+    </customValue>
+    <customValue>
+        <fullName>Return to Panama parts depot</fullName>
+        <default>false</default>
+        <label>Return to Panama parts depot</label>
+    </customValue>
+    <customValue>
+        <fullName>Return to Chile parts depot</fullName>
+        <default>false</default>
+        <label>Return to Chile parts depot</label>
+    </customValue>
+    <description>Locations for equipment returned through the Core Returns program</description>
+    <masterLabel>NATT Core Return Location</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

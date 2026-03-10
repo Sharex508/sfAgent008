@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Unit</fullName>
+        <default>false</default>
+        <label>Unit</label>
+    </customValue>
+    <customValue>
+        <fullName>Standard Options</fullName>
+        <default>false</default>
+        <label>Standard Options</label>
+    </customValue>
+    <customValue>
+        <fullName>Non-Standard Options</fullName>
+        <default>false</default>
+        <label>Non-Standard Options</label>
+    </customValue>
+    <customValue>
+        <fullName>Special Options</fullName>
+        <default>false</default>
+        <label>Special Options</label>
+    </customValue>
+    <customValue>
+        <fullName>BluEdge</fullName>
+        <default>false</default>
+        <label>BluEdge</label>
+    </customValue>
+    <customValue>
+        <fullName>Related Options</fullName>
+        <default>false</default>
+        <label>Related Options</label>
+    </customValue>
+    <description>for grouping on the quote template for NATT</description>
+    <masterLabel>NATT Quote Template Section</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,5 @@
+New Case has been Assigned
+
+Case Number {!Case.CaseNumber} 
+Case Description {!Case.Description}
+Case Detail: {!Case.Link}

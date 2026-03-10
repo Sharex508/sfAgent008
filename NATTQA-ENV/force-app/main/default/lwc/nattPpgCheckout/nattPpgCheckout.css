@@ -1,0 +1,8 @@
+.slds-form-element__help.error-message {
+    color: red;
+    margin-left: 28rem;
+}
+
+.slds-has-error .slds-form-element__control {
+    border-color: red;
+}

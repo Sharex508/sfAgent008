@@ -1,0 +1,142 @@
+{
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "180fccf0-3a41-4e7b-b5d0-0fad916a1e90",
+  "label" : "Account Information",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "4b4a35c6-5d98-47e4-a51c-a0fd0196400a",
+          "columns" : [ {
+            "UUID" : "302bb3c7-972a-4955-bcff-079e21031973",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "4b4a35c6-5d98-47e4-a51c-a0fd0196400a",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "tabsetConfig" : {
+              "UUID" : "56de70d0-c5ce-4684-b774-01a7e5dea7ab",
+              "activeTab" : "",
+              "tabs" : [ {
+                "UUID" : "4e2debe0-b8b1-4c14-bf7f-b69ca0bbad6a",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "1",
+                "tabName" : "Account Details"
+              }, {
+                "UUID" : "87a76fb3-022a-4d05-a4e8-8459634e908b",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "2",
+                "tabName" : "Addresses"
+              }, {
+                "UUID" : "8d316232-e8b8-49e4-a777-441c41be62d8",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "3",
+                "tabName" : "Carts"
+              } ],
+              "useOverflowMenu" : false
+            }
+          },
+          "componentName" : "forceCommunity:tabset",
+          "id" : "56de70d0-c5ce-4684-b774-01a7e5dea7ab",
+          "regions" : [ {
+            "components" : [ {
+              "componentAttributes" : {
+                "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+              },
+              "componentName" : "c:natt_accountinformation_address",
+              "id" : "cef5ac53-0446-413a-a32b-eafc76786972",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "4e2debe0-b8b1-4c14-bf7f-b69ca0bbad6a",
+            "regionLabel" : "Account Details",
+            "regionName" : "1",
+            "renditionMap" : { },
+            "type" : "region"
+          }, {
+            "components" : [ {
+              "componentAttributes" : {
+                "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+              },
+              "componentName" : "c:NATT_AccountInformationAddresses",
+              "id" : "c427e291-9a31-42ea-a432-3cde4ccd070a",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "87a76fb3-022a-4d05-a4e8-8459634e908b",
+            "regionLabel" : "Addresses",
+            "regionName" : "2",
+            "renditionMap" : { },
+            "type" : "region"
+          }, {
+            "components" : [ {
+              "componentAttributes" : {
+                "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+              },
+              "componentName" : "c:natt_AccountInformationCartPage",
+              "id" : "ff9a8383-fa6e-40ba-8db6-0d22bba3912a",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "8d316232-e8b8-49e4-a777-441c41be62d8",
+            "regionLabel" : "Carts",
+            "regionName" : "3",
+            "renditionMap" : { },
+            "type" : "region"
+          } ],
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "302bb3c7-972a-4955-bcff-079e21031973",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2e06ee70-5fdd-4272-95d7-a1ed3ec5ef44",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Account Information"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ce0d9d4a-3621-4b9c-be90-e557537a0846",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1f8dba75-f169-4b69-8b5b-db5ebcbbfe54",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-account-information"
+}

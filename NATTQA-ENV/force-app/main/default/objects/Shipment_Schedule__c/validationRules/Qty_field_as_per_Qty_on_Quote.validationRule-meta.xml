@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qty_field_as_per_Qty_on_Quote</fullName>
+    <active>true</active>
+    <description>Qty shall not exceed the Qty entered on associated Quote</description>
+    <errorConditionFormula>CONTAINER_Qty__c &gt; CONTAINER_Quote_Number__r.CONTAINER_Qty__c</errorConditionFormula>
+    <errorMessage>Qty can not be greater than Qty mentioned in Quote</errorMessage>
+</ValidationRule>

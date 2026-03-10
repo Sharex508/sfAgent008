@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Level__c</fullName>
+    <description>Container Level</description>
+    <label>Level</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CONTAINER_Service_Location_Type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>L1</fullName>
+                <default>false</default>
+                <label>L1</label>
+            </value>
+            <value>
+                <fullName>L2</fullName>
+                <default>false</default>
+                <label>L2</label>
+            </value>
+            <value>
+                <fullName>L3</fullName>
+                <default>false</default>
+                <label>L3</label>
+            </value>
+            <value>
+                <fullName>Genset</fullName>
+                <default>false</default>
+                <label>Genset</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Premium Service Center</controllingFieldValue>
+            <valueName>L1</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Advanced Service Center</controllingFieldValue>
+            <valueName>L2</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service Center</controllingFieldValue>
+            <valueName>L3</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Genset</controllingFieldValue>
+            <valueName>Genset</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

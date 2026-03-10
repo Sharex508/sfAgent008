@@ -1,0 +1,114 @@
+<template>
+    <template if:true={showData}>
+        <h1 class="slds-p-top_large" style="font-size: 1.8em;">My Orders</h1>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_3-of-4">
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+                <lightning-input name="enter-search" label="Search" type="search" variant="label-hidden"
+                    onchange={handleSearch}>
+                </lightning-input>
+            </div>
+        </div>
+        <div class="slds-p-bottom_medium"></div>
+        <c-nac_-custom-datatable key-field="id" columns={columns} data={displayData}
+            default-sort-direction={defaultSortDirection} sorted-direction={sortDirection} sorted-by={sortedBy}
+            onsort={onHandleSort} onbuttonclick={handleButtonClick} ontextclick={handleTextClick} hide-checkbox-column>
+        </c-nac_-custom-datatable>
+        <div class="slds-p-bottom_medium"></div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+                <template if:true={showPageSize}>
+                    <ul class="slds-list_horizontal slds-has-inline-block-links_space">
+                        <li>
+                            <h4 class="slds-p-right_small">Results Showing</h4>
+                        </li>
+                        <template for:each={pageSizeOptions} for:item="option">
+                            <li key={option.value}>
+                                <template if:true={option.selected}>
+                                    <h4 class="slds-p-right_small">{option.value}</h4>
+                                </template>
+                                <template if:false={option.selected}>
+                                    <span class="slds-p-right_small pointer" data-value={option.value}
+                                        onclick={handleChangePageSize}>{option.value}
+                                    </span>
+                                </template>
+                            </li>
+                        </template>
+                    </ul>
+                </template>
+            </div>
+            <div class="slds-col slds-size_1-of-2 slds-float_right">
+                <template if:true={showPagination}>
+                    <div class="pagination slds-float_right">
+                        <div data-id="jumpToLeft" onclick={handleFirstPage}>
+                            <lightning-icon icon-name="utility:jump_to_left" size="x-small"></lightning-icon>
+                        </div>
+                        <div data-id="chevronLeft" onclick={handlePrevious}>
+                            <lightning-icon icon-name="utility:chevronleft" size="xx-small"></lightning-icon>
+                        </div>
+                        <template for:each={pageNumberOptions} for:item="option">
+                            <template if:true={option.selected}>
+                                <div class="active" key={option.value}>{option.value}</div>
+                            </template>
+                            <template if:false={option.selected}>
+                                <div key={option.value} onclick={handlePageNumberClick} data-value={option.value}>
+                                    {option.value}</div>
+                            </template>
+                        </template>
+                        <div data-id="chevronRight" onclick={handleNext}>
+                            <lightning-icon icon-name="utility:chevronright" size="xx-small"></lightning-icon>
+                        </div>
+                        <div data-id="jumpToRight" onclick={handleLastPage}>
+                            <lightning-icon icon-name="utility:jump_to_right" size="x-small"></lightning-icon>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div class="slds-p-bottom_medium"></div>
+    </template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <template if:true={showWarehouseModal}>
+        <c-nac_ware-house-modal oncalltoaction={handleWarehouseSelection}
+            oncalltoclose={handleWarehouseSelectionModelClose} effective-account-id={resolvedEffectiveAccountId}></c-nac_ware-house-modal>
+    </template>
+    <template if:true={openDisclaimerModal}>
+        <section class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container ">
+                <div class="slds-modal__content slds-p-around_medium">
+                    These items are not orderable for {selectedWareHouseName} warehouse, and they are not added to the cart:
+                    </br>
+                    <div class="slds-p-bottom_medium"></div>
+                    <table class="slds-table ">
+                        <thead>
+                            <tr class="slds-text-title_caps">
+                                <th scope="col">
+                                    <div title="Key">Product Code</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={notOrderableProductCode} for:item="productCode">
+                                <tr key={productCode}>
+                                    <th scope="col">
+                                        <div title={productCode}>{productCode}</div>
+                                    </th>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                    <div class="slds-p-bottom_xx-large"></div>
+                    <div class="slds-grid slds-gutters slds-align_absolute-center">
+                        <lightning-button variant="brand" label='Ok' title='Ok' onclick={handleCloseDisclaimerModal}
+                            class="slds-m-left_x-small">
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>375000101</fullName>
+        <default>false</default>
+        <label>375000101</label>
+    </customValue>
+    <customValue>
+        <fullName>375000102</fullName>
+        <default>false</default>
+        <label>375000102</label>
+    </customValue>
+    <customValue>
+        <fullName>375000103</fullName>
+        <default>false</default>
+        <label>375000103</label>
+    </customValue>
+    <customValue>
+        <fullName>375000104</fullName>
+        <default>false</default>
+        <label>375000104</label>
+    </customValue>
+    <customValue>
+        <fullName>375000105</fullName>
+        <default>false</default>
+        <label>375000105</label>
+    </customValue>
+    <customValue>
+        <fullName>375000106</fullName>
+        <default>false</default>
+        <label>375000106</label>
+    </customValue>
+    <customValue>
+        <fullName>375000100</fullName>
+        <default>false</default>
+        <label>375000100</label>
+    </customValue>
+    <masterLabel>Business Unit (MCU)</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

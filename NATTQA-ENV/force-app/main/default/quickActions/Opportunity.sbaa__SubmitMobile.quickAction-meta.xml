@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Mobile Submit</description>
+    <height>250</height>
+    <icon>sbaa__SubmitMobile</icon>
+    <label>Submit for Approval</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>sbaa__SubmitOpportunity</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

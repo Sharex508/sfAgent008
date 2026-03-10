@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body style="height: auto; min-height: auto;">Hi&nbsp;{{{SBQQ__Quote__c.CONTAINER_Contact_Name__c}}}<br />
+<br />
+This is Test Email template For Quote Object.<br />
+<br />
+<span style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif">Quote ID:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Quote_ID__c}}}<br />
+<br />
+Customer:{{{SBQQ__Quote__c.SBQQ__Account__c}}}<br />
+<br />
+Bill To Customer:{{{SBQQ__Quote__c.CONTAINER_Contact_Name__c}}}<br />
+<br />
+Quantity:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Quantity__c}}}<br />
+<br />
+Model: </span></span>{{{SBQQ__Quote__c.CONTAINER_Model_Number__c}}}<br />
+<br />
+<span style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif">PID:&nbsp;{{{SBQQ__Quote__c.CONTAINER_PID__c}}}<br />
+<br />
+Qty </span></span>:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Qty__c}}}<br />
+<br />
+<span style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif">Week of </span></span>:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Week_Of__c}}}<br />
+<br />
+<span style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif">Factory&nbsp; </span></span>:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Factory__c}}}<br />
+<br />
+<font face="Calibri, sans-serif"><span style="font-size: 14.6667px;">Total:&nbsp;{{{SBQQ__Quote__c.NATT_Total_EMCC_Amount__c}}}</span></font><br />
+<br />
+<span style="font-size:11.0pt"><span style="font-family:&quot;Calibri&quot;,sans-serif">Competitor 1(Winning Competitor):&nbsp;{{{SBQQ__Quote__c.CONTAINER_Competitor_Name__c}}}<br />
+<br />
+Box Manufacturer:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Box_Manufacturer__c}}}<br />
+<br />
+Order Date: {{{SBQQ__Quote__c.CONTAINER_Order_Date__c}}}<br />
+<br />
+Options:&nbsp;{{{SBQQ__Quote__c.NATT_Competitor_Model_Options__c}}}<br />
+<br />
+Estimated Ship Date:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Estimated_ship_date__c}}}<br />
+<br />
+Net Sales Price:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Net_Sales_Price__c}}}<br />
+<br />
+Contract Price:&nbsp;{{{SBQQ__Quote__c.CONTAINER_Cost_Contract_Price__c}}}<br />
+<br />
+Concessions (comments):&nbsp;{{{SBQQ__Quote__c.CONTAINER_Concessions_Comments__c}}}<br />
+<br />
+Reason for "Lost":&nbsp;{{{SBQQ__Quote__c.CONTAINER_Reason_for_won_or_lost__c}}}</span></span><br />
+<br />
+Thank You<br />
+<br />
+Sender<br />
+<br />
+&nbsp;
+</body></html>

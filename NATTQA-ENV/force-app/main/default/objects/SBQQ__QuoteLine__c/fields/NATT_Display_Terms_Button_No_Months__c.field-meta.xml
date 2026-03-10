@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Display_Terms_Button_No_Months__c</fullName>
+    <description>used to conditionally show custom action button for cpq and used in flow decisions</description>
+    <formula>OR(
+ISPICKVAL(NATT_BluEdge_Price_Type__c,&quot;Major Component&quot;) &amp;&amp; ISBLANK(TEXT(NATT_Major_Component_Months__c)),
+ISPICKVAL(NATT_BluEdge_Price_Type__c,&quot;Optional Coverage&quot;) &amp;&amp; ISBLANK(TEXT(NATT_Optional_Coverage_Months__c)),
+ISPICKVAL(NATT_BluEdge_Price_Type__c,&quot;Extended Basic&quot;) &amp;&amp; ISBLANK(TEXT(NATT_Extended_Basic_Months__c))
+)</formula>
+    <label>Display Terms Button (No Months)</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

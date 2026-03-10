@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>used with validation rule to prevent users from editing the direct sale and internal account name if they are not dealer master user or account super user</description>
+    <isLicensed>false</isLicensed>
+    <label>NATT Bypass Direct Sale Account Name</label>
+</CustomPermission>

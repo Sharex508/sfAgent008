@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Case_Creation_Email__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This allows user or case owner to send email notification when a case is created and the case creation email is selected</description>
+    <label>Case Creation Email</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Audit_Service_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Read/ Write Access for service Users</description>
+        <label>CONTAINER Audit Service Access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Audit_sales_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Read access for Sales Users</description>
+        <label>CONTAINER Audit sales Access</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Sales</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CreatedById</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

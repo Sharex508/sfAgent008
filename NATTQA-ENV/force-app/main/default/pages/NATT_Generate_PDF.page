@@ -1,0 +1,111 @@
+<apex:page renderAs="PDF" controller="UnitInformationCallout" action="{!GeneratePdf}">
+    <head>
+        <style type="text/css" media="print" >
+            @page {
+            size: 8.5in 13in; 
+            margin-bottom: 20%;
+            margin-right: 5%;   
+            margin-left: 5%; 
+            margin-top: 10%;                                                                                          
+            }   
+            
+            .page-break {
+            display:block;
+            page-break-after:always;
+            
+            }
+            
+            span{               
+            font-weight: bold;
+            font-family: Arial Unicode MS;
+            }
+        </style>
+        <div class="header" style="text-align: right;">
+            <right><img src="{!$Resource.CarrierTransicoldLogo}" style="height:60px;width:100px;"/></right>
+        </div>
+    </head>
+    <apex:form >
+        <apex:pageBlock title="Unit Information">
+            <table style="width:100%">
+                <tr>
+                    <td>Serial Number <br/> {!serialNum}</td>                   
+                    <td>VIN Number <br/> {!vinNum}</td>
+                </tr>
+                <tr>
+                    <td>Model  <br/> {!modalNum}</td>
+                    <td>Install Date<br/> <apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!installDate}" /> </apex:outputText></td>
+                </tr>
+                <tr>
+                    <td>Container/Trailer Number <br/> {!contNum}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>OwnerName <br/> {!OwnerName}</td>
+                    <td></td>
+                </tr>
+            </table>
+        </apex:pageBlock>
+        <apex:pageBlock title="Field Action">
+            <apex:pageBlockTable border="1" value="{!fieldActionList}" var="r" rendered="{!fieldActionList != null}">
+                <apex:column headerValue="Service Field Action" value="{!r.serviceFieldAction}" style="width:25%"/>
+                <apex:column headerValue="Status" value="{!r.status}" style="width:15%"/>
+                <apex:column headerValue="Field Action Description" value="{!r.fieldActionDescription}" style="width:30%"/>
+                <apex:column headerValue="Field Action Status" value="{!r.fieldActionStatus}" style="width:30%"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Warranty Coverages">
+            <apex:pageBlockTable border="1" value="{!warrantyList}" var="r" rendered="{!warrantyList != null}">
+                <apex:column headerValue="Description" value="{!r.description}" style="width:35%"/>
+                <apex:column headerValue="Months" value="{!r.months}" style="width:10%"/>
+                <apex:column headerValue="Usage" style="width:15%">
+                    <apex:outputText value="{0, Number, ###,###}">
+                        <apex:param value="{!r.usage}" />
+                    </apex:outputText>
+                </apex:column>
+                <apex:column headerValue="Warranty End Date" style="width:20%">
+                    <apex:outputText value="{0, date, MM/dd/yyyy}">
+                        <apex:param value="{!r.warrantyEndDate}" />
+                    </apex:outputText>
+                </apex:column>                
+                <apex:column headerValue="Deductibles" style="width:20%">
+            <apex:outputPanel rendered="{!NOT(ISBLANK(r.deductibles))}">
+                <apex:outputText value="${0,Number,###,###,##0.00}">
+                    <apex:param value="{!r.deductibles}" />
+                </apex:outputText>
+            </apex:outputPanel>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Upcoming/Completed Schedules">
+            <apex:pageBlockTable style="width:100%" border="1" value="{!upcomingSchList}" var="r" rendered="{!upcomingSchList != null}">
+                <apex:column headerValue="Contract Maintenance" value="{!r.contractMaintenance}" style="width:25%"/>
+                <apex:column headerValue="Claim" value="{!r.claim}" style="width:25%"/>
+                <apex:column headerValue="Inventory Name" value="{!r.inventoryName}" style="width:25%"/>
+                <apex:column headerValue="Status" value="{!r.status}" style="width:25%"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Major Components">
+            <apex:pageBlockTable border="1" value="{!majorCompList}" var="r" rendered="{!majorCompList != null}">
+                <apex:column headerValue="Part Description" value="{!r.partDescription}" style="width:35%"/>
+                <apex:column headerValue="Model/Part Information" value="{!r.modelPartInformation}" style="width:35%"/>
+                <apex:column headerValue="Serial Number" value="{!r.serialNumber}" style="width:30%"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock title="Claim">
+            <apex:pageBlockTable style="width:100%" border="1" value="{!claimList}" var="r" rendered="{!claimList != null}">
+                <apex:column headerValue="Claim Number" value="{!r.claimNumber}" style="width:20%"/>
+                <apex:column headerValue="Date of Failure" style="width:20%">
+                    <apex:outputText value="{0, date, MM/dd/yyyy}">
+                        <apex:param value="{!r.dateOfFailure}" />
+                    </apex:outputText>
+                </apex:column>  
+                <apex:column headerValue="Casual Part Description" value="{!r.casualPartDescription}" style="width:45%"/>
+                <apex:column headerValue="Claim Type" value="{!r.claimType}" style="width:15%"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

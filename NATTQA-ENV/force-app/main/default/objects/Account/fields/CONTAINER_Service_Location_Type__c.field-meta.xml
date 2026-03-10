@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Service_Location_Type__c</fullName>
+    <description>CONTAINER Authorized Service Provider classification</description>
+    <label>Service Location Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Premium Service Center</fullName>
+                <default>false</default>
+                <label>Premium Service Center</label>
+            </value>
+            <value>
+                <fullName>Advanced Service Center</fullName>
+                <default>false</default>
+                <label>Advanced Service Center</label>
+            </value>
+            <value>
+                <fullName>Service Center</fullName>
+                <default>false</default>
+                <label>Service Center</label>
+            </value>
+            <value>
+                <fullName>Genset</fullName>
+                <default>false</default>
+                <label>Genset</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

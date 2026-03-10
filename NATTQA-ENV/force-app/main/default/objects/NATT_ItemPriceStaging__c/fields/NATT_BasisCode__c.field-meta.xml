@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_BasisCode__c</fullName>
+    <description>Code that identifies the basis of the value in the List Price field. 3 represents Standard Cost, 5 represents Standard List Price. 
+
+0    % of New Base Price
+1    % of Base Price
+2    % of Current Net Price
+3    % of Cost
+4    Cost Plus Amount
+5    Add on Amount
+6    Add on Variable Amount
+7    Add on Formula Amount
+8    Add on User Program Amount
+9    Gross Profit Margin</description>
+    <externalId>false</externalId>
+    <label>Basis Code</label>
+    <precision>2</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

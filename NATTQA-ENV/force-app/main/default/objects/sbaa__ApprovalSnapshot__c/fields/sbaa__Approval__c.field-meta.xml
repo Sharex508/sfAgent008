@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Approval__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Related Approval for the stored Snapshot</description>
+    <inlineHelpText>Related Approval for the stored Snapshot</inlineHelpText>
+    <label>Approval</label>
+    <referenceTo>sbaa__Approval__c</referenceTo>
+    <relationshipLabel>Approval Snapshots</relationshipLabel>
+    <relationshipName>ApprovalSnapshot</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

@@ -1,0 +1,173 @@
+<aura:component controller="NattAddressSelectionCon" implements="force:hasRecordId,forceCommunity:availableForAllPageTypes,flexipage:availableforallpagetypes">
+    <aura:attribute name="selectedAddressId" type="String"/>
+    <aura:attribute name="endCustomerId" type="String"/>
+    <aura:attribute name="dealerId" type="String"/>    
+    <aura:attribute name="addressType" type="String" default="Shipping"/>
+    <aura:attribute name="wrap" type="Object"/>    
+    <aura:handler name="change" value="{!v.dealerId}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.endCustomerId}" action="{!c.doInit}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--DEALER-->
+    <aura:if isTrue="{!v.dealerId}">
+        <div class="slds-grid slds-wrap wrapper">
+            <aura:if isTrue="{!not(empty(v.wrap.dealerAddressList))}">
+                <div class="slds-media">
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="{!v.addressType + 'Address Selection'}">{!v.addressType} Address Selection</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <h3 class="slds-section-title--divider">{!v.wrap.dealerName}</h3>
+                <div class="slds-col slds-size_1-of-1">
+                    <div class="slds-grid slds-grid_vertical">
+                        <div class="slds-col">
+                            <aura:iteration items="{! v.wrap.dealerAddressList}" var="item">
+                                <input type="radio" id="{!v.addressType +'address'}" name="{!v.addressType +'address'}" value="{!item.value}" onchange="{!c.onRadioChange}" checked="{!item.value==v.selectedAddressId}"></input>
+                                <label for="{!v.addressType +'address'}" class="slds-p-left_x-small"><aura:unescapedHtml value="{!item.label}" /></label>
+                                <div class="slds-p-bottom_small"></div>
+                            </aura:iteration>                
+                        </div>                
+                    </div>
+                </div>
+                <!--CTM Units Dealer-->
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!not(empty(v.wrap.dealerAddressListCTM))}">                        
+                        <div class="slds-col slds-size_1-of-1">
+                            <div class="slds-grid slds-grid_vertical">
+                                <div class="slds-col">
+                                    <aura:iteration items="{! v.wrap.dealerAddressListCTM}" var="item">
+                                        <input type="radio" id="{!v.addressType +'address'}" name="{!v.addressType +'address'}" value="{!item.value}" onchange="{!c.onRadioChange}" checked="{!item.value==v.selectedAddressId}"></input>
+                                        <label for="{!v.addressType +'address'}" class="slds-p-left_x-small"><aura:unescapedHtml value="{!item.label}" /></label>
+                                        <div class="slds-p-bottom_small"></div>
+                                    </aura:iteration>                
+                                </div>                
+                            </div>
+                        </div>
+                    </aura:if>
+                    <!--CTBR Units Dealer-->
+                    <aura:if isTrue="{!not(empty(v.wrap.dealerAddressListCTBR))}">
+                        <div class="slds-media">
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" title="{!v.addressType + 'Address Selection'}">{!v.addressType} Endereço</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h3 class="slds-section-title--divider">{!v.wrap.dealerName}</h3>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_1-of-1">
+                            <div class="slds-grid slds-grid_vertical">
+                                <div class="slds-col">
+                                    <aura:iteration items="{! v.wrap.dealerAddressListCTBR}" var="item">
+                                        <input type="radio" id="{!v.addressType +'address'}" name="{!v.addressType +'address'}" value="{!item.value}" onchange="{!c.onRadioChange}" checked="{!item.value==v.selectedAddressId}"></input>
+                                        <label for="{!v.addressType +'address'}" class="slds-p-left_x-small"><aura:unescapedHtml value="{!item.label}" /></label>
+                                        <div class="slds-p-bottom_small"></div>
+                                    </aura:iteration>                
+                                </div>                
+                            </div>
+                        </div>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.dealerId}">
+                    <div class="slds-p-top_xxx-small" style="page-break-before: always;">
+                        No {!v.addressType} Addresses
+                    </div>
+                </aura:if>
+            </aura:set>
+        </div>
+    </aura:if>
+    <!--END CUSTOMER-->
+    <aura:if isTrue="{!and(v.endCustomerId, v.addressType!='Billing')}">
+        <div class="slds-grid slds-wrap wrapper">
+            <aura:if isTrue="{!not(empty(v.wrap.endCustomerAddressList))}">
+                <div class="slds-media">
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="{!v.addressType + 'Address Selection'}">{!v.addressType} Address Selection</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <h3 class="slds-section-title__divider">{!v.wrap.endCustomerName}</h3>
+                <div class="slds-col slds-size_1-of-1">
+                    <div class="slds-grid slds-grid_vertical">
+                        <div class="slds-col">
+                            <aura:iteration items="{! v.wrap.endCustomerAddressList }" var="item">
+                                <input type="radio" id="{!v.addressType +'address'}" name="{!v.addressType +'address'}" value="{!item.value}" onchange="{!c.onRadioChange}" checked="{!item.value==v.selectedAddressId}"></input>
+                                <label for="{!v.addressType +'address'}" class="slds-p-left_x-small"><aura:unescapedHtml value="{!item.label}" /></label>
+                                <div class="slds-p-bottom_small"></div>
+                            </aura:iteration>
+                        </div>                
+                    </div>
+                </div>       
+                <!--CTBR Units-->
+                <aura:set attribute="else">
+                    <aura:if isTrue="{!not(empty(v.wrap.endCustomerAddressListCTBR))}">
+                        <h3 class="slds-section-title--divider">{!v.wrap.endCustomerName}</h3>
+                        <div class="slds-col slds-size_1-of-1">
+                            <div class="slds-grid slds-grid_vertical">
+                                <div class="slds-col">
+                                    <aura:iteration items="{! v.wrap.endCustomerAddressListCTBR}" var="item">
+                                        <input type="radio" id="{!v.addressType +'address'}" name="{!v.addressType +'address'}" value="{!item.value}" onchange="{!c.onRadioChange}" checked="{!item.value==v.selectedAddressId}"></input>
+                                        <label for="{!v.addressType +'address'}" class="slds-p-left_x-small"><aura:unescapedHtml value="{!item.label}" /></label>
+                                        <div class="slds-p-bottom_small"></div>
+                                    </aura:iteration>
+                                </div>                
+                            </div>
+                        </div>
+                    </aura:if>
+                </aura:set>
+            </aura:if>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.endCustomerId}">
+                    <div class="slds-p-top_xxx-small" style="page-break-before: always;">
+                        No {!v.addressType} Addresses
+                    </div>
+                </aura:if>
+            </aura:set>
+        </div>        
+    </aura:if>
+    <!--END CUSTOMER-->
+    <aura:if isTrue="{!and(v.endCustomerId, v.addressType=='Billing')}">
+        <div class="slds-grid slds-wrap wrapper">
+            <aura:if isTrue="{!not(empty(v.wrap.endCustomerAddressListCTBR))}">
+                <h3 class="slds-section-title--divider">{!v.wrap.endCustomerName}</h3>
+                <div class="slds-col slds-size_1-of-1">
+                    <div class="slds-grid slds-grid_vertical">
+                        <div class="slds-col">
+                            <aura:iteration items="{! v.wrap.endCustomerAddressListCTBR}" var="item">
+                                <input type="radio" id="{!v.addressType +'address'}" name="{!v.addressType +'address'}" value="{!item.value}" onchange="{!c.onRadioChange}" checked="{!item.value==v.selectedAddressId}"></input>
+                                <label for="{!v.addressType +'address'}" class="slds-p-left_x-small"><aura:unescapedHtml value="{!item.label}" /></label>
+                                <div class="slds-p-bottom_small"></div>
+                            </aura:iteration>
+                        </div>                
+                    </div>
+                </div>  
+            </aura:if>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.endCustomerId}">
+                    <div class="slds-p-top_xxx-small" style="page-break-before: always;">
+                        No "{!v.addressType}" Addresses
+                    </div>
+                </aura:if>
+            </aura:set>
+        </div>        
+    </aura:if>
+</aura:component>

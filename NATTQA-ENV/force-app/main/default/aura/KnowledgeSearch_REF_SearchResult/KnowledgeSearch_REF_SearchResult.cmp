@@ -1,0 +1,39 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="KnowledgeSearch_REFController">
+    <aura:attribute type="Knowledge__kav[]" name="knowledgeList"/>
+    <aura:attribute name="articlecolumns" type="List"/>
+    <aura:attribute name="title" type="string" default="Search Results (0)"/>
+    <aura:attribute name="recordCount" type="Integer" default='0'/>
+    <aura:attribute name="sortBy" type="String"/>
+    <aura:attribute name="sortDirection" type="String"/>
+    <aura:attribute name="spinnerEnabled" type="boolean" default="false"/>
+    <aura:attribute name="communityInterface" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.fetchArticles}"/>
+    <aura:handler event="c:KnowledgeSearch_REF_AppEvent" action="{!c.getArticles}"/>
+    <aura:handler event="c:KnowledgeSearch_REF_SpinerEvent" action="{!c.spinnerEvt}"/>
+    
+    
+    <div style="height:580px;background-color:#F0F0F0" class ="slds-card__body">
+        <lightning:card title="{!v.title}" iconName="custom:custom57">
+            <aura:if isTrue="{!v.spinnerEnabled}">
+                <lightning:spinner alternativeText="Loading" size="small"/>
+            </aura:if>
+            <div class="slds-scrollable_y" style="height:34rem">
+                <lightning:datatable data="{!v.knowledgeList}"
+                                     columns="{! v.articlecolumns }"
+                                     keyField="id"
+                                     hideCheckboxColumn="true"
+                                     sortedBy="{!v.sortBy}"
+                                     sortedDirection="{!v.sortDirectiosn}"
+                                     onsort="{!c.handleSort}"/>
+            </div>
+            <aura:if isTrue="{!v.recordCount == 0}">
+                <div class="heightjustable">
+                    <lightning:icon iconName="utility:warning" class="slds-icon-utility-warning slds-icon_container slds-align_absolute-center"/>
+                    <div class="slds-text-body_regular slds-align_absolute-center">No Records Found</div>
+                </div>
+                
+            </aura:if>
+        </lightning:card>
+    </div>
+</aura:component>

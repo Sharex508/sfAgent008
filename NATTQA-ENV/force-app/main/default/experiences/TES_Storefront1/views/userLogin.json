@@ -1,0 +1,82 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsTwoCol66Layout",
+  "dataProviders" : [ ],
+  "id" : "84074b94-191b-4496-a7ff-ad01cc192dc5",
+  "label" : "User Login",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "bannerText" : "",
+        "bannerTextWithKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineArticles\">articles</a> and <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "bannerTextWithoutKnowledge" : "Explore other <a href=\"javascript:void(0)\" class=\"headlineDiscussions\">discussions</a> on this topic.",
+        "pageType" : "",
+        "showSubTopics" : false,
+        "title" : "Login or Create an Account",
+        "uniqueNameOrId" : ""
+      },
+      "componentName" : "forceCommunity:headline",
+      "id" : "9635638d-d46a-4027-a02d-c6cfce6db9f3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8de14148-999e-40a0-be89-4d68ff91a9c9",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_LoginNewCustomer",
+      "id" : "6c71275d-ccb8-40a8-8123-f87a29c70bd9",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "86cc49d7-18b2-4075-ae7b-e3cb8474c771",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_LoginExistingCustomer",
+      "id" : "c560a7ae-f28f-4d53-80dc-1b1d959ec3e1",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "52d99144-a34a-40b9-ac80-643b6a94bed9",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_tesStoreFooter",
+      "id" : "1ef20bd5-4ae3-4ffc-a98c-28e51c6f99b8",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "0de02965-e029-4839-9801-b3e38621c72e",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "User Login"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "aed595b5-4dd1-403a-b93c-8f7fb6336bf2",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e0afe5d7-d3ff-4f18-a935-bbbac9d3a257",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-user-login"
+}

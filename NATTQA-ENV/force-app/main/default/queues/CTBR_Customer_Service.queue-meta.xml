@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>franciele.assumpcao1@carrier.com</email>
+    <name>CTBR Logistica</name>
+    <queueMembers>
+        <users>
+            <user>darlan.rohr@corelog.com.br</user>
+            <user>denise.furtado@corelog.com.br</user>
+            <user>franciele.assumpcao1@carrier.com</user>
+            <user>leonardo.rotava@corelog.com.br</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

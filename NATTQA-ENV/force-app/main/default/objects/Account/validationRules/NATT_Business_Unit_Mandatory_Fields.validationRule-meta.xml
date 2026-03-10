@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Business_Unit_Mandatory_Fields</fullName>
+    <active>true</active>
+    <description>Business Unit field is mandatory.</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(NATT_Organization__c,&quot;&quot;),
+NOT(CONTAINS(RecordType.DeveloperName, &apos;CONTAINER&apos;)),
+NOT(CONTAINS(RecordType.DeveloperName, &apos;NAOCAP_Customer&apos;)),
+NOT( $Permission.NATT_Bypass_Validation_Rule)
+)</errorConditionFormula>
+    <errorDisplayField>NATT_Organization__c</errorDisplayField>
+    <errorMessage>Business Unit field is mandatory.</errorMessage>
+</ValidationRule>

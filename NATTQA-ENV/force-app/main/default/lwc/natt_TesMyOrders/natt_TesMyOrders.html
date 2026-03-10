@@ -1,0 +1,94 @@
+<template>
+    <div class="section slds-section slds-is-open">
+        <h3 class="section slds-section__title slds-theme_shade">
+          <span class="slds-text-heading_medium slds-p-bottom_medium" title="Section Title">My Orders</span>
+        </h3>
+    </div>
+<!-- 
+    <lightning-datatable
+    class="datatable"
+    data={myOrderList} 
+    columns={columns} 
+    key-field="Id"
+    onsort={handleSort}
+    sorted-by={sortedField}
+    sorted-direction={sortedDirection}
+    onrowaction={callRowAction}
+    hide-checkbox-column="true" >
+</lightning-datatable>
+</br> -->
+  <template if:false={existingOrders}>
+    <div class="slds-m-around_medium">
+      <lightning-layout horizontal-align="space">
+        You have not placed any orders. Return to this screen after placing an order.
+      </lightning-layout>
+    </div>
+  </template>
+
+  <template if:true={existingOrders}>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_bottom">
+      <thead>
+        <tr class="slds-line-height_reset">
+          <th class="tbody slds-size_1-of-12 slds-theme_lightshade" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title="Order Number">Order Number</div>
+          </th>
+          <th class="tbody slds-size_2-of-12 slds-theme_lightshade" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title="Order Date">Order Date</div>
+          </th>
+          <th class="tbody slds-size_1-of-12 slds-theme_lightshade" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title="Number of Products">Number of Products</div>
+          </th>
+          <th class="tbody slds-size_1-of-12 slds-theme_lightshade" scope="col">
+            <div class="slds-truncate slds-align_absolute-center" title="Order Total">Order Total</div>
+          </th>
+
+        </tr>
+      </thead>
+      <tbody >
+        <template for:each={myOrderList} for:item="lines">    
+          <tr key={lines.Id}>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center">
+                <lightning-button class="button" variant="base" label={lines.OrderNumber} title="Invoice Number" onclick={callRowAction} value={lines.Id}></lightning-button>
+              </div>
+              </td>
+            <td class="slds-cell-wrap">
+              <lightning-formatted-date-time class="slds-truncate slds-align_absolute-center" value={lines.EffectiveDate}></lightning-formatted-date-time>
+            </td>
+            <td>
+              <div class="slds-truncate slds-align_absolute-center" title={lines.NATT_Number_of_Order_Products__c}>{lines.NATT_Number_of_Order_Products__c}</div>
+            </td>
+            <td>
+              <lightning-formatted-number class="slds-truncate slds-align_absolute-center" maximum-fraction-digits="2" format-style="currency" value={lines.GrandTotalAmount}>${lines.GrandTotalAmount}</lightning-formatted-number>
+            </td>
+
+          </tr>          
+        </template>        
+      </tbody>    
+    </table>  
+    </br>
+    <!-- Navigation buttons -->
+    <lightning-layout horizontal-align="space">
+      <lightning-layout-item flexibility="auto">
+        <lightning-button label="First" icon-name="utility:jump_to_left" onclick={handleFirst} disabled={disableFirstButton}>
+            </lightning-button>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto">
+          <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler} disabled={disablePreviousButton}>
+          </lightning-button>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto">
+        Page {page} of {totalPage}
+      </lightning-layout-item>
+
+      <lightning-layout-item flexibility="auto">
+          <lightning-button label="Next" icon-name="utility:chevronright" icon-position="right"
+              onclick={nextHandler} disabled={disableNextButton}></lightning-button>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto">
+        <lightning-button label="Last" icon-name="utility:jump_to_right" icon-position="right"
+            onclick={handleLast} disabled={disableLastButton}></lightning-button>
+      </lightning-layout-item>
+    </lightning-layout>
+  </template>
+</template>

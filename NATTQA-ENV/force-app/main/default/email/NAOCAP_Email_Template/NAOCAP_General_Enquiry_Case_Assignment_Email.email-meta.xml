@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NAOCAP General Enquiry Case Assignment Email</name>
+    <style>none</style>
+    <subject>A new aftermarket part case has been raised</subject>
+    <textOnly>A new aftermarket part case has been raised
+
+A new aftermarket part case has been submited by {!Case.CreatedBy} with the following details:
+
+Case Number  {!Case.CaseNumber}
+Case Reason  {!Case.NATT_Case_Reason__c}
+Type  {!Case.Type}
+Subject  {!Case.Subject}
+
+The case line items associated with the case can be viewed here: {!Case.Link}
+
+If you have any questions, do not hesitate to contact us.
+
+
+If you have any questions or want to opt-out of this email, please email CAPNAOIssues@carrier.com
+
+
+
+Thanks &amp; Regards, Container Aftermarket Parts Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

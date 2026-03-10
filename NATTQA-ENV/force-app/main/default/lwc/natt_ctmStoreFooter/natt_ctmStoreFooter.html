@@ -1,0 +1,34 @@
+<!--
+    previous css
+    .natt_footer {
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+@media only screen and (max-height: 820px) {
+    .footer {
+       position: inherit;
+       bottom: 0;
+       width: 100%;
+   }
+}
+-->
+<template>
+    <div class="slds-docked-form-footer slds-p-around_small">
+        <p>
+            <a href="https://www.carrier.com/truck-trailer/es/latin-america/legal/privacy-notice/" target="_blank">{label.PrivacyNoticeLabel}</a>
+            <span> | </span>
+            <a href="https://www.carrier.com/truck-trailer/es/latin-america/legal/terms-of-use/" target="_blank">{label.TermsOfUseLabel}</a>
+            <span> | </span>
+            <a href="/ctm/s/contactosoporte">{label.ContactSupportLabel}</a>        
+            <br/>
+            <span class="slds-align_absolute-center">@2022 Carrier</span>
+        </p>
+    </div>
+</template>

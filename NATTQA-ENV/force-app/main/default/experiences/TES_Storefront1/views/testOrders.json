@@ -1,0 +1,68 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "0a57d5cd-832b-446f-b04f-b3e6dfb708cc",
+  "label" : "Test Orders",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "09d88e5f-202b-4243-a35e-1571c0c9d6e9",
+          "columns" : [ {
+            "UUID" : "f66802a6-5e94-4c15-b042-156170756508",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "09d88e5f-202b-4243-a35e-1571c0c9d6e9",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_TesMyOrders",
+          "id" : "2de81b75-4a15-4a10-aebb-1dfa5b45ac7a",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "f66802a6-5e94-4c15-b042-156170756508",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2f1f3937-0e7d-4def-a55a-5b99b7495d50",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Test Orders"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ca61a9ef-39df-4484-a13d-16b04bc40fbc",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b3516d0a-fde9-4419-8311-16381db713cc",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-test-orders"
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Response_Driver_12__c</fullName>
+    <label>Response - Driver 12</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Aftermarket/Services only</fullName>
+                <default>false</default>
+                <label>Aftermarket/Services only</label>
+            </value>
+            <value>
+                <fullName>Aftermarket/Services and New equipment</fullName>
+                <default>false</default>
+                <label>Aftermarket/Services and New equipment</label>
+            </value>
+            <value>
+                <fullName>New equipment only (excluding Aftermarket/Services)</fullName>
+                <default>false</default>
+                <label>New equipment only (excluding Aftermarket/Services)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

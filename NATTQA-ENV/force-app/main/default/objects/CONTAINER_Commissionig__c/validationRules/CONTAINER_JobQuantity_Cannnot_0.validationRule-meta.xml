@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_JobQuantity_Cannnot_0</fullName>
+    <active>true</active>
+    <description>Job Quantity cannot be 0</description>
+    <errorConditionFormula>AND(
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule),
+ CONTAINER_Job_Quantity__c&lt;=0,
+ CONTAINER_Is_Commissioning_Child_Record__c 
+)</errorConditionFormula>
+    <errorMessage>Job Quantity cannot be 0.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>CTBR_Share_Internal_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>For sharing internal users with dealers</description>
+        <label>CTBR Share Internal Users</label>
+        <sharedTo>
+            <roleAndSubordinates>CTBR</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>CTBR</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CTM_Share_Internal_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>CTM Share Internal Users</label>
+        <sharedTo>
+            <roleAndSubordinates>CTM</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>CTM</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>NATT_Share_Internal_Users_2</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Shares Users</description>
+        <label>NATT Share Internal Users 2</label>
+        <sharedTo>
+            <roleAndSubordinates>NA</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>NA</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,54 @@
+<p align=right><img src="https://carrier-global--nattdev1--c.documentforce.com/servlet/servlet.ImageServer?id=0158N0000008tRF&oid=00D8N0000008fhu&lastMod=1655381061000" /> <br/><br/></p> <br/>  <br/>
+
+ Dear Mr.&nbsp;{!CONTAINER_Audit__c.CONTAINER_Contact_Name_Audit__c} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date: {!Today}<br/><br/>
+
+
+AAA Reefer Services {!CONTAINER_Audit__c.CONTAINER_ASP_Nmae_Audited__c} <br/><br/>
+
+This letter is to advise you that your branch located in <br/> {!CONTAINER_Audit__c.Container_Account_Address__c} <br/> port has been chosen to be audited this year. <br/>
+I would like to complete this On-site audit in the month of {!CONTAINER_Audit__c.CONTAINER_Completion_Months__c}<br/><br/>
+
+To give you an idea of the areas that this audit will cover we are supplying you the below list to assist you in your preparation for the audit.<br/><br/>
+
+These questions will be worked through at the on-site audit:<br/><br/>
+
+<b>Training Section:</b><br/>
+1. How many reefer mechanics working on reefer?<br/>
+2. Does the ASP meet the minimum training requirement for their status level?<br/>
+3. Does the ASP keep training records for all technicians?<br/>
+4. ASP to provide a copy of their training records for technicians, including sub-contractors<br/>
+5. Does the ASP records match the LMS records obtained in the Internal Audit? (If available)<br/>
+<b>Parts Section:</b><br/>
+1. Does the ASP hold all parts on the mandatory stocking list supplied with the ASP agreement?<br/>
+2. Does the ASP records the chain of ownership for all refrigerants they use whilst in their care?<br/>
+3. ASP to provide refrigerant chain of ownership records<br/>
+4. Does the ASP test all incoming refrigerant and record the tests?<br/>
+5. Does ASP hold all parts replaced under warranty for the required 120 days?<br/>
+6. Are the parts in 5 all labeled correctly?<br/>
+<b>Tools Section:</b><br/>
+1. Does ASP hold all tools on the Tools List Tab applicable to their status level?<br/>
+2. Does the ASP keep maintenance records for their tools?<br/>
+3. ASP to provide a copy of the tool maintenance records<br/>
+<b>Product Support Section:</b><br/>
+1. Do all of your technicians use Container Link App<br/><br/>
+
+<b>Gathering Information Section:</b><br/>
+There are a number of questions to be answered in this section which are for Carrier’s information only, they are not part of the scored audit. These questions are about our products and your customers.<br/><br/>
+
+We will carry out a stock-take of your Carrier parts and also an inspection of the tools and equipment you have.<br/><br/>
+
+It will assist greatly in the audit process if you have a full knowledge of all the above areas and can present supporting documentation at our meeting<br/><br/>
+
+<b>CareMAX Certification:</b><br/>
+&nbsp;&nbsp;1.	If you are a Level 1 Service Center then the CareMAX recertification process will also form part of the On-site audit.<br/><br/>
+
+&nbsp;&nbsp;2.	If you are a Level 2 Service Center trying to move up to Level 1 then the CareMAX certification process will also form part of the On-site audit.<br/><br/>
+
+Please ask for a copy of the current CareMAX document to understand the current requirements<br/><br/>
+
+I will be in touch shortly to arrange a suitable time to meet with you and complete the On-site audit.<br/><br/><br/><br/>
+
+
+
+<P align=right> Kind regards<br/>{!CONTAINER_Audit__c.OwnerFullName} <br/> Field Service Manager <br/>
+{!CONTAINER_Audit__c.CONTAINER_Operating_Region__c}&nbspRegion  </P>

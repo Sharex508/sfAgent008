@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Copy</fullName>
+    <availability>online</availability>
+    <description>Custom Button to copy records from Requested ship date to shipment schedule</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Copy</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/flow/CONTAINER_Copy_Shipment_Button_Screen_Flow?recordId={!SBQQ__Quote__c.Id}&amp;retURL=lightning/r/SBQQ__Quote__c/{!SBQQ__Quote__c.Id}/view</url>
+</WebLink>

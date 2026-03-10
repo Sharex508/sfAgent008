@@ -1,0 +1,240 @@
+<template>
+    <div class="c-container">
+        <lightning-layout multiple-rows="true">
+            <!-- header : START-->
+            <lightning-layout-item size="12">
+                <div class="header slds-align_absolute-center">
+                    <span>
+                        <img style="height:5rem;" src={carrierLogo}>
+                    </span>
+                    <span>
+                        <h2 style="padding:1rem;background-color:white;color:#152c73;">Healthy Buildings Lead Program</h2>
+                    </span>
+                </div>
+            </lightning-layout-item>
+            <!-- header : END-->
+            <lightning-layout-item size="3"></lightning-layout-item>
+            <lightning-layout-item size="6">
+                <div class="slds-box box-section">
+                    <lightning-messages></lightning-messages>
+                    <lightning-input 
+                        label="Lead Sender Name" 
+                        type="text"  
+                        data-field="Sender_Name" 
+                        maxlength="255"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-input 
+                        label="Lead Sender Email" 
+                        type="email" 
+                        data-field="Sender_Email" 
+                        maxlength="80"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-input 
+                        label="Lead Sender Phone" 
+                        type="tel" 
+                        data-field="Sender_Phone" 
+                        maxlength="40"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-combobox 
+                        label="Sending Business" 
+                        options={sendingBusinessOptions} 
+                        onchange={handleSBChange}
+                        data-field="Sending_Business" 
+                        required
+                        variant="label-inline">
+                    </lightning-combobox>
+                    <div style="font-style: oblique; color: rgb(194, 57, 52); padding: .25rem;">
+                        For CHVAC products: if labor is required - Send lead to CHVAC Service and if labor is not required - Send lead to CHVAC Equipments. 
+                        <br/>
+                        For ActivAir HHT air terminal, Advanced airside system &amp; MyWay products - Send lead to BSG.
+                    </div>
+                    <lightning-combobox 
+                        label="Receiving Business" 
+                        options={receivingBusinessOptions} 
+                        disabled={disableRB}
+                        onchange={handleRBChange}
+                        data-field="Receiving_Business"   
+                        required
+                        variant="label-inline">
+                    </lightning-combobox>
+                    <br/>
+                    <lightning-input 
+                        label="Date discussed with Customer"
+                        type="date" name="dateDiscussed"  
+                        data-field="Customer_Discussion_Date"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-input  
+                        label="Customer Business Name" 
+                        type="text"
+                        data-field="Company"
+                        maxlength="40"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-input-address 
+                        address-label="Business Address" 
+                        street-label="Street" 
+                        city-label="City" 
+                        country-label="Country" 
+                        province-label="State/Province" 
+                        postal-code-label="Postal Code" 
+                        province-options={getStateOptions}
+                        country={addCountry}
+                        onchange={handleAddressChange} 
+                        data-field="Address" 
+                        variant="label-inline">
+                    </lightning-input-address>
+                    <lightning-combobox 
+                        label="Vertical/Industry" 
+                        options={industryOptions} 
+                        data-field="Industry"
+                        required
+                        variant="label-inline">
+                    </lightning-combobox>
+                    <lightning-input 
+                        label="Contact First Name"
+                        type="text" 
+                        data-field="FirstName"
+                        maxlength="40"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-input 
+                        label="Contact Last Name"
+                        type="text"  
+                        maxlength="80"
+                        data-field="LastName"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-combobox 
+                        label="Contact Role/Title" 
+                        options={roleOptions} 
+                        data-field="Title"
+                        required
+                        onchange={handleRoleChange}
+                        variant="label-inline">
+                    </lightning-combobox>
+                    <lightning-input  
+                        label="Please Specify Role/Title"
+                        type="text" 
+                        data-field="Title_Other"
+                        maxlength="100"
+                        disabled={disableTitleOther}
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-input  
+                        label="Contact Email" 
+                        type="email"
+                        data-field="Email"
+                        maxlength="80"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <lightning-input  
+                        label="Contact Phone"
+                        type="tel" 
+                        data-field="Phone"
+                        maxlength="40"
+                        required
+                        variant="label-inline">
+                    </lightning-input>
+                    <br/>
+                    <div>
+                        <span>
+                            <label class="slds-form-element__label">
+                                <abbr title="required" class="slds-required">*</abbr>
+                                Is the customer a building owner or design build contractor or other? If other, please specify.
+                            </label>
+                        </span>
+                    </div>
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-3">
+                            <lightning-combobox
+                                options={customerDetailOptions} 
+                                data-field="Customer_Detail"
+                                onchange={handleCustomerDetailChange}
+                                required
+                                variant="label-hidden">
+                            </lightning-combobox>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3">
+                            <label style="float:right;" class="slds-form-element__label">
+                                <abbr title="required" class="slds-required">*</abbr>
+                                Please Specify Other
+                            </label>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3">
+                            <lightning-input  
+                                label="Please Specify"
+                                type="text" 
+                                data-field="Customer_Detail_Other"
+                                maxlength="255"
+                                disabled={disableOther}
+                                required
+                                variant="label-hidden">
+                            </lightning-input>
+                        </div>
+                    </div>
+                    <br/>
+                    <lightning-combobox 
+                        label="Does this contact makes decisions for the Products identified in the SPIF and for the products associated with the lead receiving business?" 
+                        options={contactDetailOptions} 
+                        data-field="Contact_Detail"
+                        required>
+                    </lightning-combobox>
+                    <br/>
+                    <lightning-input  
+                        label="During your initial discussion(s) what is the customer interested in as it relates to 'Healthy Buildings'; Assesments, Upgrades and/or ongoing Service options? " 
+                        type="text"
+                        maxlength="255"
+                        required
+                        data-field="Customer_Interest">
+                    </lightning-input>
+                    <br/>
+                    <lightning-input  
+                        label="Does the Customer have budget to proceed?" 
+                        type="text"
+                        maxlength="255"
+                        required
+                        data-field="Customer_Budget">
+                    </lightning-input>
+                    <br/>
+                    <lightning-dual-listbox name="solutionInterested"
+                        label="Solutions Interested - please select at least one solution"
+                        source-label="Available"
+                        disable-reordering	
+                        selected-label="Chosen"
+                        options={solutionsInterestedOptions}
+                        disabled={disableSolutions}
+                        size="5"
+                        required
+                        data-field="Solutions_Interested">
+                    </lightning-dual-listbox>
+                    <br/>
+                    <div class="slds-align_absolute-center">
+                        <lightning-button 
+                            label="Send"
+                            variant="brand"  
+                            onclick={createLeadRec} 
+                            class="slds-var-m-left_x-small">
+                        </lightning-button>
+                    </div>
+                    <hr style="margin:1rem 0;">
+                    <div class="footer-note">
+                        For any questions related to Healthy Building Lead Program, please reach out to your respective Sales Manager.
+                    </div>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

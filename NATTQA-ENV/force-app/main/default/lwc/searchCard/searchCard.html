@@ -1,0 +1,88 @@
+<template>
+    <template if:true={isShowModal}>
+        <c-nac_ware-house-modal oncalltoaction={catchSelectionAndaddTocart}
+            product-id={selectedProduct} effective-account-id={effectiveAccountId}></c-nac_ware-house-modal>
+    </template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <article class={cardContainerClass}>
+        <section class="image-area">
+            <figure if:true={showImage} onclick={notifyShowDetail}>
+                <img src={image.url} alt={image.alternateText} />
+            </figure>
+        </section>
+        <section class="fields-area" style="z-index:1;">
+            <template for:each={fields} for:item="field">
+                <div key={field.id} title={field.value} tabindex={field.tabIndex}
+                    class="field-item slds-text-link_reset slds-p-top_xx-small slds-p-bottom_xx-small fields-area-text1">
+                    <div>
+                        <lightning-formatted-rich-text class={field.class} value={field.value}>
+                        </lightning-formatted-rich-text>
+                    </div>
+                </div>
+            </template>
+        </section>
+        <section class="price-area">
+            <template if:false={isGuestUser}>
+            <span if:false={price}
+                class="slds-text-heading_small slds-p-top_xx-small slds-p-bottom_xx-small fields-area-text1">{label.priceUnavailableLabel}
+            </span>
+            </template>
+            <span if:true={price} class="slds-p-top_xx-small slds-p-bottom_xx-small">
+                <template if:false={isGuestUser}>
+                    <div class="slds-grid slds-wrap">
+                        <div if:true={listingPrice} class="slds-col slds-size_2-of-3 slds-text-align_right">
+                            <span class="slds-text-heading_small fields-area-text1">{label.yourPriceLabel}
+                            </span>
+                        </div>
+                        <div if:true={listingPrice} class="slds-col slds-size_1-of-3">
+                            <lightning-formatted-number class="slds-p-left_xx-small listing-price slds-text-align_right"
+                                value={listingPrice} currency-code={currency} format-style="currency">
+                            </lightning-formatted-number>
+                        </div>
+                        <div class="slds-col slds-size_2-of-3 slds-text-align_right">
+                            <span
+                                class="slds-text-heading_small fields-area-text1 slds-text-align_right">{label.netPriceLabel}
+                            </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-3">
+                            <lightning-formatted-number class="slds-p-left_xx-small selling-price slds-text-align_right"
+                                currency-code={currency} format-style="currency" value={price}>
+                            </lightning-formatted-number>
+                        </div>
+                    </div>
+                </template>
+                <!--
+                <template if:true={isGuestUser}>
+                    <span class="slds-align-bottom">
+                        <span if:true={listingPrice}
+                            class="slds-p-right_x-small slds-text-heading_small fields-area-text1">{label.yourPriceLabel}
+                        </span>
+                        <lightning-formatted-number class="slds-text-heading_small selling-price" value={listingPrice}
+                            currency-code={currency} format-style="currency">
+                        </lightning-formatted-number>
+                    </span>
+                </template>
+                -->
+            </span>
+        </section>
+        <section class="action-area" if:false={isGuestUser}>
+            <div class="slds-grid">
+                <div class="slds-col">
+                    <label class="selector-label slds-m-right_xxx-small">{labels.quantity}
+                    </label>
+                </div>
+                <div class="slds-col">
+                    <input class="slds-text-align_center slds-p-vertical_x-small slds-m-right_xxx-small" type="number"
+                        required max="999" min="1" step="1" value="1" onchange={handleqtychange}
+                        disabled={actionDisabled}>
+                </div>
+            </div>
+            <button class="slds-button slds-button_brand slds-button_stretch" disabled={actionDisabled}
+                onclick={notifyAction} style="font-size:11px">
+                {buttonLabel}
+            </button>
+        </section>
+    </article>
+</template>

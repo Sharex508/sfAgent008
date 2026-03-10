@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "94d93d4d-9cd6-4abf-8beb-72e6f430040b",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "UCP_Americas_Menu"
+      }
+    },
+    "targetId" : "a988fe4c-427f-4407-8101-85fd0a38571e",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_Component_Properties",
+  "id" : "bf7d4cad-08e1-454d-a5e9-af58c8c706ef",
+  "type" : "experienceVariation"
+}

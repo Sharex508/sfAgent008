@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Case_Order_product_lookup__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Case Order product lookup</label>
+    <referenceTo>Case</referenceTo>
+    <relationshipLabel>Order Products</relationshipLabel>
+    <relationshipName>Order_Products</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_All_Units_Opportunities</fullName>
+    <columns>OPPORTUNITY.NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>NATT_End_Customer__c</columns>
+    <columns>NATT_Stock__c</columns>
+    <columns>OPPORTUNITY.AMOUNT</columns>
+    <columns>OPPORTUNITY.CLOSE_DATE</columns>
+    <columns>OPPORTUNITY.STAGE_NAME</columns>
+    <columns>CORE.USERS.FULL_NAME</columns>
+    <columns>SBQQ__PrimaryQuote__c</columns>
+    <columns>NATT_Product_Family__c</columns>
+    <columns>NATT_Unit__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>NATT_Region__c</columns>
+    <columns>NATT_Quote_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OPPORTUNITY.RECORDTYPE</field>
+        <operation>equals</operation>
+    </filters>
+    <label>CTM - Todas las unidades Oportunidades</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>CTM</roleAndSubordinates>
+        <roleAndSubordinates>CTM_Manager</roleAndSubordinates>
+        <roleAndSubordinates>CTM_Support</roleAndSubordinates>
+    </sharedTo>
+</ListView>

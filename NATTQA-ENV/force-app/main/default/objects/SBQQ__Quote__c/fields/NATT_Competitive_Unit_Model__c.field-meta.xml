@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Competitive_Unit_Model__c</fullName>
+    <description>NATT</description>
+    <label>Competitive Unit Model</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>NATT_Product_Family__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>NATT_Competitive_Unit_Model</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>AEM Solar Tech</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600RR SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600RR SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600RR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600 SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>C-600 SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600 SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600 SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600M</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600M SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600M SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600RR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600RR SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-600RR SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610DE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610DE SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610DE SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610M</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610M SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-610M SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700 SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700 SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700RR</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700RR SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>S-700RR SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>SLXi DRC</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>SLXi-DRC SmartPower</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>SLXi-DRC SmartPower HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>T-1090</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>T-1090 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>T-1090 Spectrum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>T-590</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>T-690</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>T-690 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>T-890</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>T-890 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>UT-1280</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>B-100</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>E-200</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-220</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-220 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-320</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-320 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520 RT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520 RT MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520RT Spectrum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-520 Spectrum</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-800</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>V-800 MAX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Bergstrom/OEM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Dclimate</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Dynasys</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Go Green APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Green APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>HP2000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Idle Free</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>TriPac</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>Heat King 450 HO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>Heat King 450 MAX</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

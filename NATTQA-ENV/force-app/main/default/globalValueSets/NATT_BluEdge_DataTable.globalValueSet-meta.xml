@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Optional Coverage</fullName>
+        <default>false</default>
+        <label>Optional Coverage</label>
+    </customValue>
+    <customValue>
+        <fullName>Extended Basic</fullName>
+        <default>false</default>
+        <label>Extended Basic</label>
+    </customValue>
+    <customValue>
+        <fullName>Major Component Coverage</fullName>
+        <default>false</default>
+        <label>Major Component Coverage</label>
+    </customValue>
+    <masterLabel>NATT BluEdge DataTable</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

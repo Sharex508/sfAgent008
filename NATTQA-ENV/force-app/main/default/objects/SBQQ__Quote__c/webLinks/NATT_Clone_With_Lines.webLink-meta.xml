@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Clone_With_Lines</fullName>
+    <availability>online</availability>
+    <description>work around for a communities/cpq issuehttps://trailblazer.salesforce.com/issues_view?id=a1p3A000001YnEMQA0</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>NATT Clone With Lines</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR($Site.Prefix)}/apex/SBQQ__CloneLineItems?id={!SBQQ__Quote__c.Id}</url>
+</WebLink>

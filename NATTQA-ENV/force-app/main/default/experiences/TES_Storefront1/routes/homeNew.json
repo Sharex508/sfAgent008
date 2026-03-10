@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "13371a8a-9864-4404-84b6-a520cf9f0c04",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Home_New__c",
+  "id" : "4516c1e3-93e3-4b64-aea6-d0a7aaf72467",
+  "label" : "Home New",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-home-new",
+  "type" : "route",
+  "urlPrefix" : "home-new"
+}

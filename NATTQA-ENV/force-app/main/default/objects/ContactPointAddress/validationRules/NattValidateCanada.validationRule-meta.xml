@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NattValidateCanada</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND($User.Username = &quot;jdeintnactd@carrier.com.corp&quot;,RecordType.DeveloperName != &apos;NAC&apos;,
+AND (
+   Country = &quot;CA&quot;,
+   OR(
+   LEN(State) != 2,
+   NOT(
+      CONTAINS(&quot;AB:BC:MB:NB:NL:NT:NS:NU:ON:PE:QC:SK:YT&quot;, State)
+)))
+)</errorConditionFormula>
+    <errorMessage>Please enter a valid Canada Province.</errorMessage>
+</ValidationRule>

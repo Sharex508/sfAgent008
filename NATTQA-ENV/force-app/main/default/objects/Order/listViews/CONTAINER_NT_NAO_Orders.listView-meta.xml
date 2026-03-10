@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_NT_NAO_Orders</fullName>
+    <columns>ORDERS.ORDER_NUMBER</columns>
+    <columns>SBQQ__Quote__c</columns>
+    <columns>SALES.ACCOUNT.NAME</columns>
+    <columns>ORDERS.STATUS</columns>
+    <columns>ORDERS.CREATED_DATE</columns>
+    <columns>CONTAINER_Job__c</columns>
+    <columns>CONTAINER_ASO_ID__c</columns>
+    <columns>CONTAINER_Qty__c</columns>
+    <columns>CONTAINER_Model_Number__c</columns>
+    <columns>CONTAINER_PID__c</columns>
+    <columns>CONTRACT.CONTRACT_NUMBER</columns>
+    <columns>ORDERS.EFFECTIVE_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ORDER.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Order.CONTAINER_NT_Order</value>
+    </filters>
+    <filters>
+        <field>CONTAINER_Sales_Region__c</field>
+        <operation>equals</operation>
+        <value>NAO</value>
+    </filters>
+    <label>NT NAO Orders</label>
+    <sharedTo>
+        <group>CONTAINER_Global_Sales_Director</group>
+        <group>CONTAINER_Sales_Admin</group>
+        <group>CONTAINER_Sales_CAM</group>
+        <group>CONTAINER_Sales_CAM_NT</group>
+        <group>CONTAINER_Sales_CS</group>
+        <group>CONTAINER_Sales_CS_NT</group>
+        <group>CONTAINER_Sales_PM</group>
+        <group>CONTAINER_Sales_PM_NT</group>
+        <group>CONTAINER_Sales_RSD_NAO</group>
+        <group>CONTAINER_Sales_RSM_NAO</group>
+        <group>CONTAINER_Sales_VP</group>
+        <group>Container_Sales_VP_NT</group>
+    </sharedTo>
+</ListView>

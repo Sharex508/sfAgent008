@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Shipping_Method__c</fullName>
+    <label>Shipping Method</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Customer Routing</fullName>
+                <default>false</default>
+                <label>Customer Routing</label>
+            </value>
+            <value>
+                <fullName>FedEx</fullName>
+                <default>false</default>
+                <label>FedEx</label>
+            </value>
+            <value>
+                <fullName>UPS</fullName>
+                <default>false</default>
+                <label>UPS</label>
+            </value>
+            <value>
+                <fullName>Yellow Freight</fullName>
+                <default>false</default>
+                <label>Yellow Freight</label>
+            </value>
+            <value>
+                <fullName>Roadway</fullName>
+                <default>false</default>
+                <label>Roadway</label>
+            </value>
+            <value>
+                <fullName>SEFL</fullName>
+                <default>false</default>
+                <label>SEFL</label>
+            </value>
+            <value>
+                <fullName>SAIA</fullName>
+                <default>false</default>
+                <label>SAIA</label>
+            </value>
+            <value>
+                <fullName>ABF Freight</fullName>
+                <default>false</default>
+                <label>ABF Freight</label>
+            </value>
+            <value>
+                <fullName>Bestway</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Bestway</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

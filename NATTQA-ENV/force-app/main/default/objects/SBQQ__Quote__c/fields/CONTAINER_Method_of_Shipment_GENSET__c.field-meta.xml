@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Method_of_Shipment_GENSET__c</fullName>
+    <description>Container genset record type field values</description>
+    <label>Method of Shipment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AIR FREIGHT - 461-63-02 - AF</fullName>
+                <default>false</default>
+                <label>AIR FREIGHT - 461-63-02 - AF</label>
+            </value>
+            <value>
+                <fullName>OCEAN FREIGHT - 461-63-02 - OF</fullName>
+                <default>false</default>
+                <label>OCEAN FREIGHT - 461-63-02 - OF</label>
+            </value>
+            <value>
+                <fullName>SURFACE FREIGHT - 461-63-02 – SF</fullName>
+                <default>false</default>
+                <label>SURFACE FREIGHT - 461-63-02 – SF</label>
+            </value>
+            <value>
+                <fullName>NOT APPLICABLE - 461-63-02 - NA</fullName>
+                <default>false</default>
+                <label>NOT APPLICABLE - 461-63-02 - NA</label>
+            </value>
+            <value>
+                <fullName>RAIL FREIGHT - 461-63-02 - RF</fullName>
+                <default>false</default>
+                <label>RAIL FREIGHT - 461-63-02 - RF</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

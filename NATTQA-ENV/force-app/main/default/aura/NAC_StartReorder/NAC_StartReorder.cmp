@@ -1,0 +1,4 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+	<c:nac_StartReorderLWC recordId="{!v.recordId}" onclose="{!c.handleclose}"></c:nac_StartReorderLWC>
+</aura:component>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>zDeleteNATT_Product_Family__c</fullName>
+    <description>NATT</description>
+    <label>zDeleteProduct Family</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+                <label>Trailer</label>
+            </value>
+            <value>
+                <fullName>Diesel Truck</fullName>
+                <default>false</default>
+                <label>Diesel Truck</label>
+            </value>
+            <value>
+                <fullName>Direct Drive</fullName>
+                <default>false</default>
+                <label>Direct Drive</label>
+            </value>
+            <value>
+                <fullName>APU</fullName>
+                <default>false</default>
+                <label>APU</label>
+            </value>
+            <value>
+                <fullName>Solara</fullName>
+                <default>false</default>
+                <label>Solara</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_eSolutions_Plans_For_Email__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(NATT_Number_of_eSolutions_Plan_1__c &gt; 0,&quot;Plan 1 : Monitor Only (Cellular Only)&quot; &amp; BR(),&quot;&quot;)&amp;
+IF(NATT_Number_of_eSolutions_Plan_2__c &gt; 0,&quot;Plan 2 : Monitor And Control (Cellular Only)&quot; &amp; BR(),&quot;&quot;) &amp;
+IF(NATT_Number_of_eSolutions_Plan_3__c &gt; 0,&quot;Plan 3 : Monitor And Enhanced Control (Cellular Only)&quot;,&quot;&quot;)</formula>
+    <label>Lynx Fleet Plans For Email</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

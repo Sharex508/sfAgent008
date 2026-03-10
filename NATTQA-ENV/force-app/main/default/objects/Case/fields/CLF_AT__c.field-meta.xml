@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CLF_AT__c</fullName>
+    <label>Action taken</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CLF_AT_1</fullName>
+                <default>false</default>
+                <label>Apologized</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_2</fullName>
+                <default>false</default>
+                <label>Customer visit</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_3</fullName>
+                <default>false</default>
+                <label>Escalated</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_4</fullName>
+                <default>false</default>
+                <label>Field Improvement Program</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_5</fullName>
+                <default>false</default>
+                <label>No action taken</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_6</fullName>
+                <default>false</default>
+                <label>Offered credit and/or return</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_7</fullName>
+                <default>false</default>
+                <label>Offered other solution</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_8</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_9</fullName>
+                <default>false</default>
+                <label>Resolved before alert</label>
+            </value>
+            <value>
+                <fullName>CLF_AT_10</fullName>
+                <default>false</default>
+                <label>Unable to reach customer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

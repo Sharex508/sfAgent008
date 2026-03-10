@@ -1,0 +1,1196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU-APU-T0020</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU-APU-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU-APU-T0030</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU-APU-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU-APU-T0040</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU-APU-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU-APU-T0067</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU-APU-T0067</label>
+    </customValue>
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU-APU-T0100</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU-APU-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU-APU-T0130</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU-APU-T0130</label>
+    </customValue>
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU-APU-T0150</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU-APU-T0150</label>
+    </customValue>
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU-APU-T0155</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU-APU-T0155</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU-APU-T0020</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU-APU-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU-APU-T0030</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU-APU-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU-APU-T0040</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU-APU-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU-APU-T0067</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU-APU-T0067</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU-APU-T0100</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU-APU-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU-APU-T0130</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU-APU-T0130</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU-APU-T0150</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU-APU-T0150</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU-APU-T0155</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU-APU-T0155</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU-APU-T0020</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU-APU-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU-APU-T0030</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU-APU-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU-APU-T0040</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU-APU-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU-APU-T0067</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU-APU-T0067</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU-APU-T0100</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU-APU-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU-APU-T0130</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU-APU-T0130</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU-APU-T0150</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU-APU-T0150</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU-APU-T0155</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU-APU-T0155</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU-APU-T0020</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU-APU-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU-APU-T0030</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU-APU-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU-APU-T0040</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU-APU-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU-APU-T0067</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU-APU-T0067</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU-APU-T0100</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU-APU-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU-APU-T0130</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU-APU-T0130</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU-APU-T0150</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU-APU-T0150</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU-APU-T0155</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU-APU-T0155</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU-APU-T0020</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU-APU-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU-APU-T0030</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU-APU-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU-APU-T0040</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU-APU-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU-APU-T0067</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU-APU-T0067</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU-APU-T0100</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU-APU-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU-APU-T0130</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU-APU-T0130</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU-APU-T0150</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU-APU-T0150</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU-APU-T0155</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU-APU-T0155</label>
+    </customValue>
+    <customValue>
+        <fullName>Solara APX-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>Solara APX-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Solara APX-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>Solara APX-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Solara APX-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>Solara APX-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Solara APX-TRAILER-T0080</fullName>
+        <default>false</default>
+        <label>Solara APX-TRAILER-T0080</label>
+    </customValue>
+    <customValue>
+        <fullName>Solara APX-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>Solara APX-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System A-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System A-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System A-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System A-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System A-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System A-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System A-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System A-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System A-TRUCK-T0060</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System A-TRUCK-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System A-TRUCK-T0110</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System A-TRUCK-T0110</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System A-TRUCK-T0120</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System A-TRUCK-T0120</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System B-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System B-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System B-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System B-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System B-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System B-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System B-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System B-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System B-TRUCK-T0060</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System B-TRUCK-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System B-TRUCK-T0110</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System B-TRUCK-T0110</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System B-TRUCK-T0120</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System B-TRUCK-T0120</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 Road Only-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra 960 Road Only-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 Road Only-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra 960 Road Only-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 Road Only-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra 960 Road Only-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 Road Only-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra 960 Road Only-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 Road Only-TRUCK-T0060</fullName>
+        <default>false</default>
+        <label>Supra 960 Road Only-TRUCK-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 Road Only-TRUCK-T0080</fullName>
+        <default>false</default>
+        <label>Supra 960 Road Only-TRUCK-T0080</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0060</fullName>
+        <default>false</default>
+        <label>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0120</fullName>
+        <default>false</default>
+        <label>Supra 960 with 230v-3ph-60Hz Standby-TRUCK-T0120</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Road Only-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra S6 Road Only-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Road Only-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra S6 Road Only-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Road Only-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra S6 Road Only-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Road Only-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra S6 Road Only-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Road Only-TRUCK-T0171</fullName>
+        <default>false</default>
+        <label>Supra S6 Road Only-TRUCK-T0171</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Road Only-TRUCK-T0330</fullName>
+        <default>false</default>
+        <label>Supra S6 Road Only-TRUCK-T0330</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Road Only-TRUCK-T0331</fullName>
+        <default>false</default>
+        <label>Supra S6 Road Only-TRUCK-T0331</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Road Only-TRUCK-T6501</fullName>
+        <default>false</default>
+        <label>Supra S6 Road Only-TRUCK-T6501</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T0120</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T0120</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T0171</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T0171</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T0330</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T0330</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T0331</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T0331</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz-TRUCK-T6501</fullName>
+        <default>false</default>
+        <label>Supra S6 with 230v-3ph-60Hz-TRUCK-T6501</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Road Only-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra S7 Road Only-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Road Only-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra S7 Road Only-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Road Only-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra S7 Road Only-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Road Only-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra S7 Road Only-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Road Only-TRUCK-T0171</fullName>
+        <default>false</default>
+        <label>Supra S7 Road Only-TRUCK-T0171</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Road Only-TRUCK-T0330</fullName>
+        <default>false</default>
+        <label>Supra S7 Road Only-TRUCK-T0330</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Road Only-TRUCK-T0331</fullName>
+        <default>false</default>
+        <label>Supra S7 Road Only-TRUCK-T0331</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Road Only-TRUCK-T6501</fullName>
+        <default>false</default>
+        <label>Supra S7 Road Only-TRUCK-T6501</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T0120</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T0120</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T0171</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T0171</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T0330</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T0330</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T0331</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T0331</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz-TRUCK-T6501</fullName>
+        <default>false</default>
+        <label>Supra S7 with 230v-3ph-60Hz-TRUCK-T6501</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Road Only-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra S8 Road Only-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Road Only-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra S8 Road Only-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Road Only-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra S8 Road Only-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Road Only-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra S8 Road Only-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Road Only-TRUCK-T0171</fullName>
+        <default>false</default>
+        <label>Supra S8 Road Only-TRUCK-T0171</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Road Only-TRUCK-T0330</fullName>
+        <default>false</default>
+        <label>Supra S8 Road Only-TRUCK-T0330</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Road Only-TRUCK-T0331</fullName>
+        <default>false</default>
+        <label>Supra S8 Road Only-TRUCK-T0331</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Road Only-TRUCK-T6501</fullName>
+        <default>false</default>
+        <label>Supra S8 Road Only-TRUCK-T6501</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T0120</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T0120</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T0171</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T0171</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T0330</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T0330</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T0331</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T0331</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz-TRUCK-T6501</fullName>
+        <default>false</default>
+        <label>Supra S8 with 230v-3ph-60Hz-TRUCK-T6501</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Road Only-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra S9 Road Only-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Road Only-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra S9 Road Only-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Road Only-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra S9 Road Only-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Road Only-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra S9 Road Only-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Road Only-TRUCK-T0171</fullName>
+        <default>false</default>
+        <label>Supra S9 Road Only-TRUCK-T0171</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Road Only-TRUCK-T0330</fullName>
+        <default>false</default>
+        <label>Supra S9 Road Only-TRUCK-T0330</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Road Only-TRUCK-T0331</fullName>
+        <default>false</default>
+        <label>Supra S9 Road Only-TRUCK-T0331</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Road Only-TRUCK-T6501</fullName>
+        <default>false</default>
+        <label>Supra S9 Road Only-TRUCK-T6501</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T0020</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T0030</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T0040</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T0050</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T0120</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T0120</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T0171</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T0171</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T0330</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T0330</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T0331</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T0331</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz-TRUCK-T6501</fullName>
+        <default>false</default>
+        <label>Supra S9 with 230v-3ph-60Hz-TRUCK-T6501</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>Vector 8100-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>Vector 8100-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>Vector 8100-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>Vector 8100-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>Vector 8100-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100-TRAILER-T0105</fullName>
+        <default>false</default>
+        <label>Vector 8100-TRAILER-T0105</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100-TRAILER-T0200</fullName>
+        <default>false</default>
+        <label>Vector 8100-TRAILER-T0200</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0100</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0105</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0105</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500-TRAILER-T0200</fullName>
+        <default>false</default>
+        <label>Vector 8500-TRAILER-T0200</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0100</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0105</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0105</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500R Rail Edition-TRAILER-T0200</fullName>
+        <default>false</default>
+        <label>Vector 8500R Rail Edition-TRAILER-T0200</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0100</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0105</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0105</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0111</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0111</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01-TRAILER-T0200</fullName>
+        <default>false</default>
+        <label>Vector 8600 - System 01-TRAILER-T0200</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0100</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0105</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0105</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0111</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0111</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0200</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0200</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT-TRAILER-T0332</fullName>
+        <default>false</default>
+        <label>Vector 8611MT-TRAILER-T0332</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0067</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0067</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0100</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0100</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0105</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0105</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector HE19-TRAILER-T0200</fullName>
+        <default>false</default>
+        <label>Vector HE19-TRAILER-T0200</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0070</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0070</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0080</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0080</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-TRAILER-T0180</fullName>
+        <default>false</default>
+        <label>X4 7300-TRAILER-T0180</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0070</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0070</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0080</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0080</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300R Rail Edition-TRAILER-T0180</fullName>
+        <default>false</default>
+        <label>X4 7300R Rail Edition-TRAILER-T0180</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0070</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0070</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0080</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0080</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-TRAILER-T0180</fullName>
+        <default>false</default>
+        <label>X4 7500-TRAILER-T0180</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0020</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0020</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0030</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0030</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0040</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0040</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0050</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0050</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0060</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0060</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0065</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0065</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0070</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0070</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0080</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0080</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0090</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0090</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500R Rail Edition-TRAILER-T0180</fullName>
+        <default>false</default>
+        <label>X4 7500R Rail Edition-TRAILER-T0180</label>
+    </customValue>
+    <description>the unit and tavant id for controlling picklists</description>
+    <masterLabel>NATT Unit-Tavant Id</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

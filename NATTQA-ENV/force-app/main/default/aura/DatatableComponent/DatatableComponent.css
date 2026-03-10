@@ -1,0 +1,21 @@
+.THIS {
+}
+
+.THIS label.slds-form-element__label{
+    font-weight: bold;
+}
+
+.THIS .tablecol tbody tr {
+    justify-content: left !important;
+}
+
+.THIS .myUniqueTable th {
+    justify-content: center !important; 
+}
+
+.THIS .slds-grid_align-end { 
+    justify-content: center !important; 
+}
+.THIS .myUniqueTable th {
+    text-align: left !important;    
+}

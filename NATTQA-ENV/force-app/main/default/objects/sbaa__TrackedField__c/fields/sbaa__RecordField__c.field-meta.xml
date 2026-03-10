@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__RecordField__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Select the type of record to associate for created tracked fields. If the object is not Opportunity, be sure to create a new lookup field on the Tracked Field object.</description>
+    <inlineHelpText>Field (on Tracked Value object) that represents a Lookup to its parent object</inlineHelpText>
+    <label>Record Field</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Opportunity</fullName>
+                <default>false</default>
+                <label>Opportunity</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

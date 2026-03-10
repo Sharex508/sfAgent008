@@ -1,0 +1,12 @@
+{
+  "activeViewId" : null,
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "New_user__c",
+  "id" : "cf329d47-a609-49d2-8c45-ba0083ee541b",
+  "label" : "New user",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-new-user",
+  "type" : "route",
+  "urlPrefix" : "new-user"
+}

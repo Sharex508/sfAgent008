@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_TMS_Integration_Support__c</fullName>
+    <label>TMS Integration Support</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>NO TMS Integration Support</fullName>
+                <default>false</default>
+                <label>NO TMS Integration Support</label>
+            </value>
+            <value>
+                <fullName>CargoWatch - Orbcomm</fullName>
+                <default>false</default>
+                <label>CargoWatch - Orbcomm</label>
+            </value>
+            <value>
+                <fullName>AddOn Systems TMNi Module</fullName>
+                <default>false</default>
+                <label>AddOn Systems TMNi Module</label>
+            </value>
+            <value>
+                <fullName>AXON TMS</fullName>
+                <default>false</default>
+                <label>AXON TMS</label>
+            </value>
+            <value>
+                <fullName>Bolt Systems</fullName>
+                <default>false</default>
+                <label>Bolt Systems</label>
+            </value>
+            <value>
+                <fullName>Cetaris - Fleet Maintenance Software</fullName>
+                <default>false</default>
+                <label>Cetaris - Fleet Maintenance Software</label>
+            </value>
+            <value>
+                <fullName>Full Circle TMS</fullName>
+                <default>false</default>
+                <label>Full Circle TMS</label>
+            </value>
+            <value>
+                <fullName>McLeod LoadMaster (2-Way)  v.16.1</fullName>
+                <default>false</default>
+                <label>McLeod LoadMaster (2-Way)  v.16.1</label>
+            </value>
+            <value>
+                <fullName>McLeod LoadMaster  (Base) v.11.1</fullName>
+                <default>false</default>
+                <label>McLeod LoadMaster  (Base) v.11.1</label>
+            </value>
+            <value>
+                <fullName>Nic-Place</fullName>
+                <default>false</default>
+                <label>Nic-Place</label>
+            </value>
+            <value>
+                <fullName>OmniTracs - &quot;RNA&quot; Road Net Anywhere</fullName>
+                <default>false</default>
+                <label>OmniTracs - &quot;RNA&quot; Road Net Anywhere</label>
+            </value>
+            <value>
+                <fullName>OmniTracs - &quot;Sylectus&quot;</fullName>
+                <default>false</default>
+                <label>OmniTracs - &quot;Sylectus&quot;</label>
+            </value>
+            <value>
+                <fullName>Optym - Axele TMS</fullName>
+                <default>false</default>
+                <label>Optym - Axele TMS</label>
+            </value>
+            <value>
+                <fullName>PCS Software</fullName>
+                <default>false</default>
+                <label>PCS Software</label>
+            </value>
+            <value>
+                <fullName>Prophesy - High Jump</fullName>
+                <default>false</default>
+                <label>Prophesy - High Jump</label>
+            </value>
+            <value>
+                <fullName>SCVP - FourKites</fullName>
+                <default>false</default>
+                <label>SCVP - FourKites</label>
+            </value>
+            <value>
+                <fullName>SCVP - Freight Verify</fullName>
+                <default>false</default>
+                <label>SCVP - Freight Verify</label>
+            </value>
+            <value>
+                <fullName>SCVP - MacroPoint</fullName>
+                <default>false</default>
+                <label>SCVP - MacroPoint</label>
+            </value>
+            <value>
+                <fullName>SCVP - Overhaul</fullName>
+                <default>false</default>
+                <label>SCVP - Overhaul</label>
+            </value>
+            <value>
+                <fullName>SCVP - Trimble Visibility aka 10-4 Systems</fullName>
+                <default>false</default>
+                <label>SCVP - Trimble Visibility aka 10-4 Systems</label>
+            </value>
+            <value>
+                <fullName>SCVP - Trucker Tools</fullName>
+                <default>false</default>
+                <label>SCVP - Trucker Tools</label>
+            </value>
+            <value>
+                <fullName>SSI PowerPro v. 14.1.23</fullName>
+                <default>false</default>
+                <label>SSI PowerPro v. 14.1.23</label>
+            </value>
+            <value>
+                <fullName>Strategy Systems - &quot;Strategy Live&quot;</fullName>
+                <default>false</default>
+                <label>Strategy Systems - &quot;Strategy Live&quot;</label>
+            </value>
+            <value>
+                <fullName>TMW - Innovative/Access  v.2016.1</fullName>
+                <default>false</default>
+                <label>TMW - Innovative/Access  v.2016.1</label>
+            </value>
+            <value>
+                <fullName>TMW - Suite (Powerbuilder)  TotalMail v.16.10</fullName>
+                <default>false</default>
+                <label>TMW - Suite (Powerbuilder)  TotalMail v.16.10</label>
+            </value>
+            <value>
+                <fullName>TMW - Suites (Operations)  TotalMail version 16.10</fullName>
+                <default>false</default>
+                <label>TMW - Suites (Operations)  TotalMail version 16.10</label>
+            </value>
+            <value>
+                <fullName>TMW - TruckMate v.13.2.195.3</fullName>
+                <default>false</default>
+                <label>TMW - TruckMate v.13.2.195.3</label>
+            </value>
+            <value>
+                <fullName>TransPlus Software - FleetManager Pro</fullName>
+                <default>false</default>
+                <label>TransPlus Software - FleetManager Pro</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

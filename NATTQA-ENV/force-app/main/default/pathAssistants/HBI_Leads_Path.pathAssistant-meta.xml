@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Lead</entityName>
+    <fieldName>HBI_Lead_Status__c</fieldName>
+    <masterLabel>HBI Leads Path</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;When a lead is converted to opporunity by receiving business and abandoned.&lt;/p&gt;</info>
+        <picklistValueName>Abandoned</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;When a lead is Accepted by receiving business&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Accepted</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;When a customer has been contacted and activities are created on lead by receiving business&lt;/p&gt;</info>
+        <picklistValueName>Customer Contacted</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;When a lead is converted to opportunity by receiving business and deal is lost.&lt;/p&gt;</info>
+        <picklistValueName>Lost</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;When a lead is sent from WHQ to respective receiving business&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>New</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;When a lead is converted to opportunity and work is still in progress.&lt;/p&gt;</info>
+        <picklistValueName>Qualified</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;When a lead is marked as Unqualified by receiving business&lt;/p&gt;</info>
+        <picklistValueName>Rejected</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;When a lead is converetd to opporutniy by receiving business and deal is won.&lt;/p&gt;</info>
+        <picklistValueName>Won Booked</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>HBI_Leads</recordTypeName>
+</PathAssistant>

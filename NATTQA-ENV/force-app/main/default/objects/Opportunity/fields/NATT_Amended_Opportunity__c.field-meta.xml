@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Amended_Opportunity__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>if this is an amendment then the original oppty will show up here</description>
+    <label>Amended Opportunity</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Amendments</relationshipLabel>
+    <relationshipName>Amendments</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

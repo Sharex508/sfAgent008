@@ -1,0 +1,214 @@
+<messaging:emailTemplate subject="Thermo Engine Supply: Ship Confirmation - Order # {!relatedTo.NATT_Order__r.OrderNumber}" recipientType="User" relatedToType="Shipment">
+<messaging:htmlEmailBody >
+<table style="width:650px;background-color:white;border:1px solid #E0E0E0; text-align:center" width="650" cellspacing="0" cellpadding="10" border="0">
+            <tbody>
+                <tr>
+                    <td valign="top"></td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        <div style="margin:0 0 11px 0;">
+                            <font size="4"><span style="font-size:22px;font-weight:normal;">
+                            Hello, {!recipient.Name}</span></font>
+                        </div>
+                        <div style="margin:0;">
+                            <font size="1">
+                                <span style="font-size:12px;">Your order has shipped. 
+                                <a href="https://transicold.force.com/tes" target="_blank" rel="noopener noreferrer">
+                                <font color="#1E7EC8">Click here</font>
+                                </a> to track your order or you can check the status of your order by 
+                                <a href="https://transicold.force.com/tes" target="_blank" rel="noopener noreferrer">
+                                <font color="#1E7EC8">logging into your account</font>
+                                </a>. 
+                                <br/>
+                                <br/>
+                                If you have any questions about your order please contact us at 
+                                <a href="mailto:sales@thermoenginesupply.com" target="_blank" rel="noopener noreferrer">
+                                <font color="#1E7EC8">sales@thermoenginesupply.com</font>
+                                </a> or call us at (800)-966-3105 Monday - Friday, 7am - 4pm PST. </span>
+                            </font>
+                        </div> 
+                        <br />
+                        
+                        <div style="margin:0;">
+                            <font size="1">
+                                <span style="font-size:12px;">
+                                <br/>
+                                Thank you again for your business.
+                                </span>                                
+                            </font>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div style="margin:0;">
+                            <font size="2">
+                                <span style="font-size:18px;font-weight:normal;">Your Order {!relatedTo.NATT_Order__r.OrderNumber} <font size="-1">
+                                        (placed on {!relatedTo.NATT_Order__r.OrderedDate})</font></span>
+                            </font>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Special Instructions :</b> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table style="width:650px;" width="650" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td style="width:325px;text-align:justify;background-color:#EAEAEA;padding:9px;"
+                                        width="325" align="left">
+                                        <font size="1" color="#2F2F2F">
+                                           <span style="font-size:13px;background-color:#EAEAEA;">
+                                              Billing Information:
+                                           </span>
+                                        </font>
+                                    </td>
+                                    <td style="width:10px;" width="10">&nbsp;</td>
+                                    <td style="width:325px;text-align:justify;background-color:#EAEAEA;padding:9px;"
+                                        width="325" align="left">
+                                        <font size="1" color="#2F2F2F">
+                                           <span style="font-size:13px;background-color:#EAEAEA;">Payment Method:</span>
+                                        </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:7px 9px 9px 9px;border-right:1px solid #EAEAEA;border-bottom:1px solid #EAEAEA;border-left:1px solid #EAEAEA;"
+                                        valign="top">
+                                        <font size="1">
+                                           <span style="font-size:12px;">
+                                               {!relatedTo.NATT_Order__r.Account.Name} <br/>
+                                                {!relatedTo.NATT_Order__r.BillingStreet}, {!relatedTo.NATT_Order__r.BillingCity}, {!relatedTo.NATT_Order__r.BillingState}, {!relatedTo.NATT_Order__r.BillingPostalCode}, {!relatedTo.NATT_Order__r.BillingCountry} &nbsp;
+                                            </span>
+                                        </font>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                    <td style="padding:7px 9px 9px 9px;border-right:1px solid #EAEAEA;border-bottom:1px solid #EAEAEA;border-left:1px solid #EAEAEA;"
+                                        valign="top">
+                                        <font size="1"><span style="font-size:12px;">
+                                                <div>{!relatedTo.NATT_Order__r.NATT_Payment_Instruction__c}</div>
+                                            </span></font>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+
+                        <table style="width:650px;" width="650" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td style="width:325px;text-align:justify;background-color:#EAEAEA;padding:9px;"
+                                        width="325" align="left">
+                                        <font size="1" color="#2F2F2F">
+                                            <span style="font-size:13px;background-color:#EAEAEA;">Shipping Information:</span>
+                                        </font>
+                                    </td>
+                                    <td style="width:10px;" width="10">&nbsp;</td>
+                                    <td style="width:325px;text-align:justify;background-color:#EAEAEA;padding:9px;"
+                                        width="325" align="left">
+                                        <font size="1" color="#2F2F2F">
+                                            <span style="font-size:13px;background-color:#EAEAEA;">Shipping Method:</span>
+                                        </font>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:7px 9px 9px 9px;border-right:1px solid #EAEAEA;border-bottom:1px solid #EAEAEA;border-left:1px solid #EAEAEA;"
+                                        valign="top">
+                                        <font size="1">
+                                           <span style="font-size:12px;">
+                                            {!relatedTo.NATT_Order__r.Account.Name} <br/>
+                                                {!relatedTo.NATT_Order__r.ShippingStreet}, {!relatedTo.NATT_Order__r.ShippingCity}, {!relatedTo.NATT_Order__r.ShippingState}, {!relatedTo.NATT_Order__r.ShippingPostalCode}, {!relatedTo.NATT_Order__r.ShippingCountry} &nbsp;
+                                           </span>
+                                       </font>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                    <td style="padding:7px 9px 9px 9px;border-right:1px solid #EAEAEA;border-bottom:1px solid #EAEAEA;border-left:1px solid #EAEAEA;"
+                                        valign="top">
+                                        <font size="1">
+                                        <span style="font-size:12px;">Forwarding Agent - {!relatedTo.NATT_Order__r.NATT_Shipment_Method__c} &nbsp; </span></font>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+
+                        <table style="width:650px;border:1px solid #EAEAEA;" width="650" cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:justify;background-color:#EAEAEA;padding:9px;" align="left">
+                                        <font size="1" color="#2F2F2F">
+                                        <span style="font-size:13px;background-color:#EAEAEA;">Item</span></font>
+                                    </td>
+                                    <td style="text-align:justify;background-color:#EAEAEA;padding:9px;" align="left">
+                                        <font size="1" color="#2F2F2F">
+                                        <span style="font-size:13px;background-color:#EAEAEA;">Part#</span></font>
+                                    </td>
+                                    <td style="text-align:center;background-color:#EAEAEA;padding:9px;" align="center">
+                                        <font size="1" color="#2F2F2F">
+                                        <span style="font-size:13px;background-color:#EAEAEA;">Qty</span></font>
+                                    </td>
+                                    <td style="text-align:center;background-color:#EAEAEA;padding:9px;" align="right">
+                                        <font size="1" color="#2F2F2F">
+                                        <span style="font-size:13px;background-color:#EAEAEA;">Subtotal</span></font>
+                                    </td>
+                                </tr>
+                                
+                                <apex:repeat var="oi" value="{!relatedTo.ShipmentItems}">
+                                <tr>
+                                    <td style="text-align:justify;padding:9px;" valign="top" align="left">
+                                        <font size="1"><span style="font-size:11px;">
+                                            <font size="1"><span style="font-size:11px;"><b>{!oi.NATT_Product_Name__c}</b></span></font>
+                                            </span></font>
+                                    </td>
+                                    <td style="text-align:justify;padding:9px;" valign="top" align="left">
+                                        <font size="1"><span style="font-size:11px;">{!oi.NATT_P_N__c}</span></font>
+                                    </td>
+                                    <td style="text-align:center;padding:9px;" valign="top" align="center">
+                                        <font size="1"><span style="font-size:11px;">{!oi.Quantity}</span></font>
+                                    </td>
+                                    <td style="padding:9px;" valign="top" align="right">
+                                        <font size="1">
+                                            <span style="font-size:11px;">
+                                            {!relatedTo.NATT_Order__r.CurrencyISOCode} 
+                                            <apex:outputText value="{0, number, 00.00}">
+                                              <apex:param value="{!oi.NATT_Amount__c}" />
+                                            </apex:outputText>
+                                            </span>
+                                        </font>
+                                    </td>
+                                </tr>
+                                </apex:repeat>
+                                
+                                <tr>
+                                    <td colspan="3" style="padding:3px 9px;" align="right"><b>Grand Total</b> </td>
+                                    <td style="padding:3px 9px;" align="right">
+                                        <b>{!relatedTo.NATT_Order__r.CurrencyISOCode} 
+                                        <apex:outputText value="{0, number, 00.00}">
+                                          <apex:param value="{!relatedTo.NATT_Order__r.TotalAmount}" />
+                                        </apex:outputText></b> 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="margin:0 0 10px 0;">
+                            <font size="1"><span style="font-size:12px;">&nbsp;</span></font>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;background-color:#3992C4;" align="center">
+                        <span style="background-color:#3992C4;">
+                            <div style="text-align:center;" align="center">
+                                <div style="margin:0;">
+                                    <font size="1" color="white"><span style="font-size:12px;">Thank you, <b>Thermo Engine Supply</b></span></font>
+                                </div>
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

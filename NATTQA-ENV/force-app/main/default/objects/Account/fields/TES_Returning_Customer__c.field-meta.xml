@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TES_Returning_Customer__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field allows a TES customer to identify themself as having previously done business with TES during the site registration process. If the flag is checked, TES customer service will validate the existence of the customer account in JDE, create it if it doesn&apos;t exist, and enter the JDE customer number manually on the account record. This box should not be checked if the JDE customer number is present</description>
+    <label>TES Returning Customer</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

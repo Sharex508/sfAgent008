@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_BaaN_Bill_To_Code__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>CONTAINER BaaN Bill To Code</description>
+    <externalId>true</externalId>
+    <label>BaaN Bill To Code</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

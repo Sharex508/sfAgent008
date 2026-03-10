@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "b4b917f2-bb0b-472a-abf0-db7157333781",
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "Bulk_Upload_Order__c",
+  "id" : "851eab0e-ed6b-4bb1-b088-2f557a8a2c98",
+  "label" : "Bulk Upload Order",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-bulk-upload-order",
+  "type" : "route",
+  "urlPrefix" : "bulk-upload-order"
+}

@@ -1,0 +1,111 @@
+<template>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_4-of-12">
+            <div class="slds-grid slds-grid_vertical-reverse">
+                <div class="slds-col">
+                    <lightning-breadcrumbs class="slds-p-bottom_medium slds-p-top_xx-small">
+                        <template for:each={_resolvedCategoryPath} for:item="level">
+                            <lightning-breadcrumb key={level.name} label={level.name} href={level.url}>
+                            </lightning-breadcrumb>
+                        </template>
+                    </lightning-breadcrumbs>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_8-of-12">
+            <div class="slds-grid slds-grid_vertical">
+                <template if:true={showS2Banner}>
+                    <div class="slds-col">
+                        <div class="slds-p-around_xxx-small slds-media slds-media_center slds-scoped-notification_light"
+                            role="status">
+                            <div class="slds-media__figure">
+                                <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+                            </div>
+                            <h4 class="slds-media__body slds-text-color_error slds-text-heading_medium">
+                                {label.supersededMessage}
+                            </h4>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={notOrderable}>
+                    <template if:true={isDirectDelivery}>
+                        <div class="slds-col">
+                            <div class="slds-p-around_xxx-small slds-media slds-media_center slds-scoped-notification_light"
+                                role="status">
+                                <div class="slds-media__figure">
+                                    <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+                                </div>
+                                <h3 class="slds-media__body slds-text-heading_medium">{label.directDeliveryLabel}
+                                </h3>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={isPriceGroup123}>
+                        <div class="slds-col">
+                            <div class="slds-p-around_xxx-small slds-media slds-media_center slds-scoped-notification_light"
+                                role="status">
+                                <div class="slds-media__figure">
+                                    <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+                                </div>
+                                <h4 class="slds-media__body slds-text-heading_medium">{label.refrigerantLabel}
+                                </h4>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={isCustomerPrice}>
+                        <div class="slds-col">
+                            <div class="slds-p-around_xxx-small slds-media slds-media_center slds-scoped-notification_light"
+                                role="status">
+                                <div class="slds-media__figure">
+                                    <lightning-icon icon-name="utility:info" size="small"></lightning-icon>
+                                </div>
+                                <h4 class="slds-media__body slds-text-heading_medium">{label.customerSpecificPriceLabel}
+                                </h4>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </div>
+    <lightning-spinner if:false={hasProduct} class="slds-is-relative slds-align_absolute-center slds-m-around_large"
+        alternative-text="Loading product information..." size="medium" variant="brand">
+    </lightning-spinner>
+    <div class="slds-border_top slds-p-top_large"></div>
+
+    <template if:true={showCategory}>
+        <div class="slds-grid slds-wrap slds-gutters_direct">
+            <div class="slds-col slds-size_1-of-5">
+                <c-nac_vertical-category></c-nac_vertical-category>
+            </div>
+            <div class="slds-col slds-size_4-of-5">
+                <c-product-details-display if:true={hasProduct} cart-locked={_isCartLocked}
+                    effective-account-id={effectiveAccountId} category-path={displayableProduct.categoryPath}
+                    custom-fields={displayableProduct.customFields} fields={displayableProduct.fields}
+                    description={displayableProduct.description} image={displayableProduct.image}
+                    in-stock={displayableProduct.inStock} name={displayableProduct.name}
+                    price={displayableProduct.price} sku={displayableProduct.sku}
+                    productcode={displayableProduct.productcode} onaddtocart={addToCart}
+                    oncreateandaddtolist={createAndAddToList} product-id={displayableProduct.id} direct-delivery={displayableProduct.directDelivery}
+                    quantityunitofmeasure={displayableProduct.quantityunitofmeasure}
+                    onresolvedcategorypath={handleResolvedCategoryPath} onshowbanner={handleShowBanner}
+                    core-product={displayableProduct.coreProduct} onnotorderableinfo={notorderableinfo}>
+                </c-product-details-display>
+            </div>
+        </div>
+    </template>
+
+    <template if:false={showCategory}>
+        <c-product-details-display if:true={hasProduct} cart-locked={_isCartLocked}
+            effective-account-id={effectiveAccountId} category-path={displayableProduct.categoryPath}
+            custom-fields={displayableProduct.customFields} fields={displayableProduct.fields}
+            description={displayableProduct.description} image={displayableProduct.image}
+            in-stock={displayableProduct.inStock} name={displayableProduct.name} price={displayableProduct.price}
+            sku={displayableProduct.sku} productcode={displayableProduct.productcode} onaddtocart={addToCart}
+            oncreateandaddtolist={createAndAddToList} product-id={displayableProduct.id}
+            quantityunitofmeasure={displayableProduct.quantityunitofmeasure} direct-delivery={displayableProduct.directDelivery}
+            onresolvedcategorypath={handleResolvedCategoryPath} onshowbanner={handleShowBanner}
+            onnotorderableinfo={notorderableinfo}>
+        </c-product-details-display>
+    </template>
+</template>

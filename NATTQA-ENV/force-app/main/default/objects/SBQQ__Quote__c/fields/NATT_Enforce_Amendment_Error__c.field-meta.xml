@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Enforce_Amendment_Error__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This field will be by default set to true in for the amendment process, during the process of Amendment Quote creation. It will be automatically reset to false.</description>
+    <label>Enforce Amendment Error</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

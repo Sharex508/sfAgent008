@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Send email notification to owner on case closure</description>
+        <name>Case_Closed_Notification</name>
+        <label>Case Closed Notification</label>
+        <locationX>582</locationX>
+        <locationY>596</locationY>
+        <actionName>Case.CONTAINER_Case_Closed_Email_Notification</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.CONTAINER_Case_Closed_Email_Notification</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <description>Send email notification to record owner on Status change.</description>
+        <name>Case_Monitor_Notification</name>
+        <label>Case Monitor Notification</label>
+        <locationX>216</locationX>
+        <locationY>609</locationY>
+        <actionName>Case.CONTAINER_Case_Monitor_Email_Notification</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.CONTAINER_Case_Monitor_Email_Notification</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>New_email_Notification</name>
+        <label>New email Notification</label>
+        <locationX>405</locationX>
+        <locationY>615</locationY>
+        <actionName>Case.New_one</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>Case.New_one</nameSegment>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <description>Check record type of each case record.</description>
+        <name>Is_Record_Created_Updated</name>
+        <label>Is Record Created/Updated?</label>
+        <locationX>385</locationX>
+        <locationY>382</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Record_Monitor</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CONTAINER_Service_Engineering_Field_Service</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Monitor</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_Monitor_Notification</targetReference>
+            </connector>
+            <label>Record Monitor</label>
+        </rules>
+        <rules>
+            <name>Record_Closed</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CONTAINER_Service_Engineering_Field_Service</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Closed</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Case_Closed_Notification</targetReference>
+            </connector>
+            <label>Record Closed</label>
+        </rules>
+        <rules>
+            <name>If_status_is_NEW</name>
+            <conditionLogic>1 AND 2 AND (3 OR 4)</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>New</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CONTAINER_Service_Engineering_Field_Service</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>IsNewRecord</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record__Prior.Status</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>New_email_Notification</targetReference>
+            </connector>
+            <label>If status is NEW</label>
+        </rules>
+    </decisions>
+    <description>Auto Launched Flow to trigger email on Case creation/closure.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Is to check that record is newly created and not updated.</description>
+        <name>IsNewRecord</name>
+        <dataType>Boolean</dataType>
+        <expression>ISNEW()</expression>
+    </formulas>
+    <interviewLabel>CONTAINER {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CONTAINER Case Email Notification</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>262</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Is_Record_Created_Updated</targetReference>
+        </connector>
+        <object>Case</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <description>New Case Template Body.</description>
+        <name>CaseCreationEmailTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Account: {!$Record.AccountId}
+Case Id: {!$Record.Id}
+Case Number: {!$Record.CaseNumber}
+Case Description: {!$Record.Description}
+Case Detail: {!$Record.AccountId}</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Email Template for Case Status change.</description>
+        <name>CaseUpdateEmailTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Case Number: {!$Record.CaseNumber}
+Case Description: {!$Record.Description}
+Case Detail: {!$Record.AccountId}</text>
+    </textTemplates>
+</Flow>

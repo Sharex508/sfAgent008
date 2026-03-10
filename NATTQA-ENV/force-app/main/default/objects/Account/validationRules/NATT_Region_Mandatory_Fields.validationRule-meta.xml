@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Region_Mandatory_Fields</fullName>
+    <active>true</active>
+    <description>Region field is mandatory.</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(NATT_Region__c,&quot;&quot;),
+NOT(CONTAINS(RecordType.DeveloperName, &apos;CONTAINER&apos;)),
+NOT(CONTAINS(RecordType.DeveloperName, &apos;NAOCAP_Customer&apos;)),
+NOT( $Permission.NATT_Bypass_Validation_Rule)
+)</errorConditionFormula>
+    <errorDisplayField>NATT_Region__c</errorDisplayField>
+    <errorMessage>Region field is mandatory.</errorMessage>
+</ValidationRule>

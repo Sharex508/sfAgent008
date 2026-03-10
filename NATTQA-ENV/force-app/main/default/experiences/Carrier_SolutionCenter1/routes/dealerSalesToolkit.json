@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "d31f28df-b655-4c44-8abf-d24a3d081c77",
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "configurationTags" : [ ],
+  "devName" : "Dealer_Sales_Toolkit__c",
+  "id" : "1212944d-9c7d-47bd-bca6-5f0f916d890b",
+  "label" : "Dealer Sales Toolkit",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-dealer-sales-toolkit",
+  "type" : "route",
+  "urlPrefix" : "dealer-sales-toolkit"
+}

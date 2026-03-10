@@ -1,0 +1,285 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" standardController="Order" extensions="BluEdgeOrderSummaryFormController" readOnly="true">
+    <head>
+        <style type="text/css" media="print">
+               @page {
+                       padding-top: 35px;
+                       margin-bottom: 3cm;
+                       @top-center {
+                             content: element(header);
+                       }
+                       @bottom-left {
+                             content: element(footer);
+                       }
+                    }
+        div.header {
+                    font-family: sans-serif;
+                    font-size: 9pt;
+                    height: 15px;
+                    padding: 10px;
+                    position: running(header);
+        }
+        div.footer {
+                    font-family: sans-serif;
+                    font-size: 9pt;
+                    height: 20px;
+                    padding: 0px;
+                    position: running(footer);
+        }
+        div.dealer {
+                    font-family: sans-serif;
+                    height: 25px;
+                    padding: 2px;
+                    text-align: center;
+                    font-size: 14pt;
+                    font-weight: bold;
+                    color:#FF0000;
+        }
+        div.details {
+                    font-family: sans-serif;
+                    font-size: 11pt; 
+                    color: #000000;
+        }
+        
+        </style>
+    </head>
+    
+    <div class="header">
+        <table style="height: 10px; width:100%;">
+            <tr>
+                <td style="width: 33%;">
+                    <div style="text-align:left;">
+                        <apex:image id="BluEdgeType" value="{!logoBluEdge}" height="60" alt="BluEdgeTypeLogo"/>
+                    </div>
+                </td>
+                <td style="width: 34%; text-align:center;">Confidential - Do not distribute</td>
+                <td style="width: 33%;">
+                    <div style="text-align:right;">
+                        <apex:image id="BluEdge" value="{!$Label.NATT_BluEdge_Logo}" height="60" alt="BluEdgeLogo"/>
+                    </div>
+                </td>
+            </tr>                    
+        </table>
+    </div>
+    <div class="footer">
+        <table style="height: 10px; width:100%;">
+               <tr>
+                   <td style="width: 33%;">
+                       <div style="text-align:left;">
+                           <apex:image id="CarrierTransicold" value="{!$Label.NATT_CarrierTransicold_Logo}" height="50" alt="CarrierTransicold"/>
+                       </div>
+                   </td>
+                   <td style="width: 34%; text-align:center;">Confidential - Do not distribute</td>
+                   <td style="width: 33%;"></td>
+               </tr>                    
+        </table>
+    </div>
+    <div class="content">
+        <div>
+            <table style="width:100%;border-color:#000080;border-style:solid;">
+                <tbody>
+                    <tr>
+                        <th align="center" valign="middle">
+                                <span style="font-size:22pt; font-family: sans-serif; color:#000080;">BluEdge</span><br/>
+                                <span style="font-size:18pt; font-family: sans-serif; color:#000080;">{!typeBluEdge} Plan Proposal</span>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="dealer">
+            <apex:outputText rendered="{!dealerCopy}" value="Dealer Copy"></apex:outputText>
+            <apex:outputText rendered="{!IF(dealerCopy, false, true)}" value=" "></apex:outputText>
+        </div>
+
+        <div class="details">
+             <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                <tr style="border-collapse:collapse; border: thin solid black;">
+                    <td align="left" valign="middle" style="width: 34%; border-collapse:collapse; border: thin solid black;"><b>&#160;Quote ID:</b> {!quoteID}</td>
+                    <td align="left" valign="middle" style="width: 33%; border-collapse:collapse; border: thin solid black;"><b>&#160;Quote Date:</b> {!quoteDate}</td>
+                    <td align="left" valign="middle" style="width: 33%; border-collapse:collapse; border: thin solid black;"><b>&#160;Quote Expires:</b> {!quoteExpires}</td>
+                </tr>
+                <tr style="border-collapse:collapse; border: thin solid black;">
+                    <td align="center" valign="middle" style="width: 34%; border-collapse:collapse; border: thin solid black;"><b>Customer</b></td>
+                    <td align="center" valign="middle" colspan="2" rowspan="1" style="width: 66%; border-collapse:collapse; border: thin solid black;"><b>Dealer Information</b></td>
+                </tr>
+                <tr style="border-collapse:collapse; border: thin solid black;">
+                    <td align="center" valign="middle" style="width: 34%; border-collapse:collapse; border: thin solid black;">{!customerName }</td>
+                    <td align="center" valign="middle" colspan="2" rowspan="1" style="width: 66%; border-collapse:collapse; border: thin solid black;">
+                        {!salesRepName} <br/>
+                        {!dealerName} <br/>
+                        {!billingStreet} <br/>
+                        {!billingCity}, {!billingState}, {!billingPostalCode} <br/>
+                        {!billingCountry} <br/>
+                        {!dealerPhone}
+                    </td>
+                </tr>
+                <tr style="border-collapse:collapse; border: thin solid black;">
+                    <td align="left" valign="middle" colspan="3" rowspan="1" style="width: 100%; border-collapse:collapse; border: thin solid black;"><b>&#160;Model Name:</b> {!unitModel}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="details">
+            <apex:pageBlock rendered="{!IF(typeBluEdge == 'Core', true, false)}">
+                <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                    <col width="34%"/>
+                    <col width="16%"/>
+                    <col width="24%"/>
+                    <col width="26%"/>
+                    <tr style="border-collapse:collapse; border: thin solid black;">
+                        <th align="left" valign="middle" style="border-collapse:collapse; border: thin solid black;">&#160;Coverage Type</th>
+                        <th align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">Months</th>
+                        <th align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">Hours</th>
+                        <th align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">Deductible <br/>(per occurrence)
+                        </th>
+                    </tr>
+                </table>
+                <apex:repeat value="{!lstQuoteLine}" var="ql">
+                    <table style="width:100%; border-bottom: none; border-top: none; border-collapse:collapse; border: thin solid black;">
+                        <col width="34%"/>
+                        <col width="16%"/>
+                        <col width="24%"/>
+                        <col width="26%"/>
+                        <tr style="border-collapse:collapse; border: thin solid black;">
+                            <td align="left" valign="middle" style="border-left: thin solid black; border-right: thin solid black; border-collapse:collapse;">
+                                &#160;<apex:outputText value="{!ql.SBQQ__ProductName__c}"/>
+                            </td>
+                            <td align="center" valign="middle" style="border-left: thin solid black; border-right: thin solid black; border-collapse:collapse;">
+                                <apex:outputText value="{!IF(ql.NATT_BluEdge_Price_Type__c == 'Extended Basic', ql.NATT_Months__c, IF(OR(ql.NATT_BluEdge_Price_Type__c == 'Major Component', CONTAINS(ql.SBQQ__ProductName__c, 'Major Component')), ql.NATT_Major_Component_Months__c, ql.NATT_Months__c))}"/>
+                            </td>
+                            <td align="center" valign="middle" style="border-left: thin solid black; border-right: thin solid black; border-collapse:collapse;">
+                                <apex:outputText value="{!IF(ql.NATT_BluEdge_Price_Type__c == 'Extended Basic', ql.NATT_Hours__c, IF(OR(ql.NATT_BluEdge_Price_Type__c == 'Major Component', CONTAINS(ql.SBQQ__ProductName__c, 'Major Component')), ql.NATT_Major_Component_Hours__c, ql.NATT_Hours__c))}"/>
+                            </td>
+                            <td align="center" valign="middle" style="border-left: thin solid black; border-right: thin solid black; border-collapse:collapse;">
+                                <apex:outputText value="{!IF(ql.SBQQ__ProductName__c == 'BluEdge Enhance', null, IF(ql.NATT_BluEdge_Price_Type__c == 'Extended Basic', IF(ql.NATT_Deductibles__c == null, 0, ql.NATT_Deductibles__c), IF(OR(ql.NATT_BluEdge_Price_Type__c == 'Major Component', CONTAINS(ql.SBQQ__ProductName__c, 'Major Component')), ql.NATT_Major_Component_Deductible__c, IF(AND(ql.NATT_Deductibles__c == null, ql.NATT_BluEdge_Price_Type__c != null), 0, ql.NATT_Deductibles__c))))}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </apex:repeat>
+                <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                    <col width="100%"/>
+                    <tr style="border-collapse:collapse; border: thin solid black;">
+                        <td align="center" valign="middle" style="height:25px; border-collapse:collapse; border: thin solid black;">
+                        <b>
+                        <apex:outputText rendered="{!dealerCopy}" value="Dealer "/>
+                        Price: &#160;
+                        <apex:outputText value="{0, Number, Currency}">
+                            <apex:param value="{!pricePerUnit}"/>
+                        </apex:outputText> Per Unit</b> </td>
+                    </tr>
+                </table>
+            </apex:pageBlock>
+            
+            <apex:pageBlock rendered="{!IF(typeBluEdge != 'Core', true, false)}">
+                <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                    <col width="34%"/>
+                    <col width="33%"/>
+                    <col width="33%"/>
+                    <tr style="border-collapse:collapse; border: thin solid black;">
+                        <th align="left" valign="middle" style="border-collapse:collapse; border: thin solid black;">&#160;Coverage Type</th>
+                        <th align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">Months</th>
+                        <th align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">Hours</th>
+                    </tr>
+                </table>
+                <apex:repeat value="{!lstQuoteLine}" var="ql">
+                    <table style="width:100%; border-bottom: none; border-top: none; border-collapse:collapse; border: thin solid black;">
+                        <col width="34%"/>
+                        <col width="33%"/>
+                        <col width="33%"/>
+                        <tr style="border-collapse:collapse; border: thin solid black;">
+                            <td align="left" valign="middle" style="border-left: thin solid black; border-right: thin solid black; border-collapse:collapse;">
+                                <apex:outputText value="{!ql.SBQQ__ProductName__c}"/>
+                            </td>
+                            <td align="center" valign="middle" style="border-left: thin solid black; border-right: thin solid black; border-collapse:collapse;">
+                                <apex:outputText value="{!IF(ql.NATT_BluEdge_Price_Type__c == 'Extended Basic', ql.NATT_Months__c, IF(OR(ql.NATT_BluEdge_Price_Type__c == 'Major Component', CONTAINS(ql.SBQQ__ProductName__c, 'Major Component')), ql.NATT_Major_Component_Months__c, ql.NATT_Months__c))}"/>
+                            </td>
+                            <td align="center" valign="middle" style="border-left: thin solid black; border-right: thin solid black; border-collapse:collapse;">
+                                <apex:outputText value="{!IF(ql.NATT_BluEdge_Price_Type__c == 'Extended Basic', ql.NATT_Hours__c, IF(OR(ql.NATT_BluEdge_Price_Type__c == 'Major Component', CONTAINS(ql.SBQQ__ProductName__c, 'Major Component')), ql.NATT_Major_Component_Hours__c, ql.NATT_Hours__c))}"/>
+                            </td>
+                        </tr>
+                    </table>
+                </apex:repeat>
+                <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                    <col width="100%"/>
+                    <tr style="border-collapse:collapse; border: thin solid black;">
+                        <td align="center" valign="middle" style="height:25px; border-collapse:collapse; border: thin solid black;">
+                        <b>
+                        <apex:outputText rendered="{!dealerCopy}" value="Dealer "/>
+                        Price: &#160;
+                        <apex:outputText rendered="{!NOT(showPricePerHour)}" value="{0, Number, Currency}">
+                            <apex:param value="{!pricePerUnit}" />
+                        </apex:outputText>
+                        <apex:outputText rendered="{!NOT(showPricePerHour)}"  value=" Per Unit"/>
+
+                        <apex:outputText rendered="{!showPricePerHour}" value="{0, Number, Currency}">
+                            <apex:param value="{!pricePerHour}" />
+                        </apex:outputText>
+                        <apex:outputText rendered="{!showPricePerHour}" value=" Per Hour"/> 
+                        </b> </td>
+                    </tr>
+                </table>   
+            </apex:pageBlock>
+
+            <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                <tr style="border-collapse:collapse; border: thin solid black;">
+                    <td align="left" valign="middle" style="border-collapse:collapse; border: thin solid black;"><b>&#160;Coverage Notes</b></td>
+                </tr>
+                <tr rowspan="4" style="border-collapse:collapse; border: thin solid black;">
+                    <td align="left" valign="middle" style="border-collapse:collapse; border: thin solid black;"> 
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    </td>
+                </tr>
+                <tr style="border-collapse:collapse; border: thin solid black;">
+                    <td align="center" valign="middle" style="height:25px; border-collapse:collapse; border: thin solid black;"><b>Purchase Detail</b></td>
+                </tr>
+            </table>
+            <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                <col width="25%"/>
+                <col width="30%"/>
+                <col width="45%"/>
+                    <tr style="border-collapse:collapse; border: thin solid black;">
+                        <th align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">Purchase Order #</th>
+                        <th align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">Date Purchased</th>
+                        <th align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">Unit Serial Number </th>
+                    </tr>
+            </table>
+            <apex:pageBlock rendered="{!showPurchaseDetails}">
+                <apex:repeat value="{!lstPurchaseDetails}" var="q">
+                        <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                            <col width="25%"/>
+                            <col width="30%"/>
+                            <col width="45%"/>
+                            <tr style="border-collapse:collapse; border: thin solid black;">
+                                <td align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">
+                                    <apex:outputText value="{!q.NATT_Purchase_Order__c}"/>
+                                </td>
+                                <td align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">
+                                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                                         <apex:param value="{!q.NATT_Converted_Date__c}"/>
+                                    </apex:outputText>
+                                </td>
+                                <td align="center" valign="middle" style="border-collapse:collapse; border: thin solid black;">
+                                    <apex:outputText value="{!q.SBQQ__Notes__c}"/>
+                                </td>
+                            </tr>
+                        </table>
+                </apex:repeat>
+            </apex:pageBlock>
+            <table style="width:100%; border-collapse:collapse; border: thin solid black;">
+                    <col width="100%"/>
+                    <tr style="border-collapse:collapse; border: thin solid black;">
+                        <td align="left" valign="middle" style="font-size: 9pt; height:20px; border-collapse:collapse; border: thin solid black;">
+                            <p>&#160;This document is not a guarantee of coverage. Coverage may be verified through the WebClaim 2.0 system.</p>
+                            <p>&#160;Coverage expiration occurs at month/hours from original date in service, whichever occurs first. All coverages exclude abuse, <br/>
+                            &#160;neglect, and all consequential damages. Equipment must be installed and maintained to established CTD guidelines. </p>
+                            <p>&#160;For further information, consult the BluEdge Terms &amp; Conditions or contact the BluEdge team at <a href="bluedge.ctd@carrier.com">bluedge.ctd@carrier.com</a>. </p>
+                        </td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+</apex:page>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_record_type_and_conditions</name>
+        <label>Check record type and conditions</label>
+        <locationX>182</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Container_Add_Stock_record_type</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>CONTAINER_Tentative_Production_Schedule_Add_From_Stock</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Creation_of_Stock_Allocation_Records</targetReference>
+            </connector>
+            <label>Container Add Stock record type</label>
+        </rules>
+    </decisions>
+    <interviewLabel>CONTAINER Create Allocation Records {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CONTAINER Create Allocation Records V2</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Creation_of_Stock_Allocation_Records</name>
+        <label>Creation of Stock Allocation Records</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
+        <inputAssignments>
+            <field>CONTAINER_Qty__c</field>
+            <value>
+                <elementReference>$Record.CONTAINER_TentativeProductionSchd_Qty__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CONTAINER_Stock_Job__c</field>
+            <value>
+                <elementReference>$Record.CONTAINER_TentativeProdSchd_Job__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Quote__c</field>
+            <value>
+                <elementReference>$Record.CONTAINER_Select_Stock__r.CONTAINER_Inventory_Job_lookup__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CONTAINER_Stock_Allocation__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_record_type_and_conditions</targetReference>
+        </connector>
+        <object>CONTAINER_Tentative_Production_Schedule__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

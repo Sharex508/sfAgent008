@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MX</fullName>
+    <active>true</active>
+    <description>For Carrier Transicold - Mexico Knowledge Articles</description>
+    <label>CTM</label>
+    <picklistValues>
+        <picklist>NATT_Department__c</picklist>
+        <values>
+            <fullName>Dealer Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>General</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Mgt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Unit Sales</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Document_Type__c</picklist>
+        <values>
+            <fullName>Branding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bulletins</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diagrams%2FSchematics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fast Facts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Forms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Instructions</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Literature</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manuals %E2%80%93 Diagnostic and Maintenance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manuals %E2%80%93 Engine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manuals %E2%80%93 Installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manuals %E2%80%93 Operation and Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manuals %E2%80%93 Operator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Manuals %E2%80%93 Parts</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Guides</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Presentation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tools</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Videos</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Segment__c</picklist>
+        <values>
+            <fullName>Administrative %26 Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BluEdge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dealer Required Parts%2FTools</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dealer Sales Toolkit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regulatory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Documentation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Type__c</picklist>
+        <values>
+            <fullName>General Bulletin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Parts Bulletin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Guide</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Service Bulletin</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Instructions</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Year__c</picklist>
+        <values>
+            <fullName>2014</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2015</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2016</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2017</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2018</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2019</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2020</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2021</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2022</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2023</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2024</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2025</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>UCP_Region__c</picklist>
+        <values>
+            <fullName>AUS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Americas</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SG%2FHK</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UCP %28Global%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>UCP_Segment__c</picklist>
+        <values>
+            <fullName>Administrative %26 Policy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lynx Fleet</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marketing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Service</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Regulatory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical Documentation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

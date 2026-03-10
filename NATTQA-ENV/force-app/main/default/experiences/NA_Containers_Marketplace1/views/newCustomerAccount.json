@@ -1,0 +1,68 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "f6bda645-2410-4396-b70e-3ee04af6d8ba",
+  "label" : "New Customer Account",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "ffa952fe-a497-467a-8cc9-c7291e2d2fea",
+          "columns" : [ {
+            "UUID" : "2a4c6fd9-d44a-4c14-8798-bcf3d8f95aa8",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "ffa952fe-a497-467a-8cc9-c7291e2d2fea",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:nac_Create_Account",
+          "id" : "03fc3aea-ada8-4fbc-9cf7-857f49226a55",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "2a4c6fd9-d44a-4c14-8798-bcf3d8f95aa8",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "18a10ab2-e6a1-4d72-b48c-cb99b9f32c30",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "New Customer Account"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "81236d62-fb79-4b8b-a141-ed97a7700993",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "88212e4c-54cd-4896-b5af-98db57498f01",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-new-customer-account"
+}

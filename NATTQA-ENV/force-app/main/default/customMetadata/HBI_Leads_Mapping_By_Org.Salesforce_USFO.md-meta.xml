@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Salesforce_USFO</label>
+    <protected>false</protected>
+    <values>
+        <field>Lead_Reason_Field__c</field>
+        <value xsi:type="xsd:string">Disqual_Reason__c</value>
+    </values>
+    <values>
+        <field>Opportunity_Reason_Field__c</field>
+        <value xsi:type="xsd:string">Reason__c</value>
+    </values>
+    <values>
+        <field>Status_Accepted__c</field>
+        <value xsi:type="xsd:string">Accepted</value>
+    </values>
+    <values>
+        <field>Status_Customer_Contacted__c</field>
+        <value xsi:type="xsd:string">Contacted</value>
+    </values>
+    <values>
+        <field>Status_Lost__c</field>
+        <value xsi:type="xsd:string">Closed - Lost,Closed - Abandoned</value>
+    </values>
+    <values>
+        <field>Status_Rejected__c</field>
+        <value xsi:type="xsd:string">Unqualified</value>
+    </values>
+    <values>
+        <field>Status_Won__c</field>
+        <value xsi:type="xsd:string">Closed - Booked</value>
+    </values>
+</CustomMetadata>

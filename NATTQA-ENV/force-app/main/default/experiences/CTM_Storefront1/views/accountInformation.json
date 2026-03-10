@@ -1,0 +1,149 @@
+{
+  "appPageId" : "a72f9961-a56d-4d6c-be9b-34da3e37d662",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "a9994e1d-2671-4073-baeb-a37887acd888",
+  "label" : "Account Information",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "16a7db78-85d5-41d5-8d89-dcec6cc56817",
+          "columns" : [ {
+            "UUID" : "ee89dc82-d60f-4d81-85d5-6afc22765c2b",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "16a7db78-85d5-41d5-8d89-dcec6cc56817",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "tabsetConfig" : {
+              "UUID" : "11366315-c833-4b81-9e9e-761b5fca8182",
+              "activeTab" : "",
+              "tabs" : [ {
+                "UUID" : "85d28868-f845-4619-b409-cf8c7bb776a2",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "1",
+                "tabName" : "Detalles de cuenta"
+              }, {
+                "UUID" : "04f3f5ad-08b3-4443-8441-24d295138e97",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "2",
+                "tabName" : "Direcciones"
+              }, {
+                "UUID" : "6b108877-802f-443c-92cc-58db1c4a3d1c",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "3",
+                "tabName" : "Carritos"
+              } ],
+              "useOverflowMenu" : false
+            }
+          },
+          "componentName" : "forceCommunity:tabset",
+          "id" : "11366315-c833-4b81-9e9e-761b5fca8182",
+          "regions" : [ {
+            "components" : [ {
+              "componentAttributes" : {
+                "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+              },
+              "componentName" : "c:natt_accountinformation_address",
+              "id" : "609f827b-287c-4796-80cc-def708dca66d",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "85d28868-f845-4619-b409-cf8c7bb776a2",
+            "regionLabel" : "Detalles de cuenta",
+            "regionName" : "1",
+            "renditionMap" : { },
+            "type" : "region"
+          }, {
+            "components" : [ {
+              "componentAttributes" : {
+                "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+              },
+              "componentName" : "c:NATT_AccountInformationAddresses",
+              "id" : "a99d7276-f7d4-4a45-ba7f-b054b725d118",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "04f3f5ad-08b3-4443-8441-24d295138e97",
+            "regionLabel" : "Direcciones",
+            "regionName" : "2",
+            "renditionMap" : { },
+            "type" : "region"
+          }, {
+            "components" : [ {
+              "componentAttributes" : {
+                "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+              },
+              "componentName" : "c:natt_AccountInformationCartPage",
+              "id" : "7df924a3-d297-4285-a675-f606d3285ed6",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "6b108877-802f-443c-92cc-58db1c4a3d1c",
+            "regionLabel" : "Carritos",
+            "regionName" : "3",
+            "renditionMap" : { },
+            "type" : "region"
+          } ],
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_ppgStoreFooter",
+          "id" : "8f29a69f-03f2-4d42-b83f-619f78deea20",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "ee89dc82-d60f-4d81-85d5-6afc22765c2b",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8b93fef6-3611-4c5b-9a68-4b1c505f5cbf",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Account Information"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f2c5f027-fd0a-45ff-a0ea-425d4cf666b4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1ea8c5c0-0b34-4553-aa81-c98eeccd5587",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-account-information"
+}

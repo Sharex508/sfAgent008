@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Core_Items_Rcv_Notification_Sent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When all Core Items are received the Case Contact is notified.  This field is used to prevent duplicate notifications.</description>
+    <label>Core Items Received Notification Sent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

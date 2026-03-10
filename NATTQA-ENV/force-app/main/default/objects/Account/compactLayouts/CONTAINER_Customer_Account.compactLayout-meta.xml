@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Customer_Account</fullName>
+    <fields>Name</fields>
+    <fields>RecordTypeId</fields>
+    <fields>Phone</fields>
+    <fields>OwnerId</fields>
+    <fields>CONTAINER_JDE_Bill_To_Code__c</fields>
+    <fields>CONTAINER_BaaN_Bill_To_Code__c</fields>
+    <fields>CONTAINER_AR_Code_JDE_AR_Code__c</fields>
+    <label>CONTAINER Customer Account</label>
+</CompactLayout>

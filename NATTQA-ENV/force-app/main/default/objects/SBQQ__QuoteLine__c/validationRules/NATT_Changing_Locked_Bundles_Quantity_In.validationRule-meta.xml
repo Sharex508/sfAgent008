@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Changing_Locked_Bundles_Quantity_In</fullName>
+    <active>true</active>
+    <description>for natt units</description>
+    <errorConditionFormula>BEGINS(NATT_Quote_Recordtype_Dev_Name__c, &quot;NATT_Units_Quote&quot;) &amp;&amp;
+ISPICKVAL(SBQQ__Quote__r.SBQQ__Type__c, &quot;Amendment&quot;) &amp;&amp;
+SBQQ__EffectiveQuantity__c &gt; 0 &amp;&amp;
+NATT_Is_Base_Unit__c = TRUE &amp;&amp;
+NATT_Locked__c = TRUE</errorConditionFormula>
+    <errorMessage>The quantity of the locked unit may not be changed. To add more units, clone the bundle and update the quantity.</errorMessage>
+</ValidationRule>

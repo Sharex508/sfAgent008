@@ -1,0 +1,50 @@
+<template>
+    <div class="slds-text-heading_large slds-p-top_small">Create New Contact</div>
+    <template if:false={step3}>
+    <div class="slds-text-heading_medium slds-p-vertical_large">{currentStage}</div>
+  </template>
+    <template if:true={showSpinner}>
+      <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <!--<template if:false={step3}>
+      <div>        
+          <div class="slds-grid slds-wrap slds-align_absolute-center">
+            <div class="slds-size_7-of-12 slds-p-bottom_small ">
+              <c-nac-stage-indicator stages={stages} current-stage={currentStage}></c-nac-stage-indicator>
+            </div>
+          </div>        
+      </div>
+    </template>-->
+    
+    <div class="slds-p-bottom_large"></div>
+    <div>
+        <template if:true={step1}>
+            <c-nac_new-user-contact-information signup-information={signupInformation} onsignupinfo={handlesignUpDataChange} effective-account-id ={effectiveAccountId}>
+            </c-nac_new-user-contact-information>
+        </template>
+    </div>
+    <!-- CXREF- 4664 Changes <div>
+        <template if:true={step2}>           
+             <c-nac_-new-user-address-details signup-information={signupInformation} selected-account-number={signupInformation.accountNumber} onsignupinfo={handlesignUpDataChange}> 
+             </c-nac_-new-user-address-details>
+         </template>
+    </div>-->
+    <div>
+      <template if:true={step3}>         
+           <c-nac_-sign-up-complete signup-information={signupInformation} > 
+           </c-nac_-sign-up-complete>
+       </template>
+  </div>
+    <div class="slds-p-bottom_large"></div>
+    <div class="slds-float_right">
+       <!-- <template if:true={showBackButton}>
+          <lightning-button label="Back" onclick={handleClickBack} class="slds-m-left_x-small"></lightning-button>
+        </template>-->
+        <template if:true={showSubmitButton}>
+          <lightning-button variant="brand" label={nextButtonLabel} onclick={handleClickNext} disabled={disableNextButton}
+            class="slds-m-left_x-small">
+          </lightning-button>
+        </template>
+      </div>
+    
+</template>

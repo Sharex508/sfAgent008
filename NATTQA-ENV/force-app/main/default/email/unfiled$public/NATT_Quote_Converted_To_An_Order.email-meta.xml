@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <available>true</available>
+    <description>Sent to Dealers and Approvers when the Unit/BluEdge Quote is Ordered</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NATT Quote Converted To An Order</name>
+    <style>none</style>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Mandatory_fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+AND( CONTAINER_Product_Type__c = &apos;NT&apos;,
+NOT(ISBLANK(ActivatedDate)),NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR(
+ISBLANK(CONTAINER_PO_Number__c),
+ISBLANK(CONTAINER_Ship_Date__c),
+ISBLANK(CONTAINER_Ship_To_Destination__c),
+ISBLANK(TEXT(CONTAINER_SO_Category__c))
+)),
+AND( CONTAINER_Product_Type__c = &apos;GENSET&apos;,
+NOT(ISBLANK(ActivatedDate)),NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR(
+ISBLANK(CONTAINER_PO_Number__c),
+ISBLANK(CONTAINER_Ship_Date__c),
+ISBLANK(CONTAINER_Ship_To_Destination__c),
+ISBLANK(TEXT(CONTAINER_SO_GENSET_Category__c))
+))
+)</errorConditionFormula>
+    <errorMessage>Customer PO, Ship Date, Ship to Destination &amp; SO Category fields cannot be blank.</errorMessage>
+</ValidationRule>

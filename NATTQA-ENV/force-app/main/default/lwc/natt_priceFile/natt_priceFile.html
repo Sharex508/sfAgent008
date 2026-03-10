@@ -1,0 +1,61 @@
+<template>
+  <div class="section slds-section slds-is-open">
+      <h3 class="section slds-section__title slds-theme_shade">
+        <!-- <span class="section slds-truncate slds-p-horizontal_small" title="Section Title">Account Details</span> -->
+        <span class="slds-text-heading_medium slds-p-bottom_medium" title={label.CompletePriceFilesLabel}>{label.CompletePriceFilesLabel}</span>
+      </h3>
+  </div>
+
+  <!-- <lightning-card title="Lightning Datatable Example"> -->
+  <lightning-spinner alternative-text="Loading" size="medium" if:false={priceFileList}></lightning-spinner>
+    <div class="slds-m-around_medium">
+      <lightning-layout horizontal-align="space">
+        <lightning-layout-item flexibility="auto">
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">           
+              <template if if:true={priceFileListDownload}>
+                <lightning-button icon-name="utility:download" label={label.DownloadAsCsvLabel} title="Download CSV File" onclick={downloadCSVFile}></lightning-button>
+              </template>           
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+        </lightning-layout-item>
+    </lightning-layout>
+    &nbsp;
+    
+    <lightning-datatable
+          class="datatable"
+          data={priceFileList} 
+          columns={columns} 
+          key-field="Id"
+          onsort={handleSort}
+          sorted-by={sortedField}
+          sorted-direction={sortedDirection}
+          onrowselection={handleRowSelect}
+          hide-checkbox-column="true" >
+      </lightning-datatable>
+      </br>
+
+      <!-- Navigation buttons -->
+      <lightning-layout horizontal-align="space">
+        <lightning-layout-item flexibility="auto">
+          <lightning-button label={label.FirstLabel} icon-name="utility:jump_to_left" onclick={handleFirst} disabled={disableFirstButton}>
+              </lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+            <lightning-button label={label.PreviousLabel} icon-name="utility:chevronleft" onclick={previousHandler} disabled={disablePreviousButton}>
+            </lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+          {label.PageLabel} {page} {label.OfLabel} {totalPage}
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+          <lightning-button label={label.NextLabel} icon-name="utility:chevronright" icon-position="right"
+              onclick={nextHandler} disabled={disableNextButton}></lightning-button>
+      </lightning-layout-item>
+      <lightning-layout-item flexibility="auto">
+        <lightning-button label={label.LastLabel} icon-name="utility:jump_to_right" icon-position="right"
+            onclick={handleLast} disabled={disableLastButton}></lightning-button>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+</template>

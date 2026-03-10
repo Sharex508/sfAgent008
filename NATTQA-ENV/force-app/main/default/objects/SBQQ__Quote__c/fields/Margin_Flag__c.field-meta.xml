@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Margin_Flag__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(
+        OR(
+            ROUND(NATT_Margin__c * 100, 2) &lt; ROUND(QMargin_DOS_Lower_Bound__c * 100, 2),
+            ROUND(NATT_Margin__c * 100, 2) &lt; 0
+        ),
+        $Permission.Margin_FLag_Access
+    ),
+    IMAGE(
+        LEFT($Api.Partner_Server_URL_530, FIND(&quot;/services&quot;, $Api.Partner_Server_URL_530) - 1) &amp; 
+        &quot;/resource/BlackFlag&quot;,
+        &quot;black&quot;,
+        60,
+        60
+    ),
+    IF(
+        AND(
+            ROUND(NATT_Margin__c * 100, 2) &gt;= ROUND(QMargin_DOS_Lower_Bound__c * 100, 2),
+            ROUND(NATT_Margin__c * 100, 2) &lt; ROUND(QMargin_RD_Lower_Bound__c * 100, 2),
+            $Permission.Margin_FLag_Access
+        ),
+        IMAGE(
+            LEFT($Api.Partner_Server_URL_530, FIND(&quot;/services&quot;, $Api.Partner_Server_URL_530) - 1) &amp; &quot;/img/samples/flag_red.gif&quot;,
+            &quot;red&quot;,
+            30,
+            30
+        ),
+        IF(
+            AND(
+                ROUND(NATT_Margin__c * 100, 2) &gt;= ROUND(QMargin_RD_Lower_Bound__c * 100, 2),
+                ROUND(NATT_Margin__c * 100, 2) &lt; ROUND(QMargin_EAM_Lower_Bound__c * 100, 2),
+                $Permission.Margin_FLag_Access
+            ),
+            IMAGE(
+                LEFT($Api.Partner_Server_URL_530, FIND(&quot;/services&quot;, $Api.Partner_Server_URL_530) - 1) &amp; &quot;/img/samples/flag_yellow.gif&quot;,
+                &quot;yellow&quot;,
+                30,
+                30
+            ),
+            IF(
+                AND(
+                    ROUND(NATT_Margin__c * 100, 2) &gt;= ROUND(QMargin_EAM_Lower_Bound__c * 100, 2),
+                    $Permission.Margin_FLag_Access
+                ),
+                IMAGE(
+                    LEFT($Api.Partner_Server_URL_530, FIND(&quot;/services&quot;, $Api.Partner_Server_URL_530) - 1) &amp; &quot;/img/samples/flag_green.gif&quot;,
+                    &quot;green&quot;,
+                    30,
+                    30
+                ),
+                null
+            )
+        )
+    )
+)</formula>
+    <label>Margin Flag</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

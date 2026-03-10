@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a0293fd7-3aa2-4cfb-9b3b-a3a2c0395a98",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Services__c",
+  "id" : "557837da-dfb8-475a-9a67-8a0d1ee0b35e",
+  "label" : "Services",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-services",
+  "type" : "route",
+  "urlPrefix" : "services"
+}

@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Case_Reason__c</fullName>
+    <inlineHelpText>Reason that the Case is being created</inlineHelpText>
+    <label>Case Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Account Management Issues</fullName>
+                <default>false</default>
+                <label>Account Management Issues</label>
+            </value>
+            <value>
+                <fullName>Alarm</fullName>
+                <default>false</default>
+                <label>Alarm</label>
+            </value>
+            <value>
+                <fullName>Annual Returns</fullName>
+                <default>false</default>
+                <label>Annual Returns</label>
+            </value>
+            <value>
+                <fullName>Application Issue</fullName>
+                <default>false</default>
+                <label>Application Issue</label>
+            </value>
+            <value>
+                <fullName>Availability</fullName>
+                <default>false</default>
+                <label>Availability</label>
+            </value>
+            <value>
+                <fullName>Back Order</fullName>
+                <default>false</default>
+                <label>Back Order</label>
+            </value>
+            <value>
+                <fullName>Batch Issues</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Batch Issues</label>
+            </value>
+            <value>
+                <fullName>Cancellations</fullName>
+                <default>false</default>
+                <label>Cancellations</label>
+            </value>
+            <value>
+                <fullName>Change</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Change</label>
+            </value>
+            <value>
+                <fullName>Change existing billing address</fullName>
+                <default>false</default>
+                <label>Change existing billing address</label>
+            </value>
+            <value>
+                <fullName>Change existing shipping address</fullName>
+                <default>false</default>
+                <label>Change existing shipping address</label>
+            </value>
+            <value>
+                <fullName>Claim Rejection or Appeals</fullName>
+                <default>false</default>
+                <label>Claim Rejection or Appeals</label>
+            </value>
+            <value>
+                <fullName>Claim Update</fullName>
+                <default>false</default>
+                <label>Claim Update</label>
+            </value>
+            <value>
+                <fullName>Commissioning Issues</fullName>
+                <default>false</default>
+                <label>Commissioning Issues</label>
+            </value>
+            <value>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+                <label>Complaint</label>
+            </value>
+            <value>
+                <fullName>Concealed Damage</fullName>
+                <default>false</default>
+                <label>Concealed Damage</label>
+            </value>
+            <value>
+                <fullName>Concession Request</fullName>
+                <default>false</default>
+                <label>Concession Request</label>
+            </value>
+            <value>
+                <fullName>Consolidated Billing</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Consolidated Billing</label>
+            </value>
+            <value>
+                <fullName>Contract Issues</fullName>
+                <default>false</default>
+                <label>Contract Issues</label>
+            </value>
+            <value>
+                <fullName>Core Return</fullName>
+                <default>false</default>
+                <label>Core Return</label>
+            </value>
+            <value>
+                <fullName>Coverage Information</fullName>
+                <default>false</default>
+                <label>Coverage Information</label>
+            </value>
+            <value>
+                <fullName>Coverage Terms</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Coverage Terms</label>
+            </value>
+            <value>
+                <fullName>CPEC</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CPEC</label>
+            </value>
+            <value>
+                <fullName>Credit Memos</fullName>
+                <default>false</default>
+                <label>Credit Memos</label>
+            </value>
+            <value>
+                <fullName>Credits</fullName>
+                <default>false</default>
+                <label>Credits</label>
+            </value>
+            <value>
+                <fullName>Customer Ordered in Error</fullName>
+                <default>false</default>
+                <label>Customer Ordered in Error</label>
+            </value>
+            <value>
+                <fullName>Damages</fullName>
+                <default>false</default>
+                <label>Damages</label>
+            </value>
+            <value>
+                <fullName>Data Feed</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Data Feed</label>
+            </value>
+            <value>
+                <fullName>Deductible for a Repeat Charge</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Deductible for a Repeat Charge</label>
+            </value>
+            <value>
+                <fullName>Defective Shelf</fullName>
+                <default>false</default>
+                <label>Defective Shelf</label>
+            </value>
+            <value>
+                <fullName>Direct Ship Overage</fullName>
+                <default>false</default>
+                <label>Direct Ship Overage</label>
+            </value>
+            <value>
+                <fullName>Direct Ship Shortage</fullName>
+                <default>false</default>
+                <label>Direct Ship Shortage</label>
+            </value>
+            <value>
+                <fullName>Documentation</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Documentation</label>
+            </value>
+            <value>
+                <fullName>Electrical Standby</fullName>
+                <default>false</default>
+                <label>Electrical Standby</label>
+            </value>
+            <value>
+                <fullName>Engine Authorization Request</fullName>
+                <default>false</default>
+                <label>Engine Authorization Request</label>
+            </value>
+            <value>
+                <fullName>Expedite - unit down/emergency orders</fullName>
+                <default>false</default>
+                <label>Expedite - unit down/emergency orders</label>
+            </value>
+            <value>
+                <fullName>Extended Warranty</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Extended Warranty</label>
+            </value>
+            <value>
+                <fullName>Failure</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Failure</label>
+            </value>
+            <value>
+                <fullName>Field Action Authorization</fullName>
+                <default>false</default>
+                <label>Field Action Authorization</label>
+            </value>
+            <value>
+                <fullName>File Attachment</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>File Attachment</label>
+            </value>
+            <value>
+                <fullName>Freight Charge/Surcharge</fullName>
+                <default>false</default>
+                <label>Freight Charge/Surcharge</label>
+            </value>
+            <value>
+                <fullName>Freight Company Complaints</fullName>
+                <default>false</default>
+                <label>Freight Company Complaints</label>
+            </value>
+            <value>
+                <fullName>Freight Company Damage</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Freight Company Damage</label>
+            </value>
+            <value>
+                <fullName>Freight Company O&amp;S</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Freight Company O&amp;S</label>
+            </value>
+            <value>
+                <fullName>Hardware Issues</fullName>
+                <default>false</default>
+                <label>Hardware Issues</label>
+            </value>
+            <value>
+                <fullName>Incorrect Manual</fullName>
+                <default>false</default>
+                <label>Incorrect Manual</label>
+            </value>
+            <value>
+                <fullName>Incorrect Part Received</fullName>
+                <default>false</default>
+                <label>Incorrect Part Received</label>
+            </value>
+            <value>
+                <fullName>Installation Issues</fullName>
+                <default>false</default>
+                <label>Installation Issues</label>
+            </value>
+            <value>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+                <label>Instructions not clear</label>
+            </value>
+            <value>
+                <fullName>Invoice issue</fullName>
+                <default>false</default>
+                <label>Invoice issue</label>
+            </value>
+            <value>
+                <fullName>Is a Customer Covered</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Is a Customer Covered</label>
+            </value>
+            <value>
+                <fullName>Issues</fullName>
+                <default>false</default>
+                <label>Issues</label>
+            </value>
+            <value>
+                <fullName>Mandatory Part Return (MPR)</fullName>
+                <default>false</default>
+                <label>Mandatory Part Return (MPR)</label>
+            </value>
+            <value>
+                <fullName>Manual Print Request</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Manual Print Request</label>
+            </value>
+            <value>
+                <fullName>Misc. General Questions</fullName>
+                <default>false</default>
+                <label>Misc. General Questions</label>
+            </value>
+            <value>
+                <fullName>Misc. Technical Issues</fullName>
+                <default>false</default>
+                <label>Misc. Technical Issues</label>
+            </value>
+            <value>
+                <fullName>Mis-Shipment</fullName>
+                <default>false</default>
+                <label>Mis-Shipment</label>
+            </value>
+            <value>
+                <fullName>Missing Parts</fullName>
+                <default>false</default>
+                <label>Missing Parts</label>
+            </value>
+            <value>
+                <fullName>New Part Set-up</fullName>
+                <default>false</default>
+                <label>New Part Set-up</label>
+            </value>
+            <value>
+                <fullName>New problem</fullName>
+                <default>false</default>
+                <label>New problem</label>
+            </value>
+            <value>
+                <fullName>New Request</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>New Request</label>
+            </value>
+            <value>
+                <fullName>New shipping address</fullName>
+                <default>false</default>
+                <label>New shipping address</label>
+            </value>
+            <value>
+                <fullName>NSU/Pricing</fullName>
+                <default>false</default>
+                <label>NSU/Pricing</label>
+            </value>
+            <value>
+                <fullName>Order Entry Error</fullName>
+                <default>false</default>
+                <label>Order Entry Error</label>
+            </value>
+            <value>
+                <fullName>Order Management</fullName>
+                <default>false</default>
+                <label>Order Management</label>
+            </value>
+            <value>
+                <fullName>Order Status/Tracking</fullName>
+                <default>false</default>
+                <label>Order Status/Tracking</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Overage</fullName>
+                <default>false</default>
+                <label>Overage</label>
+            </value>
+            <value>
+                <fullName>Overtime and Callout Coverage</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Overtime and Callout Coverage</label>
+            </value>
+            <value>
+                <fullName>Package Labeled Wrong</fullName>
+                <default>false</default>
+                <label>Package Labeled Wrong</label>
+            </value>
+            <value>
+                <fullName>Part Incomplete/Missing Components</fullName>
+                <default>false</default>
+                <label>Part Incomplete/Missing Components</label>
+            </value>
+            <value>
+                <fullName>Part Issue</fullName>
+                <default>false</default>
+                <label>Part Issue</label>
+            </value>
+            <value>
+                <fullName>Password</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Password</label>
+            </value>
+            <value>
+                <fullName>Payment and Claims Status</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Payment and Claims Status</label>
+            </value>
+            <value>
+                <fullName>Preventative Maintenance</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Preventative Maintenance</label>
+            </value>
+            <value>
+                <fullName>Product Documentation</fullName>
+                <default>false</default>
+                <label>Product Documentation</label>
+            </value>
+            <value>
+                <fullName>Product Performance</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Product Performance</label>
+            </value>
+            <value>
+                <fullName>Program Information</fullName>
+                <default>false</default>
+                <label>Program Information</label>
+            </value>
+            <value>
+                <fullName>Quote for Option</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Quote for Option</label>
+            </value>
+            <value>
+                <fullName>Quote Issue</fullName>
+                <default>false</default>
+                <label>Quote Issue</label>
+            </value>
+            <value>
+                <fullName>Quote Request Form</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Quote Request Form</label>
+            </value>
+            <value>
+                <fullName>Return Request</fullName>
+                <default>false</default>
+                <label>Return Request</label>
+            </value>
+            <value>
+                <fullName>Scheduled Maintenance</fullName>
+                <default>false</default>
+                <label>Scheduled Maintenance</label>
+            </value>
+            <value>
+                <fullName>Service Intervals</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Service Intervals</label>
+            </value>
+            <value>
+                <fullName>Shortage</fullName>
+                <default>false</default>
+                <label>Shortage</label>
+            </value>
+            <value>
+                <fullName>Short Shipment</fullName>
+                <default>false</default>
+                <label>Short Shipment</label>
+            </value>
+            <value>
+                <fullName>Software</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Software</label>
+            </value>
+            <value>
+                <fullName>Special Assistance</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Special Assistance</label>
+            </value>
+            <value>
+                <fullName>Special Product Purchase</fullName>
+                <default>false</default>
+                <label>Special Product Purchase</label>
+            </value>
+            <value>
+                <fullName>Special Quote Request</fullName>
+                <default>false</default>
+                <label>Special Quote Request</label>
+            </value>
+            <value>
+                <fullName>Specification</fullName>
+                <default>false</default>
+                <label>Specification</label>
+            </value>
+            <value>
+                <fullName>Standard Repair Time (SRT)</fullName>
+                <default>false</default>
+                <label>Standard Repair Time (SRT)</label>
+            </value>
+            <value>
+                <fullName>Technical Question</fullName>
+                <default>false</default>
+                <label>Technical Question</label>
+            </value>
+            <value>
+                <fullName>Temperature Control</fullName>
+                <default>false</default>
+                <label>Temperature Control</label>
+            </value>
+            <value>
+                <fullName>Terms &amp; Conditions</fullName>
+                <default>false</default>
+                <label>Terms &amp; Conditions</label>
+            </value>
+            <value>
+                <fullName>Troubleshooting</fullName>
+                <default>false</default>
+                <label>Troubleshooting</label>
+            </value>
+            <value>
+                <fullName>Unit Behavior</fullName>
+                <default>false</default>
+                <label>Unit Behavior</label>
+            </value>
+            <value>
+                <fullName>Unit Download Review</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Unit Download Review</label>
+            </value>
+            <value>
+                <fullName>Warranty Claim Issue</fullName>
+                <default>false</default>
+                <label>Warranty Claim Issue</label>
+            </value>
+            <value>
+                <fullName>Warranty Coverage</fullName>
+                <default>false</default>
+                <label>Warranty Coverage</label>
+            </value>
+            <value>
+                <fullName>Warranty Question</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Warranty Question</label>
+            </value>
+            <value>
+                <fullName>Warranty Registration Issue</fullName>
+                <default>false</default>
+                <label>Warranty Registration Issue</label>
+            </value>
+            <value>
+                <fullName>Website Issues</fullName>
+                <default>false</default>
+                <label>Website Issues</label>
+            </value>
+            <value>
+                <fullName>What is Covered Under a Program</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>What is Covered Under a Program</label>
+            </value>
+            <value>
+                <fullName>Wrong Document Attached to Email</fullName>
+                <default>false</default>
+                <label>Wrong Document Attached to Email</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Technical Inquiry</controllingFieldValue>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Technical Issue</controllingFieldValue>
+            <valueName>Incorrect Manual</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical Inquiry</controllingFieldValue>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Question</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Technical Question</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Other</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New/Change Address</controllingFieldValue>
+            <valueName>Change existing billing address</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New/Change Address</controllingFieldValue>
+            <valueName>Change existing shipping address</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New/Change Address</controllingFieldValue>
+            <valueName>New shipping address</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Question</controllingFieldValue>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Application Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Commissioning Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <valueName>Coverage Information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Unit Order Maintenance</controllingFieldValue>
+            <valueName>Credits</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Electrical Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Product Information</controllingFieldValue>
+            <controllingFieldValue>Question</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <valueName>Installation Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Product Information</controllingFieldValue>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <controllingFieldValue>Question</controllingFieldValue>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Instructions not clear</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Misc. Technical Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>New problem</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Part Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Product Information</controllingFieldValue>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <valueName>Product Documentation</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Information</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Troubleshooting</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Issues</controllingFieldValue>
+            <valueName>Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Part Set-Up/Pricing</controllingFieldValue>
+            <valueName>New Part Set-up</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>New Part Set-Up/Pricing</controllingFieldValue>
+            <valueName>NSU/Pricing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <controllingFieldValue>Unit Order Maintenance</controllingFieldValue>
+            <valueName>Availability</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <controllingFieldValue>Unit Order Maintenance</controllingFieldValue>
+            <valueName>Back Order</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Concession Request</controllingFieldValue>
+            <valueName>Concession Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Sales Order Inquiry</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <controllingFieldValue>Unit Order Maintenance</controllingFieldValue>
+            <valueName>Invoice issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Sales Order Inquiry</controllingFieldValue>
+            <controllingFieldValue>Unit Order Maintenance</controllingFieldValue>
+            <valueName>Order Status/Tracking</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <controllingFieldValue>Shipment</controllingFieldValue>
+            <valueName>Short Shipment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Order Management</controllingFieldValue>
+            <valueName>Special Product Purchase</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overage/Shortage Discrepancy</controllingFieldValue>
+            <valueName>Direct Ship Overage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overage/Shortage Discrepancy</controllingFieldValue>
+            <valueName>Direct Ship Shortage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overage/Shortage Discrepancy</controllingFieldValue>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <valueName>Overage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Overage/Shortage Discrepancy</controllingFieldValue>
+            <valueName>Shortage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Field Action Authorization</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product</controllingFieldValue>
+            <valueName>Specification</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Quality</controllingFieldValue>
+            <valueName>Defective Shelf</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Quality</controllingFieldValue>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Package Labeled Wrong</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Product Quality</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <valueName>Part Incomplete/Missing Components</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <valueName>Annual Returns</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <controllingFieldValue>Sales Order Inquiry</controllingFieldValue>
+            <valueName>Customer Ordered in Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Damages</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <controllingFieldValue>Sales Order Inquiry</controllingFieldValue>
+            <valueName>Incorrect Part Received</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Returns</controllingFieldValue>
+            <valueName>Return Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales Order Inquiry</controllingFieldValue>
+            <valueName>Expedite - unit down/emergency orders</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales Order Inquiry</controllingFieldValue>
+            <valueName>Freight Charge/Surcharge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Sales Order Inquiry</controllingFieldValue>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Order Entry Error</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <valueName>Cancellations</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <valueName>Contract Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <valueName>Program Information</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <valueName>Quote Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <valueName>Scheduled Maintenance</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <valueName>Special Quote Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BluEdge</controllingFieldValue>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Terms &amp; Conditions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Complaint</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Credit Memos</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Complaint</controllingFieldValue>
+            <valueName>Missing Parts</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Concession Request</controllingFieldValue>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Claim Rejection or Appeals</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Core Return</controllingFieldValue>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Core Return</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Claim Update</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Engine Authorization Request</controllingFieldValue>
+            <valueName>Engine Authorization Request</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Mandatory Part Return (MPR)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Standard Repair Time (SRT)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Warranty Claim Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Warranty Coverage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Documentation</controllingFieldValue>
+            <controllingFieldValue>Warranty</controllingFieldValue>
+            <valueName>Warranty Registration Issue</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service</controllingFieldValue>
+            <valueName>Wrong Document Attached to Email</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Issue</controllingFieldValue>
+            <valueName>Account Management Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Unit Download Review</controllingFieldValue>
+            <valueName>Alarm</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Issue</controllingFieldValue>
+            <valueName>Hardware Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Issue</controllingFieldValue>
+            <valueName>Misc. General Questions</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Service/Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Issue</controllingFieldValue>
+            <controllingFieldValue>Technical Support</controllingFieldValue>
+            <valueName>Website Issues</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Concealed Damage</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Freight Company Complaints</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Shipment Issues</controllingFieldValue>
+            <valueName>Mis-Shipment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unit Download Review</controllingFieldValue>
+            <valueName>Temperature Control</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Unit Download Review</controllingFieldValue>
+            <valueName>Unit Behavior</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "9b769703-71b7-42d9-bb5e-54bad9bf1ed9",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "AssociateWithoutTavant"
+      }
+    },
+    "targetId" : "5c50e217-7902-4b92-be10-5da2b7f0bccc",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_Component_Properties",
+  "id" : "43a25e1b-63e2-4855-8504-be7397470f78",
+  "type" : "experienceVariation"
+}

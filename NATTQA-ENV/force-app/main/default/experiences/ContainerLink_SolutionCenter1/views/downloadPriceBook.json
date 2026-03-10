@@ -1,0 +1,68 @@
+{
+  "appPageId" : "4d2d78a2-887d-4269-9b35-c2c6f11c55af",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "51e86b19-bb62-4b33-9fcb-1eb52a6d2301",
+  "label" : "Download Price Book",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "1139c4e0-d1dd-4455-86be-a2fd01eeec1c",
+          "columns" : [ {
+            "UUID" : "48515e80-b08b-4e96-a037-5df297958c6f",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "1139c4e0-d1dd-4455-86be-a2fd01eeec1c",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:catalogDownload",
+          "id" : "43636df3-20ba-4280-bbf3-d0d791023865",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "48515e80-b08b-4e96-a037-5df297958c6f",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "d4d9100f-9a36-4265-8151-2e03ef6a23aa",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Download Price Book"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "41f2b614-bd4f-4a20-a40a-f107947b5189",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "571f260b-00cf-455a-b532-72a4131bdb9b",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-download-price-book"
+}

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Freight_Terms__c</fullName>
+    <description>Picklist field to be added under Production &amp; Scheduling Tab of Quote</description>
+    <label>Freight Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CONTAINER_Sales_Region__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CIP- CIP</fullName>
+                <default>false</default>
+                <label>CIP - CIP</label>
+            </value>
+            <value>
+                <fullName>COLLECT - COL</fullName>
+                <default>false</default>
+                <label>COLLECT - COLL</label>
+            </value>
+            <value>
+                <fullName>DELIVERED AT PLACE - DAP</fullName>
+                <default>false</default>
+                <label>DELIVERED AT PLACE - DAP</label>
+            </value>
+            <value>
+                <fullName>DELIVERED DUTY PAID - DDP</fullName>
+                <default>false</default>
+                <label>DELIVERED DUTY PAID - DDP</label>
+            </value>
+            <value>
+                <fullName>NOT APPLICABLE - N/A</fullName>
+                <default>false</default>
+                <label>NOT APPLICABLE - N/A</label>
+            </value>
+            <value>
+                <fullName>PREPAID &amp; ALLOWED - PPA</fullName>
+                <default>false</default>
+                <label>PREPAID &amp; ALLOWED - PPA</label>
+            </value>
+            <value>
+                <fullName>PREPAID &amp; BILLED - PPB</fullName>
+                <default>false</default>
+                <label>PREPAID &amp; BILLED - PPB</label>
+            </value>
+            <value>
+                <fullName>PREPAID - PPD</fullName>
+                <default>false</default>
+                <label>PREPAID - PPD</label>
+            </value>
+            <value>
+                <fullName>FREIGHT COLLECT - C</fullName>
+                <default>false</default>
+                <label>FREIGHT COLLECT - C</label>
+            </value>
+            <value>
+                <fullName>EX FACTORY – EXC</fullName>
+                <default>false</default>
+                <label>EX FACTORY - EXC</label>
+            </value>
+            <value>
+                <fullName>CARRIAGE AND INSURANCE PAID TO -CIP</fullName>
+                <default>false</default>
+                <label>CARRIAGE AND INSURANCE PAID TO - CIP</label>
+            </value>
+            <value>
+                <fullName>DELIVERED AT TERMINAL - DAT</fullName>
+                <default>false</default>
+                <label>DELIVERED AT TERMINAL - DAT</label>
+            </value>
+            <value>
+                <fullName>EX-FACTORY - EXW</fullName>
+                <default>false</default>
+                <label>EX-FACTORY - EXW</label>
+            </value>
+            <value>
+                <fullName>COST AND FREIGHT - CFR</fullName>
+                <default>false</default>
+                <label>COST AND FREIGHT - CFR</label>
+            </value>
+            <value>
+                <fullName>EX WORKS - EXW</fullName>
+                <default>false</default>
+                <label>EX WORKS - EXW</label>
+            </value>
+            <value>
+                <fullName>DELIVED AT PLACE - DAP</fullName>
+                <default>false</default>
+                <label>DELIVED AT PLACE - DAP</label>
+            </value>
+            <value>
+                <fullName>DELIVED DUTY PAID - DDP</fullName>
+                <default>false</default>
+                <label>DELIVED DUTY PAID - DDP</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>DELIVERED AT PLACE - DAP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>DELIVERED DUTY PAID - DDP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>NOT APPLICABLE - N/A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>PREPAID &amp; ALLOWED - PPA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>PREPAID &amp; BILLED - PPB</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>PREPAID - PPD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>CARRIAGE AND INSURANCE PAID TO -CIP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>DELIVERED AT TERMINAL - DAT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>EX-FACTORY - EXW</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>CIP- CIP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>FREIGHT COLLECT - C</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

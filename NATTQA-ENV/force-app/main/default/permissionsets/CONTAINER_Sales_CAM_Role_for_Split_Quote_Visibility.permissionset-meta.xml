@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>CONTAINER_Visible_Split_Quote_button</name>
+    </customPermissions>
+    <description>CAM NT role users can able to see the Split Quote button</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>CONTAINER Sales CAM Role for Split Quote Visibility</label>
+</PermissionSet>

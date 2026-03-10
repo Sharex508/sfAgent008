@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSI_Case_Closure_Validation</fullName>
+    <active>true</active>
+    <description>Please fill Action Taken , Primary Customer Issue and Internal Comments when NPS case is closed.</description>
+    <errorConditionFormula>AND(RecordType.DeveloperName =&apos;Customer_Survey_Index&apos;, ISCHANGED(Status), TEXT(Status)=&apos;Closed&apos;, OR (ISBLANK( TEXT(CLF_AT__c )),ISNULL(TEXT(CLF_AT__c))),
+OR (ISBLANK( TEXT(CLF_PCI__c )),ISNULL(TEXT(CLF_PCI__c))),OR (ISBLANK( Internal_Comments__c ),ISNULL(Internal_Comments__c)))</errorConditionFormula>
+    <errorMessage>Please fill Action Taken , Primary Customer Issue and Internal Comments when NPS case is closed.</errorMessage>
+</ValidationRule>

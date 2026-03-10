@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Is_Base_Unit__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates that this is a top level bundle that is a unit that has options associated with it.</description>
+    <label>Is Base Unit</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

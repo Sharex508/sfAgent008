@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Job_number_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(AND(OR( RecordType.Name = &apos;Container GENSET Quote&apos;, RecordType.Name = &apos;CONTAINER_NT_Quote&apos;), NOT(ISPICKVAL(CONTAINER_Status__c,&quot;Order/Pending for Job #&quot;)),NOT(ISPICKVAL(CONTAINER_Status__c,&quot;Job # Issued&quot;)),NOT(ISPICKVAL(CONTAINER_Status__c,&quot;ASO Released&quot;)),NOT(ISPICKVAL(CONTAINER_Status__c,&quot;SO Released&quot;)),NOT(ISPICKVAL(CONTAINER_Status__c,&quot;Lost&quot;)),NOT(ISPICKVAL(CONTAINER_Status__c,&quot;Cancelled&quot;))
+,NOT(ISBLANK(CONTAINER_Job__c))),true,false
+)</errorConditionFormula>
+    <errorMessage>Job Number field can only be entered once Quote has been Converted to Order.</errorMessage>
+</ValidationRule>

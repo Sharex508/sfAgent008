@@ -1,0 +1,43 @@
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+      </template>
+    <div class="slds-box">
+    <div class="slds-p-bottom_large"></div>
+    <div class="row">   
+      
+        <lightning-input name="AccountName" type="text" label="Account Name" value={signupInformation.accountName}
+         placeholder="Account Name" disabled required></lightning-input>
+        <lightning-input name="contactFirstName" type="text" label="Contact First Name" value={signupInformation.contactFirstName}
+        onblur={handleContactFirstNamechange} placeholder="Contact First Name" required></lightning-input>
+
+        <lightning-input name="contactLastName" type="text" label="Contact Last Name" value={signupInformation.contactLastName}
+        onblur={handleContactLastNamechange} placeholder="Contact Last Name" required></lightning-input>
+
+        <lightning-input name="jobTitle" type="text" label="Job Title" value={signupInformation.jobTitle} 
+        onblur={handleJobTitlechange} placeholder="Job Title" required></lightning-input>
+
+        <lightning-combobox
+        name="contactType"
+        label="Contact Type"
+        value={value}
+        placeholder="Select Contact Type"
+        options={options}
+        onchange={handleContactTypeChange} required></lightning-combobox>
+
+        <!-- <lightning-input type="tel" data-id="phonenum" label="Phone Number" value={signupInformation.phoneNumber}
+        onblur={handlePhoneNumberchange}></lightning-input>-->
+            <lightning-input type="tel" data-id="phonenum" label="Phone Number" value={signupInformation.phoneNumber}
+                onblur={handlePhoneNumberchange}  maxlength="20" required field-level-help="Please enter a valid phone number with Country code">
+                </lightning-input>
+                <!--lightning-helptext content="Please enter a valid phone number with Country code"></lightning-helptext-->
+
+
+              
+        <lightning-input type="email" name="emailAddress" data-id="email" label="Email Address"
+           placeholder="username@example.com" required value={signupInformation.email}
+            onblur={handleEmailValidation} ></lightning-input> 
+          
+        </div>
+    </div>
+</template>

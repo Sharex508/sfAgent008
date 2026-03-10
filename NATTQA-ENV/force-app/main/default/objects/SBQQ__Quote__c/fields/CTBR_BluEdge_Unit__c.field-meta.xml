@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_BluEdge_Unit__c</fullName>
+    <label>CTBR BluEdge Unit</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CTBR_BluEdge_Product_Family__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>CTBR_BluEdge_Unit</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8100</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>X4 7300</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>X4 7500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra 750 SIII</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra 850 SIII</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra 1250</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra 1250 MT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra 1150</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra 1150 MT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S6 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S7 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S8 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S9 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

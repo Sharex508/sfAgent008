@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TS_Agent_Group__c</fullName>
+    <label>TS Agent Group</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>24/7 RS</fullName>
+                <default>false</default>
+                <label>24/7 RS</label>
+            </value>
+            <value>
+                <fullName>FSM</fullName>
+                <default>false</default>
+                <label>FSM</label>
+            </value>
+            <value>
+                <fullName>CAP</fullName>
+                <default>false</default>
+                <label>CAP</label>
+            </value>
+            <value>
+                <fullName>Sales Department</fullName>
+                <default>false</default>
+                <label>Sales Department</label>
+            </value>
+            <value>
+                <fullName>Aftermarket Region Director</fullName>
+                <default>false</default>
+                <label>Aftermarket Region Director</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

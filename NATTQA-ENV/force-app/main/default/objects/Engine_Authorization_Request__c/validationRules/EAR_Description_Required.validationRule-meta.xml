@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EAR_Description_Required</fullName>
+    <active>true</active>
+    <description>The description should be completed for all Engine Authorization Requests</description>
+    <errorConditionFormula>AND(NATT_Description__c = &apos;&apos;,
+BEGINS(NATT_Case__r.RecordType.DeveloperName, &apos;NATT&apos;))</errorConditionFormula>
+    <errorDisplayField>NATT_Description__c</errorDisplayField>
+    <errorMessage>Please describe the reason for the Engine Authorization Request</errorMessage>
+</ValidationRule>

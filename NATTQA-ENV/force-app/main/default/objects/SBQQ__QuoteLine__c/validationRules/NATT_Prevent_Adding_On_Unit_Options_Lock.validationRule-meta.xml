@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Prevent_Adding_On_Unit_Options_Lock</fullName>
+    <active>true</active>
+    <description>used with unit amendments if units are locked</description>
+    <errorConditionFormula>BEGINS(NATT_Quote_Recordtype_Dev_Name__c,&quot;NATT&quot;) &amp;&amp;
+NOT(ISBLANK(SBQQ__RequiredBy__r.SBQQ__UpgradedAsset__c)) &amp;&amp;
+SBQQ__Quote__r.Number_of_Locked_Lines__c &gt; 0 &amp;&amp;
+ISBLANK(NATT_P_N__c) &amp;&amp;
+NATT_Number_of_Price_Rule_Updates__c &gt; 0 &amp;&amp;
+ISPICKVAL(SBQQ__Quote__r.SBQQ__Type__c,&quot;Amendment&quot;) &amp;&amp;
+ISNEW()</errorConditionFormula>
+    <errorMessage>Because some units are locked, you may not change on unit options. This would result in a unit Part Number Change. If you want to change the Unit Part Numbers for the remaining unlocked units, zero out the remaining unlocked units and create a new quote.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Net_total_must_equal_contract_price</fullName>
+    <active>false</active>
+    <errorConditionFormula>OR(AND( CONTAINER_Product_Type__c = &apos;NT&apos;,NOT(ISNULL(ActivatedDate)),CONTAINER_Cost_Contract_Price__c &lt;&gt; CONTAINER_Net_total_Price__c ),
+AND( CONTAINER_Product_Type__c = &apos;GENSET&apos;,NOT(ISNULL(ActivatedDate)),CONTAINER_Cost_Contract_Price__c &lt;&gt; CONTAINER_Net_total_Price__c )
+)</errorConditionFormula>
+    <errorMessage>&quot;Total of Net unit price for order product should be equal to contract price.&quot;</errorMessage>
+</ValidationRule>

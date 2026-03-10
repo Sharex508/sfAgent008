@@ -1,0 +1,196 @@
+<template>
+  <ul>
+    <div class="slds-grid slds-gutters slds-grid_align-spread">
+      <div class="slds-col slds-size_2-of-12 slds-text-heading_small">
+        Part Number
+      </div>
+      <div class="slds-col slds-size_3-of-12 slds-text-heading_small">
+        Description
+      </div>
+      <div
+        class="
+          slds-col
+          slds-size_2-of-12
+          slds-align_absolute-center
+          slds-text-heading_small
+        "
+      >
+        Net Price
+      </div>
+      <div
+        class="
+          slds-col
+          slds-size_1-of-12
+          slds-align_absolute-center
+          slds-text-heading_small
+        "
+      >
+        Quantity
+      </div>
+      <div
+        class="
+          slds-col
+          slds-size_1-of-12
+          slds-align_absolute-center
+          slds-text-heading_small
+        "
+      >
+        UOM
+      </div>
+      <div
+        class="
+          slds-col
+          slds-size_1-of-12
+          slds-align_absolute-center
+          slds-text-heading_small
+        "
+      >
+        Available
+      </div>
+      <div
+        class="
+          slds-col
+          slds-size_1-of-12
+          slds-align_absolute-center
+          slds-text-heading_small
+        "
+      >
+        Total Price
+      </div>
+      <div class="slds-col slds-size_1-of-12"></div>
+    </div>
+    <template for:each={displayItems} for:item="lineItem">
+      <li key={lineItem.cartItem.cartItemId} class="slds-p-vertical_medium">
+        <div class="details slds-has-flexi-truncate">
+          <div class="slds-grid slds-gutters slds-grid_align-spread">
+            <div class="slds-col slds-size_2-of-12">
+              <a
+                tabindex="-1"
+                href={lineItem.productUrl}
+                data-productid={lineItem.cartItem.productDetails.productId}
+                onclick={handleProductDetailNavigation}
+                ><div
+                  class="
+                    item-name
+                    slds-text-heading_small
+                    slds-p-bottom_small
+                    slds-truncate
+                  "
+                >
+                  {lineItem.cartItem.productDetails.fields.NATT_P_N__c}
+                </div>
+              </a>
+              <div
+                if:true={lineItem.hasCoreItem}
+                class="slds-badge"
+                data-core-id={lineItem.coreItem.cartItemId}
+              >
+                Core Charge:
+                <lightning-formatted-number
+                  if:true={lineItem.hasCoreItem}
+                  format-style="currency"
+                  currency-code={currencyCode}
+                  class="slds-badge"
+                  currency-display-as="symbol"
+                  maximum-fraction-digits="2"
+                  value={lineItem.coreItem.totalPrice}
+                >
+                </lightning-formatted-number>
+              </div>
+            </div>
+
+            <div class="slds-col slds-size_3-of-12">
+              {lineItem.cartItem.productDetails.name}
+            </div>
+
+            <div class="slds-col slds-size_2-of-12">
+              <div
+                class="price slds-p-horizontal_medium slds-has-flexi-truncate"
+              >
+                <lightning-formatted-number
+                  format-style="currency"
+                  currency-code={currencyCode}
+                  class="slds-align_absolute-center"
+                  currency-display-as="symbol"
+                  maximum-fraction-digits="2"
+                  value={lineItem.cartItem.unitAdjustedPrice}
+                ></lightning-formatted-number>
+              </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-12">
+              <div
+                class="
+                  quantity-selector
+                  slds-grid slds-grid_vertical-align-top
+                  slds-text-title_caps
+                "
+              >
+                <input
+                  class="
+                    selector-input
+                    slds-p-horizontal_medium
+                    slds-p-vertical_x-small
+                  "
+                  disabled={isCartDisabled}
+                  id={lineItem.cartItem.cartItemId}
+                  data-item-id={lineItem.cartItem.cartItemId}
+                  max="100000"
+                  min="1"
+                  required
+                  type="number"
+                  value={lineItem.cartItem.quantity}
+                  onchange={handleQuantitySelectorBlur}
+                  onclick={handleQuantitySelectorClick}
+                />
+              </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-12">
+              <div class="slds-align_absolute-center">                
+                <lightning-formatted-number value={lineItem.cartItem.productDetails.fields.NATT_UOM_Conversion__c} maximum-fraction-digits="0"></lightning-formatted-number>
+                &nbsp;{lineItem.cartItem.productDetails.fields.QuantityUnitOfMeasure}
+              </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-12">
+              <div class="slds-align_absolute-center">
+                {lineItem.availableCount}
+              </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-12">
+              <div
+                class="price slds-p-horizontal_medium slds-has-flexi-truncate"
+              >
+                <lightning-formatted-number
+                  format-style="currency"
+                  currency-code={currencyCode}
+                  class="slds-align_absolute-center"
+                  currency-display-as="symbol"
+                  maximum-fraction-digits="2"
+                  value={lineItem.cartItem.totalPrice}
+                >
+                </lightning-formatted-number>
+              </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-12">
+              <div class="slds-p-around_xx-small slds-align_absolute-center">
+                <lightning-button-icon
+                  icon-name="utility:close"
+                  variant="bare"
+                  alternative-text="remove"
+                  onclick={handleDeleteCartItem}
+                  data-cartitemid={lineItem.cartItem.cartItemId}
+                  disabled={isCartDisabled}
+                >
+                </lightning-button-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </template>
+  </ul>
+</template>

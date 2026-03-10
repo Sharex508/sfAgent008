@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_OrderBy__c</fullName>
+    <description>Used in the PPG store to set the order by.  This field originally uses the order entered by the customer until JDE returns updated line numbers.</description>
+    <externalId>false</externalId>
+    <formula>if(ISNULL(NATT_OrderLineNumber__c), NATT_CartItemLineNumber__c, NATT_OrderLineNumber__c)</formula>
+    <label>Order By</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

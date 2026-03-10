@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to Lynx Fleet Approvers</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NATT Lynx Fleet Approver Order Summary</name>
+    <relatedEntityType>SBQQ__Quote__c</relatedEntityType>
+    <style>none</style>
+    <subject>Required Approval - ORDER STATUS Lynx Fleet Data Service Plan for Order # {{{SBQQ__Quote__c.Name}}}</subject>
+    <textOnly>Order Summary
+
+Quote #: {{{SBQQ__Quote__c.Name}}} &lt;  {{{SBQQ__Quote__c.NATT_Quote_Link__c}}}  &gt; 
+
+Order Date: {{{SBQQ__Quote__c.NATT_Final_Approval_Date__c}}}
+
+Order Status: {{{SBQQ__Quote__c.NATT_Status_Fx__c}}}
+
+Dealer Name: {{{SBQQ__Quote__c.SBQQ__Account__c}}}
+
+End Customer: {{{SBQQ__Quote__c.NATT_End_Customer__c}}}
+
+Data Plan:{{{SBQQ__Quote__c.NATT_eSolutions_Plans_For_Email__c}}}
+
+Total # of Units: {{{SBQQ__Quote__c.NATT_eSolutions_Total_Plans__c}}}
+
+Discount %: {{{SBQQ__Quote__c.NATT_Total_Discount__c}}}</textOnly>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>

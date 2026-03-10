@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Cannot_Modify_Ordered_Quote</fullName>
+    <active>true</active>
+    <description>prevents editing of a quote if the status is ordered</description>
+    <errorConditionFormula>AND(
+AND(
+BEGINS(NATT_Quote_Record_Type_Developer_Name__c, &quot;NATT_&quot;),
+NOT(
+OR(
+BEGINS(NATT_Quote_Record_Type_Developer_Name__c, &quot;NATT_Units&quot;)
+)
+)
+),
+TEXT(SBQQ__Status__c) = &quot;Ordered&quot;,
+NOT(ISCHANGED(SBQQ__Status__c)),
+NOT(ISNEW()),
+$Permission.NATT_Modify_Ordered_Quotes = FALSE
+)</errorConditionFormula>
+    <errorMessage>You may not modify an ordered quote.</errorMessage>
+</ValidationRule>

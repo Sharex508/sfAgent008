@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Customer_Account_access_to_Service_Admin</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>CONTAINER Customer Account access to Service Admin</label>
+        <sharedTo>
+            <role>Container_Service_Admin</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Customer_Accounts_Shared_with_CAM_GENSET</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Customer Accounts Shared with CAM GENSET</description>
+        <label>CONTAINER Customer Accounts Shared with CAM GENSET</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CAM_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Customer_Accounts_Shared_with_CAM_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Customer Accounts Shared with CAM NT</description>
+        <label>CONTAINER Customer Accounts Shared with CAM NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CAM_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_CAM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Sales Accounts Shared to CAM</description>
+        <label>CONTAINER Sales Accounts Shared to CAM</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CAM</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_Admin</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share Account to Container Sales Admin</description>
+        <label>CONTAINER Sales Accounts Shared to Sales Admin</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_Admin</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_CS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share Account to Container Sales CS</description>
+        <label>CONTAINER Sales Accounts Shared to Sales CS</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_CS_GENSET</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Sales Accounts Shared to Sales CS GENSET</description>
+        <label>CONTAINER Sales Accounts Shared to Sales CS GENSET</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CS_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_CS_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Sales Accounts Shared to Sales CS NT</description>
+        <label>CONTAINER Sales Accounts Shared to Sales CS NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CS_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_Global_Sales_Director</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share Account to Container Sales Global Sales Director</description>
+        <label>CONTAINER Sales Accounts Shared to Sales Global Sales Director</label>
+        <sharedTo>
+            <group>CONTAINER_Global_Sales_Director</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_PM</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share Account to Container Sales PM</description>
+        <label>CONTAINER Sales Accounts Shared to Sales PM</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_PM</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_PM_GENSET</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <label>CONTAINER Sales Accounts Shared to Sales PM GENSET</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_PM_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_PM_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Sales Accounts Shared to Sales PM NT</description>
+        <label>CONTAINER Sales Accounts Shared to Sales PM NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_PM_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_RSD_APO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>container sales accounts shared to rsd apo users</description>
+        <label>CONTAINER Sales Accounts Shared to Sales RSD APO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_APO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region__c</field>
+            <operation>equals</operation>
+            <value>APO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_RSD_EMEA</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Sales Accounts Shared to Sales RSD EMEA</description>
+        <label>CONTAINER Sales Accounts Shared to Sales RSD EMEA</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_EMEA</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region__c</field>
+            <operation>equals</operation>
+            <value>EMEA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_RSD_NAO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>container sales accounts shared with rsd nao</description>
+        <label>CONTAINER Sales Accounts Shared to Sales RSD NAO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_NAO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region__c</field>
+            <operation>equals</operation>
+            <value>NAO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_RSM_APAC</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share Account to RSM based on region</description>
+        <label>CONTAINER Sales Accounts Shared to Sales RSM APO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_APO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region__c</field>
+            <operation>equals</operation>
+            <value>APO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_RSM_EMEA</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share Account to RSM based on region</description>
+        <label>CONTAINER Sales Accounts Shared to Sales RSM EMEA</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_EMEA</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region__c</field>
+            <operation>equals</operation>
+            <value>EMEA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_RSM_NAO</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share Account to RSM based on region</description>
+        <label>CONTAINER Sales Accounts Shared to Sales RSM NAO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_NAO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region__c</field>
+            <operation>equals</operation>
+            <value>NAO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_VP</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Sharing rule for Account records for Container Sales VP user</description>
+        <label>CONTAINER Sales Accounts Shared to Sales VP</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_VP</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_VP_Genset</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Sales Accounts Shared to Sales VP Genset</description>
+        <label>CONTAINER Sales Accounts Shared to Sales VP Genset</label>
+        <sharedTo>
+            <group>Container_Sales_VP_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Sales_VP_NT</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Sales Accounts Shared to Sales VP NT</description>
+        <label>CONTAINER Sales Accounts Shared to Sales VP NT</label>
+        <sharedTo>
+            <group>Container_Sales_VP_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_Shared_to_Service_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>CONTAINER Sales Accounts Shared to Service Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Accounts_with_Blank_Region_Shared_With_All_Roles</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Sales Accounts with Blank Region Shared With All Roles</description>
+        <label>CONTAINER Sales Accounts with Blank Region Shared With All Roles</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Global_Sales_Director</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region__c</field>
+            <operation>equals</operation>
+            <value></value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Account_access_to_FSM_Subordinates</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>CONTAINER Service Account access to FSM Subordinates</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_FSM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Account_access_to_RSM_Subordinates</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>CONTAINER Service Account access to RSM Subordinates</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_RSM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Account_access_to_Warranty_Admin_Subordinates</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>CONTAINER Service Account access to Warranty Admin Subordinates</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service_Warranty_Administrator</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_Shared_to_FSM_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER- Service  Account Read/Write Share to FSM Users</description>
+        <label>CONTAINER Service Accounts Shared to FSM Users</label>
+        <sharedTo>
+            <group>CONTAINER_Service_FSM</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_Shared_to_Prodcut_support_group_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER- Service  Account Read/Write Share to Product Support Group Users</description>
+        <label>CONTAINER Service Accounts Shared to Prodcut support group Users</label>
+        <sharedTo>
+            <group>CONTAINER_Service_Product_Service_Engr</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_Shared_to_RSM_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER- Service  Account Read/Write Share to RSM Users</description>
+        <label>CONTAINER Service Accounts Shared to RSM Users</label>
+        <sharedTo>
+            <group>CONTAINER_Service_RSM</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_Shared_to_Sales_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Service accounts shared with sales users</description>
+        <label>CONTAINER Service Accounts Shared to Sales Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Sales</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_Shared_to_Service_Admin_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER- Service  Account Read/Write Share to Service Admin Users</description>
+        <label>CONTAINER Service Accounts Shared to Service Admin Users</label>
+        <sharedTo>
+            <group>CONTAINER_Service_Admin</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_Shared_to_Technical_Publication_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER- Service  Account Read/Write Share to Technical Publication Users</description>
+        <label>CONTAINER Service Accounts Shared to Technical Publication Users</label>
+        <sharedTo>
+            <group>CONTAINER_Service_Technical_Publication</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_Shared_to_Training_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER- Service  Account Read/Write Share to Training Users</description>
+        <label>CONTAINER Service Accounts Shared to Training Users</label>
+        <sharedTo>
+            <group>CONTAINER_Service_Training</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_Shared_to_Warranty_Admin_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER- Service  Account Read/Write Share to Warranty Admin  Users</description>
+        <label>CONTAINER Service Accounts Shared to Warranty Admin Users</label>
+        <sharedTo>
+            <group>CONTAINER_Service_Warranty_Admin</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Accounts_to_External_Comm_Agent</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>CONTAINER Service Accounts to External Commissioning Agent</description>
+        <label>CONTAINER Service Accounts to External Comm Agent</label>
+        <sharedTo>
+            <role>CONTAINER_External_Commissioning_Agent</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTBR_Accounts_Internal</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <label>CTBR Accounts Internal</label>
+        <sharedTo>
+            <group>CTBR_Accounts_Internal</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTBR Customer,CTBR Dealer,CTBR Competitor</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTM_Account_Internals</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <label>CTM Account Internals</label>
+        <sharedTo>
+            <group>CTM_Internal</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTM Dealer,CTM Competitor,CTM Customer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MX_Accounts_Internal</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Read</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <description>Shares mexico accounts with internal mexico users</description>
+        <label>MX Accounts Internal</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CTM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTM Dealer,CTM Customer,CTM Competitor</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NAOCAP_Customer_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>NAOCAP Customer Access</label>
+        <sharedTo>
+            <role>NAOCAP</role>
+        </sharedTo>
+        <booleanFilter>1 OR (2 AND 3)</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NAOCAP Customer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Service_Location_Type__c</field>
+            <operation>equals</operation>
+            <value>Premium Service Center,Advanced Service Center,Service Center</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Accounts_Shared_Sales_User_and_Tavant_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Share NATT Account record types (Dealer, Customer, NATT OEM, NATT Ownership Group) with NATT Sales User and Tavant Users.</description>
+        <label>NATT Accounts Shared Sales User and Tavant Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>NA</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Competitor,Direct Sale,Customer,Group Ownership,Internal,Dealer</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_CT_of_Penn_East</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <label>NATT - CT of Penn East</label>
+        <sharedTo>
+            <group>NATT_CT_of_Penn_East</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Dealer_Entity__c</field>
+            <operation>contains</operation>
+            <value>Penn Power</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>UCP_Account_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <label>UCP Account Access</label>
+        <sharedTo>
+            <group>UCP_Global</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>Store_Accounts</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Store Accounts</label>
+        <sharedTo>
+            <guestUser>NA_Containers_Marketplace</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Authorized Service Provider,CONTAINER Repair Co/Terminal</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

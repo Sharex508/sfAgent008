@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Convert_to_Order</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Convert to Order</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <url>/flow/Quote_Status_to_Pending_Job_Number?recordId={!SBQQ__Quote__c.Id}&amp;retURL={!SBQQ__Quote__c.Id}</url>
+</WebLink>

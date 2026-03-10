@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Internal_Accounts_Only</fullName>
+    <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6</booleanFilter>
+    <columns>FULL_NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>CORE.USERS.DEPARTMENT</columns>
+    <columns>MANAGER</columns>
+    <columns>CORE.USERS.SAML_SUBJECT</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>CORE.USERS.LAST_LOGIN</columns>
+    <columns>CORE.USERS.ACTIVE</columns>
+    <columns>CORE.PROFILE.NAME</columns>
+    <columns>CORE.USER_ROLE.NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.PROFILE.NAME</field>
+        <operation>equals</operation>
+        <value>NATT Field Staff</value>
+    </filters>
+    <filters>
+        <field>CORE.PROFILE.NAME</field>
+        <operation>equals</operation>
+        <value>NATT Accounts Read Only</value>
+    </filters>
+    <filters>
+        <field>CORE.PROFILE.NAME</field>
+        <operation>equals</operation>
+        <value>NATT Account Super User</value>
+    </filters>
+    <filters>
+        <field>CORE.PROFILE.NAME</field>
+        <operation>equals</operation>
+        <value>NATT PPG Customer Service</value>
+    </filters>
+    <filters>
+        <field>CORE.PROFILE.NAME</field>
+        <operation>equals</operation>
+        <value>NATT PPG Product Support</value>
+    </filters>
+    <filters>
+        <field>CORE.PROFILE.NAME</field>
+        <operation>equals</operation>
+        <value>NATT PPG B2B Admin</value>
+    </filters>
+    <label>NATT Internal Accounts Only</label>
+    <language>en_US</language>
+    <sharedTo>
+        <group>NATT_Internal</group>
+    </sharedTo>
+</ListView>

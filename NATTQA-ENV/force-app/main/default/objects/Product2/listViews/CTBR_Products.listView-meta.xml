@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Products</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>CTBR_Unit__c</columns>
+    <columns>External_ID_Auto_Number__c</columns>
+    <columns>NATT_ExternalID__c</columns>
+    <columns>PRODUCT2.PRODUCT_CLASS</columns>
+    <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+    <columns>PRODUCT2.DESCRIPTION</columns>
+    <columns>PRODUCT2.FAMILY</columns>
+    <columns>SBQQ__ConfigurationType__c</columns>
+    <columns>SBQQ__ConfigurationEvent__c</columns>
+    <columns>NATT_UnitCost__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CTBR_Unit_Product__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>CTBR Products</label>
+    <language>en_US</language>
+</ListView>

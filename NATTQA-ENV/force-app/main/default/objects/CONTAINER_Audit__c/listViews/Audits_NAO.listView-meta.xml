@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Audits_NAO</fullName>
+    <columns>NAME</columns>
+    <columns>CONTAINER_ASP_Nmae_Audited__c</columns>
+    <columns>CONTAINER_Status__c</columns>
+    <columns>OWNER.FIRST_NAME</columns>
+    <columns>CONTAINER_Audit_Year__c</columns>
+    <columns>CONTAINER_Audit_Result__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CONTAINER_Operating_Region__c</field>
+        <operation>equals</operation>
+        <value>NAO</value>
+    </filters>
+    <label>Audits NAO</label>
+    <sharedTo>
+        <group>CONTAINER_FSM_NAO_Case</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>CONWAY</label>
+    <protected>false</protected>
+    <values>
+        <field>NATT_ShippingCompanyURL__c</field>
+        <value xsi:type="xsd:string">https://www.con-way.com/webapp/manifestrpts_p_app/Tracking/Tracking.jsp</value>
+    </values>
+    <values>
+        <field>ShippingCompanyName__c</field>
+        <value xsi:type="xsd:string">CONWAY</value>
+    </values>
+</CustomMetadata>

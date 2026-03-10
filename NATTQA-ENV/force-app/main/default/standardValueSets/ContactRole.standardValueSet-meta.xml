@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Add Principal</fullName>
+        <default>false</default>
+        <label>Add Principal</label>
+    </standardValue>
+    <standardValue>
+        <fullName>General Manager</fullName>
+        <default>false</default>
+        <label>General Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Manager,</fullName>
+        <default>false</default>
+        <label>Sales Manager,</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service Manager</fullName>
+        <default>false</default>
+        <label>Service Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Parts Manager</fullName>
+        <default>false</default>
+        <label>Parts Manager</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Warranty</fullName>
+        <default>false</default>
+        <label>Warranty</label>
+    </standardValue>
+</StandardValueSet>

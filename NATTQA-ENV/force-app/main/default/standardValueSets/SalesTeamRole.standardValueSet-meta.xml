@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>RD - NATT</fullName>
+        <default>false</default>
+        <label>RD - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>FSE - NATT</fullName>
+        <default>false</default>
+        <label>FSE - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Parts BDM - NATT</fullName>
+        <default>false</default>
+        <label>Parts BDM - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>APU EAM - NATT</fullName>
+        <default>false</default>
+        <label>APU EAM - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Director of Sales - NATT</fullName>
+        <default>false</default>
+        <label>Director of Sales - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sales Operation - NATT</fullName>
+        <default>false</default>
+        <label>Sales Operation - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EAM - NATT</fullName>
+        <default>false</default>
+        <label>EAM - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Part Sales Rep - NATT</fullName>
+        <default>false</default>
+        <label>Part Sales Rep - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Unit Sales Rep - NATT</fullName>
+        <default>false</default>
+        <label>Unit Sales Rep - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>NFM - NATT</fullName>
+        <default>false</default>
+        <label>NFM - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Director Parts - NATT</fullName>
+        <default>false</default>
+        <label>Director Parts - NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Dealer Network Manager – NATT</fullName>
+        <default>false</default>
+        <label>Dealer Network Manager – NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Director of Sales – PPG NATT</fullName>
+        <default>false</default>
+        <label>Director of Sales – PPG NATT</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Service Manager - NATT</fullName>
+        <default>false</default>
+        <label>Service Manager - NATT</label>
+    </standardValue>
+</StandardValueSet>

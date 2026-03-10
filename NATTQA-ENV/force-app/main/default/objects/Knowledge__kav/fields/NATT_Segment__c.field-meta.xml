@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Segment__c</fullName>
+    <description>NATT</description>
+    <label>Segment</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Administrative &amp; Policy</fullName>
+                <default>false</default>
+                <label>Administrative &amp; Policy</label>
+            </value>
+            <value>
+                <fullName>BluEdge</fullName>
+                <default>false</default>
+                <label>BluEdge</label>
+            </value>
+            <value>
+                <fullName>Dealer Required Parts/Tools</fullName>
+                <default>false</default>
+                <label>Dealer Required Parts/Tools</label>
+            </value>
+            <value>
+                <fullName>Dealer Sales Toolkit</fullName>
+                <default>false</default>
+                <label>Dealer Sales Toolkit</label>
+            </value>
+            <value>
+                <fullName>Lynx Fleet</fullName>
+                <default>false</default>
+                <label>Lynx Fleet</label>
+            </value>
+            <value>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+                <label>Marketing</label>
+            </value>
+            <value>
+                <fullName>Product Service</fullName>
+                <default>false</default>
+                <label>Product Service</label>
+            </value>
+            <value>
+                <fullName>Regulatory</fullName>
+                <default>false</default>
+                <label>Regulatory</label>
+            </value>
+            <value>
+                <fullName>Technical Documentation</fullName>
+                <default>false</default>
+                <label>Technical Documentation</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+                <label>Warranty</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

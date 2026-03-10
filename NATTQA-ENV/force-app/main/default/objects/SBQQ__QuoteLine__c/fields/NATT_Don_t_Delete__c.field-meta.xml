@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Don_t_Delete__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>used in validation to prevent the user from deleting a line</description>
+    <label>Don&apos;t Delete</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

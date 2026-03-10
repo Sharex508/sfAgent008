@@ -1,0 +1,46 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "fcb3050c-bf78-46a0-8683-83c50f8773f2",
+  "label" : "PHOTO GALLERY",
+  "regions" : [ {
+    "id" : "c34faa9c-5c02-497e-a063-b28aac8a27aa",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:displayMediaFilesFromCMS",
+      "id" : "d0726cab-1294-4656-9468-e656e5b7df6f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a3b30636-f018-4bc8-82b5-0acfe8bc2d45",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "c1e7d470-c459-476c-94c9-888f5bc13e55",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "PHOTO GALLERY"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "515733b9-2078-4517-a0bc-4985a7e50395",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3128ca9a-cea1-4d27-a01d-ec5a51312dc5",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-photo-gallery"
+}

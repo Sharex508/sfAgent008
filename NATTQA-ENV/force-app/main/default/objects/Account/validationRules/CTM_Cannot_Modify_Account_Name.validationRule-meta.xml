@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_Cannot_Modify_Account_Name</fullName>
+    <active>true</active>
+    <description>Prevent users from editing the Dealer Account name.</description>
+    <errorConditionFormula>AND(ISCHANGED(Name), RecordType.DeveloperName = &quot;MX_Dealer&quot;, $Profile.Name &lt;&gt; &quot;CTM Customer Master Responsible&quot;)</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
+    <errorMessage>You are not allowed to modify this Account Name.</errorMessage>
+</ValidationRule>

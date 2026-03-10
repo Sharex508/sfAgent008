@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Equipment__c</fullName>
+    <label>Equipment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>EliteLINE</fullName>
+                <default>false</default>
+                <label>EliteLINE</label>
+            </value>
+            <value>
+                <fullName>Everfresh</fullName>
+                <default>false</default>
+                <label>Everfresh</label>
+            </value>
+            <value>
+                <fullName>NaturaLINE</fullName>
+                <default>false</default>
+                <label>NaturaLINE</label>
+            </value>
+            <value>
+                <fullName>OptimaLINE</fullName>
+                <default>false</default>
+                <label>OptimaLINE</label>
+            </value>
+            <value>
+                <fullName>PowerLINE</fullName>
+                <default>false</default>
+                <label>PowerLINE</label>
+            </value>
+            <value>
+                <fullName>PrimeLINE</fullName>
+                <default>false</default>
+                <label>PrimeLINE</label>
+            </value>
+            <value>
+                <fullName>PrimeLINE Edge</fullName>
+                <default>false</default>
+                <label>PrimeLINE Edge</label>
+            </value>
+            <value>
+                <fullName>PrimeLINE &amp; OptmaLINE</fullName>
+                <default>false</default>
+                <label>PrimeLINE &amp; OptmaLINE</label>
+            </value>
+            <value>
+                <fullName>ThinLINE</fullName>
+                <default>false</default>
+                <label>ThinLINE</label>
+            </value>
+            <value>
+                <fullName>Other (Specify in Description)</fullName>
+                <default>false</default>
+                <label>Other (Specify in Description)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

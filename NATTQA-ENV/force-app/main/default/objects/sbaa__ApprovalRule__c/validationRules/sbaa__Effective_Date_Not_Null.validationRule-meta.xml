@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Effective_Date_Not_Null</fullName>
+    <active>true</active>
+    <description>If Start and/or End Effective Dates are set, Effective Date Field must not be blank.</description>
+    <errorConditionFormula>IF(OR(!ISBLANK(sbaa__EffectiveStartDate__c), (!ISBLANK(sbaa__EffectiveEndDate__c))),ISBLANK(TEXT(sbaa__EffectiveDateField__c)),false)</errorConditionFormula>
+    <errorMessage>Effective Date Field must be set in order to use Effective Start and End Date.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,67 @@
+<messaging:emailTemplate subject="Case {!relatedTo.CaseNumber} has been closed " recipientType="Contact" relatedToType="Case">
+
+       
+<messaging:htmlEmailBody >
+   
+   <br></br>
+        <html>
+            <body>
+            <div style="width: 1100px;"><center><img src="https://carrier-global--c.documentforce.com/servlet/servlet.ImageServer?id=0157V000002nM0Y&oid=00D1U000000yumn&lastMod=1670431617000"/></center>
+            </div>
+            <b style="font-family: Arial; font-size: 16px; color: #1a3e94;">Hi {!relatedTo.Contact.Name},</b>
+            <br></br>
+            <br></br>
+            <p>Your Core return case {!relatedTo.CaseNumber} has been closed. Please visit your case page for more details</p>
+            <br></br>
+            <br></br>
+            <br></br>
+           <p style="font-family: Arial; font-size: 14px; color: #1a3e94;"><strong>Thanks and Regards,<br></br> Container Aftermarket Parts Team</strong></p>
+            
+            <br></br>
+            </body>
+        </html>
+         
+</messaging:htmlEmailBody>
+ <messaging:attachment renderAs="pdf" filename="{!relatedTo.CaseNumber}">
+ <html>
+ <head>
+  <meta charset="utf-8" />
+ </head>
+ <body>
+   <table style="font-family:Arial Unicode MS; font-size:14px; width:100%; border:solid black; border-collapse: collapse">
+     <tr style="font-size:20px; text-align:center; bold">
+      <td colspan="9" style="border:solid black">Core Return Form</td>
+     </tr>
+     <tr style="font-size:18px; text-align:center; bold">
+       <td style="width:  50%; border:solid black; border-collapse: collapse">Customer Information</td>  
+       <td style="width:  50%; border:solid black; border-collapse: collapse">Core Receiving Location</td>
+     </tr>
+    <tr>
+     <td style="width: 50%; font-size:14px; border:solid black; vertical-align: text-top; text-align:left">
+       <table>
+          <tr><td style="width: 10%">&nbsp;</td><td style="text-align:right; width: 40%">Customer:</td><td style="text-align:left; width: 50%">{!relatedTo.Account.Name}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Contact:</td><td colspan="2" style="text-align:left">{!relatedTo.Contact.Name}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Phone:</td><td colspan="2" style="text-align:left">{!relatedTo.NATT_Contact_Number__c}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Email:</td><td colspan="2" style="text-align:left">{!relatedTo.ContactEmail}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Tracking #1 (B/L):</td><td colspan="2" style="text-align:left">{!relatedTo.NATT_Tracking_1_B_L__c}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Tracking #2 (B/L):</td><td colspan="2" style="text-align:left">{!relatedTo.NATT_Tracking_2_B_L__c}</td></tr>
+          <tr><td>&nbsp;</td><td style="text-align:right">Bill To Code:</td><td colspan="2" style="text-align:left">{!relatedTo.NAC_Account_Number__c}</td></tr>
+       </table>
+     </td>
+     <td style="width: 50%; font-size:14px; border:solid black; vertical-align: text-top; margin-left: auto; margin-right:auto">
+        <table>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left; align:center; font-weight: bold; color: red;">{!relatedTo.NAOCAP_Core_Return_Additional_Message__c}</td></tr> 
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left; align:center">{!relatedTo.Associated_Core_Return_Account_Name__c}</td></tr>  
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left; align:center; font-weight:bold"><b>{!relatedTo.NAOCAP_Address_Line_2__c}</b></td></tr>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">{!relatedTo.NATT_Core_Return_Location_Street__c}<br/>{!relatedTo.NATT_Core_Return_Location_City__c},&nbsp;{!relatedTo.NATT_Core_Return_Location_State_Province__c}&nbsp;&nbsp;{!relatedTo.NATT_Core_Return_Loc_Zip_Postal_Code__c}</td></tr>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">{!relatedTo.NATT_Core_Return_Location_Contact_Email__c}</td></tr>
+          <tr><td style="width: 30%">&nbsp;</td><td style="text-align:left">Case #:  {!relatedTo.CaseNumber}</td></tr>
+        </table>
+     </td>
+   </tr>
+  </table>
+     <c:NAC_giveCoreItemDetail caseIdValue="{!relatedTo.CaseNumber}"/>
+ </body>
+ </html>
+ </messaging:attachment>
+</messaging:emailTemplate>

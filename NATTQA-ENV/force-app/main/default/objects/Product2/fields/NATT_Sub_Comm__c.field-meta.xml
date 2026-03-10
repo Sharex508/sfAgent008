@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Sub_Comm__c</fullName>
+    <description>NATT Use</description>
+    <label>Sub Comm</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>02W</fullName>
+                <default>false</default>
+                <label>02W</label>
+            </value>
+            <value>
+                <fullName>03W</fullName>
+                <default>false</default>
+                <label>03W</label>
+            </value>
+            <value>
+                <fullName>04W</fullName>
+                <default>false</default>
+                <label>04W</label>
+            </value>
+            <value>
+                <fullName>05W</fullName>
+                <default>false</default>
+                <label>05W</label>
+            </value>
+            <value>
+                <fullName>06W</fullName>
+                <default>false</default>
+                <label>06W</label>
+            </value>
+            <value>
+                <fullName>07W</fullName>
+                <default>false</default>
+                <label>07W</label>
+            </value>
+            <value>
+                <fullName>08W</fullName>
+                <default>false</default>
+                <label>08W</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "51e86b19-bb62-4b33-9fcb-1eb52a6d2301",
+  "appPageId" : "4d2d78a2-887d-4269-9b35-c2c6f11c55af",
+  "configurationTags" : [ ],
+  "devName" : "Download_Price_Book__c",
+  "id" : "c7048f44-55fd-4e8e-8151-efe9e25634cb",
+  "label" : "Download Price Book",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-download-price-book",
+  "type" : "route",
+  "urlPrefix" : "download-price-book"
+}

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>APU/OEM</fullName>
+        <default>false</default>
+        <label>APU/OEM</label>
+    </customValue>
+    <customValue>
+        <fullName>APU/Dry</fullName>
+        <default>false</default>
+        <label>APU/Dry</label>
+    </customValue>
+    <customValue>
+        <fullName>Diesel/OEM</fullName>
+        <default>false</default>
+        <label>Diesel/OEM</label>
+    </customValue>
+    <customValue>
+        <fullName>Heat/OEM</fullName>
+        <default>false</default>
+        <label>Heat/OEM</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer/OEM</fullName>
+        <default>false</default>
+        <label>Trailer/OEM</label>
+    </customValue>
+    <customValue>
+        <fullName>Variable/OEM</fullName>
+        <default>false</default>
+        <label>Variable/OEM</label>
+    </customValue>
+    <customValue>
+        <fullName>APU/Distribution</fullName>
+        <default>false</default>
+        <label>APU/Distribution</label>
+    </customValue>
+    <customValue>
+        <fullName>APU/For Hire</fullName>
+        <default>false</default>
+        <label>APU/For Hire</label>
+    </customValue>
+    <customValue>
+        <fullName>APU/Dairy&amp;Grocery</fullName>
+        <default>false</default>
+        <label>APU/Dairy&amp;Grocery</label>
+    </customValue>
+    <customValue>
+        <fullName>APU/Leasing</fullName>
+        <default>false</default>
+        <label>APU/Leasing</label>
+    </customValue>
+    <customValue>
+        <fullName>APU/Stock</fullName>
+        <default>false</default>
+        <label>APU/Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>Diesel/Distribution</fullName>
+        <default>false</default>
+        <label>Diesel/Distribution</label>
+    </customValue>
+    <customValue>
+        <fullName>Diesel/For Hire</fullName>
+        <default>false</default>
+        <label>Diesel/For Hire</label>
+    </customValue>
+    <customValue>
+        <fullName>Diesel/Dairy&amp;Grocery</fullName>
+        <default>false</default>
+        <label>Diesel/Dairy&amp;Grocery</label>
+    </customValue>
+    <customValue>
+        <fullName>Diesel/Leasing</fullName>
+        <default>false</default>
+        <label>Diesel/Leasing</label>
+    </customValue>
+    <customValue>
+        <fullName>Diesel/Stock</fullName>
+        <default>false</default>
+        <label>Diesel/Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>Heat/Box Car</fullName>
+        <default>false</default>
+        <label>Heat/Box Car</label>
+    </customValue>
+    <customValue>
+        <fullName>Heat/Distribution</fullName>
+        <default>false</default>
+        <label>Heat/Distribution</label>
+    </customValue>
+    <customValue>
+        <fullName>Heat/For Hire</fullName>
+        <default>false</default>
+        <label>Heat/For Hire</label>
+    </customValue>
+    <customValue>
+        <fullName>Heat/Dairy&amp;Grocery</fullName>
+        <default>false</default>
+        <label>Heat/Dairy&amp;Grocery</label>
+    </customValue>
+    <customValue>
+        <fullName>Heat/Intermodal</fullName>
+        <default>false</default>
+        <label>Heat/Intermodal</label>
+    </customValue>
+    <customValue>
+        <fullName>Heat/Leasing</fullName>
+        <default>false</default>
+        <label>Heat/Leasing</label>
+    </customValue>
+    <customValue>
+        <fullName>Heat/Stock</fullName>
+        <default>false</default>
+        <label>Heat/Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer/Box Car</fullName>
+        <default>false</default>
+        <label>Trailer/Box Car</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer/Distribution</fullName>
+        <default>false</default>
+        <label>Trailer/Distribution</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer/For Hire</fullName>
+        <default>false</default>
+        <label>Trailer/For Hire</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer/Dairy&amp;Grocery</fullName>
+        <default>false</default>
+        <label>Trailer/Dairy&amp;Grocery</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer/Intermodal</fullName>
+        <default>false</default>
+        <label>Trailer/Intermodal</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer/Leasing</fullName>
+        <default>false</default>
+        <label>Trailer/Leasing</label>
+    </customValue>
+    <customValue>
+        <fullName>Trailer/Stock</fullName>
+        <default>false</default>
+        <label>Trailer/Stock</label>
+    </customValue>
+    <customValue>
+        <fullName>Variable/Distribution</fullName>
+        <default>false</default>
+        <label>Variable/Distribution</label>
+    </customValue>
+    <customValue>
+        <fullName>Variable/For Hire</fullName>
+        <default>false</default>
+        <label>Variable/For Hire</label>
+    </customValue>
+    <customValue>
+        <fullName>Variable/Dairy&amp;Grocery</fullName>
+        <default>false</default>
+        <label>Variable/Dairy&amp;Grocery</label>
+    </customValue>
+    <customValue>
+        <fullName>Variable/Leasing</fullName>
+        <default>false</default>
+        <label>Variable/Leasing</label>
+    </customValue>
+    <customValue>
+        <fullName>Variable/Stock</fullName>
+        <default>false</default>
+        <label>Variable/Stock</label>
+    </customValue>
+    <masterLabel>CTBR BluEdge Market Segment</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>ContainerLink SolutionCenter</container>
+    <containerType>Network</containerType>
+    <label>UCP Warranty EMEA Menu</label>
+    <navigationMenuItem>
+        <label>Parts</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Price List</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/download-price-book</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Support</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>TechLine</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://www.carrier.com/container-refrigeration/en/worldwide/service-support/#tab-2</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Literature</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://www.carrier.com/container-refrigeration/en/worldwide/service-support/#tab-5</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>C-Plus</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://c-plus.carrier.com/InService/delivery/#/V=2/home</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Knowledge Center</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/all-knowledge</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Warranty</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Warranty On Demand (WOD)</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://carriertransicold.my.site.com/ct/s/</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Training</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>TechLINE Academy</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://www.carrier.com/container-refrigeration/en/worldwide/service-support/techline-academy/</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Training  Schedule  &amp; Registration </label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://reg.learningstream.com/view/cal4a.aspx?ek=&amp;ref=&amp;aa=&amp;sid1=&amp;sid2=&amp;as=61&amp;wp=592&amp;tz=&amp;ms=&amp;nav=&amp;cc=&amp;cat1=&amp;cat2=&amp;cat3=&amp;aid=CARRIER&amp;rf=&amp;pn=</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Data Tools and Software</label>
+        <position>5</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>https://www.carrier.com/container-refrigeration/en/worldwide/products/data-tools/</target>
+        <type>ExternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>My Documents</label>
+        <position>6</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>My Service Agreements</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/serviceaccount</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Others</label>
+        <position>7</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Image Library</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://www.carrier.com/container-refrigeration/en/worldwide/media-center/image-library/</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>ContainerLine</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://www.carrier.com/container-refrigeration/en/worldwide/media-center/ContainerLINE/</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Careers</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://www.carrier.com/container-refrigeration/en/worldwide/careers/</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+</NavigationMenu>

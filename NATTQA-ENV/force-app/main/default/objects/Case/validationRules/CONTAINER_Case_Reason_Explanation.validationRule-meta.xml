@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Case_Reason_Explanation</fullName>
+    <active>true</active>
+    <description>Case reason explanation Field MUST not be blank when status is closed.</description>
+    <errorConditionFormula>AND(
+(
+$RecordType.Name = &quot;CONTAINER Service Engineering&quot;),
+ISPICKVAL(Status, &quot;Closed&quot;),
+ISBLANK(NATT_Close_Reason_Explanation__c),
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule )
+)</errorConditionFormula>
+    <errorMessage>Please provide close reason explanation.</errorMessage>
+</ValidationRule>

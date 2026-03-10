@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Record_Reason_for_exclusion__c</fullName>
+    <description>This fields indicates the reason for not sampling a record. Empty if the record was successfully sampled.</description>
+    <externalId>false</externalId>
+    <label>Record - Reason for exclusion</label>
+    <length>128</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

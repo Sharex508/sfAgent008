@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>NATT Default Approver</label>
+    <protected>false</protected>
+    <values>
+        <field>MX_Default_Approver_Username__c</field>
+        <value xsi:type="xsd:string">alejandro.genera@carrier.com.ttcgidv1</value>
+    </values>
+    <values>
+        <field>NATT_CFO_Approver_First_Last_Name__c</field>
+        <value xsi:type="xsd:string">David Dunn</value>
+    </values>
+    <values>
+        <field>NATT_CFO_Approver_Username__c</field>
+        <value xsi:type="xsd:string">david.dunn@carrier.com.ttcgidv1</value>
+    </values>
+    <values>
+        <field>NATT_Default_Approver_First_Last_Name__c</field>
+        <value xsi:type="xsd:string">Joe Porto</value>
+    </values>
+    <values>
+        <field>NATT_Default_Approver_Username__c</field>
+        <value xsi:type="xsd:string">joe.porto@carrier.com.ttcgidv1</value>
+    </values>
+    <values>
+        <field>NATT_Internal_Approver_1_First_Last_Name__c</field>
+        <value xsi:type="xsd:string">David Dunn</value>
+    </values>
+    <values>
+        <field>NATT_Internal_Approver_1_Username__c</field>
+        <value xsi:type="xsd:string">david.dunn@carrier.com.ttcgidv1</value>
+    </values>
+    <values>
+        <field>NATT_Internal_Approver_4_First_Last_Name__c</field>
+        <value xsi:type="xsd:string">Rajiv Kapur</value>
+    </values>
+    <values>
+        <field>NATT_Internal_Approver_4_Username__c</field>
+        <value xsi:type="xsd:string">rajiv.kapur@carrier.com.ttcgidv1</value>
+    </values>
+    <values>
+        <field>NATT_Special_Req_Approver_First_Last__c</field>
+        <value xsi:type="xsd:string">George Woodcock</value>
+    </values>
+    <values>
+        <field>NATT_Special_Request_Approver_Username__c</field>
+        <value xsi:type="xsd:string">george.woodcock@carrier.com.ttcgidv1</value>
+    </values>
+    <values>
+        <field>NATT_VP_Approver_First_Last_Name__c</field>
+        <value xsi:type="xsd:string">Chris Reedy</value>
+    </values>
+    <values>
+        <field>NATT_VP_Approver_Username__c</field>
+        <value xsi:type="xsd:string">christopher.reedy@cgi.com.corp.ttcgidv1</value>
+    </values>
+</CustomMetadata>

@@ -1,0 +1,80 @@
+<template>
+    <div class="slds-m-horizontal_medium">
+        <div class="section slds-section slds-is-open">
+          <h3 class="section slds-section__title slds-theme_shade">            
+            <span class="slds-text-heading_medium slds-p-bottom_medium" title={label.AccountDetailsLabel}>{label.AccountDetailsLabel}</span>            
+          </h3>
+        </div>
+        <lightning-spinner alternative-text="Loading" size="medium" if:false={hasLoaded}></lightning-spinner>
+        <template if:true={hasLoaded}>
+          <div class="slds-m-around_medium">
+            <lightning-record-view-form record-id={accountId} object-api-name="Account" density="comfy">
+              <div class="slds-grid slds-wrap">
+                <!-- <div class="slds-col slds-size_1-of-2 slds-p-right_large ">
+                  <div class="slds-border_bottom">
+                      <label for="accountNameId">{label.AccountNameLabel}</label>
+                      <lightning-output-field id="accountNameId" field-name="Name" variant="label-hidden"></lightning-output-field>
+                    </div>
+                </div> -->
+                <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >{label.AccountNameLabel}</label>
+                    <div class="slds-form-element__control"><lightning-output-field field-name="Name" variant="label-hidden"></lightning-output-field></div>                        
+                  </div>                
+                    <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >{label.JDEPartsBillToCodeLabel}</label>
+                    <div class="slds-form-element__control"><lightning-output-field field-name="NATT_JDE_Parts_Bill_To_Code__c" variant="label-hidden"></lightning-output-field></div>                        
+                  </div>                
+                    <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >{label.DivisionLabel}</label>
+                    <div class="slds-form-element__control"><lightning-output-field field-name="NATT_Division__c" variant="label-hidden"></lightning-output-field></div>                        
+                  </div>                
+                    <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >{label.PrimaryLocationType}</label>
+                    <div class="slds-form-element__control"><lightning-output-field field-name="NATT_Primary_Location_Type__c" variant="label-hidden"></lightning-output-field></div>                        
+                  </div>                
+                    <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >{label.DealerPrincipalLabel}</label>
+                    <div class="slds-form-element__control"><lightning-output-field field-name="NATT_Dealer_Principal__c" variant="label-hidden"></lightning-output-field></div>                        
+                  </div>                
+                    <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >{label.DealerPrincipalEmailLabel}</label>
+                    <div class="slds-form-element__control"><div class="slds-form-element__control">{dealerPrincipalEmail}</div></div>                        
+                  </div>                
+                    <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >{label.PhysicalAddressLabel}</label>
+                    <div class="slds-form-element__control"><lightning-output-field field-name="NATT_Physical_Address__c" variant="label-hidden"></lightning-output-field></div>                        
+                  </div>                
+                    <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col  slds-size_1-of-2 slds-p-right_x-small">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >{label.MailingAddressLabel}</label>
+                    <div class="slds-form-element__control"><lightning-output-field field-name="NATT_Mailing_Address__c" variant="label-hidden"></lightning-output-field></div>                        
+                  </div>                
+                    <div class="slds-border_bottom"></div>
+                </div>
+              </div>
+              </lightning-record-view-form>
+          </div>
+      </template>     
+    </div>
+</template>

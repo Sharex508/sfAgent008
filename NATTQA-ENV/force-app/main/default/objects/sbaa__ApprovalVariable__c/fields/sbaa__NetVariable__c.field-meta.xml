@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__NetVariable__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>Approval Variable responsible for calculating Total Net</description>
+    <inlineHelpText>Approval Variable responsible for calculating Total Net</inlineHelpText>
+    <label>Net Variable</label>
+    <referenceTo>sbaa__ApprovalVariable__c</referenceTo>
+    <relationshipLabel>Approval Variables (Net Variable)</relationshipLabel>
+    <relationshipName>NetSummaryVariables</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

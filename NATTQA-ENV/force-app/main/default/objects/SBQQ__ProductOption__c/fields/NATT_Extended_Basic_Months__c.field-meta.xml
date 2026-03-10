@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Extended_Basic_Months__c</fullName>
+    <label>Extended Basic Months</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>NATT_Unit__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>NATT_BluEdge_Months</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Supra S6 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Supra S10 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S10 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System A</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System B</controllingFieldValue>
+            <valueName>18</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supra S6 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra 960 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra 960 with 230v-3ph-60Hz Standby</controllingFieldValue>
+            <controllingFieldValue>Solara APX</controllingFieldValue>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7700</controllingFieldValue>
+            <controllingFieldValue>X4 7700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Supra S10 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S10 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Vector 8700</controllingFieldValue>
+            <controllingFieldValue>Vector 8700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8811MT</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System A</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System B</controllingFieldValue>
+            <valueName>24</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supra S6 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>200INT ComfortPro Integrated APU</controllingFieldValue>
+            <controllingFieldValue>210STA ComfortPro Stand-alone APU</controllingFieldValue>
+            <controllingFieldValue>220PWR ComfortPro Power-only APU</controllingFieldValue>
+            <controllingFieldValue>230SKY ComfortPro ClearSky DPF APU</controllingFieldValue>
+            <controllingFieldValue>240EPS ComfortPro Electric APU</controllingFieldValue>
+            <controllingFieldValue>Supra 960 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra 960 with 230v-3ph-60Hz Standby</controllingFieldValue>
+            <controllingFieldValue>Solara APX</controllingFieldValue>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7700</controllingFieldValue>
+            <controllingFieldValue>X4 7700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Aspen INT APU</controllingFieldValue>
+            <controllingFieldValue>Aspen PWR APU</controllingFieldValue>
+            <controllingFieldValue>Aspen SKY APU</controllingFieldValue>
+            <controllingFieldValue>Aspen STA APU</controllingFieldValue>
+            <controllingFieldValue>Supra S10 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S10 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Vector 8700</controllingFieldValue>
+            <controllingFieldValue>Vector 8700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 02</controllingFieldValue>
+            <controllingFieldValue>250ION ComfortPro Lithium-Ion APU</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8811MT</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System A</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System B</controllingFieldValue>
+            <valueName>36</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supra S6 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>200INT ComfortPro Integrated APU</controllingFieldValue>
+            <controllingFieldValue>210STA ComfortPro Stand-alone APU</controllingFieldValue>
+            <controllingFieldValue>220PWR ComfortPro Power-only APU</controllingFieldValue>
+            <controllingFieldValue>230SKY ComfortPro ClearSky DPF APU</controllingFieldValue>
+            <controllingFieldValue>240EPS ComfortPro Electric APU</controllingFieldValue>
+            <controllingFieldValue>Supra 960 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra 960 with 230v-3ph-60Hz Standby</controllingFieldValue>
+            <controllingFieldValue>Solara APX</controllingFieldValue>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7700</controllingFieldValue>
+            <controllingFieldValue>X4 7700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Aspen INT APU</controllingFieldValue>
+            <controllingFieldValue>Aspen PWR APU</controllingFieldValue>
+            <controllingFieldValue>Aspen SKY APU</controllingFieldValue>
+            <controllingFieldValue>Aspen STA APU</controllingFieldValue>
+            <controllingFieldValue>Supra S10 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S10 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Vector 8700</controllingFieldValue>
+            <controllingFieldValue>Vector 8700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 02</controllingFieldValue>
+            <controllingFieldValue>250ION ComfortPro Lithium-Ion APU</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8811MT</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System A</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System B</controllingFieldValue>
+            <valueName>48</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supra S6 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>200INT ComfortPro Integrated APU</controllingFieldValue>
+            <controllingFieldValue>210STA ComfortPro Stand-alone APU</controllingFieldValue>
+            <controllingFieldValue>220PWR ComfortPro Power-only APU</controllingFieldValue>
+            <controllingFieldValue>230SKY ComfortPro ClearSky DPF APU</controllingFieldValue>
+            <controllingFieldValue>240EPS ComfortPro Electric APU</controllingFieldValue>
+            <controllingFieldValue>Supra 960 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra 960 with 230v-3ph-60Hz Standby</controllingFieldValue>
+            <controllingFieldValue>Solara APX</controllingFieldValue>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7700</controllingFieldValue>
+            <controllingFieldValue>X4 7700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Aspen INT APU</controllingFieldValue>
+            <controllingFieldValue>Aspen PWR APU</controllingFieldValue>
+            <controllingFieldValue>Aspen SKY APU</controllingFieldValue>
+            <controllingFieldValue>Aspen STA APU</controllingFieldValue>
+            <controllingFieldValue>Supra S10 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S10 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Vector 8700</controllingFieldValue>
+            <controllingFieldValue>Vector 8700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 02</controllingFieldValue>
+            <controllingFieldValue>250ION ComfortPro Lithium-Ion APU</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8811MT</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System A</controllingFieldValue>
+            <controllingFieldValue>Supra S10 MT - System B</controllingFieldValue>
+            <valueName>60</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Supra S7 Road Only</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7700</controllingFieldValue>
+            <controllingFieldValue>X4 7700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8700</controllingFieldValue>
+            <controllingFieldValue>Vector 8700R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8800 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8811MT</controllingFieldValue>
+            <valueName>72</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <valueName>12</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8811MT</controllingFieldValue>
+            <valueName>84</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8811MT</controllingFieldValue>
+            <valueName>96</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8811MT</controllingFieldValue>
+            <valueName>108</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8500R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 02</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 03</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 04</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 05</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 06</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 07</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 13</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 14</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 15</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 16</controllingFieldValue>
+            <controllingFieldValue>Vector 8611MT</controllingFieldValue>
+            <controllingFieldValue>Vector HE19</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7300R Rail Edition</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>X4 7500R Rail Edition</controllingFieldValue>
+            <valueName>120</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

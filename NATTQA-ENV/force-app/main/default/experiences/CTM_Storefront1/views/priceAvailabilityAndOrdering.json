@@ -1,0 +1,77 @@
+{
+  "appPageId" : "a72f9961-a56d-4d6c-be9b-34da3e37d662",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "f016b6c2-014e-4b19-91be-a02df5c7cd14",
+  "label" : "Price, Availability and Ordering",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "fa3c8082-6b1a-46c3-8ba2-d1ac47de3199",
+          "columns" : [ {
+            "UUID" : "8e2c7ed0-5a58-4cda-8962-2e25ec6034fc",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "fa3c8082-6b1a-46c3-8ba2-d1ac47de3199",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_ctmStoreFooter",
+          "id" : "be6b30b3-ddec-460e-b79c-38de81dd79e9",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+          },
+          "componentName" : "c:natt_ctmPriceAvailabilityOrdering",
+          "id" : "4a382c20-71fc-47a6-a378-617cd6c8d03a",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "8e2c7ed0-5a58-4cda-8962-2e25ec6034fc",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b51aa14f-18a5-4bbd-b5ea-d88f175b692b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Price, Availability and Ordering"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "30abae6c-130f-4353-99d7-9c8feffe2445",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7795ebf0-1d38-4cab-8c1e-b66aff8d6eac",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-price-availability-and-ordering"
+}

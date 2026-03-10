@@ -1,0 +1,81 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" controller="KnowledgeSearch_REFController">
+    <aura:attribute name="buttonIcon" type="String" default="utility:jump_to_top"/>	
+    <aura:attribute name="toggleExpand" type="Boolean" default="true"/>		
+    <aura:attribute name="departmentList" type="List"/>
+    <aura:attribute name="segmentList" type="List"/>
+    <aura:attribute name="docTypeList" type="List"/>
+    <aura:attribute name="spinnerEnabled" type="boolean" default="false"/>
+    <aura:attribute name="communityInterface" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:registerEvent name="KnowledgeSearchEvent" type="c:KnowledgeSearch_REF_AppEvent"/> 
+    <aura:registerEvent name="SpinnerSearchEvent" type="c:KnowledgeSearch_REF_SpinerEvent"/>
+    
+    <span onkeypress="{!c.handleKeyUp}">
+        <lightning:card title="Search Knowledge Center" iconName="standard:search">
+            <aura:set attribute="actions">
+                <lightning:button label="Clear" variant="brand" onclick="{!c.clearSearch}"/>
+            </aura:set>
+            <div class="slds-grid slds-gutters slds-p-around_small " >
+                <div class="slds-col slds-size_1-of-7">
+                    <aura:if isTrue="{!v.communityInterface}">
+                        <lightning:button class="slds-button slds-button_icon slds-button_icon-border-filled" onclick="{!c.toggleSection}" >
+                            <lightning:buttonIcon iconName="{!v.buttonIcon}"/>
+                        </lightning:button>
+                        <aura:set attribute="else">
+                            <lightning:button class="slds-button slds-button_icon slds-button_icon-border-filled"  iconName="{!v.buttonIcon}" onclick="{!c.toggleSection}"/>
+                        </aura:set>
+                    </aura:if>
+                </div>
+                <aura:if isTrue="{!v.communityInterface}">
+                    <div class="slds-col slds-size_5-of-8">
+                        <lightning:input type="search" variant="label-hidden" name="searchKnowledge" aura:id="searchKnowledge" />
+                    </div>
+                    <aura:set attribute="else">
+                            <lightning:input type="search" variant="label-hidden" name="searchKnowledge" aura:id="searchKnowledge"/>
+                    </aura:set>
+                </aura:if>
+                <div class="buttonAlign slds-col">
+                    <lightning:button variant="brand" label="Search!" onclick="{!c.searchArticles}"/>
+                </div>
+            </div> 
+            <aura:if isTrue="{!v.spinnerEnabled}">
+                <lightning:spinner alternativeText="Loading" size="small"/>
+            </aura:if>
+            <aura:if isTrue="{!v.toggleExpand}">
+                <div class="slds-m-bottom_small slds-p-right_small slds-p-left_small slds-size_12-of-12">
+                    <div class= "heightjustable">
+                        <lightning:input type="text" name="title" label="Title" aura:id="title"/>
+                    </div>
+                    <div class= "heightjustable">
+                        <lightning:input type="text" name="docNumber" label="Doc Number" aura:id="docNumber"/>
+                    </div>
+                    <div class= "heightjustable">
+                        <lightning:select label="Department" name="department" aura:id="department">
+                            <option value=""> - </option>
+                            <aura:iteration items="{!v.departmentList}" var="ac">
+                                <option value="{!ac}">{!ac}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                    <div class= "heightjustable">
+                        <lightning:select label="Segment" name="segment" aura:id="segment">
+                            <option value=""> - </option>
+                            <aura:iteration items="{!v.segmentList}" var="sg">
+                                <option value="{!sg}">{!sg}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                    <div class= "heightjustable">
+                        <lightning:select label="Document Type" name="docType" aura:id="docType">
+                            <option value=""> - </option>
+                            <aura:iteration items="{!v.docTypeList}" var="dt">
+                                <option value="{!dt}">{!dt}</option>
+                            </aura:iteration>
+                        </lightning:select>
+                    </div>
+                </div>
+            </aura:if>
+        </lightning:card>
+    </span>
+</aura:component>

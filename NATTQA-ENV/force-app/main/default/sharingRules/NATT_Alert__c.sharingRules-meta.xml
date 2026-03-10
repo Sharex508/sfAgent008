@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CTBR_Share_Alerts</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares alerts with CTBR Users</description>
+        <label>CTBR Share Alerts</label>
+        <sharedTo>
+            <roleAndSubordinates>CTBR</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTBR Alerts</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MX_Share_Alerts</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares alerts with mexico users</description>
+        <label>MX Share Alerts</label>
+        <sharedTo>
+            <roleAndSubordinates>CTM</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTM Alerts</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Share_Alerts</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares alerts with NATT Users</description>
+        <label>NATT Share Alerts</label>
+        <sharedTo>
+            <roleAndSubordinates>NA</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NATT Alerts</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>UCP_Alerts</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>UCP Alerts</label>
+        <sharedTo>
+            <group>UCP_Global</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container Alert</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

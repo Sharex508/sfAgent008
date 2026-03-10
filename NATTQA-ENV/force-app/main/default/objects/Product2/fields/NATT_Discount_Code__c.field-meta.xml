@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Discount_Code__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( NATT_ItemPriceGroup__c , 
+$CustomMetadata.Discount_Code__mdt.Price_Group_110.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_110.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_111.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_111.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_112.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_112.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_114.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_114.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_115.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_115.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_116.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_116.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_123.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_123.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_129.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_129.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_223.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_223.Discount_Code_Value__c,
+$CustomMetadata.Discount_Code__mdt.Price_Group_226.Item_Price_Group__c, 
+					$CustomMetadata.Discount_Code__mdt.Price_Group_226.Discount_Code_Value__c,					
+&apos;A&apos;
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>NATT Discount Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAC_Shipping_Method__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>NAC Shipping Method</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BW1</fullName>
+                <default>false</default>
+                <label>BW1 - BESTWAY</label>
+            </value>
+            <value>
+                <fullName>CPU</fullName>
+                <default>false</default>
+                <label>CPU - Customer Pick Up</label>
+            </value>
+            <value>
+                <fullName>CR1</fullName>
+                <default>false</default>
+                <label>CR1 - CUSTOMER ROUTING</label>
+            </value>
+            <value>
+                <fullName>FX1</fullName>
+                <default>false</default>
+                <label>FX1 - FEDEX - NEXT DAY AIR</label>
+            </value>
+            <value>
+                <fullName>FX2</fullName>
+                <default>false</default>
+                <label>FX2 - FEDEX - SECOND DAY AIR</label>
+            </value>
+            <value>
+                <fullName>FX3</fullName>
+                <default>false</default>
+                <label>FX3 - FEDEX - THIRD DAY AIR</label>
+            </value>
+            <value>
+                <fullName>FXG</fullName>
+                <default>false</default>
+                <label>FXG - FEDEX - GROUND</label>
+            </value>
+            <value>
+                <fullName>FXX</fullName>
+                <default>false</default>
+                <label>FXX - FEDEX - SATURDAY DELIVERY</label>
+            </value>
+            <value>
+                <fullName>OF1</fullName>
+                <default>false</default>
+                <label>OF1 - OCEAN FREIGHT</label>
+            </value>
+            <value>
+                <fullName>AF1</fullName>
+                <default>false</default>
+                <label>AF1 - AIR FREIGHT</label>
+            </value>
+            <value>
+                <fullName>DHL</fullName>
+                <default>false</default>
+                <label>DHL</label>
+            </value>
+            <value>
+                <fullName>2D</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2D</label>
+            </value>
+            <value>
+                <fullName>2G</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>2G</label>
+            </value>
+            <value>
+                <fullName>4D</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4D</label>
+            </value>
+            <value>
+                <fullName>4G</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>4G</label>
+            </value>
+            <value>
+                <fullName>AF</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>AF</label>
+            </value>
+            <value>
+                <fullName>EXW</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>EXW</label>
+            </value>
+            <value>
+                <fullName>OF</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>OF</label>
+            </value>
+            <value>
+                <fullName>PPD/FOB (free on board)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PPD/FOB (free on board)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>true</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>SBQQ__Account__c</field>
+        <field>NATT_End_Customer_Company__c</field>
+        <field>Name</field>
+        <field>Owner</field>
+        <field>NATT_Total_Order_Net_Amount__c</field>
+        <field>NATT_Total_Discount__c</field>
+        <field>NATT_Quote_Special_Options__c</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>NATT_Approver_1__c</name>
+                <type>relatedUserField</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <criteriaItems>
+                <field>SBQQ__Quote__c.RecordType</field>
+                <operation>equals</operation>
+                <value>NATT Direct Sales,NATT Direct Sales Quote Amendment</value>
+            </criteriaItems>
+        </entryCriteria>
+        <ifCriteriaNotMet>GotoNextStep</ifCriteriaNotMet>
+        <label>NFM Approval</label>
+        <name>NFM_Approval</name>
+    </approvalStep>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <name>NATT_Approver_2__c</name>
+                <type>relatedUserField</type>
+            </approver>
+            <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
+        </assignedApprover>
+        <entryCriteria>
+            <booleanFilter>1</booleanFilter>
+            <criteriaItems>
+                <field>SBQQ__Quote__c.RecordType</field>
+                <operation>equals</operation>
+                <value>NATT Direct Sales,NATT Direct Sales Quote Amendment</value>
+            </criteriaItems>
+        </entryCriteria>
+        <label>Sales Ops Approval</label>
+        <name>Sales_Ops_Approval</name>
+        <rejectBehavior>
+            <type>RejectRequest</type>
+        </rejectBehavior>
+    </approvalStep>
+    <description>Direct Sales Cloned  Approval Process</description>
+    <emailTemplate>unfiled$public/NATT_Discount_approval_notification</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <formula>AND(
+  BEGINS(RecordType.DeveloperName, &quot;NATT_Direct_Sales&quot;),
+  OR(
+    ISPICKVAL(SBQQ__Status__c, &quot;Draft&quot;),
+    ISPICKVAL(SBQQ__Status__c, &quot;Rejected&quot;)
+  ),
+  OR(
+    AND(
+      NATT_Latest_Requested_Ship_Date__c &gt;= TODAY(),
+      ISPICKVAL(SBQQ__Type__c, &quot;Quote&quot;)
+    ),
+    ISPICKVAL(SBQQ__Type__c, &quot;Amendment&quot;),
+    NOT(ISBLANK(SBQQ__Source__c))
+  )
+)</formula>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>NATT_Final_Approval_Date</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>NATT_Status_Approved</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>NATT_Unit_Quote_Status_Update</name>
+            <type>Alert</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <initialSubmissionActions>
+        <action>
+            <name>NATT_Quote_Request_Date</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>NATT_Status_Pending_Approval</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>NATT_Unit_Quote_Approval_Submission_Notification</name>
+            <type>Alert</type>
+        </action>
+    </initialSubmissionActions>
+    <label>NATT Direct Sales Clone Approval V1</label>
+    <processOrder>18</processOrder>
+    <recallActions>
+        <action>
+            <name>NATT_Status_Draft</name>
+            <type>FieldUpdate</type>
+        </action>
+    </recallActions>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

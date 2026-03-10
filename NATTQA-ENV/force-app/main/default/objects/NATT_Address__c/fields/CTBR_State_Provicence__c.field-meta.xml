@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_State_Provicence__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+TEXT(NATT_State_Province__c) = &quot;GOBR&quot;,
+&quot;CTB02&quot;,
+IF(
+TEXT(NATT_State_Province__c) = &quot;RSBR&quot;,
+&quot;CTB01&quot;,
+IF(
+TEXT(NATT_State_Province__c) = &quot;SCBR&quot;,
+&quot;Santa Catarina&quot;,
+&quot;&quot;
+)
+)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>CTBR State Provicence</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

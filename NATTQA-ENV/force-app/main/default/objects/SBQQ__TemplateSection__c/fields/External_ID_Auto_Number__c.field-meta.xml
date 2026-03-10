@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>External_ID_Auto_Number__c</fullName>
+    <displayFormat>TS-{00000}</displayFormat>
+    <externalId>false</externalId>
+    <label>External ID Auto Number</label>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Container_BluEdge</fullName>
+    <active>true</active>
+    <businessProcess>Container BluEdge</businessProcess>
+    <label>Container BluEdge</label>
+    <picklistValues>
+        <picklist>CONTAINER_Customer_Type__c</picklist>
+        <values>
+            <fullName>Leasing Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ports %26 Terminals</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping Line</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Static Storage %2F Rentals</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Opportunity_Type__c</picklist>
+        <values>
+            <fullName>Capex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Capex %26 Opex</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Opex</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Probability__c</picklist>
+        <values>
+            <fullName>High %28%E2%89%A575%25%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low %28%3C50%25%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium %2850%E2%80%9375%25%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

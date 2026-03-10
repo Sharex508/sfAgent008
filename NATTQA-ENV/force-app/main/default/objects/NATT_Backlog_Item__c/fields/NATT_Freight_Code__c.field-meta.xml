@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Freight_Code__c</fullName>
+    <label>Freight Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>PPA</fullName>
+                <default>false</default>
+                <label>PPA</label>
+            </value>
+            <value>
+                <fullName>COL</fullName>
+                <default>false</default>
+                <label>COL</label>
+            </value>
+            <value>
+                <fullName>PPB</fullName>
+                <default>false</default>
+                <label>PPB</label>
+            </value>
+            <value>
+                <fullName>EXW</fullName>
+                <default>false</default>
+                <label>EXW</label>
+            </value>
+            <value>
+                <fullName>PP</fullName>
+                <default>false</default>
+                <label>PP</label>
+            </value>
+            <value>
+                <fullName>CPU</fullName>
+                <default>false</default>
+                <label>CPU</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

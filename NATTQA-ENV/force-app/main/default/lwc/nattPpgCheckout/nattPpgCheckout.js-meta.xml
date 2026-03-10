@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>PPG B2B Checkout</masterLabel>
+    <description>PPG B2B Checkout</description>
+  <targets>
+      <target>lightning__FlowScreen</target>
+  </targets>
+<targetConfigs>
+    <targetConfig targets="lightning__FlowScreen">
+        <property name="cartId" type="String" label="Cart Id" role="inputOnly"/>                
+        <property name="orderType" type="String" label="Order Type" role="inputOnly"/>
+        <property name="poNumber" type="String" label="PO Number" role="inputOnly"/>
+    </targetConfig>
+    
+</targetConfigs>
+</LightningComponentBundle>

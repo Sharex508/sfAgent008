@@ -1,0 +1,7 @@
+The following case has been approved</br></br>
+
+<b>Company:</b> {!Case.Account}</br>
+<b>Case:</b> {!Case.CaseNumber}: {!Case.Subject}</br>
+<b>Owner:</b> {!Case.OwnerFullName}</br></br>
+
+Click on the link to access the case: {!Case.Link}</br></br>

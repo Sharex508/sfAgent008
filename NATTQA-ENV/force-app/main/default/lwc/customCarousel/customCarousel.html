@@ -1,0 +1,28 @@
+<template>
+    <div class="allContainer">
+        <template for:each={slidesData} for:item="slide">
+            <div class={slide.cardClasses} key={slide.slideIndex}>
+                <img style="object-fit:contain" src={slide.imagePath} />
+                <div>
+                <div class="slds-text-heading_large top-left" style="max-width: 60%;">{slide.description}
+                    <br/><br/> 
+                    <div class="slds-text-heading_small" >{slide.descriptionh2}
+                    <br/><br/> 
+                        <div>   
+                            <a href={slide.buttonurl} class="slds-button slds-button_brand slds-text-heading_medium" target="_self" style="max-width: none !important; font-size: var(--font-size-heading-5);padding: 15px;font-family: FlamaBold!important;">{slide.buttonlabel}</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+                
+            </div>
+        </template>
+    </div>
+    <div if:false={isGuest} class="slds-text-align_center slds-p-around_medium">
+        <template for:each={slidesData} for:item="slide">
+            <span key={slide.slideIndex} data-id={slide.slideIndex} class={slide.dotClasses}
+                onclick={currentslide}></span>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Opportunity_Range__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(Probability &gt; 0.1 &amp;&amp; Probability &lt;= 0.50,&apos;Low&apos;,
+   IF(Probability &gt; 0.51 &amp;&amp; Probability &lt;= 0.75, &apos;Medium&apos;, 
+   IF(Probability &gt; 0.75, &apos;High&apos;,&apos; &apos;)))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Opportunity % Range</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

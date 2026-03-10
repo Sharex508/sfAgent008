@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Solutions_Interested__c</fullName>
+    <label>Solutions Interested</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Receiving_Business__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Filtration Technology(Hepa Filters/UV lights/Aglon)</fullName>
+                <default>false</default>
+                <label>Filtration Technology(Hepa Filters/UV lights/Aglon)</label>
+            </value>
+            <value>
+                <fullName>OptiClean(TM) Negative Air Machine</fullName>
+                <default>false</default>
+                <label>OptiClean(TM) Negative Air Machine</label>
+            </value>
+            <value>
+                <fullName>ActivAir(TM)</fullName>
+                <default>false</default>
+                <label>ActivAir(TM)</label>
+            </value>
+            <value>
+                <fullName>Environmental Index</fullName>
+                <default>false</default>
+                <label>Environmental Index</label>
+            </value>
+            <value>
+                <fullName>DirectKey(TM) mobile access solution</fullName>
+                <default>false</default>
+                <label>DirectKey(TM) mobile access solution</label>
+            </value>
+            <value>
+                <fullName>BlueDiamond(TM) touchless access</fullName>
+                <default>false</default>
+                <label>BlueDiamond(TM) touchless access</label>
+            </value>
+            <value>
+                <fullName>MyWay(TM)</fullName>
+                <default>false</default>
+                <label>MyWay(TM)</label>
+            </value>
+            <value>
+                <fullName>Safe Start Service</fullName>
+                <default>false</default>
+                <label>Safe Start Service</label>
+            </value>
+            <value>
+                <fullName>Indoor Air Quality Assessment</fullName>
+                <default>false</default>
+                <label>Indoor Air Quality Assessment</label>
+            </value>
+            <value>
+                <fullName>Remote Airside Management</fullName>
+                <default>false</default>
+                <label>Remote Airside Management</label>
+            </value>
+            <value>
+                <fullName>Wellness Services</fullName>
+                <default>false</default>
+                <label>Wellness Services</label>
+            </value>
+            <value>
+                <fullName>Remote Energy Management</fullName>
+                <default>false</default>
+                <label>Remote Energy Management</label>
+            </value>
+            <value>
+                <fullName>Emergency Assets</fullName>
+                <default>false</default>
+                <label>Emergency Assets</label>
+            </value>
+            <value>
+                <fullName>Advanced Access Services</fullName>
+                <default>false</default>
+                <label>Advanced Access Services</label>
+            </value>
+            <value>
+                <fullName>Security Assessment &amp; Upgrade Services</fullName>
+                <default>false</default>
+                <label>Security Assessment &amp; Upgrade Services</label>
+            </value>
+            <value>
+                <fullName>ActivAir HHT air terminal</fullName>
+                <default>false</default>
+                <label>ActivAir HHT air terminal</label>
+            </value>
+            <value>
+                <fullName>Advanced airside system</fullName>
+                <default>false</default>
+                <label>Advanced airside system</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <valueName>DirectKey(TM) mobile access solution</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <valueName>BlueDiamond(TM) touchless access</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <valueName>Advanced Access Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <valueName>Security Assessment &amp; Upgrade Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>Filtration Technology(Hepa Filters/UV lights/Aglon)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>OptiClean(TM) Negative Air Machine</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>ActivAir(TM)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>Environmental Index</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>Safe Start Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>Indoor Air Quality Assessment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>Remote Airside Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>Wellness Services</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>Remote Energy Management</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Equipment</controllingFieldValue>
+            <controllingFieldValue>Commercial HVAC Service</controllingFieldValue>
+            <controllingFieldValue>HVAC Controls</controllingFieldValue>
+            <valueName>Emergency Assets</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BSG</controllingFieldValue>
+            <valueName>MyWay(TM)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BSG</controllingFieldValue>
+            <valueName>ActivAir HHT air terminal</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>BSG</controllingFieldValue>
+            <valueName>Advanced airside system</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

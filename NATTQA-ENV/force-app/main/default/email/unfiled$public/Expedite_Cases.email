@@ -1,0 +1,8 @@
+Please check on Expedited Case
+
+Case Details:
+Case Number: {!Case.CaseNumber}
+Order Number: {!Case.NATT_Order_Number__c}
+
+
+Thank You!

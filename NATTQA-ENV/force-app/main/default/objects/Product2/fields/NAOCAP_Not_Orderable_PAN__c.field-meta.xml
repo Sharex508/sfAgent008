@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAOCAP_Not_Orderable_PAN__c</fullName>
+    <formula>if((NATT_Core__c==true|| NATT_ItemPriceGroup__c ==&apos;123&apos; ||( NATT_Sales_Code__c==&apos;S01&apos; &amp;&amp; NATT_DirectDelivery__c ==true)),true,if((NATT_Sales_Code__c==&apos;S01&apos; || NATT_Sales_Code__c==&apos;SM1&apos; || NATT_Sales_Code__c==&apos;SB1&apos;),if (ISPICKVAL( NAOCAP_Signal_Code_PAN__c, &quot;NLO&quot;),if (ISPICKVAL( NAOCAP_Stocking_Type_UTC_PAN__c,&quot;O&quot;),true,false),ISPICKVAL( NAOCAP_Signal_Code_PAN__c, &quot;S2&quot;) || ISPICKVAL( NAOCAP_Signal_Code_PAN__c, &quot;PRC&quot;) || ISPICKVAL( NAOCAP_Signal_Code_PAN__c, &quot;FIN&quot;) || ISPICKVAL( NAOCAP_Signal_Code_PAN__c, &quot;BY2&quot;)),true))</formula>
+    <label>NAOCAP Not Orderable PAN</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

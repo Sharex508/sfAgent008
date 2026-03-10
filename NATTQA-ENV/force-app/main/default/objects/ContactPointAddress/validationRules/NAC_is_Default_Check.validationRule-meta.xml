@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAC_is_Default_Check</fullName>
+    <active>true</active>
+    <description>Prevent marking of isDefault check for non Approved Contact Point Address for NAC record type.</description>
+    <errorConditionFormula>IF( RecordType.DeveloperName = &apos;NAC&apos;,  IF( IsDefault  &amp;&amp;  NOT(ISPICKVAL( Status__c , &apos;Approved&apos;)) , true, false) , false)</errorConditionFormula>
+    <errorMessage>You can only mark approved address as default address</errorMessage>
+</ValidationRule>

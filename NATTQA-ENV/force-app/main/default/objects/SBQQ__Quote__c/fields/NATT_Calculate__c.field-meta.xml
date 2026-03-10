@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Calculate__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>use this with data load to cause recalculation. should be removed from page after Akif is done working on data migration design and testing.</description>
+    <label>Calculate</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

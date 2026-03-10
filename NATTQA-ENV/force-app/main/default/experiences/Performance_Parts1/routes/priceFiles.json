@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "cf0b7091-6221-43c4-8e5f-a07458dd37bf",
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "configurationTags" : [ ],
+  "devName" : "Price_Files__c",
+  "id" : "ac41fc10-c4fc-4cdb-83eb-23d21468c04c",
+  "label" : "Price Files",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-price-files",
+  "type" : "route",
+  "urlPrefix" : "price-files"
+}

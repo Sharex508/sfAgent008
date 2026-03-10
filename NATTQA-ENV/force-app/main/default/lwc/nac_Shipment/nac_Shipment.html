@@ -1,0 +1,193 @@
+<template>
+  <lightning-card title="Order Item Details" icon-name="standard:shipment">
+      <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_bottom">
+          <thead>
+              <tr class="slds-line-height_reset">
+                  <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Line">Line</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Part #">Part #</div>
+                  </th>
+                  <th class="tbody slds-size_2-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Description">Description</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Ordered">Ordered</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Shipped">Shipped</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Backordered">Backordered</div>
+                  </th>
+                  <!-- <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Available On">Available On</div>
+                  </th> -->
+                  <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Order Amount">Order Amount</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Status">Status</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-12" scope="col">
+                      <div class="slds-truncate slds-align_absolute-center" title="Shipments">Shipments</div>
+                  </th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <template for:each={orderLines} for:item="lines">
+                  <tr key={lines.Id}>
+                      <td>
+                          <div class="slds-truncate slds-align_absolute-center" title={lines.lineNum}>{lines.lineNum}
+                          </div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate slds-align_absolute-center" title={lines.partNum}>{lines.partNum}
+                          </div>
+                      </td>
+                      <td class="slds-cell-wrap">
+                          <div class="slds-truncate slds-align_absolute-center" title={lines.description}>
+                              {lines.description}</div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate slds-align_absolute-center" title={lines.ordered}>{lines.ordered}
+                          </div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate slds-align_absolute-center" title={lines.delivered}>
+                              {lines.delivered}
+                          </div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate slds-align_absolute-center" title={lines.backOrdered}>
+                              {lines.backOrdered}</div>
+                      </td>
+                      <!-- <td>
+                          <div class="slds-truncate slds-align_absolute-center" title={lines.availablePromiseDate}>
+                              {lines.availablePromiseDate}</div>
+                      </td> -->
+                      <td>
+                          <div class="slds-truncate slds-align_absolute-center" title={lines.orderItemAmount}>
+                              <lightning-formatted-number value={lines.orderItemAmount} format-style="currency"
+                                  currency-code="USD"></lightning-formatted-number>
+                          </div>
+                      </td>
+                      <td>
+                          <div class="slds-truncate slds-align_absolute-center" title="lines.status">{lines.status}
+                          </div>
+                      </td>
+                      <td id={id}>
+                          <div class="slds-align_absolute-center slds-truncate" title="">
+                              <template if:true={lines.shipments}>
+                                  <a id={lines.Id} onclick={openModal}>{lines.shipments}</a>
+                              </template>
+                          </div>
+                      </td>
+                  </tr>
+              </template>
+          </tbody>
+      </table>
+  </lightning-card>
+  <div class="slds-p-bottom_large"></div>
+  <div class="slds-p-bottom_large"></div>
+  <template if:true={hasShipments}>
+    <lightning-card title="Shipment Information" icon-name="standard:shipment">
+    <lightning-datatable key-field="Id" show-row-number-column data={shipments} columns={shipmentscolumns}
+      hide-checkbox-column="true" onrowaction={callRowAction}
+      class="slds-table_header-fixed_container slds-scrollable_x slds-border_top">
+    </lightning-datatable>
+    
+    </lightning-card>
+    
+  </template>
+  
+  <div class="slds-p-bottom_large"></div>
+
+  <template if:true={isModalOpen}>
+      <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium"
+          aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+          <div class="slds-modal__container">
+              <header class="slds-modal__header">
+                  <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                      title="Close" onclick={closeModal}>
+                      <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                          size="small">
+                      </lightning-icon>
+                      <span class="slds-assistive-text">Close</span>
+                  </button>
+                  <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Item Shipment Details</h2>
+              </header>
+              <!-- Modal/Popup Box LWC body starts here -->
+              <div class="slds-modal__content slds-p-around_medium modalBody" id="modal-content-id-1">
+                  <template if:true={modalLoading}>
+                      <lightning-spinner alternative-text="Loading" size="medium"
+                          class="spinnerClass"></lightning-spinner>
+                  </template>
+                  <div class="slds-grid slds-gutters slds-border_bottom slds-p-bottom_x-small slds-p-left_large">
+                      <div class="slds-col slds-size_2-of-5">
+                          <div class="slds-text-heading_small slds-text-title">P/N</div>
+                          <div class="slds-form-element">
+                              <lightning-formatted-text
+                                  class="slds-text-title_bold slds-p-top_xx-small slds-form-element__static"
+                                  value={partNumber}></lightning-formatted-text>
+                          </div>
+                      </div>
+                      <div class="slds-col slds-size_3-of-4">
+                          <div class="slds-text-heading_small slds-text-title">Description</div>
+                          <div class="slds-form-element">
+                              <lightning-formatted-text
+                                  class="slds-text-title_bold slds-p-top_xx-small slds-form-element__static"
+                                  value={partDescription}></lightning-formatted-text>
+                          </div>
+                      </div>
+                  </div>
+                  <lightning-datatable key-field="Id" show-row-number-column data={shipMentItems}
+                      columns={shipmentItemsColumns} hide-checkbox-column="true">
+                  </lightning-datatable>
+              </div>
+              <!-- Modal/Popup Box LWC footer starts here -->
+              <footer class="slds-modal__footer">
+                  <button class="slds-button slds-button_neutral" onclick={closeModal}>Close</button>
+              </footer>
+          </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+  </template>
+  <!--Invoice Table-->
+
+  <template if:true={isInvoiceModalOpen}>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium"
+        aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                    title="Close" onclick={closeInvoiceModal}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                        size="small">
+                    </lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Invoice # {clickedInvoiceNumber}</h2>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div class="slds-modal__content slds-p-around_medium modalBody" id="modal-content-id-2">
+                <template if:true={modalLoading}>
+                    <lightning-spinner alternative-text="Loading" size="medium"
+                        class="spinnerClass"></lightning-spinner>
+                </template>
+              
+                <lightning-datatable key-field="Id" show-row-number-column data={invoiceItems}
+                    columns={shipmentItemsListColumns} hide-checkbox-column="true">
+                </lightning-datatable>
+            </div>
+            <!-- Modal/Popup Box LWC footer starts here -->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={closeInvoiceModal}>Close</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+</template>

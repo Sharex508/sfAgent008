@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "814a82a0-2c59-4234-87c0-22fa511c3b0c",
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "configurationTags" : [ ],
+  "devName" : "Price_Availability_and_Ordering__c",
+  "id" : "2cc0d520-6b29-41c8-ac69-16d466c0fa47",
+  "label" : "Price, Availability and Ordering",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-price-availability-and-ordering",
+  "type" : "route",
+  "urlPrefix" : "price-availability-and-ordering"
+}

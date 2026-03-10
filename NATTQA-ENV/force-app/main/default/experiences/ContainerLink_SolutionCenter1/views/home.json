@@ -1,0 +1,121 @@
+{
+  "appPageId" : "4d2d78a2-887d-4269-9b35-c2c6f11c55af",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "67e6ab38-afce-4978-b550-e1fa30e2f00e",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "c2098a9e-192a-49db-9902-5f2dc05f5526",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "carouselTransitionTime" : 20,
+        "titleText" : ""
+      },
+      "componentName" : "c:ucp_articleCarouselRecentlyModified",
+      "id" : "e6987cf2-6aea-4e28-8077-bfb232543b86",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "03632495-6e9b-469d-ac8a-48e5a4414120",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "titleText" : "PRODUCT AND SERVICE UPDATES"
+      },
+      "componentName" : "c:ucp_alertCarousel",
+      "id" : "5bacbe71-d7a9-4b62-814c-4264b6e65b7c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "6cdcd13f-7fd0-455f-a7d8-bcf1113c0678",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "500baf9b-ec9b-435a-8a83-fcb6d765b860",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Links"
+          } ],
+          "useOverflowMenu" : true
+        }
+      },
+      "componentName" : "forceCommunity:tabLayout",
+      "id" : "6cdcd13f-7fd0-455f-a7d8-bcf1113c0678",
+      "regions" : [ {
+        "id" : "500baf9b-ec9b-435a-8a83-fcb6d765b860",
+        "regionLabel" : "Links",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:ucp_whosWho",
+      "id" : "aff9a716-8ffd-4958-a318-4797db482d76",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"background:#007FFF;text-align: center;\">\n    <a style=\"color: white !important; font-size: 20px; display: block; width: 100%; padding: 3px;\" \n       href=\"https://www.carrier.com/container-refrigeration/en/worldwide/\" target=\"_blank\"\n       rel=\"noreferrer noopener\">Container Refrigeration </a>\n</p>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "1521f078-9226-4316-9a46-bb834409267e",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "12e0ef87-4205-4f75-82a1-961888772196",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "170159c1-386e-47a4-b488-bda962bebdc8",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f402feac-4e4d-4791-aee4-b72d50049581",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "2426e0b3-1259-4bd9-8564-114bf0e23e7d",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "titleText" : "PRODUCT AND SERVICE UPDATES"
+      },
+      "componentName" : "c:natt_alertCarousel",
+      "id" : "5a79a716-b46d-498c-b0b3-71a9cfd9fd73",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4afc270f-4339-4736-8b99-c1c55c7b1225",
+    "regionName" : "featured",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

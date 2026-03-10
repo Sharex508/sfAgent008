@@ -1,0 +1,68 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "f1666862-252d-4ce8-8db1-96af427f9b9b",
+  "label" : "Print Detail",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "3c8f05bb-6899-49b4-ae0c-af4a3579bb83",
+          "columns" : [ {
+            "UUID" : "bc957312-e0ba-4bbd-8f6d-c153ca033077",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "3c8f05bb-6899-49b4-ae0c-af4a3579bb83",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_TesPrintOrderDetails",
+          "id" : "91e3da79-b380-4479-8bcc-1419e71088b6",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "bc957312-e0ba-4bbd-8f6d-c153ca033077",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "520d96b5-48bb-49df-b795-9f70bd210e5c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Print Detail"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "7d6d546a-2477-4e4b-8f36-6f8eab0d5ba9",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "bec6e400-c48a-44ef-8832-d129c82dabd3",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "I9U9BZDKU53ClG3keXDsDn1X6EQJPp",
+  "type" : "view",
+  "viewType" : "custom-print-detail"
+}

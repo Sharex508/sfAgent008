@@ -1,0 +1,510 @@
+<template>
+  <template if:false={isCreateDropShip}>
+    <template if:true={cartSummary}>
+      <template if:false={showSummary}>
+        <div class="slds-grid slds-wrap">
+          <div class="slds-col slds-size_2-of-3 slds-border_bottom">
+            <div class="slds-grid slds-wrap">
+              <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+                <lightning-input type="text" name="cName" value={cartObject.NATT_Order_Contact__c} label={label.ContactNameLabel}
+                  onchange={handleChange}></lightning-input>
+              </div>
+              <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+                <lightning-input type="tel" name="cPhone" value={cartObject.NATT_Order_Contact_Phone__c}
+                  label={label.TelephoneLabel} onchange={handleChange}></lightning-input>
+              </div>
+              <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+                <lightning-input class="validate" type="email" name="cEmail"
+                  value={cartObject.NATT_Order_Contact_Email__c} label={label.EmailAddressLabel} onchange={handleChange}
+                  pattern="[A-Za-z0-9._-]+@[A-Za-z0-9-]+\.[A-Za-z.]{2,}$"
+                  message-when-pattern-mismatch={label.PleaseEnteraValidEmailLabel}></lightning-input>
+              </div>
+            </div>
+            <br/>
+          </div>
+
+          <div class="slds-col slds-size_2-of-3">
+              <br/>
+              <div class="slds-grid slds-wrap">
+                  
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+                      <lightning-input type="text" name="cPoNumber" value={cartObject.PoNumber} label={label.POLabel}
+                          onchange={handleChange} required>
+                      </lightning-input>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+                    <lightning-input 
+                        type="text" 
+                        name="Warehouse" 
+                        value={warehouseSelected} 
+                        label="Warehouse"
+                        readonly>
+                    </lightning-input>
+                </div>
+                
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+                    <!--New Field logic Added-->
+                    
+                       <lightning-input type="text" name="cCliente/Proyecto" value={cartObject.Client_Final_Project__c} label={label.ProyectoFinal}
+                          onchange={handleChange} minlength="0" maxlength="20" required>
+                      </lightning-input>
+                    
+                      <!-- <lightning-input type="text" name="freightAccountNumber" value={cartObject.NATT_Freight_Account_Number__c}
+                          label={label.FreightAccountNumberLabel} required onchange={handleChange}>
+                      </lightning-input> -->
+                  </div>
+              </div>
+          </div>
+          <div class="slds-col slds-size_2-of-3">
+              <div class="slds-grid slds-wrap">
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+                      <lightning-combobox
+                          name="incoterm"
+                          label="Incoterm"
+                          value={incotermValue}
+                          options={incotermOptions}
+                          onchange={handleChange} >
+                      </lightning-combobox>
+                  </div>
+                  <template if:true={showShippingMethod}>
+                    <div class="slds-col slds-size_1-of-2 slds-p-right_xx-small">
+                      <lightning-combobox
+                          name="shippingMethod"
+                          label={label.ShippingMethodNameLabel}
+                          value={shippingMethodValue}
+                          options={shippingMethodOptions}
+                          onchange={handleShippingMethodChange} >
+                      </lightning-combobox>
+                    </div>
+                  </template>
+              </div>
+          </div>
+          <div class="slds-col slds-size_1-of-3">
+            <div class="slds-box slds-theme_info slds-float_right">
+              {label.TotalProductsLabel}: <div class="slds-p-left_small slds-float_right">{totalProductCount}</div><br />
+              {label.OrderTotalLabel}: <div class="slds-p-left_small slds-float_right">
+                <lightning-formatted-number value={grandTotalAmount} format-style="currency" currency-code="USD">
+                </lightning-formatted-number>
+              </div><br />
+              <template if:true={showRushFee}>
+                {label.RushFeeLabel}: <div class="slds-p-left_small slds-float_right">
+                  <lightning-formatted-number value={rushFee} format-style="currency"
+                    currency-code="USD"></lightning-formatted-number>
+                </div><br />
+              </template>
+            </div>
+          </div>
+          <template if:true={shippingMethodSelected}>
+            <!-- If a shipping method is selected, display this text -->
+            <div class="slds-text-heading_medium">Favor de revisar el método de embarque con tu representante de Atención a Clientes.</div>
+          </template>
+          
+          <template if:true={deliveryAddressLoaded}>
+            <div class="slds-col slds-size_1-of-1">
+              <lightning-radio-group name="deliveryAddress" label={label.DeliverToAddressLabel} value={deliveryAddressSelected}
+                options={deliveryAddressOptions} onchange={handleDeliveryAddressChange}></lightning-radio-group>
+              <div class="slds-p-top_x-small"></div>
+                <!-- <lightning-button label={leabl.CreateDropShipLabel} onclick={handleCreateDropShip}></lightning-button> -->
+              </div>
+          </template>
+        </div>
+        <div class="slds-p-top_small">
+          <lightning-button label={label.NextLabel} title="Next" onclick={handleGoNext}>
+          </lightning-button>
+          <lightning-button label={label.CancelLabel} title="Cancel" onclick={handleCancel}>
+          </lightning-button>
+        </div>
+      </template>
+      <!--start show summary-->
+      <template if:true={showSummary}>
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+          {label.ReviewOrderLabel}
+        </h2>
+        <!--Use Place Order at the bottom of page to submit your final order.-->
+        <lightning-badge label="Use Realizar Pedido en la parte inferior de la página para enviar su pedido final."></lightning-badge>
+        <!-- CUSTOMER INFORMATION -->
+        <lightning-layout-item padding="around-small">
+          <lightning-card title={label.CustomerInformationLabel}>
+            <div class="slds-m-around_medium">
+              <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.CustomerLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartDetail.a.Name}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.ContactNameLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartObject.NATT_Order_Contact__c}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.CustomerNumberLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartDetail.a.NATT_JDE_Parts_Bill_To_Code__c}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.ContactEmailLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartObject.NATT_Order_Contact_Email__c}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.POLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartObject.PoNumber}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.ContactPhoneLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartObject.NATT_Order_Contact_Phone__c}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+               <!--
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.ProyectoFinal}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartObject.Client_Final_Project__c}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                
+               -->
+              </div>
+            </div>
+          </lightning-card>
+        </lightning-layout-item>
+        <!-- Order Information Section of Summary Screen -->
+        <lightning-layout-item padding="around-small">
+          <lightning-card title={label.OrderInformationLabel}>
+            <div class="slds-m-around_medium">
+              <div class="slds-grid slds-wrap">
+                <!-- <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.ShippingAddressLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-address street={cartObject.NATT_Shipping_Street__c}
+                          city={cartObject.NATT_Shipping_City__c} country={cartObject.NATT_Shipping_Country__c}
+                          province={cartObject.NATT_Shipping_State__c}
+                          postal-code={cartObject.NATT_Shipping_Postal_Code__c} disabled></lightning-formatted-address>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div> -->
+
+                <!-- <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.OrderTypeLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{orderTypeLabel}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div> -->
+                
+                <!-- <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.ShipmentTermsLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{shipmentTermLabel}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div> -->
+                <!-- <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.ShippingMethodNameLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{shippingMethodName}</div>
+                    </div>
+                  </div>
+                  &nbsp;
+                  <div class="slds-border_bottom"></div>
+                </div> -->
+                <!-- <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.FreightAccountNumberLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartObject.NATT_Freight_Account_Number__c}</div>
+                    </div>
+                    <div> </br></div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div> -->
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">Incoterm</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartObject.NATT_Incoterm__c}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">Warehouse</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{warehouseSelected}</div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+
+               <!-- <div class="slds-col slds-size_1-of-2 slds-p-right_large">  -->
+                  <!-- &nbsp;
+                  <div class="slds-border_bottom"></div> -->
+                <!--</div> -->
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">{label.ShippingAddressLabel}</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">
+                        <lightning-formatted-address street={cartObject.NATT_Shipping_Street__c}
+                          city={cartObject.NATT_Shipping_City__c} country={cartObject.NATT_Shipping_Country__c}
+                          province={cartObject.NATT_Shipping_State__c}
+                          postal-code={cartObject.NATT_Shipping_Postal_Code__c} disabled></lightning-formatted-address>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                  <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label">Términos de Pago</label>
+                    <div class="slds-form-element__control">
+                      <div class="slds-form-element__static">{cartObject.NATT_CTM_Payment_Terms__c}</div>
+                    </div>
+                    <div> </br></div>
+                  </div>
+                  <div class="slds-border_bottom"></div>
+                </div>
+                <!-- <template if:true={showAirFields}>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label">{label.ReasonForShippingMethodLabel}</label>
+                      <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{cartObject.NATT_CTM_Reason_for_Shipment_Method__c}</div>
+                      </div>
+                      <div> </br></div>
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label">{label.SerialNumberLabel}</label>
+                      <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{cartObject.NATT_CTM_Serial_Number__c}</div>
+                      </div>
+                      <div> </br></div>
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label">{label.FlightItineraryLabel}</label>
+                      <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{itinerary}</div>
+                      </div>
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                </template>
+                <template if:true={showSeaFields}>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label">{label.SeaItineraryLabel}</label>
+                      <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{itinerary}</div>
+                      </div>
+                      <div> </br></div>
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                </template>
+                <template if:true={showPickupFields}>
+                  
+                </template>
+                <template if:true={showGroundFields}>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label">{label.FreightCompanyInformationLabel}</label>
+                      <div class="slds-form-element__control">
+                        <div class="slds-form-element__static">{cartObject.NATT_CTM_Freight_Company_Information__c}</div>
+                      </div>
+                      <div> </br></div>
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                </template> -->
+              </div>
+            </div>
+          </lightning-card>
+        </lightning-layout-item>
+        <template if:true={shippingMethodSelected}>
+          <!-- If a shipping method is selected, display this text -->
+          <div class="slds-text-heading_medium">Favor de revisar el método de embarque con tu representante de Atención a Clientes.</div>
+        </template>
+        <article class="slds-card">
+          <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+              <div class="slds-media__body">
+                <h2 class="slds-card__header-title">
+                  <span>{label.PartDetailLabel}</span>
+                </h2>
+              </div>
+
+            </header>
+          </div>
+          <div class="slds-card__body slds-card__body_inner">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+              <thead>
+                <tr class="slds-line-height_reset">
+                  <th class="tbody slds-size_1-of-8" scope="col">
+                    <div class="slds-truncate slds-align_absolute-center" title={label.PartNumberLabel}>{label.PartNumberLabel}</div>
+                  </th>
+                  <th class="tbody slds-size_3-of-8" scope="col">
+                    <div class="slds-truncate slds-align_absolute-center" title={label.DescriptionLabel}>{label.DescriptionLabel}</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-8" scope="col">
+                    <div class="slds-truncate slds-align_absolute-center" title={label.QTYLabel}>{label.QTYLabel}</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-8" scope="col">
+                    <div class="slds-truncate slds-align_absolute-center" title={label.PriceLabel}>{label.PriceLabel}</div>
+                  </th>
+                  <th class="tbody slds-size_1-of-8" scope="col">
+                    <div class="slds-truncate slds-align_absolute-center" title={label.ExtendedLabel}>{label.ExtendedLabel}</div>
+                  </th>
+                  <!-- <th class="tbody slds-size_1-of-8" scope="col">
+                    <div class="slds-truncate slds-align_absolute-center" title={label.UOMLabel}>{label.UOMLabel}</div>
+                  </th> -->
+                </tr>
+              </thead>
+              <tbody>
+                <template for:each={cartDetail.wc.CartItems} for:item="line">
+                  <tr key={line.Id}>
+                    <td>
+                      <div class="slds-truncate slds-align_absolute-center">{line.Product2.NATT_P_N__c}</div>
+                    </td>
+                    <td class="slds-cell-wrap">
+                      <div class="slds-truncate  slds-align_absolute-center">{line.Product2.Name}</div>
+                    </td>
+                    <td>
+                      <div class="slds-truncate slds-align_absolute-center">{line.Quantity}</div>
+                    </td>
+                    <td>
+                      <div class="slds-truncate slds-align_absolute-center">
+                        <lightning-formatted-number value={line.UnitAdjustedPrice} format-style="currency"
+                          currency-code="USD"></lightning-formatted-number>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="slds-truncate slds-align_absolute-center">
+                        <lightning-formatted-number value={line.TotalPriceAfterAllAdjustments} format-style="currency"
+                          currency-code="USD"></lightning-formatted-number>
+                      </div>
+                    </td>
+                    <td>
+                      <!-- <div class="slds-truncate slds-align_absolute-center">{line.Product2.NATT_UOM_Conversion__c}
+                        &nbsp; {line.Product2.QuantityUnitOfMeasure}</div> -->
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+              <span></span>
+            </div>
+            <div class="slds-col">
+              <span> </span>
+            </div>
+            <div class="slds-col">
+              <table
+                class="slds-table slds-table_cell-buffer slds-table_header-hidden slds-table_bordered slds-no-row-hover ">
+                <tbody>
+                  <template if:true={showRushFee}>
+
+                    <tr class="slds-hint-parent">
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td data-label="Rush Order Fee">
+                        <div class="slds-truncate" title={label.RushOrderFeeLabel}><b>{label.RushOrderFeeLabel}</b></div>
+                      </td>
+                      <td>
+                        <lightning-formatted-number value={rushFee} format-style="currency" currency-code="USD">
+                        </lightning-formatted-number>
+                      </td>
+                    </tr>
+                  </template>
+                  <tr class="slds-hint-parent">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td data-label={label.TotalLabel}>
+                      <div class="slds-truncate"><b>{label.TotalLabel}</b></div>
+                    </td>
+                    <td>
+                      <lightning-formatted-number value={grandTotalAmountWithRushFee} format-style="currency"
+                        currency-code="USD"></lightning-formatted-number>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          
+        </article>
+        <lightning-button label={label.PlaceOrderLabel} title={label.PlaceOrderLabel} onclick={handleFinish}>
+        </lightning-button>
+        <lightning-button label={label.BackLabel} title={label.BackLabel} onclick={handleHideSummary}>
+        </lightning-button>
+      </template>
+      <!--end show summary-->
+    </template>
+  </template>
+  <!-- <template if:true={isCreateDropShip}>
+    <lightning-record-edit-form object-api-name="ContactPointAddress" record-type-id={contactPointAddressRtId}
+      onsubmit={handleDropShipSubmit} onsuccess={handleDropShipSuccess} onerror={handleDropShipError}>
+      <lightning-messages>
+      </lightning-messages>
+      <lightning-input-field field-name="Name"></lightning-input-field>
+      <lightning-input-field field-name="Address" required></lightning-input-field>
+      <lightning-button class="slds-m-top_small" type="submit" label={label.CreateNewLabel}>
+      </lightning-button>
+      <lightning-button class="slds-m-top_small" label={label.CancelLabel} onclick={handleCancelCreateDropShip}>
+      </lightning-button>
+    </lightning-record-edit-form>
+  </template> -->
+  <template if:true={error}>
+    <div class="slds-text-color_error">{error}</div>
+  </template>
+</template>

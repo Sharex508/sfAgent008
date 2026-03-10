@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Method_of_Shipment__c</fullName>
+    <description>Picklist field to be added under Production &amp; Scheduling Tab of Quote</description>
+    <label>Method of Shipment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CONTAINER_Sales_Region__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AIR FREIGHT - 461-63-02 - AF</fullName>
+                <default>false</default>
+                <label>AIR FREIGHT - 461-63-02 - AF</label>
+            </value>
+            <value>
+                <fullName>OCEAN FREIGHT - 461-63-02 - OF</fullName>
+                <default>false</default>
+                <label>OCEAN FREIGHT - 461-63-02 - OF</label>
+            </value>
+            <value>
+                <fullName>SURFACE FREIGHT - 461-63-02 – SF</fullName>
+                <default>false</default>
+                <label>SURFACE FREIGHT - 461-63-02 – SF</label>
+            </value>
+            <value>
+                <fullName>NOT APPLICABLE - 461-63-02 - NA</fullName>
+                <default>false</default>
+                <label>NOT APPLICABLE - 461-63-02 - NA</label>
+            </value>
+            <value>
+                <fullName>RAIL FREIGHT - 461-63-02 - RF</fullName>
+                <default>false</default>
+                <label>RAIL FREIGHT - 461-63-02 - RF</label>
+            </value>
+            <value>
+                <fullName>AIR FREIGHT - AF</fullName>
+                <default>false</default>
+                <label>AIR FREIGHT - AF</label>
+            </value>
+            <value>
+                <fullName>OCEAN FREIGHT - OF</fullName>
+                <default>false</default>
+                <label>OCEAN FREIGHT - OF</label>
+            </value>
+            <value>
+                <fullName>SURFACE FREIGHT - SF</fullName>
+                <default>false</default>
+                <label>SURFACE FREIGHT - SF</label>
+            </value>
+            <value>
+                <fullName>NOT APPLICABLE - NA</fullName>
+                <default>false</default>
+                <label>NOT APPLICABLE - NA</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>AIR FREIGHT - AF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>OCEAN FREIGHT - OF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>SURFACE FREIGHT - SF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>EMEA</controllingFieldValue>
+            <controllingFieldValue>APO</controllingFieldValue>
+            <controllingFieldValue>SNAO</controllingFieldValue>
+            <valueName>NOT APPLICABLE - NA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>AIR FREIGHT - 461-63-02 - AF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>OCEAN FREIGHT - 461-63-02 - OF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>SURFACE FREIGHT - 461-63-02 – SF</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>NOT APPLICABLE - 461-63-02 - NA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>NAO</controllingFieldValue>
+            <valueName>RAIL FREIGHT - 461-63-02 - RF</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

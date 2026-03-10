@@ -1,0 +1,68 @@
+{
+  "appPageId" : "a72f9961-a56d-4d6c-be9b-34da3e37d662",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "fd6b0e72-2cda-442b-84bf-bcf7731958f8",
+  "label" : "Backorder Report",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "e9d34121-3a9d-41f0-b0a7-b36eee954208",
+          "columns" : [ {
+            "UUID" : "a7e93a63-ec90-4d76-a010-7d9e8cc79dd6",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "e9d34121-3a9d-41f0-b0a7-b36eee954208",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : { },
+          "componentName" : "c:NATT_CtmBackorderReport",
+          "id" : "11a25004-b7df-49ec-b5e1-901f3d0d140c",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "a7e93a63-ec90-4d76-a010-7d9e8cc79dd6",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "63983322-e07d-44a4-942a-c58dc5dd410e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Backorder Report"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f16d7c2f-24cf-4431-8e9f-a8907e0bfaee",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e7ac8ad0-14b3-438e-8b95-d690ba51352c",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-backorder-report"
+}

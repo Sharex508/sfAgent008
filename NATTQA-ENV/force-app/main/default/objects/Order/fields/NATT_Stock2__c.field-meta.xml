@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Stock2__c</fullName>
+    <formula>Opportunity.NATT_Stock__c = TRUE</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Stock</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

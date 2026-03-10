@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "d30b8983-af4a-4cad-8a80-d7ada1d88152",
+    "propertyOverrides" : {
+      "activeViewId" : "d4add4f3-0187-4973-8d37-e84bc32962f4"
+    },
+    "targetId" : "83c66e5c-ea22-4eb4-ae30-6ab143373ea1",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "All_Knowledge_CTM_All_Knowledge_Page",
+  "id" : "565900b0-cca2-4ce6-9e46-499f52d1767b",
+  "type" : "experienceVariation"
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Acc_Job_Number_Not_Editable</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED( CONTAINER_Commissioning_Record_Name__c ),
+PRIORVALUE(CONTAINER_Commissioning_Record_Name__c ) != null, 
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule )
+)</errorConditionFormula>
+    <errorDisplayField>CONTAINER_Commissioning_Record_Name__c</errorDisplayField>
+    <errorMessage>You cannot update the Job Number after creation.</errorMessage>
+</ValidationRule>

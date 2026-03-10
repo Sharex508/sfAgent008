@@ -1,0 +1,182 @@
+<template>
+
+    <template if:true={isAccessible}>
+
+        <div class="slds-grid ">
+
+            <div class="slds-size_1-of-1 box__carousel__container">
+
+                <template if:false={showSpinner}>
+
+                    <!-- article carousel -->
+                    <div class="carousel__container slds-m-bottom_medium slds-show_medium">
+                        <h1 class="component__title">{titleText}</h1>
+                        
+                        <template if:false={showWarningMessage}>
+                            <template if:false={showStatic}>
+                            <div class="carousel">
+                                <div class="carousel__track-container">
+                                    <div class="carousel__track">
+                                        <div class="carousel__body">
+                                            <template for:each={articles} for:item="art" for:index="index">
+                                                <div id={art.id} key={art.id} class="carousel__slide" data-bg={art.iconType}>
+
+                                                    <div class="slds-grid slds-wrap">
+                                                        
+                                                        <div class="slds-size_1-of-1 slds-large-size_2-of-3 container__carousel__title">
+                                                            <div class="carousel__title">
+                                                                <h1><a href={art.url} target ="_blank" title={art.title} alt={art.title}>{art.title}</a></h1>
+                                                                <!--<div class="slds-show_large">
+                                                                    <br>
+                                                                    <p>{art.summary}</p>
+                                                                    <br>
+                                                                </div>-->
+                                                                <span class="line slds-show_large"></span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!--<div class="slds-size_1-of-1 slds-large-size_2-of-3">
+                                                            <div class="carousel__image">
+                                                                <img src={art.image} alt="" />
+                                                            </div>
+                                                        </div>-->
+
+                                                    </div>
+
+                                                </div>
+                                            </template>
+                                        </div>
+
+                                        <div class="carousel__footer">
+                                            <div class="slds-hide_large slds-text-align_center slds-m-around_x-small">
+                                                <p><a href="/transcentral/s/all-knowledge">Go to the default list view.</a></p>
+                                            </div>
+
+                                            <div class="slds-grid slds-gutters slds-show_large">
+                                                <div class="slds-col slds-large-size_3-of-12">
+                                                    <div class="carousel__pagination">
+                                                        <span>{currentPage}/{articles.length}</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="slds-col slds-size_1-of-1 slds-large-size_9-of-12">
+                                                    <div class="slds-grid slds-gutters carousel__icons">
+                                                        <template for:each={articles} for:item="art" for:index="index">
+                                                            <div key={art.id} class="slds-m-right_small col-icon">
+                                                                <div id={art.id} onclick={onClickHandler}><img data-index={index}  id={art.id} class="iconImage" src={art.iconImage} alt={art.title} title={art.title} width="75" /></div>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </template>
+                        <template if:true={showStatic}>
+                            <div class="carousel">
+                                <div class="carousel__track-container">
+                                    <div class="carousel__track">
+                                        <div class="carousel__body">
+                                                <div id={newArray.id} class="carousel__slide" data-bg={newArray.iconType}>
+                        
+                                                    <div class="slds-grid slds-wrap">
+                                                        
+                                                        <div class="slds-size_1-of-1 slds-large-size_2-of-3 container__carousel__title">
+                                                            <div class="carousel__title">
+                                                                <h1><a href={newArray.url} target ="_blank" title={newArray.title} alt={newArray.title}>{newArray.title}</a></h1>
+                                                                
+                                                                <span class="line slds-show_large"></span>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                       
+                        
+                                                    </div>
+                        
+                                                </div>
+                                        </div>
+                        
+                                        <div class="carousel__footer">
+                                            <div class="slds-hide_large slds-text-align_center slds-m-around_x-small">
+                                                <p><a href="/transcentral/s/all-knowledge">Go to the default list view.</a></p>
+                                            </div>
+                        
+                                            <div class="slds-grid slds-gutters slds-show_large">
+                                                <div class="slds-col slds-large-size_3-of-12">
+                                                    <div class="carousel__pagination">
+                                                        <span>{article_order}/{articles.length}</span>
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="slds-col slds-size_1-of-1 slds-large-size_9-of-12">
+                                                    <div class="slds-grid slds-gutters carousel__icons">
+                                                        <template for:each={articles} for:item="art" for:index="index">
+                                                            <div key={art.id} class="slds-m-right_small col-icon">
+                                                                <div id={art.id} onclick={onClickHandler}><img data-index={index}  id={art.id} class={art.className} src={art.iconImage} alt={art.title} title={art.title} width="75" /></div>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </template>
+                        </template>
+
+
+
+                        <template if:true={showWarningMessage}>
+                            <p class="slds-text-align_center slds-m-around_large">There are no recent modified articles to display.</p>
+                        </template>
+                    </div>
+                    
+                    <!-- article list -->
+                    <template if:false={showWarningMessage}>
+                        <div class="slds-size_1-of-1">
+                            <div class="slds-grid slds-wrap slds-gutters lgc-bg article__list">
+                                <template for:each={fullArticles} for:item="art">
+                                    <div key={art.id} class="slds-col slds-size_1-of-2 slds-large-size_4-of-12 article__list__item">
+                                        <article class="slds-tile slds-media">
+                                            <div class="slds-media__figure">
+                                                <span class="slds-icon_container" title="">
+                                                    <lightning-avatar size="large" slot="media" src={art.iconImage} fallback-icon-name="standard:knowledge" alternative-text={art.title}></lightning-avatar>
+                                                </span>
+                                            </div>
+                                            <div class="slds-media__body">
+                                                <span class="article__list__item__date">{art.publishedDate}</span>
+                                                <div class="slds-tile__detail article__list__item__title">
+                                                    <a href={art.url}>{art.title}</a>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                    
+                </template>
+
+                <!-- Spinner -->
+                <template if:true={showSpinner}>
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </template>
+
+            </div>
+
+            <!-- alert carousel
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-4 alert__carousel__container">
+                <c-natt_alert-carousel></c-natt_alert-carousel>
+            </div> -->
+
+        </div>
+
+    </template>
+    
+</template>

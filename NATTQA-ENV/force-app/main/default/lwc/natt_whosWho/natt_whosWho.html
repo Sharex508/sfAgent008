@@ -1,0 +1,13 @@
+<template>
+
+    <div class="whoswho slds-p-around_xx-small slds-m-top_large">
+        <template if:false={showWarningMessage}>
+            <a href={article.url}>{label.WhosWhoLink}</a>
+        </template>
+        
+        <template if:true={showWarningMessage}>
+            <p>{errorMessage}</p>
+        </template>
+    </div>
+
+</template>

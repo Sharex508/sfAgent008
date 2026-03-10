@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Optional_Coverage_Hours__c</fullName>
+    <label>CTBR Optional Coverage Hours</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>CTBR_BluEdge_Unit__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>CTBR_BluEdge_Hours</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>4000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>4500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>5000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>5500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>6000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>6500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>7000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>7500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>8000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>8500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>9000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>9500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>10000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>10500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>11000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>11500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>12000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>12500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>13000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>13500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>14000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>14500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>15000</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>15500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vector 8100</controllingFieldValue>
+            <controllingFieldValue>Vector 8500</controllingFieldValue>
+            <controllingFieldValue>Vector 8600 - System 01</controllingFieldValue>
+            <controllingFieldValue>X4 7300</controllingFieldValue>
+            <controllingFieldValue>X4 7500</controllingFieldValue>
+            <controllingFieldValue>Supra 750 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 850 SIII</controllingFieldValue>
+            <controllingFieldValue>Supra 1250</controllingFieldValue>
+            <controllingFieldValue>Supra 1250 MT</controllingFieldValue>
+            <controllingFieldValue>Supra 1150</controllingFieldValue>
+            <controllingFieldValue>Supra 1150 MT</controllingFieldValue>
+            <controllingFieldValue>Supra S6 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S7 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S8 with 230v-3ph-60Hz</controllingFieldValue>
+            <controllingFieldValue>Supra S9 with 230v-3ph-60Hz</controllingFieldValue>
+            <valueName>16000</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

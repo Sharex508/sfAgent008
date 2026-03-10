@@ -1,0 +1,850 @@
+<template>
+  <div class="page">
+    <div class="slds-grid slds-gutters slds-var-p-bottom_large">
+      <div class="slds-col slds-size_3-of-12">
+        <h2 class="slds-text-heading_medium slds-var-p-bottom_medium">
+          {label.PriceAvailabilityOrderingLabel}
+        </h2>
+      </div>
+
+      <div class="slds-col slds-size_3-of-12 slds-m-bottom_small" onkeyup={handleSearchKeyUp}>
+        <lightning-input name="productSearch"
+            label={label.ProductQuickSearchLabel}            
+            type="search"></lightning-input>
+        
+        <!--
+        <lightning-record-edit-form object-api-name="OrderItem">
+          <label for="p2Id">{label.ProductQuickSearchLabel}</label>
+          <lightning-input-field field-name="Product2Id" variant="label-hidden" id="p2Id"> </lightning-input-field>        
+        </lightning-record-edit-form>-->
+
+      </div>
+
+      <div  class="slds-col slds-size_2-of-12">
+        <template if:true={getWarehouseField}>
+          <div >
+            <lightning-combobox
+                name="warehouse"
+                label="Warehouse"
+                value={warehouseValue}
+                options={warehouseOptions}
+                onchange={handleChange}
+                required>
+            </lightning-combobox>
+        </div>
+        </template>
+      </div>
+
+      <div class="slds-col slds-size_2-of-12 slds-m-top_large">
+        <template if:false={showQuickEntry}>
+          <lightning-button label={label.QuickEntryLabel} class="slds-float_right" onclick={handleShowQuickEntry}></lightning-button>
+        </template>
+      </div>
+      <!--
+      ***************
+        File Upload
+      ***************
+      -->
+      <div class="slds-col slds-size_2-of-12">
+       
+          <div class="my-div">
+          
+            <lightning-input
+              type="file"
+              accept=".csv"
+              onchange={handleFileUpload}
+              class="slds-float_right"
+            ></lightning-input><lightning-helptext icon-name="utility:info" content={label.tooltipLabel}></lightning-helptext>
+
+          </div>
+      </div>
+    </div>  
+
+    <template if:true={showPao}>
+    <table class="orderTable slds-table_bordered">
+      <!--
+      ****************
+        Table Header
+      ****************
+      -->
+      <thead class="tableHeader">
+        <tr class="slds-line-height_reset">
+          <!-- Row Number -->
+          <th class="slds-var-p-left_x-small" scope="col" style="width: 2rem">
+            <div class="" title="#">#</div>
+          </th>
+          <!-- Part Number -->
+          <th class="PN" scope="col">
+            <div class="pn" title={label.PartNumberLabel}>{label.PartNumberLabel}</div>
+          </th>
+          <!-- Quantity -->
+          <th class="qtt" scope="col">
+            <div class="" title={label.QuantityLabel}>{label.QuantityLabel}</div>
+          </th>
+          <!-- Description -->
+          <th class="description" scope="col">
+            <div class="" title={label.DescriptionLabel}>{label.DescriptionLabel}</div>
+          </th>
+          <!-- Validation Status -->
+          <th class="" scope="col">
+            <div class="" title={label.ValidationStatusLabel}>
+              <!-- Validation
+              <p>Status</p> -->
+              {label.ValidationStatusLabel}
+            </div>
+          </th>
+          <!-- Discount Code -->
+          <th class="disCode" scope="col">
+            <div class="" title={label.DiscountCodeLabel}>
+              <!-- Discount
+              <p>Code</p> -->
+              {label.DiscountCodeLabel}
+            </div>
+          </th>
+          <!-- List Price -->
+          <th class="lstPrice" scope="col">
+            <div class="" title={label.ListPriceLabel}>{label.ListPriceLabel}</div>
+          </th>
+          <!-- Transfer Price (Internal Customer Only) -->
+          <th if:true={isInternalCustomer} class="lstPrice" scope="col">
+            <div class="" title={label.TransferPriceLabel}>{label.TransferPriceLabel}</div>
+          </th>
+          <!-- Unit of Measure -->
+          <th class="UOM" scope="col">
+            <div class="" title={label.UOMLabel}>
+              {label.UOMLabel}
+            </div>
+          </th>
+          <!-- Part # History -->
+          <th class="PNHist" scope="col">
+            <div class="" title={label.PartHistoryLabel}>
+              <!-- Part #
+              <p>History</p> -->
+              {label.PartHistoryLabel}
+            </div>
+          </th>
+          <!-- Availability -->
+          <th class="avail" scope="col">
+            <div class="" title={label.AvailableLabel}>{label.AvailableLabel}</div>
+          </th>
+          <!--Removes Weight & Dimensions if CTM Storefront-->
+          <template if:false={isCtmStorefront}>
+            <!-- Weight & Dimensions -->
+            <th class="wNd" scope="col">
+              <div class="" title={label.WeightDimensionsLabel}>
+                <!-- Weight &amp;
+                <p>Dimensions</p> -->
+                {label.WeightDimensionsLabel}
+              </div>
+            </th>
+          </template>
+          <!-- Remove Row -->
+          <th class="remv" scope="col">
+            <div class="" title={label.RemoveRowLabel}>{label.RemoveRowLabel}</div>
+          </th>
+        </tr>
+      </thead>
+      <!--
+        **********************
+          Table Body (Loop)
+        **********************
+      -->
+      <tbody>
+        <template for:each={lineItems} for:item="lineItem" for:index="index">
+          <!-- This is needed to fix timing issues with Async calls.
+               Removing it will throw an unhandled exception when the
+               table is being rendered during the file upload process -->
+          <template if:true={lineItem}>
+            <tr
+              key={lineItem.rowNumber}
+              data-index={index}
+              class="slds-hint-parent"
+            >
+              <!-- Row Number -->
+              <td class="slds-var-p-left_x-small">
+                <span
+                  class="
+                    slds-row-number
+                    slds-text-body_small
+                    slds-text-color_weak
+                  "
+                  >{lineItem.rowNumber}</span
+                >
+              </td>
+              <!-- Part Number -->
+              <td class="pn" data-label="Part Number" scope="row">
+                <div class="">
+                  <lightning-input
+                    class="pn-input"
+                    type="text"
+                    value={lineItem.partNumber}
+                    onblur={handlePartNumberBlur}
+                  ></lightning-input>
+                  <p if:true={lineItem.hasCoreCharge} class="core">
+                    {label.CoreLabel}: {lineItem.coreItemPartNumber}
+                  </p>
+                </div>
+              </td>
+              <!-- Quantity -->
+              <td class="qtt" data-label="Quantity" scope="row">
+                <div class="" title="">
+                  <lightning-input
+                    type="number"
+                    class="qtt-input"
+                    value={lineItem.quantity}
+                    onchange={handleQuantityEntered}
+                  ></lightning-input>
+                </div>
+              </td>
+              <!-- Description -->
+              <td class="description slds-cell-wrap" data-label="Description">
+                <div class="" title="">{lineItem.description}</div>
+                <template if:true={lineItem.hasUserGuide}>
+                  <div class="bulletin slds-size_8-of-12">
+                    <p class="bullt" data-id={lineItem.rowNubmer}>
+                      Bulletin:
+                      <a onclick={handleDownloadBulletin}
+                        >{lineItem.userGuideTitle}</a
+                      >
+                    </p>
+                  </div>
+                </template>
+                <template if:true={lineItem.hasSignalCodeMessage}>
+                  <div class="slds-text-color_error">
+                    <lightning-formatted-rich-text
+                      value={lineItem.signalCodeMessage}
+                    ></lightning-formatted-rich-text>
+                  </div>
+                </template>
+                <template if:true={lineItem.hasSalesCodeMessage}>
+                  <div class="slds-text-color_error">
+                    <lightning-formatted-rich-text
+                      value={lineItem.salesCodeMessage}
+                    ></lightning-formatted-rich-text>
+                  </div>
+                </template>
+                <template if:true={lineItem.isAlternativePart}>
+                  <div class="slds-text-color_error">
+                    <p>Supersedes {lineItem.supersededPartNumber}</p>
+                  </div>
+                </template>
+                <template if:true={lineItem.hasPriceAdjustmentTiers}>
+                  <label class="slds-form-element__label">{label.QTYPriceBreaksAvailableLabel}}</label>
+                  
+                    <lightning-button-icon                      
+                      aria-label="View Tiers"
+                      icon-name="utility:zoomin"
+                      variant="bare"
+                      alternative-text="Zoom in"
+                      class="slds-m-left_xx-small"
+                      title="View Tiers"
+                      onclick={handleShowTiers}
+                    ></lightning-button-icon>
+                  
+                  <!--<template for:each={lineItem.priceAdjustmentTiers} for:item="tier">
+                    Lower Bound: {tier.lowerBound}
+                    Tier Unit Price: {tier.tierUnitPrice}
+                  </template>-->
+                </template>
+              </td>
+              <!-- Validation Status -->
+              <td class="valStatus" data-label="Validation Status">
+                <div class={lineItem.validationStatusClass} title="">
+                  {lineItem.validationStatus}
+                </div>
+              </td>
+              <!-- Discount Code -->
+              <td class="disCode" data-label="Discount Code">
+                <div class="" title="">{lineItem.discountCode}</div>
+              </td>
+              <!-- List Price (External Customers) -->
+              <td
+                if:false={isInternalCustomer}
+                class="lstPrice"
+                data-label="List Price"
+              >
+                <div class="" title="">{lineItem.listPrice}</div>
+                <p if:true={lineItem.hasCoreCharge}>{lineItem.corePrice}</p>
+              </td>
+              <!-- List Price (Internal Customers) -->
+              <td
+                if:true={isInternalCustomer}
+                class="lstPrice"
+                data-label="List Price (Internal)"
+              >
+                <div class="" title="">{lineItem.listPrice}</div>
+              </td>
+              <!-- Transfer Price (Internal Customers Only)-->
+              <td
+                if:true={isInternalCustomer}
+                class="transferPrice"
+                data-label="Transfer Price"
+              >
+                <div class="" title="">{lineItem.unitPrice}</div>
+              </td>
+              <!-- Unit of Measure -->
+              <td class="UOM" data-label="Unit Of Measure">
+                <div class="" title="">{lineItem.unitOfMeasure}</div>
+              </td>
+              <!-- Part # History -->
+              <td class="pnHist" data-label="Part # History">
+                <div>
+                  <lightning-button-icon
+                    disabled={lineItem.disableHistory}
+                    aria-label="View Part History"
+                    icon-name="utility:zoomin"
+                    variant="bare"
+                    alternative-text="Zoom in"
+                    class="slds-m-left_xx-small"
+                    title="Zoom in"
+                    onclick={handleShowProductHistory}
+                    tabindex="-1"
+                  ></lightning-button-icon>
+                </div>
+              </td>
+              <!-- Availability -->
+              <td class="avail" data-label="Availability">
+                <div style="position: relative">
+                  <div
+                    class=""
+                    title=""
+                    onmouseenter={handleEnterAvailability}
+                    onmouseleave={handleLeaveAvailability}
+                  >
+                    {lineItem.available}
+                  </div>										
+                  <div if:true={lineItem.showAvailability}>
+                    <c-natt_popover
+                      body-text={lineItem.availableDate}
+                    ></c-natt_popover>
+                  </div>
+                </div>
+              </td>
+              <template if:false={isCtmStorefront}>
+                <!-- Weight & Dimensions -->
+                <td class="wNd" data-label="Weight &amp; Dimensions">
+                  <div style="position: relative">
+                    <lightning-button-icon
+                      aria-label={label.ViewWeightsandDimensionsLabel}
+                      icon-name="utility:quick_text"
+                      variant="bare"
+                      alternative-text={label.ViewDimensions}
+                      class="slds-m-left_xx-small"
+                      title={label.ViewDimensions}
+                      onmouseenter={handleEnterWeightsAndDimensions}
+                      onmouseleave={handleLeaveWeightsAndDimensions}
+                      disabled={lineItem.isEmpty}
+                      tabindex="-1"
+                    ></lightning-button-icon>
+                    <div if:true={lineItem.showWeightAndDimensions}>
+                      <c-natt_popover
+                        body-text={lineItem.weightAndDimensions}
+                      ></c-natt_popover>
+                    </div>
+                  </div>
+                </td>
+            </template>
+              <!-- Remove Row Buttons -->
+              <td class="remv" data-label="Remove Row">
+                <div>
+                  <lightning-button
+                    label={label.RemoveLabel}
+                    title="removeRow"
+                    onclick={handleRemoveLineItem}
+                    tabindex="-1"
+                  ></lightning-button>
+                </div>
+              </td>
+            </tr>
+          </template>
+        </template>
+      </tbody>
+    </table>
+    <lightning-button-group>
+      <lightning-button
+        class="bottom add2cart"
+        label={label.AddToCartLabel}
+        title={label.AddToCartLabel}
+        onclick={handleAddToCart}
+        disabled={isInvalid}
+        >{label.AddToCartLabel}</lightning-button
+      >
+      <lightning-button
+        class="bottom add-rows"
+        label={label.AddRowLabel}
+        title={label.AddRowLabel}
+        onclick={handleAddRow}
+        >{label.AddRowLabel}</lightning-button
+      >
+      <lightning-button
+        class="bottom clear-all"
+        label={label.ClearErrorsLabel}
+        title={label.ClearErrorsLabel}
+        onclick={handleClearErrors}
+        >{label.ClearErrorsLabel}</lightning-button
+      >
+      <lightning-button
+        class="bottom clear-all"
+        label={label.ClearAllLabel}
+        title={label.ClearAllLabel}
+        onclick={handleClearAll}
+        >{label.ClearAllLabel}</lightning-button
+      >
+    </lightning-button-group>
+    <br /><br /><br /><br /><br />
+
+    <!--
+      **********************
+        Part History Modal
+      **********************
+    -->
+    <div class="">
+      <template if:true={showHistory}>
+        <!-- Modal Box starts here-->
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-01"
+          aria-modal="true"
+          aria-describedby="modal-content-id-1"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            <!-- Modal Box Header Starts here-->
+            <header class="slds-modal__header">
+              <lightning-button-icon
+                icon-name="utility:close"
+                alternative-text="Close"
+                title="Close"
+                onclick={handleCloseModal}
+                aria-label="Close"
+                aria-labelledby="label"
+                variant="bare-inverse"
+                class="slds-modal__close"
+              ></lightning-button-icon>
+              <h2
+                id="modal-heading-01"
+                class="slds-text-heading_medium slds-hyphenate"
+              >
+                {label.PartHistoryLabel}
+              </h2>
+            </header>
+            <!--Modal Box Body Starts here-->
+            <div
+              class="slds-modal__content slds-var-p-around_medium"
+              id="modal-content-id-1"
+            >
+              <p>{label.FinalPartLabel}: {historyLineItem.finalPartNumber}</p>
+              <p>
+                {label.AllOfTheseOriginalLabel}
+                {historyLineItem.finalPartNumber}
+              </p>
+
+              <table class="orderTable slds-table_bordered">
+                <thead class="tableHeader">
+                  <tr class="slds-line-height_reset">
+                    <th class="og#" scope="col">
+                      <div class="" title="Original #">Original #</div>
+                    </th>
+                    <th class="supsd" scope="col">
+                      <div class="" title="Superseded Part">
+                        {label.SupersededPartLabel}
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template for:each={historyLineItem.history} for:item="hst">
+                    <tr key={hst.Id} class="slds-hint-parent">
+                      <td class="og#" data-label="Original #">
+                        <div class="" title="">{hst.NATT_P_N__c}</div>
+                      </td>
+                      <td class="spsd" data-label="Superseded Part">
+                        <div class="" title="">
+                          {historyLineItem.finalPartNumber}
+                        </div>
+                      </td>
+                    </tr>
+                  </template>
+                </tbody>
+              </table>
+            </div>
+            <!--Modal Box Footer Starts here-->
+            <footer class="slds-modal__footer">
+              <lightning-button
+                variant="neutral"
+                label={label.CloseLabel}
+                title={label.CloseLabel}
+                onclick={handleCloseModal}
+              ></lightning-button>
+            </footer>
+          </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+      </template>
+    </div>
+    <!--
+      **************************
+        End Part History Modal
+      **************************
+    -->
+
+    <!--
+      **********************
+        price tier Modal
+      **********************
+    -->
+    <div class="">
+      <template if:true={showTiers}>        
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-01"
+          aria-modal="true"
+          aria-describedby="modal-content-id-1"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            
+            <header class="slds-modal__header">
+              <lightning-button-icon
+                icon-name="utility:close"
+                alternative-text={label.CloseLabel}
+                title={label.CloseLabel}
+                onclick={handleCloseModal}
+                aria-label={label.CloseLabel}
+                aria-labelledby="label"
+                variant="bare-inverse"
+                class="slds-modal__close"
+              ></lightning-button-icon>
+              <h2
+                id="modal-heading-11"
+                class="slds-text-heading_medium slds-hyphenate"
+              >
+                {label.QuantityPriceBreaksLabel}
+              </h2>
+            </header>
+            
+            <div
+              class="slds-modal__content slds-var-p-around_medium"
+              id="modal-content-id-11">
+              
+              <table class="orderTable slds-table_bordered">
+                <thead class="tableHeader">
+                  <tr class="slds-line-height_reset">
+                    <th class="og#" scope="col">
+                      <div class="" title={label.QuantityBreakLabel}>{label.QuantityBreakLabel}</div>
+                    </th>
+                    <th class="supsd" scope="col">
+                      <div class="" title={label.ListPriceLabel}>
+                        {label.ListPriceLabel}
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <template for:each={currentPriceAdjustmentTiers._productPrice.priceAdjustment.priceAdjustmentTiers} for:item="tier">
+                    <tr key={tier.id} class="slds-hint-parent">
+                      <td class="og#" data-label={label.QuantityBreakLabel}>
+                        <div class="" title="">{tier.lowerBound}</div>
+                      </td>
+                      <td class="spsd" data-label={label.ListPriceLabel}>
+                        <div class="" title="">
+                          {tier.tierUnitPrice}
+                        </div>
+                      </td>
+                    </tr>
+                  </template>
+                </tbody>
+              </table>
+            </div>
+            
+            <footer class="slds-modal__footer">
+              <lightning-button
+                variant="neutral"
+                label={label.CloseLabel}
+                title={label.CloseLabel}
+                onclick={handleCloseModal}
+              ></lightning-button>
+            </footer>
+          </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+      </template>
+    </div>
+    <!--
+      **************************
+        End price tier
+      **************************
+    -->
+
+    <!--
+      **************************
+           Add to Cart Modal
+      **************************
+    -->
+    <div class="">
+      <template if:true={showAddToCart}>
+        <!-- Modal Box starts here-->
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-01"
+          aria-modal="true"
+          aria-describedby="modal-content-id-1"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            <!-- Modal Box Header Starts here-->
+            <header class="slds-modal__header">
+              <lightning-button-icon
+                label={label.CloseModalLabel}
+                aria-label={label.CloseModalLabel}
+                icon-name="utility:close"
+                onclick={handleCloseModal}
+                alternative-text="close"
+                variant="bare-inverse"
+                class="slds-modal__close"
+              ></lightning-button-icon>
+              <h2
+                id="modal-heading-02"
+                class="slds-text-heading_medium slds-hyphenate"
+              >
+                {label.ItemWasAddedToCartLabel}
+              </h2>
+            </header>
+            <!--Modal Box Footer Starts here-->
+            <footer class="slds-modal__footer">
+              <lightning-button
+                variant="neutral"
+                label={label.ViewCartLabel}
+                title={label.ViewCartLabel}
+                onclick={handleViewCart}
+              ></lightning-button>
+              <lightning-button
+                class="brand"
+                variant="brand"
+                label={label.ContinueShoppingLabel}
+                title={label.ContinueShoppingLabel}
+                onclick={handleCloseModal}
+              ></lightning-button>
+            </footer>
+          </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+      </template>
+    </div>
+    <!--
+    **************************
+      End Add to Cart Modal
+    **************************
+  -->
+
+    <!--
+      **************************
+           Quantity Check Modal
+      **************************
+    -->
+    <div class="">
+      <template if:true={showQuantityCheck}>
+        <!-- Modal Box starts here-->
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-quantity"
+          aria-modal="true"
+          aria-describedby="modal-content-id-quantity"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            <!-- Modal Box Header Starts here-->
+            <header class="slds-modal__header">
+              <lightning-button-icon
+                label={label.CloseModalLabel}
+                aria-label={label.CloseModalLabel}
+                icon-name="utility:close"
+                onclick={handleCloseModal}
+                alternative-text="close"
+                variant="bare-inverse"
+                class="slds-modal__close"
+              ></lightning-button-icon>
+              <h2
+                id="modal-heading-quantity-02"
+                class="slds-text-heading_medium slds-hyphenate"
+              >
+                Quantity Check
+              </h2>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-quantity-1">
+              <p><b>WARNING
+              </b></p>
+              <p>There are valid parts that do not have a Quantity value. These parts will get cleared if you do not add a quantity value.
+              </p>
+              <p>If you wish to continue clearing errors, including the valid part(s), click continue.
+              </p>
+              <p>Otherwise, close this window and add a Quantity value to the valid parts.</p>
+            </div>
+            <!--Modal Box Footer Starts here-->
+            <footer class="slds-modal__footer">
+              <lightning-button
+                variant="neutral"
+                label={label.CloseLabel}
+                title={label.CloseLabel}
+                onclick={handleCloseModal}
+              ></lightning-button>
+              <lightning-button
+                class="brand"
+                variant="brand"
+                label={label.ContinueClearErrorsLabel}
+                title={label.ContinueClearErrorsLabel}
+                onclick={handleClearErrors}
+              ></lightning-button>
+            </footer>
+          </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+      </template>
+    </div>
+    <!--
+    **************************
+      End Quantity Check Modal
+    **************************
+  -->
+</template>
+<template if:true={showQuickEntry}>
+  <div class="slds-grid slds-gutters">
+    <div class="slds-col slds-size_2-of-5">
+      
+    </div>
+    <div class="slds-col slds-size_1-of-5">
+      <table>
+        <thead class="quickEntryTableHeader">
+          <tr class="slds-line-height_reset">
+            <!-- Row Number -->
+            <th class="slds-var-p-left_x-small" scope="col" style="width: 2rem">
+              <div class="" title="#">#</div>
+            </th>
+            <!-- Part Number -->
+            <th class="PN" scope="col">
+              <div class="pn" title={label.PartNumberLabel}>{label.PartNumberLabel}</div>
+            </th>
+            <!-- Quantity -->
+            <th class="qtt" scope="col">
+              <div class="" title={label.QuantityLabel}>{label.QuantityLabel}</div>
+            </th>
+            </tr>
+            </thead>
+            <tbody>
+              <template for:each={quickEntryLineItems} for:item="li" for:index="index">
+                <!-- This is needed to fix timing issues with Async calls.
+                     Removing it will throw an unhandled exception when the
+                     table is being rendered during the file upload process -->
+                <template if:true={li}>
+                  <tr
+                    key={li.rowNumber}
+                    data-index={index}
+                    class="slds-hint-parent"
+                  >
+                    <!-- Row Number -->
+                    <td class="slds-var-p-left_x-small">
+                      <span
+                        class="
+                          slds-row-number
+                          slds-text-body_small
+                          slds-text-color_weak
+                        "
+                        >{li.rowNumber}</span
+                      >
+                    </td>
+                    <!-- Part Number -->
+                    <td class="pn" data-label="Part Number" scope="row">
+                      <div class="">
+                        <lightning-input
+                          class="pn-input"
+                          type="text"
+                          value={li.partNumber}
+                          onblur={handlePartNumberBlurQuickEntry}
+                        ></lightning-input>                  
+                      </div>
+                    </td>
+                    <!-- Quantity -->
+                    <td class="qtt" data-label="Quantity" scope="row">
+                      <div class="" title="">
+                        <lightning-input
+                          type="number"
+                          class="qtt-input"
+                          value={li.quantity}                    
+                          onchange={handleQuantityEnteredQuickEntry}
+                        ></lightning-input>
+                      </div>
+                    </td>
+                    </tr>
+                    </template>
+                    </template>
+            </tbody>
+          </table>
+
+          <div class="slds-align_absolute-center slds-m-bottom_large">
+            
+              <lightning-button
+                class="bottom add-rows"
+                label={label.AddRowLabel}
+                title={label.AddRowLabel}
+                onclick={handleAddRowQuickEntry}></lightning-button>
+              <lightning-button
+                class="bottom"
+                label='Validate'
+                title='Validate'
+                onclick={handleAddQuickEntryLines}></lightning-button>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <lightning-button
+                class="bottom"
+                label='Cancel'
+                title='Cancel'
+                onclick={handleCancelQuickEntry}></lightning-button>    
+            
+          </div>
+    </div>
+    <div class="slds-col slds-size_2-of-5">
+      
+    </div>
+  </div>  
+</template>
+
+<template if:true={showProductSearchResult}>
+  <div class="slds-grid slds-gutters">
+    
+    <div class="slds-col slds-size_1-of-1">      
+        <div class="slds-m-bottom_small">
+           <lightning-datatable key-field="Id" data={productData} 
+                                    columns={productColumns} 
+                                    column-widths-mode="auto"
+                                    sorted-by={sortBy}
+                                    sorted-direction={sortDirection}
+                                    onsort={doSorting}></lightning-datatable>
+        </div>
+        <div class="slds-align_absolute-center slds-m-bottom_large">   
+          <lightning-button
+          class="bottom"
+          label={label.AddToOrderLabel}
+          title={label.AddToOrderLabel}
+          onclick={handleProductSearchAdd}></lightning-button>       
+            <lightning-button
+              class="bottom"
+              label={label.CloseLabel}
+              title={label.CloseLabel}
+              onclick={handleCancelProductSearch}></lightning-button>
+        </div>
+    </div>
+   
+  </div>  
+</template>
+
+  <div if:true={showSpinner}>
+      <lightning-spinner
+        alternative-text="Loading..."
+        variant="brand"></lightning-spinner>
+    </div>
+  </div>
+</template>

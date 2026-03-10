@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessMappings>
+        <accessLevel>Edit</accessLevel>
+        <object>Account</object>
+        <objectField>NATT_Dealer_Account_Sharing2__c</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <accessMappings>
+        <accessLevel>Read</accessLevel>
+        <object>Case</object>
+        <objectField>Account</objectField>
+        <userField>Account</userField>
+    </accessMappings>
+    <name>Share Dealer Customer - Non CPQ</name>
+    <profiles>natt associate with tavant community</profiles>
+    <profiles>natt associate without tavant community</profiles>
+    <profiles>natt parts and service community</profiles>
+    <profiles>natt parts only community</profiles>
+    <profiles>natt technical community</profiles>
+    <profiles>natt warranty only community</profiles>
+</SharingSet>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Mailing_address_cant_edited</fullName>
+    <active>false</active>
+    <description>If &quot;Same as location&quot; is marked true, then Mailing Address should be not editable.</description>
+    <errorConditionFormula>AND(
+OR(
+NOT(ISBLANK(CONTAINER_Mailing_Street__c)),
+NOT(ISBLANK(CONTAINER_Mailing_City__c)),
+NOT(ISBLANK(CONTAINER_Mailing_State__c)),
+NOT(ISBLANK(CONTAINER_Mailing_Zip_Postal_Code__c)),
+NOT(ISBLANK(CONTAINER_Mailing_Country__c))
+),
+CONTAINER_Same_as_location_address__c,
+OR(RecordType.DeveloperName = &apos;CONTAINER_Authorized_Service_Provider&apos;,
+RecordType.DeveloperName = &apos;CONTAINER_Repair_Co_Terminal&apos;),
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule )
+)</errorConditionFormula>
+    <errorMessage>Mailing Address cannot not be editable when Same as location is marked true</errorMessage>
+</ValidationRule>

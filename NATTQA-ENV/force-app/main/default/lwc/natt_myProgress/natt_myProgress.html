@@ -1,0 +1,65 @@
+<template>
+
+    <div class="container_my_progress">
+
+        <h1 class="component__title">{titleText}</h1>
+        <br>
+   
+        <div class="combobox_period">
+            <lightning-combobox
+                name="period"
+                value={defaultValue}
+                options={optionsPeriod}
+                onchange={handleChangePeriod}>
+            </lightning-combobox>
+        </div>
+
+        <template if:false={showSpinner}>
+
+            <div class="container_box_progress">
+                <template if:true={quoteIsAccessible}>
+                    <div class="box_progress">
+                        <span class="slds-text-heading_large">{progressData.countQuotesInProgress}</span>
+                        <br>
+                        <p class="slds-text-title_caps box_progress_subtitle">{label.QuoteInProg}</p>
+                    </div>
+                </template>
+
+                <template if:true={orderIsAccessible}>
+                    <div class="box_progress">
+                        <span class="box_progress_count">{label.OrderInProgUnit}: {progressData.countOrdersInProgress.NATT_Units_Order}</span>
+                        <span class="slds-m-around_medium">|</span>
+                        <span class="box_progress_count">{label.OrderInProgParts}: {progressData.countOrdersInProgress.NATT_Parts_Order}</span>
+                        <br>
+                        <p class="slds-text-title_caps box_progress_subtitle">{label.OrderInProg}</p>
+                    </div>
+                </template>
+                
+                <template if:true={caseIsAccessible}>
+                    <div class="box_progress">
+                        <span class="slds-text-heading_large">{progressData.countCasesInProgress}</span>
+                        <br>
+                        <p class="slds-text-title_caps box_progress_subtitle">{label.CaseInProg}</p>
+                    </div>
+                </template>
+
+                <template if:true={claimIsAccessible}>
+                    <div class="box_progress">
+                        <span class="slds-text-heading_large">{progressData.countClaimsInProgress}</span>
+                        <br>
+                        <p class="slds-text-title_caps box_progress_subtitle">{label.ClaimInProg}</p>
+                    </div>
+                </template>
+
+            </div>
+            
+        </template>
+        
+    </div>
+
+    <!-- Spinner -->
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </template> 
+
+</template>

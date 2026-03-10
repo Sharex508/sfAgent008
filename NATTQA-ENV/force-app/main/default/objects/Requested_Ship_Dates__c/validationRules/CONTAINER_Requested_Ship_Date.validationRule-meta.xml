@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Requested_Ship_Date</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(CONTAINER_Quote_Number__r.ApprovalStatus__c , &apos;Pending&apos;), OR( ISCHANGED( CONTAINER_Qty__c ), ISCHANGED(  CONTAINER_Week_Of__c ),ISCHANGED(  CONTAINER_Ship_To_Destination__c ),ISCHANGED(  CONTAINER_Account__c )))</errorConditionFormula>
+    <errorMessage>You need to recall approval to make changes.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Dealer_Principal</fullName>
+    <active>true</active>
+    <description>If Dealer principal is checked, cannot check dealer, associate or customer.</description>
+    <errorConditionFormula>AND(NATT_Dealer_Principal__c = True, (OR(NOT(NATT_Dealer__c = FALSE), (NOT(NATT_Associate__c = FALSE)), (NOT(NATT_Customer__c = FALSE)))))</errorConditionFormula>
+    <errorMessage>You already selected Dealer Principal, Dealer, Associated or Customer cannot be selected.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,77 @@
+{
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "7e48c05e-009f-4c21-b7b3-15e3880d6e7d",
+  "label" : "Cart List",
+  "regions" : [ {
+    "id" : "80186ed3-8e37-44bb-b628-7cac2f9529c5",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "c:natt_PpgCart",
+      "id" : "37078f57-e510-4ca2-92e0-57815926c06c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "enableInlineEdit" : false,
+        "filterName" : "All_WebCarts",
+        "layout" : "FULL",
+        "pageSize" : 25,
+        "scope" : "WebCart",
+        "showActionBar" : false,
+        "showChartsPanel" : false,
+        "showDisplay" : "grid",
+        "showFilterPanel" : false,
+        "showImageIcon" : false,
+        "showManualRefreshButton" : false,
+        "showObjectName" : false,
+        "showPinnedList" : false,
+        "showSearchBar" : false
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "b84cd11b-f747-47df-9c6c-49868a5f2476",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "enableInlineEdit" : true,
+        "filterName" : "All_WebCarts",
+        "layout" : "FULL",
+        "pageSize" : 25,
+        "scope" : "WebCart",
+        "showActionBar" : false,
+        "showChartsPanel" : false,
+        "showDisplay" : "grid",
+        "showFilterPanel" : false,
+        "showImageIcon" : false,
+        "showManualRefreshButton" : false,
+        "showObjectName" : false,
+        "showPinnedList" : false,
+        "showSearchBar" : false
+      },
+      "componentName" : "forceCommunity:objectHome",
+      "id" : "965c2d6c-87c7-43e6-a605-18044102ddb0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a11e30f7-def8-406d-bcb3-2b4c6e5ac746",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "6cf401a5-48ef-4ae6-8776-386603c7719e",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-0a6"
+}

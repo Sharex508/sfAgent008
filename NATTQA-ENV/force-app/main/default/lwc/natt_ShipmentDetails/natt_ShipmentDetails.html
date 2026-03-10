@@ -1,0 +1,324 @@
+<template>  
+    <img src={partsnet}>
+    <template if:true={shipment}>
+    <lightning-layout-item padding="around-small">
+      <div class="slds-float--right">
+        <div class="section slds-section slds-is-open">
+          <ul class="slds-button-group-row">
+            <li class="slds-button-group-item">
+              <lightning-button icon-name="utility:print" label="Print" title="Print" onclick={printDialog}></lightning-button>
+            </li>
+            <li class="slds-button-group-item">
+              <lightning-button label="Close tab" icon-name="utility:close" onclick={handleClose}></lightning-button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </lightning-layout-item>
+ <div class="slds-m-around_small">
+
+      <p class="slds-text-heading_medium">Invoice #{shipment.NATT_InvoiceNumber__c}</p>
+      <p class="slds-text-heading_small">PartsNet Order #{shipment.NATT_Order__r.OrderNumber}</p>
+    </div>
+      <!-- CUSTOMER INFORMATION -->
+        <lightning-layout-item padding="around-small">
+          <lightning-card  title="Customer Information">
+            <div class="slds-m-around_medium">              
+                <div class="slds-grid slds-wrap">
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Customer</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_CustomerName__c}</div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">           
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Contact Name</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_Contact_Name__c}</div></div>     
+                      </div>
+                      <div class="slds-border_bottom"></div>                 
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">                    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >Customer #</label>
+                    <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_CustomerBilltoCode__c}</div></div>     
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >Contact Email</label>
+                    <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_Contact_Email__c}</div></div>     
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >PO #</label>
+                    <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_Purchase_Order__c}</div></div>     
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">
+                    <div class="slds-form-element slds-form-element_horizontal">
+                    <label class="slds-form-element__label" >Contact Phone</label>
+                    <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_Contact_Phone__c}</div></div>     
+                    </div>
+                    <div class="slds-border_bottom"></div>
+                  </div>
+                </div>             
+            </div>
+          </lightning-card>
+        </lightning-layout-item>          
+        
+        <lightning-layout-item padding="around-small">
+          <lightning-card  title="Order Information">
+            <div class="slds-m-around_medium">              
+                <div class="slds-grid slds-wrap">
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >JDE Sales Order #</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_JDE_Sales_Order_Number__c}</div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Shipping Adress</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">
+                        <lightning-formatted-address
+                        street={shipment.NATT_Order__r.ShippingAddress.street}
+                        city={shipment.NATT_Order__r.ShippingAddress.city}
+                        country={shipment.NATT_Order__r.ShippingAddress.country}
+                        province={shipment.NATT_Order__r.ShippingAddress.state}
+                        postal-code={shipment.NATT_Order__r.ShippingAddress.postalCode}
+                      ></lightning-formatted-address>
+                    </div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Ordered Date</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static"><lightning-formatted-date-time value={shipment.NATT_Order__r.OrderedDate} year="numeric" month="2-digit" day="2-digit" time-zone="UTC"></lightning-formatted-date-time></div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Order Type</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_JdeOrderTypeName__c}</div></div>                                   
+                    </div>           
+                    <div class="slds-border_bottom"></div>     
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Date Shipped</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static"><lightning-formatted-date-time value={shipment.NATT_DateShipped__c} year="numeric" month="2-digit" day="2-digit" time-zone="UTC"></lightning-formatted-date-time></div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>                  
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Shipment Terms</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_Shipment_Terms__c}</div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Shipment Method</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_Shipment_Method__c}</div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Shipping Company</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_ShippingCompanyName__c}</div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Tracking Info</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">
+                        <lightning-formatted-url value={trackingUrl} target="_blank"  label ={trackingnumber} ></lightning-formatted-url></div></div>                                  
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label" >Freight Account Number</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_Order__r.NATT_Freight_Account_Number__c}</div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-2 slds-p-right_large">    
+                    <div class="slds-form-element slds-form-element_horizontal">
+                      <label class="slds-form-element__label">Packing Slip Number</label>
+                      <div class="slds-form-element__control"><div class="slds-form-element__static">{shipment.NATT_PackingSlipNumber__c}</div></div>                                   
+                    </div>                
+                      <div class="slds-border_bottom"></div>
+                  </div>
+                </div>
+              </div>
+            </lightning-card>
+          </lightning-layout-item>
+
+          <article class="slds-card">
+            <div class="slds-card__header slds-grid">
+              <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                <div class="slds-media__body">
+                  <h2 class="slds-card__header-title">                  
+                      <span>Part Detail</span>                  
+                  </h2>
+                </div>
+                <div class="slds-no-flex">
+                  <lightning-button icon-name="utility:download" label="Download as CSV" title="Download CSV File" onclick={downloadCSVFile} ></lightning-button>                 
+                </div>
+              </header>
+            </div>
+              <div class="slds-card__body slds-card__body_inner">  
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                  <thead>
+                    <tr class="slds-line-height_reset">
+                      <th class="tbody slds-size_1-of-12" scope="col">
+                        <div class="slds-truncate slds-align_absolute-center" title="Line">Line</div>
+                      </th>                    
+                      <th class="tbody slds-size_1-of-12" scope="col">
+                        <div class="slds-truncate slds-align_absolute-center" title="Part #">Part #</div>
+                      </th>
+                      <th class="tbody slds-size_3-of-12" scope="col">
+                        <div class="slds-truncate slds-align_absolute-center" title="Description">Description</div>
+                      </th>
+                      <th class="tbody slds-size_1-of-12" scope="col">
+                        <div class="slds-truncate slds-align_absolute-center" title="Qty">QTY</div>
+                      </th>
+                      <th class="tbody slds-size_1-of-12" scope="col">
+                        <div class="slds-truncate slds-align_absolute-center" title="Price">Price</div>
+                      </th>
+                      <th class="tbody slds-size_1-of-12" scope="col">
+                        <div class="slds-truncate slds-align_absolute-center" title="Extended">Extended</div>
+                      </th>
+                      <th class="tbody slds-size_1-of-12" scope="col">
+                        <div class="slds-truncate slds-align_absolute-center" title="UOM">UOM</div>
+                      </th>  
+                    </tr>
+                  </thead>
+                  <template for:each={shipmentLines} for:item="line">
+                    <tbody key={line.Id}>
+                      <tr>
+                        <td>
+                          <div class="slds-truncate slds-align_absolute-center">{line.NATT_OrderProduct__r.NATT_OrderLineNumber__c}</div>
+                        </td>                     
+                        <td>
+                          <div class="slds-truncate slds-align_absolute-center">{line.NATT_OrderProduct__r.Part_Number__c}</div>
+                        </td>
+                        <td class="slds-cell-wrap">
+                          <div class="slds-truncate  slds-align_absolute-center" >{line.NATT_OrderProduct__r.Product2.Name}</div>
+                        </td>
+                        <td>
+                          <div class="slds-truncate slds-align_absolute-center">{line.Quantity}</div>
+                        </td>
+                        <td>
+                          <div class="slds-truncate slds-align_absolute-center" >                            
+                              <lightning-formatted-number value={line.NATT_OrderProduct__r.UnitPrice}  format-style="currency" currency-code="USD"></lightning-formatted-number>                            
+                          </div>
+                        </td>
+                        <td>
+                          <div class="slds-truncate slds-align_absolute-center">                            
+                              <lightning-formatted-number value={line.NATT_Amount__c} format-style="currency" currency-code="USD"></lightning-formatted-number>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="slds-truncate slds-align_absolute-center" >{line.NATT_OrderProduct__r.Product2.NATT_UOM_Conversion__c} &nbsp; {line.NATT_OrderProduct__r.Product2.QuantityUnitOfMeasure}</div>
+                        </td>  
+                      </tr>
+                    </tbody>
+                  </template>
+                </table>
+              </div>             
+  
+              <div class="slds-grid slds-gutters">                
+                <div class="slds-col">
+                  <span></span>
+                </div>
+                <div class="slds-col">
+                  <span> </span>
+                </div>
+              <div class="slds-col">
+                <div class="slds-card__body slds-card__body_inner">
+                  <table  class="slds-table slds-table_cell-buffer slds-table_header-hidden slds-table_bordered slds-no-row-hover ">
+                    <thead class="slds-assistive-text">
+                      <tr class="slds-line-height_reset">
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="Total Title">Total Title</div>
+                        </th>
+                        <th class="" scope="col">
+                          <div class="slds-truncate" title="Total Amount">Total Amount</div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="slds-hint-parent">
+                        <td data-label="Part Total">
+                          <div class="slds-truncate" title="Part Total"><b>Part Total</b></div>
+                        </td>
+                        <td data-label="part total">
+                          <!-- <lightning-formatted-text value={partTotal} ></lightning-formatted-text> -->
+                          <lightning-formatted-number value={partTotal}  format-style="currency" currency-code="USD"></lightning-formatted-number>
+                        </td>
+                        <td data-label="part total">
+                        </td>
+                        <td data-label="part total">
+                        </td>
+                        <td data-label="part total">
+                        </td>
+                      </tr>
+                      <tr class="slds-hint-parent">
+                        <td data-label="Freight Total">
+                          <div class="slds-truncate" title="FreightTotal"><b>Freight Total</b></div>
+                        </td>
+                        <td data-label="freight total">
+                          <!-- <lightning-formatted-text value={freightTotal} ></lightning-formatted-text> -->
+                          <lightning-formatted-number value={freightTotal}  format-style="currency" currency-code="USD"></lightning-formatted-number>
+                        </td>
+                        <td></td>
+                        <td ></td>
+                        <td></td>
+                      </tr>
+                      <tr class="slds-hint-parent">
+                        <td data-label="Rush Order Fee">
+                          <div class="slds-truncate" title="Rush Order Fee"><b>Rush Order Fee</b></div>
+                        </td>
+                        <td >
+                          <!-- <lightning-formatted-text value={rushOrderTotal} ></lightning-formatted-text> -->
+                          <lightning-formatted-number value={rushOrderFeeTotal}  format-style="currency" currency-code="USD"></lightning-formatted-number>
+                        </td>
+                        <td ></td>                
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr class="slds-hint-parent">
+                        <td data-label="Total">
+                          <div class="slds-truncate" title="OrderTotal"><b>Total</b></div>
+                        </td>
+                        <td >
+                          <!-- <div class="slds-truncate" title="OrderTotal"><b>{orderTotal}</b></div> -->
+                          <b><lightning-formatted-number value={grandTotal}  format-style="currency" currency-code="USD"></lightning-formatted-number></b>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td data-label="part total">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table> 
+                </div>             
+              </div>
+            </div>
+            </article>
+    </template>
+</template>

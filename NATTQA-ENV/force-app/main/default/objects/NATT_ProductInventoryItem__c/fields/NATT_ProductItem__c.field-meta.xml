@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_ProductItem__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Product item to which the available quantity applies</description>
+    <label>Product Item</label>
+    <referenceTo>Product2</referenceTo>
+    <relationshipLabel>Product Inventory Items</relationshipLabel>
+    <relationshipName>Product_Inventory_Items_del</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

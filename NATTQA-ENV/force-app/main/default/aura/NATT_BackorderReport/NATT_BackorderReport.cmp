@@ -1,0 +1,172 @@
+<aura:component controller="NATT_BackorderReportHelper" implements="forceCommunity:availableForAllPageTypes,force:hasRecordId,lightning:isUrlAddressable" access="global">
+    <!-- Imports -->
+    <aura:attribute name="recordId" type="String" />
+
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="filteredData" type="List" />
+    <aura:attribute name="filteredDataShow" type="List" />
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="sortedBy" type="String"/>
+    <aura:attribute name="sortedDirection" type="string" default="asc" />
+    <aura:attribute name="defaultSortDirection" type="String" default="asc" />
+    <aura:attribute name="topBackorderData" type="List"/>
+
+    <aura:attribute name="backingdata" type="List" />
+    <aura:attribute name="filter" type="String" />
+    <aura:attribute name="poNumber" type="String" />
+    <aura:attribute name="partNumber" type="String" />
+    <aura:attribute name="from" type="Date" />
+    <aura:attribute name="to" type="Date" />
+    <aura:attribute name="hasMoreRows" type="Boolean" default="false" />
+	<aura:attribute name="totalRecordsSize" type="Integer" default="0"/>
+
+    <!-- lightning navigation for opening in new window/downloads -->
+    <lightning:navigation aura:id="navService"/>
+    <!-- handlers-->
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+
+    <h2 class="slds-text-heading_medium slds-p-bottom_medium">Backorder Report</h2>
+    <div class="c-container">
+        <lightning:layout horizontalAlign="space">
+            <lightning:layoutItem padding="around-small">
+                <lightning:input type="text"  value="{!v.filter}" label="Carrier Order #" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <lightning:input aura:id="contactField" type="text" value="{!v.poNumber}" label="PO #/Misc" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <lightning:input aura:id="contactField" type="text" value="{!v.partNumber}" label="Part #" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <lightning:input aura:id="contactField" type="date" label="From" value="{!v.from}" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <lightning:input aura:id="contactField" type="date" label="To" value="{!v.to}" />
+            </lightning:layoutItem>
+        </lightning:layout>
+        <lightning:layoutItem padding="around-small">
+            <lightning:button label="Search" variant="brand" title="Neutral action" onclick="{! c.filter }"/>
+            <lightning:button label="Clear" title="Neutral action" onclick="{! c.clear }"/>
+            <lightning:button label="Export" onclick="{! c.downloadCsv }"/>
+        </lightning:layoutItem>
+</div>
+    <!-- </div> -->
+   
+    <Lightning:layout>
+        <lightning:layoutItem>
+            <lightning:accordion 
+                aura:id="accordion" 
+                allowMultipleSectionsOpen="true"
+                activeSectionName="A">
+            <lightning:accordionSection name="A" label="Top Backordered Parts (Total Quantity)">
+                
+                <div class="c-container">
+                    <div class="slds-grid slds-wrap">
+                    <aura:iteration items="{!v.topBackorderData}" var="item">
+                   
+                        <div class="slds-col slds-size_1-of-3">
+                        <lightning:layout>
+                            <lightning:layoutItem class = "strong-text" flexibility="auto" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                                {!item.partNumber}
+                            </lightning:layoutItem>
+                            <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                                ( {!item.quantity} )
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                        </div>
+    
+                    </aura:iteration>
+                    </div>
+                </div>
+                
+                                    <!-- <aura:iteration items="{!v.topBackorderData}" var="item">
+                        <lightning:layout horizontalAlign="space" verticalAlign="center" multipleRows="true">
+                        <lightning:layoutItem class = "strong-text" flexibility="auto" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                            {!item.Description__c}
+                        </lightning:layoutItem>
+                        <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                           ( {!item.NATT_Backordered_Quantity__c} ) <br/>
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </aura:iteration> -->
+
+                <!-- <lightning:layout horizontalAlign="space" verticalAlign="center" multipleRows="true">
+                    <aura:iteration items="{!v.topBackorderData}" var="item">            
+                        <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                            {!item.Description__c} ( {!item.NATT_Backordered_Quantity__c} )<br/>
+                        </lightning:layoutItem>
+                        <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                            {!item.Description__c} ( {!item.NATT_Backordered_Quantity__c} )<br/>
+                        </lightning:layoutItem>
+                    </aura:iteration>
+                </lightning:layout> -->
+
+            </lightning:accordionSection>
+            <lightning:accordionSection name="B" label="Back Orders">
+                <!-- <Lightning:layout> -->
+                    <!-- <div class="c-container"> -->
+                        <!-- <lightning:layoutItem> -->
+                            <!-- <div style="height: 500px"> -->
+                                <!-- <lightning:layout multipleRows="true" horizontalAlign="center"> -->
+                                    <!-- <lightning:layoutItem padding="around-small" size="12"> -->
+                                        <!-- <lightning:datatable 
+                                        class= "wrapped-header-datatable"
+                                            keyField="id"
+                                            data="{! v.filteredData }"
+                                            columns="{! v.columns }"
+                                            hideCheckboxColumn="true"
+                                            defaultSortDirection="{!v.defaultSortDirection}"
+                                            sortedBy="{!v.sortedBy}"
+                                            sortedDirection="{!v.sortedDirection}"
+                                            onsort="{!c.updateSorting}"
+                                            onrowaction="{! c.handleRowAction }"
+                                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                                            wrapTextMaxLines="3"
+                                        /> -->
+                                    <!-- </lightning:layoutItem> -->
+                                <!-- </lightning:layout> -->
+                                
+                            <!-- </div> -->
+                        <!-- </lightning:layoutItem> -->
+                    <!-- </div> -->
+                <!-- </Lightning:layout> -->
+            </lightning:accordionSection>
+        </lightning:accordion>
+        </lightning:layoutItem>
+    </Lightning:layout>
+    <!-- <Lightning:layout> -->
+    <div>
+        <aura:if isTrue="{!v.hasMoreRows}">
+            <h2>List having  {!v.totalRecordsSize} records, Kindly export to see the data.  </h2>
+            <aura:set attribute="else">
+                
+                <div class="c-container">
+                    <lightning:layoutItem>
+                        <div style="height: 500px">
+                            <!-- class= "wrapped-header-datatable" -->
+                            <lightning:datatable 
+                                                 class= "wrapped-header-datatable"
+                                                 keyField="id"
+                                                 data="{! v.filteredData}"
+                                                 columns="{! v.columns }"
+                                                 hideCheckboxColumn="true"
+                                                 defaultSortDirection="{!v.defaultSortDirection}"
+                                                 sortedBy="{!v.sortedBy}"
+                                                 sortedDirection="{!v.sortedDirection}"
+                                                 onsort="{!c.updateSorting}"
+                                                 onrowaction="{! c.handleRowAction }"
+                                                 sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                                                 wrapTextMaxLines="3"
+                                                 />
+                        </div>
+                    </lightning:layoutItem>
+                </div>
+            </aura:set>
+        </aura:if>
+    </div>
+    <!-- </Lightning:layout> -->
+
+   
+
+</aura:component>

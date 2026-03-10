@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a7806517-88ad-444e-872d-3e113a2c31a9",
+  "appPageId" : "4d2d78a2-887d-4269-9b35-c2c6f11c55af",
+  "configurationTags" : [ ],
+  "devName" : "Service_Agreement_Related_List__c",
+  "id" : "a9b936fb-95d6-47bf-ab24-9ed138ee1a8d",
+  "label" : "Service Agreement Related List",
+  "objectApiName" : "CONTAINER_Service_Agreement__c",
+  "routeType" : "relatedlist-a3N",
+  "type" : "route",
+  "urlPrefix" : "container-service-agreement"
+}

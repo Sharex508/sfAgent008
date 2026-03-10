@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAOCAP_JDE_Bill_To_Code__c</fullName>
+    <description>JDE Bill To Code on the account</description>
+    <externalId>false</externalId>
+    <formula>NATT_Address__r.NATT_Account__r.CONTAINER_JDE_Bill_To_Code__c</formula>
+    <label>JDE Bill To Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

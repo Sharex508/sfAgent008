@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Is_Cart_Primary__c</fullName>
+    <formula>IF(IsSecondary = false, true, false)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Cart Primary</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,3 @@
+.slds-is-incomplete, .slds-is-complete, .slds-is-active, .slds-is-current{
+    pointer-events: none;
+}

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "55c1d8a4-3ff4-4d4d-aaf5-73cd62967a19",
+  "appPageId" : "67fdd0d7-93bd-4b41-9583-aca992e410a8",
+  "configurationTags" : [ ],
+  "devName" : "No_Search_Results",
+  "id" : "6211634e-a2c1-46c7-a4bd-166a578c9d48",
+  "label" : "No Search Results",
+  "pageAccess" : "UseParent",
+  "routeType" : "no-results",
+  "type" : "route",
+  "urlPrefix" : "no-results"
+}

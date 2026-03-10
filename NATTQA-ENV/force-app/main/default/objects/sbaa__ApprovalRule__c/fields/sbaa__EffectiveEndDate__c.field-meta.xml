@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__EffectiveEndDate__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The end date range for when this rule will be in effect (inclusive)</description>
+    <inlineHelpText>The end date range for when this rule will be in effect (inclusive)</inlineHelpText>
+    <label>Effective End Date</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

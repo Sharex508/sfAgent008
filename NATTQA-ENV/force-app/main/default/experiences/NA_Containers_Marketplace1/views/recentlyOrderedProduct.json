@@ -1,0 +1,81 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "a5eca8fa-962d-4329-816e-47c1e3a3234c",
+  "label" : "Recently Ordered Product",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "3d7037c5-4251-4435-b3d7-ed7331bfc559",
+          "columns" : [ {
+            "UUID" : "f142e7c6-188c-4f07-a65e-f760bb488baf",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "3d7037c5-4251-4435-b3d7-ed7331bfc559",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "cardContentMapping" : "ProductCode,Name,Description",
+            "dispayCategories" : true,
+            "dispayFilters" : true,
+            "dispayPageSize" : false,
+            "dispaySearchCategories" : true,
+            "dispaySorting" : true,
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}",
+            "recordId" : "{!recordId}",
+            "resultsLayout" : "grid",
+            "showProductImage" : true,
+            "term" : "{!term}",
+            "type" : "displayRecentlyOrderedProducts"
+          },
+          "componentName" : "c:searchResults",
+          "id" : "64025de7-a7f2-4e59-8221-be1fd7aa34a3",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "f142e7c6-188c-4f07-a65e-f760bb488baf",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "21153371-9f69-4588-a51c-06b6731735c3",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Recently Ordered Product"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "3b84f32d-614e-4c91-ae16-4fd6f40e3820",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1027f58f-c4d7-4f3b-a12b-fce67b8c47f6",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-recently-ordered-product"
+}

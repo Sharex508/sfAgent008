@@ -1,0 +1,48 @@
+.prev, .next{
+    position: absolute;
+    color: #fff;
+    top: 50%;
+    width: auto;
+    padding:16px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+}
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover{
+    background: rgba(0,0,0,0.8);
+}
+.dot{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #bbb;
+    margin:0 2px;
+    display: inline-block;
+}
+.active{
+    background-color: #717171;
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+@keyframes fade {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    color:white;
+  }
+
+  .allContainer{
+    position: relative;
+  }

@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunities_Shared_to_Sales_CAM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Opportunities Shared to Sales CAM</description>
+        <label>CONTAINER Sales Opportunities Shared to Sales CAM</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CAM</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunities_Shared_to_Sales_CAM_GENSET</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Opportunities Shared to Sales CAM GENSET</description>
+        <label>CONTAINER Sales Opportunities Shared to Sales CAM GENSET</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CAM_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Genset</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunities_Shared_to_Sales_CAM_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Opportunities Shared to Sales CAM NT</description>
+        <label>CONTAINER Sales Opportunities Shared to Sales CAM NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CAM_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>NT</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunities_Shared_to_Sales_CS_GENSET</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Opportunities Shared to Sales CS GENSET</description>
+        <label>CONTAINER Sales Opportunities Shared to Sales CS GENSET</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CS_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Genset</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunities_Shared_to_Sales_CS_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Opportunities Shared to Sales CS NT</description>
+        <label>CONTAINER Sales Opportunities Shared to Sales CS NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CS_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>NT</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunities_Shared_to_Sales_PM_GENSET</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Opportunities Shared to Sales PM GENSET</description>
+        <label>CONTAINER Sales Opportunities Shared to Sales PM GENSET</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_PM_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Genset</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunities_Shared_to_Sales_PM_NT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CONTAINER Sales Opportunities Shared to Sales PM NT</description>
+        <label>CONTAINER Sales Opportunities Shared to Sales PM NT</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_PM_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>NT</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_RSD_APO</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>CONTAINER Sales Opportunity Shared to RSD APO</description>
+        <label>CONTAINER Sales Opportunity Shared to RSD APO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_APO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region_1__c</field>
+            <operation>equals</operation>
+            <value>APO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_RSD_EMEA</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>CONTAINER Sales Opportunity Shared to RSD EMEA</description>
+        <label>CONTAINER Sales Opportunity Shared to RSD EMEA</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_EMEA</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region_1__c</field>
+            <operation>equals</operation>
+            <value>EMEA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_RSD_NAO</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>CONTAINER Sales Opportunity Shared to RSD NAO</description>
+        <label>CONTAINER Sales Opportunity Shared to RSD NAO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSD_NAO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region_1__c</field>
+            <operation>equals</operation>
+            <value>NAO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_CS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sharing Container opportunities with container sales CS</description>
+        <label>CONTAINER Sales Opportunity Shared to Sales CS</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_CS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_GENSET_VP</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>CONTAINER Sales Opportunity Shared to Sales GENSET VP</description>
+        <label>CONTAINER Sales Opportunity Shared to Sales GENSET VP</label>
+        <sharedTo>
+            <group>Container_Sales_VP_GENSET</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>Genset</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_Global_Sales_Director</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>container sales opportunity records shared with container sales gsd users</description>
+        <label>CONTAINER Sales Opportunity Shared to Sales Global Sales Director</label>
+        <sharedTo>
+            <group>CONTAINER_Global_Sales_Director</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_NT_VP</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>CONTAINER Sales Opportunity Shared to Sales NT VP</description>
+        <label>CONTAINER Sales Opportunity Shared to Sales NT VP</label>
+        <sharedTo>
+            <group>Container_Sales_VP_NT</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Type</field>
+            <operation>equals</operation>
+            <value>NT</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_PM</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>container opportunity records shared with container sales PM users</description>
+        <label>CONTAINER Sales Opportunity Shared to Sales PM</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_PM</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_RSM_APAC</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>container opportunities records shared with container apac rsm users</description>
+        <label>-CONTAINER Sales Opportunity Shared to Sales RSM APAC</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_APO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region_1__c</field>
+            <operation>equals</operation>
+            <value>APO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_RSM_EMEA</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>container opportunities records shared with container EMEA rsm users</description>
+        <label>-CONTAINER Sales Opportunity Shared to Sales RSM EMEA</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_EMEA</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region_1__c</field>
+            <operation>equals</operation>
+            <value>EMEA</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_RSM_NAO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>container opportunities records shared with container NAO rsm users</description>
+        <label>-CONTAINER Sales Opportunity Shared to Sales RSM NAO</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_RSM_NAO</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>CONTAINER_Operating_Region_1__c</field>
+            <operation>equals</operation>
+            <value>NAO</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Sales_Opportunity_Shared_to_Sales_VP</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>container sales opportunity records shared with container sales VP</description>
+        <label>CONTAINER Sales Opportunity Shared to Sales VP</label>
+        <sharedTo>
+            <group>CONTAINER_Sales_VP</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Opportunity</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTBR_Opportunity_Sharing</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>CTBR Opportunity Sharing</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CTBR</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTBR BluEdge,CTBR Units</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Direct_Sales_Opportunity</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Direct Sales Opportunity</label>
+        <sharedTo>
+            <group>Natt_Direct_Sales</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NATT Direct Sales</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>MX_Opportunity_Sharing</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Shares mexico opportunities with internal users</description>
+        <label>MX Opportunity Sharing</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CTM</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>MX Units</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Opportunities_Editable_By_Owner_Readonly_By_Others</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>NATT Opportunities Editable By Owner Readonly By Others</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>NA</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>BluEdge,Lynx Fleet,Units</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>NATT_Direct_Sales</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT Direct Sales</label>
+        <sharedTo>
+            <group>NATT_Direct_Sales_April</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>NATT_Direct_Sales_Donna</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

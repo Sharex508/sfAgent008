@@ -1,0 +1,7 @@
+Case Creation Email Notification
+
+Account: {!Case.Account}
+Case ID: {!Case.Id}
+Case Number: {!Case.CaseNumber}
+Case Description: {!Case.Description}
+Case Detail: {!Case.Account}

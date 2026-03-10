@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>NAC_sent_Notification_upon_new_account_approval</fullName>
+        <description>NAC_sent Notification upon new account Approval</description>
+        <protected>false</protected>
+        <recipients>
+            <field>WOD_2_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply.refrigeration-marketplace@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAOCP_Account_Approved_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>NAC_sent_Notification_upon_new_account_creation</fullName>
+        <description>NAC_sent Notification upon new account creation</description>
+        <protected>false</protected>
+        <recipients>
+            <field>WOD_2_Email__c</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>donotreply.refrigeration-marketplace@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAOCP_Account_Creation_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>NAC_sent_Notification_upon_new_account_creation_internal_users</fullName>
+        <description>NAC_sent Notification upon new account creation internal users</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>NAC_Account_creation_Request</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>NAOCAP_Email_Template/NAOCP_Account_Creation_Notification_internal_user_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>NATT_Account_Creation_Approved</fullName>
+        <description>NATT Account Creation Approved</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/NATT_New_Account_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>NATT_Account_Creation_Approved_Notification</fullName>
+        <description>NATT Account Creation Approved Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/NATT_Approved_Account_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>NATT_Account_Creation_Rejected_Notification</fullName>
+        <description>NATT Account Creation Rejected Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/NATT_Reject_Account_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>NATT_New_Account_Creation_Notification</fullName>
+        <description>NATT New Account Creation Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <field>NATT_AR_Manager__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/NATT_New_Account_Template</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>NATT_Set_JDE_Update_field_to_Completed</fullName>
+        <description>When the approval process ends, set the JDE Update field to &quot;Completed&quot;.</description>
+        <field>NATT_JDE_Update__c</field>
+        <literalValue>Completed</literalValue>
+        <name>Set JDE Update field to Completed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Set_JDE_Update_field_to_None</fullName>
+        <description>When the Account is rejected set the JDE field to none</description>
+        <field>NATT_JDE_Update__c</field>
+        <name>Set JDE Update field to None</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Set_JDE_Update_field_to_Pending</fullName>
+        <description>When the approval process starts, the the JDE Update account field to &quot;pending&quot;.</description>
+        <field>NATT_JDE_Update__c</field>
+        <literalValue>Pending</literalValue>
+        <name>Set JDE Update field to Pending</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Set_Send_for_Approval_field_false</fullName>
+        <description>Set the &quot;Send for Approval&quot; field to false when the record is rejected</description>
+        <field>NATT_Send_for_Approval__c</field>
+        <literalValue>0</literalValue>
+        <name>Set Send for Approval field to false</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

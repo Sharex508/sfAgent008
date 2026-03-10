@@ -1,0 +1,153 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "8d65ccc3-4c46-4beb-81ff-a0f84a4ee17d",
+  "label" : "All Knowledge",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "0abd0b83-e2f0-4dc8-bc7c-549e56704b3c",
+          "columns" : [ {
+            "UUID" : "7c15ffb0-f8d8-4a79-be9c-75fcddeaa30e",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "3",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "bd5a0606-d32c-45a7-b236-864241a80d34",
+            "columnKey" : "d8567",
+            "columnName" : "Column 2",
+            "columnWidth" : "9",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "0abd0b83-e2f0-4dc8-bc7c-549e56704b3c",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p style=\"text-align: center;\"><span style=\"color: rgb(0, 0, 0); font-size: 26px;\">Search The Knowledge Center</span></p><p style=\"text-align: center;\">For text searches that are not exact, include 1 or more asterisks.</p><p style=\"text-align: center;\">Examples: *Vector* or Vector* or *Vector</p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "c2b4724d-2142-444e-bf9e-d2ce4532fb24",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "communityInterface" : false
+          },
+          "componentName" : "c:KnowledgeSearch_REF_Search",
+          "id" : "80e18c4a-309c-4346-93a0-56f296fd660e",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "7c15ffb0-f8d8-4a79-be9c-75fcddeaa30e",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "communityInterface" : false
+          },
+          "componentName" : "c:KnowledgeSearch_REF_SearchResult",
+          "id" : "ae079def-d1dc-4e1a-90ed-606c61764662",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "bd5a0606-d32c-45a7-b236-864241a80d34",
+        "regionLabel" : "Column 2",
+        "regionName" : "d8567",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "a0476740-e357-4431-b54a-66111ddc2e9a",
+          "columns" : [ {
+            "UUID" : "fdc44dde-d5da-418c-b162-9cf112f393ce",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "a0476740-e357-4431-b54a-66111ddc2e9a",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "enableInlineEdit" : true,
+            "filterName" : "published_articles",
+            "layout" : "FULL",
+            "pageSize" : 25,
+            "scope" : "Knowledge__kav",
+            "showActionBar" : true,
+            "showChartsPanel" : true,
+            "showDisplay" : "showall",
+            "showFilterPanel" : true,
+            "showImageIcon" : true,
+            "showManualRefreshButton" : true,
+            "showObjectName" : true,
+            "showPinnedList" : false,
+            "showSearchBar" : true
+          },
+          "componentName" : "forceCommunity:objectHome",
+          "id" : "172d7590-f102-4b0b-839e-24032b86c9d2",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "fdc44dde-d5da-418c-b162-9cf112f393ce",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4dae545a-38f0-490e-95e2-6b69a17cee15",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "All Knowledge"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "9e2ca629-726b-42fe-a9d0-f02215f384ad",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "273c65a3-b416-43a7-9cd2-e11d92106e50",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-all-knowledge"
+}

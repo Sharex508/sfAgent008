@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Quote_Job_No_required_for_ASO</fullName>
+    <active>true</active>
+    <description>Without Job Number, ASO/SO can not be released</description>
+    <errorConditionFormula>AND(NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR( RecordType.Name = &apos;Container GENSET Quote&apos;, RecordType.Name = &apos;Container NT Quote&apos;), 
+OR(ISPICKVAL(CONTAINER_Status__c, &apos;ASO Released&apos;),ISPICKVAL(CONTAINER_Status__c, &apos;SO Released&apos;)),  ISBLANK( CONTAINER_Job__c) 
+)</errorConditionFormula>
+    <errorMessage>Can not Release ASO or Release SO before job number allocation</errorMessage>
+</ValidationRule>

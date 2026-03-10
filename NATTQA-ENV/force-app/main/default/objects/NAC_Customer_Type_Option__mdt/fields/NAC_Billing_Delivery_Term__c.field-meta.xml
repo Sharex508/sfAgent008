@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAC_Billing_Delivery_Term__c</fullName>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>NAC Billing Delivery Term</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>BIL</fullName>
+                <default>false</default>
+                <label>BIL - Bill to Customer</label>
+            </value>
+            <value>
+                <fullName>COL</fullName>
+                <default>false</default>
+                <label>COL - Collect</label>
+            </value>
+            <value>
+                <fullName>CPU</fullName>
+                <default>false</default>
+                <label>CPU - Customer Pick Up</label>
+            </value>
+            <value>
+                <fullName>DAP</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>DAP</label>
+            </value>
+            <value>
+                <fullName>DDP</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>DDP</label>
+            </value>
+            <value>
+                <fullName>EXW</fullName>
+                <default>false</default>
+                <label>EXW - EX Works</label>
+            </value>
+            <value>
+                <fullName>FOB</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>FOB</label>
+            </value>
+            <value>
+                <fullName>PPD/FOB (free on board)</fullName>
+                <default>false</default>
+                <label>PPD/FOB (free on board)</label>
+            </value>
+            <value>
+                <fullName>PPD</fullName>
+                <default>false</default>
+                <label>PPD - Prepaid Freight</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,33 @@
+{
+  "appPageId" : "36896620-400e-426c-89d6-c320936ce4fb",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "a1719852-0627-4b61-9c01-0b854d732bb4",
+  "label" : "No Search Results",
+  "regions" : [ {
+    "id" : "e128dc04-bab4-48b7-9e5a-91bd3ea4b547",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "<h1> No results found </h1><br>\n <div class=\"slds-grid slds-grid--vertical slds-align--absolute-center slds-text-longform\">\n     <img src=\"/sfsites/c/img/search/no-results.png\" class=\"slds-p-horizontal--large\" alt=\"\"/>\n     <h2 class=\"slds-text-heading_medium\"> Here are some things to try: </h2>\n     <ol class=\"slds-text-body_regular\">\n         <li> Check your spelling. </li>\n         <li> Search by product type, brand, SKU, or feature. </li>\n         <li> Broaden your search using fewer or more general terms. </li>\n     </ol>\n </div>"
+      },
+      "componentName" : "forceCommunity:htmlBlock",
+      "id" : "857f6553-72c6-47ed-842b-9b4dc3b7633c",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1bf5a0a2-dc98-4a45-bea9-0e1817cb2d62",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "2fe3ca32-f12a-4587-9ae0-1182fc361ca8",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "no-results"
+}

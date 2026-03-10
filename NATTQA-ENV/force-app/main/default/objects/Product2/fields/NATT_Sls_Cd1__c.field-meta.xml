@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Sls_Cd1__c</fullName>
+    <description>NATT. A = Active, RB = Revision Beginning, New Part (in process of being setup), R = Mfg ready costing, ZD = Zero Demand (slow-moving item)</description>
+    <label>Sls Cd1</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A</fullName>
+                <default>false</default>
+                <label>A</label>
+            </value>
+            <value>
+                <fullName>N</fullName>
+                <default>false</default>
+                <label>N</label>
+            </value>
+            <value>
+                <fullName>R</fullName>
+                <default>false</default>
+                <label>R</label>
+            </value>
+            <value>
+                <fullName>RB</fullName>
+                <default>false</default>
+                <label>RB</label>
+            </value>
+            <value>
+                <fullName>ZD</fullName>
+                <default>false</default>
+                <label>ZD</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

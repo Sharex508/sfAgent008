@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Analyst</masterLabel>
+        <translation>Analista</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Box Mfg</masterLabel>
+        <translation><!-- Box Mfg --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Competitor</masterLabel>
+        <translation>Concorrente</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Current</masterLabel>
+        <translation>Atual</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Customer</masterLabel>
+        <translation>Cliente</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Customer and supplier</masterLabel>
+        <translation>Cliente e Fornecedor</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Integrator</masterLabel>
+        <translation>Integrador</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Investigate</masterLabel>
+        <translation>Investigar</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Investor</masterLabel>
+        <translation>Investidor</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Lease</masterLabel>
+        <translation>Alugar</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>New Actor</masterLabel>
+        <translation>Novo Ator</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other</masterLabel>
+        <translation>Outro</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Partner</masterLabel>
+        <translation>Parceiro</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Potential Entrant</masterLabel>
+        <translation>Entrante Potencial</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Press</masterLabel>
+        <translation>Imprensa</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Prospect</masterLabel>
+        <translation>Prospect</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Reseller</masterLabel>
+        <translation>Revendedor</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Ship</masterLabel>
+        <translation>Navio</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Supplier</masterLabel>
+        <translation>Fornecedor</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

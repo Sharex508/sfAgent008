@@ -1,0 +1,11 @@
+{
+  "cmsSettings" : { },
+  "currentThemeId" : "6032872b-96e4-4ec6-8191-fe68177ae537",
+  "headMarkup" : "<link rel=\"shortcut icon\" href=\"/resource/FaviconNaocap\" type=\"image/x-icon\"/>\n<noscript>\n    <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-PNT7VW6\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>\n</noscript>\n<script type=\"text/javascript\" async=\"async\" src=\"https://consent.trustarc.com/v2/notice/ravf0w\"></script>\n<script type=\"text/javascript\">var gtmid = 'GTM-PNT7VW6';!(function (e, t, a, n, g) {    (e[n] = e[n] || []), e[n].push({ \"gtm.start\": new Date().getTime(), event: \"gtm.js\" });    var m = t.getElementsByTagName(a)[0],        r = t.createElement(a);    (r.async = !0), (r.src = \"//www.googletagmanager.com/gtm.js?id=\" + g), m.parentNode.insertBefore(r, m);})(window, document, \"script\", \"dataLayer\", gtmid);</script>\n\n<style>\n    .footer-region .consent-button {                text-align: center;}.cookie-message {    position:fixed;     bottom:0px;     width:100%;    z-index:1;}.cookie-message .consent-button {    display:block;    text-align:right;}.cookie-message .consent-text {    bottom:0px;    text-align:center;    background-color: rgb(102,102,102) !important;    color: rgb(255,255,255) !important;}.cookie-message .consent-text #truste-consent-track{    background-color:transparent!important}.cookie-message .truste-buttonsColumn button{    color: rgb(255,255,255);    background-color: rgb(0,0,0);}.cookie-message .truste-buttonsColumn button:hover, .cookie-message .truste-buttonsColumn button:focus, .cookie-message .truste-buttonsColumn button:active{    color: rgb(0,0,0);    background-color: rgb(255,255,255);}.cookie-message .truste-buttonsColumn .truste-cookie-link:hover, .cookie-message .truste-buttonsColumn .truste-cookie-link:focus, .cookie-message .truste-buttonsColumn .truste-cookie-link:active{    color: rgb(255,255,255);}\n    #teconsent a{\n        color:white !important;\n    }\n    #teconsent{\n        display:inline !important;\n    }\n    \n</style>",
+  "id" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "isLockerServiceEnabled" : true,
+  "isRelaxedCSPLevel" : true,
+  "label" : "main",
+  "templateName" : "B2B Commerce Template",
+  "type" : "appPage"
+}

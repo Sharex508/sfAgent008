@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_A</fullName>
+    <columns>NAME</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>NATT_Model_Number__c</columns>
+    <columns>NATT_Serial_Number__c</columns>
+    <columns>NATT_Type__c</columns>
+    <columns>NATT_Item__c</columns>
+    <columns>NATT_Original_Price__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>startsWith</operation>
+        <value>vvp</value>
+    </filters>
+    <label>All</label>
+</ListView>

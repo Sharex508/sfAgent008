@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>PermissionSetAssignment</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Details for users with assigned permission sets</description>
+    <label>Users with permission set</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ExpirationDate</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PermissionSet</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>PermissionSetGroup</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Assignee</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Assignee.IsActive</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Assignee.Email</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Assignee.Name</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Assignee.FederationIdentifier</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Assignee.Username</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Assignee.Profile</field>
+            <table>PermissionSetAssignment</table>
+        </columns>
+        <masterLabel>Permission Set Assignments</masterLabel>
+    </sections>
+</ReportType>

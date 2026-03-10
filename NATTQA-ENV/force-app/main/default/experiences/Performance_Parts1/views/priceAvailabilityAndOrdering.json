@@ -1,0 +1,70 @@
+{
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "814a82a0-2c59-4234-87c0-22fa511c3b0c",
+  "label" : "Price, Availability and Ordering",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "1d1bf0dd-250c-4f90-bde3-2afff9579e6d",
+          "columns" : [ {
+            "UUID" : "5dba8437-2045-45d7-b02f-a8300f77d9ec",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "1d1bf0dd-250c-4f90-bde3-2afff9579e6d",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+          },
+          "componentName" : "c:natt_priceAvailabilityOrdering",
+          "id" : "ddaf876a-82fe-4525-a42a-2159a9618ed7",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "5dba8437-2045-45d7-b02f-a8300f77d9ec",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8fa54ec1-13fa-47fb-9385-385f717f4c82",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Price, Availability and Ordering"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "03b2466c-46be-408a-a33d-8a317d41db84",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "dbb91e73-53d8-4e92-9722-f36852061f20",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-price-availability-and-ordering"
+}

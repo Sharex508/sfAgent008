@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Address_Formatted__c</fullName>
+    <description>NATT formatted address for use in components</description>
+    <externalId>false</externalId>
+    <formula>IF(ISBLANK(NATT_JDE_Alpha_Name__c),NULL,NATT_JDE_Alpha_Name__c + BR()) +
+IF(ISBLANK(NATT_Street__c),NULL,NATT_Street__c + BR()) +
+IF(ISBLANK(NATT_Street_2__c),NULL,NATT_Street_2__c + BR()) +
+IF(ISBLANK(NATT_Street_3__c),NULL,NATT_Street_3__c + BR()) +
+IF(ISBLANK(NATT_Street_4__c),NULL,NATT_Street_4__c + BR()) +
+IF(ISBLANK(NATT_City__c),NULL,NATT_City__c + &quot;, &quot;) +
+ TEXT(NATT_State_Province__c)  + &quot; &quot; +  NATT_Zip_Postal_Code__c  + BR() + TEXT(NATT_Country__c)</formula>
+    <label>Address (Formatted)</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,3226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_NT_Order</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>CONTAINER_Order_compact_layout</compactLayoutAssignment>
+    <label>CONTAINER NT Order</label>
+    <picklistValues>
+        <picklist>CONTAINER_Freight_Terms_GENSET__c</picklist>
+        <values>
+            <fullName>CARRIAGE PAID TO - CPT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CIP - CIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COST AND FREIGHT - CFR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVERED AT PLACE - DAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVERED DUTY PAID - DDP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX WORKS - EXW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX-FACTORY - EXW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FREE CARRIER - FCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FREIGHT COLLECT - C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FREIGHT PREPAID - PP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE %E2%80%93 N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID %26 ALLOWED - PPA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID %26 BILLED - PPB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID - PPD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Freight_Terms__c</picklist>
+        <values>
+            <fullName>CARRIAGE AND INSURANCE PAID TO -CIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CIP- CIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COLLECT - COL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVED AT PLACE - DAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVED DUTY PAID - DDP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVERED AT PLACE - DAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVERED AT TERMINAL - DAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVERED DUTY PAID - DDP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX FACTORY %E2%80%93 EXC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX-FACTORY - EXW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FREIGHT COLLECT - C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE - N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID %26 ALLOWED - PPA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID %26 BILLED - PPB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID - PPD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Frieght_Terms__c</picklist>
+        <values>
+            <fullName>CARRIAGE AND INSURANCE PAID TO -CIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CIP- CIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COLLECT - COL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COST AND FREIGHT %E2%80%93 CFR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVED AT PLACE %E2%80%93 DAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVED DUTY PAID - DDP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVERED AT PLACE - DAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVERED AT TERMINAL - DAT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DELIVERED DUTY PAID %E2%80%93 DDP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX FACTORY %E2%80%93 EXC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX WORKS %E2%80%93 EXW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EX-FACTORY - EXW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FREE CARRIER - FCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FREIGHT COLLECT %E2%80%93 C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FREIGHT COLLECT - C</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FREIGHT PREPAID %E2%80%93 PP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE %E2%80%93 N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE - N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID %26 ALLOWED - PPA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID %26 BILLED - PPB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PREPAID - PPD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Method_of_Shipment_GENSET__c</picklist>
+        <values>
+            <fullName>AIR FREIGHT - 461-63-02 - AF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE - 461-63-02 - NA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OCEAN FREIGHT - 461-63-02 - OF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RAIL FREIGHT - 461-63-02 - RF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SURFACE FREIGHT - 461-63-02 %E2%80%93 SF</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Method_of_Shipment__c</picklist>
+        <values>
+            <fullName>AIR FREIGHT - 461-63-02 - AF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AIR FREIGHT - AF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE - 461-63-02 - NA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE - NA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OCEAN FREIGHT - 461-63-02 - OF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OCEAN FREIGHT - OF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RAIL FREIGHT - 461-63-02 - RF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SURFACE FREIGHT - 461-63-02 %E2%80%93 SF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SURFACE FREIGHT - SF</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Payment_Terms_GENSET__c</picklist>
+        <values>
+            <fullName>CASH IN ADVANCE - CIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LETTER OF CREDIT - LOC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 30 DAYS - N30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 45 DAYS - N45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 60 DAYS - N60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE - NAO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Payment_Terms__c</picklist>
+        <values>
+            <fullName>0 DAYS CN RETURN PAY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>102 DAYS PAYMENT TERM - 102</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>12 DAYS PAYMENT TERM - 12</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>120 DAYS PAYMENT TERM -120</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>14 DAYS PAYMENT TERM - 14</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>15 DAYS PAYMENT TERM - 15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>21 DAYS PAYMENT TERM - 21</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30 DAYS PAYMENT TERM - 30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>40 DAYS PAYMENT TERM - 40</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>45 DAYS PAYMENT TERM - 45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>46 DAYS PAYMENT TERM - 46</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50 DAYS PAYMENT TERM - 50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50%25 CASH IN ADVANCE - CIA 50%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60 DAYS PAYMENT TERM - 60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>65 DAYS PAYMENT TERM - 65</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>90 DAYS PAYMENT TERM - 90</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CASH IN ADVANCE - CIA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CASH ON DELIVERY - COD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LC 30 DAYS FROM BL D - L30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LC 45 DAYS FROM BL D - L45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LC AT SIGHT-- 21 DAY - L00</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LETTER OF CREDIT - LOC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 30 DAYS %E2%80%93 N30</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 365 DAYS %E2%80%93 N75</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 45 DAYS %E2%80%93 N45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 60 DAYS %E2%80%93 N60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 75 DAYS %E2%80%93 N97</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NET 90 DAYS %E2%80%93 N78</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NOT APPLICABLE - NAO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_SO_Category__c</picklist>
+        <values>
+            <fullName>CARRIER INTERNAL - CI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CONSIGNMENT %28CN%29 - CN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CONTAINER INTERNAL %28CI%29 - CI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTERNAL %E2%80%9C0%E2%80%9D %24 SALE%28INT%29 %E2%80%93 INT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTERNAL ZERO DOLLAR - INT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LEASING COMPANY %28LC%29 - LC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LEASING COMPANY - LC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STEAMSSHIP COMPANY - SS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>STEAMSSHIP COMPANY%28SS%29 - SS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_SO_GENSET_Category__c</picklist>
+        <values>
+            <fullName>CONSIGNMENT %28CN%29 - CN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CONTAINER INTERNAL %28CI%29 - CI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTERNAL %E2%80%9C0%E2%80%9D %24 SALE%28INT%29 %E2%80%93 INT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>LEASING COMPANY %28LC%29 - LC</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Sales_Region__c</picklist>
+        <values>
+            <fullName>APO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NAO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SNAO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CTBR_BluEdge_Competitive_Unit_Model__c</picklist>
+        <values>
+            <fullName>ACJ BOY ULTRA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ACJ BOY ULTRA %E2%80%9CE%E2%80%9C ELECTRIC DRIVENR134a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ACJ BOY ULTRA 300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AEM Solar Tech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ANS 400</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ANS 500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ANS 600</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B-100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bergstrom%2FOEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600 SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600 SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600RR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600RR SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600RR SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C150F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C150T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C150TB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C300F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C350T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C350TB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C450FB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D1000 %2F D1200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dclimate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dynasys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ECO-100 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB G2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Go Green APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Green APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HP2000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-050 MINI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-050 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-050II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-050IIESC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-100 II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-100 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-100MB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-100MBESC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250 II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250 SP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250MB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250MBESC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250SPES II ZIANT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-30 DW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-350 II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-50 DW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-50 DW MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-500 II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-500MB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-500MBESC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-70 DW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-700A II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat King 450 HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat King 450 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Idle Free</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RV200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RV300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RV380</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RV580</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600 SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600 SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600M</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600M SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600M SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600RR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600RR SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600RR SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610DE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610DE SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610DE SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610M</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610M SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610M SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700 SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700 SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700RR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700RR SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700RR SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SENIOR DIESEL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SENIOR DIESEL MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLXi DRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLXi-DRC SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLXi-DRC SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Serie ACJ BOY G3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1000E SE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1090</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1090 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1090 Spectrum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1500 SE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-3100 MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-590</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-690</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-690 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-890</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-890 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T1400S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T20B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T3000S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T3500S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T400R</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSPVAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TVAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TriPac</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UN0%C2%B0 100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UN0%C2%B0 120</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UN0%C2%B0 60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UN0%C2%B0 80</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UT-1280 HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-220</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-220 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-320</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-320 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520 RT MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520 Spectrum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520RT Spectrum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-800</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-800 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V150F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V150T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V150TB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V300F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V350F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V350T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V350T-14-16M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V350T-8-10M3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V450F-12M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V450F-16-18M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V450FE-12M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V450MB%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V550F-16-18M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V550FE-16-18M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V650F-24-26M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V650F-32-35M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V850F%2FV1000F%2FV1100F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 120B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 200S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 250S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 350S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 380</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CTBR_BluEdge_Market_Segment__c</picklist>
+        <values>
+            <fullName>APU%2FDairy%26Grocery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APU%2FDistribution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APU%2FDry</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APU%2FFor Hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APU%2FLeasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APU%2FOEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APU%2FStock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diesel%2FDairy%26Grocery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diesel%2FDistribution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diesel%2FFor Hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diesel%2FLeasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diesel%2FOEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diesel%2FStock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat%2FBox Car</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat%2FDairy%26Grocery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat%2FDistribution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat%2FFor Hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat%2FIntermodal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat%2FLeasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat%2FOEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat%2FStock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer%2FBox Car</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer%2FDairy%26Grocery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer%2FDistribution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer%2FFor Hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer%2FIntermodal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer%2FLeasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer%2FOEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer%2FStock</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable%2FDairy%26Grocery</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable%2FDistribution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable%2FFor Hire</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable%2FLeasing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable%2FOEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Variable%2FStock</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CTBR_BluEdge_Product_Family__c</picklist>
+        <values>
+            <fullName>Diesel Truck</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CTBR_BluEdge_Shipment_Method__c</picklist>
+        <values>
+            <fullName>ABF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Best Way</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Customer Pickup</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EXW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FCA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CTBR_BluEdge_Unit__c</picklist>
+        <values>
+            <fullName>Supra 1150</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 1150 MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 1250</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 1250 MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 750 SIII</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 850 SIII</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S6 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S7 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S8 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S9 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 01</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X4 7300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X4 7500</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CTBR_Freight_Payment__c</picklist>
+        <values>
+            <fullName>CIF</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>FOB</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CTBR_Shipment_Company__c</picklist>
+        <values>
+            <fullName>60120</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60319</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60358%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60372</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60442</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60514</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60559</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60614</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60762</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>60784</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80072</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80667</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80952</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80982</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80992</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>80998</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CTBR_Shipment_Method__c</picklist>
+        <values>
+            <fullName>Air</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Road</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NAC_Billing_Delivery_Term__c</picklist>
+        <values>
+            <fullName>BIL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CPU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EXW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NAC_Order_Type__c</picklist>
+        <values>
+            <fullName>1D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1G</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>1P</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2G</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2P</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4D</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4G</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4P</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DS</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NAC_Shipping_Method__c</picklist>
+        <values>
+            <fullName>AF1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BW1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CPU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FX1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FX2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FX3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FXG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FXX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OF1</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Boomi_Order_Status__c</picklist>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>OrderAmendmentChangePending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OrderHeaderChangePending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Processed</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Competitive_Unit_Model__c</picklist>
+        <values>
+            <fullName>ACJ BOY ULTRA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ACJ BOY ULTRA %E2%80%9CE%E2%80%9C ELECTRIC DRIVENR134a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ACJ BOY ULTRA 300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AEM Solar Tech</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ANS 400</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ANS 500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ANS 600</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>B-100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bergstrom%2FOEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600 SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600 SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600RR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600RR SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C-600RR SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C150F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C150T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C150TB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C300F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C350T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C350TB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C450FB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>D1000 %2F D1200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dclimate</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dynasys</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>E-200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ECO-100 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FB G2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Go Green APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Green APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HP2000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-050 MINI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-050 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-050II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-050IIESC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-100 II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-100 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-100MB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-100MBESC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250 II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250 SP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250MB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250MBESC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-250SPES II ZIANT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-30 DW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-350 II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-50 DW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-50 DW MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-500 II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-500MB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-500MBESC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-70 DW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HT-700A II</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat King 450 HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat King 450 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Idle Free</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RV200</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RV300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RV380</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RV580</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600 SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600 SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600M</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600M SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600M SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600RR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600RR SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-600RR SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610DE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610DE SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610DE SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610M</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610M SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-610M SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700 SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700 SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700RR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700RR SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>S-700RR SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SENIOR DIESEL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SENIOR DIESEL MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLXi DRC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLXi-DRC SmartPower</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SLXi-DRC SmartPower HO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Serie ACJ BOY G3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1000E SE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1090</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1090 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1090 Spectrum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-1500 SE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-3100 MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-590</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-690</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-690 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-890</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T-890 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T1400S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T20B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T3000S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T3500S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T400R</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSPVAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TVAN</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TriPac</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UN0%C2%B0 100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UN0%C2%B0 120</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UN0%C2%B0 60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>UN0%C2%B0 80</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-220</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-220 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-320</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-320 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520 RT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520 RT MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520 Spectrum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-520RT Spectrum</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-800</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V-800 MAX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V150F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V150T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V150TB</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V300F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V350F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V350T</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V350T-14-16M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V350T-8-10M3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V450F-12M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V450F-16-18M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V450FE-12M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V450MB%C2%A0</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V550F-16-18M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V550FE-16-18M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V650F-24-26M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V650F-32-35M%C2%B3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>V850F%2FV1000F%2FV1100F</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 120B</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 200S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 250S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 350S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zer0%C2%B0 380</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Incoterm__c</picklist>
+        <values>
+            <fullName>EXW</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FCA</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Market_Segment2__c</picklist>
+        <values>
+            <fullName>ADO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ADY</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AFO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AGO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ALO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DDO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DFO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DGO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DLO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DSO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HBO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HDO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HFO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HGO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HIO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HLO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HSO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TBO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TDO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TFO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TGO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TIO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TLO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>TSO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VDO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VEM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VFO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VGO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VLO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>VSO</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Order_Status__c</picklist>
+        <values>
+            <fullName>Cancelled</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Complete</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Credit Check for Shipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Enter Order %28Default Value%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fulfillment Run</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Invoicing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Shipped</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Order Acknowledge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Partially Shipped</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready for Picking</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready for Shipping</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ready to Print Pick Slip</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Release Order for Shipment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sabrix</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sabrix Run</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipped</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Payment_Instruction__c</picklist>
+        <values>
+            <fullName>Credit Card</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Terms</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Wire Transfer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Payment_Terms__c</picklist>
+        <values>
+            <fullName>2%25 Net 30 Days</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Floor Plan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 30</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Product_Family__c</picklist>
+        <values>
+            <fullName>APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diesel Truck</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Direct Drive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solara</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trailer</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Shipment_Method__c</picklist>
+        <values>
+            <fullName>9</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BW1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CR1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FX1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FX2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FX3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FXG</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FXX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OF</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OTH</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Shipment_Terms__c</picklist>
+        <values>
+            <fullName>BIL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>COL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CPU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PPD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Unit__c</picklist>
+        <values>
+            <fullName>200INT ComfortPro Integrated APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>20X Road Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>210STA ComfortPro Stand-alone APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>220PWR ComfortPro Power-only APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>230SKY ComfortPro ClearSky DPF APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>240EPS ComfortPro Electric APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>250ION ComfortPro Lithium-Ion APU</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30S Road Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30S with 115v-1ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>30S with 230v-1ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>35X Road Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>35X with 115v-1ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>35X with 230v-1ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>35X with 230v-3ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>40X with 230v-1ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>40XR with 230v-1ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50X with 230v-1ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50XR Road Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50XR with 230v-1ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>50XR with 230v-3ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C280 R404A 12V BASICO-SL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C280 R404A 24V BASICO-SL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C350 R404A 12V BASICO-SL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C350 R404A 24V BASICO-SL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C400 R404A 12V BASICO-SL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C400 R404A 24V BASICO-SL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C500 12V R404A- BASICO S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C500 24V R404A-BASICO S</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C700 12V R404A-BASICO SA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>C700 24V R404A-BASICO SA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CITIFRESH 500 12V R134a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CITIMAX 1100 R404A BASICO-SA%C2%A0 24V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CITIMAX 280 - R404A - 12 V -LA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CITIMAX 280 - R404A - 24 V -LA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CITIMAX 400 - R404A - 12 V -LA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CITIMAX 400 - R404A - 24 V -LA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Citimax 500 12V W%2FMH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Citimax 500 24V W%2FMH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Citimax 700 12V W%2FMH</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Citimax 700 24V W%2FMIV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engine Emissions System %28EES%29 for Vector Units</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engine Emissions System %28EES%29 for X4 Units %28Bundle%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 30S 12V 115%2F1%2F60 %28athens%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 30S 12V 115%2F1%2F60 %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 30S 12V 230%2F1%2F60 %28Francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 30S 12V 230%2F1%2F60 %28athens%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 35X 12V 115%2F1%2F60 %28Francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 35X 12V 115%2F1%2F60 %28athens%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 35X 12V 230%2F1%2F60 %28Athens%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 35X 12V 230%2F1%2F60 %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 40X 230%2F1%2F60 24V R404a %28Francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 50X 230%2F1%2F60 12V %28athens%29 R404a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>INTEGRA 50X 230%2F1%2F60 12V %28francia%29 R404a</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NEOS 100 - Road%2FStandby 230%2F1%2F50 - Monobloc concept - Standard hot gas defrost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NEOS 100 S- Road%2FStandby 230%2F1%2F50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Neos 100S - Road Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 1050 400v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 1150 400v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 1150MT R2 E5 2C S S2 %28sistema 2 2 evap 1450%29 %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 1250 400v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 1250MT R2 E5 2C S S2 %28sistema 2 2evap 1450%29 %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 550 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 550 Ruta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 750  400v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 750 Ruta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 750MT R2 E5 2C S S2 sistema 2 2 evap 1100 %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 750MT R2 E5 2C S S3 sistema 3 1 evap 750 1 evap 1450 %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 850 400v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SUPRA 850 Ruta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Solara APX</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 560 with 230v-3ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 750-12 MT -S-sys2  2 evap 1100 %28china%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 750MT Sys3 %28china%29 1 evap 750 1 evap 1450</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 960 Road Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra 960 with 230v-3ph-60Hz Standby</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S10 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S10 Road Only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S10 Ruta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S10 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S6 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S6 Ruta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S6 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S7 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S7 Ruta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S7 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S8 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S8 Ruta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S8 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S9 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S9 Ruta</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supra S9 with 230v-3ph-60Hz</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8100</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 01</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 02</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 03</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 04</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 05</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 06</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 07</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 13</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 14</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - Sistema 16</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 01</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 02</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 03</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 04</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 05</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 06</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 07</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 13</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 14</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8600 - System 16</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8611MT</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8700</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8700R Rail Edition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 01</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 02</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 03</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 04</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 05</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 06</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 07</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 13</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 14</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector 8800 - System 16</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vector HE19</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X4 7300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X4 7300-B %28no incluye kit de tanque%2C straps%2C semaforo%2C ni tapas inferiores ordenar aparte%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X4 7300R Rail Edition</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X4 7500</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>X4 7500-B %28no incluye kit de tanque%2C straps%2C semaforo%2C ni tapas inferiores ordenar aparte%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 350 12V 230%2F3%2F60 R404a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 350 24V 230%2F3%2F60 R404a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 350 Mt%C2%B0 - 12 V -  230%2F3%2F50 - MXS850 %2F MXS601</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 350 Mt%C2%B0 - T - 12 V - Road%2FStandby 230%2F3%2F50-60 - MXS850 %2F MXS851</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 350%C2%A0230%2F3%2F60 12V R134a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 350%C2%A0230%2F3%2F60 24V R134a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 350MT 8%2F6 230%2F1%2F50 24V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 350MT 8%2F8 24V 230%2F3%2F50</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 5 230%2F3%2F60 12V R134a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 5 230%2F3%2F60 24V R134a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 5 R2 230%2F1%2F50 24V R404a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 5 R2 230%2F3%2F60 12V R404a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 5 R2 230%2F3%2F60 24V R404a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 6 R2 230%2F1%2F50 24V R404a %28francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 6 R2 230%2F3%2F60 12V R404a %28Francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 6 R2 230%2F3%2F60 24V R404a %28Francia%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 600MT 11%2F8 230%2F3%2F60 24V</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>XARIOS 600MT 8%2F8 12V 230%2F3%2F60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ZEPHYR 30S R134a 12V 230%2F3%2F60 %28Francia%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>NATT_Warehouse__c</picklist>
+        <values>
+            <fullName>ANA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ATL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BNA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CHI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PAN</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SBQQ__ContractingMethod__c</picklist>
+        <values>
+            <fullName>By Subscription End Date</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Single Contract</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SBQQ__PaymentTerm__c</picklist>
+        <values>
+            <fullName>Due on receipt</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 15</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 30</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Net 45</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 55</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 60</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Net 90</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>SBQQ__PriceCalcStatus__c</picklist>
+        <values>
+            <fullName>Aborted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Failed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Needed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Queued</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status</picklist>
+        <values>
+            <fullName>Activated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deactivated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Draft</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

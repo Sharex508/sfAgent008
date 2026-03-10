@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>with this the user is allowed to modify completed quotes.</description>
+    <isLicensed>false</isLicensed>
+    <label>NATT Modify Completed Quotes</label>
+</CustomPermission>

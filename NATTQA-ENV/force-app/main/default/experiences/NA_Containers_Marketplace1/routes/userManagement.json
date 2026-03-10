@@ -1,0 +1,12 @@
+{
+  "activeViewId" : null,
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "User_Management__c",
+  "id" : "f91c53ee-f200-4144-8629-0c8cdc296486",
+  "label" : "User Management",
+  "pageAccess" : "RequiresLogin",
+  "routeType" : "custom-user-management",
+  "type" : "route",
+  "urlPrefix" : "user-management"
+}

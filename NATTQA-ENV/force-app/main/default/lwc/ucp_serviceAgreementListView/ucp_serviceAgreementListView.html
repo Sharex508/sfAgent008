@@ -1,0 +1,97 @@
+<template>
+    <div class="slds-grid">
+        <div class="slds-col slds-has-flexi-truncate firstHeaderRow">
+            <div class="slds-media slds-no-space slds-grow">
+                    <div class="highlights-icon-container slds-avatar slds-m-right_small icon" style="background-color: #6b92dc;">
+                        <lightning-icon icon-name="custom:custom62" title="custom62"></lightning-icon>
+                    </div>
+                <div class="slds-media__body slds-align-middle" style="margin-bottom:5px">
+                    <!-- Use standard Salesforce lightning-breadcrumb component -->
+                    <lightning-breadcrumbs>
+                        <h1 style="font-size:18px">Service Agreements</h1>
+                    </lightning-breadcrumbs>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid" aria-label="Example advanced table of Opportunities in actionable mode with ascending column sorting">
+        <thead>
+            <tr class="slds-line-height_reset">
+            <th class="slds-text-align_right slds-cell_action-mode" scope="col" style="width:3.25rem">
+            </th>
+            <th class="slds-is-resizable slds-is-sortable slds-is-sorted slds-is-sorted_asc slds-cell_action-mode" scope="col" style="padding-left:8px">
+                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                    <span class="slds-truncate" title="Service Agreement Number">Service Agreement Number</span>
+                </div>
+            </th>
+            <th class="slds-is-resizable slds-is-sortable slds-is-sorted slds-is-sorted_asc slds-cell_action-mode" scope="col" style="padding-left:6px">
+                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                    <span class="slds-truncate" title="Account">Account</span>
+                </div>
+            </th>
+            <th class="slds-is-resizable slds-is-sortable slds-is-sorted slds-is-sorted_asc slds-cell_action-mode" scope="col" style="padding-left:6px">
+                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                    <span class="slds-truncate" title="Agreement Start Date">Agreement Start Date</span>
+                </div>
+            </th>
+            <th class="slds-is-resizable slds-is-sortable slds-is-sorted slds-is-sorted_asc slds-cell_action-mode" scope="col" style="padding-left:6px">
+                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                    <span class="slds-truncate" title="Agreement End Date">Agreement End Date</span>
+                </div>
+            </th>
+            <th class="slds-is-resizable slds-is-sortable slds-is-sorted slds-is-sorted_asc slds-cell_action-mode" scope="col" style="padding-left:6px">
+                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                    <span class="slds-truncate" title="Primary Contact">Primary Contact</span>
+                </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <template for:each={serviceAgreementRecords} for:item="record">
+                <tr class="slds-hint-parent" key={record.Id}>
+                    <td data-label="Index">
+                        <div class="slds-truncate">{record.sequenceNumber}</div>
+                    </td>
+                    <td data-label="Service Agreement Number">
+                        <span class="slds-grid slds-grid_align-spread" >
+                            <div class="slds-truncate">
+                                <a href="javascript:void(0);" onclick={handleServiceAgreementPage} data-id={record.Id} >
+                                    {record.Name}
+                                </a>
+                            </div>
+                        </span>
+                    </td>
+                    <td class="slds-cell_action-mode" role="gridcell">
+                        <div class="slds-truncate">
+                            <a href="javascript:void(0);" onclick={handleAccountPage} data-id={record.Account__c} >
+                                {record.Account__r.Name}
+                            </a>
+                        </div>
+                    </td>
+                    <td data-label="Agreement Start Date">
+                        <span class="slds-grid slds-grid_align-spread" >
+                            <div class="slds-truncate">
+                                {record.CONTAINER_Agreement_Start_Date__c}
+                            </div>
+                        </span>
+                    </td>
+                    <td data-label="Agreement End Date">
+                        <span class="slds-grid slds-grid_align-spread" >
+                            <div class="slds-truncate">
+                                {record.CONTAINER_Agreement_End_Date__c}
+                            </div>
+                        </span>
+                    </td>
+                    <td data-label="Primary Contact">
+                        <span class="slds-grid slds-grid_align-spread" >
+                            <div class="slds-truncate">
+                                {record.Primary_Contact__c}
+                            </div>
+                        </span>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+      </table>      
+</template>

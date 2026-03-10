@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Additional_Detail__c</fullName>
+    <inlineHelpText>This field is intended for additional comments.  Please Post overall Case comments on the Case record.</inlineHelpText>
+    <label>Additional Detail</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

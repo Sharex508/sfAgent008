@@ -1,0 +1,18 @@
+<div style="width: 1100px;"><center><img src="https://carrier-global--c.documentforce.com/servlet/servlet.ImageServer?id=0157V000002nM0Y&oid=00D1U000000yumn&lastMod=1670431617000"/></center>
+</div>
+<br></br>
+<div style="width: 80%;"><strong> <span style="font-family: Arial; font-size: 16px; color: #1a3e94;"> Hi {!Account.Name},</span> </strong>
+ </div>
+<br></br>
+<p style="font-family: Arial; font-size: 12px;">
+Thank you for submitting a request for a new account for North America Container Aftermarket Parts! Your request is currently under review. We will reach out to you on request approval as soon as we can.
+Request ID:{!Account.Account_Creation_Request_Number__c} 
+<br></br>
+<br></br>
+</p>
+<div style="width: 80%;"><strong> <span style="font-family: Arial; font-size: 16px; color: #1a3e94;"> Thanks & Regards, </br>Container Aftermarket Parts Team</span> </strong>
+ </div>
+<br></br>
+<div>
+			
+		</div>

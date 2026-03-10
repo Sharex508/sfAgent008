@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Truck Trailer</fullName>
+        <default>true</default>
+        <label>Truck Trailer</label>
+    </customValue>
+    <customValue>
+        <fullName>Container</fullName>
+        <default>false</default>
+        <label>Container</label>
+    </customValue>
+    <customValue>
+        <fullName>Passenger Rail</fullName>
+        <default>false</default>
+        <label>Passenger Rail</label>
+    </customValue>
+    <customValue>
+        <fullName>Marine</fullName>
+        <default>false</default>
+        <label>Marine</label>
+    </customValue>
+    <masterLabel>Division</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

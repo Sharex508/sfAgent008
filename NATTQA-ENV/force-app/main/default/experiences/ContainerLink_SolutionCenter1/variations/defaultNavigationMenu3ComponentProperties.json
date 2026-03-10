@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "931a32ac-1488-4267-9ada-525c2d4f9c39",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "UCP_All_APO_Aus"
+      }
+    },
+    "targetId" : "a988fe4c-427f-4407-8101-85fd0a38571e",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_3_Component_Properties",
+  "id" : "7980e7c3-c856-45c4-a906-1de441968f2e",
+  "type" : "experienceVariation"
+}

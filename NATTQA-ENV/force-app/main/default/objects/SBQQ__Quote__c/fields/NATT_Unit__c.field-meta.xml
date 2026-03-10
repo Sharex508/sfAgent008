@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Unit__c</fullName>
+    <description>NATT Unit selected for this quote</description>
+    <label>Unit</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>NATT_Product_Family__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetName>NATT_Unit</valueSetName>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8100</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 02</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 03</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 04</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 05</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 06</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 07</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 13</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 14</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 15</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8600 - System 16</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8611MT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector HE19</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>X4 7300</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>X4 7300R Rail Edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>X4 7500</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>X4 7700</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>X4 7700R Rail Edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8700</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8700R Rail Edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 01</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 02</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 03</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 04</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 05</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 06</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 07</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 13</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 14</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 15</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8800 - System 16</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8811MT</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8500R Rail Edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>X4 7500R Rail Edition</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Trailer</controllingFieldValue>
+            <valueName>Vector 8400R</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S6 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S7 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S8 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S9 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra 960 Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra 960 with 230v-3ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S10 Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S10 with 230v-3ph-60Hz</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S10 MT - System A</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S10 MT - System B</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S6 Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S7 Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S8 Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Diesel Truck</controllingFieldValue>
+            <valueName>Supra S9 Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>20X Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>30S Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>30S with 115v-1ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>30S with 230v-1ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>35X Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>35X with 115v-1ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>35X with 230v-1ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>35X with 230v-3ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>40X with 230v-1ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>40XR with 230v-1ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>50X with 230v-1ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>50XR Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>50XR with 230v-1ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>50XR with 230v-3ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>Neos 100S - Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>Neos 200e - Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>40XR Road Only</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Direct Drive</controllingFieldValue>
+            <valueName>40XR with 230v-3ph-60Hz Standby</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>200INT ComfortPro Integrated APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>210STA ComfortPro Stand-alone APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>220PWR ComfortPro Power-only APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>230SKY ComfortPro ClearSky DPF APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>240EPS ComfortPro Electric APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>250ION ComfortPro Lithium-Ion APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Aspen INT APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Aspen PWR APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Aspen SKY APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>APU</controllingFieldValue>
+            <valueName>Aspen STA APU</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Solara</controllingFieldValue>
+            <valueName>Solara APX</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>Supra e11 (LOBEV)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electric Truck</controllingFieldValue>
+            <valueName>Supra e11 (HIBEV)</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

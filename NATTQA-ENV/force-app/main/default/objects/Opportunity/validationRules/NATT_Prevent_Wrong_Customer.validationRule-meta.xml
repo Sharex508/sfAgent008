@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Prevent_Wrong_Customer</fullName>
+    <active>true</active>
+    <description>prevents the user from entering a customer that doesn&apos;t belong to the account</description>
+    <errorConditionFormula>AccountId &lt;&gt; NATT_End_Customer__r.NATT_Dealership__r.Id
+&amp;&amp; NOT(ISBLANK(NATT_End_Customer__c))
+&amp;&amp; OR(BEGINS($RecordType.DeveloperName,&quot;NATT&quot;), BEGINS($RecordType.DeveloperName,&quot;MX&quot;), BEGINS($RecordType.DeveloperName,&quot;CTM&quot;), BEGINS($RecordType.DeveloperName,&quot;CTBR&quot;))</errorConditionFormula>
+    <errorDisplayField>NATT_End_Customer__c</errorDisplayField>
+    <errorMessage>The End Customer you selected does not belong to this Dealership.</errorMessage>
+</ValidationRule>

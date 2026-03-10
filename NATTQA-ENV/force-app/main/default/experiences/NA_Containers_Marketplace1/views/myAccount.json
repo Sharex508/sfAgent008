@@ -1,0 +1,39 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "147cd0e0-6432-4fab-9151-1149162439f1",
+  "label" : "My Account",
+  "regions" : [ {
+    "id" : "efd1e238-6224-4453-8be2-679414d4188f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customTitle" : "Manage Address",
+        "parentRecordId" : "{!CurrentUser.effectiveAccountId}",
+        "relatedListName" : "ContactPointAddresses",
+        "showBreadCrumbs" : false,
+        "showCustomTitle" : true,
+        "showManualRefreshButton" : true,
+        "showRowNumbers" : true
+      },
+      "componentName" : "forceCommunity:relatedList",
+      "id" : "f43e6602-2a82-45a3-a8d0-2fa1c8089337",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8a790af4-6713-4aaa-a75c-cf7d5f451cf4",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "09f94f1a-060f-4c06-b5aa-9b04c3a06b1f",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "my-account"
+}

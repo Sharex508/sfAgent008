@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Approved</masterLabel>
+        <translation><!-- Approved --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Closed</masterLabel>
+        <translation>Cerrado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalated</masterLabel>
+        <translation>Escalado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalated to Dealer</masterLabel>
+        <translation><!-- Escalated to Dealer --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalated to Operations</masterLabel>
+        <translation><!-- Escalated to Operations --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Escalated to Supplier</masterLabel>
+        <translation><!-- Escalated to Supplier --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>In-Process</masterLabel>
+        <translation>En proceso</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Monitor</masterLabel>
+        <translation><!-- Monitor --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>New</masterLabel>
+        <translation>Nuevo</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>On Hold</masterLabel>
+        <translation>En espera</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pending Approval</masterLabel>
+        <translation><!-- Pending Approval --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Rejected</masterLabel>
+        <translation><!-- Rejected --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

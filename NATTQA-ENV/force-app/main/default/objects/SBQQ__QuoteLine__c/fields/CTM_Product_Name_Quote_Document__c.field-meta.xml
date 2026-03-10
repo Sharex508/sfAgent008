@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_Product_Name_Quote_Document__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+AND(
+SBQQ__ProductCode__c = &apos;NV86-CH&apos;,
+OR(SBQQ__RequiredBy__r.SBQQ__ProductName__c = &apos;VECTOR 8600 - SYSTEM 01&apos;, SBQQ__RequiredBy__r.SBQQ__ProductName__c = &apos;VECTOR 8600 - SYSTEM 16&apos;),
+SBQQ__ProductOption__r.SBQQ__Feature__r.Name = &apos;Host Unit&apos;), 
+SBQQ__RequiredBy__r.SBQQ__ProductName__c + &apos; - &apos; +  SBQQ__ProductName__c,  
+
+IF(
+AND(
+NOT(OR(SBQQ__RequiredBy__r.SBQQ__ProductName__c = &apos;VECTOR 8600 - SYSTEM 01&apos;, SBQQ__RequiredBy__r.SBQQ__ProductName__c = &apos;VECTOR 8600 - SYSTEM 16&apos;)),
+SBQQ__ProductOption__r.SBQQ__Feature__r.Name = &apos;Host Unit&apos;), 
+SBQQ__RequiredBy__r.SBQQ__ProductName__c + &apos; - &apos; +  SBQQ__ProductName__c, 
+SBQQ__ProductName__c))</formula>
+    <label>CTM Product Name Quote Document</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPermission xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Grant this permission set to give users an ability to request users</description>
+    <isLicensed>false</isLicensed>
+    <label>NAC User Management</label>
+</CustomPermission>

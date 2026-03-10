@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Dealer_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>NATT_City_State__c</columns>
+    <columns>NATT_Region__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CTBR_Dealer</value>
+    </filters>
+    <label>CTBR - Contas de Distribuidor</label>
+    <language>en_US</language>
+    <sharedTo>
+        <roleAndSubordinates>CTBR</roleAndSubordinates>
+    </sharedTo>
+</ListView>

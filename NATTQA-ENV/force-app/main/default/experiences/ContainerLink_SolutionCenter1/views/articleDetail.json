@@ -1,0 +1,76 @@
+{
+  "appPageId" : "4d2d78a2-887d-4269-9b35-c2c6f11c55af",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "6e99a1a6-b1e1-42e0-8699-9b32bfad327c",
+  "label" : "Article Detail",
+  "regions" : [ {
+    "id" : "498bd349-6909-4d77-a872-6303994b1791",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "uniqueNameOrId" : "{!urlName}"
+      },
+      "componentName" : "forceCommunity:breadcrumbs",
+      "id" : "ff4cdf97-9d61-4bc8-8e49-3d72ca4958a7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "enableVoting" : false,
+        "recordId" : "{!recordId}",
+        "showTitleInArticleHeader" : true,
+        "showTopicPills" : true,
+        "urlName" : "{!urlName}"
+      },
+      "componentName" : "selfService:singleArticleView",
+      "id" : "6834fde9-ce58-4299-96ee-558fbcb6a7bb",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f25bed6d-d326-4205-a267-ff5e31e89c61",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}",
+        "width" : "MEDIUM"
+      },
+      "componentName" : "forceCommunity:relatedRecords",
+      "id" : "026f9e56-9561-464b-8171-c9f3949b4d41",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b7c60d4d-9532-4669-9b8e-a37b402fc1ac",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "ce6e1554-4cad-4421-a11d-c032ca09323f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "{!Record.Summary}",
+        "title" : "{!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ce1284c2-adbd-4e82-80d7-834a8a88ba5a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3214abe7-3eac-421f-a9d2-4866a35e4113",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "article"
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Part_Number__c</fullName>
+    <description>Display the part number
+1.  Checks for a product linked to the record
+2.  Then checks for a free form part number on the record
+3.  Then checks for a part number on an order product
+4.  Then checks for a configured unit code on an order product</description>
+    <externalId>false</externalId>
+    <formula>IF(!ISBLANK(NATT_Salesforce_Product_Link__r.Id),
+   NATT_Salesforce_Product_Link__r.NATT_P_N__c,
+   IF(!ISBLANK(NATT_Part__c),
+      NATT_Part__c,
+      IF(!ISBLANK(NATT_Order_Product__r.NATT_P_N__c),
+         NATT_Order_Product__r.NATT_P_N__c,
+         IF(!ISBLANK(NATT_Order_Product__r.SBQQ__RequiredBy__r.NATT_P_N__c),
+            NATT_Order_Product__r.SBQQ__RequiredBy__r.NATT_P_N__c,
+            NATT_Order_Product__r.Order.NATT_Configured_Unit_Code__c
+         )
+      )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Part Number</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

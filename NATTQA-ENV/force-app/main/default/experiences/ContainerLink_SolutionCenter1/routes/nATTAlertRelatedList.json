@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "fb638749-c7bd-44a7-b0f1-4da1987618e3",
+  "appPageId" : "4d2d78a2-887d-4269-9b35-c2c6f11c55af",
+  "configurationTags" : [ ],
+  "devName" : "NATT_Alert_Related_List__c",
+  "id" : "49c1e276-5b50-41c0-b372-5bc98c0b37b7",
+  "label" : "NATT Alert Related List",
+  "objectApiName" : "NATT_Alert__c",
+  "routeType" : "relatedlist-a1S",
+  "type" : "route",
+  "urlPrefix" : "natt-alert"
+}

@@ -1,0 +1,108 @@
+<template>
+    <template if:true={isShowModal}>
+        <c-nac_ware-house-modal boolitem={boolitem} effective-account-id={effectiveAccountId} oncalltoaction={closeModal} oncalltoclose={closeIfselectedRedirectedWarehouse} oncallbackaction={simplyclose} ontherefreshpage={therefreshPage}></c-nac_ware-house-modal>
+    </template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </template>
+    <div class="slds-p-top_medium">
+        <div class="slds-grid">
+            <div class="image slds-col slds-size_4-of-12">
+                <div class="slds-text-align_center slds-m-around_x-small">
+                    <div class="slds-carousel" style="height:280px; max-width:400px; object-fit:contain;">
+                        <div class="slds-carousel__stage">
+                            <div class="slds-carousel__panels" style={carouselStyle}>
+                                <template for:each={imageDataSet} for:item="imageData">
+                                    <div class="slds-carousel__panel" role="tabpanel" aria-hidden="false"
+                                        key={imageData.url}>
+                                        <a class="slds-carousel__panel-action slds-text-link_reset"
+                                            tabindex="0">
+                                            <div class="slds-carousel__image">
+                                                <img src={imageData.url}
+                                                    style="height:279px; max-width:400px; object-fit:contain;" />
+                                            </div>
+                                        </a>
+                                    </div>
+                                </template>
+                            </div>
+                            <template if:true={showImageIndicator}>
+                                <ul class="slds-carousel__indicators" role="tablist">
+                                    <template for:each={imageDataSet} for:item="imageData">
+                                        <li class="slds-carousel__indicator" role="presentation" key={imageData.url}>
+                                            <a data-item={imageData.index} class={imageData.classList} onclick={handleCarouselChange}
+                                                role="tab" tabindex="-1" aria-selected="true">
+                                            </a>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_8-of-12 slds-box slds-m-around_x-small" style="height:280px;">
+                <div class="details-area">                    
+                    <h3 class="slds-text-heading_large"><lightning-formatted-rich-text value={productcode}></lightning-formatted-rich-text></h3>
+                    <div class="slds-text-heading_medium slds-p-top_x-small"><lightning-formatted-rich-text value={name}></lightning-formatted-rich-text></div>
+
+                    <lightning-formatted-rich-text value={description}></lightning-formatted-rich-text>
+                    <div>{label.quantityUnit}:  {quantityunitofmeasure}</div>
+
+                    <div class="slds-grid slds-wrap slds-gutters_direct slds-p-bottom_small">
+                        <div class="slds-col slds-grid slds-size_4-of-12">
+                                <div class="slds-size_12-of-12">
+                                    {inventoryAvailable}
+                                </div>
+                        </div>
+                        <div class="slds-col slds-size_8-of-12 slds-text-align_right">
+                            <template if:false={isGuestUser}>
+                            <div if:false={_price.negotiated}>{label.priceUnavailableLabel}</div>
+                            </template>
+                            <div if:true={_price.negotiated}>
+                                 <template if:false={isGuestUser}>
+                                <b class="slds-text-title_bold" if:true={_price.strikeThroughPrice}>{label.yourPriceLabel} </b> &ensp;
+                                    <lightning-formatted-number if:true={_price.strikeThroughPrice} currency-code={_price.currency}
+                                        format-style="currency" value={_price.strikeThroughPrice} class="slds-text-title_bold">
+                                    </lightning-formatted-number>
+                                 </template>
+                                <template if:false={isGuestUser}>
+                                    <div class="slds-text-title_bold">{label.netPriceLabel}
+                                    <lightning-formatted-number  class="slds-m-left_small" if:true={_price.negotiated} currency-code={_price.currency}
+                                        format-style="currency" value={_price.negotiated}>
+                                    </lightning-formatted-number></div>
+                                </template>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-grid slds-wrap slds-gutters_direct" if:false={isGuestUser}>
+                        <div class="slds-col slds-size_4-of-12">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-text-title_bold slds-size_6-of-12">
+                                    {label.qtyLabel}
+                                </div>
+                                <div class="slds-col slds-size_3-of-12">
+                                    <lightning-input type="number" class="slds-text-align_center" name="quantity" label="QTY" value="1" min="1"
+                                        max="9999" step="1" message-when-step-mismatch="Enter a whole number."
+                                        oncommit={handleQuantityChange} variant="label-hidden" disabled={disableProduct}>
+                                    </lightning-input>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size_8-of-12 slds-text-align_right">
+                            <div>
+                            <lightning-button label="Add to Cart" variant="brand" class="slds-m-left_x-small" disabled={disableProduct}
+                                onclick={notifyAddToCart}>
+                            </lightning-button>
+                        </div>
+                        <div class="slds-p-around_xxx-small"></div>
+                        <template if:true={showDisplayMessage}>
+                            {displayMessagelabel}
+                        </template>                       
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

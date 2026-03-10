@@ -1,0 +1,13 @@
+{
+  "componentVariants" : [ {
+    "id" : "c35ef07d-5e86-4d77-b317-c79ae3979ed4",
+    "propertyOverrides" : {
+      "isVisible" : true
+    },
+    "targetId" : "7d773b8c-9a7f-4cbd-8ccc-0a2d17456758",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Cart_NAC_Cart_Contents_Component_Component",
+  "id" : "dd3a662c-b732-4f74-9d33-a80a2cf5daee",
+  "type" : "experienceVariation"
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NOT(ISNULL(ActivatedDate)),CONTAINER_Count_invalid__c&gt;0,NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR($RecordType.Name = &quot;CONTAINER GENSET Order&quot;,$RecordType.Name = &quot;CONTAINER NT Order&quot;))</errorConditionFormula>
+    <errorMessage>&quot;The Product number for some of the Order Product is invalid.&quot;</errorMessage>
+</ValidationRule>

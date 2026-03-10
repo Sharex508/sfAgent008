@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>NATT_Update_Asset_Original_Order_Id</fullName>
+        <field>NATT_Original_Order_Id__c</field>
+        <formula>SBQQ__OrderProduct__r.NATT_Original_Order_Id__c</formula>
+        <name>NATT Update Asset Original Order Id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Update_Original_JDE_Sales_Number</fullName>
+        <field>NATT_Original_JDE_Sales_Order__c</field>
+        <formula>SBQQ__OrderProduct__r.NATT_Original_JDE_Sales_Order__c</formula>
+        <name>NATT_Update Original JDE Sales Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>NATT Update Asset Original JDE Sales Number</fullName>
+        <actions>
+            <name>NATT_Update_Original_JDE_Sales_Number</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISBLANK(NATT_Original_JDE_Sales_Order__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>NATT Update Asset Original Order Id</fullName>
+        <actions>
+            <name>NATT_Update_Asset_Original_Order_Id</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISBLANK(NATT_Original_Order_Id__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NAOCP Account Creation Notification internal user Notification</name>
+    <style>none</style>
+    <subject>New Account Request</subject>
+    <textOnly>Hi All,
+
+A new account request for North America Container Aftermarket Parts has been submitted! This request is currently under pending status. Kindly open the request by clicking the link below. Request ID:{!Account.Account_Creation_Request_Number__c} . {!Account.Link}
+
+
+Thanks &amp; Regards,
+Container Aftermarket Parts Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

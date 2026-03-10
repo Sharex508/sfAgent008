@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Order_Line_Status__c</fullName>
+    <description>Determines the status of the Product order lines by comparing the shipped quantity against the ordered quantity, and returns the appropriate status message. Charge lines are excluded as these represent fees and other charges that are not shipped to customers.</description>
+    <externalId>false</externalId>
+    <formula>IF( NOT(ISBLANK(NATT_JDEItemStatus__c)), NATT_JDEItemStatus__c,  
+IF( TEXT(TypeCode) == &quot;Charge&quot;, &quot;&quot;,
+IF( NATT_Shipped_Quantity__c == Quantity,  $Label.NATT_Order_Detail_Shipped ,
+IF( NATT_Shipped_Quantity__c == 0,  $Label.NATT_Order_Detail_Not_Shipped ,
+IF( NATT_Shipped_Quantity__c &lt; Quantity, $Label.NATT_Order_Detail_Partially_Shipped,
+&quot;&quot;
+)))))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Order Line Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

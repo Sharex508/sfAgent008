@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Knowledge_Compact_Layout</fullName>
+    <fields>Title</fields>
+    <fields>NATT_Department__c</fields>
+    <fields>NATT_Segment__c</fields>
+    <fields>NATT_Document_Type__c</fields>
+    <fields>CONTAINER_Year__c</fields>
+    <fields>PublishStatus</fields>
+    <label>CONTAINER Knowledge Compact Layout</label>
+</CompactLayout>

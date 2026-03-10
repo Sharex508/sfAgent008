@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Details__c</fullName>
+    <inlineHelpText>Is the customer a building owner or design build contractor or other?</inlineHelpText>
+    <label>Customer Details</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Building Owner</fullName>
+                <default>false</default>
+                <label>Building Owner</label>
+            </value>
+            <value>
+                <fullName>Design Build Contractor</fullName>
+                <default>false</default>
+                <label>Design Build Contractor</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

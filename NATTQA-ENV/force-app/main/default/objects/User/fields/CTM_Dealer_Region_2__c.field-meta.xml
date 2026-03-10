@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_Dealer_Region_2__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>CTM Dealer Region 2 - Central America and Caribbean</description>
+    <label>CTM Dealer Region 2</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

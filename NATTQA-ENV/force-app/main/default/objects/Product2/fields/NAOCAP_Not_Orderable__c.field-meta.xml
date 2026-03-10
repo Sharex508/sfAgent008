@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAOCAP_Not_Orderable__c</fullName>
+    <description>Field to check the orderability of the product</description>
+    <formula>if(NATT_Core__c==true,true,if((NATT_Sales_Code__c==&apos;S01&apos;|| NATT_Sales_Code__c==&apos;SB1&apos;),if (ISPICKVAL( NATT_SignalCode__c, &quot;NLO&quot;),if (ISPICKVAL( NAC_Stocking_Type_UTC__c,&quot;O&quot;),true,false),ISPICKVAL( NATT_SignalCode__c, &quot;S2&quot;) || ISPICKVAL( NATT_SignalCode__c, &quot;PRC&quot;) || ISPICKVAL( NATT_SignalCode__c, &quot;FIN&quot;) || ISPICKVAL( NATT_SignalCode__c, &quot;BY2&quot;)),true))</formula>
+    <label>NAOCAP Not Orderable ATL</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

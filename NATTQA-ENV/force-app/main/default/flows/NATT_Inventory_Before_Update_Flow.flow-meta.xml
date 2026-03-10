@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>54.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <assignments>
+        <name>Assign_Name</name>
+        <label>Assign Name</label>
+        <locationX>645</locationX>
+        <locationY>313</locationY>
+        <assignmentItems>
+            <assignToReference>InventoryName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.NATT_Serial_Number__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>update_Inventory_Record</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <description>updates the record name</description>
+        <name>Name_Serial_Number</name>
+        <label>Name != Serial Number</label>
+        <locationX>451</locationX>
+        <locationY>315</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Assign_SN_Name</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.NATT_Serial_Number__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Name</targetReference>
+            </connector>
+            <label>Assign SN Name</label>
+        </rules>
+        <rules>
+            <name>AssignRecordIdName</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Name</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <elementReference>$Record.Id</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>update_Inventory_Record</targetReference>
+            </connector>
+            <label>AssignRecordIdName</label>
+        </rules>
+    </decisions>
+    <description>updates the name of the inventory record according to the serial number</description>
+    <environments>Default</environments>
+    <interviewLabel>Inventory Before Update Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Inventory Before Update Flow</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>update_Inventory_Record</name>
+        <label>update Inventory Record</label>
+        <locationX>470</locationX>
+        <locationY>544</locationY>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>InventoryName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>336</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Name_Serial_Number</targetReference>
+        </connector>
+        <object>NATT_Inventory__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordBeforeSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>InventoryName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <elementReference>$Record.Id</elementReference>
+        </value>
+    </variables>
+    <variables>
+        <name>UpdateInventoryRecordNeeded</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+</Flow>

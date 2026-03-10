@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Training_Event__c</fullName>
+    <label>Training Event</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 Week Technician</fullName>
+                <default>false</default>
+                <label>1 Week Technician</label>
+            </value>
+            <value>
+                <fullName>3 Day Technician</fullName>
+                <default>false</default>
+                <label>3 Day Technician</label>
+            </value>
+            <value>
+                <fullName>2 Day Genset</fullName>
+                <default>false</default>
+                <label>2 Day Genset</label>
+            </value>
+            <value>
+                <fullName>1 Day Product Update</fullName>
+                <default>false</default>
+                <label>1 Day Product Update</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

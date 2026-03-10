@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DelegateGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <groups>CONTAINER Service Admin</groups>
+    <groups>CONTAINER Service FSM</groups>
+    <groups>CONTAINER Service Product Service Engr</groups>
+    <groups>CONTAINER Service RSM</groups>
+    <groups>CONTAINER Service Technical Publication</groups>
+    <groups>CONTAINER Service Training</groups>
+    <groups>CONTAINER Service Warranty Admin</groups>
+    <groups>Report Access for Container users</groups>
+    <label>Container Service Delegated Admin</label>
+    <loginAccess>true</loginAccess>
+    <permissionSets>CONTAINER Service Admin</permissionSets>
+    <permissionSets>CONTAINER Service FSM</permissionSets>
+    <permissionSets>CONTAINER Service RSM</permissionSets>
+    <permissionSets>CONTAINER Service Technical Publication</permissionSets>
+    <permissionSets>CONTAINER Service Training</permissionSets>
+    <permissionSets>CONTAINER Service Warranty Admin</permissionSets>
+    <profiles>CONTAINER Service</profiles>
+</DelegateGroup>

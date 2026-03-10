@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAOCAP_New_Change_Address_Case_Request</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>NAME</columns>
+    <columns>NATT_Case_Reason__c</columns>
+    <columns>NAOCAP_Street__c</columns>
+    <columns>NAOCAP_City__c</columns>
+    <columns>NAOCAP_State__c</columns>
+    <columns>NAOCAP_Zip_Code__c</columns>
+    <columns>NAOCAP_Country__c</columns>
+    <columns>NAOCAP_Contact_Point_Address__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.NAC_Performance_Parts</value>
+    </filters>
+    <filters>
+        <field>CASES.TYPE</field>
+        <operation>equals</operation>
+        <value>New/Change Address</value>
+    </filters>
+    <label>NAOCAP New/Change Address Case Request</label>
+    <sharedTo></sharedTo>
+</ListView>

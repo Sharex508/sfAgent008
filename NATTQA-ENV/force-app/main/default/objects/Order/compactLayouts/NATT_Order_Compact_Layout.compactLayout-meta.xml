@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Order_Compact_Layout</fullName>
+    <fields>OrderNumber</fields>
+    <fields>NATT_JDE_SO__c</fields>
+    <fields>AccountId</fields>
+    <fields>EffectiveDate</fields>
+    <fields>Status</fields>
+    <label>NATT Order Compact Layout</label>
+</CompactLayout>

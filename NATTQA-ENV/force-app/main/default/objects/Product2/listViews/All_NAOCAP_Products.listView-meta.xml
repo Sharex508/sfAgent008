@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_NAOCAP_Products</fullName>
+    <columns>NATT_P_N__c</columns>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>NATT_Branch_Plant_Warehouse__c</columns>
+    <columns>NATT_CoreItem_P_N__c</columns>
+    <columns>NATT_SignalCode__c</columns>
+    <columns>NAC_Stocking_Type_UTC__c</columns>
+    <columns>NATT_Sales_Code__c</columns>
+    <columns>NAC_Cat_Cde6_Code__c</columns>
+    <columns>NAC_Cat_Cde7_Code__c</columns>
+    <columns>NATT_Core__c</columns>
+    <columns>NATT_CorePrice__c</columns>
+    <columns>NATT_Core_Return_Location__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PRODUCT2.RECORD_TYPE</field>
+        <operation>equals</operation>
+        <value>Product2.NAC_Products</value>
+    </filters>
+    <filters>
+        <field>NATT_Branch_Plant_Warehouse__c</field>
+        <operation>equals</operation>
+        <value>ATL</value>
+    </filters>
+    <label>All NAOCAP Products</label>
+    <sharedTo>
+        <role>NAOCAP</role>
+    </sharedTo>
+</ListView>

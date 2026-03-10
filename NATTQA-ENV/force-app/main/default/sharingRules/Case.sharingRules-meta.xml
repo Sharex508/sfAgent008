@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>CONTAINER_Service_Cases_Shared_to_All_Service_Users</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Container Service Engineering and Field Service</description>
+        <label>CONTAINER Service Cases Shared to All Service Users</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container_Service</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CONTAINER Service Engineering</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTBR_CTM_Case_View_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>CTBR CTM Case View Access</label>
+        <sharedTo>
+            <group>CTBR_CTM_CASE_View_Access</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTM Service Engineering Field Service,CTM Unit Sales,CTM Customer Service,CTM Performance Parts,CTM Finance,CTM Warranty,CTM eSolutions</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>CTBR_Warehose_Case_Sharing</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>CTBR Warehouse case Sharing</description>
+        <label>CTBR Warehose Case Sharing</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>CTBR</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTBR Warehouse</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Container_Core_Return_To_NATT_Core_Return_Location</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Container Core Return To NATT Core Return Location</label>
+        <sharedTo>
+            <role>NA_Parts_Sales</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>NAOCAP Core Return</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Core_Ret_Carrier_Carlyle_Compressor</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Core Return Location</description>
+        <label>NATT Core Ret:  Carrier/Carlyle Compressor</label>
+        <sharedTo>
+            <group>NATT_Core_Ret_Carrier_Carlyle_Comp</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Core_Return_Location__c</field>
+            <operation>equals</operation>
+            <value>Carrier/Carlyle Compressor Core Returns</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Core_Ret_Carrier_Transicold_Electronics</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Core Return Location</description>
+        <label>NATT Core Ret:  Carrier Transicold Electronics</label>
+        <sharedTo>
+            <group>NATT_Core_Ret_Carrier_Trans_Elec</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Core_Return_Location__c</field>
+            <operation>equals</operation>
+            <value>Carrier Transicold Electronics</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Core_Ret_Carrier_Transicold_X430_Core_Return</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Core Return Location</description>
+        <label>NATT Core Ret:  Carrier Transicold X430 Core Return</label>
+        <sharedTo>
+            <group>NATT_Core_Ret_Carrier_Trans_X430</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Core_Return_Location__c</field>
+            <operation>equals</operation>
+            <value>Carrier Transicold X430 Core Return</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Core_Ret_Starter_Alternator_Core_Returns</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Core Return Location</description>
+        <label>NATT Core Ret:  Starter &amp; Alternator Core Returns</label>
+        <sharedTo>
+            <group>NATT_Core_Ret_Starter_Alt</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Core_Return_Location__c</field>
+            <operation>equals</operation>
+            <value>Starter &amp; Alternator Core Returns</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Core_Ret_Weitron_Refrigerant_Cylinder_Returns</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Core Return Location</description>
+        <label>NATT Core Ret:  Weitron Refrigerant Cylinder Returns</label>
+        <sharedTo>
+            <group>NATT_Core_Ret_Weitron_Refrig</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>NATT_Core_Return_Location__c</field>
+            <operation>equals</operation>
+            <value>Weitron Refrigerant Cylinder Returns</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>NATT_Core_Return_To_Container_Super_Usr</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>NATT Core Return To Container Super Usr</label>
+        <sharedTo>
+            <role>NAOCAP</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Core Returns</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Share_Container_AfterMarket_Place_cases</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Share Container AfterMarket Place cases with all the internal container users</description>
+        <label>Share Container AfterMarket Place cases</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Container</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Container Division</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>CTBR_Internal_Cases</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share all internal CTBR Cases with other CTBR Internal Users</description>
+        <label>CTBR Internal Cases</label>
+        <sharedTo>
+            <group>CTBR_Internal</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>CTBR_Internal</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>CTM_Internal_Cases</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share all internal CTM Cases with other CTM Internal Users</description>
+        <label>CTM Internal Cases</label>
+        <sharedTo>
+            <group>CTM_Internal</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>CTM_Internal</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>NATT_Internal_Cases</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Share all internal NATT Cases with other NATT Internal Users</description>
+        <label>NATT Internal Cases</label>
+        <sharedTo>
+            <group>NATT_Internal</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>NATT_Internal</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

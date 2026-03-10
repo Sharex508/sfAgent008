@@ -1,0 +1,56 @@
+<template>
+    <div class="slds-text-heading_large slds-p-top_small">Sign up</div>
+   
+    <template if:false={step6}>
+      <div class="slds-text-heading_medium slds-p-vertical_large">{currentStage}</div>
+      <c-nac-stage-indicator stages={stages} current-stage={currentStage}></c-nac-stage-indicator>
+    </template>
+    <div class="slds-p-bottom_large"></div>
+    <div>
+        <template if:true={step1}>
+            <c-nac_-user-information  signup-information={signupInformation} onsignupinfo={handlesignUpDataChange}>
+            </c-nac_-user-information>
+        </template>
+    </div>
+    <div>
+        <template if:true={step2}>
+            <c-nac_-new-billing-details cont-list={contList} state-list-options= {stateListOptions} country-province-map-new={countryProvinceMapNew} signup-information={signupInformation} onsignupinfo={handlesignUpDataChange}>
+            </c-nac_-new-billing-details>
+        </template>
+    </div>
+    <div>
+        <template if:true={step3}>
+            <c-nac_-new-shipping-details cont-list={contList} shipping-state-list-options= {shippingStateListOptions} country-province-map-new={countryProvinceMapNew} signup-information={signupInformation} onsignupinfo={handlesignUpDataChange}>
+            </c-nac_-new-shipping-details>
+        </template>
+    </div>
+    <div>
+        <template if:true={step4}>
+            <c-nac_-contact-parts-details signup-information={signupInformation} onsignupinfo={handlesignUpDataChange}>
+            </c-nac_-contact-parts-details>
+        </template>
+    </div>
+    <div>
+        <template if:true={step5}>
+            <c-nac_-contact-finance-details signup-information={signupInformation} onsignupinfo={handlesignUpDataChange}>
+            </c-nac_-contact-finance-details>
+        </template>
+    </div>
+    <div>
+        <template if:true={step6}>
+          <c-nac_-sign-up-complete signup-information={signupInformation} > 
+          </c-nac_-sign-up-complete>
+        </template>
+    </div>
+    <div class="slds-p-bottom_large"></div>
+    <div class="slds-float_right">
+        <template if:true={showBackButton}>
+          <lightning-button label="Back" onclick={handleClickBack} class="slds-m-left_x-small"></lightning-button>
+        </template>
+        <template if:true={showSubmitButton}>
+        <lightning-button variant="brand" label={nextButtonLabel} onclick={handleClickNext} disabled={disableNextButton}
+          class="slds-m-left_x-small">
+        </lightning-button>
+        </template>
+      </div>
+</template>

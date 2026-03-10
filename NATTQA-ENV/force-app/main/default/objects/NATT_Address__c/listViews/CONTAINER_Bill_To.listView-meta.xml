@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Bill_To</fullName>
+    <columns>NATT_Address_Formatted__c</columns>
+    <columns>NATT_Type__c</columns>
+    <columns>NATT_JDE_Address_ID__c</columns>
+    <columns>CONTAINER_JDE_Legacy_Number__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NATT_Type__c</field>
+        <operation>equals</operation>
+        <value>Bill To</value>
+    </filters>
+    <label>Bill To</label>
+    <sharedTo>
+        <group>CONTAINER_Global_Sales_Director</group>
+        <group>CONTAINER_RSM_APO_Case</group>
+        <group>CONTAINER_RSM_EMEA_Case</group>
+        <group>CONTAINER_RSM_NAO_Case</group>
+        <group>CONTAINER_Sales_Admin</group>
+        <group>CONTAINER_Sales_CAM</group>
+        <group>CONTAINER_Sales_CAM_GENSET</group>
+        <group>CONTAINER_Sales_CAM_NT</group>
+        <group>CONTAINER_Sales_CS</group>
+        <group>CONTAINER_Sales_CS_GENSET</group>
+        <group>CONTAINER_Sales_CS_NT</group>
+        <group>CONTAINER_Sales_PM</group>
+        <group>CONTAINER_Sales_PM_GENSET</group>
+        <group>CONTAINER_Sales_PM_NT</group>
+        <group>CONTAINER_Sales_RSD_APO</group>
+        <group>CONTAINER_Sales_RSD_EMEA</group>
+        <group>CONTAINER_Sales_RSD_NAO</group>
+        <group>CONTAINER_Sales_RSM_APO</group>
+        <group>CONTAINER_Sales_RSM_EMEA</group>
+        <group>CONTAINER_Sales_RSM_NAO</group>
+        <group>CONTAINER_Sales_VP</group>
+    </sharedTo>
+</ListView>

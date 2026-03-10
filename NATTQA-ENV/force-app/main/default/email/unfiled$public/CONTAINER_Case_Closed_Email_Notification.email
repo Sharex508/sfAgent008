@@ -1,0 +1,5 @@
+The case has been closed
+
+Case Number {!Case.CaseNumber} 
+Case Description {!Case.Description}
+Case Detail: {!Case.Link}

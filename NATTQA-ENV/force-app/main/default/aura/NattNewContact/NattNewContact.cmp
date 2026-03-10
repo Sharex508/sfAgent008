@@ -1,0 +1,23 @@
+<aura:component controller="NattNewContact" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">    
+    <aura:attribute type="String" name="rtId"/>    
+    <aura:attribute type="String" name="createdContactId"/>
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+    <lightning:pageReferenceUtils aura:id="pageRefUtils"/>
+    <lightning:navigation aura:id="navService"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="force:showToast" action="{!c.handleRedirect}"/>
+    
+    <aura:if isTrue="{!not(empty(v.rtId))}">
+        <lightning:recordEditForm objectApiName="Contact" recordTypeid="{!v.rtId}"                    
+                                  onload="{!c.handleOnLoad}"
+                                  onsuccess="{!c.handleCreation}"
+                                  onerror="{!c.handleOnError}">
+            <lightning:inputField fieldName="FirstName" />
+            <lightning:inputField fieldName="LastName" />
+            <lightning:inputField fieldName="Email" required="true"/>
+            <lightning:inputField fieldName="AccountId" aura:id="account"/>
+            <lightning:inputField fieldName="RecordTypeId" aura:id="rtId" class="slds-hide"/>
+            <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Create" />
+        </lightning:recordEditForm>
+    </aura:if>    
+</aura:component>

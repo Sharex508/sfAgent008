@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBQQ__Category__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Category of options in this feature. Allows for another level of grouping.</description>
+    <inlineHelpText>Assign this feature to a category such that multiple features with related options are grouped together.</inlineHelpText>
+    <label>Category</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CHINA</fullName>
+                <default>false</default>
+                <label>CHINA</label>
+            </value>
+            <value>
+                <fullName>USA</fullName>
+                <default>false</default>
+                <label>USA</label>
+            </value>
+            <value>
+                <fullName>FRANCIA</fullName>
+                <default>false</default>
+                <label>FRANCIA</label>
+            </value>
+            <value>
+                <fullName>Hardware</fullName>
+                <default>false</default>
+                <label>Hardware</label>
+            </value>
+            <value>
+                <fullName>Software</fullName>
+                <default>false</default>
+                <label>Software</label>
+            </value>
+            <value>
+                <fullName>Truck Selection</fullName>
+                <default>false</default>
+                <label>Truck Selection</label>
+            </value>
+            <value>
+                <fullName>Unit Selection</fullName>
+                <default>false</default>
+                <label>Unit Selection</label>
+            </value>
+            <value>
+                <fullName>Evaporator Selection</fullName>
+                <default>false</default>
+                <label>Evaporator Selection</label>
+            </value>
+            <value>
+                <fullName>Accessories Selection</fullName>
+                <default>false</default>
+                <label>Options</label>
+            </value>
+            <value>
+                <fullName>Recorder &amp; Telematics</fullName>
+                <default>false</default>
+                <label>Recorder &amp; Telematics</label>
+            </value>
+            <value>
+                <fullName>Accessories</fullName>
+                <default>false</default>
+                <label>Accessories</label>
+            </value>
+            <value>
+                <fullName>KITS</fullName>
+                <default>false</default>
+                <label>KITS</label>
+            </value>
+            <value>
+                <fullName>Related Options</fullName>
+                <default>false</default>
+                <label>Related Options</label>
+            </value>
+            <value>
+                <fullName>Standard Sales Options</fullName>
+                <default>false</default>
+                <label>Standard Sales Options</label>
+            </value>
+            <value>
+                <fullName>Non-Standard Sales Options</fullName>
+                <default>false</default>
+                <label>Non-Standard Sales Options</label>
+            </value>
+            <value>
+                <fullName>Special Options</fullName>
+                <default>false</default>
+                <label>Special Options</label>
+            </value>
+            <value>
+                <fullName>BluEdge</fullName>
+                <default>false</default>
+                <label>BluEdge</label>
+            </value>
+            <value>
+                <fullName>Core</fullName>
+                <default>false</default>
+                <label>Core</label>
+            </value>
+            <value>
+                <fullName>Enhanced</fullName>
+                <default>false</default>
+                <label>Enhanced</label>
+            </value>
+            <value>
+                <fullName>Elite</fullName>
+                <default>false</default>
+                <label>Elite</label>
+            </value>
+            <value>
+                <fullName>Chiquita UG Option package</fullName>
+                <default>false</default>
+                <label>Chiquita UG Option package</label>
+            </value>
+            <value>
+                <fullName>Matson UG Option package</fullName>
+                <default>false</default>
+                <label>Matson UG Option package</label>
+            </value>
+            <value>
+                <fullName>No Category</fullName>
+                <default>false</default>
+                <label>No Category</label>
+            </value>
+            <value>
+                <fullName>Atmosphere</fullName>
+                <default>false</default>
+                <label>Atmosphere</label>
+            </value>
+            <value>
+                <fullName>Controls</fullName>
+                <default>false</default>
+                <label>Controls</label>
+            </value>
+            <value>
+                <fullName>Refrigeration</fullName>
+                <default>false</default>
+                <label>Refrigeration</label>
+            </value>
+            <value>
+                <fullName>Electrical</fullName>
+                <default>false</default>
+                <label>Electrical</label>
+            </value>
+            <value>
+                <fullName>TELEMATICS</fullName>
+                <default>false</default>
+                <label>TELEMATICS</label>
+            </value>
+            <value>
+                <fullName>Convenience Features</fullName>
+                <default>false</default>
+                <label>Convenience Features</label>
+            </value>
+            <value>
+                <fullName>Unit Info</fullName>
+                <default>false</default>
+                <label>Unit Info</label>
+            </value>
+            <value>
+                <fullName>Warranty</fullName>
+                <default>false</default>
+                <label>Warranty</label>
+            </value>
+            <value>
+                <fullName>Special Requirements</fullName>
+                <default>false</default>
+                <label>Special Requirements</label>
+            </value>
+            <value>
+                <fullName>Factory Rework</fullName>
+                <default>false</default>
+                <label>Factory Rework</label>
+            </value>
+            <value>
+                <fullName>Commissioning Work Order</fullName>
+                <default>false</default>
+                <label>Commissioning Work Order</label>
+            </value>
+            <value>
+                <fullName>Special Options / Telemetría</fullName>
+                <default>false</default>
+                <label>Special Options / Telemetría</label>
+            </value>
+            <value>
+                <fullName>Lynx Fleet</fullName>
+                <default>false</default>
+                <label>Lynx Fleet</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

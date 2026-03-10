@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Mandatory_other_payment_terms</fullName>
+    <active>true</active>
+    <description>if other picklist value selected in payment terms then respective other Payemt Terms text fields shall not be blank</description>
+    <errorConditionFormula>AND(NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+IF(AND(OR( RecordType.Name = &apos;Container GENSET Quote&apos;, RecordType.Name = &apos;Container NT Quote&apos;),
+OR( ISPICKVAL(CONTAINER_Payment_Terms__c,&apos;Other&apos;),  ISPICKVAL(CONTAINER_Payment_Terms_GENSET__c,&apos;Other&apos;)),   CONTAINER_Other_Payment_Terms__c == null), true, false))</errorConditionFormula>
+    <errorDisplayField>CONTAINER_Other_Payment_Terms__c</errorDisplayField>
+    <errorMessage>Other Payment Terms Can Not be Blank.</errorMessage>
+</ValidationRule>

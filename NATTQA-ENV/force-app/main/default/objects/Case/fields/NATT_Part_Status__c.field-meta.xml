@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Part_Status__c</fullName>
+    <description>Part Status</description>
+    <inlineHelpText>Part Status</inlineHelpText>
+    <label>Part Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Status1</fullName>
+                <default>false</default>
+                <label>Status1</label>
+            </value>
+            <value>
+                <fullName>Status2</fullName>
+                <default>false</default>
+                <label>Status2</label>
+            </value>
+            <value>
+                <fullName>Status3</fullName>
+                <default>false</default>
+                <label>Status3</label>
+            </value>
+            <value>
+                <fullName>Status4</fullName>
+                <default>false</default>
+                <label>Status4</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

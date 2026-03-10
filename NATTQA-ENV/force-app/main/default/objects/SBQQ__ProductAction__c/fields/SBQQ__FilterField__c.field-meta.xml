@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBQQ__FilterField__c</fullName>
+    <deprecated>false</deprecated>
+    <description>The field that is updated when the rule is triggered.</description>
+    <inlineHelpText>Choose the field to update when the rule is triggered.</inlineHelpText>
+    <label>Filter Field</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Product Code</fullName>
+                <default>false</default>
+                <label>Product Code</label>
+            </value>
+            <value>
+                <fullName>Product Family</fullName>
+                <default>false</default>
+                <label>Product Family</label>
+            </value>
+            <value>
+                <fullName>TRS_TECH__c</fullName>
+                <default>false</default>
+                <label>TRS_TECH__c</label>
+            </value>
+            <value>
+                <fullName>NATT_BluEdge_Hours__c</fullName>
+                <default>false</default>
+                <label>NATT_BluEdge_Hours__c</label>
+            </value>
+            <value>
+                <fullName>NATT_BluEdge_Months__c</fullName>
+                <default>false</default>
+                <label>NATT_BluEdge_Months__c</label>
+            </value>
+            <value>
+                <fullName>NATT_BluEdge_Price_Type__c</fullName>
+                <default>false</default>
+                <label>NATT_BluEdge_Price_Type__c</label>
+            </value>
+            <value>
+                <fullName>Extended_Basic_Dynamic_Key__c</fullName>
+                <default>false</default>
+                <label>Extended_Basic_Dynamic_Key__c</label>
+            </value>
+            <value>
+                <fullName>NATT_Unit__c</fullName>
+                <default>false</default>
+                <label>NATT_Unit__c</label>
+            </value>
+            <value>
+                <fullName>NATT_P_N__c</fullName>
+                <default>false</default>
+                <label>NATT_P_N__c</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

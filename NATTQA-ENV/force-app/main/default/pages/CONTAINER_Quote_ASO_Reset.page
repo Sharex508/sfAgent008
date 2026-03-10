@@ -1,0 +1,3 @@
+<apex:page standardController="SBQQ__Quote__c" extensions="CONTAINER_Quote_ASO_Reset" lightningStyleSheets="true"  action="{!onReset}">       
+<apex:pageMessages />
+</apex:page>

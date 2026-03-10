@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Survey_Program__c</fullName>
+    <label>Survey Program</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sensitech</fullName>
+                <default>false</default>
+                <label>Sensitech</label>
+            </value>
+            <value>
+                <fullName>Haier Carrier</fullName>
+                <default>false</default>
+                <label>Haier Carrier</label>
+            </value>
+            <value>
+                <fullName>Carrier</fullName>
+                <default>false</default>
+                <label>Carrier</label>
+            </value>
+            <value>
+                <fullName>Carrier Transicold</fullName>
+                <default>false</default>
+                <label>Carrier Transicold</label>
+            </value>
+            <value>
+                <fullName>Celsior</fullName>
+                <default>false</default>
+                <label>Celsior</label>
+            </value>
+            <value>
+                <fullName>Profroid</fullName>
+                <default>false</default>
+                <label>Profroid</label>
+            </value>
+            <value>
+                <fullName>(Blanks)</fullName>
+                <default>false</default>
+                <label>(Blanks)</label>
+            </value>
+            <value>
+                <fullName>Case-closure survey</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Case-closure survey</label>
+            </value>
+            <value>
+                <fullName>Relationship survey</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Relationship survey</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

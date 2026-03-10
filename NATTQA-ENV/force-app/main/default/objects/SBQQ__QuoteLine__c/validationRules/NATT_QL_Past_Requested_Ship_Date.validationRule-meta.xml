@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_QL_Past_Requested_Ship_Date</fullName>
+    <active>false</active>
+    <description>Prevents User from entering a past date on the Requested Ship Date</description>
+    <errorConditionFormula>OR(
+AND(SBQQ__Quote__r.NATT_Quote_Record_Type_Developer_Name__c = &quot;NATT_Units_Quote&quot;,
+NATT_Requested_Ship_Date__c &lt; TODAY(),
+OR(ISNEW(),ISCHANGED(NATT_Requested_Ship_Date__c), ISNULL(PRIORVALUE(NATT_Requested_Ship_Date__c))),
+ISPICKVAL(SBQQ__Quote__r.SBQQ__Type__c, &quot;Quote&quot;)),
+
+AND(ISPICKVAL(SBQQ__Quote__r.SBQQ__Type__c, &quot;Amendment&quot;),
+NATT_Requested_Ship_Date__c &lt; TODAY(),
+ISCHANGED(NATT_Requested_Ship_Date__c),
+NOT(ISNEW()),
+SBQQ__Quote__r.NATT_Quote_Record_Type_Developer_Name__c = &apos;NATT_Units_Quote_Amendment&apos;
+)
+)</errorConditionFormula>
+    <errorDisplayField>SBQQ__Discount__c</errorDisplayField>
+    <errorMessage>Past dates are not allowed</errorMessage>
+</ValidationRule>

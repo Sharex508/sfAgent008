@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Direct_Drive_Purchased_Carrier__c</fullName>
+    <description>Field that represents a purchased Carrier direct drive.</description>
+    <externalId>false</externalId>
+    <label>Direct Drive Purchased - Carrier</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

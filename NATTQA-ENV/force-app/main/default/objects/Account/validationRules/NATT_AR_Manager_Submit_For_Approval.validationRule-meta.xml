@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_AR_Manager_Submit_For_Approval</fullName>
+    <active>true</active>
+    <description>The AR manager must be completed in order to submit for approval</description>
+    <errorConditionFormula>AND(
+ISBLANK(NATT_AR_Manager__c),
+NATT_Send_for_Approval__c = TRUE
+)</errorConditionFormula>
+    <errorDisplayField>NATT_AR_Manager__c</errorDisplayField>
+    <errorMessage>You must include an A/R Manager to Send For Approval.</errorMessage>
+</ValidationRule>

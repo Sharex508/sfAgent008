@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>CONTAINER_Genset_Quote_Pending_Job_Number</name>
+        <label>CONTAINER Genset Quote Pending Job Number</label>
+        <locationX>948</locationX>
+        <locationY>481</locationY>
+        <actionName>SBQQ__Quote__c.CONTAINER_Genset_Quote_Pending_Job_Number</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>SBQQ__Quote__c.CONTAINER_Genset_Quote_Pending_Job_Number</nameSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>CONTAINER_NT_Quote_Pending_Job_Number</name>
+        <label>CONTAINER NT Quote Pending Job Number</label>
+        <locationX>420</locationX>
+        <locationY>490</locationY>
+        <actionName>SBQQ__Quote__c.CONTAINER_NT_Quote_Pending_Job_Number</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>SBQQ__Quote__c.CONTAINER_NT_Quote_Pending_Job_Number</nameSegment>
+    </actionCalls>
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Status_Check</name>
+        <label>Status &amp; Record Type Check</label>
+        <locationX>660</locationX>
+        <locationY>385</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Pending_Job_Status_NT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Order/Pending for Job #</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Product_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NT</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CONTAINER_NT_Quote_Pending_Job_Number</targetReference>
+            </connector>
+            <label>Pending Job# Status NT</label>
+        </rules>
+        <rules>
+            <name>Pending_Job_Status_GENSET</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Status__c</leftValueReference>
+                <operator>IsChanged</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Order/Pending for Job #</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Product_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Genset</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>CONTAINER_Genset_Quote_Pending_Job_Number</targetReference>
+            </connector>
+            <label>Pending Job# Status GENSET</label>
+        </rules>
+    </decisions>
+    <description>Sending pending job number notification</description>
+    <interviewLabel>CONTAINER Pending Job Number {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CONTAINER Quote Pending Job Number</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>543</locationX>
+        <locationY>48</locationY>
+        <connector>
+            <targetReference>Status_Check</targetReference>
+        </connector>
+        <object>SBQQ__Quote__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>

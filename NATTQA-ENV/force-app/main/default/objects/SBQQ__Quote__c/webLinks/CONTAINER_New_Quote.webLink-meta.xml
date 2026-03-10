@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_New_Quote</fullName>
+    <availability>online</availability>
+    <description>Creating new quote by autoselecting record type</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>New Quote</masterLabel>
+    <openType>noSidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>/lightning/o/SBQQ__Quote__c/new?nooverride=true&amp;
+
+defaultFieldValues=SBQQ__Account__c={!Opportunity.AccountId},
+SBQQ__Opportunity2__c={!Opportunity.Id},
+SBQQ__PricebookId__c=01s7V000000O0nzQAC&amp;
+
+recordTypeId={!IF(ISPICKVAL(Opportunity.Type, &apos;Genset&apos;), &apos;0127V000000JQcXQAW&apos;, &apos;0127V000000JQcYQAW&apos;)}&amp;
+
+backgroundContext=/lightning/r/Opportunity/{!Opportunity.Id}/view</url>
+</WebLink>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "a5eca8fa-962d-4329-816e-47c1e3a3234c",
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "configurationTags" : [ ],
+  "devName" : "Recently_Ordered_Product__c",
+  "id" : "4faf88fe-60bd-42a7-9670-d20163cb1b02",
+  "label" : "Recently Ordered Product",
+  "pageAccess" : "RequiresLogin",
+  "routeType" : "custom-recently-ordered-product",
+  "type" : "route",
+  "urlPrefix" : "recently-ordered-product"
+}

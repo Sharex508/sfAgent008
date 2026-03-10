@@ -1,0 +1,25 @@
+.THIS .container {
+    background-color:#F0F0F0;
+}
+
+.THIS .heightjustable{
+    height: 300px;
+    text-align: center;
+    position : absolute;
+    left: 45%;
+    top: 280px;
+}
+
+.THIS .cellheight{
+    height: 50px;
+}
+
+.THIS .slds-card__body{
+    margin-bottom: 0;
+}
+
+.THIS .message{
+     display: flex;
+     flex-wrap: wrap;
+   
+}

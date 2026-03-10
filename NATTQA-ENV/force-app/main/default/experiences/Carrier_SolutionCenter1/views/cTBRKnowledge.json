@@ -1,0 +1,233 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "9045eb79-f1ec-43d3-b5a0-d221adfceebc",
+  "label" : "CTBR Knowledge",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "b3c26808-042c-4813-9bbd-12b5a82b3f0b",
+          "columns" : [ {
+            "UUID" : "0d2bfada-4c01-445c-84f0-8247871076ad",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "4",
+            "seedComponents" : [ ]
+          }, {
+            "UUID" : "13cb1896-5f8e-4c02-8e39-7636156b9f9a",
+            "columnKey" : "d5e53",
+            "columnName" : "Column 2",
+            "columnWidth" : "8",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "b3c26808-042c-4813-9bbd-12b5a82b3f0b",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "Replace this text with content of your own."
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "2dcd2798-f47c-4881-839e-508fec9a19c1",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : {
+            "pt_br" : "511ea9d3-fb99-4ccd-9c4a-a5f1e2f41b3a"
+          },
+          "renditions" : [ {
+            "id" : "511ea9d3-fb99-4ccd-9c4a-a5f1e2f41b3a",
+            "renditionValue" : {
+              "componentAttributes" : {
+                "richTextValue" : "<p style=\"text-align: center;\"><span style=\"font-size: 26px;\">Pesquisar no Centro de Conhecimento</span></p><p style=\"text-align: center;\">Para pesquisas de texto que não são exatas, inclua 1 ou mais asteriscos.</p><p style=\"text-align: center;\">Exemplos: *Vector* ou Vector* ou *Vector</p>"
+              }
+            },
+            "type" : "renditionComponent"
+          } ],
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "customLogic" : "",
+            "fieldNames" : "Name, StageName, Amount, CloseDate, AccountId.Name, OwnerId:User.Name",
+            "fieldNamesOrDefaultValues" : "",
+            "isConditionFolded" : false,
+            "isFieldIndexDisplayed" : false,
+            "isObjectNameDisplayed" : false,
+            "numColums" : "2",
+            "objectName" : "Opportunity",
+            "order" : "1",
+            "searchButtonLabel" : "Search!",
+            "sectionHeaders" : "",
+            "title" : "Search"
+          },
+          "componentName" : "RHG:SearchBox",
+          "id" : "b4b94f59-1fd7-45ae-bed4-5a46f19f95e8",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : {
+            "pt_br" : "7d3a0371-7d02-4df6-bbea-3307e33112e7"
+          },
+          "renditions" : [ {
+            "id" : "7d3a0371-7d02-4df6-bbea-3307e33112e7",
+            "renditionValue" : {
+              "componentAttributes" : {
+                "fieldNames" : "Title,NATT_Doc_Number__c,NATT_Department__c, NATT_Segment__c,NATT_Document_Type__c",
+                "numColums" : "1",
+                "objectName" : "Knowledge__kav",
+                "searchButtonLabel" : "Pesquisar!",
+                "title" : "Pesquisar no Centro de Conhecimento"
+              }
+            },
+            "type" : "renditionComponent"
+          } ],
+          "type" : "component"
+        } ],
+        "id" : "0d2bfada-4c01-445c-84f0-8247871076ad",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : {
+          "pt_br" : "c3a4a4b1-9db7-4ad3-aea0-a5739cd0d4dc"
+        },
+        "renditions" : [ {
+          "id" : "c3a4a4b1-9db7-4ad3-aea0-a5739cd0d4dc",
+          "renditionValue" : {
+            "regionLabel" : "Column 1"
+          },
+          "type" : "renditionComponent"
+        } ],
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "falseValue" : "false",
+            "fieldNames" : "Name, Type, StageName, Amount, CloseDate, AccountId.Name, OwnerId:User.Name",
+            "flowInput" : "ID",
+            "flowLabels" : "",
+            "flowNames" : "",
+            "height" : 500,
+            "objectName" : "Opportunity",
+            "order" : "1",
+            "pageSize" : 50,
+            "title" : "Result",
+            "trueValue" : "true"
+          },
+          "componentName" : "RHG:DataTableWithFlow",
+          "id" : "5b9f28c8-129c-43e7-94dd-ce6f96fdc439",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : {
+            "pt_br" : "60698109-4806-4661-b474-b02e83a3e673"
+          },
+          "renditions" : [ {
+            "id" : "60698109-4806-4661-b474-b02e83a3e673",
+            "renditionValue" : {
+              "componentAttributes" : {
+                "fieldNames" : "Title,NATT_Doc_Number__c,NATT_Department__c, NATT_Segment__c,NATT_Document_Type__c,LastModifiedDate",
+                "height" : "505",
+                "objectName" : "Knowledge__kav",
+                "order" : "2",
+                "title" : "Pesquisar Resultados"
+              }
+            },
+            "type" : "renditionComponent"
+          } ],
+          "type" : "component"
+        } ],
+        "id" : "13cb1896-5f8e-4c02-8e39-7636156b9f9a",
+        "regionLabel" : "Column 2",
+        "regionName" : "d5e53",
+        "renditionMap" : {
+          "pt_br" : "0234288b-6018-4c72-b7db-430acbfa5a99"
+        },
+        "renditions" : [ {
+          "id" : "0234288b-6018-4c72-b7db-430acbfa5a99",
+          "renditionValue" : {
+            "regionLabel" : "Column 2"
+          },
+          "type" : "renditionComponent"
+        } ],
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "caf5c043-d15f-492a-a672-070c04ca7aeb",
+          "columns" : [ {
+            "UUID" : "357767e9-bbad-43c5-a44c-ba3c17933f63",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "caf5c043-d15f-492a-a672-070c04ca7aeb",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "enableInlineEdit" : true,
+            "filterName" : "CTBR_Published_Articles",
+            "layout" : "FULL",
+            "pageSize" : 25,
+            "scope" : "Knowledge__kav",
+            "showActionBar" : true,
+            "showChartsPanel" : true,
+            "showDisplay" : "showall",
+            "showFilterPanel" : true,
+            "showImageIcon" : true,
+            "showManualRefreshButton" : true,
+            "showObjectName" : true,
+            "showPinnedList" : true,
+            "showSearchBar" : true
+          },
+          "componentName" : "forceCommunity:objectHome",
+          "id" : "7cc1f313-48a9-4a8c-a9fb-8519ff23c97a",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "357767e9-bbad-43c5-a44c-ba3c17933f63",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "45b0c5a7-50ed-43ce-9e5f-d77380f152e1",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "All Knowledge"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "5ca94fcb-5f4e-4461-a04e-eda35c2d9e44",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "3ab6c4e5-c77c-4d9c-a12d-5e2c6f1634cb",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-all-knowledge"
+}

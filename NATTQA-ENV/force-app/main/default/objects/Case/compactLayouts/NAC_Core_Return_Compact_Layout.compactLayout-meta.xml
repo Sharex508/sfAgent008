@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAC_Core_Return_Compact_Layout</fullName>
+    <fields>Subject</fields>
+    <fields>Status</fields>
+    <fields>CaseNumber</fields>
+    <label>NAC Core Return Compact Layout</label>
+</CompactLayout>

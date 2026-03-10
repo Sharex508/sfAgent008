@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_NPS_Feedback_Header__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The parent Object of this object. The parent object is used to store the rollup summary values.</description>
+    <label>NPS Feedback Header</label>
+    <referenceTo>nps_Feedback_Header__c</referenceTo>
+    <relationshipLabel>Responses</relationshipLabel>
+    <relationshipName>NPS_Feedback</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

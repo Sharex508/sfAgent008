@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Reason_Rule_NEW</fullName>
+    <active>true</active>
+    <description>This will trigger when status is closed</description>
+    <errorConditionFormula>AND(ISPICKVAL(Status, &quot;Closed&quot;), ISBLANK(TEXT(NATT_Close_Reason__c)),
+OR(BEGINS($RecordType.DeveloperName,&quot;NATT_&quot;), BEGINS($RecordType.DeveloperName,&quot;CTM_&quot;), BEGINS($RecordType.DeveloperName,&quot;CTBR_&quot;)))</errorConditionFormula>
+    <errorMessage>You need to select the reason for closing the case</errorMessage>
+</ValidationRule>

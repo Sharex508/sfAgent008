@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>BluEdge Queue</name>
+    <queueMembers>
+        <users>
+            <user>christopher.comeaux@carrier.com.corp</user>
+            <user>jesse.siebentritt@carrier.com.corp</user>
+            <user>stuart.m.johnson@carrier.com.corp</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

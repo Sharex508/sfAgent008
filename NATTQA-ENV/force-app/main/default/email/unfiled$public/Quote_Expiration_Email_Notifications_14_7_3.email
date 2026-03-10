@@ -1,0 +1,25 @@
+Quote Summary
+
+Quote #: {!SBQQ__Quote__c.Name}
+
+Quote Expiration Date: {!SBQQ__Quote__c.Expires_On__c}
+
+Days until Quote Expires: {!SBQQ__Quote__c.Prior_to_Expiraiton_Date__c}
+
+Quote Fully Approved Date: {!SBQQ__Quote__c.NATT_Final_Approval_Date__c}
+
+Quote Status: {!SBQQ__Quote__c.NATT_Status_Fx__c}
+
+Dealer Name: {!SBQQ__Quote__c.SBQQ__Account__c}
+
+End Customer: {!SBQQ__Quote__c.NATT_End_Customer__c}
+
+Unit: {!SBQQ__Quote__c.NATT_Unit__c}
+
+Total # of Units: {!SBQQ__Quote__c.NATT_Total_Unit_Quantity__c}
+
+Discount %: {!SBQQ__Quote__c.NATT_Total_Discount__c}
+
+
+
+Thanks

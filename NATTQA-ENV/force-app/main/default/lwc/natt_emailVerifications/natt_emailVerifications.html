@@ -1,0 +1,8 @@
+<template>
+    <template if:false={verifiedEmail}>
+      <div class="whoswho slds-p-around_xx-small slds-m-top_large">
+         <div class="large-text">{emailDescriptionLabel}</div>
+         <lightning-button label={verifyEmailButtonLabel} onclick={handleClick}></lightning-button>
+      </div>
+    </template>
+</template>

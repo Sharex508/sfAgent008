@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>APU EAM - NATT</masterLabel>
+        <translation><!-- APU EAM - NATT --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Director of Sales - NATT</masterLabel>
+        <translation>Diretor de Vendas - NATT</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>EAM - NATT</masterLabel>
+        <translation><!-- EAM - NATT --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>FSE - NATT</masterLabel>
+        <translation><!-- FSE - NATT --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>NFM - NATT</masterLabel>
+        <translation><!-- NFM - NATT --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Part Sales Rep - NATT</masterLabel>
+        <translation>Representante de Vendas de Peças - NATT</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Parts BDM - NATT</masterLabel>
+        <translation>Peças BDM - NATT</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RD - NATT</masterLabel>
+        <translation><!-- RD - NATT --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Sales Operation - NATT</masterLabel>
+        <translation>Operação de Vendas - NATT</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unit Sales Rep - NATT</masterLabel>
+        <translation>Representante de Vendas da Unidade - NATT</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

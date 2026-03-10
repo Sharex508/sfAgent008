@@ -1,0 +1,92 @@
+<template>
+    <template if:true={showEmailSuccessScreen}>
+        <div class="slds-tabs_card">
+            <div class="slds-align_absolute-center" style="height:5rem">
+                <p><lightning-formatted-text class="formatted-text_success" value="Catalog Request email sent successfully. Your information has been submitted."></lightning-formatted-text></p>
+            </div>
+        </div>
+    </template>
+    <template if:false={showEmailSuccessScreen}>
+
+    
+<div class="slds-box">
+     <!-- Name -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="nameField" type="text" field-name="Name" onchange={handleChange} value={nameValue} label="Name" required>
+            </lightning-input>
+        </div>
+    </div>
+    <!-- Company  -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="companyField" type="text" field-name="Company" onchange={handleChange} value={companyValue} label="Company" required>
+            </lightning-input>
+        </div>
+    </div>
+    <!-- Email  -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <lightning-input data-id="emailField" type="text" field-name="Email" onchange={handleChange} value={emailValue} label="Email" required>
+            </lightning-input>
+        </div>
+    </div>
+    <!-- Street Addresses -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-1">
+            <!-- <lightning-input data-id="streetField" type="textarea" field-name="Street Address" onchange={handleChange} value={streetValue} label="Street Address">
+            </lightning-input> -->
+            <lightning-textarea data-id="streetField" field-name="Street Address" onchange={handleChange} value={streetValue} label="Street Address" required></lightning-textarea>
+        </div>
+    </div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input data-id="cityField" type="text" field-name="City" onchange={handleChange} value={cityValue} label="City" required>
+            </lightning-input>
+        </div>
+    <!-- </div> -->
+    <!-- <div class="slds-grid slds-gutters"> -->
+        <div class="slds-col slds-size_1-of-2">
+            <!-- <lightning-input data-id="stateField" type="text" field-name="State" onchange={handleChange} value={stateValue} label="State">
+            </lightning-input> -->
+            <lightning-combobox  
+                data-id="stateField"      
+                label={label}        
+                placeholder='Select a State'
+                options={choices}
+                onchange={handleChange}
+                disabled={stateDisabled}
+            >
+            </lightning-combobox>
+        </div>
+    </div>
+    <!-- Postal Code Country -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col slds-size_1-of-2">
+            <lightning-input data-id="postalCodeField" type="text" field-name="Postal Code" onchange={handleChange} value={postalCodeValue} label="Postal Code" required>
+            </lightning-input>
+        </div>
+    <!-- </div>
+    <div class="slds-grid slds-gutters"> -->
+        <div class="slds-col slds-size_1-of-2">
+            <!-- <lightning-input data-id="countryField" type="text" field-name="Country" onchange={handleChange} value={countryValue} label="Country">
+            </lightning-input> -->
+                <lightning-combobox  
+                    data-id="countryField"      
+                    label='Country'        
+                    placeholder='Select a Country'
+                    options={choicesCountry}
+                    onchange={handleChange}
+                    required
+                    >
+                </lightning-combobox>
+        </div>
+    </div>
+<br/>
+    <div class="mybtn slds-grid slds-align_absolute-center">
+        <!-- <lightning-button  class="slds-m-left_x-small" label="Neutral" label="Cancel" onclick={returnToLogin}></lightning-button> -->
+        <lightning-button class="slds-m-left_medium"  variant="brand" label="Submit" onclick={sendCatalogEmail} disabled={submitDisabled} ></lightning-button>
+    </div>
+</div>
+</template>
+</template>

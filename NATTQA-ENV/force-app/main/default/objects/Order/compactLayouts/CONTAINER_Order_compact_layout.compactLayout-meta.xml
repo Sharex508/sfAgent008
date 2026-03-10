@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Order_compact_layout</fullName>
+    <fields>OrderNumber</fields>
+    <fields>AccountId</fields>
+    <fields>CONTAINER_Cost_Contract_Price__c</fields>
+    <fields>OwnerId</fields>
+    <label>CONTAINER Order compact layout</label>
+</CompactLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAOCAP_Rejected_Contacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>NAC_Contact_Type__c</columns>
+    <columns>NAC_Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAC_Status__c</field>
+        <operation>equals</operation>
+        <value>Rejected</value>
+    </filters>
+    <label>NAOCAP Rejected Contacts</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>NAOCAP</role>
+    </sharedTo>
+</ListView>

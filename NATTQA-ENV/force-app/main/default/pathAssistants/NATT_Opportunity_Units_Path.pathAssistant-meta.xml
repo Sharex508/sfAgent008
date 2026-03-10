@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>NATT Opportunity Units Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>NATT_Lost_Reason__c</fieldNames>
+        <fieldNames>NATT_Other_Lost_Reason__c</fieldNames>
+        <picklistValueName>Closed Lost</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Preforming credit checks on the Dealer &lt;/li&gt;&lt;li&gt;If indirect (Dealers involved) opportunities of $1M or greater go through Finance for approval&lt;/li&gt;&lt;li&gt;If direct (no Dealer involved) opportunities of $500K or greater go through Finance for approval  &lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Closed Won</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <picklistValueName>Qualification</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;ul&gt;&lt;li&gt;Customer Needs Confirmed&lt;/li&gt;&lt;li&gt;Proposal Completed&lt;/li&gt;&lt;li&gt;Customer contractual terms with the dealer. Adjusting necessary&lt;/li&gt;&lt;li&gt;Confirming delivery terms and date. Adjusting as necessary   &lt;/li&gt;&lt;li&gt;Finalizing the proposal&lt;/li&gt;&lt;li&gt;The Dealer checks the Customer´s credit&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Quoting</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>NATT_Opportunity_Units</recordTypeName>
+</PathAssistant>

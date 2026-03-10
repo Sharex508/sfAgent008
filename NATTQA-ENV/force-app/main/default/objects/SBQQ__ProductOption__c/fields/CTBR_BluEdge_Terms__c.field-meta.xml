@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_BluEdge_Terms__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>CTBR BluEdge Terms</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>$Source.CTBR_BluEdge_Unit__c</field>
+            <operation>equals</operation>
+            <valueField>NATT_BluEdge_Terms__c.CTBR_BluEdge_Unit__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>$Source.NATT_BluEdge_Price_Type__c</field>
+            <operation>equals</operation>
+            <valueField>NATT_BluEdge_Terms__c.NATT_BluEdge_Price_Type__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>NATT_BluEdge_Terms__c</referenceTo>
+    <relationshipLabel>Product Options (CTBR BluEdge Term)</relationshipLabel>
+    <relationshipName>CTBR_Product_Options</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

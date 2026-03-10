@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Provide_Valid_Agreement_Date</fullName>
+    <active>true</active>
+    <description>Validation to populate valid First Service Center Agreement Date</description>
+    <errorConditionFormula>AND(
+NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR(Not(ISNUMBER(CONTAINER_Field_Service_Center_Agreement__c)),
+LEN(CONTAINER_Field_Service_Center_Agreement__c) &lt;&gt; 4),
+RecordType.DeveloperName = &apos;CONTAINER_Authorized_Service_Provider&apos;,
+NOT(ISBLANK(CONTAINER_Field_Service_Center_Agreement__c))
+)</errorConditionFormula>
+    <errorDisplayField>CONTAINER_Field_Service_Center_Agreement__c</errorDisplayField>
+    <errorMessage>Please enter a valid Year.</errorMessage>
+</ValidationRule>

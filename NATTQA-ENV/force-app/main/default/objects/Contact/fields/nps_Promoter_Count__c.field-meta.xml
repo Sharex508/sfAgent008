@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Promoter_Count__c</fullName>
+    <label>Promoter Count</label>
+    <summaryFilterItems>
+        <field>nps_Feedback__c.nps_Response_Main_score__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>9</value>
+    </summaryFilterItems>
+    <summaryForeignKey>nps_Feedback__c.nps_Contact_Id__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

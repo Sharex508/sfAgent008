@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_PAR</fullName>
+    <active>true</active>
+    <description>NATT PAR</description>
+    <label>NATT PAR</label>
+</RecordType>

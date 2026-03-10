@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Mobile Reject</description>
+    <height>250</height>
+    <icon>sbaa__Reject</icon>
+    <label>Reject</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>sbaa__Reject</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

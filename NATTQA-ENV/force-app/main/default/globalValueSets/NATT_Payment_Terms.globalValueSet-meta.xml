@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>2% Net 30 Days</fullName>
+        <default>false</default>
+        <label>2% Net 30 Days</label>
+    </customValue>
+    <customValue>
+        <fullName>Net 30</fullName>
+        <default>false</default>
+        <label>Net 30</label>
+    </customValue>
+    <customValue>
+        <fullName>Floor Plan</fullName>
+        <default>false</default>
+        <label>Floor Plan</label>
+    </customValue>
+    <description>NATT</description>
+    <masterLabel>Payment Terms</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

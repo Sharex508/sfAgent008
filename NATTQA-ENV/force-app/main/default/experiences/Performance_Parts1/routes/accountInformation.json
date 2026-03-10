@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "180fccf0-3a41-4e7b-b5d0-0fad916a1e90",
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "configurationTags" : [ ],
+  "devName" : "Account_Information__c",
+  "id" : "2b815d60-3096-4b37-bdb0-34639b54b0f8",
+  "label" : "Account Information",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-account-information",
+  "type" : "route",
+  "urlPrefix" : "account-information"
+}

@@ -1,0 +1,67 @@
+{
+  "appPageId" : "46d1e908-f407-4b05-8ca8-a76276dd8cf3",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "3c78df39-3af8-4c6f-b714-e840b074f9b7",
+  "label" : "Register",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "salesforceIdentity:communityLogo2",
+      "id" : "18f21c6f-9842-4cf6-a525-72329b70cdd3",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<p style=\"text-align: center;\"><b style=\"color: rgb(255, 255, 255);\">Please enter the following information to create your Account.</b></p>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "62e8f6eb-3922-4e0e-9e00-731914f20ab5",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "emailValue" : "",
+        "nameValue" : "",
+        "passwordValue" : ""
+      },
+      "componentName" : "c:natt_NewUserRegistration_Aura",
+      "id" : "f05607ef-c06a-4fff-9c6c-bf9dfff40515",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "richTextValue" : "<div style=\"text-align: center;\"><a class=\"inverseTextColor\" href=\"./\">Already have an account?</a></div>"
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "f467ed31-20d4-4a2f-a651-fc2f3bacadbf",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "e9bddd26-e188-44ff-b0c7-2f6bed21777a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Register"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "e7812987-6c30-41f4-adf3-570b137efdef",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6386b8fe-3f14-4341-890f-b0028e887979",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Login",
+  "type" : "view",
+  "viewType" : "self-register"
+}

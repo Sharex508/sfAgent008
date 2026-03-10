@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Each</fullName>
+        <default>false</default>
+        <label>Each</label>
+    </standardValue>
+    <standardValue>
+        <fullName>UN</fullName>
+        <default>false</default>
+        <label>UN</label>
+    </standardValue>
+    <standardValue>
+        <fullName>PC</fullName>
+        <default>false</default>
+        <label>PC</label>
+    </standardValue>
+    <standardValue>
+        <fullName>EA</fullName>
+        <default>false</default>
+        <label>EA</label>
+    </standardValue>
+</StandardValueSet>

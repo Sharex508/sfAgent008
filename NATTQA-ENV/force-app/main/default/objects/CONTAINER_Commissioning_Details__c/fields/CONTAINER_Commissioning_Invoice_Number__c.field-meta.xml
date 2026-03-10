@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Commissioning_Invoice_Number__c</fullName>
+    <description>This field is to populate Commissioning Invoice Record</description>
+    <externalId>false</externalId>
+    <label>Commissioning Invoice Number</label>
+    <length>255</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

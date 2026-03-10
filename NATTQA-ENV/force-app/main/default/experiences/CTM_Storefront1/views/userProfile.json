@@ -1,0 +1,46 @@
+{
+  "appPageId" : "a72f9961-a56d-4d6c-be9b-34da3e37d662",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "61b76fe1-ea88-48a1-ade5-c2c1bdc46068",
+  "label" : "User Profile",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "id" : "{!recordId}",
+        "profileTabLabel" : "Perfil",
+        "richTextValue" : "<img alt='Banner image at the top of the page' class='sfdcCbImage' src='/sfsites/c/img/community/cpt/cpt-profile-banner.png'/>",
+        "settingsTabLabel" : "Configuraciones y preferencias",
+        "showBannerImage" : false,
+        "showSettingsTab" : true
+      },
+      "componentName" : "forceCommunity:userProfileWithBanner",
+      "id" : "3f50c9f5-0fb7-49d5-9221-82fc6bdfe10b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fef4d67a-8de8-4de1-b32d-265ddc6c430d",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "id" : "c684dcf5-991b-43ef-b915-eda1eef548cb",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_ppgStoreFooter",
+      "id" : "0c8ecbf7-ca0b-4984-a28a-4c417b3f2f89",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "b0f232d3-75b6-46a1-81d8-ab58bfa2b705",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-005"
+}

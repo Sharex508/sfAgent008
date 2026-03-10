@@ -1,0 +1,64 @@
+.slds-form-element__label {
+    display: none;
+    visibility: hidden;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination div {
+    cursor: pointer;
+    color: black;
+    float: left;
+    padding: 8px 14px;
+    text-decoration: none;
+}
+
+.pagination div.active {
+    background-color: var(--lwc-brandNavigationBarBackgroundColor);
+    color: white;
+    border-radius: 5px;
+    cursor: default;
+}
+
+.pagination div:hover:not(.active) {
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination div.inactive:hover {
+    background-color: white;
+    cursor: default;
+}
+
+.notificationShade {
+    background-color: #f3f2f2;
+}
+
+.toast {
+    min-width: 250px;
+    margin-left: -341px;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    z-index: 99;
+    left: 50%;
+    top: 0;
+    position: fixed;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition:
+        opacity 500ms,
+        transform 500ms;
+}
+
+.toast.visible {
+    transform: translateY(0);
+    opacity: 1;
+}

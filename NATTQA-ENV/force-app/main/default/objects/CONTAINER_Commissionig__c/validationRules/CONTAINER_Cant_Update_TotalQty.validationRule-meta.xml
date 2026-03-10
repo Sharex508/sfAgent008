@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Cant_Update_TotalQty</fullName>
+    <active>true</active>
+    <description>Total Quantity field cannot be updated.</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED( CONTAINER_Total_Job_Quantity__c ),
+CONTAINER_Total_Job_Quantity__c &lt; CONTAINER_WIP_Job_Quantity__c,  
+NOT( $Permission.CONTAINER_Bypass_Validation_Rule )
+)</errorConditionFormula>
+    <errorDisplayField>CONTAINER_Total_Job_Quantity__c</errorDisplayField>
+    <errorMessage>Total Job Quantity cannot be less than WIP Job Quantity.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,47 @@
+<messaging:emailTemplate subject="{!relatedTo.CONTAINER_Product_Type__c}: Order ASO released - Order ASO ID: {!relatedTo.CONTAINER_ASO_ID__c} for {!ROUND(relatedTo.CONTAINER_Qty__c,0)} {!relatedTo.CONTAINER_PID__c} units for Customer:
+{!IF(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'NAO',IF(relatedTo.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c != '',relatedTo.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c + ' - ' ,''),'')}
+{!IF(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'APO',IF(relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c + ' - ' ,''),'')}
+{!IF(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'EMEA',IF(relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c + ' - ' ,''),'')}
+{!relatedTo.SBQQ__Account__r.Name}" recipientType="User" relatedToType="SBQQ__Quote__c">
+<messaging:htmlEmailBody >
+    <html>
+        <body>
+           <p>
+           The below Order has produced an ASO: <br/>
+           ____________________________________________________________<br/>
+           Quote ID: {!relatedTo.Name} <br/><br/>
+           Job Number: {!relatedTo.CONTAINER_Job__c}<br/><br/>
+           ASO: {!relatedTo.CONTAINER_ASO_ID__c}<br/>
+           Customer: 
+           <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'NAO',true,false)}"> 
+              <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c != '',true,false)}"> 
+                 {!relatedTo.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c} - 
+             </apex:outputpanel>
+           </apex:outputpanel>
+           <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'APO',true,false)}"> 
+              <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',true,false)}"> 
+                 {!relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c} - 
+             </apex:outputpanel>
+           </apex:outputpanel>
+           <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'EMEA',true,false)}"> 
+              <apex:outputPanel rendered="{!If(relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',true,false)}"> 
+                 {!relatedTo.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c} - 
+             </apex:outputpanel>
+           </apex:outputpanel>
+           {!relatedTo.SBQQ__Account__r.Name} <br/>
+          
+           Quantity:   {!ROUND(relatedTo.CONTAINER_Qty__c,0)} <br/>
+           Model:      {!relatedTo.CONTAINER_Model_Number__c} <br/>
+           PID:        {!relatedTo.CONTAINER_PID__c} <br/><br/>
+           <c:ContainerQuote_ASO_QL_Warranty QId="{!relatedTo.Id}" /><br/><br/> 
+              <c:ContainerQuoteRelatedTentativeRecords QId="{!relatedTo.Id}" /><br/><br/>  
+            ____________________________________________________________<br/><br/>
+           Open the below File Attachment to view this ASO.<br/>
+              (See attached file: ASO_{!relatedTo.CONTAINER_ASO_ID__c}
+              <apex:outputPanel rendered="{!If(relatedTo.CONTAINER_ASO_Rev__c != '',true,false)}">-{!relatedTo.CONTAINER_ASO_Rev__c}</apex:outputpanel>.doc)<br/>
+
+           </p>
+        </body>
+    </html>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

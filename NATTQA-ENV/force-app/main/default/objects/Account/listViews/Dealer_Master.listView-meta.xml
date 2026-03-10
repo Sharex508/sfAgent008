@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer_Master</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>NATT_City_State__c</columns>
+    <columns>NATT_Primary_Location_Type__c</columns>
+    <columns>NATT_Region__c</columns>
+    <columns>NATT_Dealer_Principal__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.Dealer</value>
+    </filters>
+    <filters>
+        <field>NATT_Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <filters>
+        <field>NATT_Primary_Location_Type__c</field>
+        <operation>equals</operation>
+        <value>Full Dealer,Branch,Mobile,Associate,Parts and Service</value>
+    </filters>
+    <label>Dealer Master</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>NA</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NA_Parts_Manager</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NA_Parts_Sales</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NA_Units_Manager</roleAndSubordinatesInternal>
+        <roleAndSubordinatesInternal>NA_Units_Sales</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

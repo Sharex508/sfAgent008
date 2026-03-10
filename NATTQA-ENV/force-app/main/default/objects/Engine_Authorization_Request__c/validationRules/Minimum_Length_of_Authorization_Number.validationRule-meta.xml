@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Minimum_Length_of_Authorization_Number</fullName>
+    <active>true</active>
+    <description>Ensure that the Engine Authorization Number length is at least 5 characters or is blank</description>
+    <errorConditionFormula>AND(
+     LEN(NATT_Authorization_Number__c) &gt; 0, 
+     LEN(NATT_Authorization_Number__c) &lt; 5
+     )</errorConditionFormula>
+    <errorDisplayField>NATT_Authorization_Number__c</errorDisplayField>
+    <errorMessage>Engine Authorization Numbers must be at least 5 characters in length</errorMessage>
+</ValidationRule>

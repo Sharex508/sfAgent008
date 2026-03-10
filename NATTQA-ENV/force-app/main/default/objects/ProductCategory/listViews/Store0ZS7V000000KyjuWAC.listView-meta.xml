@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Store0ZS7V000000KyjuWAC</fullName>
+    <columns>Name</columns>
+    <columns>IsNavigational</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Catalog</field>
+        <operation>equals</operation>
+        <value>CTBR Storefront Catalog</value>
+    </filters>
+    <label>CTBR Storefront Categories</label>
+</ListView>

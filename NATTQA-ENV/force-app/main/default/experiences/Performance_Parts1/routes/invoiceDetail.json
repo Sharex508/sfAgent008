@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "c411f3a1-8176-4e51-a979-4d6b52be81a4",
+  "appPageId" : "24f48653-6650-4308-96d5-54b749137c34",
+  "configurationTags" : [ ],
+  "devName" : "NATT_Invoice_Detail_Page__c",
+  "id" : "c32602f0-2110-46de-aad5-77134547e492",
+  "label" : "Invoice Detail",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-invoice-detail",
+  "type" : "route",
+  "urlPrefix" : "invoice-detail"
+}

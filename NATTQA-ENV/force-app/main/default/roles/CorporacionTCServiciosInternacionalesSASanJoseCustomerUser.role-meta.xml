@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Corporacion T.C. Servicios Internacionales S.A. (San Jose) Customer User</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Corporacion T.C. Servicios Internacionales S.A. (San Jose) Customer User</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>Container_Service_FSM_NAO</parentRole>
+</Role>

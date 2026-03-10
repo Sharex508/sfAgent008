@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "fcb3050c-bf78-46a0-8683-83c50f8773f2",
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "configurationTags" : [ ],
+  "devName" : "PHOTO_GALLERY__c",
+  "id" : "c538f564-fbbd-4d6b-b47e-09f32238b583",
+  "label" : "PHOTO GALLERY",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-photo-gallery",
+  "type" : "route",
+  "urlPrefix" : "photo-gallery"
+}

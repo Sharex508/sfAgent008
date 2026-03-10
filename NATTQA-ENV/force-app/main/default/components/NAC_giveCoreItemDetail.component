@@ -1,0 +1,46 @@
+<apex:component controller="NAC_coreCaseDetail"  access="global">
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+            <style>
+               
+            </style>    
+        </head>  
+        <apex:attribute name="caseIdValue" type="String" description="This is the Id of the case" assignTo="{!caseNum}" access="global"/>
+    
+        <body style="font-family: sans-serif;font-size:6.2pt;">
+            <table style="font-family:Arial width:100%; border:solid black">
+                <thead>
+                    <tr>
+                        <th>Part Number</th>
+                         <th>Quantity</th>
+                        <th>Serial#</th>
+                         <th>Warranty#</th>
+                         <th>MPR Tag#</th>
+                        <th>Recieved Core</th>
+                        <th>Accepted Quantity</th>
+                       <th width="6%">Rejected Quantity</th>
+                        <th width="29%">Remarks/Notes</th>
+                    </tr>
+                </thead>
+                <tbody>                    
+                    <apex:repeat value="{!caseDetails}" var="s_case"> 
+                        <apex:repeat value="{!s_case.Return_Items__r}" var="iterator">
+                            <tr>
+                            <td>{!iterator.NATT_Part_Number__c}</td>
+                            <td>{!iterator.NATT_Quantity__c}</td>
+                            <td>{!iterator.NATT_Serial__c}</td>
+                            <td>{!iterator.NATT_Warranty__c}</td>
+                            <td>{!iterator.NATT_MPR_Tag__c}</td>
+                            <td>{!iterator.NATT_Received_Core__c}</td>
+                            <td>{!iterator.NATT_Accepted_Quantity__c}</td>
+                            <td>{!iterator.NATT_Rejected_Quantity__c}</td>
+                            <td>{!iterator.NATT_Remarks_Notes__c}</td>
+                            </tr>
+                        </apex:repeat>
+                    </apex:repeat>
+                </tbody>
+            </table>
+        </body>
+    </html>
+</apex:component>

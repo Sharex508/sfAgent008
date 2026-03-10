@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Summary_Variable_Required_Fields</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(sbaa__Type__c, &apos;Summary&apos;) &amp;&amp; (ISPICKVAL( sbaa__AggregateField__c, &apos;&apos;) || ISPICKVAL(sbaa__AggregateFunction__c, &apos;&apos;))</errorConditionFormula>
+    <errorMessage>Values for Aggregate Field and Aggregate Function are required for Summary Variables</errorMessage>
+</ValidationRule>

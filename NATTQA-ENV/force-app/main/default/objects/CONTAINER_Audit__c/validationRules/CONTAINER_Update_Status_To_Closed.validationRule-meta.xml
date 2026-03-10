@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Update_Status_To_Closed</fullName>
+    <active>true</active>
+    <description>Restrict changes if Final Audit Result is either &quot;Pass&quot; or &quot;Fail&quot; and status in not &quot;Closed&quot;</description>
+    <errorConditionFormula>AND(
+NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR(ISPICKVAL(CONTAINER_Final_Audit_Result__c,&apos;Pass&apos;),
+ISPICKVAL(CONTAINER_Final_Audit_Result__c,&apos;Fail&apos;)),
+NOT(ISPICKVAL( CONTAINER_Status__c, &apos;Closed&apos;))
+)</errorConditionFormula>
+    <errorDisplayField>CONTAINER_Status__c</errorDisplayField>
+    <errorMessage>Status should be &quot;Closed&quot; if Final Audit Result is either &quot;Pass&quot; or &quot;Fail&quot;</errorMessage>
+</ValidationRule>

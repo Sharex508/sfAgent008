@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Qty_field_as_per_Qty_on_Quote</fullName>
+    <active>true</active>
+    <description>Number entered by user in Qty field shall not exceed the Qty mentioned on Quote</description>
+    <errorConditionFormula>OR( AND(ISBLANK(Id), OR( CONTAINER_Qty__c &gt; CONTAINER_Quote_Number__r.CONTAINER_Qty__c , CONTAINER_Quote_Number__r.CONTAINER_Qty__c &lt; (CONTAINER_Qty__c+CONTAINER_Quote_Number__r.CONTAINER_Sum_Requested_Ship_Dates_Qty__c) )),
+AND(ISCHANGED(CONTAINER_Qty__c), (CONTAINER_Qty__c - CONTAINER_Quote_Number__r.CONTAINER_Sum_Requested_Ship_Dates_Qty__c) &gt; (CONTAINER_Quote_Number__r.CONTAINER_Qty__c - CONTAINER_Quote_Number__r.CONTAINER_Sum_Requested_Ship_Dates_Qty__c)))</errorConditionFormula>
+    <errorMessage>Qty can not be greater than Qty mentioned on Quote</errorMessage>
+</ValidationRule>

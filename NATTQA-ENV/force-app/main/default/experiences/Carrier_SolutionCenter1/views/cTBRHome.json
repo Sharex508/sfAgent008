@@ -1,0 +1,164 @@
+{
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "componentName" : "siteforce:sldsTwoCol84Layout",
+  "dataProviders" : [ ],
+  "id" : "4be4e8c8-7171-4fe8-8c83-f80b46e0c753",
+  "label" : "CTBR Home",
+  "regions" : [ {
+    "id" : "971da235-fc57-49a0-92d6-6da872e4e864",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "carouselTransitionTime" : 4,
+        "titleText" : ""
+      },
+      "componentName" : "c:natt_articleCarouselRecentlyModified",
+      "id" : "b775e554-cb90-4d96-891e-47c93fea1b6d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1f1fe44c-6de3-43f2-ba08-1d3c8e04add5",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "tabsetConfig" : {
+          "UUID" : "b3d38a1e-29d6-434f-a6cd-1ddc9224a1da",
+          "activeTab" : "",
+          "tabs" : [ {
+            "UUID" : "6bb07478-45ab-4b62-8637-c91e16d9cef7",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "1",
+            "tabName" : "Links"
+          }, {
+            "UUID" : "b4e1f0f8-89d6-4897-9e91-794d700c9de8",
+            "allowGuestUser" : false,
+            "locked" : false,
+            "seedComponents" : [ ],
+            "tabKey" : "2",
+            "tabName" : "Chatter & Atualizações"
+          } ],
+          "useOverflowMenu" : false
+        }
+      },
+      "componentName" : "forceCommunity:tabset",
+      "id" : "b3d38a1e-29d6-434f-a6cd-1ddc9224a1da",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "titleText" : "PRODUCT AND SERVICE UPDATES"
+          },
+          "componentName" : "c:natt_alertCarousel",
+          "id" : "5467e4da-5208-44f1-8771-c5085cd0ee8f",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : {
+            "richTextValue" : "<p>Use this HTML Editor to add your own markup.</p>"
+          },
+          "componentName" : "forceCommunity:htmlBlock",
+          "id" : "45d5d30c-84ca-4a0d-9852-b57dab62e8a1",
+          "renditionMap" : {
+            "pt_br" : "b72bf8bc-c1c8-44b9-af55-cb54603b6c6a"
+          },
+          "renditions" : [ {
+            "id" : "b72bf8bc-c1c8-44b9-af55-cb54603b6c6a",
+            "renditionValue" : {
+              "componentAttributes" : {
+                "richTextValue" : "<p style=\"background:#607080;text-align: center;\">\n    <a style=\"color: white !important; font-size: 20px; display: block; width: 100%; padding: 3px;\"\n       href=\"https://www2.carrier.transicold.com/servicerequest.nsf/mainfrm?OpenForm\" target=\"_blank\"\n       rel=\"noreferrer noopener\">Form. de solicitação de serviço de TI</a>\n</p>"
+              }
+            },
+            "type" : "renditionComponent"
+          } ],
+          "type" : "component"
+        } ],
+        "id" : "6bb07478-45ab-4b62-8637-c91e16d9cef7",
+        "regionLabel" : "Tab 1",
+        "regionName" : "1",
+        "renditionMap" : {
+          "pt_br" : "9c8a3905-a821-428e-96fa-0791f7f6ceb5"
+        },
+        "renditions" : [ {
+          "id" : "9c8a3905-a821-428e-96fa-0791f7f6ceb5",
+          "renditionValue" : {
+            "regionLabel" : "Links"
+          },
+          "type" : "renditionComponent"
+        } ],
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "canChangeSorting" : true,
+            "defaultFilter" : "",
+            "defaultSortOrderHomeFeed" : "Relevance",
+            "defaultSortOrderTopicsFeed" : "Relevance",
+            "feedDesign" : "DEFAULT",
+            "hasFeedSearch" : true,
+            "subjectId" : "{!recordId}",
+            "type" : "News"
+          },
+          "componentName" : "forceCommunity:forceCommunityFeed",
+          "id" : "2f4477bf-fe7c-4003-963f-49480bab7411",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "b4e1f0f8-89d6-4897-9e91-794d700c9de8",
+        "regionLabel" : "Tab 2",
+        "regionName" : "2",
+        "renditionMap" : {
+          "pt_br" : "fdf9ead1-df63-4028-8cb8-c516c0c3e049"
+        },
+        "renditions" : [ {
+          "id" : "fdf9ead1-df63-4028-8cb8-c516c0c3e049",
+          "renditionValue" : {
+            "regionLabel" : "Chatter & Atualizações"
+          },
+          "type" : "renditionComponent"
+        } ],
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_whosWho",
+      "id" : "f61c39e7-0848-4060-a87f-951caf3f920d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6a1d5261-f11e-4459-928f-a54971b44c66",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "5ab553a1-404e-4bb0-aab7-031f695f720f",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "ec2d6af3-11b9-48ac-a723-7eda23c5c098",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "ff848461-f33c-4560-a5db-bf1491b8b42b",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "home"
+}

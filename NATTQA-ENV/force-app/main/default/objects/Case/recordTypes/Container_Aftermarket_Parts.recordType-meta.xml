@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Container_Aftermarket_Parts</fullName>
+    <active>true</active>
+    <businessProcess>Container Aftermarket Parts</businessProcess>
+    <description>For Container users to create cases associated with after market parts</description>
+    <label>Container Division</label>
+    <picklistValues>
+        <picklist>Assigned_to_department__c</picklist>
+        <values>
+            <fullName>24%2F7 %28EcoEnergy%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>API</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Account Manager</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aftermarket Sales Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAP APO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAP America</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAP EMEA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DHI</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Director%2FUpper Management</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marking dept</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product Enginering</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Product support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software Support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training Dep%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty Admin</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Location__c</picklist>
+        <values>
+            <fullName>Ship</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shore</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CONTAINER_Region__c</picklist>
+        <values>
+            <fullName>AMERICAS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>APO</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EMEA</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Container_Component__c</picklist>
+        <values>
+            <fullName>Battery Charger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Compressor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condenser Coil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Condenser Motor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Controller</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DOC</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ECV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EEV</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Engine</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evap Coil</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Evap Motor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Generator</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Heat Exchanger</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sensor %28add in Description%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telematic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Voltage Controller</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Container_Warranty_Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Non-Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Applicable</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Customer_Type__c</picklist>
+        <values>
+            <fullName>ASP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Domestic</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>EcoEnergy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipping Line</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Effectiveness_of_the_resolution__c</picklist>
+        <values>
+            <fullName>Resolved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Turn back</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Equipment__c</picklist>
+        <values>
+            <fullName>EliteLINE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Everfresh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NaturaLINE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OptimaLINE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other %28Specify in Description%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PowerLINE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PrimeLINE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PrimeLINE %26 OptmaLINE</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PrimeLINE Edge</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ThinLINE</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Origin</picklist>
+        <values>
+            <fullName>Email</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Visit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority</picklist>
+        <values>
+            <fullName>1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>4</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>N%2FA</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TS_Agent_Department__c</picklist>
+        <values>
+            <fullName>Aftermarket Region Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FSM</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TS_Agent_Group__c</picklist>
+        <values>
+            <fullName>24%2F7 RS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Aftermarket Region Director</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>CAP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>FSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales Department</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type</picklist>
+        <values>
+            <fullName>Finance</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Software</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Spare Part</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Technical%2FService</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Warranty</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

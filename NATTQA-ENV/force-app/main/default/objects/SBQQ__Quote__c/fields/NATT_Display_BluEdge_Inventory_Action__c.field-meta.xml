@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Display_BluEdge_Inventory_Action__c</fullName>
+    <description>to display the link asset button in cpq</description>
+    <formula>RecordType.DeveloperName = &quot;NATT_BluEdge&quot; 
+&amp;&amp;
+SBQQ__LineItemCount__c &gt; 0
+&amp;&amp;
+OR(
+NATT_Line_Count_for_Display_Terms__c = 0,
+NATT_Line_Count_for_Display_Terms__c &gt; 0 &amp;&amp; NATT_Display_Terms_Without_Months__c = 0
+)
+&amp;&amp;
+ISBLANK($User.ContactId)</formula>
+    <label>Display BluEdge Inventory Action</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

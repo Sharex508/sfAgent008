@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Competitor_Name_Model_Check</fullName>
+    <active>true</active>
+    <description>Container Competitor name is not blank then competitor Model is required</description>
+    <errorConditionFormula>AND( 
+NOT($Permission.CONTAINER_Bypass_Validation_Rule),
+OR(
+$RecordType.Name = &quot;Container GENSET Quote&quot;,$RecordType.Name = &quot;Container NT Quote&quot;),
+OR(
+NOT(ISBLANK(TEXT(CONTAINER_Competitor_Name__c))) &amp;&amp;  ISBLANK(CONTAINER_Competitor_Model_1__c),
+NOT(ISBLANK(TEXT(CONTAINER_Competitor_Name_2__c))) &amp;&amp;  ISBLANK(CONTAINER_Competitor_Model_2__c),
+NOT(ISBLANK(TEXT(CONTAINER_Competitor_Name_3__c))) &amp;&amp;  ISBLANK(CONTAINER_Competitor_Model_3__c)
+)
+)</errorConditionFormula>
+    <errorDisplayField>CONATINER_3rd_Party_Commission__c</errorDisplayField>
+    <errorMessage>Competitor Model cannot be blank</errorMessage>
+</ValidationRule>

@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "761b9d7d-7539-4c50-b99d-b8e295a547f9",
+  "appPageId" : "ddba0f95-66e0-470e-ac79-1a84647e48a2",
+  "configurationTags" : [ ],
+  "devName" : "Unit_Warranty_Lookup__c",
+  "id" : "31d787cc-baa7-4fda-a95c-175e0d4a78ba",
+  "label" : "Unit Warranty Lookup",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-unit-warranty-lookup",
+  "type" : "route",
+  "urlPrefix" : "unit-warranty-lookup"
+}

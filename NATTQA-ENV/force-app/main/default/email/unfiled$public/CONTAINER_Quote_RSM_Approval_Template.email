@@ -1,0 +1,39 @@
+<messaging:emailTemplate subject="{!relatedTo.Quote__r.CONTAINER_Product_Type__c} Quote has been Approved by RSM - Quote ID: {!relatedTo.Quote__r.Name} for Quantity: {!ROUND(relatedTo.Quote__r.CONTAINER_Qty__c,0)} of Product Name: {!relatedTo.Quote__r.CONTAINER_Product_Name__c} units for Customer: {!relatedTo.Quote__r.SBQQ__Account__r.Name}" recipientType="User" relatedToType="sbaa__Approval__c">
+    <messaging:htmlEmailBody >
+        <html>
+                <body>
+                   <p>
+                   The below quote has been Approved
+                   <br/><br/>
+                   ____________________________________________________________<br/><br/>
+                    Quote ID: {!relatedTo.Quote__r.Name} <br/><br/><br/>
+                    Customer: 
+                    <apex:outputPanel rendered="{!If(relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'NAO',true,false)}"> 
+                      <apex:outputPanel rendered="{!If(relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c != '',true,false)}"> 
+                         {!relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_JDE_Bill_To_Code__c} - 
+                      </apex:outputpanel>
+                    </apex:outputpanel>
+                    <apex:outputPanel rendered="{!If(relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'APO',true,false)}"> 
+                      <apex:outputPanel rendered="{!If(relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',true,false)}"> 
+                         {!relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c} - 
+                      </apex:outputpanel>
+                    </apex:outputpanel>
+                    <apex:outputPanel rendered="{!If(relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_Operating_Region__c == 'EMEA',true,false)}"> 
+                      <apex:outputPanel rendered="{!If(relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c != '',true,false)}"> 
+                         {!relatedTo.Quote__r.SBQQ__Account__r.CONTAINER_BaaN_Bill_To_Code__c} - 
+                      </apex:outputpanel>
+                    </apex:outputpanel>
+                   {!relatedTo.Quote__r.SBQQ__Account__r.Name} <br/>         
+                   Quantity:   {!ROUND(relatedTo.Quote__r.CONTAINER_Qty__c,0)} <br/>
+                   Model:      {!relatedTo.Quote__r.CONTAINER_Model_Number__c} <br/>
+                   PID:        {!relatedTo.Quote__r.CONTAINER_PID__c} <br/>
+                   Quote Owner: {!relatedTo.Quote__r.Owner.Name}<br/><br/><br/>
+                    ____________________________________________________________<br/>
+                   Click link below to review <br/><br/>
+                   <a href="{!relatedTo.Quote__r.CONTAINER_DomainName__c}lightning/r/SBQQ__Quote__c/{!relatedTo.Quote__r.Id}/view"> 
+                   {!relatedTo.Quote__r.CONTAINER_DomainName__c}lightning/r/SBQQ__Quote__c/{!relatedTo.Quote__r.Id}/view </a><br/>
+                   </p>
+                </body>
+        </html>           
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

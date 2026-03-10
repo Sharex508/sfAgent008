@@ -1,0 +1,121 @@
+.carousel__container {  
+    background: #132E76;  
+    padding: 10px;
+    position: relative;
+    min-height: 230px;
+    max-height: 230px;
+}
+
+    .dealer__alert__icon {
+        position: absolute;
+        left: 15%;
+        top: 2%;
+    }
+
+    .component__title {
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+
+    .carousel {
+        position: relative;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+        .carousel__track-container {
+            padding: 10px 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+            .carousel__track {
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: row;
+                align-content: center;    
+                height: 100%;
+                transition: transform 250ms ease-in;
+            }
+
+                .carousel__slide {
+                    min-width: 100%;
+                    max-width: 100%;
+                }   
+                
+                    .carousel .carousel__card {
+                        min-height: 165px;
+                        max-height: 165px;
+                    }
+
+                        .carousel .carousel__card-body {
+                            min-height: 140px;
+                            max-height: 140px;
+                            line-height: 140px;
+                            position: relative;
+                            text-align: center;
+                            background: #949BAB;
+                        }                    
+    
+                            .carousel__card .carousel__card-title {
+                                color: white !important;
+                                text-align: center;
+                                display: inline-block;
+                            }
+
+                        .carousel__message__from {
+                            margin: 5px 0;
+                            color: white;
+                        }
+
+                        .carousel__card-footer {
+                            width: 100%;
+                            min-height: 30px !important;
+                            max-height: 30px !important;
+                            padding: 5px 0 0 0;
+                            border-top: 1px solid white;
+                            position: relative;
+                        }
+
+                            .carousel__card-footer p {color: white;}
+        
+        .carousel__pagination {
+            position: absolute;
+            color: white;
+            bottom: 3%;
+            right: 5%;
+        }
+
+        .carousel__button {
+            position: absolute;
+            bottom: 0;
+            background: transparent;
+            cursor: pointer;
+            z-index: 1;
+            color: white;
+            font-size: 20px;
+        }
+            .carousel__button:hover {text-decoration: none;}
+
+        .carousel__button--left {
+            right: 11%;
+            padding: 2px;
+        }
+
+        .carousel__button--right {
+            right: 0;
+            padding: 2px;
+        }
+
+        .carousel__hidden{
+            visibility: hidden
+        }
+
+/* helper */
+
+.absolute {position: absolute;}
+.none {display: none;}
+.no_articles {color: #fff;}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAOCAP_Shipments</fullName>
+    <columns>Name</columns>
+    <columns>LastModifiedDate</columns>
+    <columns>LastModifiedBy</columns>
+    <columns>SourceLocation</columns>
+    <columns>DestinationLocation</columns>
+    <columns>OrderSummary</columns>
+    <columns>DeliveryMethod</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RecordType</field>
+        <operation>equals</operation>
+        <value>Shipment.NAOCAP_Shipment</value>
+    </filters>
+    <label>NAOCAP Shipments</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>NAOCAP</role>
+    </sharedTo>
+</ListView>

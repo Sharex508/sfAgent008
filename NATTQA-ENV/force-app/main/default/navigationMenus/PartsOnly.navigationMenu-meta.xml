@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Carrier SolutionCenter</container>
+    <containerType>Network</containerType>
+    <label>PartsOnly</label>
+    <navigationMenuItem>
+        <label>My Dealership</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Insights Dashboards</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/dashboard/Dashboard/Recent</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <defaultListViewId>End_Customers</defaultListViewId>
+                <label>Customers</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Account</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <defaultListViewId>Competitors</defaultListViewId>
+                <label>Competitors</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Account</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <defaultListViewId>Dealer_Accounts_Community</defaultListViewId>
+                <label>Dealer Info</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Account</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Support</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <defaultListViewId>All_Cases</defaultListViewId>
+                <label>My Cases</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Case</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>DocCentral</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://www.doccentral.carrier.com/launch.html</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>My Documents</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/contentdocument/ContentDocument/All</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Parts &amp; Service</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Lynx Fleet</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://tta.lynxfleet.carrier.com/sensornet/html5/iapp/login/html/login_en-us.html</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>PartsNet</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://transicold.force.com/ppg/s/</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Parts PLUS</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://www.plus.carrier.com/</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Dealer Required Parts/Tools</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/dealer-required-parts-and-tools</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Knowledge Center</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>All Knowledge</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/all-knowledge</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Training LMS – Create New User</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://training.carrieruniversity.com/login/signup.php?org=transicoldtrucktrailer</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Training LMS – Existing User</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://transicoldlms.carrier.com/</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Dealer Sales Toolkit</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/dealer-sales-toolkit</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Promotional Store</label>
+                <position>4</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://store.ecompanystore.com/carriertransicold/Shop/Landing/?isSignin=True</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>PHOTO GALLERY</label>
+                <position>5</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/photo-gallery</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+</NavigationMenu>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Receiving_Business__c</fullName>
+    <label>Receiving Business</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sending_Business__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FSP Global Access - LENEL S2</fullName>
+                <default>false</default>
+                <label>FSP Global Access - LENEL S2</label>
+            </value>
+            <value>
+                <fullName>FSP Global Access - ONITY</fullName>
+                <default>false</default>
+                <label>FSP Global Access - ONITY</label>
+            </value>
+            <value>
+                <fullName>NORESCO</fullName>
+                <default>false</default>
+                <label>NORESCO</label>
+            </value>
+            <value>
+                <fullName>Commercial HVAC Equipment</fullName>
+                <default>false</default>
+                <label>Commercial HVAC Equipment</label>
+            </value>
+            <value>
+                <fullName>Commercial HVAC Service</fullName>
+                <default>false</default>
+                <label>Commercial HVAC Service</label>
+            </value>
+            <value>
+                <fullName>HVAC Controls</fullName>
+                <default>false</default>
+                <label>HVAC Controls</label>
+            </value>
+            <value>
+                <fullName>BSG</fullName>
+                <default>false</default>
+                <label>BSG</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <valueName>FSP Global Access - ONITY</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <valueName>NORESCO</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <valueName>Commercial HVAC Equipment</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <valueName>Commercial HVAC Service</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <valueName>HVAC Controls</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - LENEL S2</controllingFieldValue>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <valueName>BSG</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>FSP Global Access - ONITY</controllingFieldValue>
+            <controllingFieldValue>NORESCO</controllingFieldValue>
+            <valueName>FSP Global Access - LENEL S2</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

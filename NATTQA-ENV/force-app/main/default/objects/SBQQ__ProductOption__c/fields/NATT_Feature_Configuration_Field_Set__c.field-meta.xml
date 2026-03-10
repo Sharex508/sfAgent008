@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Feature_Configuration_Field_Set__c</fullName>
+    <description>for data extracts and loads</description>
+    <externalId>false</externalId>
+    <formula>TEXT( SBQQ__Feature__r.SBQQ__ConfigurationFieldSet__c)</formula>
+    <label>Feature Configuration Field Set</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

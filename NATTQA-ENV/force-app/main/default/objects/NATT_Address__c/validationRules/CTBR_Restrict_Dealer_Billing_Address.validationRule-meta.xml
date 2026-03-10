@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Restrict_Dealer_Billing_Address</fullName>
+    <active>true</active>
+    <description>Prevents CTBR Users from modifying Dealer Billing Address</description>
+    <errorConditionFormula>AND(
+NATT_Account__r.RecordType.DeveloperName  = &quot;CTBR_Dealer&quot;,
+OR($Profile.Name = &quot;CTBR Full Access Community&quot;,$Profile.Name = &quot;CTBR General Manager&quot;,$Profile.Name = &quot;CTBR Sales Manager&quot;,$Profile.Name = &quot;CTBR Sales User&quot;),
+ISPICKVAL(NATT_Type__c, &quot;Billing&quot;)
+)</errorConditionFormula>
+    <errorMessage>You may not create or modify a Billing address for a Dealer</errorMessage>
+</ValidationRule>

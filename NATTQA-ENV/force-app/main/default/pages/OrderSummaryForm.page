@@ -1,0 +1,1317 @@
+<apex:page renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" standardController="Order" extensions="NattOrderSummaryFormController" readOnly="true"> 
+    <html>
+        <head>
+            <style>
+                @page 
+                {
+                size: letter;
+                margin: 10mm;
+                border: 2px solid black;   
+                
+                
+                @top-center 
+                {
+                content: element(header);
+                }
+                
+                @bottom-center 
+                {
+                content: "Page " counter(page) " of " counter(pages);
+                }
+                }
+                div.header {
+                padding: 10px;
+                text-align:center;
+                background-color:#D3D3D3;
+                }
+                .page-break 
+                {
+                display:block;
+                page-break-after:always;
+                }
+                .boldFormat
+                {
+                font-weight:bold;
+                }
+                body
+                {
+                font-family: Arial Unicode MS;
+                }
+                
+                #wrapper {
+                width:100%;
+                border: 1px solid black;
+                overflow: auto;
+                
+                }
+                #first {
+                width:50%;
+                border: 1px solid red;
+                display: inline-block;
+                
+                }
+                #second {
+                width:50%;
+                border: 1px solid green;
+                
+                
+                }
+                #table-bordered {
+                border: 1px solid #000;
+                border-collapse: collapse;
+                }
+                #tdStyle {
+                vertical-align:center;
+                border: 1px solid #000;
+                border-spacing: 0;
+                }
+                PageBlockBorder{
+                border:0.8px solid black;
+                }
+                #tdStyleTable2{
+                width:10%;
+                vertical-align:center;
+                border:1px solid #000;
+                cellspacing:0;
+                cellpadding:0;
+                font-size:9pt;
+                text-align:center;
+                }
+                
+                #tdStyleTable3
+                {
+                vertical-align:center;
+                border:1px solid #000;
+                cellspacing:0;
+                cellpadding:0;
+                font-size:9pt;
+                text-align:left;
+                }
+                
+                #tdStyleTable4
+                {
+                vertical-align:center;
+                border:1px solid #000;
+                cellspacing:0;
+                cellpadding:0;
+                font-size:9pt;
+                text-align:left;
+                }
+                
+                table.list
+                {
+                border-width: 0 !important;
+                }
+                
+                /*tr.dataRow.last td 
+                {
+                border-bottom-width: 0 !important;
+                } */
+                
+                .headerRow .headerclass{text-align:center;}  
+                
+                tableRowStyle 
+                {        
+                border-bottom-width: 0 !important;
+                }
+                #ttd{
+                border: 1px solid black;
+                border-collapse: collapse;
+                }
+                #dco{
+                border: 1px solid black;
+                border-collapse: collapse;
+                }
+                #oof{
+                border: 1px solid black;
+                border-collapse: collapse;
+                }
+                #merg{
+                margin: 10mm;
+                border: 2px solid black; 
+                }
+            </style>
+        </head>
+        
+        <div class="header">
+            <div>ORDER SUMMARY</div>
+        </div>
+        
+        <body></body>
+    </html>
+    
+    <apex:form >
+        
+        <apex:panelGrid columns="2" style="table-layout: fixed;font-size:9pt;" width="100%">
+            <!-- column 1 -->
+    
+            <apex:pageBlock >
+                <apex:pageBlockSection >
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Date Last Modified:"/>
+                        <apex:outputText value="{!modifiedDate}"/>
+                    </apex:pageBlockSectionItem> 
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Date Created:</apex:outputLabel>
+                        <apex:outputText value="{!createdDate}"/>
+                        
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Contact Information</apex:outputLabel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Name:</apex:outputLabel>
+                        <apex:outputField value="{!recentOrderList.Account.Name}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Phone:</apex:outputLabel>
+                        <apex:outputField value="{!recentOrderList.SBQQ__Quote__r.SBQQ__PrimaryContact__r.Phone}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Email:</apex:outputLabel>
+                        <apex:outputField value="{!recentOrderList.SBQQ__Quote__r.SBQQ__PrimaryContact__r.Email}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Customer:</apex:outputLabel>
+                        <apex:outputField value="{!recentOrderList.NATT_End_Customer__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Customer Market Segment:</apex:outputLabel>
+                        <apex:outputField value="{!originalOrderList.NATT_Market_Segment2__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Dealer AR Code:</apex:outputLabel>
+                        <apex:outputField value="{!recentOrderList.NATT_Dealer_AR_Code__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >JDE AR Code:</apex:outputLabel>
+                        <apex:outputField value="{!recentOrderList.Account.NATT_AR_Code_JDE_AR_Code__c }"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Purchase Order #:</apex:outputLabel>
+                        <apex:outputField value="{!originalOrderList.NATT_Purchase_Order__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Sales Order #:</apex:outputLabel>
+                        <apex:outputField value="{!originalOrderList.NATT_JDE_Sales_Order_Number__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel >Shipment Method:</apex:outputLabel>
+                        <apex:outputField value="{!originalOrderList.NATT_Shipment_Method__c}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    <!-- <apex:pageBlockSectionItem >
+<apex:outputLabel >Shipment Terms:</apex:outputLabel>
+<apex:outputField value="{!recentOrderList.NATT_Shipment_Terms__c}"/>
+</apex:pageBlockSectionItem>
+
+<br />
+
+
+<apex:pageBlockSectionItem >
+<apex:outputLabel >Payment Terms:</apex:outputLabel>
+<apex:outputField value="{!recentOrderList.NATT_Payment_Terms__c}"/>
+</apex:pageBlockSectionItem>-->
+                    
+                    
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            <!-- </div>-->
+            
+            
+            
+            <!-- column 2 -->
+            <!--<apex:panelGrid columns="1">-->
+            <!--<div id="second">-->
+            
+            <apex:pageBlock >
+                
+                <apex:pageBlockSection columns="1" showHeader="false" >
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputText value="Bill To:" />
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        
+                        
+                        <apex:outputPanel >
+                            <apex:outputText value="{!recentOrderList.Account.Name }" /><br />
+                            <apex:outputText value="{!originalOrderList.BillingStreet+ ","}" /><br />
+                            <apex:outputText value="{!originalOrderList.BillingCity+ ","}" />&nbsp;
+                            <apex:outputText value="{!originalOrderList.BillingState }" />&nbsp;
+                             <apex:outputText value="{!originalOrderList.BillingPostalCode}" />&nbsp;
+                            <apex:outputText value="{!OrderList.BillingCountry}"/>
+                        </apex:outputPanel>
+                        
+                    </apex:pageBlockSectionItem>
+                    
+                    <br />
+                    
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Ship To:"/>  
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        
+                        <apex:outputPanel >
+                            <apex:outputText value="{!recentOrderList.NATT_Shipping_Address__r.NATT_JDE_Alpha_Name__c}" /><br />
+                            <apex:outputText value="{!originalOrderList.ShippingStreet}" /><br />
+                            <apex:outputText value="{!originalOrderList.ShippingCity + ","}" />&nbsp;
+                            <apex:outputText value="{!originalOrderList.ShippingState}" />&nbsp;
+                            <apex:outputText value="{!originalOrderList.ShippingPostalCode}" /> <br />
+                            <apex:outputText value="{!originalOrderList.ShippingCountry}" />&nbsp;
+                        </apex:outputPanel>
+                        
+                    </apex:pageBlockSectionItem>
+                    
+                </apex:pageBlockSection>
+                
+                <br/>
+                <!-- Modifyed for CCRN-1347 by Rajasekharreddy Kotella Start -->
+                <apex:pageBlockSection columns="{!NoOfCols}" rendered="true" showHeader="false">
+                    <!-- First column -->
+                    <apex:pageBlockSectionItem >
+                        <apex:outputText >Request Date</apex:outputText>
+                    </apex:pageBlockSectionItem>
+                    <!--<apex:pageBlockSectionItem rendered="{!IsUnitrecordType}">
+                        <apex:outputPanel style="margin-left: 20px;">
+                            <apex:outputText >Schedule Pick Date</apex:outputText>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem> -->
+
+                    <apex:pageBlockSectionItem >
+                        <apex:outputPanel >
+                        <apex:pageBlockTable value="{!WrapReqShipQtyAndDateList}" var="ReqDateQty" border="0.8px" cellpadding="2"  rendered="{!WrapReqShipQtyAndDateList.size>0}"  >
+                            <apex:column value="{!ReqDateQty.ReqQty}" headerValue="Qty" />
+                            <apex:column value="{!ReqDateQty.ReqShipDate}" headerValue="Date" />
+                        </apex:pageBlockTable>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+
+                    <!-- <apex:pageBlockSectionItem rendered="{!IsUnitrecordType}" >
+                        <apex:outputPanel >
+                            <apex:pageBlockTable value="{!WrapReqShipQtyAndDateList}" var="ReqDateQty" style="margin-left: 20px;" border="0.8px" cellpadding="2" rendered="{!WrapReqShipQtyAndDateList.size>0}">
+                                <apex:column value="{!ReqDateQty.ReqQty}" headerValue="Qty" />
+                                <apex:column value="{!ReqDateQty.SchShipDate}" headerValue="Date" />
+                            </apex:pageBlockTable>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem> -->
+                </apex:pageBlockSection>
+				<!-- Modifyed for CCRN-1347 by Rajasekharreddy Kotella End -->
+
+                    <!--<apex:pageBlockSectionItem />
+                    
+                     <apex:pageBlockSectionItem >
+                        <apex:pageBlockTable value="{!wsqs}" var="shipDateQty" border="0.8px" cellpadding="2"  rendered="{!wsqs.size>0}" >
+                            <apex:column value="{!shipDateQty.quantity}" headerValue="Qty" />
+                            <apex:column value="{!shipDateQty.ShipDt}" headerValue="Date" />
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSectionItem>-->
+            </apex:pageBlock>
+        </apex:panelGrid>
+        
+        <!--</div>
+        </div>-->
+        <h4 style="text-align:center">Unit Detail</h4>
+
+        <table style="width:100%" id="ttd">
+            <col width="30%" />
+            <col width="70%" />
+            <tr>
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;">Model</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;"><apex:outputText value="{!recentOrderList.NATT_Unit__c}"/></td> 
+            </tr>
+            <tr>
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;">Standard Features</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;"><apex:outputText value="{!recentOrderList.NATT_Standard_Features__c}"/></td> 
+            </tr>
+        </table>
+
+        <table style="width:100%" id="ttd">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+        <tr>
+            <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;"></td>
+            <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Qty</td>
+            <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Listed Price</td>
+            <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Disc %</td>
+            <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Disc Amt</td>
+            <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Quoted Price</td>
+            <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Total Quoted</td>
+        </tr>
+        <tr>
+            <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                <table style="width:100%" id="ttd">
+                    <col width="30%" />
+                    <col width="70%" />
+                    <tr>
+                        <td style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Unit</td>
+                        <td style="border-left:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"><apex:outputText value="{!recentOrderList.NATT_Unit__c}"/></td>
+                    </tr>
+                </table>
+            </td>
+            <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!unitQty}</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!listPrice}"/>
+                    </apex:outputText>
+                </td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!ROUND(discPerc,2)}</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!discAmt}"/>
+                    </apex:outputText>               
+                </td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!unitPrice}"/>
+                    </apex:outputText>  
+                </td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!totalPrice}"/>
+                    </apex:outputText>  
+                </td>
+        </tr>
+        </table>
+
+        <table style="width:100%" id="ttd">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+            <tr style="background-color:#D3D3D3;">
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Standard Options</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+            </tr>
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapStandardOptions}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapStandardOptions != null,IF(WrapStandardOptions.size>0, true, false), false)}">   
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.listPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discPerc, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discAmt, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.unitPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.totalPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock> 
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapStandardOptionsTotal}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapStandardOptionsTotal != null,IF(WrapStandardOptionsTotal.size>0, true, false), false)}">                
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.listPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!so.discPerc}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.discAmt}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.unitPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.totalPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock> 
+        <!-- Modified BY Vamsi CCRN 1927 This will create table and shows the lynx fleet data  -->
+         <table style="width:100%" id="ttd">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+            <tr style="background-color:#D3D3D3;">
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Lynx Fleet</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+            </tr>
+        </table>
+          <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapLynxFleets}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapLynxFleets != null,IF(WrapLynxFleets.size>0, true, false), false)}">   
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.listPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discPerc, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discAmt, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.unitPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.totalPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+         <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapLynxFleetsTotals}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapLynxFleetsTotals != null,IF(WrapLynxFleetsTotals.size>0, true, false), false)}">                
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.listPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!so.discPerc}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.discAmt}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.unitPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.totalPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock> 
+        
+        <!-- Ended -->
+        
+        <table style="width:100%" id="ttd">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+            <tr style="background-color:#D3D3D3;">
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Non Standard Options</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+            </tr>
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapNonStandardOptions}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapNonStandardOptions != null,IF(WrapNonStandardOptions.size>0, true, false), false)}">
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.listPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discPerc, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discAmt, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.unitPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.totalPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapNonStandardOptionsTotal}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapNonStandardOptionsTotal != null,IF(WrapNonStandardOptionsTotal.size>0, true, false), false)}">
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.listPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!so.discPerc}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.discAmt}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.unitPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.totalPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock> 
+        
+        <table style="width:100%" id="ttd">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+            <tr style="background-color:#D3D3D3;">
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Special Options</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+            </tr>
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapSpecialOptions}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapSpecialOptions != null,IF(WrapSpecialOptions.size>0, true, false), false)}">
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.listPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discPerc, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discAmt, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0,so.unitPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.totalPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapSpecialOptionsTotal}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapSpecialOptionsTotal != null,IF(WrapSpecialOptionsTotal.size>0, true, false), false)}">
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.listPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!so.discPerc}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.discAmt}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.unitPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.totalPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock> 
+        
+   
+        <table style="width:100%; display: {!IF(isFreight == false, 'none', 'table')};" id="oof">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+            <tr style="background-color:#D3D3D3;">
+                <td id="oof" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Other Options</td>
+                <td id="oof" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="oof" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="oof" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="oof" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="oof" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="oof" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+            </tr>
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapOtherOptions}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapOtherOptions != null,IF(WrapOtherOptions.size>0, true, false), false)}">
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.listPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discPerc, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.discAmt, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0,so.listPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!IF(so.Qty <> 0, so.totalPrice, 0)}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+       
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!WrapOtherOptionsTotal}" var="so" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(WrapOtherOptionsTotal != null,IF(WrapOtherOptionsTotal.size>0, true, false), false)}">
+                <apex:column value="{!so.productName}" style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column value="{!so.Qty}" style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.listPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!so.discPerc}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.discAmt}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.unitPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!so.totalPrice}"/>
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+          
+
+		<table style="width:100%; display: {!IF(isDealer == false, 'none', 'table')};" id="dco">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+            <tr style="background-color:#D3D3D3;">
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Less Dealer Credit (If Applicable)</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+              <!--  <td id="ttd" style="cellspacing:0;cellpadding:0;collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!quoteDomPrice}</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!quoteDomPrice}</td> !-->
+            </tr>
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!domDealers}" var="so" width="100%" style="border: 0.5px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(domDealers != null,IF(domDealers.size>0, true, false), false)}">
+                <apex:column style="width:30%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+            		<apex:outputText value="{!so.Dealer__r.Name + ' - $' + TEXT(so.Override_Credit_Amount__c)}">
+                    </apex:outputText>
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"/>
+
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+
+                </apex:column>
+                <apex:column style="width:8%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+
+                </apex:column>
+                <apex:column style="width:10%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+
+                </apex:column>
+                <apex:column style="width:13%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                </apex:column>
+                <apex:column style="width:18%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+               
+        <table style="width:100%" id="table-bordered">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+            
+             <tr>
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">Dealer Credit/Override</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!quoteDomPrice}</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!quoteDomPrice}</td>
+            </tr> 
+            <tr>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">Total Invoice Per Unit</td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!TotalUnitQtySetter}</td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalListPriceSetter}"/>
+                    </apex:outputText>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!TotalDiscPercSetter}"/>
+                    </apex:outputText>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalDiscAmtSetter}"/>
+                    </apex:outputText>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalUnitPriceSetter}"/>
+                    </apex:outputText>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalTotalPriceSetter}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+        </table>
+        
+        <table style="width:100%" id="table-bordered">
+            <col width="30%" />
+            <col width="8%" />
+            <col width="13%" />
+            <col width="8%" />
+            <col width="10%" />
+            <col width="13%" />
+            <col width="18%" />
+            <tr style="background-color:#D3D3D3;">
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                <table style="width:100%" id="ttd">
+                    <col width="30%" />
+                    <col width="70%" />
+                    <tr>
+                        <td style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">BluEdge</td>
+                      <!---Modified by Simha for https://carrier.atlassian.net/browse/CCRN-1276 !-->
+                     <!--<td style="border-left:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Id:{!bluEdgeId} Expiration Date: {!bluEdgeExpDate}</td> !-->
+                    </tr>
+                </table>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!BETotalQty}</td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                 <!--   <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!BEListPrice}"/>
+                    </apex:outputText> !-->
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                  <!--  <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!IF(BEListPrice> 0,(BETotalDiscAmt / BEListPrice) * 100, 0)}"/>
+                    </apex:outputText> !-->
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                  <!--  <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!BETotalDiscAmt}"/>
+                    </apex:outputText>  !-->
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                <!--    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!BEUnitPrice}"/>
+                    </apex:outputText> !-->
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                 <!--   <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!BETotalTotalPrice}"/>
+                    </apex:outputText> !-->
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">Total Dealer Invoice Per Unit</td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!TotalUnitQtySetter + BETotalQty}</td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!BEListPrice + TotalListPriceSetter}"/>
+                    </apex:outputText>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###########0.00}">
+                        <apex:param value="{!IF(BEListPrice + TotalListPriceSetter > 0,(TotalDiscAmtSetter + BETotalDiscAmt) / (BEListPrice + TotalListPriceSetter) * 100, 0)}"/>
+                    </apex:outputText>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalDiscAmtSetter + BETotalDiscAmt}"/>
+                    </apex:outputText>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalUnitPriceSetter + BEUnitPrice}"/>
+                    </apex:outputText>
+                </td>
+                <td style="vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalTotalPriceSetter + BETotalTotalPrice}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            
+            <tr>
+                <td id="ttd" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:9pt;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Qty</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Price Unit</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;">Total</td>
+            </tr>
+            <tr >
+                <td style="width:30%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">Final Dealer Invoice</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!unitQty}</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalUnitPriceSetter + BEUnitPrice}"/>
+                    </apex:outputText>
+                </td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalTotalPriceSetter + BETotalTotalPrice}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+            
+            <tr >
+                <td style="width:30%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">Final Customer Invoice</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">{!unitQty}</td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;"></td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <apex:param value="{!TotalCustPriceSetter + BECustPrice}"/>
+                    </apex:outputText>
+                </td>
+                <td id="ttd" style="cellspacing:0;cellpadding:0;font-size:9pt;text-align:right;">
+                    <apex:outputText value="{0, number, ###,###,###,##0.00}">
+                        <!--<apex:param value="{!TotalTotalPriceSetter + BETotalTotalPrice}"/>-->
+                        <apex:param value="{!(TotalCustPriceSetter + BECustPrice)* unitQty}"/>
+                    </apex:outputText>
+                </td>
+            </tr>
+        </table>
+        
+        <table width="100%" id="table-bordered" column='1'>
+            <tr>
+                <td id="ttd" style="background-color:#D3D3D3;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Dealer Comments:</td>
+            </tr>
+            
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!DealerComments}" var="fh" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!DealerComments.size>0}">
+                <!--
+                <apex:column style="width:20%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="false" value="{!fh.OppName}"/>
+                </apex:column>
+                -->
+                <apex:column style="width:100%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!JSENCODE(fh.Comments)}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <table width="100%" id="table-bordered" column='1'>
+            <tr>
+                <td id="ttd" style="background-color:#D3D3D3;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Mark For Special Delivery Instructions:</td>
+            </tr>
+            
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!MFDIComments}" var="fh" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!MFDIComments.size>0}">
+                <!--
+                <apex:column style="width:20%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="false" value="{!fh.OppName}"/>
+                </apex:column>
+                -->
+                <apex:column style="width:100%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!JSENCODE(fh.Comments)}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+         
+        <table width="100%" id="table-bordered" column='1'>
+            <tr>
+                <td id="ttd" style="background-color:#D3D3D3;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Internal Comments:</td>
+            </tr>
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!InternalComments}" var="fh" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!IF(InternalComments.size>0 && $User.NATT_Internal__c, true, false)}">
+                <!--
+                <apex:column style="width:20%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="false" value="{!fh.OppName}"/>
+                </apex:column>
+                -->
+                <apex:column style="width:100%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!SUBSTITUTE(JSENCODE(fh.Comments), '\n', '<br/>')}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <!-- 
+        <table width="100%" id="table-bordered" column='1'>
+            <tr>
+                <td id="tdStyleTable3" style="background-color:#D3D3D3;">Internal Discussion:</td>
+            </tr>
+        </table>
+        -->
+        
+        <table width="100%" id="table-bordered" column='1'>
+            <tr>
+                <td id="tdStyleTable3" style="background-color:#D3D3D3;">Change Order:</td>
+            </tr>
+        </table>
+
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!ChangeOrder}" var="fh" width="100%" style="border: 1px solid #000;font-size:9pt;"  rendered="{!ChangeOrder.size>0}">
+                <!--
+                <apex:column style="width:20%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!fh.OppName}"/>
+                </apex:column>
+                -->
+                <apex:column style="width:100%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!SUBSTITUTE(JSENCODE(fh.Comments), '\n', '<br/>')}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+
+        <table width="100%" id="table-bordered" column='1'>
+            <tr>
+                <td id="ttd" style="background-color:#D3D3D3;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">Change Order Comments:</td>
+            </tr>
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!ChangeOrderComments}" var="fh" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!ChangeOrderComments.size>0}">
+                <!--
+                <apex:column style="width:20%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!fh.OppName}"/>
+                </apex:column>
+                -->
+                <apex:column style="width:100%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!SUBSTITUTE(JSENCODE(fh.Comments), '\n', '<br/>')}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <table width="100%" id="table-bordered" column='1'>
+            
+            <tr>
+                <td id="ttd" style="background-color:#D3D3D3;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;"> Approval Comments:</td>
+            </tr>
+            
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!ApprovalComments}" var="fh" width="100%" style="border: 1px solid black;border-collapse: collapse;font-size:9pt;"  rendered="{!ApprovalComments.size>0}">
+                <!--
+                <apex:column style="width:20%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!fh.OppName}"/>
+                </apex:column>
+                -->
+                <apex:column style="width:100%;vertical-align:center;border: 1px solid black;border-collapse: collapse;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;">
+                    <apex:outputText escape="true" value="{!SUBSTITUTE(JSENCODE(fh.Comments), '\n', '<br/>')}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <table width="100%" id="table-bordered" column='1'>
+            
+            <tr>
+                <td Style="background-color:#D3D3D3;" id="tdStyleTable3">Quote/Approvers and Documents History</td>
+            </tr>
+            
+        </table>
+        
+        <table width="100%" id="table-bordered">
+            
+            <tr>
+                <th style="width:25%;" id="tdStyleTable4"></th>
+                <th style="width:25%;" id="tdStyleTable4">Approval needed by</th>
+                <th style="width:16%;" id="tdStyleTable4">Aprvd</th>
+                <th style="width:16%;" id="tdStyleTable4">Date</th>
+                <th style="width:18%;" id="tdStyleTable4">Signature</th>
+            </tr>
+            
+            <tr>
+                <td id="tdStyleTable4">Application Engineer</td>
+                <td id="tdStyleTable4">{!Approver1}</td>
+                <td id="tdStyleTable4">{!Aprvd1}</td>
+                <td id="tdStyleTable4">{!ApprovalDate1}</td>
+                <td id="tdStyleTable4"></td>  
+            </tr>
+            
+            <tr>
+                <td id="tdStyleTable4">Executive Account Manager</td>
+                <td id="tdStyleTable4">{!Approver2}</td>
+                <td id="tdStyleTable4">{!Aprvd2}</td>
+                <td id="tdStyleTable4">{!ApprovalDate2}</td>
+                <td id="tdStyleTable4"></td>
+            </tr>
+            
+            <tr>
+                <td id="tdStyleTable4">Regional Director</td>
+                <td id="tdStyleTable4">{!Approver3}</td>
+                <td id="tdStyleTable4">{!Aprvd3}</td>
+                <td id="tdStyleTable4">{!ApprovalDate3}</td>
+                <td id="tdStyleTable4"></td> 
+            </tr>
+            
+            <tr>
+                <td id="tdStyleTable4">Director of Sales</td>
+                <td id="tdStyleTable4">{!Approver4}</td>
+                <td id="tdStyleTable4">{!Aprvd4}</td>
+                <td id="tdStyleTable4">{!ApprovalDate4}</td>
+                <td id="tdStyleTable4"></td>
+            </tr>
+            
+            <tr>
+                <td id="tdStyleTable4">VP</td>
+                <td id="tdStyleTable4">{!Approver5}</td>
+                <td id="tdStyleTable4">{!Aprvd5}</td>
+                <td id="tdStyleTable4">{!ApprovalDate5}</td>
+                <td id="tdStyleTable4"></td> 
+            </tr>
+            
+            <tr>
+                <td id="tdStyleTable4">CFO</td>
+                <td id="tdStyleTable4">{!Approver6}</td>
+                <td id="tdStyleTable4">{!Aprvd6}</td>
+                <td id="tdStyleTable4">{!ApprovalDate6}</td>
+                <td id="tdStyleTable4"></td>
+            </tr>
+            
+        </table>
+        
+        <table width="100%" id="table-bordered">
+            <tr>
+                <td id="tdStyleTable4" Style="width:25%;">Approval Status</td>
+                <td id="tdStyleTable4" Style="width:25%;">{!ApprovalStatus}</td>
+                <td id="tdStyleTable4" Style="width:32%;text-align:center">Quote Requested By:</td>
+                <td id="tdStyleTable4">{!SalesRep}</td>
+            </tr> 
+            
+            <tr>
+                <td id="tdStyleTable4">Approval Date</td>
+                <td id="tdStyleTable4">{!FinalApprovalDate}</td>
+            </tr>
+        </table>
+        
+        <table width="100%" id="table-bordered">
+            <tr>
+                <th Style="background-color:#D3D3D3;" id="tdStyleTable4">Status History- Note:(The following Section is not currently displayed for dealer)</th>
+            </tr>
+        </table>
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!QuoteFldHistory}" var="fh" width="100%" style="border:0px;font-size:9pt;"  rendered="{!QuoteFldHistory.size>0}" >
+                <apex:column value="{!fh.historyInfo}" style="width:100%;vertical-align:center;border:0px;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <table width="100%" id="table-bordered">
+            <tr>
+                <th Style="background-color:#D3D3D3;" id="tdStyleTable4">Complete Order History</th>
+            </tr>
+        </table> 
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!orderSummaryList}" var="fh" width="100%" style="border: 2px solid #000 ; border-bottom:2px solid #000 important;font-size:9pt;"  rendered="{!orderSummaryList.size>0}" styleClass="tableStyle">
+                <apex:column value="{!fh.qty}" style="width:10%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;" headerValue="Qty"  headerClass="headerclass"  />
+                <apex:column value="{!fh.ProdName}" style="width:50%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:left;" headerValue="Product" headerClass="headerclass" />
+                <apex:column value="{!fh.createdDate}" style="width:13%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;" headerValue="Date Created" headerClass="headerclass" />
+                <apex:column value="{!fh.OrderNumber}" style="width:13%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;" headerValue="Order Number" headerClass="headerclass" />
+                <apex:column value="{!fh.OrderType}" style="width:14%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;" headerValue="Order Type" headerClass="headerclass" />          
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <table width="100%" id="table-bordered">
+            <tr>
+                <th Style="background-color:#D3D3D3;" id="tdStyleTable4">Requested Ship Date History</th>
+            </tr>
+        </table> 
+        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!lstRSDChangeLogs}" var="cl" width="100%" style="border: 2px solid #000 ; border-bottom:2px solid #000 important;font-size:9pt;"  rendered="{!lstRSDChangeLogs.size>0}" styleClass="tableStyle">
+                <apex:column value="{!cl.NATT_Unit__c}" style="width:50%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;" headerValue="Unit" headerClass="headerclass" />
+                <apex:column style="width:25%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;" headerValue="Original Value" headerClass="headerclass">
+                    <apex:outputText escape="true" value="{!JSENCODE(cl.NATT_Original_Value__c)}"/>
+                </apex:column>
+                <apex:column style="width:25%;vertical-align:center;border:1px solid #000;cellspacing:0;cellpadding:0;font-size:9pt;text-align:center;" headerValue="New Value" headerClass="headerclass">
+                    <apex:outputText escape="true" value="{!JSENCODE(cl.NATT_New_Value__c)}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

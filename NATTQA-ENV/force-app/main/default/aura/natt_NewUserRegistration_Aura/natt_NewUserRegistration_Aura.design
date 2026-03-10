@@ -1,0 +1,5 @@
+<design:component >
+    <design:attribute name="nameValue" Label="Customer Name"/>
+    <design:attribute name="emailValue" Label="Customer Email"/>
+    <design:attribute name="passwordValue" Label="Customer Password"/>
+</design:component>

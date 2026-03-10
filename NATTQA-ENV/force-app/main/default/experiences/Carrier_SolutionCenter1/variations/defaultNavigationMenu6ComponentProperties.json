@@ -1,0 +1,15 @@
+{
+  "componentVariants" : [ {
+    "id" : "199f5841-de64-4522-b932-a45b183f32f4",
+    "propertyOverrides" : {
+      "componentAttributes" : {
+        "NavigationMenuEditorRefresh" : "Terminated_Account"
+      }
+    },
+    "targetId" : "5c50e217-7902-4b92-be10-5da2b7f0bccc",
+    "type" : "componentVariant"
+  } ],
+  "developerName" : "Default_Navigation_Menu_6_Component_Properties",
+  "id" : "e23f18d1-f63c-4aaa-bad9-b413c95da557",
+  "type" : "experienceVariation"
+}

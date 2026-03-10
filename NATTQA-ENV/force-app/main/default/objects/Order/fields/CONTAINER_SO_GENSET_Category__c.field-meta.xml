@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_SO_GENSET_Category__c</fullName>
+    <label>SO Category GENSET</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CONSIGNMENT (CN) - CN</fullName>
+                <default>false</default>
+                <label>CONSIGNMENT (CN) - CN</label>
+            </value>
+            <value>
+                <fullName>CONTAINER INTERNAL (CI) - CI</fullName>
+                <default>false</default>
+                <label>CONTAINER INTERNAL (CI) - CI</label>
+            </value>
+            <value>
+                <fullName>INTERNAL “0” $ SALE(INT) – INT</fullName>
+                <default>false</default>
+                <label>INTERNAL “0” $ SALE(INT) – INT</label>
+            </value>
+            <value>
+                <fullName>LEASING COMPANY (LC) - LC</fullName>
+                <default>false</default>
+                <label>LEASING COMPANY (LC) - LC</label>
+            </value>
+            <value>
+                <fullName>STEAMSSHIP COMPANY(SS) - SS</fullName>
+                <default>false</default>
+                <label>STEAMSSHIP COMPANY(SS) - SS</label>
+            </value>
+            <value>
+                <fullName>STEAMSSHIP COMPANY(SS) - SS&quot;</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>STEAMSSHIP COMPANY(SS) - SS&quot;</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

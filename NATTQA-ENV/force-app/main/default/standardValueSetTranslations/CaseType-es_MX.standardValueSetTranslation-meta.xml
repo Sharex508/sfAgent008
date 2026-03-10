@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Avaria no recebimento de Peças ou Produtos</masterLabel>
+        <translation><!-- Avaria no recebimento de Peças ou Produtos --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Bank Bill</masterLabel>
+        <translation><!-- Bank Bill --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Billing</masterLabel>
+        <translation>Facturación</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>BluEdge</masterLabel>
+        <translation>BluEdge</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Boletos de Clientes</masterLabel>
+        <translation><!-- Boletos de Clientes --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>COMISSÕES DOS DEALERS</masterLabel>
+        <translation><!-- COMISSÕES DOS DEALERS --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Cadastro de cliente</masterLabel>
+        <translation><!-- Cadastro de cliente --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Cadastro de cliente - Documentos</masterLabel>
+        <translation><!-- Cadastro de cliente - Documentos --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Campaign Monitoring</masterLabel>
+        <translation>Seguimiento Campaña</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Cobranças</masterLabel>
+        <translation><!-- Cobranças --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Commissioning</masterLabel>
+        <translation><!-- Commissioning --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Complaint</masterLabel>
+        <translation>Requerimiento</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Concession Request</masterLabel>
+        <translation>Requisición de concesión</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Core Return</masterLabel>
+        <translation>Devolución principal</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>DOA Application</masterLabel>
+        <translation>Solicitud DOA</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Decommissioning and uninstall</masterLabel>
+        <translation><!-- Decommissioning and uninstall --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Devolução de vendas</masterLabel>
+        <translation><!-- Devolução de vendas --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Devoluções de Peças ou Produtos</masterLabel>
+        <translation><!-- Devoluções de Peças ou Produtos --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Document Change Request</masterLabel>
+        <translation><!-- Document Change Request --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Documentation</masterLabel>
+        <translation>Documentación</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Engine Authorization Request</masterLabel>
+        <translation>Solicitud de Autorización de Motor</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Equipment Conversion</masterLabel>
+        <translation>Conversión de Equipos</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Feature Request</masterLabel>
+        <translation><!-- Feature Request --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Field Assistance</masterLabel>
+        <translation>Asistencia en Campo</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Financial Negotiations</masterLabel>
+        <translation><!-- Financial Negotiations --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Gerenciamento de Peças</masterLabel>
+        <translation><!-- Gerenciamento de Peças --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Gerenciamento de pedidos de Produtos</masterLabel>
+        <translation><!-- Gerenciamento de pedidos de Produtos --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Information</masterLabel>
+        <translation>Información</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Information/Technical Support</masterLabel>
+        <translation>Información/Soporte técnico</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Issues</masterLabel>
+        <translation>Cuestiones</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Item Registration</masterLabel>
+        <translation><!-- Item Registration --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Major Component</masterLabel>
+        <translation>Componente Mayor</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Manual Print Request</masterLabel>
+        <translation><!-- Manual Print Request --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>New Part Set-Up/Pricing</masterLabel>
+        <translation>Configuración/Precio de Parte Nueva</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>New/Change Address</masterLabel>
+        <translation><!-- New/Change Address --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Novo usuarios</masterLabel>
+        <translation><!-- Novo usuarios --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Order Issues</masterLabel>
+        <translation><!-- Order Issues --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Order Management</masterLabel>
+        <translation>Manejo de Orden</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Overage/Shortage Discrepancy</masterLabel>
+        <translation>Discrepancia por Exceso/Escasez</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Parts</masterLabel>
+        <translation><!-- Parts --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Portal de Vendas de Peças</masterLabel>
+        <translation><!-- Portal de Vendas de Peças --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Previsão de Entrega Danfe Vendas</masterLabel>
+        <translation><!-- Previsão de Entrega Danfe Vendas --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Problem</masterLabel>
+        <translation><!-- Problem --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Problemas de entrega com frete CIF</masterLabel>
+        <translation><!-- Problemas de entrega com frete CIF --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Product</masterLabel>
+        <translation>Producto</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Product Information</masterLabel>
+        <translation>Información del Producto</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Product Quality</masterLabel>
+        <translation>Calidad del Producto</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Product Quality Report</masterLabel>
+        <translation>Reporte de Calidad de Producto</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Question</masterLabel>
+        <translation>Pregunta</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Regional Issue</masterLabel>
+        <translation><!-- Regional Issue --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Registration Update</masterLabel>
+        <translation><!-- Registration Update --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Resetar senha</masterLabel>
+        <translation><!-- Resetar senha --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Returns</masterLabel>
+        <translation>Devoluciones</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>SRT Change Request</masterLabel>
+        <translation><!-- SRT Change Request --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Sales Order Inquiry</masterLabel>
+        <translation>Consulta de Orden de Venta</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Seguimiento Orden</masterLabel>
+        <translation><!-- Seguimiento Orden --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Service</masterLabel>
+        <translation>Servicio</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Service/Technical Issue</masterLabel>
+        <translation>Servicio/Problema técnico</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Shipment</masterLabel>
+        <translation>Envío</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Shipment Issues</masterLabel>
+        <translation>Problemas de envío</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Solicitação</masterLabel>
+        <translation><!-- Solicitação --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Special Projects</masterLabel>
+        <translation>Proyectos Especiales</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Study Request</masterLabel>
+        <translation>Solicitud Estudio</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Tax Information</masterLabel>
+        <translation><!-- Tax Information --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Technical Inquiry</masterLabel>
+        <translation><!-- Technical Inquiry --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Technical Issue</masterLabel>
+        <translation>Problema Técnico</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Technical Support</masterLabel>
+        <translation>Soporte Técnico</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Technical assistance</masterLabel>
+        <translation><!-- Technical assistance --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Training Request</masterLabel>
+        <translation>Capacitación</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Tributário</masterLabel>
+        <translation><!-- Tributário --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unit</masterLabel>
+        <translation><!-- Unit --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unit Download Review</masterLabel>
+        <translation><!-- Unit Download Review --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Unit Order Maintenance</masterLabel>
+        <translation><!-- Unit Order Maintenance --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Warehouse Faults</masterLabel>
+        <translation><!-- Warehouse Faults --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Warranty</masterLabel>
+        <translation>Garantías</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Warranty Portal</masterLabel>
+        <translation><!-- Warranty Portal --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Warranty Support</masterLabel>
+        <translation>Soporte a Garantías</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

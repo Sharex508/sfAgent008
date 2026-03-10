@@ -1,0 +1,5 @@
+The case has been moved to monitor state
+
+Case Number {!Case.CaseNumber} 
+Case Description {!Case.Description}
+Case Detail: {!Case.Link}

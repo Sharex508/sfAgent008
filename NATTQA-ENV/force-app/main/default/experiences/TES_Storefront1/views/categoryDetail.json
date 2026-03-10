@@ -1,0 +1,102 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "1d6dfed0-287a-45a6-8e9d-642f7faa081c",
+  "label" : "Category Detail",
+  "regions" : [ {
+    "id" : "7b9f39d6-ff43-4485-99ab-7688be96ca07",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "addToCartButtonBackgroundColor" : "",
+        "addToCartButtonBackgroundHoverColor" : "",
+        "addToCartButtonBorderColor" : "",
+        "addToCartButtonBorderRadius" : "0",
+        "addToCartButtonText" : "ADD TO CART",
+        "addToCartButtonTextColor" : "",
+        "addToCartButtonTextHoverColor" : "",
+        "breadcrumbsColor" : "",
+        "breadcrumbsFontSize" : "medium",
+        "cardAlignment" : "center",
+        "cardBackgroundColor" : "",
+        "cardBorderColor" : "rgba(255, 255, 255, 0)",
+        "cardBorderRadius" : "0",
+        "cardContentMapping" : "[{\"name\":\"NATT_P_N__c\",\"showLabel\":false,\"label\":\"P/N\",\"type\":\"STRING\",\"fontSize\":\"medium\",\"fontColor\":\"rgb(31, 133, 180)\",\"displayName\":\"P/N\"},{\"name\":\"Name\",\"showLabel\":false,\"label\":\"Product Name\",\"type\":\"STRING\",\"fontSize\":\"small\",\"fontColor\":\"#333\",\"displayName\":\"Product Name\"}]",
+        "cardDividerColor" : "rgb(221, 219, 218)",
+        "gridColumnSpacing" : "small",
+        "gridMaxColumnsDisplayed" : "4",
+        "gridRowSpacing" : "small",
+        "listRowSpacing" : "small",
+        "minimumQuantityGuideText" : "Minimum quantity is {0}",
+        "negotiatedPriceTextColor" : "rgb(0, 0, 0)",
+        "negotiatedPriceTextSize" : "small",
+        "noResultsRichText" : "<br><br><h1> No results found </h1><br><h2>Try these search tips instead:</h2><br><ol><li>Check your spelling</li><li>Search by product type, SKU, or feature</li><li>Broaden your search using fewer or more general words</li></ol>",
+        "originalPriceTextColor" : "",
+        "originalPriceTextSize" : "small",
+        "pageResultsType" : "productList",
+        "pageTitleFontColor" : "",
+        "pageTitleFontSize" : "medium",
+        "resultsLayout" : "grid",
+        "showAddToCartButton" : true,
+        "showBreadCrumbs" : true,
+        "showNegotiatedPrice" : false,
+        "showNoSearchResults" : false,
+        "showOriginalPrice" : false,
+        "showProductImage" : true,
+        "showQuantityRulesSetup" : true,
+        "showSearchSortingMenuSetup" : true,
+        "viewOptionsButtonText" : "VIEW OPTIONS"
+      },
+      "componentName" : "b2b_search_builder:resultsDisplay",
+      "id" : "0d65098c-5afe-4bc2-972e-a54e8c6b0360",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "c:natt_tesTrademark",
+      "id" : "31384590-572e-4c9f-91fd-c58fd541587d",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a61e4984-fb40-4b04-a6f8-ac5ed2193548",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_tesStoreFooter",
+      "id" : "7cc0d709-be7c-4aec-8b94-992c2b47f639",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "9e788402-2d39-4fc9-9402-d23dc8960d83",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "bfa13c5c-626b-440f-bb86-cab2335cfac4",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "f8875cb0-d8d2-421c-8862-49ed77eab37a",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail-0ZG"
+}

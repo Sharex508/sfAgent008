@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NA_Internal</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>NATT_Team_Calendar</compactLayoutAssignment>
+    <description>Used by the NA Team</description>
+    <label>NA Internal</label>
+    <picklistValues>
+        <picklist>Type__c</picklist>
+        <values>
+            <fullName>Internal Travel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of the Office</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Special Dealer Event</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Trade Show</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

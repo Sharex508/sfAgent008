@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>CTBR High Level 2 - Case Escalation</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CTBR High Level 2 - Case Escalation</name>
+    <style>none</style>
+    <subject>Nivel Alto 2 - Caso Escalado</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

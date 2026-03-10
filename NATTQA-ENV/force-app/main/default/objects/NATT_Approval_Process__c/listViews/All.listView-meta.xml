@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Product_Family__c</columns>
+    <columns>NATT_Unit__c</columns>
+    <columns>Margin_EAM_Lower_Bound__c</columns>
+    <columns>Margin_RD_Lower_Bound__c</columns>
+    <columns>Margin_DOS_Lower_Bound__c</columns>
+    <columns>Margin_Sales_Ops_Lower_Bound__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+</ListView>

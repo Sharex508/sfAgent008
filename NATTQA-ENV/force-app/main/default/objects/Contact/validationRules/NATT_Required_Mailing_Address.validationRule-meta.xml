@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Required_Mailing_Address</fullName>
+    <active>false</active>
+    <description>Require Mailing Address for NATT End Customer</description>
+    <errorConditionFormula>AND(NATT_Record_Type_Developer_Name__c = &apos;NATT_End_Customer&apos;,
+OR(
+ISBLANK(MailingCity),
+ISBLANK(MailingCountry),
+ISBLANK(MailingState),
+ISBLANK(MailingStreet),
+ISBLANK(MailingPostalCode)
+), NOT(ISNEW()))</errorConditionFormula>
+    <errorMessage>Mailing Address is required
+(Street, City, State/Province, Zip/Postal Code, Country)</errorMessage>
+</ValidationRule>

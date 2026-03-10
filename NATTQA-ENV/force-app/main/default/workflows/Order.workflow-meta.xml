@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CONTAINER_Order_Confirmation</fullName>
+        <ccEmails>muralidhar.adi@carrier.com</ccEmails>
+        <ccEmails>ashutosh.dubey@cariier.com</ccEmails>
+        <description>CONTAINER Order Confirmation</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CONTAINER_Order_Confirmation</recipient>
+            <type>group</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/CONTAINER_Order_Confirmation_Email_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>NAC_Panama_Order_Creation_Notification</fullName>
+        <ccEmails>containeraftermarketparts@carrier.com</ccEmails>
+        <description>NAC Panama Order Creation Notification</description>
+        <protected>false</protected>
+        <senderAddress>donotreply.refrigeration-marketplace@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAC_Panama_Order_Creation_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>NAOCAP_Order_Confirmed</fullName>
+        <description>NAOCAP Order Confirmed</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>donotreply.refrigeration-marketplace@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAOCAP_Order_Completed_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>NAOCAP_Order_Pending_Confirmation</fullName>
+        <description>NAOCAP Order Pending Confirmation</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>donotreply.refrigeration-marketplace@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>NAOCAP_Email_Template/NAOCAP_Order_Pending_Confirmation_Email_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>NATT_BluEdge_Quote_Converted_To_An_Order</fullName>
+        <description>NATT BluEdge Quote Converted To An Order</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>christopher.comeaux@carrier.com.corp</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>jesse.siebentritt@carrier.com.corp</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>stuart.m.johnson@carrier.com.corp</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>noreply.customergateway@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/NATT_Quote_Converted_To_An_Order</template>
+    </alerts>
+    <alerts>
+        <fullName>NATT_Units_Quote_Converted_To_An_Order</fullName>
+        <description>NATT Units Quote Converted To An Order</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <field>NATT_Approver_1__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>NATT_Approver_2__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>NATT_Approver_3__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>NATT_Approver_4__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>NATT_Approver_5__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <recipients>
+            <field>NATT_Approver_6__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>noreply.customergateway@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/NATT_Quote_Converted_To_An_Order</template>
+    </alerts>
+    <alerts>
+        <fullName>TES_New_Order_Notification</fullName>
+        <description>TES New Order Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>noreply.customergateway@carrier.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/TES_Order_Acknowledgement</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>NATT_Subtract_Version</fullName>
+        <field>NATT_Version_Number__c</field>
+        <formula>NATT_Version_Number__c -1</formula>
+        <name>Subtract Version</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Uncheck_Unlock_Address</fullName>
+        <field>NATT_Unlock_Ship_To_Address_For_Changes__c</field>
+        <literalValue>0</literalValue>
+        <name>Uncheck Unlock Address</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Uncheck_Unlock_Ship_Date</fullName>
+        <field>NATT_Unlock_Requested_Ship_Date__c</field>
+        <literalValue>0</literalValue>
+        <name>Uncheck Unlock Ship Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Update_New_JDE_Sales_Number</fullName>
+        <field>NATT_Original_JDE_Sales_Order__c</field>
+        <formula>NATT_JDE_Sales_Order_Number__c</formula>
+        <name>NATT Update New JDE Sales Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>NATT_Update_Original_Order_Item</fullName>
+        <field>NATT_Original_Order_Id__c</field>
+        <formula>Id</formula>
+        <name>NATT Update Original Order Item</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_Activated</fullName>
+        <field>Status</field>
+        <literalValue>Activated</literalValue>
+        <name>Status = Activated</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Status_equals_Cancelled</fullName>
+        <field>Status</field>
+        <literalValue>Cancelled</literalValue>
+        <name>Status equals Cancelled</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+</Workflow>

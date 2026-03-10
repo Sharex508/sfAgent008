@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>exkq28gnpflNQWhaJ4x7</issuer>
+    <loginUrl>https://sso.carrier.com/app/salesforce/exkq28gnpflNQWhaJ4x7/sso/saml</loginUrl>
+    <logoutUrl>https://sso.carrier.com</logoutUrl>
+    <name>CTM Refacciones</name>
+    <oauthTokenEndpoint>https://carrier-global.my.salesforce.com/services/oauth2/token?so=00D1U000000yumn</oauthTokenEndpoint>
+    <redirectBinding>false</redirectBinding>
+    <requestSignatureMethod>1</requestSignatureMethod>
+    <requestSigningCertId>0P1aJ00000001aP</requestSigningCertId>
+    <salesforceLoginUrl>https://carrier-global.my.salesforce.com?so=00D1U000000yumn</salesforceLoginUrl>
+    <samlEntityId>https://carrier-global.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <useConfigRequestMethod>true</useConfigRequestMethod>
+    <useSameDigestAlgoForSigning>true</useSameDigestAlgoForSigning>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIDnjCCAoagAwIBAgIGAZT+7vgpMA0GCSqGSIb3DQEBCwUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEDAOBgNVBAMMB2NhcnJpZXIxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMjUwMjEzMTA1MDAxWhcNMzUwMjEzMTA1MTAxWjCBjzELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRAwDgYDVQQDDAdjYXJyaWVyMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuqA2IrvsxiJn3yoe6OXzB04KXH7H88OgEgAFIq1rtj+eHEM5HQqF2I4eLMaxJ6PnSq/jjsKBXKOhbtLsMBVhzVvng2ddb469IsnexV91WG2MnJ6oDDk1yzAA4wlNjvE5/DBXtUZSwu4owbRL7qJ9pVYxJaih74rYlaTFF6OPpZ0F2Lsog+N40gvt2ftGamEU4amj/RZedM8uKgc0NILWuy1gPb1YoBaOx5zaxE1rwIGiC29ZpLZ/mEfDfKYcce61Dpq4YKTvqzuktKUy2SWXaBGPAJfHDlihhCYU0zwm8CBYVy+/pbJ9LzdOgFNb4lrLHdTYTMzGhj5MnEztSuTltQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAnuW9cUfp4eY3UuYDgcEaKpRmMVq5RNQ7Jvj2mJrCCo6iZVTXjBVw6oLdsX3g3F3s7eNTBE3OCQ8iJ/Vv9XoVzQ+klqQTU0Eq+aKpGXO8QZHa9XCfOjx5ot0KRlys5SMktO6F7u5dsPufaaCkYJYU2kA5oG0hvCA72DCL9YShzPqfnM8U6rkbx52mQ/aCYAvq/2FxUPOs0/Ne/r03G/5p9QOm+H4QHTmqTViiSnBhZm1Sed1H30UtaPTxO4h0J8+IBocumqfS1Tr19hRhl8tU3QayN+NeSrlJ468G78hHk17DMGb54OcG6tG2eDuu66eo1XmyBiQzM0nnSWkKlLf87</validationCert>
+</SamlSsoConfig>

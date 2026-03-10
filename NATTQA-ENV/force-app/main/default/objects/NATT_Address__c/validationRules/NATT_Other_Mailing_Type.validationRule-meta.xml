@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Other_Mailing_Type</fullName>
+    <active>true</active>
+    <description>NATT: Allows users with the NATT Bypass Other Mailing Address custom permission to use the Other Mailing type</description>
+    <errorConditionFormula>AND($Permission.NATT_Bypass_Other_Mailing_Address=false,
+RecordType.DeveloperName=&apos;NATT_Address&apos;,
+TEXT(NATT_Type__c) = &apos;Other Mailing&apos;)</errorConditionFormula>
+    <errorDisplayField>NATT_Type__c</errorDisplayField>
+    <errorMessage>You do not have permission to modify a Other Mailing address</errorMessage>
+</ValidationRule>

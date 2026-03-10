@@ -1,0 +1,31 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "770efcbe-bb82-41f5-901a-4b9c3b99aae2",
+  "label" : "Order List",
+  "regions" : [ {
+    "id" : "e0adf130-662e-47fa-a2f7-3e35ee6fa265",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_customListView",
+      "id" : "f280e959-034a-4c9f-969e-40259ab65e52",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "49494f76-d5ac-45f4-b142-8952a2cea77a",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "21e35864-2b52-455c-b51d-f9346fb0bf0b",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-801"
+}

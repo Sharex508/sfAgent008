@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-p-around_small">
+        <button class="slds-button slds-button_neutral slds-button_stretch" onclick={handleClick}>{buttonLabel}</button>
+        <template if:true={showText}>
+            <div class="slds-p-bottom_xxx-small"></div>
+            <a class="slds-align_absolute-center" onclick={handleView}>{textLabel}</a>
+        </template>
+    </div>
+</template>

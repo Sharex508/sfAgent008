@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_status_cls_mad_FAR_and_CR_flds</fullName>
+    <active>true</active>
+    <description>If status is closed fill the mandatory fields Final Audit Result &amp; CareMAX Result</description>
+    <errorConditionFormula>AND(
+NOT($Permission.CONTAINER_Bypass_Validation_Rule ),
+ISPICKVAL(CONTAINER_Status__c, &quot;Closed&quot;),
+OR(
+ISBLANK(TEXT(CONTAINER_Final_Audit_Result__c)),
+ISBLANK(TEXT(CONTAINER_CareMAX_Result__c))
+)
+)</errorConditionFormula>
+    <errorMessage>Please fill the mandatory fields Final Audit Result &amp; CareMAX Result before marking status as closed.</errorMessage>
+</ValidationRule>

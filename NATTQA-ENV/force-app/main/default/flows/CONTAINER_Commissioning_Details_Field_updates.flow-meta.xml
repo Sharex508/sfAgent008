@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Validate_Related_Commissioning_Detail</name>
+        <label>Validate Related Commissioning Detail</label>
+        <locationX>482</locationX>
+        <locationY>360</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Update_Commissioning_Shipment_Start_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning_Details_Count__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.CONTAINER_Shipment_Start_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Commissioning_Record_Shipping_Start_Date</targetReference>
+            </connector>
+            <label>Update Parent Commissioning Shipment Start Date</label>
+        </rules>
+        <rules>
+            <name>Update_Parent_Commissioning_Shipment_Start_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning_Details_Count__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.CONTAINER_Shipment_Start_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record__Prior.Id</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Commissioning_Record_Shipping_Start_Date_0</targetReference>
+            </connector>
+            <label>Update Grand Parent Commissioning Shipment Start Date</label>
+        </rules>
+    </decisions>
+    <description>CONTAINER Commissioning Details - Field updates</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>AppendedLetterFormula</name>
+        <dataType>String</dataType>
+        <expression>CASE(TEXT({!ChildCommCount}),
+ &quot;1&quot;, &quot;A&quot;,
+ &quot;2&quot;, &quot;B&quot;,
+ &quot;3&quot;, &quot;C&quot;,
+ &quot;4&quot;, &quot;D&quot;,
+ &quot;5&quot;, &quot;E&quot;,
+&quot; &quot;)</expression>
+    </formulas>
+    <formulas>
+        <name>CalculateTodalShippingQty</name>
+        <dataType>Number</dataType>
+        <expression>IF( ISCHANGED({!$Record.CONTAINER_Quantity_Shipped__c}),       {!$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.CONTAINER_WIP_Job_Quantity__c} - {!$Record__Prior.CONTAINER_Quantity_Shipped__c} + {!$Record.CONTAINER_Quantity_Shipped__c} ,
+{!$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.CONTAINER_WIP_Job_Quantity__c} + {!$Record.CONTAINER_Quantity_Shipped__c})</expression>
+        <scale>0</scale>
+    </formulas>
+    <formulas>
+        <name>CurrentDate</name>
+        <dataType>Date</dataType>
+        <expression>TODAY()</expression>
+    </formulas>
+    <formulas>
+        <name>SetJobNumberFormula</name>
+        <dataType>String</dataType>
+        <expression>{!$Record.CONTAINER_Commissioning__r.Name} &amp;&apos;-C&apos; &amp; {!AppendedLetterFormula}</expression>
+    </formulas>
+    <interviewLabel>CONTAINER Commissioning Details - Field updates {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CONTAINER Commissioning Details - Field updates</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <description>Update Commissioning Record Shipping Start Date</description>
+        <name>Update_Commissioning_Record_Shipping_Start_Date</name>
+        <label>Update Commissioning Record Shipping Start Date</label>
+        <locationX>886</locationX>
+        <locationY>468</locationY>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CONTAINER_Commissioning__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_Shipment_Start_Date__c</field>
+            <value>
+                <elementReference>CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CONTAINER_Commissionig__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update Parent and child Commissioning Record Shipping Start Date</description>
+        <name>Update_Commissioning_Record_Shipping_Start_Date_0</name>
+        <label>Update Parent + Child Commissioning Record Shipping Start Date</label>
+        <locationX>486</locationX>
+        <locationY>576</locationY>
+        <connector>
+            <targetReference>Update_Commissioning_Record_Shipping_Start_Date</targetReference>
+        </connector>
+        <filterLogic>or</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_Shipment_Start_Date__c</field>
+            <value>
+                <elementReference>CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CONTAINER_Commissionig__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update WIP Shipping on Grand Parent Commissioning</description>
+        <name>Update_WIP_Shipping_on_Grand_Parent_Commissioning</name>
+        <label>Update WIP Shipping on Grand Parent Commissioning</label>
+        <locationX>132</locationX>
+        <locationY>432</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_WIP_Job_Quantity__c</field>
+            <value>
+                <elementReference>CalculateTodalShippingQty</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CONTAINER_Commissionig__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Update WIP Shipping on Grand Parent Commissioning</description>
+        <name>Update_WIP_Shipping_on_Grand_Parent_Commissioning_0</name>
+        <label>Update WIP Shipping on Grand Parent Commissioning</label>
+        <locationX>277</locationX>
+        <locationY>440</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.CONTAINER_Commissioning__r.CONTAINER_Commissioning__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_WIP_Job_Quantity__c</field>
+            <value>
+                <elementReference>CalculateTodalShippingQty</elementReference>
+            </value>
+        </inputAssignments>
+        <object>CONTAINER_Commissionig__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>362</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Validate_Related_Commissioning_Detail</targetReference>
+        </connector>
+        <object>CONTAINER_Commissioning_Details__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>AppendedLetter</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>ChildCommCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+</Flow>

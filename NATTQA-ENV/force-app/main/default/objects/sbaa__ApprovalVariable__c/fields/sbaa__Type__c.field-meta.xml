@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__Type__c</fullName>
+    <deprecated>false</deprecated>
+    <description>When Discount is chosen, List Variable and Net Variable must be populated. When Summary is chosen, Aggregate Field and Aggregate Function must be populated.</description>
+    <inlineHelpText>When Discount is chosen, List Variable and Net Variable must be populated. When Summary is chosen, Aggregate Field and Aggregate Function must be populated.</inlineHelpText>
+    <label>Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Summary</fullName>
+                <default>false</default>
+                <label>Summary</label>
+            </value>
+            <value>
+                <fullName>Discount</fullName>
+                <default>false</default>
+                <label>Discount</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,136 @@
+<!-- Datatable component to display unit information related section in table view-->
+
+<aura:component >
+    
+    <!-- DataTable Customisable Attributes -->
+    <aura:attribute name="cssClassName" type="String" default="myUniqueTable" />
+    <aura:attribute name="datatableId" type="String" default="" />
+    <aura:attribute name="tableHeader" type="String" default="" />
+    <aura:attribute name="tableSubTitle" type="String" default="" />
+    <aura:attribute name="dataList" type="List" default="[]" />
+    <aura:attribute name="columns" type="List" default="[]" />
+    <aura:attribute name="keyField" type="String" default="Id" />
+    <aura:attribute name="hideCheckboxColumn" type="Boolean" default="false" />
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String" default="asc" />
+    <aura:attribute name="resizeColumnDisabled" type="Boolean" default="false" />
+    <aura:attribute name="minColumnWidth" type="Integer" />
+    <aura:attribute name="maxColumnWidth" type="Integer"  />
+    <aura:attribute name="resizeStep" type="Integer" default="20"/>
+    <aura:attribute name="showRowNumberColumn" type="Boolean" default="false" />
+    <aura:attribute name="enableInfiniteLoading" type="Boolean" default="false" />
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="defaultSortDirection" type="String" />
+    <aura:attribute name="rowNumberOffset" type="Integer" default="0" />
+    <aura:attribute name="nextPreviousButtonEnabled" type="Boolean" default="true" />
+    <aura:attribute name="messageOnNoRecord" type="String" default="No records found." />
+    <aura:attribute name="rowEditDisable" type="Boolean" default="false" />
+    
+    <!-- Attributes used by the component-->
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="enablePagination" type="Boolean" default="true" />
+    <aura:attribute name="isQueryBuilderSearchClicked" type="Boolean" default="true" />
+    <aura:attribute name="currentPageDataList" type="Object[]" />
+    <aura:attribute name="startPage" type="Integer" />
+    <aura:attribute name="endPage" type="Integer" />
+    <aura:attribute name="totalRecords" type="Integer" />
+    <aura:attribute name="totalSelectedRecords" type="Integer" default="0" />
+    <aura:attribute name="customSelectedRows" type="List" />
+    <aura:attribute name="customSelectedRowsPageWise" type="Object[]" />
+    <aura:attribute name="parentRecordId" type="String" description="Record Id of Parent record" />
+    <aura:attribute name="currentPageNumber" type="Integer" default="1" />
+    <aura:attribute name="isPaginationButtonClicked" type="Boolean" default="false" />
+    <aura:attribute name="currentContentDocumentId" type="String" />
+    <aura:attribute name="showRecordsInfoText" type="Boolean" default="true"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="change" value="{!v.dataList}" action="{!c.dataListChangeHandler}"/>
+    
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading"/>
+    </aura:if>
+    
+    <aura:if isTrue="{!!empty(v.tableHeader)}">
+        <div class="slds-media__body">
+            <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Data Table">
+                {!v.tableHeader}
+            </h1>
+        </div>
+    </aura:if>
+    
+    <div class="slds-grid slds-wrap">
+        <div class="slds-size--4-of-12">
+            <aura:if isTrue="{!!empty(v.tableSubTitle)}">
+                {!v.tableSubTitle}
+            </aura:if>
+        </div>
+        
+        <div class="slds-size--8-of-12">
+            <div class="slds-col slds-align-bottom">
+                <div class="slds-clearfix">
+                    <div class="slds-float_right" style="padding:4px;top: 6px;right: 30px ;position: relative;">
+                        <aura:if isTrue="{!v.totalRecords &gt; 0 &amp;&amp; v.showRecordsInfoText}">
+                            <p class="slds-text-body--small">
+                                {!v.startPage+1}-{!(v.endPage+1 >= v.totalRecords)? v.totalRecords:v.endPage+1} of {!v.totalRecords}
+                                <aura:if isTrue="{!!v.hideCheckboxColumn}">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{!v.totalSelectedRecords} Selected
+                                </aura:if>
+                                <aura:set attribute="else">
+                                    No records found.
+                                </aura:set>
+                            </p>
+                        </aura:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <lightning:datatable class="{!v.cssClassName}"
+                         columns="{!v.columns}" 
+                         data="{!v.currentPageDataList}" 
+                         keyField="{!v.keyField}" 
+                         hideCheckboxColumn="{!v.hideCheckboxColumn}" 
+                         resizeColumnDisabled="{!v.resizeColumnDisabled}"
+                         minColumnWidth="{!v.minColumnWidth}"
+                         maxColumnWidth="{!v.maxColumnWidth}"
+                         resizeStep="{! v.resizeStep }"
+                         sortedBy="{!v.sortedBy}" 
+                         sortedDirection="{!v.sortedDirection}"
+                         showRowNumberColumn="{! v.showRowNumberColumn }"
+                         rowNumberOffset="{! v.rowNumberOffset }"
+                         enableInfiniteLoading="{!v.enableInfiniteLoading}"
+                         onrowselection="{!c.getSelectedName}"
+                         onrowaction="{!c.handleRowAction}"
+                         onsort="{!c.updateColumnSorting}"
+                         title="{!v.tableSubTitle}" 
+                         selectedRows="{!v.customSelectedRows}" 
+                         /> 
+    
+    <aura:if isTrue="{!and(!v.totalRecords > 0, !v.isQueryBuilderSearchClicked)}">
+        <p class="slds-text-body--small slds-align_absolute-center">
+            {!v.messageOnNoRecord}
+        </p>
+    </aura:if>
+    <!--/div-->
+    <br/>
+    
+    <aura:if isTrue="{!v.enablePagination &amp;&amp; v.totalRecords &gt; 0}">
+        <div class="slds-clearfix">
+            <div class="slds-float_left" style="padding:4px">
+                <aura:if isTrue="{!v.nextPreviousButtonEnabled}">    
+                    <lightning:buttonGroup>
+                        <lightning:button aura:id="previousButton" label="Previous" disabled="{!v.startPage == 0}" 
+                                          onclick="{!c.previous}" variant="brand"/>
+                        
+                        <lightning:button aura:id="nextButton" label="Next" disabled="{!v.endPage+1 >= v.totalRecords}" 
+                                          onclick="{!c.next}" variant="brand"/>
+                    </lightning:buttonGroup>
+                </aura:if>
+            </div>
+        </div>
+    </aura:if>
+    
+</aura:component>

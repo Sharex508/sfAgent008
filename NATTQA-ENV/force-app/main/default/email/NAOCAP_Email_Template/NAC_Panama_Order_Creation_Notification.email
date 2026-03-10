@@ -1,0 +1,11 @@
+Dear Team,
+
+A new customer order has been successfully placed and is scheduled for fulfillment from the Panama warehouse. 
+Kindly review the order details below and initiate the dispatch process promptly.
+
+Order Number : {!Order.OrderNumber}
+Order Date : {!Order.OrderedDate}
+Warehouse : {!Order.NATT_Warehouse__c}
+Purchase Order No : {!Order.NATT_Purchase_Order__c}
+
+Thanks

@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Flama';
+    src: url(../resource/FlamaFont/Flama-Basic.ttf);
+}
+
+@font-face {
+    font-family: 'FlamaBold';
+    src: url(../resource/FlamaFont/Flama-Bold.ttf);
+}
+
+.comm-drilldown-navigation__bar a:hover{
+color: blue !important ;
+}
+
+.comm-drilldown-navigation__bar button:hover{
+color: blue !important;
+}
+:root { --dxp-c-section-columns-max-width: 1170px; }

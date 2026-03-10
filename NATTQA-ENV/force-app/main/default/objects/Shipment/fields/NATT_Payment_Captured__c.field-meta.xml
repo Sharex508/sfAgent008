@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Payment_Captured__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox used in TES to indicate if the payment has been captured.</description>
+    <label>Payment Captured</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

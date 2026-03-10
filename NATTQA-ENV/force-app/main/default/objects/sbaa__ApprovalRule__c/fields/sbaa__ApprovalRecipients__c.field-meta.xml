@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__ApprovalRecipients__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Choose one or more recipients for the approval email notification.</description>
+    <inlineHelpText>Choose one or more recipients for the approval email notification.</inlineHelpText>
+    <label>Approval Recipients</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Record Owner</fullName>
+                <default>false</default>
+                <label>Record Owner</label>
+            </value>
+            <value>
+                <fullName>Record Created By</fullName>
+                <default>false</default>
+                <label>Record Created By</label>
+            </value>
+            <value>
+                <fullName>Initial Submitter</fullName>
+                <default>false</default>
+                <label>Initial Submitter</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

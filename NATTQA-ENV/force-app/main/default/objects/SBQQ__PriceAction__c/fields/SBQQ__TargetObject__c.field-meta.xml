@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SBQQ__TargetObject__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Use Quote, Quote Line or Quote Line Pricing Guidance when Price Rule Evaluation Scope is Calculation. Use Product Option when Price Rule Evaluation Scope is Configuration.</inlineHelpText>
+    <label>Target Object</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Quote</fullName>
+                <default>false</default>
+                <label>Quote</label>
+            </value>
+            <value>
+                <fullName>Quote Line</fullName>
+                <default>false</default>
+                <label>Quote Line</label>
+            </value>
+            <value>
+                <fullName>Product Option</fullName>
+                <default>false</default>
+                <label>Product Option</label>
+            </value>
+            <value>
+                <fullName>Quote Line Pricing Guidance</fullName>
+                <default>false</default>
+                <label>Quote Line Pricing Guidance</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

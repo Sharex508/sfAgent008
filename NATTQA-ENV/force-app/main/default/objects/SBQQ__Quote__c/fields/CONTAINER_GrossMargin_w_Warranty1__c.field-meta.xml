@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_GrossMargin_w_Warranty1__c</fullName>
+    <formula>IF(OR(ISBLANK(CONTAINER_Gross_Margin_w_Warranty1__c), CONTAINER_Gross_Margin_w_Warranty1__c = 0,ISBLANK(CONTAINER_Net_Sales1__c ), CONTAINER_Net_Sales1__c  = 0),
+0, (CONTAINER_Gross_Margin_w_Warranty1__c / CONTAINER_Net_Sales1__c ))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Gross Margin w/ Warranty %</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

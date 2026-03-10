@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Products</fullName>
+    <columns>PRODUCT2.NAME</columns>
+    <columns>NATT_P_N__c</columns>
+    <columns>PRODUCT2.RECORD_TYPE</columns>
+    <columns>SBQQ__OptionSelectionMethod__c</columns>
+    <columns>CONTAINER_Base_Weight__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PRODUCT2.RECORD_TYPE</field>
+        <operation>equals</operation>
+        <value>Product2.CONTAINER_Products</value>
+    </filters>
+    <label>CONTAINER Products</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>Container</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

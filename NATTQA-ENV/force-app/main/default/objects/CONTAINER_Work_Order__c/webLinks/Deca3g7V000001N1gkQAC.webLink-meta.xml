@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deca3g7V000001N1gkQAC</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Generate AWO Order Document</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(IF($Site.prefix == &apos;/s&apos;,&apos;/apex/dfsle__sending&apos;, $Site.Prefix +&apos;/apex/dfsle__sending&apos;), null, [sId = CONTAINER_Work_Order__c.Id, sendingExperience = &apos;null&apos;, isEmbedded = false, templateId = &apos;a3g7V000001N1gkQAC&apos;, recordId = CONTAINER_Work_Order__c.Id, title = &apos;Generate AWO Order Document&apos;])}</url>
+</WebLink>

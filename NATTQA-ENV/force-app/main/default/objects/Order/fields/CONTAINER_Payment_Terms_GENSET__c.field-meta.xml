@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Payment_Terms_GENSET__c</fullName>
+    <label>Payment Terms</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>CASH IN ADVANCE - CIA</fullName>
+                <default>false</default>
+                <label>CASH IN ADVANCE - CIA</label>
+            </value>
+            <value>
+                <fullName>LETTER OF CREDIT - LOC</fullName>
+                <default>false</default>
+                <label>LETTER OF CREDIT - LOC</label>
+            </value>
+            <value>
+                <fullName>NET 30 DAYS - N30</fullName>
+                <default>false</default>
+                <label>NET 30 DAYS - N30</label>
+            </value>
+            <value>
+                <fullName>NET 45 DAYS - N45</fullName>
+                <default>false</default>
+                <label>NET 45 DAYS - N45</label>
+            </value>
+            <value>
+                <fullName>NET 60 DAYS - N60</fullName>
+                <default>false</default>
+                <label>NET 60 DAYS - N60</label>
+            </value>
+            <value>
+                <fullName>NOT APPLICABLE - NAO</fullName>
+                <default>false</default>
+                <label>NOT APPLICABLE - NAO</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>CASH IN ADVANCE (CIA)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>CASH IN ADVANCE (CIA)</label>
+            </value>
+            <value>
+                <fullName>LETTER OF CREDIT (LOC)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>LETTER OF CREDIT (LOC)</label>
+            </value>
+            <value>
+                <fullName>NET 30 DAYS (N30)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NET 30 DAYS (N30)</label>
+            </value>
+            <value>
+                <fullName>NET 30 DAYS – N30</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NET 30 DAYS – N30</label>
+            </value>
+            <value>
+                <fullName>NET 45 DAYS (N45)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NET 45 DAYS (N45)</label>
+            </value>
+            <value>
+                <fullName>NET 45 DAYS – N45</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NET 45 DAYS – N45</label>
+            </value>
+            <value>
+                <fullName>NET 60 DAYS (N60)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NET 60 DAYS (N60)</label>
+            </value>
+            <value>
+                <fullName>NET 60 DAYS – N60</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NET 60 DAYS – N60</label>
+            </value>
+            <value>
+                <fullName>NOT APPLICABLE (NAO)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NOT APPLICABLE (NAO)</label>
+            </value>
+            <value>
+                <fullName>NOT APPLICABLE - NAO&quot;</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>NOT APPLICABLE - NAO&quot;</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-box slds-p-around_large slds-m-top_small">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-3" style="border-right:1px solid">
+                <h3>Contact Information:</h3>
+                {checkoutWrapper.name}<br />
+                {checkoutWrapper.phone}<br />
+                {checkoutWrapper.email}
+            </div>
+            <div class="slds-col slds-size_1-of-3" style="border-right:1px solid">
+                <h3>Billing Address:</h3>
+                {checkoutWrapper.billingAddressValue}<br />
+                <div class="slds-p-bottom_medium"></div>
+                <h3>Order Details</h3>
+                <h3>Order Type:</h3>{checkoutWrapper.orderType.label}
+                <h3>Billing Delivery Term:</h3>{checkoutWrapper.deliveryTerm.label}
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <h3>Shipping Address</h3>
+                {checkoutWrapper.shippingAddressValue}<br />
+                <div class="slds-p-bottom_medium"></div>
+                <h3>Shipment Information</h3>
+                <h3>Shipping Method:</h3>{checkoutWrapper.shippingMethod.label}
+                <!--h3>Shipping Notes:</h3>{checkoutWrapper.shippingNotesValue}-->
+            </div>
+        </div>
+    </div>
+</template>

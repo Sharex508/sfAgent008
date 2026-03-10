@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Service_Center_Geolocation__c</fullName>
+    <description>CONTAINER Service Center Latitude and Longitude will be captured manually</description>
+    <displayLocationInDecimal>false</displayLocationInDecimal>
+    <label>Service Center Geolocation</label>
+    <required>false</required>
+    <scale>7</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Location</type>
+</CustomField>

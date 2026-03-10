@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>200INT ComfortPro Integrated APU</fullName>
+        <default>false</default>
+        <label>200INT ComfortPro Integrated APU</label>
+    </customValue>
+    <customValue>
+        <fullName>210STA ComfortPro Stand-alone APU</fullName>
+        <default>false</default>
+        <label>210STA ComfortPro Stand-alone APU</label>
+    </customValue>
+    <customValue>
+        <fullName>220PWR ComfortPro Power-only APU</fullName>
+        <default>false</default>
+        <label>220PWR ComfortPro Power-only APU</label>
+    </customValue>
+    <customValue>
+        <fullName>230SKY ComfortPro ClearSky DPF APU</fullName>
+        <default>false</default>
+        <label>230SKY ComfortPro ClearSky DPF APU</label>
+    </customValue>
+    <customValue>
+        <fullName>240EPS ComfortPro Electric APU</fullName>
+        <default>false</default>
+        <label>240EPS ComfortPro Electric APU</label>
+    </customValue>
+    <customValue>
+        <fullName>250ION-APU ION BATTERY</fullName>
+        <default>false</default>
+        <label>250ION-APU ION BATTERY</label>
+    </customValue>
+    <customValue>
+        <fullName>C280 R404A 12V BASICO-SL</fullName>
+        <default>false</default>
+        <label>C280 R404A 12V BASICO-SL</label>
+    </customValue>
+    <customValue>
+        <fullName>C280 R404A 24V BASICO-SL</fullName>
+        <default>false</default>
+        <label>C280 R404A 24V BASICO-SL</label>
+    </customValue>
+    <customValue>
+        <fullName>C350 R404A 12V BASICO-SL</fullName>
+        <default>false</default>
+        <label>C350 R404A 12V BASICO-SL</label>
+    </customValue>
+    <customValue>
+        <fullName>C350 R404A 24V BASICO-SL</fullName>
+        <default>false</default>
+        <label>C350 R404A 24V BASICO-SL</label>
+    </customValue>
+    <customValue>
+        <fullName>C400 R404A 12V BASICO-SL</fullName>
+        <default>false</default>
+        <label>C400 R404A 12V BASICO-SL</label>
+    </customValue>
+    <customValue>
+        <fullName>C400 R404A 24V BASICO-SL</fullName>
+        <default>false</default>
+        <label>C400 R404A 24V BASICO-SL</label>
+    </customValue>
+    <customValue>
+        <fullName>C500 12V R404A- BASICO S</fullName>
+        <default>false</default>
+        <label>C500 12V R404A- BASICO S</label>
+    </customValue>
+    <customValue>
+        <fullName>C500 24V R404A-BASICO S</fullName>
+        <default>false</default>
+        <label>C500 24V R404A-BASICO S</label>
+    </customValue>
+    <customValue>
+        <fullName>C700 12V R404A-BASICO SA</fullName>
+        <default>false</default>
+        <label>C700 12V R404A-BASICO SA</label>
+    </customValue>
+    <customValue>
+        <fullName>C700 24V R404A-BASICO SA</fullName>
+        <default>false</default>
+        <label>C700 24V R404A-BASICO SA</label>
+    </customValue>
+    <customValue>
+        <fullName>CITIFRESH 500 12V R134a</fullName>
+        <default>false</default>
+        <label>CITIFRESH 500 12V R134a</label>
+    </customValue>
+    <customValue>
+        <fullName>CITIMAX 1000 R404A 24V LA</fullName>
+        <default>false</default>
+        <label>CITIMAX 1000 R404A 24V LA</label>
+    </customValue>
+    <customValue>
+        <fullName>CITIMAX 1100 R404A BASICO-SA  24V</fullName>
+        <default>false</default>
+        <label>CITIMAX 1100 R404A BASICO-SA  24V</label>
+    </customValue>
+    <customValue>
+        <fullName>CITIMAX 280 - R404A - 12 V -LA</fullName>
+        <default>false</default>
+        <label>CITIMAX 280 - R404A - 12 V -LA</label>
+    </customValue>
+    <customValue>
+        <fullName>CITIMAX 280 - R404A - 12 V rooftop</fullName>
+        <default>false</default>
+        <label>CITIMAX 280 - R404A - 12 V rooftop</label>
+    </customValue>
+    <customValue>
+        <fullName>CITIMAX 280 - R404A - 24 V -LA</fullName>
+        <default>false</default>
+        <label>CITIMAX 280 - R404A - 24 V -LA</label>
+    </customValue>
+    <customValue>
+        <fullName>CITIMAX 400 - R404A - 12 V -LA</fullName>
+        <default>false</default>
+        <label>CITIMAX 400 - R404A - 12 V -LA</label>
+    </customValue>
+    <customValue>
+        <fullName>CITIMAX 400 - R404A - 24 V -LA</fullName>
+        <default>false</default>
+        <label>CITIMAX 400 - R404A - 24 V -LA</label>
+    </customValue>
+    <customValue>
+        <fullName>Citimax 500 12V W/MH</fullName>
+        <default>false</default>
+        <label>Citimax 500 12V W/MH</label>
+    </customValue>
+    <customValue>
+        <fullName>Citimax 500 24V W/MH</fullName>
+        <default>false</default>
+        <label>Citimax 500 24V W/MH</label>
+    </customValue>
+    <customValue>
+        <fullName>Citimax 700 12V W/MH</fullName>
+        <default>false</default>
+        <label>Citimax 700 12V W/MH</label>
+    </customValue>
+    <customValue>
+        <fullName>Citimax 700 24V W/MIV</fullName>
+        <default>false</default>
+        <label>Citimax 700 24V W/MIV</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 30S 12V 115/1/60 (athens)</fullName>
+        <default>false</default>
+        <label>INTEGRA 30S 12V 115/1/60 (athens)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 30S 12V 115/1/60 (francia)</fullName>
+        <default>false</default>
+        <label>INTEGRA 30S 12V 115/1/60 (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 30S 12V 230/1/60 (athens)</fullName>
+        <default>false</default>
+        <label>INTEGRA 30S 12V 230/1/60 (athens)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 30S 12V 230/1/60 (Francia)</fullName>
+        <default>false</default>
+        <label>INTEGRA 30S 12V 230/1/60 (Francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 35X 12V 115/1/60 (athens)</fullName>
+        <default>false</default>
+        <label>INTEGRA 35X 12V 115/1/60 (athens)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 35X 12V 115/1/60 (Francia)</fullName>
+        <default>false</default>
+        <label>INTEGRA 35X 12V 115/1/60 (Francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 35X 12V 230/1/60 (Athens)</fullName>
+        <default>false</default>
+        <label>INTEGRA 35X 12V 230/1/60 (Athens)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 35X 12V 230/1/60 (francia)</fullName>
+        <default>false</default>
+        <label>INTEGRA 35X 12V 230/1/60 (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 40X 230/1/60 24V R404a (Francia)</fullName>
+        <default>false</default>
+        <label>INTEGRA 40X 230/1/60 24V R404a (Francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 50X 230/1/60 12V (athens) R404a</fullName>
+        <default>false</default>
+        <label>INTEGRA 50X 230/1/60 12V (athens) R404a</label>
+    </customValue>
+    <customValue>
+        <fullName>INTEGRA 50X 230/1/60 12V (francia) R404a</fullName>
+        <default>false</default>
+        <label>INTEGRA 50X 230/1/60 12V (francia) R404a</label>
+    </customValue>
+    <customValue>
+        <fullName>MV Battery 12 kWh Standard</fullName>
+        <default>false</default>
+        <label>MV Battery 12 kWh Standard</label>
+    </customValue>
+    <customValue>
+        <fullName>MV Battery 6 KWh Pulsor std</fullName>
+        <default>false</default>
+        <label>MV Battery 6 KWh Pulsor std</label>
+    </customValue>
+    <customValue>
+        <fullName>NEOS 100 - Road/Standby 230/1/50 - Monobloc concept - Standard hot gas defrost</fullName>
+        <default>false</default>
+        <label>NEOS 100 - Road/Standby 230/1/50 - Monobloc concept - Standard hot gas defrost</label>
+    </customValue>
+    <customValue>
+        <fullName>NEOS 100 S- Road/Standby 230/1/50</fullName>
+        <default>false</default>
+        <label>NEOS 100 S- Road/Standby 230/1/50</label>
+    </customValue>
+    <customValue>
+        <fullName>NEOS HE 200 Split 12V 230/1 GREEN</fullName>
+        <default>false</default>
+        <label>NEOS HE 200 Split 12V 230/1 GREEN</label>
+    </customValue>
+    <customValue>
+        <fullName>NEOS HE 200 Split 12V 230/1 GREEN ELÉCTRICO</fullName>
+        <default>false</default>
+        <label>NEOS HE 200 Split 12V 230/1 GREEN ELÉCTRICO</label>
+    </customValue>
+    <customValue>
+        <fullName>PULSOR 300E SP 6 230/1/12V</fullName>
+        <default>false</default>
+        <label>PULSOR 300E SP 6 230/1/12V</label>
+    </customValue>
+    <customValue>
+        <fullName>PULSOR 350E SP 8 230/1/12V</fullName>
+        <default>false</default>
+        <label>PULSOR 350E SP 8 230/1/12V</label>
+    </customValue>
+    <customValue>
+        <fullName>PULSOR 350E SP 8 230/1/12V ELÉCTRICO</fullName>
+        <default>false</default>
+        <label>PULSOR 350E SP 8 230/1/12V ELÉCTRICO</label>
+    </customValue>
+    <customValue>
+        <fullName>PULSOR 400E SP 11 230/1/12V</fullName>
+        <default>false</default>
+        <label>PULSOR 400E SP 11 230/1/12V</label>
+    </customValue>
+    <customValue>
+        <fullName>PULSOR 400E SP 11 230/1/12V ELÉCTRICO</fullName>
+        <default>false</default>
+        <label>PULSOR 400E SP 11 230/1/12V ELÉCTRICO</label>
+    </customValue>
+    <customValue>
+        <fullName>PULSOR 500E MONOB 230/1/12V</fullName>
+        <default>false</default>
+        <label>PULSOR 500E MONOB 230/1/12V</label>
+    </customValue>
+    <customValue>
+        <fullName>PULSOR 500E MONOB 230/1/12V ELÉCTRICO</fullName>
+        <default>false</default>
+        <label>PULSOR 500E MONOB 230/1/12V ELÉCTRICO</label>
+    </customValue>
+    <customValue>
+        <fullName>Solara APX</fullName>
+        <default>false</default>
+        <label>Solara APX</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 1050 400v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>SUPRA 1050 400v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 1150 400v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>SUPRA 1150 400v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 1150MT R2 E5 2C S S2 (sistema 2 2 evap 1450) (francia)</fullName>
+        <default>false</default>
+        <label>SUPRA 1150MT R2 E5 2C S S2 (sistema 2 2 evap 1450) (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 1250 400v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>SUPRA 1250 400v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 1250MT R2 E5 2C S S2 (sistema 2 2evap 1450) (francia)</fullName>
+        <default>false</default>
+        <label>SUPRA 1250MT R2 E5 2C S S2 (sistema 2 2evap 1450) (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 550 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>SUPRA 550 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 550 Ruta</fullName>
+        <default>false</default>
+        <label>SUPRA 550 Ruta</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 560 with 230v-3ph-60Hz Standby</fullName>
+        <default>false</default>
+        <label>Supra 560 with 230v-3ph-60Hz Standby</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 750 400v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>SUPRA 750 400v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 750 Ruta</fullName>
+        <default>false</default>
+        <label>SUPRA 750 Ruta</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 750-12 MT -S-sys2 2 evap 1100 (china)</fullName>
+        <default>false</default>
+        <label>Supra 750-12 MT -S-sys2 2 evap 1100 (china)</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 750MT R2 E5 2C S S2 sistema 2 2 evap 1100 (francia)</fullName>
+        <default>false</default>
+        <label>SUPRA 750MT R2 E5 2C S S2 sistema 2 2 evap 1100 (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 750MT R2 E5 2C S S3 sistema 3 1 evap 750 1 evap 1450 (francia)</fullName>
+        <default>false</default>
+        <label>SUPRA 750MT R2 E5 2C S S3 sistema 3 1 evap 750 1 evap 1450 (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 750MT Sys3 (china) 1 evap 750 1 evap 1450</fullName>
+        <default>false</default>
+        <label>Supra 750MT Sys3 (china) 1 evap 750 1 evap 1450</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 850 400v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>SUPRA 850 400v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>SUPRA 850 Ruta</fullName>
+        <default>false</default>
+        <label>SUPRA 850 Ruta</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System A</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System A</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 950 MT - System B</fullName>
+        <default>false</default>
+        <label>Supra 950 MT - System B</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 Road Only</fullName>
+        <default>false</default>
+        <label>Supra 960 Road Only</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 960 with 230v-3ph-60Hz Standby</fullName>
+        <default>false</default>
+        <label>Supra 960 with 230v-3ph-60Hz Standby</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S10 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S10 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S10 Ruta</fullName>
+        <default>false</default>
+        <label>Supra S10 Ruta</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S6 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 Ruta</fullName>
+        <default>false</default>
+        <label>Supra S6 Ruta</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S7 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 Ruta</fullName>
+        <default>false</default>
+        <label>Supra S7 Ruta</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S8 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 Ruta</fullName>
+        <default>false</default>
+        <label>Supra S8 Ruta</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <label>Supra S9 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 Ruta</fullName>
+        <default>false</default>
+        <label>Supra S9 Ruta</label>
+    </customValue>
+    <customValue>
+        <fullName>TAN 50G LAT BRIDA + STD C/STRAPS</fullName>
+        <default>false</default>
+        <label>TAN 50G LAT BRIDA + STD C/STRAPS</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8100</fullName>
+        <default>false</default>
+        <label>Vector 8100</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8500</fullName>
+        <default>false</default>
+        <label>Vector 8500</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 01</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 01</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 02</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 02</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 03</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 03</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 04</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 04</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 05</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 05</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 06</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 06</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 07</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 07</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 13</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 13</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 14</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 14</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 15</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 15</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - Sistema 16</fullName>
+        <default>false</default>
+        <label>Vector 8600 - Sistema 16</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8611MT</fullName>
+        <default>false</default>
+        <label>Vector 8611MT</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300</fullName>
+        <default>false</default>
+        <label>X4 7300</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7300-B (no incluye kit de tanque, straps, semaforo, ni tapas inferiores ordenar aparte)</fullName>
+        <default>false</default>
+        <label>X4 7300-B (no incluye kit de tanque, straps, semaforo, ni tapas inferiores ordenar aparte)</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500</fullName>
+        <default>false</default>
+        <label>X4 7500</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-B (no incluye kit de tanque, straps, semaforo, ni tapas inferiores ordenar aparte)</fullName>
+        <default>false</default>
+        <label>X4 7500-B (no incluye kit de tanque, straps, semaforo, ni tapas inferiores ordenar aparte)</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7500-B Con Bottom Panel</fullName>
+        <default>false</default>
+        <label>X4 7500-B Con Bottom Panel</label>
+    </customValue>
+    <customValue>
+        <fullName>X4 7700 - ESolutions (incluye kit de tanque. Straps, semaforo y tapas)</fullName>
+        <default>false</default>
+        <label>X4 7700 - ESolutions (incluye kit de tanque. Straps, semaforo y tapas)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 350 12V 230/3/60 R404a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 350 12V 230/3/60 R404a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 350 24V 230/3/60 R404a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 350 24V 230/3/60 R404a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 350 Mt° - 12 V - 230/3/50 - MXS850 / MXS601</fullName>
+        <default>false</default>
+        <label>XARIOS 350 Mt° - 12 V - 230/3/50 - MXS850 / MXS601</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 350 Mt° - T - 12 V - Road/Standby 230/3/50-60 - MXS850 / MXS851</fullName>
+        <default>false</default>
+        <label>XARIOS 350 Mt° - T - 12 V - Road/Standby 230/3/50-60 - MXS850 / MXS851</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 350 230/3/60 12V R134a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 350 230/3/60 12V R134a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 350 230/3/60 24V R134a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 350 230/3/60 24V R134a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 350MT 8/6 230/1/50 24V</fullName>
+        <default>false</default>
+        <label>XARIOS 350MT 8/6 230/1/50 24V</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 350MT 8/8 24V 230/3/50</fullName>
+        <default>false</default>
+        <label>XARIOS 350MT 8/8 24V 230/3/50</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 5 230/3/60 12V R134a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 5 230/3/60 12V R134a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 5 230/3/60 24V R134a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 5 230/3/60 24V R134a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 5 R2 230/1/50 24V R404a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 5 R2 230/1/50 24V R404a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 5 R2 230/3/60 12V R404a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 5 R2 230/3/60 12V R404a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 5 R2 230/3/60 24V R404a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 5 R2 230/3/60 24V R404a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 6 R2 230/1/50 24V R404a (francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 6 R2 230/1/50 24V R404a (francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 6 R2 230/3/60 12V R404a (Francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 6 R2 230/3/60 12V R404a (Francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 6 R2 230/3/60 24V R404a (Francia)</fullName>
+        <default>false</default>
+        <label>XARIOS 6 R2 230/3/60 24V R404a (Francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 600MT 11/8 230/3/60 24V</fullName>
+        <default>false</default>
+        <label>XARIOS 600MT 11/8 230/3/60 24V</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 600MT 8/8 12V 230/3/60</fullName>
+        <default>false</default>
+        <label>XARIOS 600MT 8/8 12V 230/3/60</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 6MT R2 11/8 230/1 12V</fullName>
+        <default>false</default>
+        <label>XARIOS 6MT R2 11/8 230/1 12V</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 6MT R2 230/1/60 12V R404a 11/8</fullName>
+        <default>false</default>
+        <label>XARIOS 6MT R2 230/1/60 12V R404a 11/8</label>
+    </customValue>
+    <customValue>
+        <fullName>XARIOS 8 R2 230/3/60 24V</fullName>
+        <default>false</default>
+        <label>XARIOS 8 R2 230/3/60 24V</label>
+    </customValue>
+    <customValue>
+        <fullName>ZEPHYR 30S R134a 12V 230/3/60 (Francia)</fullName>
+        <default>false</default>
+        <label>ZEPHYR 30S R134a 12V 230/3/60 (Francia)</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 850 SIII</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra 850 SIII</label>
+    </customValue>
+    <customValue>
+        <fullName>Vector 8600 - System 01</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Vector 8600 - System 01</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 750 SIII</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra 750 SIII</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S9 with 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra S9 with 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S8 with 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra S8 with 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S7 with 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra S7 with 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra S6 with 230v-3ph-60Hz</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra S6 with 230v-3ph-60Hz</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 1150 MT</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra 1150 MT</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 1150</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra 1150</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 1250 MT</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra 1250 MT</label>
+    </customValue>
+    <customValue>
+        <fullName>Supra 1250</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Supra 1250</label>
+    </customValue>
+    <masterLabel>CTM BluEdge Unit</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

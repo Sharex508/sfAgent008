@@ -1,0 +1,12 @@
+{
+  "type" : "sfdc_cms__route",
+  "title" : "ThankYouPage",
+  "contentBody" : {
+    "activeViewId" : "ThankYouPage",
+    "configurationTags" : [ ],
+    "pageAccess" : "Public",
+    "routeType" : "custom-thankyoupage",
+    "urlPrefix" : "thankyoupage"
+  },
+  "urlName" : "thankyoupage"
+}

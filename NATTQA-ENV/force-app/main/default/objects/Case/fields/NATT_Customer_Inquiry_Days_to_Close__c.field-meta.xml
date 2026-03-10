@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Customer_Inquiry_Days_to_Close__c</fullName>
+    <description>Used to store Days to Close from Customer Inquiry data load.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Reference for legacy data migrated</inlineHelpText>
+    <label>Customer Inquiry - Days to Close</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Quote Expiration - Email Notifications 14-7-3 for bluedge and units</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Quote Expiration - Email Notifications 14-7-3</name>
+    <style>none</style>
+    <subject>QUOTE {!SBQQ__Quote__c.Name} IS SET TO EXPIRE WITHIN {!SBQQ__Quote__c.Prior_to_Expiraiton_Date__c} Days</subject>
+    <type>text</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

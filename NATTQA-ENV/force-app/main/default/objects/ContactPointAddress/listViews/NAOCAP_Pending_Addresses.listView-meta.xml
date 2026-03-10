@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAOCAP_Pending_Addresses</fullName>
+    <columns>Name</columns>
+    <columns>ADDRESS.STREET</columns>
+    <columns>ADDRESS.CITY</columns>
+    <columns>ADDRESS.STATE</columns>
+    <columns>ADDRESS.ZIP</columns>
+    <columns>ADDRESS.COUNTRY</columns>
+    <columns>AddressType</columns>
+    <columns>IsDefault</columns>
+    <columns>Status__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Pending</value>
+    </filters>
+    <filters>
+        <field>Record_Type_Name__c</field>
+        <operation>equals</operation>
+        <value>NAC</value>
+    </filters>
+    <label>NAOCAP Pending Addresses</label>
+    <sharedTo>
+        <role>NAOCAP</role>
+    </sharedTo>
+</ListView>

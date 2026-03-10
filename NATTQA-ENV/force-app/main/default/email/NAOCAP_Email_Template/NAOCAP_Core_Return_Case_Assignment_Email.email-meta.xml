@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>NAOCAP Core Return Case Assignment Email</name>
+    <style>none</style>
+    <subject>A new core return case has been raised</subject>
+    <textOnly>A new core return case has been raised
+
+A new core retun has been submited by {!Case.CreatedBy} with the following details :
+
+Case Number  {!Case.CaseNumber}
+Case Reason  {!Case.NATT_Case_Reason__c}
+Type  {!Case.Type}
+Core Return Location  {!Case.NATT_Core_Return_Location__c}
+Tracking #1 (B/L)  {!Case.NATT_Tracking_1_B_L__c}
+Tracking #2 (B/L)  {!Case.NATT_Tracking_2_B_L__c}
+
+The return items associated with the case can be viewed here: {!Case.Link}
+
+If you have any questions, do not hesitate to contact us.
+
+
+If you have any questions or want to opt-out of this email, please email CAPNAOIssues@carrier.com
+
+
+
+Thanks &amp; Regards,  Container Aftermarket Parts Team</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

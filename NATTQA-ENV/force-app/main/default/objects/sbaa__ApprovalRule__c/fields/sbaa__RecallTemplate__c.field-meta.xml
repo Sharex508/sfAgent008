@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__RecallTemplate__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>Lookup to the Email Template associated with recalls for this Rule</description>
+    <inlineHelpText>Lookup to the Email Template associated with recalls for this Rule</inlineHelpText>
+    <label>Recall Template</label>
+    <referenceTo>sbaa__EmailTemplate__c</referenceTo>
+    <relationshipLabel>Recalled Approval Rules</relationshipLabel>
+    <relationshipName>RecalledApprovalRules</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

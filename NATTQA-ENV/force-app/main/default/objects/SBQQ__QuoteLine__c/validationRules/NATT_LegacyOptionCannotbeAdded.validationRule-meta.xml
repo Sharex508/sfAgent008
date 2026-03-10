@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_LegacyOptionCannotbeAdded</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(NATT_Legacy_Option__c, 
+OR(TEXT(SBQQ__Quote__r.SBQQ__Type__c) = &quot;Quote&quot;, 
+   AND(TEXT(SBQQ__Quote__r.SBQQ__Type__c) = &quot;Amendment&quot;, ISBLANK(SBQQ__Source__c), NOT(ISBLANK(SBQQ__UpgradedAsset__c)), ISBLANK(SBQQ__PriorQuantity__c)),
+   AND(TEXT(SBQQ__Quote__r.SBQQ__Type__c) = &quot;Amendment&quot;, ISBLANK(SBQQ__Source__c), ISBLANK(SBQQ__UpgradedAsset__c)))
+   )</errorConditionFormula>
+    <errorMessage>You may not add a legacy option to this quote.</errorMessage>
+</ValidationRule>

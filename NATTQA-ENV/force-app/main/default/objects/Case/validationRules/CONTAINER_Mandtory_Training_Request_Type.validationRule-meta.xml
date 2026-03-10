@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Mandtory_Training_Request_Type</fullName>
+    <active>true</active>
+    <description>Few Container fields are mandatory for the Training Request type case.</description>
+    <errorConditionFormula>AND(
+NOT($Permission.CONTAINER_Bypass_Validation_Rule) ,
+$RecordType.Name = &quot;CONTAINER Service Engineering&quot;,
+ISPICKVAL(Type,&quot;Training Request&quot;),
+OR(
+ ISPICKVAL(CONTAINER_Language_of_Class__c ,&quot;&quot;),
+ ISBLANK( CONTAINER_Lead_Instructor__c ),
+ ISBLANK( CONTAINER_Secondary_Instructor__c ),
+ ISBLANK( CONTAINER_Address__c ),
+ ISBLANK( CONTAINER_City__c ),
+ ISBLANK( CONTAINER_State_Region__c ),
+ ISBLANK( CONTAINER_Country__c ),
+ ISBLANK( CONTAINER_Maximum_Participants__c)
+)
+)</errorConditionFormula>
+    <errorMessage>Required fields must be completed for Training Request : Language of Class, Lead Instructor, Secondary Instructor, Address, City, State/Region, Country and Maximum Participants.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>CTM Pending Order for Approval</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CTM Order Pending for Approval</name>
+    <style>none</style>
+    <subject>Pending Order for Approval</subject>
+    <textOnly>APPROVAL NOTIFICATION Please do not reply to this message. If you need assistance or have questions, please contact your local representative
+
+Dear Approver,
+
+
+This mail is sent to you to notify Order {!Order.OrderNumber} needs your approval :
+
+
+- End Customer Company : {!Order.NATT_End_Customer__c}
+- Account name : {!Order.NATT_Account_Name__c}
+- Opportunity name : {!Order.Opportunity}
+- Quote Number : {!Order.Quote}
+- Amount : {!Order.TotalAmount}
+- Purchase Order Number: {!Order.NATT_Purchase_Order__c}
+
+
+Cancellation Reason: {!Order.Cancellation_Reason__c}
+
+
+Direct link to Order: {!Order.Order_Link__c}
+
+Thank you!</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

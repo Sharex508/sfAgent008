@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Other_Refrigerant_Units__c</fullName>
+    <description>Container Service Account field to be used in DocuSign</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Account__r.Other_Refrigerant_Metrics__c )</formula>
+    <label>Other Refrigerant Units</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

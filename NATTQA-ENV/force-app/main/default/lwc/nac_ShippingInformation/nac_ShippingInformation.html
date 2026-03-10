@@ -1,0 +1,122 @@
+<template>
+    <template if:true={showChangeAddressButton}>
+        <lightning-button variant="brand" label="Change Address" onclick={handleChangeAddress}
+            class="slds-p-vertical_small slds-float_right">
+        </lightning-button>
+    </template>
+    <lightning-textarea label="Shipping Address" disabled class="slds-p-vertical_small"
+        value={orderInformation.shippingAddressValue} style="z-index:-1">
+    </lightning-textarea>
+    <lightning-radio-group label="Order Type" options={orderInformation.orderTypeOptions}
+        value={orderInformation.orderType.value} type="radio" onchange={handleOrderTypeChange}
+        class="slds-p-bottom_small" required></lightning-radio-group>
+    <lightning-combobox label="Shipping Method" options={orderInformation.shippingMethodOptions}
+        value={orderInformation.shippingMethod.value} onchange={handleShippingMethodChange} class="slds-p-bottom_small"
+        required>
+    </lightning-combobox>
+    <lightning-combobox label="Billing Delivery Term" options={orderInformation.deliveryTermOptions}
+        onchange={handleDeliveryTermChange} value={orderInformation.deliveryTerm.value} class="slds-p-bottom_small"
+        required>
+    </lightning-combobox>
+    <!-- Account Number appears only for Delivery Term = COL -->
+     
+    <template if:true={showAccountNumberField}>
+            <lightning-input
+                name="AccountNumber"
+                type="text"
+                label="Account Number"
+                placeholder="Enter Account Number"
+                value={accountNumber}
+                class="validate"
+                maxlength="25"
+                onchange={handleAccountNumberChange}>
+            </lightning-input>
+    </template>
+
+    <lightning-input type="date" label="Requested Date" class="slds-p-bottom_small"
+        value={orderInformation.requestedDate} min={todayDate} onchange={handleRequestedDateChange}></lightning-input>
+    <lightning-input type="checkbox" label="Ship Complete" class="slds-p-bottom_small shipSelector"
+        checked={orderInformation.shipComplete} onchange={shipCompletePopUpTrigger}></lightning-input>
+    <template if:true={showAddressesPopUp}>
+        <section class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="slds-text-heading_medium slds-p-bottom_small slds-border_bottom">Shipping Address</div>
+                    <lightning-accordion class="" active-section-name={activeSections}
+                        onsectiontoggle={handleSectionToggle}>
+                        <lightning-accordion-section name="Existing Address" class="" label="Select Existing address">
+                            <lightning-radio-group label="Shipping Address" options={shippingAddressOptions}
+                                variant="label-hidden" value={shippingAddressIndex} type="radio"
+                                class="slds-p-bottom_small slds-p-around_large" onchange={handleShippingAddressChange}>
+                            </lightning-radio-group>
+                        </lightning-accordion-section>
+                        <template if:true={orderInformation.isCustomAddEnabled}>
+                            <lightning-accordion-section name="New Address" label="Add A New Shipping Address">
+                                <lightning-input name="MailingName" type="text" class="validate" label="Mailing Name"
+                                    value={mailingName} placeholder="Mailing Name" maxlength="255" required>
+                                </lightning-input>
+                                <lightning-input name="Street" type="text" class="validate" label="Street"
+                                    value={street} placeholder="Street" maxlength="255" required>
+                                </lightning-input>
+                                <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+                                    <div class="slds-size_1-of-2">
+                                        <lightning-input name="City" type="text" class="validate" label="City"
+                                            value={city} placeholder="City" maxlength="255" required>
+                                        </lightning-input>
+                                    </div>
+                                    <div class="slds-size_1-of-2">
+                                        <lightning-input name="ZipCode" type="text" class="validate" label="Zip Code"
+                                            value={zipCode} placeholder="Zip code">
+                                        </lightning-input>
+                                    </div>
+                                </div>
+                                <lightning-combobox name="Country" label="Country" class="validate"
+                                    value={country} placeholder="Country"
+                                    options={orderInformation.countryListOption} onchange={handleCountryChange} required></lightning-combobox>
+                                <lightning-combobox name="State" label="State" class="validate"
+                                    value={state} placeholder="State"
+                                    options={orderInformation.stateListOptions} onchange={handleStateChange}
+                                    required></lightning-combobox>
+                            </lightning-accordion-section>
+                        </template>
+                    </lightning-accordion>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button label="Cancel" onclick={handleClickCancel} class="slds-m-left_x-small">
+                    </lightning-button>
+                    <lightning-button variant="brand" label="Submit" onclick={handleClickSubmit}
+                        class="slds-m-left_x-small">
+                    </lightning-button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <template if:true={showShipCompleteModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container ">
+                <header class="slds-modal__header border-0 slds-theme_default">
+                    <p class="slds-text-heading_medium slds-hyphenate">
+                        {label.confirmLabel}</p>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <div class="slds-align_absolute-center">
+                        <div>{label.shipCompleteLabel}
+                            <div class="slds-p-bottom_xx-small"></div>
+                            {label.shipConfirm}
+                        </div>
+                    </div>
+                    <div class="slds-p-bottom_small"></div>
+                    <div class="slds-grid slds-gutters slds-align_absolute-center">
+                        <lightning-button label={label.cancelLabel} title={label.cancelLabel}
+                            onclick={handleShipCompleteChange} class="slds-m-left_x-small"></lightning-button>
+                        <lightning-button variant="brand" label={label.okLabel} title={label.okLabel}
+                            onclick={handleShipCompleteChange} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

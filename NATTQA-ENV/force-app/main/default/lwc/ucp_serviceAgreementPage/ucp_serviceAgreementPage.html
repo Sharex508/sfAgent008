@@ -1,0 +1,95 @@
+<template>
+    <div if:true={isLoading} class="slds-is-relative">
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+    </div>
+    <template if:true={error}>
+        <lightning-card style="font-size:24px;" >
+            <div style="margin-left: 20px; ">
+            {noAccessMessage}
+        </div>
+        </lightning-card>
+    </template>
+    <template lwc:if={serviceAgreementVisible}>
+        <lightning-card>
+            <div class="slds-media slds-no-space slds-grow" style="padding-left: 20px;">
+                <div class="slds-media__body slds-align-middle">
+                    <nav role="navigation" aria-label="Breadcrumbs">
+                        <ol class="slds-breadcrumb slds-list_horizontal slds-wrap">
+                            <li class="slds-breadcrumb__item slds-line-height_reset slds-line-height--reset">
+                                <span style="margin-right:10px">Account</span>
+                            </li>
+                            <li class="slds-breadcrumb__item slds-line-height_reset slds-line-height--reset">
+                                <a href="javascript:void(0);" onclick={handleAccountDetailPage}>
+                                    {strAccountName}
+                                </a>
+                            </li>
+                        </ol>
+                    </nav>
+                    <div>
+                        <h1 class="slds-page-header__title listViewTitle slds-truncate" style="font-size: 1.125rem;font-weight:  700;line-height: 1.25;">Service Agreements</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-table_edit_container slds-is-relative" style="margin-top:10px;min-height:400px;">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th class="" scope="col" style="width:5%">
+                                <div class="slds-truncate"></div>
+                            </th>
+                            <th aria-sort="none" scope="col" style="width:8.75rem">
+                                <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                    <span class="slds-truncate" title="Service Agreement Number">Service Agreement Number</span>
+                                    
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={serviceAgreementRecords} for:item="record">
+                            <tr class="slds-hint-parent" key={record.Id}>
+                                <td data-label="Index">
+                                    <div class="slds-truncate">{record.sequenceNumber}</div>
+                                </td>
+
+                                <td data-label="Service Agreement Number">
+                                    <span class="slds-grid slds-grid_align-spread" >
+                                        <div class="slds-truncate">
+                                            <a href="javascript:void(0);" onclick={handleServiceAgreementPage} data-id={record.Id} >
+                                                {record.Name}
+                                            </a>
+                                        </div>
+                                    </span>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </template>
+    <template lwc:elseif={blnNoRecordSA}>
+       
+        <div class="slds-table_edit_container slds-is-relative" style="margin-top:10px;min-height:400px;">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th aria-sort="none" scope="col" >
+                            <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                <span class="slds-truncate" title="Service Agreement Number">Service Agreement Number</span>
+                                
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="slds-hint-parent" >
+                        <td data-label="Index">
+                            <div class="slds-truncate">No records found</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+</template>

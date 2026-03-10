@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>NATT_BluEdge_Terms__c.NATT_Months__c</field>
+    </columns>
+    <columns>
+        <field>NATT_BluEdge_Terms__c.NATT_Hours__c</field>
+    </columns>
+    <columns>
+        <field>NATT_BluEdge_Terms__c.NATT_Deductible__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>NATT_BluEdge_Terms__c.NATT_Price__c</field>
+    </columns>
+    <columns>
+        <field>NATT_BluEdge_Terms__c.NATT_Tavant_ID__c</field>
+    </columns>
+    <columns>
+        <field>NATT_BluEdge_Terms__c.NATT_Unit__c</field>
+    </columns>
+    <columns>
+        <field>NATT_BluEdge_Terms__c.NATT_Unit_Tavant_Id__c</field>
+    </columns>
+    <columns>
+        <field>NATT_BluEdge_Terms__c.NATT_Component_Name__c</field>
+    </columns>
+    <columns>
+        <field>NATT_BluEdge_Terms__c.NATT_Component_Id__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>NATT_BluEdge_Terms__c.NATT_Unit__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>X4 7500</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>NATT_BluEdge_Terms__c.NATT_BluEdge_Price_Type__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Extended Basic,Optional Coverage</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>New BluEdge Terms Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$NATT_BluEdge_Terms__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>NATT_BluEdge_Terms__c.NATT_End_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

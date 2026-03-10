@@ -1,0 +1,84 @@
+<template>
+<lightning-quick-action-panel header={title}>
+    <!--Header START-->
+    <lightning-card class="slds-var-m-around_small" icon-name="standard:date_input">
+        <h1 slot="title">{title}</h1>
+        <lightning-button slot="actions" class="slds-m-left_medium"  variant="brand" label="Edit" onclick={handleEdit}></lightning-button> &nbsp;&nbsp; &nbsp;&nbsp;
+        <lightning-button slot="actions" class="slds-m-left_medium"  variant="brand" label="Export in MS Word" onclick={handleButtonClick}></lightning-button>
+    <!--Header END-->
+    <!--Body START-->
+    <slot name="body">
+    <template if:true={quoteObj}>
+        <div class="slds-scrollable_y" style="width:100%">
+            <!--Section 1-->
+            <div class="slds-grid slds-gutters slds-p-around_xx-small">
+                <div class="slds-col slds-size_2-of-3">
+                    <lightning-input label="Date Of Customer Quote" value={quoteObj.createdDate} type="date" disabled={disabled}></lightning-input>
+                    <lightning-input label="Customer Contact Name" value={quoteObj.customerContact} disabled={disabled}></lightning-input>
+                    <lightning-input label="Customer Company Name" value={quoteObj.customerCompany} disabled={disabled}></lightning-input>
+                    <lightning-input label="Customer Address1" value={quoteObj.address1} disabled={disabled}></lightning-input>
+                    <lightning-input label="Customer Address2" value={quoteObj.address2} disabled={disabled}></lightning-input>
+                    <div class="slds-grid slds-gutters">
+                        <div class="slds-col">
+                            <lightning-input label="City" value={quoteObj.city} disabled={disabled}></lightning-input>
+                        </div>      
+                        <div class="slds-col">
+                            <lightning-input label="State" value={quoteObj.state} disabled={disabled}></lightning-input>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-input label="Zip Code" value={quoteObj.code} disabled={disabled}></lightning-input>
+                        </div>  
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-3">       
+                    <lightning-textarea label="Dealer Comment" name = "dealerComment" value={quoteObj.dealerComment} onchange={handleInputChange} disabled={isEditable}></lightning-textarea>
+                    <lightning-input label="Quotation Number" value={quoteObj.quoteNumber} disabled={disabled}></lightning-input>
+                    <lightning-input label="Quotation Expires" value={quoteObj.quoteExpires} type="date" disabled={disabled}></lightning-input>
+                    <lightning-input label="Dealer Contact" value={quoteObj.dealerContact} disabled={disabled}></lightning-input>
+                </div>
+            </div>
+            <!--Section 2-->
+            <div class="slds-grid slds-gutters slds-p-around_xx-small">
+                <div class="slds-col slds-size_2-of-3">
+                    <h3 class="slds-section-title--divider">Unit Specifications</h3>
+                        <lightning-input label="Model" value={quoteObj.model} disabled={disabled}></lightning-input>
+                        <lightning-textarea label="Standard Features"  value={quoteObj.standardFeatures} disabled={disabled}></lightning-textarea>
+                        <lightning-textarea label="Fuel Tank" value={quoteObj.fuelTank} disabled={disabled}></lightning-textarea>
+                        <lightning-textarea label="Factory Supplied Options" value={quoteObj.factorySuppliedOption} disabled={disabled}></lightning-textarea>
+                        <lightning-textarea label="Dealer Supplied Options" name = "dealerSuppliedOption" value={quoteObj.dealerSuppliedOption} onchange={handleInputChange} disabled={isEditable}></lightning-textarea>
+                        <lightning-textarea label="Non-Standard Options" value={quoteObj.nonStandardSuppliedOption} disabled={disabled}></lightning-textarea>
+                        <lightning-textarea label="Warranty" name = "warranty" value={quoteObj.warranty} onchange={handleInputChange} disabled={isEditable}></lightning-textarea>
+                        <lightning-textarea label="Performance Data" name = "performanceData" value={quoteObj.performanceData} onchange={handleInputChange} disabled={isEditable}></lightning-textarea>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <h3 class="slds-section-title--divider">Unit Pricing</h3>
+                        <lightning-input label="Unit" type="number" step=".01" name = "unit" value={quoteObj.unit} onchange={handleInputChange} disabled={isEditable}></lightning-input>
+                        <lightning-input label="Dealer Installed Options" type="number" step=".01" name = "dealerInstalledOptions" value={quoteObj.dealerInstalledOptions} onchange={handleInputChange} disabled={isEditable}></lightning-input>
+                        <lightning-input label="Fuel" type="number" step=".01" name = "fuel" value={quoteObj.fuel} onchange={handleInputChange} disabled={isEditable}></lightning-input>
+                        <lightning-input label="Non-Standard Options" type="number" step=".01" name = "nonStandardOptions" value={quoteObj.nonStandardOptions} onchange={handleInputChange} disabled={isEditable}></lightning-input>
+                        <lightning-input label="Miscellaneous Prep" type="number" step=".01" name = "miscellaneousPrep" value={quoteObj.miscellaneousPrep} onchange={handleInputChange} disabled={isEditable}></lightning-input>
+                        <lightning-input label="Installation" type="number" step=".01" name = "installation" value={quoteObj.installation} onchange={handleInputChange} disabled={isEditable}></lightning-input>
+                        <lightning-input label="Applicable Taxes" type="number" step=".01" name = "applicableTaxes" value={quoteObj.applicableTaxes} onchange={handleInputChange} disabled={isEditable}></lightning-input>
+                        <lightning-input label="Total Installed Packages" type="number" step=".01" name = "totalInstalledPackages" value={quoteObj.totalInstalledPackages} onchange={handleInputChange} disabled={isEditable}></lightning-input>
+                </div>
+            </div>
+        </div>
+    </template>
+</slot>
+    <!--Body END-->
+</lightning-card>
+<!--Footer START-->
+<div slot="footer" class="slds-m-left_medium">
+    <div class="slds-align_absolute-center">
+        <lightning-button variant="neutral" label="Cancel" onclick={closeAction} ></lightning-button>
+        &nbsp;&nbsp;
+        <lightning-button variant="Brand" label="Save" onclick={handleSaveRecord}></lightning-button>
+    </div>
+</div>
+<!--Footer END-->
+<template if:true={booLoading}>
+    <lightning-spinner alternative-text="Loading" variant="brand">
+    </lightning-spinner>
+</template>
+</lightning-quick-action-panel>
+</template>

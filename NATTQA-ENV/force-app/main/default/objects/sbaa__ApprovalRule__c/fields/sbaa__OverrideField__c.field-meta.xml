@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__OverrideField__c</fullName>
+    <deprecated>false</deprecated>
+    <description>If set, the value of this field overrides the Approval Conditions</description>
+    <inlineHelpText>If set, the value of this field overrides the Approval Conditions</inlineHelpText>
+    <label>Override Field</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Name</fullName>
+                <default>false</default>
+                <label>Name</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

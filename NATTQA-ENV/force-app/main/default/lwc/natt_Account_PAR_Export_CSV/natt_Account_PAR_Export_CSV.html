@@ -1,0 +1,15 @@
+<template>
+    <lightning-card >
+        <template if:true={spinner}>
+            <lightning-spinner alternative-text="Loading" size="x-small"></lightning-spinner>
+        </template>    
+    
+        <template if:true={message}>
+            <b>
+                
+                This account doesn't have any PAR record's to export.
+             
+            </b>
+        </template>
+    </lightning-card>
+    </template>

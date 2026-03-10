@@ -1,0 +1,18 @@
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+      </template>
+    <div class="slds-box">
+        <div class="slds-p-bottom_large"></div>
+        <div class="slds-modal__content slds-p-around_medium slds-align_absolute-center">
+            <lightning-icon icon-name="action:approval" alternative-text="Approved" title="Approved"></lightning-icon>
+            <div class="slds-text-heading_large">Thank you for request</div>
+           
+        </div>
+        <div class="slds-modal__content slds-p-around_medium slds-align_absolute-center">
+            <div class="slds-text-body_small">Your request has been submitted, please wait for approval notification. </div>
+        </div>
+        
+    </div>
+    
+</template>

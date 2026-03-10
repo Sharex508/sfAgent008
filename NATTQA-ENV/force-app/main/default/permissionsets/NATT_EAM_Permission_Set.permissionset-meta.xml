@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <classAccesses>
+        <apexClass>NATT_OrderedQuoteDetails</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>Natt_EAM_Quote_Ordered_Details</name>
+    </customPermissions>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>NATT EAM Permission Set</label>
+</PermissionSet>

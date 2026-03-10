@@ -1,0 +1,8 @@
+A case has been created to address your HIGH case ticket. A support agent will be reaching out to you.
+
+The following case has been escalated:
+Company: {!Account.Name}
+Case: {!Case.CaseNumber}: {!Case.Subject}
+Owner:(User/Queue) {!Case.OwnerFullName}
+
+Click on the link to access the case: {!Case.Link}

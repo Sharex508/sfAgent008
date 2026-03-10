@@ -1,0 +1,53 @@
+.header-row,
+.data-row:hover {
+    background: #FAFAF9;
+    border: 1px solid #DDDBDA;
+    border-top: none;
+}
+
+.header-row {
+    border-top: 1px solid #DDDBDA;
+}
+
+.data-row {
+    background: #FFFFFF;
+    border: 1px solid #DDDBDA;
+    border-top: none;
+}
+
+.cell-with-cursor {
+    cursor: pointer;
+}
+
+.col-header-text {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #3E3E3C;
+}
+
+.data-cell {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #080707;
+}
+
+.onhover:hover {
+    background-color: #F9F9F9;
+}
+
+.onhoverCell:hover {
+    background-color: white;
+}
+
+.iconClass:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/* CXREF-3477 */
+.wrapped-content{
+    overflow-wrap: anywhere;
+}
+/* CXREF-3477 */

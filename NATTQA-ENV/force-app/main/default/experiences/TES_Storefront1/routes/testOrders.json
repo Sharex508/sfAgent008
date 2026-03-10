@@ -1,0 +1,12 @@
+{
+  "activeViewId" : "0a57d5cd-832b-446f-b04f-b3e6dfb708cc",
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "configurationTags" : [ ],
+  "devName" : "Test_Orders__c",
+  "id" : "0c8c9017-5089-490b-b721-9f2bdb1cb1a5",
+  "label" : "Test Orders",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-test-orders",
+  "type" : "route",
+  "urlPrefix" : "test-orders"
+}

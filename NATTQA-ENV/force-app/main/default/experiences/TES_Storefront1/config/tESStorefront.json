@@ -1,0 +1,41 @@
+{
+  "forgotPasswordRouteId" : "81a79bd0-0087-4f72-8c14-96f9e130e268",
+  "isAvailableToGuests" : true,
+  "isFilteredComponentsView" : false,
+  "isProgressiveRenderingEnabled" : false,
+  "loginAppPageId" : "46d1e908-f407-4b05-8ca8-a76276dd8cf3",
+  "mainAppPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "preferredDomain" : "none",
+  "selfRegistrationRouteId" : "b3a3e468-2c30-48f4-9d32-eefc3c04e0ba",
+  "trustedSitesForIFrame" : [ {
+    "id" : "a0ac3bf6-1604-4c6f-8c0c-d319b523f87f",
+    "trustedDomainsForInlineFrames" : [ ],
+    "type" : "trustedSitesForIFrame"
+  } ],
+  "trustedSitesForScript" : [ {
+    "id" : "fa02d9ef-56bc-4a82-8ea0-5f70b1634911",
+    "isActive" : true,
+    "trustedSiteName" : "commmunitycmssite2",
+    "trustedSiteUrl" : "https://b2blightga11--c.documentforce.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "cc2907b4-6dfd-4b23-a454-cab013764c23",
+    "isActive" : true,
+    "trustedSiteName" : "commmunitycmssite1",
+    "trustedSiteUrl" : "https://b2blightga11.my.salesforce.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "8d5e0c1d-b03e-4fb5-8177-b4497fd391fb",
+    "isActive" : true,
+    "trustedSiteName" : "gstatic - reCAPTCHA",
+    "trustedSiteUrl" : "https://www.gstatic.com",
+    "type" : "trustedSitesForScripts"
+  }, {
+    "id" : "daec0442-bb05-447f-87b9-ec75f28923db",
+    "isActive" : true,
+    "trustedSiteName" : "google - reCAPTCHA",
+    "trustedSiteUrl" : "https://www.google.com",
+    "type" : "trustedSitesForScripts"
+  } ],
+  "type" : "site"
+}

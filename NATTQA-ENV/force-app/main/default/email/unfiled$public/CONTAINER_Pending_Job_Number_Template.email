@@ -1,0 +1,18 @@
+<messaging:emailTemplate subject="{!relatedTo.CONTAINER_Product_Type__c}: Pending Job Number Issuance - Quote Id: {!relatedTo.Name} for Quantity: {!ROUND(relatedTo.CONTAINER_Qty__c,0)} of Product Name: {!relatedTo.CONTAINER_Product_Name__c} units for Customer: {!relatedTo.SBQQ__Account__r.Name}" recipientType="User" relatedToType="SBQQ__Quote__c">
+<messaging:htmlEmailBody >
+    <html>
+        <body>
+            <p>
+                Job Number Issuance is pending for this Quote. <br/> <br/>
+                
+                Quote ID:   {!relatedTo.Name} <br/>
+                Quantity:   {!ROUND(relatedTo.CONTAINER_Qty__c,0)} <br/>
+                Model:      {!relatedTo.CONTAINER_Model_Number__c} <br/>
+                PID:        {!relatedTo.CONTAINER_PID__c} <br/><br/>
+                
+                <a href= "{!relatedTo.CONTAINER_DomainName__c}lightning/r/SBQQ__Quote__c/{!relatedTo.Id}/view"> Access Quote </a> <br/>
+            </p>
+        </body>
+    </html>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

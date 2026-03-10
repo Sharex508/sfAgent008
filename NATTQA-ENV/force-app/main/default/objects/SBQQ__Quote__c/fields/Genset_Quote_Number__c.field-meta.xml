@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Genset_Quote_Number__c</fullName>
+    <description>This quote number is for Genset related products.</description>
+    <displayFormat>G-{00000}</displayFormat>
+    <externalId>false</externalId>
+    <inlineHelpText>This quote number is for Genset related products.</inlineHelpText>
+    <label>Genset Quote Number</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>AutoNumber</type>
+</CustomField>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_eSolutions_Total_Plans__c</fullName>
+    <description>for email template</description>
+    <externalId>false</externalId>
+    <formula>NATT_Number_of_eSolutions_Plan_1__c +
+NATT_Number_of_eSolutions_Plan_2__c +
+NATT_Number_of_eSolutions_Plan_3__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Lynx Fleet Total Plans</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

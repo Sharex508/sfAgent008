@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>nps_Non_Respondents__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Invitations without a NPS Internal Id</description>
+    <label>Non-Respondents</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipName>Invitations1</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

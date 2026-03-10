@@ -1,0 +1,39 @@
+{
+  "appPageId" : "d9104c7e-f730-46aa-9275-9d861b9a492f",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "a6c206cd-d14d-4a18-8bfc-4e44da0cb95f",
+  "label" : "Cart List",
+  "regions" : [ {
+    "id" : "738ad096-92fd-497f-92ef-3a3d95d2e112",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_AccountInformationCartPage",
+      "id" : "7d44c855-8fdf-4c81-87a9-1dbeae0eba0f",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "23326bc1-c643-4207-bfbe-6e96a3394f7e",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : { },
+      "componentName" : "c:natt_tesStoreFooter",
+      "id" : "8c44bbd1-c064-4e48-ac71-bd8edef05ad0",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "08b004bc-9671-41ce-89b0-f85a64da2ee8",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-0a6"
+}

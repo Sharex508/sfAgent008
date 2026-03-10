@@ -1,0 +1,140 @@
+<aura:component controller="NATT_AccountInformationHelper" implements="force:appHostable,forceCommunity:availableForAllPageTypes,force:hasRecordId,lightning:isUrlAddressable" access="global">
+    <!-- Imports -->
+    <aura:attribute name="recordId" type="String" />
+
+    <!-- attributes -->
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="dataJDE" type="Object"/>
+    <aura:attribute name="filteredData" type="List" />
+    <aura:attribute name="columnsEdit" type="List"/>
+    <aura:attribute name="columnsNATT" type="List"/>
+    <aura:attribute name="sortedBy" type="String"/>
+    <aura:attribute name="sortedDirection" type="string" default="asc" />
+    <aura:attribute name="defaultSortDirection" type="String" default="asc" />
+    <aura:attribute name="topBackorderData" type="List"/>
+    <aura:attribute name="filter" type="String" />
+    <aura:attribute name="relatedAccount" type="Object" />
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isRecordEditOpen" type="boolean" default="true"/>
+    <aura:attribute name="addressEditId" type="String" />
+    <aura:attribute name="fields" type="String[]" default="['Name','Street','City', 'State', 'PostalCode','Country']" />
+    <aura:attribute name="loading" type="Boolean" default="false" />
+    <aura:attribute name="effectiveAccountId" type="String"/>
+    <aura:attribute name="selectedRecord" type="Object"/>
+    
+	<!--Added By Rajasekharreddy Kotella CCRN-1171  -->     
+    <aura:attribute name="nameFieldValue" type="String"/>
+    <aura:attribute name="nameFieldError" type="String" default=""/>
+    
+
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+   
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    <aura:if isTrue="{! v.loading }">
+        <lightning:spinner alternativeText="Loading" />
+    </aura:if>
+    <aura:if isTrue="{!v.isRecordEditOpen}">
+        <h2 class="slds-text-heading_large slds-p-bottom_medium">{!$Label.c.NATT_Addresses_Ship_To_Addresses}</h2>
+        <div class="c-container">
+            <lightning:layoutItem>
+                        <div style="height: 250">
+                        <lightning:datatable
+                            keyField="Id"
+                            data="{! v.dataJDE }"
+                            columns="{! v.columnsNATT }"
+                            hideCheckboxColumn="true"
+                            defaultSortDirection="{!v.defaultSortDirection}"
+                            sortedBy="{!v.sortedBy}"
+                            sortedDirection="{!v.sortedDirection}"
+                            onsort="{!c.updateSorting}"
+                            />
+                        </div>
+
+            </lightning:layoutItem>
+        </div>
+
+        <h2 class="slds-text-heading_large slds-p-bottom_medium">{!$Label.c.NATT_Addresses_Drop_Ship_Addresses}</h2>
+        
+        <div class="c-container">
+            <lightning:layoutItem>
+                        <div style="height: 250">
+                        <lightning:datatable
+                            keyField="Id"
+                            data="{! v.data }"
+                            columns="{! v.columnsEdit }"
+                            hideCheckboxColumn="true"
+                            draftValues="{! v.draftValues }"
+                            defaultSortDirection="{!v.defaultSortDirection}"
+                            sortedBy="{!v.sortedBy}"
+                            sortedDirection="{!v.sortedDirection}"
+                            onsort="{!c.updateSorting}"
+                            onsave="{! c.onSave }"
+                            onrowaction="{!c.handleRowAction}"/>
+                        </div>
+            </lightning:layoutItem>
+        </div>
+        <lightning:layoutItem>
+                   
+        </lightning:layoutItem>
+            <lightning:button variant="brand"
+                              label="{!$Label.c.NATT_Addresses_Add_Drop_Ship_Address}"
+                              title="Add Drop Ship Address"
+                              onclick="{! c.openModel }" />
+            <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
+<aura:if isTrue="{!v.isModalOpen}">
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open" aria-modal="true">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close"
+                                      onclick="{! c.closeModel }"
+                                      alternativeText="Close"
+                                      variant="bare-inverse"
+                                      class="slds-modal__close"/>
+                <h2 class="slds-text-heading_medium">
+                    {!v.selectedRecord ? 'Edit Address' : 'Add Drop Ship Address'}
+                </h2>
+            </header>
+
+            <div class="slds-modal__content slds-p-around_medium">
+                <c:displayNattAddresses 
+                    record="{!v.selectedRecord}" 
+                    oncancel="{!c.closeModel}" 
+                    onaddresscreated="{!c.handleAddressCreated}" 
+                    onaddressupdated="{!c.handleAddressUpdated}" />
+            </div>
+
+            <footer class="slds-modal__footer">
+                <!-- Optional footer content -->
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:if>
+
+
+            <aura:set attribute="else">
+                <br/>
+                <!-- <h3 class="slds-theme_shade"> -->
+                
+                    <div class="slds-tabs_card">
+                        <lightning:recordForm
+                            aura:id="myRecordForm"
+                            recordId="{!v.addressEditId}"
+                            objectApiName="ContactPointAddress"
+                            fields="{!v.fields}"
+                            columns="1"
+                            mode="edit"
+                            onsubmit="{!c.handleSubmit}"
+                            oncancel="{!c.closeEdit}"
+                            onerror="{!c.handleError}"
+                            onsuccess="{!c.handleSuccess}"
+                        />
+                           
+                    </div>
+
+        
+
+                <!-- </h3> -->
+            </aura:set>
+        </aura:if>
+</aura:component>

@@ -1,0 +1,440 @@
+<template>
+  <div class="sf-lead-form">
+    <!-- TOP-ONLY BG -->
+    <div class="hero" style={heroStyle}>
+      <div class="branding-container">
+        <img src={carrierLogoUrl} alt="Carrier Logo" class="carrier-logo" />
+        <h2 class="banner-title">Digital Solutions Contact Form</h2>
+        
+      </div>
+    </div>
+           <div class="form-text text-muted" style="margin-bottom:20px;">Fields marked with an asterisk (*) are mandatory.</div>
+ 
+    <!-- Native form POST -->
+    <form action={actionUrl} method="POST" target="_top" onsubmit={handleSubmit}>
+      <input type="hidden" name="oid" value={orgId} />
+      <input type="hidden" name="retURL" value={retURL} />
+      <input type="hidden" name={LanguageFieldId} value={LanguageValue} />
+      <input type="hidden" name="recordType" value={ContainerLeadRecTypeId} />
+      <input type="hidden" name="lead_source" value={LeadSource}/>
+
+      <!-- First / Last Name -->
+      <div class="form-group">
+        <label for="first_name">First Name <span style="color:red">*</span></label>
+        <input id="first_name" name="first_name" maxlength="40" type="text" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="last_name">Last Name <span style="color:red">*</span></label>
+        <input id="last_name" name="last_name" maxlength="80" type="text" class="form-control" required />
+      </div>
+
+      <!-- Job Title -->
+      <div class="form-group">
+        <label for="title">Job Title</label>
+        <input id="title" name="title" maxlength="40" type="text" class="form-control" />
+      </div>
+
+      <!-- Email / Mobile -->
+      <div class="form-group">
+        <label for="email">Email <span style="color:red">*</span></label>
+        <input id="email" name="email" maxlength="80" type="email" class="form-control" required />
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Mobile Phone <span style="color:red">*</span></label>
+        <input id="mobile" name="mobile" maxlength="40" type="tel" class="form-control" onchange={handleMobileChange} oninput={clearMobileError} required />
+        <small class="form-text text-muted">Please include your country code, e.g., +1 for USA, +34 for Spain.</small>
+      </div>
+
+      <!-- Visit Purpose -->
+      <div class={vpGroupClass}>
+        <label>Visit Purpose:<span style="color:red">*</span></label>
+
+        <div><input type="checkbox" aria-describedby="vpErrorText" name={VisitPurpousFieldId} value="Digital Product Information" onchange={handleVisitPurposeChange}> Digital Product Information</div>
+        <div><input type="checkbox" aria-describedby="vpErrorText" name={VisitPurpousFieldId} value="Purchase" onchange={handleVisitPurposeChange}> Purchase</div>
+        <div><input type="checkbox" aria-describedby="vpErrorText" name={VisitPurpousFieldId} value="Prospection" onchange={handleVisitPurposeChange}> Prospection</div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" aria-describedby="vpErrorText" id={VisitPurpousFieldId} name={VisitPurpousFieldId} value="Other" class="cb"  onchange={handleVisitPurposeChange}>
+          <span> Other</span>
+        </div>
+
+        <template if:true={showOtherVisitPurpose}>
+          <div class="form-group" style="margin-left:28px;">
+            <input id={OtherVisitPurpousFieldId} name={OtherVisitPurpousFieldId} maxlength="255" size="20" type="text" class="form-control" oninput={clearOtherVisitError} required/>
+          </div>
+        </template>
+
+        <small class="form-text text-muted">Choose multiple values</small>
+        <div class="error-text" id="vpErrorText" role="alert" aria-live="polite">{vpError}</div>
+      </div>
+
+      <!-- Products Interested -->
+      <div class={piGroupClass}>
+        <label>Products Interested:<span style="color:red">*</span></label>
+
+        <div class="checkbox-row">
+          <input type="checkbox" aria-describedby="piErrorText" name={ProductsIntFieldId} value="LYNX Fleet (Reefer Telematics)" class="cb" onchange={handleProductsChange}>
+          <span>LYNX Fleet (Reefer Telematics)</span>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" aria-describedby="piErrorText" name={ProductsIntFieldId} value="LYNX API" class="cb" onchange={handleProductsChange}>
+          <span>LYNX API</span>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" aria-describedby="piErrorText" name={ProductsIntFieldId} value="Vessel Control Tower (VCT)" class="cb" onchange={handleProductsChange}>
+          <span>Vessel Control Tower (VCT)</span>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" aria-describedby="piErrorText" name={ProductsIntFieldId} value="IoTPASS (Dry Box Telematics)" class="cb" onchange={handleProductsChange}>
+          <span>IoTPASS (Dry Box Telematics)</span>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" aria-describedby="piErrorText" name={ProductsIntFieldId} value="BluEdge Partner channel program" class="cb" onchange={handleProductsChange}>
+          <span>BluEdge Partner channel program</span>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" aria-describedby="piErrorText" name={ProductsIntFieldId} value="Other" class="cb" onchange={handleProductsChange}>
+          <span>Other</span>
+        </div>
+
+        <template if:true={showOtherProducts}>
+          <div class="form-group" style="margin-left:28px;">
+            <input id={OtherProductsIntFieldId} name={OtherProductsIntFieldId} maxlength="255" size="20" type="text" class="form-control" oninput={clearOtherProductsError} required/>
+          </div>
+        </template>
+
+        <small class="form-text text-muted">Choose multiple values</small>
+        <div class="error-text" id="piErrorText" role="alert" aria-live="polite">{piError}</div>
+      </div>
+
+      <!-- Company -->
+      <div class="form-group">
+        <label for="company">Company <span style="color:red">*</span></label>
+        <input id="company" name="company" maxlength="40" type="text" class="form-control" required />
+      </div>
+
+      <!-- Address -->
+      <div class="form-group">
+        <label for="street">Address</label>
+        <textarea id="street" name="street" class="form-control"></textarea>
+      </div>
+
+      <!-- City & Country (row 2) -->
+     <div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="city">City</label>
+    <input id="city" name="city" maxlength="40" type="text" class="form-control" />
+  </div>
+
+  <div class="form-group col-md-6">
+    <label for="country">Country <span style="color:red">*</span></label>
+    <select id="country" name="country" class="form-control" required>
+      <option value="">--Select--</option>
+      <option value="AFGHANISTAN" data-code="AF">AFGHANISTAN - AF</option>
+      <option value="ALBANIA" data-code="AL">ALBANIA - AL</option>
+      <option value="ALGERIA" data-code="DZ">ALGERIA - DZ</option>
+      <option value="AMERICAN SAMOA" data-code="AS">AMERICAN SAMOA - AS</option>
+      <option value="ANDORRA" data-code="AD">ANDORRA - AD</option>
+      <option value="ANGOLA" data-code="AO">ANGOLA - AO</option>
+      <option value="ANGUILLA" data-code="AI">ANGUILLA - AI</option>
+      <option value="ANTARCTICA" data-code="AQ">ANTARCTICA - AQ</option>
+      <option value="ANTIGUA AND BARBUDA" data-code="AG">ANTIGUA AND BARBUDA - AG</option>
+      <option value="ARGENTINA" data-code="AR">ARGENTINA - AR</option>
+      <option value="ARMENIA" data-code="AM">ARMENIA - AM</option>
+      <option value="ARUBA" data-code="AW">ARUBA - AW</option>
+      <option value="AUSTRALIA" data-code="AU">AUSTRALIA - AU</option>
+      <option value="AUSTRIA" data-code="AT">AUSTRIA - AT</option>
+      <option value="AZERBAIJAN" data-code="AZ">AZERBAIJAN - AZ</option>
+      <option value="BAAN DC CODE" data-code="YY">BAAN DC CODE - YY</option>
+      <option value="BAHAMAS" data-code="BS">BAHAMAS - BS</option>
+      <option value="BAHRAIN" data-code="BH">BAHRAIN - BH</option>
+      <option value="BANGLADESH" data-code="BD">BANGLADESH - BD</option>
+      <option value="BARBADOS" data-code="BB">BARBADOS - BB</option>
+      <option value="BELARUS" data-code="B1">BELARUS - B1</option>
+      <option value="BELGIUM" data-code="BE">BELGIUM - BE</option>
+      <option value="BELIZE" data-code="BZ">BELIZE - BZ</option>
+      <option value="BENIN" data-code="BJ">BENIN - BJ</option>
+      <option value="BERMUDA" data-code="BM">BERMUDA - BM</option>
+      <option value="BHUTAN" data-code="BT">BHUTAN - BT</option>
+      <option value="BOLIVIA" data-code="BO">BOLIVIA - BO</option>
+      <option value="BOSNIA AND HERZEGOVINA" data-code="BA">BOSNIA AND HERZEGOVINA - BA</option>
+      <option value="BOTSWANA" data-code="BW">BOTSWANA - BW</option>
+      <option value="BOUVET ISLAND" data-code="BV">BOUVET ISLAND - BV</option>
+      <option value="BRAZIL" data-code="BR">BRAZIL - BR</option>
+      <option value="BRITISH INDIAN OCEAN TERRITORY" data-code="IO">BRITISH INDIAN OCEAN TERRITORY - IO</option>
+      <option value="BRITISH VIRGIN ISLANDS" data-code="VG">BRITISH VIRGIN ISLANDS - VG</option>
+      <option value="BRUNEI DARUSSALAM" data-code="BN">BRUNEI DARUSSALAM - BN</option>
+      <option value="BULGARIA" data-code="BG">BULGARIA - BG</option>
+      <option value="BURKINA FASO" data-code="BF">BURKINA FASO - BF</option>
+      <option value="BURUNDI" data-code="BI">BURUNDI - BI</option>
+      <option value="BYELORUSSIAN SSR" data-code="BY">BYELORUSSIAN SSR - BY</option>
+      <option value="CAMBODIA" data-code="KH">CAMBODIA - KH</option>
+      <option value="CAMEROON" data-code="CM">CAMEROON - CM</option>
+      <option value="CANADA" data-code="CA">CANADA - CA</option>
+      <option value="CANARY ISLAND" data-code="CE">CANARY ISLAND - CE</option>
+      <option value="CAPE VERDE" data-code="CV">CAPE VERDE - CV</option>
+      <option value="CAYMAN ISLANDS" data-code="KY">CAYMAN ISLANDS - KY</option>
+      <option value="CENTRAL AFRICAN REPUBLIC" data-code="CF">CENTRAL AFRICAN REPUBLIC - CF</option>
+      <option value="CHAD" data-code="TD">CHAD - TD</option>
+      <option value="CHILE" data-code="CL">CHILE - CL</option>
+      <option value="CHINA" data-code="CN">CHINA - CN</option>
+      <option value="CHRISTMAS ISLAND" data-code="CX">CHRISTMAS ISLAND - CX</option>
+      <option value="COCOS (KEELING) ISLANDS" data-code="CC">COCOS (KEELING) ISLANDS - CC</option>
+      <option value="COLOMBIA" data-code="CO">COLOMBIA - CO</option>
+      <option value="COMOROS" data-code="KM">COMOROS - KM</option>
+      <option value="CONGO" data-code="CG">CONGO - CG</option>
+      <option value="COOK ISLANDS" data-code="CK">COOK ISLANDS - CK</option>
+      <option value="COSTA RICA" data-code="CR">COSTA RICA - CR</option>
+      <option value="CROATIA" data-code="HR">CROATIA - HR</option>
+      <option value="CUBA" data-code="CU">CUBA - CU</option>
+      <option value="CYPRUS" data-code="CY">CYPRUS - CY</option>
+      <option value="CZECH REPUBLIC" data-code="CZ">CZECH REPUBLIC - CZ</option>
+      <option value="DEMOCRATIC REPUBLIC OF CONGO" data-code="CD">DEMOCRATIC REPUBLIC OF CONGO - CD</option>
+      <option value="DENMARK" data-code="DK">DENMARK - DK</option>
+      <option value="DJIBOUTI" data-code="DJ">DJIBOUTI - DJ</option>
+      <option value="DOMINICA" data-code="DM">DOMINICA - DM</option>
+      <option value="DOMINICAN REPUBLIC" data-code="DO">DOMINICAN REPUBLIC - DO</option>
+      <option value="ECUADOR" data-code="EC">ECUADOR - EC</option>
+      <option value="EGYPT" data-code="EG">EGYPT - EG</option>
+      <option value="EL SALVADOR" data-code="SV">EL SALVADOR - SV</option>
+      <option value="EQUATORIAL GUINEA" data-code="GQ">EQUATORIAL GUINEA - GQ</option>
+      <option value="ERITREA" data-code="ER">ERITREA - ER</option>
+      <option value="ESTONIA" data-code="EE">ESTONIA - EE</option>
+      <option value="ETHIOPIA" data-code="ET">ETHIOPIA - ET</option>
+      <option value="FALKLAND ISLANDS" data-code="FK">FALKLAND ISLANDS - FK</option>
+      <option value="FAROE ISLANDS" data-code="FO">FAROE ISLANDS - FO</option>
+      <option value="FIJI" data-code="FJ">FIJI - FJ</option>
+      <option value="FINLAND" data-code="FI">FINLAND - FI</option>
+      <option value="FRANCE" data-code="FR">FRANCE - FR</option>
+      <option value="FRENCH GUIANA" data-code="GF">FRENCH GUIANA - GF</option>
+      <option value="FRENCH POLYNESIA" data-code="PF">FRENCH POLYNESIA - PF</option>
+      <option value="FRENCH SOUTHERN TERRITORIES" data-code="TF">FRENCH SOUTHERN TERRITORIES - TF</option>
+      <option value="GABON" data-code="GA">GABON - GA</option>
+      <option value="GAMBIA" data-code="GM">GAMBIA - GM</option>
+      <option value="GAZA STRIP" data-code="GZ">GAZA STRIP - GZ</option>
+      <option value="GEORGIA" data-code="GE">GEORGIA - GE</option>
+      <option value="GERMANY" data-code="DE">GERMANY - DE</option>
+      <option value="GHANA" data-code="GH">GHANA - GH</option>
+      <option value="GIBRALTAR" data-code="GI">GIBRALTAR - GI</option>
+      <option value="GREECE" data-code="GR">GREECE - GR</option>
+      <option value="GREENLAND" data-code="GL">GREENLAND - GL</option>
+      <option value="GRENADA" data-code="GD">GRENADA - GD</option>
+      <option value="GUADELOUPE" data-code="GP">GUADELOUPE - GP</option>
+      <option value="GUAM" data-code="GU">GUAM - GU</option>
+      <option value="GUATEMALA" data-code="GT">GUATEMALA - GT</option>
+      <option value="GUINEA" data-code="GN">GUINEA - GN</option>
+      <option value="GUINEA-BISSAU" data-code="GW">GUINEA-BISSAU - GW</option>
+      <option value="GUYANA" data-code="GY">GUYANA - GY</option>
+      <option value="HAITI" data-code="HT">HAITI - HT</option>
+      <option value="HEARD ISLAND AND MCDONALD ISLA" data-code="HM">HEARD ISLAND AND MCDONALD ISLA - HM</option>
+      <option value="HONDURAS" data-code="HN">HONDURAS - HN</option>
+      <option value="HONG KONG" data-code="HK">HONG KONG - HK</option>
+      <option value="HUNGARY" data-code="HU">HUNGARY - HU</option>
+      <option value="ICELAND" data-code="IS">ICELAND - IS</option>
+      <option value="INDIA" data-code="IN">INDIA - IN</option>
+      <option value="INDONESIA" data-code="ID">INDONESIA - ID</option>
+      <option value="IRAN" data-code="IR">IRAN - IR</option>
+      <option value="IRAQ" data-code="IQ">IRAQ - IQ</option>
+      <option value="IRELAND" data-code="IE">IRELAND - IE</option>
+      <option value="ISRAEL" data-code="IL">ISRAEL - IL</option>
+      <option value="ITALY" data-code="IT">ITALY - IT</option>
+      <option value="IVORY COAST" data-code="CI">IVORY COAST - CI</option>
+      <option value="JAMAICA" data-code="JM">JAMAICA - JM</option>
+      <option value="JAPAN" data-code="JP">JAPAN - JP</option>
+      <option value="JORDAN" data-code="JO">JORDAN - JO</option>
+      <option value="KAZAKHSTAN" data-code="KZ">KAZAKHSTAN - KZ</option>
+      <option value="KENYA" data-code="KE">KENYA - KE</option>
+      <option value="KIRIBATI" data-code="KI">KIRIBATI - KI</option>
+      <option value="KUWAIT" data-code="KW">KUWAIT - KW</option>
+      <option value="KYRGYZSTAN" data-code="KG">KYRGYZSTAN - KG</option>
+      <option value="LAOS" data-code="LA">LAOS - LA</option>
+      <option value="LATVIA" data-code="LV">LATVIA - LV</option>
+      <option value="LEBANON" data-code="LB">LEBANON - LB</option>
+      <option value="LESOTHO" data-code="LS">LESOTHO - LS</option>
+      <option value="LIBERIA" data-code="LR">LIBERIA - LR</option>
+      <option value="LIBYA" data-code="LY">LIBYA - LY</option>
+      <option value="LIECHTENSTEIN" data-code="LI">LIECHTENSTEIN - LI</option>
+      <option value="LITHUANIA" data-code="LT">LITHUANIA - LT</option>
+      <option value="LUXEMBOURG" data-code="LU">LUXEMBOURG - LU</option>
+      <option value="MACAU" data-code="MO">MACAU - MO</option>
+      <option value="MACEDONIA, THE FORMER YUGOSLAV" data-code="MK">MACEDONIA, THE FORMER YUGOSLAV - MK</option>
+      <option value="MADAGASCAR" data-code="MG">MADAGASCAR - MG</option>
+      <option value="MALAWI" data-code="MW">MALAWI - MW</option>
+      <option value="MALAYSIA" data-code="MY">MALAYSIA - MY</option>
+      <option value="MALDIVES" data-code="MV">MALDIVES - MV</option>
+      <option value="MALI" data-code="ML">MALI - ML</option>
+      <option value="MALTA" data-code="MT">MALTA - MT</option>
+      <option value="MARSHALL ISLANDS" data-code="MH">MARSHALL ISLANDS - MH</option>
+      <option value="MARTINIQUE" data-code="MQ">MARTINIQUE - MQ</option>
+      <option value="MAURITANIA" data-code="MR">MAURITANIA - MR</option>
+      <option value="MAURITIUS" data-code="MU">MAURITIUS - MU</option>
+      <option value="MAYOTTE" data-code="YT">MAYOTTE - YT</option>
+      <option value="MEXICO" data-code="MX">MEXICO - MX</option>
+      <option value="MICRONESIA" data-code="FM">MICRONESIA - FM</option>
+      <option value="MOLDOVA, REPUBLIC OF" data-code="MD">MOLDOVA, REPUBLIC OF - MD</option>
+      <option value="MONACO" data-code="MC">MONACO - MC</option>
+      <option value="MONGOLIA" data-code="MN">MONGOLIA - MN</option>
+      <option value="Montenegro" data-code="ME">Montenegro - ME</option>
+      <option value="MONTSERRAT" data-code="MS">MONTSERRAT - MS</option>
+      <option value="MOROCCO" data-code="MA">MOROCCO - MA</option>
+      <option value="MOZAMBIQUE" data-code="MZ">MOZAMBIQUE - MZ</option>
+      <option value="MYANMAR" data-code="MM">MYANMAR - MM</option>
+      <option value="NAMIBIA" data-code="NA">NAMIBIA - NA</option>
+      <option value="NAURU" data-code="NR">NAURU - NR</option>
+      <option value="NEPAL" data-code="NP">NEPAL - NP</option>
+      <option value="NETHERLANDS" data-code="NL">NETHERLANDS - NL</option>
+      <option value="NETHERLANDS ANTILLES" data-code="AN">NETHERLANDS ANTILLES - AN</option>
+      <option value="NEW CALEDONIA" data-code="NC">NEW CALEDONIA - NC</option>
+      <option value="NEW ZEALAND" data-code="NZ">NEW ZEALAND - NZ</option>
+      <option value="NICARAGUA" data-code="NI">NICARAGUA - NI</option>
+      <option value="NIGER" data-code="NE">NIGER - NE</option>
+      <option value="NIGERIA" data-code="NG">NIGERIA - NG</option>
+      <option value="NIUE" data-code="NU">NIUE - NU</option>
+      <option value="NONE" data-code="NN">NONE - NN</option>
+      <option value="NORFOLK ISLAND" data-code="NF">NORFOLK ISLAND - NF</option>
+      <option value="NORTHERN MARIANA ISLANDS" data-code="MP">NORTHERN MARIANA ISLANDS - MP</option>
+      <option value="NORTH KOREA" data-code="KP">NORTH KOREA - KP</option>
+      <option value="NORWAY" data-code="NO">NORWAY - NO</option>
+      <option value="OMAN" data-code="OM">OMAN - OM</option>
+      <option value="PAKISTAN" data-code="PK">PAKISTAN - PK</option>
+      <option value="PALAU" data-code="PW">PALAU - PW</option>
+      <option value="PALESTINIAN TERRITORY, OCCUPIE" data-code="PS">PALESTINIAN TERRITORY, OCCUPIE - PS</option>
+      <option value="PANAMA" data-code="PA">PANAMA - PA</option>
+      <option value="PAPUA NEW GUINEA" data-code="PG">PAPUA NEW GUINEA - PG</option>
+      <option value="PARAGUAY" data-code="PY">PARAGUAY - PY</option>
+      <option value="PERU" data-code="PE">PERU - PE</option>
+      <option value="PHILIPPINES" data-code="PH">PHILIPPINES - PH</option>
+      <option value="PITCAIRN" data-code="PN">PITCAIRN - PN</option>
+      <option value="POLAND" data-code="PL">POLAND - PL</option>
+      <option value="PORTUGAL" data-code="PT">PORTUGAL - PT</option>
+      <option value="PUERTO RICO" data-code="PR">PUERTO RICO - PR</option>
+      <option value="QATAR" data-code="QA">QATAR - QA</option>
+      <option value="REUNION" data-code="RE">REUNION - RE</option>
+      <option value="ROMANIA" data-code="RO">ROMANIA - RO</option>
+      <option value="RUSSIA" data-code="RU">RUSSIA - RU</option>
+      <option value="RWANDA" data-code="RW">RWANDA - RW</option>
+      <option value="SAINT HELENA" data-code="SH">SAINT HELENA - SH</option>
+      <option value="SAINT KITTS AND NEVIS" data-code="KN">SAINT KITTS AND NEVIS - KN</option>
+      <option value="SAINT LUCIA" data-code="LC">SAINT LUCIA - LC</option>
+      <option value="SAINT VINCENT & THE GRENADINES" data-code="VC">SAINT VINCENT & THE GRENADINES - VC</option>
+      <option value="SAMOA" data-code="WS">SAMOA - WS</option>
+      <option value="SAN MARINO" data-code="SM">SAN MARINO - SM</option>
+      <option value="SAO TOME AND PRINCIPE" data-code="ST">SAO TOME AND PRINCIPE - ST</option>
+      <option value="SAUDI ARABIA" data-code="SA">SAUDI ARABIA - SA</option>
+      <option value="SENEGAL" data-code="SN">SENEGAL - SN</option>
+      <option value="SERBIA AND MONTENEGRO" data-code="CS">SERBIA AND MONTENEGRO - CS</option>
+      <option value="SEYCHELLES" data-code="SC">SEYCHELLES - SC</option>
+      <option value="SIERRA LEONE" data-code="SL">SIERRA LEONE - SL</option>
+      <option value="SINGAPORE" data-code="SG">SINGAPORE - SG</option>
+      <option value="SLOVAKIA" data-code="SK">SLOVAKIA - SK</option>
+      <option value="SLOVENIA" data-code="SI">SLOVENIA - SI</option>
+      <option value="SOLOMON ISLANDS" data-code="SB">SOLOMON ISLANDS - SB</option>
+      <option value="SOMALIA" data-code="SO">SOMALIA - SO</option>
+      <option value="SOUTH AFRICA" data-code="ZA">SOUTH AFRICA - ZA</option>
+      <option value="SOUTH GEORGIA AND THE SOUTH SA" data-code="GS">SOUTH GEORGIA AND THE SOUTH SA - GS</option>
+      <option value="SOUTH KOREA" data-code="KR">SOUTH KOREA - KR</option>
+      <option value="SPAIN" data-code="ES">SPAIN - ES</option>
+      <option value="SRI LANKA" data-code="LK">SRI LANKA - LK</option>
+      <option value="ST. PIERRE AND MIQUELON" data-code="PM">ST. PIERRE AND MIQUELON - PM</option>
+      <option value="SUDAN" data-code="SD">SUDAN - SD</option>
+      <option value="SURINAME" data-code="SR">SURINAME - SR</option>
+      <option value="SVALBARD AND JAN MAYEN" data-code="SJ">SVALBARD AND JAN MAYEN - SJ</option>
+      <option value="SWAZILAND" data-code="SZ">SWAZILAND - SZ</option>
+      <option value="SWEDEN" data-code="SE">SWEDEN - SE</option>
+      <option value="SWITZERLAND" data-code="CH">SWITZERLAND - CH</option>
+      <option value="SYRIA" data-code="SY">SYRIA - SY</option>
+      <option value="TAIWAN" data-code="TW">TAIWAN - TW</option>
+      <option value="TAJIKISTAN" data-code="TJ">TAJIKISTAN - TJ</option>
+      <option value="TANZANIA" data-code="TZ">TANZANIA - TZ</option>
+      <option value="TEMPORARY COUNTRY FOR C/O" data-code="XX">TEMPORARY COUNTRY FOR C/O - XX</option>
+      <option value="THAILAND" data-code="TH">THAILAND - TH</option>
+      <option value="TIMOR-LESTE" data-code="TL">TIMOR-LESTE - TL</option>
+      <option value="TOGO" data-code="TG">TOGO - TG</option>
+      <option value="TOKELAU" data-code="TK">TOKELAU - TK</option>
+      <option value="TONGA" data-code="TO">TONGA - TO</option>
+      <option value="TRINIDAD AND TOBAGO" data-code="TT">TRINIDAD AND TOBAGO - TT</option>
+      <option value="TUNISIA" data-code="TN">TUNISIA - TN</option>
+      <option value="TURKEY" data-code="TR">TURKEY - TR</option>
+      <option value="TURKMENISTAN" data-code="TM">TURKMENISTAN - TM</option>
+      <option value="TURKS AND CAICOS ISLANDS" data-code="TC">TURKS AND CAICOS ISLANDS - TC</option>
+      <option value="TUVALU" data-code="TV">TUVALU - TV</option>
+      <option value="UGANDA" data-code="UG">UGANDA - UG</option>
+      <option value="UKRAINIAN SSR" data-code="UA">UKRAINIAN SSR - UA</option>
+      <option value="UNITED ARAB EMIRATES (UAE)" data-code="AE">UNITED ARAB EMIRATES (UAE) - AE</option>
+      <option value="UNITED KINGDOM" data-code="GB">UNITED KINGDOM - GB</option>
+      <option value="UNITED STATES" data-code="US">UNITED STATES - US</option>
+      <option value="UNITED STATES MINOR OUTLYING I" data-code="UM">UNITED STATES MINOR OUTLYING I - UM</option>
+      <option value="URUGUAY" data-code="UY">URUGUAY - UY</option>
+      <option value="US VIRGIN ISLANDS" data-code="VI">US VIRGIN ISLANDS - VI</option>
+      <option value="UZBEKISTAN" data-code="UZ">UZBEKISTAN - UZ</option>
+      <option value="VANUATU" data-code="VU">VANUATU - VU</option>
+      <option value="VATICAN CITY" data-code="VA">VATICAN CITY - VA</option>
+      <option value="VENEZUELA" data-code="VE">VENEZUELA - VE</option>
+      <option value="VIETNAM" data-code="VN">VIETNAM - VN</option>
+      <option value="WALLIS AND FUTUNA ISLANDS" data-code="WF">WALLIS AND FUTUNA ISLANDS - WF</option>
+      <option value="WEST BANK" data-code="WE">WEST BANK - WE</option>
+      <option value="WESTERN SAHARA" data-code="EH">WESTERN SAHARA - EH</option>
+      <option value="YEMEN" data-code="YE">YEMEN - YE</option>
+      <option value="YUGOSLAVIA" data-code="YU">YUGOSLAVIA - YU</option>
+      <option value="ZAIRE" data-code="ZR">ZAIRE - ZR</option>
+      <option value="ZAMBIA" data-code="ZM">ZAMBIA - ZM</option>
+      <option value="ZIMBABWE" data-code="ZW">ZIMBABWE - ZW</option>
+    </select>
+  </div>
+</div>
+
+
+    <!-- Zip (row 1) -->
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="zip">Zip</label>
+    <input id="zip" name="zip" maxlength="20" type="text" class="form-control" />
+  </div>
+
+  <!-- Region -->
+  <!--<div class="form-group col-md-6">
+    <label for={RegionFieldId}>Region <span style="color:red">*</span></label>
+    <select id={RegionFieldId} name={RegionFieldId} class="form-control" required>
+      <option value="">--Select--</option>
+      <option value="Asia Pacific and Oceania">Asia Pacific and Oceania</option>
+      <option value="Europe, Middle East and Africa">Europe, Middle East and Africa</option>
+      <option value="Americas">Americas</option>
+    </select>
+  </div> -->
+</div>
+
+      <!-- Comments + helper -->
+      <div class="form-group">
+        <label for={CommentsFieldId}>Comments</label>
+        <input id={CommentsFieldId} name={CommentsFieldId} maxlength="255" type="text" class="form-control" />
+      </div>
+      <div class="form-text text-muted" style="margin-bottom:20px;">
+        Please specify any other information / requests required.
+      </div>
+
+      <!-- Privacy notice consent -->
+       <div class="form-group">
+          <input type="checkbox" 
+          id="privacyConsent"
+          name={privacyConsent}
+          value={privacyChecked}
+          disabled={disableConsent}
+          onchange={handlePrivacyCheck}>
+          <span>I have read and understand
+          (<a href={privacyUrl}  class="privacy-link" target="_blank"  onclick={markPrivacyOpened}>
+            <strong><span style="color:red">Carrier’s privacy notice</span></strong>
+          </a>).
+          I agree to provide my personal data to Carrier for direct marketing purpose.</span>
+          <small class="form-text-privacy">To submit a request, Open the privacy notice first, then tick the box.</small>
+        </div>
+
+     <!--  <input type="hidden" name="debug" value="1" /> 
+<input type="hidden" name="debugEmail" value="kotella.rajasekharreddy@carrier.com" /> -->
+
+      <button type="submit" class="btn-primary"  disabled={isSubmitDisabled}>Submit</button>
+    </form>
+  </div>
+</template>

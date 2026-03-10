@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Corporate_Type</fullName>
+    <active>true</active>
+    <description>NATT: Allows users with the NATT Bypass Corporate Address custom permission to use the Corporate type</description>
+    <errorConditionFormula>AND($Permission.NATT_Bypass_Corporate_Address=false,
+NATT_Account__r.RecordType.DeveloperName=&apos;Dealer&apos;, 
+RecordType.DeveloperName=&apos;NATT_Address&apos;,
+TEXT(NATT_Type__c) = &apos;Corporate&apos;
+)</errorConditionFormula>
+    <errorDisplayField>NATT_Type__c</errorDisplayField>
+    <errorMessage>You do not have permission to modify a Corporate address</errorMessage>
+</ValidationRule>

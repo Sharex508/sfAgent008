@@ -1,0 +1,70 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "902028b1-a17d-4086-983f-1961338efa72",
+  "label" : "User Management",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "53c05fa1-ebf2-483e-a02d-1c7d679f90e9",
+          "columns" : [ {
+            "UUID" : "39bd8d3f-4f29-43d6-814b-48084d0bb3b9",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "53c05fa1-ebf2-483e-a02d-1c7d679f90e9",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "effectiveAccountId" : "{!CurrentUser.effectiveAccountId}"
+          },
+          "componentName" : "c:nac_UserManagement",
+          "id" : "b3da2921-8f9e-4411-b465-49b08de86a77",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "39bd8d3f-4f29-43d6-814b-48084d0bb3b9",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "731ac3ce-1770-411a-a1eb-393ff42c04fd",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "User Management"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "2b44dd01-ce45-44a8-be1f-c93509b9c403",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "4c9f9e2c-3698-492e-bf0b-97c94632e041",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-user-management"
+}

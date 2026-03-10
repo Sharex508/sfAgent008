@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Audience xmlns="http://soap.sforce.com/2006/04/metadata">
+    <audienceName>CTBR Full Access Community</audienceName>
+    <container>Carrier SolutionCenter</container>
+    <criteria>
+        <criterion>
+            <criteriaNumber>1</criteriaNumber>
+            <criterionValue>
+                <profile>ctbr full access community</profile>
+            </criterionValue>
+            <operator>Equal</operator>
+            <type>Profile</type>
+        </criterion>
+    </criteria>
+    <formulaFilterType>AllCriteriaMatch</formulaFilterType>
+    <isDefaultAudience>false</isDefaultAudience>
+    <targets>
+        <target>
+            <groupName>624d3237-ef93-4abe-b6ee-8b65f2b08f56$#$5c50e217-7902-4b92-be10-5da2b7f0bccc</groupName>
+            <priority>10</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Default_Navigation_Menu_9_Component_Properties</targetValue>
+        </target>
+        <target>
+            <groupName>82d1d395-92e2-4b9e-af02-55e17fb26e15</groupName>
+            <priority>2</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>Home_CTBR_Home_Page</targetValue>
+        </target>
+        <target>
+            <groupName>83c66e5c-ea22-4eb4-ae30-6ab143373ea1</groupName>
+            <priority>2</priority>
+            <targetType>ExperienceVariation</targetType>
+            <targetValue>All_Knowledge_CTBR_Knowledge_Page</targetValue>
+        </target>
+    </targets>
+</Audience>

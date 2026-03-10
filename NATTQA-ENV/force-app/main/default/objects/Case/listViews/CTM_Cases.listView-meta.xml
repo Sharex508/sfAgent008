@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_Cases</fullName>
+    <columns>CASES.CASE_NUMBER</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>NAME</columns>
+    <columns>CASES.SUBJECT</columns>
+    <columns>CASES.STATUS</columns>
+    <columns>CASES.PRIORITY</columns>
+    <columns>CASES.CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CASES.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Case.CTM_Finance,Case.CTM_Performance_Parts,Case.CTM_Unit_Sales,Case.CTM_Warranty,Case.CTM_eSolutions,Case.CTM_Customer_Service,Case.CTM_Service_Engineering_Field_Service</value>
+    </filters>
+    <filters>
+        <field>CASES.STATUS</field>
+        <operation>equals</operation>
+        <value>New,Pending Approval,Approved,In-Process,On Hold,Escalated,Rejected,Monitor</value>
+    </filters>
+    <label>CTM Cases</label>
+    <sharedTo>
+        <roleAndSubordinatesInternal>CTM</roleAndSubordinatesInternal>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,38 @@
+.slds-form-element__label {
+    display: none;
+    visibility: hidden;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination div {
+    cursor: pointer;
+    color: black;
+    float: left;
+    padding: 8px 14px;
+    text-decoration: none;
+}
+
+.pagination div.active {
+    background-color: var(--lwc-brandNavigationBarBackgroundColor);
+    color: white;
+    border-radius: 5px;
+    cursor: default;
+}
+
+.pagination div:hover:not(.active) {
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination div.inactive:hover {
+    background-color: white;
+    cursor: default;
+}

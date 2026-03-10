@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Order_Status__c</fullName>
+    <description>NATT</description>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Enter Order (Default Value)</fullName>
+                <default>false</default>
+                <label>Enter Order (Default Value)</label>
+            </value>
+            <value>
+                <fullName>Sabrix Run</fullName>
+                <default>false</default>
+                <label>Sabrix Run</label>
+            </value>
+            <value>
+                <fullName>Fulfillment Run</fullName>
+                <default>false</default>
+                <label>Fulfillment Run</label>
+            </value>
+            <value>
+                <fullName>Order Acknowledge</fullName>
+                <default>false</default>
+                <label>Order Acknowledge</label>
+            </value>
+            <value>
+                <fullName>Release Order for Shipment</fullName>
+                <default>false</default>
+                <label>Release Order for Shipment</label>
+            </value>
+            <value>
+                <fullName>Credit Check for Shipment</fullName>
+                <default>false</default>
+                <label>Credit Check for Shipment</label>
+            </value>
+            <value>
+                <fullName>Ready to Print Pick Slip</fullName>
+                <default>false</default>
+                <label>Ready to Print Pick Slip</label>
+            </value>
+            <value>
+                <fullName>Ready for Picking</fullName>
+                <default>false</default>
+                <label>Ready for Picking</label>
+            </value>
+            <value>
+                <fullName>Ready for Shipping</fullName>
+                <default>false</default>
+                <label>Ready for Shipping</label>
+            </value>
+            <value>
+                <fullName>Shipped</fullName>
+                <default>false</default>
+                <label>Shipped</label>
+            </value>
+            <value>
+                <fullName>Sabrix</fullName>
+                <default>false</default>
+                <label>Sabrix</label>
+            </value>
+            <value>
+                <fullName>Invoicing</fullName>
+                <default>false</default>
+                <label>Invoicing</label>
+            </value>
+            <value>
+                <fullName>Complete</fullName>
+                <default>false</default>
+                <label>Complete</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>Not Shipped</fullName>
+                <default>false</default>
+                <label>Not Shipped</label>
+            </value>
+            <value>
+                <fullName>Partially Shipped</fullName>
+                <default>false</default>
+                <label>Partially Shipped</label>
+            </value>
+            <value>
+                <fullName>Awaiting Pricing</fullName>
+                <default>false</default>
+                <label>Awaiting Pricing</label>
+            </value>
+            <value>
+                <fullName>Awaiting Customer Approval</fullName>
+                <default>false</default>
+                <label>Awaiting Customer Approval</label>
+            </value>
+            <value>
+                <fullName>Customer Approved</fullName>
+                <default>false</default>
+                <label>Customer Approved</label>
+            </value>
+            <value>
+                <fullName>Enviado</fullName>
+                <default>false</default>
+                <label>Enviado</label>
+            </value>
+            <value>
+                <fullName>No Enviado</fullName>
+                <default>false</default>
+                <label>No Enviado</label>
+            </value>
+            <value>
+                <fullName>Envío parcial</fullName>
+                <default>false</default>
+                <label>Envío parcial</label>
+            </value>
+            <value>
+                <fullName>Completo</fullName>
+                <default>false</default>
+                <label>Completo</label>
+            </value>
+            <value>
+                <fullName>Cancelado</fullName>
+                <default>false</default>
+                <label>Cancelado</label>
+            </value>
+            <value>
+                <fullName>Pending Confirmation</fullName>
+                <default>false</default>
+                <label>Pending Confirmation</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

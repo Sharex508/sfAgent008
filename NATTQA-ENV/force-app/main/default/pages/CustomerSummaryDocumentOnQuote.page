@@ -1,0 +1,190 @@
+<apex:page controller="CustomerSummaryDocumentOnQuoteController" contentType="application/msword#{!dataOutput.quoteNumber}_Customer_Summary.doc" >
+<apex:param name="recordId" value="{!$CurrentPage.parameters.id}" />
+<apex:param name="objAPIName" value="{!$CurrentPage.parameters.objAPI}" />
+<html>
+  <head>
+            <style>
+            table, th, td {
+              border-top: 1px solid black;
+              border-collapse: collapse;
+            }
+            </style>
+            </head>
+            <body>
+                <div style="text-align:center">
+                    <p><b><u>CUSTOMER QUOTATION</u></b></p>
+                </div>   
+
+          <table style="width:100%">
+                    <tr>
+                        <td width="70%" style="cellspacing:0;cellpadding:0;font-size:11pt;border-top:none;"><apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                          <apex:param value="{!dataOutput.createdDate}"/>
+                          </apex:outputText></td>
+                        <td width="30%" style="cellspacing:0;cellpadding:0;font-size:11pt;border-top:none;"><b>Quotation Number: </b><apex:outputText value="{!dataOutput.quoteNumber}"/></td> 
+                    </tr>
+          </table>
+
+        <br />
+
+          <table  style="width:100%">         
+                    <tr>
+                          <td style="cellspacing:0;cellpadding:0;font-size:11pt;border-top:none;"><b><apex:outputText value="{!dataOutput.customerCompany}"/></b></td> 
+                    </tr>
+                    <tr>
+                      <td style="cellspacing:0;cellpadding:0;font-size:11pt;border-top:none;"><b><apex:outputText value="{!dataOutput.customerContact}"/></b></td> 
+                  </tr>
+                  <tr>
+                  <td style="cellspacing:0;cellpadding:0;font-size:11pt;border-top:none;"><b><apex:outputText value="{!dataOutput.address1}"/></b></td> 
+                  </tr>
+                  <tr>
+                  <td style="cellspacing:0;cellpadding:0;font-size:11pt;border-top:none;"><b><apex:outputText value="{!dataOutput.address2}"/></b></td> 
+                  </tr>
+                  <tr>
+                  <td style="cellspacing:0;cellpadding:0;font-size:11pt;border-top:none;"><b><apex:outputText value="{!dataOutput.city}"/></b><b><apex:outputText rendered="{!dataOutput.state != null}">,</apex:outputText> </b><b><apex:outputText value="{!dataOutput.state}"/></b><b><apex:outputText rendered="{!dataOutput.code != null}">, </apex:outputText> </b><b><apex:outputText value="{!dataOutput.code}"/></b></td> 
+                  </tr>
+                  <br />
+                  <tr>
+                  <td style="cellspacing:0;cellpadding:0;font-size:11pt;border-top:none;"><b>Dealer Comments: </b><apex:outputText value="{!dataOutput.dealerComment}"/></td>
+                  </tr>
+          </table>      
+            
+                <p style="text-align:center;font-size:11pt"><b>Unit Specifications</b></p>
+     
+          <table style="width:100%">
+              <col width="30%" />
+              <col width="70%" />
+              <tr>
+                  <td width="30%" style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;"><b>Model</b></td>
+                  <td width="70%"  style="cellspacing:0;cellpadding:0;font-size:11pt;"><apex:outputText value="{!dataOutput.model}"/></td> 
+              </tr>
+              <tr>
+                  <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;"><b>Standard Features</b></td>
+                  <td style="cellspacing:0;cellpadding:0;font-size:11pt;"><apex:outputText value="{!SUBSTITUTE(SUBSTITUTE(JSENCODE(dataOutput.standardFeatures), '\\n', '<br/>'),'\r','')}"/></td>
+              </tr>
+              <tr>
+                <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;"><b>Fuel Tank:</b></td>
+                <td style="cellspacing:0;cellpadding:0;font-size:11pt;"><apex:outputText value="{!SUBSTITUTE(JSENCODE(dataOutput.fuelTank), '\\r\n', '<br/>')}"/></td>
+              </tr>
+              <tr>
+                <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;"><b>Non-Standard Options:</b></td>
+                <td style="cellspacing:0;cellpadding:0;font-size:11pt;"><apex:outputText value="{!SUBSTITUTE(JSENCODE(dataOutput.nonStandardSuppliedOption), '\\r\n', '<br/>')}"/></td>
+              </tr>
+              <tr>
+                <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;"><b>Factory Supplied Options:</b></td>
+                <td style="cellspacing:0;cellpadding:0;font-size:11pt;"><apex:outputText value="{!SUBSTITUTE(JSENCODE(dataOutput.factorySuppliedOption), '\\r\n', '<br/>')}"/></td>
+              </tr>
+              <tr>
+                <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;"><b>Warranty:</b></td>
+                <td style="cellspacing:0;cellpadding:0;font-size:11pt;"><apex:outputText value="{!dataOutput.warranty}"/></td>
+              </tr>
+              <tr>
+                <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;"><b>Performance Data:</b></td>
+                <td style="cellspacing:0;cellpadding:0;font-size:11pt;"><apex:outputText value="{!dataOutput.performanceData}"/></td>
+              </tr>
+              <tr>
+                <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;"><b>Dealer Installed Options:</b></td>
+                <td style="cellspacing:0;cellpadding:0;font-size:11pt;"><apex:outputText value="{!SUBSTITUTE(JSENCODE(dataOutput.dealerSuppliedOption), '\\n', '<br/>')}"/></td>
+              </tr>
+          </table>
+
+       <br />
+
+          <table style="width:100%">
+            <col width="33%" />
+            <col width="33%" />
+            <col width="34%" />
+      
+            <tr>
+              <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:left;"><b>Unit Pricing</b></td>
+              <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt; border-top:none;"></td>
+              <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt; border-top:none;"></td>
+            </tr>
+
+          <apex:outputText rendered="{!dataOutput.unit != 0}">
+            <tr>
+                <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:center;"></td>
+                <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;">Unit</td>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;">$ <apex:outputText value="{!dataOutput.unit}"/></td>
+            </tr>
+          </apex:outputText>
+
+          <apex:outputText rendered="{!dataOutput.dealerInstalledOptions != 0}">
+            <tr>
+              <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:center;"></td>
+              <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;">Dealer Installed Options</td>
+              <td style="cellspacing:0;cellpadding:0;font-size:11pt;">$ <apex:outputText value="{!dataOutput.dealerInstalledOptions}"/></td>
+            </tr>
+          </apex:outputText>  
+
+          <apex:outputText rendered="{!dataOutput.fuel != 0}">
+            <tr>
+              <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:center;"></td>
+              <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;">Fuel</td>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;">$ <apex:outputText value="{!dataOutput.fuel}"/></td>
+            </tr>
+          </apex:outputText>  
+
+          <apex:outputText rendered="{!dataOutput.nonStandardOptions != 0}">
+            <tr>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:center;"></td>
+            <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;">Non-Standard Options</td>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;">$ <apex:outputText value="{!dataOutput.nonStandardOptions}"/></td>
+            </tr>
+          </apex:outputText>  
+
+          <apex:outputText rendered="{!dataOutput.miscellaneousPrep != 0}">
+            <tr>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:center;"></td>
+            <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;">Miscellaneous Prep.</td>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;">$ <apex:outputText value="{!dataOutput.miscellaneousPrep}"/></td>
+            </tr>
+          </apex:outputText>  
+
+            <apex:outputText rendered="{!dataOutput.installation != 0}">  
+            <tr>
+              <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:center;"></td>
+              <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;">Installation</td>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;">$ <apex:outputText value="{!dataOutput.installation}"/></td>
+            </tr>
+          </apex:outputText>  
+
+          <apex:outputText rendered="{!dataOutput.applicableTaxes != 0}">
+            <tr>
+              <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:center;"></td>
+              <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;">Applicable Taxes</td>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;">$ <apex:outputText value="{!dataOutput.applicableTaxes}"/></td>
+            </tr>
+          </apex:outputText>
+
+          <apex:outputText rendered="{!dataOutput.totalInstalledPackages != 0}">
+            <tr>
+              <td style="cellspacing:0;cellpadding:0;font-size:11pt;text-align:center;"></td>
+              <td style="vertical-align:center;cellspacing:0;cellpadding:0;font-size:11pt;">Total Installed Package</td>
+            <td style="cellspacing:0;cellpadding:0;font-size:11pt;">$ <apex:outputText value="{!dataOutput.totalInstalledPackages}"/></td>
+            </tr>
+          </apex:outputText>  
+          </table>
+
+        <br />
+
+        <table style="width:100%">
+          <col width="60%" />
+          <col width="40%" />
+          <tr>
+            <td width="60%"  style="cellspacing:0;cellpadding:0;font-size:11pt;"><b>Quotation Expires: </b><b><apex:outputText value="{0,date,MM'/'dd'/'yyyy}"><apex:param value="{!dataOutput.quoteExpires}"/></apex:outputText></b></td>
+            <td width="40%"  style="cellspacing:0;cellpadding:0;font-size:11pt;"></td>
+          </tr>
+          <br />
+          <tr>
+              <td width="60%"  style="cellspacing:0;cellpadding:0;font-size:11pt;"><b>Dealer: </b>  <b> <apex:outputText value="{!dataOutput.dealerContact}"/></b></td>
+              <td width="40%"  style="cellspacing:0;cellpadding:0;font-size:11pt;"><b>Date: </b>  <b> <apex:outputText value="{0,date,MM'/'dd'/'yyyy}"><apex:param value="{!today()}"/></apex:outputText></b></td>
+          </tr>
+          <tr>
+            <td width="60%"  style="cellspacing:0;cellpadding:0;font-size:11pt;"><b>Customer Acceptance: </b></td>
+            <td width="40%"  style="cellspacing:0;cellpadding:0;font-size:11pt;"><b>Date: </b></td>  
+          </tr>
+        </table>
+
+            </body>
+            </html>    
+</apex:page>

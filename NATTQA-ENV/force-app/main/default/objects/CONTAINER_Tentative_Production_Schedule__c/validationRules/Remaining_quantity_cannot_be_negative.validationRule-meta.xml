@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Remaining_quantity_cannot_be_negative</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(CONTAINER_Select_Stock__r.CONTAINER_Remaining_Quantity__c = 0,TRUE, IF( CONTAINER_Select_Stock__r.CONTAINER_Inventory_Qty__c  -  CONTAINER_Select_Stock__r.CONTAINER_Remaining_Quantity__c  &lt; 0, True,  IF( CONTAINER_Select_Stock__r.CONTAINER_Remaining_Quantity__c  &lt; 0, True, False) ) )</errorConditionFormula>
+    <errorMessage>Remaining quantity can not be negative.</errorMessage>
+</ValidationRule>

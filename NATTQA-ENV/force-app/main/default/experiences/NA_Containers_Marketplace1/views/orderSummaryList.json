@@ -1,0 +1,47 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "d2d7f33d-d19b-4433-973d-8746449dcee7",
+  "label" : "Order Summary List",
+  "regions" : [ {
+    "id" : "885f73da-1e8e-4970-abdf-582908554f90",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "accountId" : "",
+        "noOrderMessageText" : "After you place an order, you’ll find it here.",
+        "noResultsText" : "To view orders, adjust your filters.",
+        "numberOfMonthsForFilter" : 12,
+        "orderSummaryFieldMapping" : "[{\"entity\":\"OrderSummary\",\"name\":\"NAC_Order_Reference_Number__c\",\"label\":\"Order Reference Number\",\"type\":\"Formula (Text)\"},{\"entity\":\"OrderSummary\",\"name\":\"PoNumber\",\"label\":\"PO Number\",\"type\":\"Text(80)\"},{\"entity\":\"OrderSummary\",\"name\":\"GrandTotalAmount\",\"label\":\"Amount\",\"type\":\"Formula (Currency)\"},{\"entity\":\"OrderSummary\",\"name\":\"CreatedDate\",\"label\":\"Order Date\",\"type\":\"Date/Time\"},{\"entity\":\"OrderSummary\",\"name\":\"Status\",\"label\":\"Status\",\"type\":\"Picklist\"}]",
+        "ordersListCount" : 25,
+        "ordersListFilter" : true,
+        "ordersListSortBy" : true,
+        "ordersListTitle" : "My Orders",
+        "reOrder" : true,
+        "reOrderLabel" : "START REORDER",
+        "showMoreLabel" : "Show More",
+        "viewDetails" : true,
+        "viewDetailsLabel" : "View Details",
+        "viewMoreOrderBehaviour" : "SHOW_MORE"
+      },
+      "componentName" : "b2b_buyer_builder:ordersList",
+      "id" : "e406ea4e-5e55-4fd4-ad1f-09ac72311843",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "fe43814b-ad67-44ad-b6d4-583a64232b7b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e494a01f-1211-45df-9b6c-3f330f583787",
+    "regionName" : "footer",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "list-1Os"
+}

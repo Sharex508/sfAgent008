@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unit_Sales_Inactive</fullName>
+    <active>true</active>
+    <description>The Unit Sales Queue should not be used on Case Records.  It is slated for rollout in a future release.</description>
+    <errorConditionFormula>Owner:Queue.DeveloperName = &quot;NATT_Unit_Sales&quot;</errorConditionFormula>
+    <errorMessage>This Queue is Inactive</errorMessage>
+</ValidationRule>

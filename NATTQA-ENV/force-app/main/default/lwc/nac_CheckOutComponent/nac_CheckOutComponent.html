@@ -1,0 +1,51 @@
+<template>
+  <div class="slds-text-heading_large slds-p-top_small">{title}</div>
+  <div class="slds-text-heading_medium slds-p-vertical_large">{currentStage}</div>
+  <div class="slds-grid slds-wrap slds-gutters">
+    <div class="slds-col slds-size_9-of-12">
+      <div class="slds-box">
+        <template if:true={showSpinner}>
+          <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </template>
+        <c-nac-stage-indicator stages={stages} current-stage={currentStage}></c-nac-stage-indicator>
+        <template if:true={step1}>
+          <c-nac_-shipping-information shipping-address-options={shippingAddressOptions}  oncalltodisbalecontinue={disableContinue}
+            order-information={orderInformation} show-change-address-button={showChangeAddressButton}
+            shipping-address-index={shippingAddressIndex} onorderinfo={handleOrderDataChange}
+             >
+          </c-nac_-shipping-information>
+        </template>
+        <template if:true={step2}>
+          <c-nac-order-details checkout-wrapper={orderInformation}></c-nac-order-details>
+        </template>
+        <template if:true={step3}>
+          <div class="slds-p-bottom_small"></div>
+          <c-nac_-order-review onorderinfo={handleOrderDataChange} order-information={orderInformation} download-link={downloadLink}></c-nac_-order-review>
+        </template>
+        <template if:true={step4}>
+          <div class="slds-p-bottom_small"></div>
+          <c-nac-order-complete record-id={orderId}></c-nac-order-complete>
+        </template>
+      </div>
+      <div class="slds-p-bottom_large"></div>
+      <template if:true={showBacktoCartButton}>
+        <div class="slds-float_left">
+          <lightning-button label="Back to Cart" onclick={handleBacktoCart} class="slds-m-left_x-small"></lightning-button>
+        </div>
+      </template>
+      <div class="slds-float_right">
+        <template if:true={showBackButton}>
+          <lightning-button label="Back" onclick={handleClickBack} class="slds-m-left_x-small"></lightning-button>
+        </template>
+        <lightning-button variant="brand" label={nextButtonLabel} onclick={handleClickNext} disabled={disableNextButton}
+          class="slds-m-left_x-small">
+        </lightning-button>
+      </div>
+    </div>
+    <div class="slds-col slds-size_3-of-12">
+      <c-nac-order-summary record-id={recordId} effective-account-id={resolvedEffectiveAccountId} 
+      order-information={orderInformation}  
+      onorderinfo={handleOrderDataChange}></c-nac-order-summary>
+    </div>
+  </div>
+</template>

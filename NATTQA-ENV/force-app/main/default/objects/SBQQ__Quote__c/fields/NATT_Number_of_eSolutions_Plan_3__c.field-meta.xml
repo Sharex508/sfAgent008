@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Number_of_eSolutions_Plan_3__c</fullName>
+    <description>counts the quantity of lines for esolution plan 3</description>
+    <label>Number of Lynx Fleet Plan 3</label>
+    <summarizedField>SBQQ__QuoteLine__c.SBQQ__Quantity__c</summarizedField>
+    <summaryFilterItems>
+        <field>SBQQ__QuoteLine__c.NATT_eSolutions_Plan__c</field>
+        <operation>equals</operation>
+        <value>3</value>
+    </summaryFilterItems>
+    <summaryForeignKey>SBQQ__QuoteLine__c.SBQQ__Quote__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

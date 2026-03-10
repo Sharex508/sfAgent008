@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Reminder__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( 
+    AND(
+        RecordType.DeveloperName = &quot;NATT_Performance_Parts&quot; ,
+        NOT( OR(
+            ISPICKVAL( NATT_Case_Reason__c , &quot;Incorrect Manual&quot;),
+            ISPICKVAL( NATT_Case_Reason__c , &quot;New Part Set-up&quot;),
+            ISPICKVAL( NATT_Case_Reason__c , &quot;NSU/Pricing&quot;),
+            ISPICKVAL( NATT_Case_Reason__c , &quot;Technical Question&quot;)
+            )),
+        NATT_Number_of_Case_Sales_Order_Records__c = 0
+    ), 
+        IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;, 30, 30)
+        &amp;&quot; Remember to add a Case Line Item record.  Use the &apos;Add Case Line Items&apos; quick action on the Feed for this record.&quot; 
+        ,IF(
+            AND(
+                RecordType.DeveloperName = &quot;NATT_Service_Engineering_Field_Service&quot; ,
+                ISPICKVAL( Type , &quot;Engine Authorization Request&quot;),
+                NATT_EAR_Attached__c = 0
+            ),
+                IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;, 30, 30)
+                &amp;&quot; Remember to add an Engine Authorization Request on the Related Tab.&quot;
+                ,IF(
+                        AND(
+                        RecordType.DeveloperName = &quot;CTM_Performance_Parts&quot;,
+                        NOT( OR(
+                                ISPICKVAL( CTM_Case_Reason__c , &quot;Incorrect Manual&quot;),
+                                ISPICKVAL( CTM_Case_Reason__c , &quot;New Part Set-up&quot;),
+                                ISPICKVAL( CTM_Case_Reason__c , &quot;NSU/Pricing&quot;),
+                                ISPICKVAL( CTM_Case_Reason__c , &quot;Technical Question&quot;)
+                            )),
+                            NATT_Number_of_Case_Sales_Order_Records__c = 0
+                        ),
+                            IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;, 30, 30)
+                            &amp;&quot; Recuerde agregar el número de parte por línea de cada CASO. Use la acción rápida &apos;Agregar elementos de línea de caso&apos; en el Feed para este registro.&quot;
+                            , IF(
+                                AND(
+                                    RecordType.DeveloperName = &quot;CTM_Service_Engineering_Field_Service&quot; ,
+                                    NATT_EAR_Attached__c = 0
+                                ),
+                                    IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;, 30, 30)
+                                    &amp;&quot; Recuerde agregar una &apos;Solicitud de Autorización de Motor&apos; en la pestaña Relacionado.&quot;
+                                    , IF(
+                                        AND(RecordType.DeveloperName = &quot;CTBR_Parts_T_T&quot;, NATT_Number_of_Case_Sales_Order_Records__c = 0),
+                                        IMAGE(&quot;/img/samples/flag_red.gif&quot;, &quot;red&quot;, 30, 30)
+                                        &amp;&quot; Lembre-se de adicionar um registro de item de linha de caso. Use a ação rápida &apos;Adicionar itens de linha do caso&apos; no feed para este registro.&quot;
+                                        ,&quot;&quot;
+                                        )
+                                
+                                )
+                    )
+        )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Reminder</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,157 @@
+<template>
+
+    <template if:true={isRecordTypeSelection}>
+        <lightning-card >
+            <div class="slds-p-around_small">
+                <lightning-radio-group
+                    label="Select Quote Record Type"
+                    options={recordTypeOptions}
+                    value={selectedRecordTypeId}
+                    type="radio">
+                </lightning-radio-group>
+                <br/>
+                <lightning-button
+                    class="slds-m-top_large slds-m-horizontal_medium"
+                    label="Next"
+                    variant="brand"
+                    onclick={handleNextClick}>
+                </lightning-button>
+            </div>
+        </lightning-card>
+        
+    </template>
+    <template if:true={isOpportunityLoaded}>
+        <lightning-card>
+            <div class="slds-p-around_medium">
+                    <!-- Record Edit Form for Quote -->
+                    <lightning-record-edit-form object-api-name={objectApiName} record-type-id={selectedRecordTypeId} onsuccess={handleSuccess} onsubmit={handleSubmit}>
+
+                        <!-- Pre-filled Opportunity's Account -->
+                        <lightning-input-field
+                        field-name="SBQQ__Status__c"
+                        value='Draft' data-field="SBQQ__Status__c" onchange={handleInputChange} disabled>
+                        </lightning-input-field>
+
+                        <lightning-input-field
+                            field-name="SBQQ__Account__c"
+                            value={accountId}
+                            data-field="SBQQ__Account__c"
+                            onchange={handleInputChange} disabled>
+                        </lightning-input-field>
+
+                        <lightning-input-field
+                            field-name="SBQQ__Opportunity2__c"
+                            value={recordId}
+                            data-field="SBQQ__Opportunity2__c"
+                            onchange={handleInputChange} disabled>
+                        </lightning-input-field>
+
+                        <lightning-input-field
+                            field-name="NATT_End_Customer__c"
+                            value={endCustomer}
+                            data-field="NATT_End_Customer__c"
+                            onchange={handleInputChange} disabled>
+                        </lightning-input-field>
+
+                        <lightning-input class="slds-p-left_xx-small slds-p-right_xx-small"
+                            label="Quote Record Type"
+                            value={selectedRecordTypeName}
+                            onchange={handleInputChange} disabled>
+                        </lightning-input>
+
+
+                        <!-- Pre-filled Close Date (mapped to Quote Expiration Date) -->
+                        <lightning-input-field
+                            field-name="SBQQ__Primary__c"
+                            value='true'
+                            data-field="SBQQ__Primary__c"
+                            onchange={handleInputChange} disabled>
+                        </lightning-input-field>
+
+                        <lightning-input-field
+                            field-name="NATT_Stock__c"
+                            value={stock}
+                            data-field="NATT_Stock__c"
+                            onchange={handleInputChange} disabled>   
+                        </lightning-input-field>
+
+                        <lightning-input-field
+                            field-name="NATT_Has_Freight__c"
+                            value={containerFreight}
+                            data-field="NATT_Has_Freight__c"
+                            onchange={handleInputChange}>   
+                        </lightning-input-field>
+
+                        <template if:true={showPONumber}>
+                        <lightning-input-field
+                            field-name="NATT_Purchase_Order__c"
+                            value={purchaseOrder}
+                            data-field="NATT_Purchase_Order__c"
+                            onchange={handleInputChange} 
+                            required="true">   
+                        </lightning-input-field>
+                        </template>
+
+                        <lightning-input-field
+                            field-name="Mark_For_Location_Country__c"
+                            value={markForLocationCountry}
+                            data-field="Mark_For_Location_Country__c"
+                            onchange={handleInputChange}
+                            required="true">
+                        </lightning-input-field>
+                        
+                        <lightning-input-field
+                            field-name="Mark_For_Location_State__c"
+                            value={markForLocationState}
+                            data-field="Mark_For_Location_State__c"
+                            onchange={handleInputChange}
+                            required="true">
+                        </lightning-input-field>
+
+                        <lightning-input-field
+                            field-name="Mark_For_Location_City__c"
+                            value={markForLocationCity}
+                            data-field="Mark_For_Location_City__c"
+                            onchange={handleInputChange}
+                            required="true">
+                        </lightning-input-field>
+
+                        <lightning-combobox
+                            name="Billing Address"
+                            label="Billing Address"
+                            value={billingAddress}
+                            options={billToAddressOptions}
+                            onchange={handleInputChange}
+                            required="true"
+                            data-field="NATT_Billing_Address__c">
+                        </lightning-combobox>
+
+                        <lightning-combobox
+                            name="Shipping Address"
+                            label="Shipping Address"
+                            value={shippingAddress}
+                            options={unitShipToAddressOptions}
+                            onchange={handleInputChange}
+                            required="true"
+                            data-field="NATT_Shipping_Address__c">
+                        </lightning-combobox>
+                        
+                        <br/>
+                        <!-- Submit Button -->
+                        <template if:true={isOpportunityLoaded}>
+                            <lightning-button 
+                                class="slds-m-top_medium slds-m-horizontal_medium" 
+                                label="Back" 
+                                variant="brand" 
+                                onclick={handleBackClick}>
+                            </lightning-button>
+                        </template>
+                        <lightning-button class="slds-m-top_medium" label="Create Quote" variant="brand" type="submit"></lightning-button>
+                    </lightning-record-edit-form>
+            </div>
+        </lightning-card>
+    </template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading Opportunity data"></lightning-spinner> 
+    </template>
+</template>

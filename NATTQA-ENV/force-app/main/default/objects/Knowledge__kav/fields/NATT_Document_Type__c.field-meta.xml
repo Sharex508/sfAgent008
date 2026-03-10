@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Document_Type__c</fullName>
+    <description>NATT</description>
+    <label>Document Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Branding</fullName>
+                <default>false</default>
+                <label>Branding</label>
+            </value>
+            <value>
+                <fullName>Bulletins</fullName>
+                <default>false</default>
+                <label>Bulletins</label>
+            </value>
+            <value>
+                <fullName>Diagrams/Schematics</fullName>
+                <default>false</default>
+                <label>Diagrams/Schematics</label>
+            </value>
+            <value>
+                <fullName>Fast Facts</fullName>
+                <default>false</default>
+                <label>Fast Facts</label>
+            </value>
+            <value>
+                <fullName>Field Programs</fullName>
+                <default>false</default>
+                <label>Field Programs</label>
+            </value>
+            <value>
+                <fullName>Field Trial Programs</fullName>
+                <default>false</default>
+                <label>Field Trial Programs</label>
+            </value>
+            <value>
+                <fullName>Follow the Fleet Programs</fullName>
+                <default>false</default>
+                <label>Follow the Fleet Programs</label>
+            </value>
+            <value>
+                <fullName>Formalized Concession Agreements</fullName>
+                <default>false</default>
+                <label>Formalized Concession Agreements</label>
+            </value>
+            <value>
+                <fullName>Forms</fullName>
+                <default>false</default>
+                <label>Forms</label>
+            </value>
+            <value>
+                <fullName>Instructions</fullName>
+                <default>false</default>
+                <label>Instructions</label>
+            </value>
+            <value>
+                <fullName>Literature</fullName>
+                <default>false</default>
+                <label>Literature</label>
+            </value>
+            <value>
+                <fullName>Manuals – Diagnostic and Maintenance</fullName>
+                <default>false</default>
+                <label>Manuals – Diagnostic and Maintenance</label>
+            </value>
+            <value>
+                <fullName>Manuals – Engine</fullName>
+                <default>false</default>
+                <label>Manuals – Engine</label>
+            </value>
+            <value>
+                <fullName>Manuals – Installation</fullName>
+                <default>false</default>
+                <label>Manuals – Installation</label>
+            </value>
+            <value>
+                <fullName>Manuals – Operation and Service</fullName>
+                <default>false</default>
+                <label>Manuals – Operation and Service</label>
+            </value>
+            <value>
+                <fullName>Manuals – Operator</fullName>
+                <default>false</default>
+                <label>Manuals – Operator</label>
+            </value>
+            <value>
+                <fullName>Manuals – Parts</fullName>
+                <default>false</default>
+                <label>Manuals – Parts</label>
+            </value>
+            <value>
+                <fullName>Product Guides</fullName>
+                <default>false</default>
+                <label>Product Guides</label>
+            </value>
+            <value>
+                <fullName>Product Presentation</fullName>
+                <default>false</default>
+                <label>Product Presentation</label>
+            </value>
+            <value>
+                <fullName>Software</fullName>
+                <default>false</default>
+                <label>Software</label>
+            </value>
+            <value>
+                <fullName>TechLINE</fullName>
+                <default>false</default>
+                <label>TechLINE</label>
+            </value>
+            <value>
+                <fullName>Tools</fullName>
+                <default>false</default>
+                <label>Tools</label>
+            </value>
+            <value>
+                <fullName>Training</fullName>
+                <default>false</default>
+                <label>Training</label>
+            </value>
+            <value>
+                <fullName>Videos</fullName>
+                <default>false</default>
+                <label>Videos</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

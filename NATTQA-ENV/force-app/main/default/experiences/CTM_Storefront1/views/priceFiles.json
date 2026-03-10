@@ -1,0 +1,143 @@
+{
+  "appPageId" : "a72f9961-a56d-4d6c-be9b-34da3e37d662",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "f3d47e7b-b54a-4de2-943d-3afbaf3982fd",
+  "label" : "Price Files",
+  "regions" : [ {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "178072cd-73da-4119-a5b3-5003e29df6a5",
+          "columns" : [ {
+            "UUID" : "93895120-011d-4b52-bc8a-ff9e121ce0bc",
+            "columnKey" : "1",
+            "columnName" : "Column 1",
+            "columnWidth" : "12",
+            "seedComponents" : [ ]
+          } ]
+        },
+        "sectionHeight" : 300
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "178072cd-73da-4119-a5b3-5003e29df6a5",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "tabsetConfig" : {
+              "UUID" : "d7d370f1-1c46-495e-a759-b9475cbacd65",
+              "activeTab" : "",
+              "tabs" : [ {
+                "UUID" : "5dfd21f0-2ec5-4217-b793-d050b43dd4c1",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "1",
+                "tabName" : "Archivos de precios completos"
+              }, {
+                "UUID" : "9a226bc5-5087-49ff-8db0-3f6e414d948b",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "2",
+                "tabName" : "Cambios de Precio"
+              }, {
+                "UUID" : "608951e9-1f8c-47eb-96aa-ba6685992b00",
+                "allowGuestUser" : false,
+                "locked" : false,
+                "seedComponents" : [ ],
+                "tabKey" : "3",
+                "tabName" : "Archivos de Precios Futuros"
+              } ],
+              "useOverflowMenu" : false
+            }
+          },
+          "componentName" : "forceCommunity:tabset",
+          "id" : "d7d370f1-1c46-495e-a759-b9475cbacd65",
+          "regions" : [ {
+            "components" : [ {
+              "componentAttributes" : { },
+              "componentName" : "c:natt_priceFile",
+              "id" : "7da3e261-937d-46da-a833-8849644a349a",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "5dfd21f0-2ec5-4217-b793-d050b43dd4c1",
+            "regionLabel" : "Archivos de precios completos",
+            "regionName" : "1",
+            "renditionMap" : { },
+            "type" : "region"
+          }, {
+            "components" : [ {
+              "componentAttributes" : { },
+              "componentName" : "c:natt_priceFile_PriceChanges",
+              "id" : "0ae5a0eb-4942-4018-b211-6e99c8f314bf",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "9a226bc5-5087-49ff-8db0-3f6e414d948b",
+            "regionLabel" : "Cambios de Precio",
+            "regionName" : "2",
+            "renditionMap" : { },
+            "type" : "region"
+          }, {
+            "components" : [ {
+              "componentAttributes" : { },
+              "componentName" : "c:natt_priceFile_AdvancedBooks",
+              "id" : "0c0adffe-da08-4820-9324-6f1e42f6d873",
+              "renditionMap" : { },
+              "type" : "component"
+            } ],
+            "id" : "608951e9-1f8c-47eb-96aa-ba6685992b00",
+            "regionLabel" : "Archivos de Precios Futuros",
+            "regionName" : "3",
+            "renditionMap" : { },
+            "type" : "region"
+          } ],
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        }, {
+          "componentAttributes" : { },
+          "componentName" : "c:natt_ctmStoreFooter",
+          "id" : "e7ee15e7-0859-4951-83d7-989bd87d05bf",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "93895120-011d-4b52-bc8a-ff9e121ce0bc",
+        "regionLabel" : "Column 1",
+        "regionName" : "1",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "58467f36-eba8-4b56-a70d-0ae4f1879bd2",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Price Files"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "75645e6d-a151-45ec-9d88-505299076af3",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "71af5c5a-0e1d-4e55-b69b-1a96e72d2e5e",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "custom-price-files"
+}

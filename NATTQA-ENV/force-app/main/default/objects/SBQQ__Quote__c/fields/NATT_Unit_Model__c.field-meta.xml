@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Unit_Model__c</fullName>
+    <description>For eSolutions Only - For eSolutions don&apos;t use the product family and model used for unit sales</description>
+    <label>Unit Model</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>X4 7300 / 7500</fullName>
+                <default>false</default>
+                <label>X4 7300 / 7500</label>
+            </value>
+            <value>
+                <fullName>X4 7700</fullName>
+                <default>false</default>
+                <label>X4 7700</label>
+            </value>
+            <value>
+                <fullName>Vector 8100</fullName>
+                <default>false</default>
+                <label>Vector 8100</label>
+            </value>
+            <value>
+                <fullName>Vector 8500</fullName>
+                <default>false</default>
+                <label>Vector 8500</label>
+            </value>
+            <value>
+                <fullName>Vector 8700</fullName>
+                <default>false</default>
+                <label>Vector 8700</label>
+            </value>
+            <value>
+                <fullName>Vector 8600 / 8611 MT</fullName>
+                <default>false</default>
+                <label>Vector 8600 / 8611 MT</label>
+            </value>
+            <value>
+                <fullName>Vector 8800 MT</fullName>
+                <default>false</default>
+                <label>Vector 8800 MT</label>
+            </value>
+            <value>
+                <fullName>Vector HE19</fullName>
+                <default>false</default>
+                <label>Vector HE19</label>
+            </value>
+            <value>
+                <fullName>Supra 950MT</fullName>
+                <default>false</default>
+                <label>Supra 950MT</label>
+            </value>
+            <value>
+                <fullName>Supra S Series</fullName>
+                <default>false</default>
+                <label>Supra S Series</label>
+            </value>
+            <value>
+                <fullName>Solara APX</fullName>
+                <default>false</default>
+                <label>Solara APX</label>
+            </value>
+            <value>
+                <fullName>Supra 60 Series</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Supra 60 Series</label>
+            </value>
+            <value>
+                <fullName>Vector 1550</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Vector 1550</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

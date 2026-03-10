@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>Carrier SolutionCenter</container>
+    <containerType>Network</containerType>
+    <label>CTM Navigation Menu</label>
+    <navigationMenuItem>
+        <label>Mi Distribuidora</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Paneles de Información</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/dashboard/Dashboard/Recent</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <defaultListViewId>CTM_Customer_Accounts</defaultListViewId>
+                <label>Clientes</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Account</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <defaultListViewId>CTM_Competitors</defaultListViewId>
+                <label>Competidores</label>
+                <position>2</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Account</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <defaultListViewId>Competitors</defaultListViewId>
+                <label>Información del Distribuidor</label>
+                <position>3</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/comm-my-account</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Ordenes de venta</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <defaultListViewId>CTM_All_Opportunities</defaultListViewId>
+                <label>Mis Oportunidades</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Opportunity</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <defaultListViewId>My_Orders</defaultListViewId>
+                <label>Mis Ordenes</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Order</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Apoyo</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <defaultListViewId>CTM_All_Cases</defaultListViewId>
+                <label>Mis Casos</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>Case</target>
+                <type>SalesforceObject</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>Mis Documentos</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/contentdocument/ContentDocument/All</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Centro de Conocimiento</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <subMenu>
+            <navigationMenuItem>
+                <label>Todo el conocimiento</label>
+                <position>0</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>/all-knowledge</target>
+                <type>InternalLink</type>
+            </navigationMenuItem>
+            <navigationMenuItem>
+                <label>CTM REFACCIONES</label>
+                <position>1</position>
+                <publiclyAvailable>false</publiclyAvailable>
+                <target>https://transicold.force.com/ctm</target>
+                <type>ExternalLink</type>
+            </navigationMenuItem>
+        </subMenu>
+        <type>MenuLabel</type>
+    </navigationMenuItem>
+</NavigationMenu>

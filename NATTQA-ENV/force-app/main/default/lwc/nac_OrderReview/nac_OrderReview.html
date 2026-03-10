@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-box slds-theme_shade">
+        <div class="slds-text-longform">
+
+            <strong>
+                <h3 class="slds-text-heading_small">Purchase Order</h3>
+            </strong>
+            <p> Please enter your internal purchase order reference. If no reference is available, please use your date as reference.</p>
+            <div class="slds-size_4-of-5">
+                <strong>
+                    <lightning-input type="text" label="Your Purchase Order" name="text" required=true class="inputText"
+                        value={orderInformation.purchaseOrderNo} onchange={handlePONumberchange}></lightning-input>
+                </strong>
+            </div>
+            <br/>
+            <b>Disclaimer</b>: Order summary does not include freight, taxes and duties.
+            <br />
+            <div class="slds-list_horizontal slds-wrap">
+            <lightning-input type="checkbox" name="checkbox" label="Accept terms and conditions*" required variant="label-hidden" checked={orderInformation.acceptedTerms}
+                onchange={onHandleValueChange}></lightning-input>
+                <a href={downloadLink} target="_blank">
+                    Accept terms and conditions
+                </a>
+            </div>
+            <br/>
+        </div>
+    </div>
+</template>

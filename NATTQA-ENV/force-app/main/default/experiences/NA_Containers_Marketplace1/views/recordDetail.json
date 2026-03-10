@@ -1,0 +1,65 @@
+{
+  "appPageId" : "2fa44c1b-ea3a-4b4e-9b5c-118cf9b60a1b",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "620e23ab-4e8f-4c48-8e26-05329ffad795",
+  "label" : "Record Detail",
+  "regions" : [ {
+    "id" : "2d5e1c94-23e7-40d4-bebf-1a4d54ecc47a",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "recordId" : "{!recordId}"
+      },
+      "componentName" : "forceCommunity:recordHeadline",
+      "id" : "7d48386f-cfb2-41ef-954c-02089634d9c7",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "detailsTabLabel" : "Details",
+        "discussionsTabLabel" : "Feed",
+        "recordId" : "{!recordId}",
+        "relatedTabLabel" : "Related",
+        "tab1Type" : "details",
+        "tab2Type" : "none",
+        "tab3Type" : "none",
+        "tab4Type" : "none",
+        "timelineTabLabel" : "Activity"
+      },
+      "componentName" : "forceCommunity:recordHomeTabs",
+      "id" : "6ed81f12-ce80-4e38-9f9b-920f7622a14b",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "a2d229bb-8d10-4ddb-bd9e-f9958607c69c",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "e6300f19-0c11-4c96-a243-4e76f248807d",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "{!Record._Object}: {!Record._Title}"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "f81910af-e118-40a8-9c39-b818afcc0348",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "1df7eeff-c464-4a9e-8d8a-de349fe6519f",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "detail"
+}

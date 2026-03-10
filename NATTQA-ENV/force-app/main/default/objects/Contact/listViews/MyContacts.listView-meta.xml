@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MyContacts</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CONTACT.TITLE</columns>
+    <columns>CONTACT.PHONE1</columns>
+    <columns>CONTACT.EMAIL</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Contact_Type__c</columns>
+    <columns>Federation_ID__c</columns>
+    <columns>UCP_Permission_Set__c</columns>
+    <columns>UCP_Region__c</columns>
+    <columns>Container_Service_Agreement_UCP__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Contact_Type__c</field>
+        <operation>equals</operation>
+        <value>Service Contact,Parts Contact,Warranty Contact,Executive Contact,Finance Contact</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CONTAINER_Authorized_Service_Provider</value>
+    </filters>
+    <filters>
+        <field>Account.CONTAINER_Operating_Region__c</field>
+        <operation>equals</operation>
+        <value>APO</value>
+    </filters>
+    <filters>
+        <field>UCP_Region__c</field>
+        <operation>equals</operation>
+        <value>AUS,SG/HK</value>
+    </filters>
+    <label>APO ASP Contacts</label>
+    <sharedTo>
+        <group>CONTAINER_FSM_APO_Case</group>
+        <role>NA</role>
+        <role>NA_Parts_Manager</role>
+        <role>NA_Parts_Sales</role>
+        <role>NA_Units_Manager</role>
+        <role>NA_Units_Sales</role>
+        <role>Test_Dealer_Partner_User</role>
+    </sharedTo>
+</ListView>

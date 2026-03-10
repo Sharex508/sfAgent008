@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_ProductTypeSetBundled__c</fullName>
+    <description>Product Type for TES Products.</description>
+    <label>Product Type - Set Bundled</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Bundled Product</fullName>
+                <default>false</default>
+                <label>Bundled Product</label>
+            </value>
+            <value>
+                <fullName>Simple Product</fullName>
+                <default>false</default>
+                <label>Simple Product</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

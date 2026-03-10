@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SN_and_Model_Num_on_Svc_Eng_FS_Case</fullName>
+    <active>true</active>
+    <description>The Serial Number and Model Number are required on a Service Engineering / Field Service Record Type with a Type Field of Unit Download or Engine Authorization Request</description>
+    <errorConditionFormula>AND(
+    OR(RecordType.DeveloperName = &quot;NATT_Service_Engineering_Field_Service&quot;, RecordType.DeveloperName = &quot;CTM_Service_Engineering_Field_Service&quot;),
+    OR(Text(Type) = &quot;Engine Authorization Request&quot;, Text(Type) = &quot;Unit Download Review&quot;), 
+    OR(NATT_Serial_Number__c = &apos;&apos;, NATT_Model_Number__c = &apos;&apos;)
+    )</errorConditionFormula>
+    <errorDisplayField>NATT_Serial_Number__c</errorDisplayField>
+    <errorMessage>On a Case with a Type of Engine Authorization Request or Unit Download Review the Serial Number and Model Number must be filled in.</errorMessage>
+</ValidationRule>

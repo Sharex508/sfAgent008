@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__TargetObject__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Select the object you want to aggregate.</description>
+    <inlineHelpText>Select the object you want to aggregate.</inlineHelpText>
+    <label>Target Object</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Opportunity Product</fullName>
+                <default>false</default>
+                <label>Opportunity Product</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

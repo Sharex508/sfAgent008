@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_eSolutions_Only_1_Plan</fullName>
+    <active>true</active>
+    <description>A user cannot add more than one plan</description>
+    <errorConditionFormula>OR(
+ AND(
+ NATT_Number_of_eSolutions_Plan_1__c &gt; 1,
+   OR(
+   NATT_Number_of_eSolutions_Plan_2__c != 0,
+   NATT_Number_of_eSolutions_Plan_3__c != 0
+   )
+ ),
+ AND(
+ NATT_Number_of_eSolutions_Plan_2__c &gt; 1,
+   OR(
+   NATT_Number_of_eSolutions_Plan_1__c != 0,
+   NATT_Number_of_eSolutions_Plan_3__c != 0
+   )
+ ),
+ AND(
+ NATT_Number_of_eSolutions_Plan_3__c &gt; 1,
+   OR(
+   NATT_Number_of_eSolutions_Plan_1__c != 0,
+   NATT_Number_of_eSolutions_Plan_2__c != 0
+   )
+ )
+)</errorConditionFormula>
+    <errorMessage>You may not have more than one type of plan for a quote.</errorMessage>
+</ValidationRule>

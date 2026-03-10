@@ -1,0 +1,29 @@
+<!-- Added by Rajasekhar for CCRN-2952:   Enhancements - Previous Order details/ CCRN-2873: Display the Previous Order details on Quote --> 
+<template>
+    <div class="slds-p-around_medium" > 
+        <lightning-card  title="Previous Order Details" icon-name="standard:orders" style="width:40% !important">
+            <lightning-layout multiple-rows>
+                <template if:true={orderDetails}>
+                    <lightning-layout-item size="12">
+                        <p><strong>Unit: </strong>{orderDetails.SBQQ__Quote__r.NATT_Unit__c}</p>
+                        <p><strong>Product Number: </strong>{orderDetails.SBQQ__Quote__r.NATT_Configured_Unit_Code__c}</p>
+                        <p><strong>Unit Price Without Services:</strong> {formattedUnitPrice}</p>
+                        <p><strong>Requested Ship Date: </strong>{orderDetails.NATT_Requested_Ship_Date__c}</p>
+                </lightning-layout-item>
+            </template>
+
+                <template if:true={showNoOrdersMessage}>
+                <lightning-layout-item size="12" class="slds-text-align_center slds-p-around_medium">
+                    <p class="slds-text-color_weak">No orders found</p>
+                </lightning-layout-item>
+            </template>
+
+            <template if:true={error}>
+                <lightning-layout-item size="12" class="slds-text-align_center slds-p-around_medium">
+                    <p class="slds-text-color_error">Error loading Order details.</p>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+    </lightning-card>
+    </div>
+</template>

@@ -1,0 +1,267 @@
+<aura:component controller="NattOrderSearchController" implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,forceCommunity:availableForAllPageTypes,flexipage:availableforallpagetypes" access="global">
+    <aura:attribute name="order" type="Order"/>    
+    <aura:attribute name="wrap" type="Object"/>    
+    <aura:attribute name="dealerId" type="string" default=""/>     
+    <aura:attribute name="units" type="Object[]" default="[]"/> 
+    <aura:attribute name="endCustomerId" type="string" default=""/> 
+    <aura:attribute name="orderId" type="string" default=""/>    
+    <aura:attribute name="selectedLookUpRecord" type="sObject"/>
+    <aura:attribute name="selectedOrderRecordId" type="string"/>
+    <aura:attribute name="orderHeaderEditable" type="boolean" default="true"/>
+    <aura:attribute name="selectedShippingAddressId" type="String"/>
+    <aura:attribute name="isProcessing" type="boolean" default="false"/>    
+    <aura:attribute name="orderChangeAllowed" type="boolean" default="true"/>    
+    <aura:attribute name="showForm" type="boolean" default="false"/>
+    <aura:attribute name="openAmendmentOrderNumber" type="String"/>
+    <!--aura:attribute name="hasOpenAmendment2" type="boolean" default="false"/>
+    <aura:attribute name="hasOpenAmendment" type="boolean" default="false"/>
+    <aura:attribute name="openAmendmentOrderNumber" type="string"/-->
+    <aura:attribute name="isCommunity" type="boolean" default="false"/>
+    
+    <!-- private attributes for handling server side actions-->
+    <aura:attribute name="isSuccess" type="Boolean" default="false"/>
+    <aura:attribute name="isError" type="Boolean" default="false"/>
+    <aura:attribute name="mergeError" type="Boolean" default="false"/>   
+    <aura:attribute name="successMessage" type="String" default=""/>
+    <aura:attribute name="errorMessage" type="Object" default=""/>
+    
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="orderRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <!--
+    <force:recordData aura:id="recordLoader"
+                      fields="Id,NATT_JDE_Sales_Order_Number__c,NATT_Purchase_Order__,
+                              NATT_Mark_For_Special_Delivery_Instructi__c,NATT_End_Customer__c,NATT_Stock__c,
+                              AccountId,NATT_Shipment_Method__c,NATT_Dealer_Comments__c"
+                      recordId="{!v.selectedOrderRecordId}"
+                      targetFields="{!v.orderRecord}"
+                      targetError="{!v.recordError}"
+                      recordUpdated="{!c.handleRecordUpdated}"/> -->
+    
+    <lightning:notificationsLibrary aura:id="notifLib"/> 
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>    
+    <aura:handler name="oSelectedRecordEvent" event="c:NATT_SelectedSObjectRecordEvt" action="{!c.handleComponentEvent}"/>    
+    <lightning:navigation aura:id="navService"/>
+    
+    <aura:if isTrue="{!v.isProcessing}">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </aura:if>
+    
+    <!--style to incraee width-->
+    <aura:html tag="style">
+        .slds-modal__container{
+        max-width: 100rem !important;
+        max-height: 80rem !important;
+        width:80% !important;
+        }
+    </aura:html>
+    <lightning:card iconName="standard:orders" title="Order Change">
+        
+        <div class="slds-grid slds-wrap wrapper">
+            <div class="slds-col slds-size_1-of-1">
+                
+                <!--
+                <div aura:id="searchOrder" class="slds-grid slds-wrap wrapper">
+                    <div class="slds-col slds-size_1-of-1">
+                        <div style="padding-left:15px;width: 25%;">
+                            <c:NATT_CustomLookup objectAPIName="Order" recordId="{!v.recordId}" IconName="standard:orders" selectedRecord="{!v.selectedLookUpRecord}" label="JDE Sales Order #"/>
+                            <br/>
+                            <lightning:button class="slds-m-top_small" disabled="{!or(v.selectedOrderRecordId == '',v.selectedOrderRecordId == null)}" variant="brand" onclick="{!c.next}" label="Next"/>
+                        </div>
+                    </div>                                
+                </div>
+                <aura:if isTrue="{!v.showForm}">
+                    -->
+                
+                <div aura:id="recordForm" class="slds-hide" style="padding-left:15px;padding-right:15px;">
+                    
+                    <lightning:recordEditForm objectApiName="Order" recordId="{!v.recordId}" aura:id="orderChangeForm" onsubmit="{!c.handleSubmit}" onload="{!c.handleOnLoad}" onsuccess="{!c.handleOnSuccess}" onerror="{!c.handleOnError}">
+                        
+                        <lightning:outputField aura:id="selectedOrder" fieldName="NATT_JDE_Sales_Order_Number__c"/>
+                        
+                        <aura:if isTrue="{!v.orderHeaderEditable}">
+                            <lightning:inputField aura:id="purchaseOrder" fieldName="NATT_Purchase_Order__c"/> 
+                            <aura:set attribute="else">
+                                <lightning:outputField aura:id="purchaseOrder2" fieldName="NATT_Purchase_Order__c"/> 
+                                <lightning:inputField aura:id="purchaseOrder" fieldName="NATT_Purchase_Order__c" class="slds-hide"/> 
+                            </aura:set>
+                        </aura:if>
+                        
+                        <lightning:outputField aura:id="productFamily" fieldName="NATT_Product_Family__c"/>
+                        <lightning:inputField aura:id="marketSegment" fieldName="NATT_Market_Segment2__c"/>
+                        <lightning:inputField aura:id="markSpecialInstructions" fieldName="NATT_Mark_For_Special_Delivery_Instructi__c"/>
+                        
+                        <aura:if isTrue="{!v.orderHeaderEditable}">
+                            <lightning:inputField aura:id="endCustomerId" fieldName="NATT_End_Customer__c" onchange="{!c.onEndCustomerChange}"/>
+                            <aura:set attribute="else">
+                                <lightning:outputField aura:id="endCustomerId" fieldName="NATT_End_Customer__c"/> 
+                            </aura:set>
+                        </aura:if>
+                        
+                        <lightning:inputField aura:id="dealerStock" fieldName="NATT_Stock__c"/>
+                        <!-- <lightning:outputField aura:id="dealerStock2" fieldName="NATT_Stock2__c"/> -->
+                        <lightning:outputField aura:id="dealerId" fieldName="AccountId"/>
+                        <lightning:inputField aura:id="dealerIdHidden" fieldName="AccountId" class="slds-hide"/>     
+                        <lightning:inputField aura:id="dealerComments" fieldName="NATT_Dealer_Comments__c"/>
+                        
+                        <aura:if isTrue="{!v.orderHeaderEditable}">
+                            <lightning:inputField aura:id="shipmentMethod" fieldName="NATT_Shipment_Method__c"/> 
+                            <aura:set attribute="else">
+                                <lightning:outputField aura:id="shipmentMethod" fieldName="NATT_Shipment_Method__c"/> 
+                            </aura:set>
+                        </aura:if>                        
+                        
+                        <lightning:inputField aura:id="shippingAddress" fieldName="NATT_Shipping_Address__c" class="slds-hide"/>  
+                        
+                        <aura:if isTrue="true">
+                            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12 slds-p-left_small">
+                                <c:NattAddressSelection selectedAddressId="{!v.selectedShippingAddressId}" dealerId="{!v.dealerId}" addressType="Units Ship To"/>
+                            </div>
+                        </aura:if>
+                        <br/>
+                        <div class="slds-m-top_medium">
+                            <lightning:button label="Cancel" onclick="{!c.doCancel}"/>                 
+                            <!--<lightning:button variant="brand" label="Save Order" type="submit"/>-->
+                            <lightning:button variant="brand" disabled="false" onclick="{!c.saveOrderPartner}" label="Save Order"/>   
+                        </div>
+                        <br/>
+                        <aura:if isTrue="true">
+                            <div class="slds-media">
+                                <div class="slds-media__body">
+                                    <div class="slds-page-header__name">
+                                        <div class="slds-page-header__name-title">
+                                            <h1>
+                                                <span class="slds-page-header__title slds-truncate" title="">Units associated with this Order: </span>
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <aura:if isTrue="{!v.units.length > 0}">
+                                <table class="maintable slds-table slds-table_cell-buffer slds-table_bordered">
+                                    <thead>
+                                        <tr class="slds-line-height_reset">                                        
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="JDE Sales Order #">JDE Sales Order #</div>
+                                            </th>
+                                            
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title=" Transaction Date">Transaction Date</div>
+                                            </th>
+                                            
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="Order Type">Order Type</div>
+                                            </th>
+                                            
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="Unit">Unit</div>
+                                            </th>
+                                            
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="Requested Ship Date">Requested Ship Date</div>
+                                            </th>
+                                            
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="Owner">Owner</div>
+                                            </th>
+                                            
+                                            <th class="" scope="col">
+                                                <div class="slds-truncate" title="Action">Action</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <aura:iteration items="{!v.units}" var="item" indexVar="index">
+                                            <tr class="slds-hint-parent">                                            
+                                                <th data-label="Order Number" scope="row">
+                                                    {!item.orderNumber}
+                                                </th>
+                                                
+                                                <th data-label="Order Type" scope="row">
+                                                    <lightning:input type="date" name="transDate" label="Transaction Date" disabled="true" variant="label-hidden" value="{!item.orderCreatedDate}"/>
+                                                </th>
+                                                
+                                                <th data-label="Order Type" scope="row">
+                                                    {!item.orderType}
+                                                </th>
+                                                
+                                                <th data-label="Unit" scope="row">
+                                                    {!item.productName}
+                                                </th>
+                                                
+                                                <th data-label="Expected Ship Date" scope="row">
+                                                    <aura:if isTrue="{!item.rowLocked}">
+                                                        {!item.requestedShipDate}
+                                                        <aura:set attribute="else">
+                                                            <lightning:input data-id="{!item.orderItemId}" 
+                                                                             type="date" 
+                                                                             variant="label-hidden" 
+                                                                             name="{!item.orderItemId}" 
+                                                                             label="Requested Ship Date" 
+                                                                             required="true" 
+                                                                             value="{!item.requestedShipDate}" />
+                                                        </aura:set>
+                                                    </aura:if>                                                
+                                                </th>
+                                                <th data-label="Owner" scope="row">
+                                                    {!item.ownerName}
+                                                </th>
+                                                <th data-label="Result" scope="row">
+                                                    <lightning:button name="{!index}" variant="brand-outline" onclick="{!c.saveRequestedDate}" label="Save Requested Ship Date" disabled="{!item.disableReqShipDate}"/> 
+                                                </th>
+                                            </tr>
+                                        </aura:iteration> 
+                                    </tbody>
+                                </table>              
+                                <aura:set attribute="else">
+                                    <ui:message title="Information" severity="info" closable="true">
+                                        No Base Units available for Requested Ship Date change for this Order!  
+                                    </ui:message>
+                                </aura:set>
+                            </aura:if>
+                            <div class="slds-m-top_medium">
+                                <lightning:button variant="brand" disabled="false" onclick="{!c.handleReconfigureUnit}" label="Reconfigure Unit"/>   
+                            </div>
+                            <!--aura:if isTrue="{!not(v.hasOpenAmendment)}">
+                                <div class="slds-m-top_medium">
+                                    <lightning:button variant="brand" disabled="false" onclick="{!c.handleReconfigureUnit}" label="Reconfigure Unit"/>   
+                                </div>
+                                <aura:set attribute="else">
+                                    <br/>
+                                    <ui:message title="Information" severity="info" closable="true">
+                                        There is currently a change in-progress. Finish that opportunity or mark it as Closed Lost before starting a new change.
+                                    </ui:message>
+                                    <lightning:button variant="brand" disabled="true" onclick="{!c.handleReconfigureUnit}" label="Reconfigure Unit"/> 
+                                </aura:set>
+                            </aura:if-->
+                            <!--aura:if isTrue="{!and(not(v.hasOpenAmendment2),not(v.hasOpenAmendment))}">
+                                <div class="slds-m-top_medium">
+                                    <lightning:button variant="brand" disabled="false" onclick="{!c.handleReconfigureUnit}" label="Reconfigure Unit"/>
+                                </div>
+                                <aura:set attribute="else">
+                                    <aura:if isTrue="{!v.hasOpenAmendment2}">
+                                        <br/>
+                                        <ui:message title="Information" severity="info" closable="true">
+                                            There is already an amendment order. Order# {!v.openAmendmentOrderNumber}
+                                        </ui:message>
+                                        <aura:set attribute="else">
+                                            <br/>
+                                            <ui:message title="Information" severity="info" closable="true">
+                                                There is currently a change in-progress. Finish that opportunity or mark it as Closed Lost before starting a new change.
+                                            </ui:message>
+                                        </aura:set>
+                                    </aura:if>
+                                    <lightning:button variant="brand" disabled="true" onclick="{!c.handleReconfigureUnit}" label="Reconfigure Unit"/> 
+                                </aura:set>
+                            </aura:if-->
+                        </aura:if>
+                    </lightning:recordEditForm>
+                </div>
+                <!--</aura:if>-->
+            </div>
+        </div>
+    </lightning:card>
+    
+</aura:component>

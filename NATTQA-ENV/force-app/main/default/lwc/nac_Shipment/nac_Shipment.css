@@ -1,0 +1,39 @@
+.slds-modal__container {
+    max-width: 80rem !important;
+    width: 99% !important;
+}
+
+.slds-modal__content{
+    height: 70% !important;
+}
+
+.description_class
+{
+    width: 103%;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.shipment_icon{
+    margin-left: 5%;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;    
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius:5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

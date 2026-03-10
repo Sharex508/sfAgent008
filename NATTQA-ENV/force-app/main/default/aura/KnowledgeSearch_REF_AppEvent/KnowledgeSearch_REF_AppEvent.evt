@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="Events to pass searched articels" >
+    <aura:attribute name="acticleList" type="Knowledge__kav[]" />
+</aura:event>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NAOCAP_Service_Stores</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>CONTAINER_Service_Location_Type__c</columns>
+    <columns>CONTAINER_Location_Country__c</columns>
+    <columns>CONTAINER_Location_City__c</columns>
+    <columns>CONTAINER_Location_State__c</columns>
+    <columns>CONTAINER_Location_Street__c</columns>
+    <columns>CONTAINER_Location_Street2__c</columns>
+    <columns>Location_Zip_Postal_Code__c</columns>
+    <columns>ACCOUNT.PHONE2</columns>
+    <columns>WOD_2_Email__c</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>Account_Creation_Request_Number__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CONTAINER_Authorized_Service_Provider,Account.CONTAINER_Repair_Co_Terminal</value>
+    </filters>
+    <filters>
+        <field>CONTAINER_Service_Location_Type__c</field>
+        <operation>equals</operation>
+        <value>Premium Service Center,Advanced Service Center,Service Center</value>
+    </filters>
+    <label>NAOCAP Service Stores</label>
+    <language>en_US</language>
+    <sharedTo>
+        <role>NAOCAP</role>
+    </sharedTo>
+</ListView>

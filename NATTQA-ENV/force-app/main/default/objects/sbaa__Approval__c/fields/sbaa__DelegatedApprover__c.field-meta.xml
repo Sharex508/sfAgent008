@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>sbaa__DelegatedApprover__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <deprecated>false</deprecated>
+    <description>If Delegated Approvals is enabled, lookup to the delegated Approver</description>
+    <inlineHelpText>If Delegated Approvals is enabled, lookup to the delegated Approver</inlineHelpText>
+    <label>Delegated Approver</label>
+    <referenceTo>sbaa__Approver__c</referenceTo>
+    <relationshipLabel>Delegated Approvals</relationshipLabel>
+    <relationshipName>DelegatedApprovals</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

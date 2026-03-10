@@ -1,0 +1,10 @@
+Hello,</br>
+<b>{!CONTAINER_Audit__c.Name}</b> has been <b>{!CONTAINER_Audit__c.CONTAINER_Audit_Result__c}</b>.</br></br>
+
+<b>Audit details</b>-</br>
+Account Name : {!CONTAINER_Audit__c.CONTAINER_ASP_Nmae_Audited__c}</br>
+Audit Number: {!CONTAINER_Audit__c.Name}</br>
+Audit Record Created by: {!CONTAINER_Audit__c.CreatedBy}</br>
+Actions Required: {!CONTAINER_Audit__c.CONTAINER_Actions_Required__c}</br></br>
+
+Click on the link to access the case: {!CONTAINER_Audit__c.Link}

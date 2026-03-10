@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MX_Mexico_Internal__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>if this record should be viewable by internal mexico users.</description>
+    <label>CTM Internal</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

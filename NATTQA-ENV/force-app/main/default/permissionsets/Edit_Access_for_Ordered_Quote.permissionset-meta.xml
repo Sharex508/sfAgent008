@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>NATT_Modify_Ordered_Quotes</name>
+    </customPermissions>
+    <description>Able to change the ordered quote</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Edit Access for Ordered Quote</label>
+</PermissionSet>

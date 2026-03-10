@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Shipping_Address__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>NATT: only used to store the selected address when working with an opportunity to be passed to the Quote</description>
+    <label>NATT Shipping Address</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>(1 AND 2) OR 3</booleanFilter>
+        <filterItems>
+            <field>$Source.AccountId</field>
+            <operation>equals</operation>
+            <valueField>NATT_Address__c.NATT_Account__c</valueField>
+        </filterItems>
+        <filterItems>
+            <field>NATT_Address__c.NATT_Type__c</field>
+            <operation>equals</operation>
+            <value>Units Ship To</value>
+        </filterItems>
+        <filterItems>
+            <field>$Source.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>CTBR Units</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>NATT_Address__c</referenceTo>
+    <relationshipLabel>Opportunities</relationshipLabel>
+    <relationshipName>Opportunities</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

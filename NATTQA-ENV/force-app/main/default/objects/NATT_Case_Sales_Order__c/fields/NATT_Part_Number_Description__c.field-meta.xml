@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Part_Number_Description__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(!ISBLANK(NATT_Salesforce_Product_Link__r.Id),
+    NATT_Salesforce_Product_Link__r.Name ,
+   IF(!ISBLANK(NATT_Part__c),
+       NATT_Part_Description__c,
+      IF(!ISBLANK(NATT_Order_Product__r.NATT_P_N__c),
+          NATT_Order_Product__r.Product2.Name ,
+         &quot;&quot;
+      )
+    )
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Part Number Description</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

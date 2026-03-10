@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>OBJECT_ID</columns>
+    <columns>NATT_ItemNumber__c</columns>
+    <columns>NATT_Product__c</columns>
+    <columns>NATT_ItemPriceKeyId__c</columns>
+    <columns>NATT_ItemPriceGroup__c</columns>
+    <columns>NATT_ItemPriceType__c</columns>
+    <columns>NATT_ListPrice__c</columns>
+    <columns>NATT_QuantityFrom__c</columns>
+    <columns>NATT_CustomerPriceGroup__c</columns>
+    <columns>NATT_CustomerNumber__c</columns>
+    <columns>NATT_EffectiveDate__c</columns>
+    <columns>NATT_ExpiryDate__c</columns>
+    <columns>RECORDTYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NATT_ItemNumber__c</field>
+        <operation>equals</operation>
+        <value>54-00738-23</value>
+    </filters>
+    <filters>
+        <field>NATT_ExpiryDate__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>All</label>
+</ListView>

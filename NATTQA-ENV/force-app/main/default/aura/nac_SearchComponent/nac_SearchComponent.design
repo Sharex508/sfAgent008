@@ -1,0 +1,3 @@
+<design:component label="NAC Search">
+    <design:attribute name="placeholder" label="Place Holder Text" />
+</design:component>

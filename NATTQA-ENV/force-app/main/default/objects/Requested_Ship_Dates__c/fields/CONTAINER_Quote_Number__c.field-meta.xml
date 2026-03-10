@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Quote_Number__c</fullName>
+    <label>Quote Number</label>
+    <referenceTo>SBQQ__Quote__c</referenceTo>
+    <relationshipLabel>Requested Ship Dates</relationshipLabel>
+    <relationshipName>Requested_Ship_Dates</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

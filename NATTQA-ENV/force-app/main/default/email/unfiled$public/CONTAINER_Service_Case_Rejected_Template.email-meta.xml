@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Container Service Email Template for Case when its Rejected.</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CONTAINER Service Case Rejected Template</name>
+    <style>none</style>
+    <subject>Your case has been Rejected</subject>
+    <textOnly>The following case has been Rejected Company: {!Case.Account} Case: {!Case.CaseNumber}: {!Case.Subject} Owner: {!Case.OwnerFullName} Click on the link to access the case: {!Case.Link}</textOnly>
+    <type>custom</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

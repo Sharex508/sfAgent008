@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FieldSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_BluEdge_Fields</fullName>
+    <description>Created for the Quote Calculator Plugin to default the values inserted by the Flow.</description>
+    <label>BluEdge Fields</label>
+</FieldSet>

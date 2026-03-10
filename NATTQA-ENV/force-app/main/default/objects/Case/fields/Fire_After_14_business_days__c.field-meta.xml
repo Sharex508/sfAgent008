@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Fire_After_14_business_days__c</fullName>
+    <description>This field is used for NPS Case Escalation after 14 business days</description>
+    <formula>CASE(
+  WEEKDAY( DATEVALUE(CreatedDate) ),
+  1, DATEVALUE(CreatedDate) + 18,  /* Sun */
+  2, DATEVALUE(CreatedDate) + 18,  /* Mon */
+  3, DATEVALUE(CreatedDate) + 20,  /* Tue */
+  4, DATEVALUE(CreatedDate) + 20,  /* Wed */
+  5, DATEVALUE(CreatedDate) + 20,  /* Thu */
+  6, DATEVALUE(CreatedDate) + 20,  /* Fri */
+  7, DATEVALUE(CreatedDate) + 19,  /* Sat */
+  DATEVALUE(CreatedDate) + 20
+)</formula>
+    <inlineHelpText>This field is used for NPS Case Escalation after 14 business days</inlineHelpText>
+    <label>Fire After 14 business days</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

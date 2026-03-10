@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>CSR Queue</name>
+    <queueMembers>
+        <users>
+            <user>april.jaillett@carrier.com.corp</user>
+            <user>david.dunn@carrier.com.corp</user>
+            <user>donna.dowell@carrier.com.corp</user>
+            <user>dorothy.thornton@carrier.com.corp</user>
+            <user>kinna.vichathep@carrier.com.corp</user>
+            <user>marixela.lopez@carrier.com.corp</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,19 @@
+APPROVAL NOTIFICATION
+Please do not reply to this message. If you need assistance or have questions, please contact your local representative<p>
+Dear Approver,<p>
+<p>
+This mail is sent to you to notify Order {!Order.OrderNumber} needs your approval : <p>
+<p>
+- End Customer Company : {!Order.NATT_End_Customer__c}<br>
+- Account name : {!Order.NATT_Account_Name__c}<br>
+- Opportunity name : {!Order.Opportunity}<br>
+- Quote Number : {!Order.Quote}<br>
+- Amount : {!Order.TotalAmount}<br>
+- Purchase Order Number: {!Order.NATT_Purchase_Order__c}<br>
+<p>
+<p>
+Cancellation Reason: {!Order.Cancellation_Reason__c} <p>
+<p>
+Direct link to Order: {!Order.Order_Link__c}<p>
+
+Thank you!

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deca3g7V000001N1lwQAC</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Generate Commissioning Order</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>{!URLFOR(IF($Site.prefix == &apos;/s&apos;,&apos;/apex/dfsle__sending&apos;, $Site.Prefix +&apos;/apex/dfsle__sending&apos;), null, [sId = CONTAINER_Commissionig__c.Id, sendingExperience = &apos;null&apos;, isEmbedded = false, templateId = &apos;a3g7V000001N1lwQAC&apos;, recordId = CONTAINER_Commissionig__c.Id, title = &apos;Generate Commissioning Order&apos;])}</url>
+</WebLink>

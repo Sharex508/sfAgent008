@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NavigationMenu xmlns="http://soap.sforce.com/2006/04/metadata">
+    <container>CTM Storefront</container>
+    <containerType>Network</containerType>
+    <label>Default Navigation</label>
+    <navigationMenuItem>
+        <label>Precio, disponibilidad y ordernar</label>
+        <position>1</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/price-availability-and-ordering</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Archivos de Precios</label>
+        <position>2</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/price-files</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <defaultListViewId>My_Orders</defaultListViewId>
+        <label>Rastreo de órdenes</label>
+        <position>3</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>Order</target>
+        <type>SalesforceObject</type>
+    </navigationMenuItem>
+    <navigationMenuItem>
+        <label>Reporte de Backorder</label>
+        <position>4</position>
+        <publiclyAvailable>false</publiclyAvailable>
+        <target>/backorder-report</target>
+        <type>InternalLink</type>
+    </navigationMenuItem>
+</NavigationMenu>

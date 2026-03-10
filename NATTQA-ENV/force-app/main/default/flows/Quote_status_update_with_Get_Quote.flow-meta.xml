@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Approval_Status</name>
+        <label>Approval Status</label>
+        <locationX>710</locationX>
+        <locationY>335</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Check_PM_Approval_status</name>
+            <conditionLogic>(1 OR 2 ) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NT PM Approval for Special Requirements</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>GENSET_PM Approval for Special Requirements</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Requested</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_PM_approval_Status</targetReference>
+            </connector>
+            <label>Check PM Approval status</label>
+        </rules>
+        <rules>
+            <name>Check_RSM_Approval_Status</name>
+            <conditionLogic>(1 OR 2 ) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>GENSET RSM Acceptance for Special Requirements</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NT RSM Acceptance for Special Requirements</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Requested</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_RSM_approval_Status</targetReference>
+            </connector>
+            <label>Check RSM Approval Status</label>
+        </rules>
+        <rules>
+            <name>Check_CAM_Approval_Status</name>
+            <conditionLogic>(1 OR 2 ) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NT CAM Approval for Product/Shipment Schedules</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>GENSET CAM Approval for Product/Shipment Schedules</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Requested</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Pending_CAM_approval_Status</targetReference>
+            </connector>
+            <label>Check CAM Approval Status</label>
+        </rules>
+        <rules>
+            <name>Check_RSM_Production_and_shipment_approval_status</name>
+            <conditionLogic>(1 OR 2 ) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>GENSET RSM Acceptance for Product/Shipment Schedules</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NT RSM Acceptance for Product/Shipment Schedules</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Requested</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Pending_RSM_Production_and_shipment_approval_Status</targetReference>
+            </connector>
+            <label>Check RSM Production and shipment approval status</label>
+        </rules>
+        <rules>
+            <name>Check_VP_Approval_Status</name>
+            <conditionLogic>(1 OR 2 ) AND 3</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>NT VP Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Rule__r.Name</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>GENSET VP Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.sbaa__Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Requested</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_Pending_VP_approval_Status</targetReference>
+            </connector>
+            <label>Check VP Approval Status</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Quote status update with Get Quote {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>CONTAINER Quote status update with Get Quote</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Pending_CAM_approval_Status</name>
+        <label>Update Pending CAM approval Status</label>
+        <locationX>578</locationX>
+        <locationY>455</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Quote__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_QuotePath__c</field>
+            <value>
+                <stringValue>Pending CAM Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CONTAINER_Status__c</field>
+            <value>
+                <stringValue>Pending CAM Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <object>SBQQ__Quote__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Pending_RSM_Production_and_shipment_approval_Status</name>
+        <label>Update Pending RSM Production and shipment approval Status</label>
+        <locationX>842</locationX>
+        <locationY>455</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Quote__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_QuotePath__c</field>
+            <value>
+                <stringValue>Pending CAM Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CONTAINER_Status__c</field>
+            <value>
+                <stringValue>Pending RSM Acceptance for Prod &amp; Ship Schedule</stringValue>
+            </value>
+        </inputAssignments>
+        <object>SBQQ__Quote__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Pending_VP_approval_Status</name>
+        <label>Update Pending VP approval Status</label>
+        <locationX>1106</locationX>
+        <locationY>455</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Quote__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_QuotePath__c</field>
+            <value>
+                <stringValue>Pending VP Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CONTAINER_Status__c</field>
+            <value>
+                <stringValue>Pending VP Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <object>SBQQ__Quote__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_PM_approval_Status</name>
+        <label>Update PM approval Status</label>
+        <locationX>50</locationX>
+        <locationY>455</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Quote__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_QuotePath__c</field>
+            <value>
+                <stringValue>Pending PM Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CONTAINER_Status__c</field>
+            <value>
+                <stringValue>Pending PM Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <object>SBQQ__Quote__c</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_RSM_approval_Status</name>
+        <label>Update RSM approval Status</label>
+        <locationX>314</locationX>
+        <locationY>455</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Quote__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>CONTAINER_QuotePath__c</field>
+            <value>
+                <stringValue>Pending PM Approval</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CONTAINER_Status__c</field>
+            <value>
+                <stringValue>Pending RSM Acceptance for Special Req</stringValue>
+            </value>
+        </inputAssignments>
+        <object>SBQQ__Quote__c</object>
+    </recordUpdates>
+    <start>
+        <locationX>584</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Approval_Status</targetReference>
+        </connector>
+        <object>sbaa__Approval__c</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <name>quote</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>SBQQ__Quote__c</objectType>
+    </variables>
+</Flow>

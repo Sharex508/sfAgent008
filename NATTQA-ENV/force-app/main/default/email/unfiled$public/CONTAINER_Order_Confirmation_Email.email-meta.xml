@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <available>true</available>
+    <description>Order Confirmation</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CONTAINER Order Confirmation Email</name>
+    <packageVersions>
+        <majorNumber>238</majorNumber>
+        <minorNumber>2</minorNumber>
+        <namespace>SBQQ</namespace>
+    </packageVersions>
+    <style>none</style>
+    <subject>Order Confirmation</subject>
+    <type>visualforce</type>
+    <uiType>Aloha</uiType>
+</EmailTemplate>

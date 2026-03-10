@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CONTAINER_Services_Offered__c</fullName>
+    <description>Container Service field</description>
+    <label>Services Offered</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Reefer Repair</fullName>
+                <default>false</default>
+                <label>Reefer Repair</label>
+            </value>
+            <value>
+                <fullName>Box Repair</fullName>
+                <default>false</default>
+                <label>Box Repair</label>
+            </value>
+            <value>
+                <fullName>Depot Service</fullName>
+                <default>false</default>
+                <label>Depot Service</label>
+            </value>
+            <value>
+                <fullName>Rail Connection</fullName>
+                <default>false</default>
+                <label>Rail Connection</label>
+            </value>
+            <value>
+                <fullName>Genset Repair</fullName>
+                <default>false</default>
+                <label>Genset Repair</label>
+            </value>
+            <value>
+                <fullName>Mobile Service</fullName>
+                <default>false</default>
+                <label>Mobile Service</label>
+            </value>
+            <value>
+                <fullName>Trucking/Drayage</fullName>
+                <default>false</default>
+                <label>Trucking/Drayage</label>
+            </value>
+            <value>
+                <fullName>Barge Connection</fullName>
+                <default>false</default>
+                <label>Barge Connection</label>
+            </value>
+            <value>
+                <fullName>BluEDGE Partner</fullName>
+                <default>false</default>
+                <label>BluEDGE Partner</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>3</visibleLines>
+</CustomField>

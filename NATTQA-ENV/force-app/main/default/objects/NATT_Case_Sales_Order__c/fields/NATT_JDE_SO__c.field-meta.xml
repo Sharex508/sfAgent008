@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_JDE_SO__c</fullName>
+    <description>Manual input field for the Sales Order.  It is primarily used as a Solution when a Salesforce Order record is not available.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Field used to capture a Sales Order Number when it is not available from a Salesforce Oder record.</inlineHelpText>
+    <label>Carrier SO #</label>
+    <length>40</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

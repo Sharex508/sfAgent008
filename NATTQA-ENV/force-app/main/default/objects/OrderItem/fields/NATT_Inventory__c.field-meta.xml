@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_Inventory__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Selected Serial Number</label>
+    <referenceTo>NATT_Inventory__c</referenceTo>
+    <relationshipLabel>Order Products</relationshipLabel>
+    <relationshipName>Order_Products</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

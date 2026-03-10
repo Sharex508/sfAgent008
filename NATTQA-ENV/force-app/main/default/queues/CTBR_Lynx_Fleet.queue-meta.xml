@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>roberto.hornburg@carrier.com</email>
+    <name>CTBR Lynx Fleet</name>
+    <queueMembers>
+        <users>
+            <user>alcir.lemosnazareth@carrier.com</user>
+            <user>roberto.hornburg@carrier.com.ctbr</user>
+            <user>wagner.r.wink@carrier.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

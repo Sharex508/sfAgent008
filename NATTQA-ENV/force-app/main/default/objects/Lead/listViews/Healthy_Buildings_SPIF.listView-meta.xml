@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Healthy_Buildings_SPIF</fullName>
+    <columns>FULL_NAME</columns>
+    <columns>LEAD.EMAIL</columns>
+    <columns>LEAD.COMPANY</columns>
+    <columns>LEAD.STATE</columns>
+    <columns>Sending_Business__c</columns>
+    <columns>Sender_Name__c</columns>
+    <columns>Receiving_Business__c</columns>
+    <columns>HBI_Lead_Status__c</columns>
+    <columns>LEAD.CREATED_DATE</columns>
+    <columns>Lead_Owner_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>LEAD.LEAD_SOURCE</field>
+        <operation>equals</operation>
+        <value>Healthy Buildings - SPIFF</value>
+    </filters>
+    <label>Healthy Buildings - SPIF</label>
+</ListView>

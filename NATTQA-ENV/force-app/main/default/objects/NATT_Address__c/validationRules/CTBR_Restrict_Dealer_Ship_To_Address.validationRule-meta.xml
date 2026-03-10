@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_Restrict_Dealer_Ship_To_Address</fullName>
+    <active>true</active>
+    <description>Prevents CTBR Users from modifying Dealer Ship To Address</description>
+    <errorConditionFormula>AND(
+NATT_Account__r.RecordType.DeveloperName = &quot;CTBR_Dealer&quot;,
+$Profile.Name = &quot;CTM Full Access Community&quot;,
+ISPICKVAL(NATT_Type__c, &quot;Units Ship To&quot;)
+)</errorConditionFormula>
+    <errorMessage>You may not create or modify a Units Ship To address for a Dealer</errorMessage>
+</ValidationRule>

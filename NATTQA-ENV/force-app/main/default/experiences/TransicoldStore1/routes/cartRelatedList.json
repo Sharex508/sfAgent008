@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "6f296f09-f908-4483-bda6-98078d95f9ac",
+  "appPageId" : "67fdd0d7-93bd-4b41-9583-aca992e410a8",
+  "configurationTags" : [ ],
+  "devName" : "Cart_Related_List",
+  "id" : "635acbe2-b970-4070-a1db-6246d84cff79",
+  "label" : "Cart Related List",
+  "routeType" : "relatedlist-0a6",
+  "type" : "route",
+  "urlPrefix" : "cart"
+}

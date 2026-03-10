@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Mobile Approval</description>
+    <height>250</height>
+    <icon>sbaa__Approve</icon>
+    <label>Approve</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <page>sbaa__Approve</page>
+    <type>VisualforcePage</type>
+    <width>-100</width>
+</QuickAction>

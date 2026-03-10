@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTM_Unit_Pricing</fullName>
+    <columns>NAME</columns>
+    <columns>CTM_Unit_Pricing__c</columns>
+    <columns>SBQQ__Product__c</columns>
+    <columns>NATT_Product_Code__c</columns>
+    <columns>NATT_Start_Date__c</columns>
+    <columns>NATT_End_Date__c</columns>
+    <columns>Origen__c</columns>
+    <columns>CTM_Unit_Price__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CTM_Unit_Pricing__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>CTM Unit Pricing</label>
+    <language>en_US</language>
+</ListView>

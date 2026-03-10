@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NATT_BluEdge_Price_Per_Hour__c</fullName>
+    <description>rolls up the total price per hour for bluedge, for when a user selects price per hour.</description>
+    <label>BluEdge Price Per Hour</label>
+    <summarizedField>SBQQ__QuoteLine__c.NATT_Price_Per_Hour__c</summarizedField>
+    <summaryForeignKey>SBQQ__QuoteLine__c.SBQQ__Quote__c</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

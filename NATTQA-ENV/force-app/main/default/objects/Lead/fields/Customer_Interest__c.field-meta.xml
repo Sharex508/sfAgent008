@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Interest__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>During your initial discussions what products/solutions is the customer interested in as it relates to &apos;Healthy building&apos; and/or what is the challenge or opportunity they are trying to solve?</inlineHelpText>
+    <label>Customer Interest</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

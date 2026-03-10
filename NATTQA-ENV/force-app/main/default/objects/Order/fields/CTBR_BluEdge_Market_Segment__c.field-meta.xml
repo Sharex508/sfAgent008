@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CTBR_BluEdge_Market_Segment__c</fullName>
+    <description>twin field</description>
+    <label>CTBR BluEdge Market Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>CTBR_BluEdge_Market_Segment</valueSetName>
+    </valueSet>
+</CustomField>

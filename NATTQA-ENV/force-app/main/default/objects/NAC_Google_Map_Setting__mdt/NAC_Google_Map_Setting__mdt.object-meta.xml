@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>NAC Google Map Setting</label>
+    <pluralLabel>NAC Google Map Settings</pluralLabel>
+    <visibility>Protected</visibility>
+</CustomObject>

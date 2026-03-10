@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Return_Items_Processing_View</fullName>
+    <columns>NATT_Case__c</columns>
+    <columns>NATT_Core_Return_Location_2__c</columns>
+    <columns>NATT_Account__c</columns>
+    <columns>NATT_JDE_Parts_Bill_To_Code__c</columns>
+    <columns>NATT_Internal_Invoice_Number__c</columns>
+    <columns>NAME</columns>
+    <columns>NATT_Part_Number__c</columns>
+    <columns>NATT_Quantity__c</columns>
+    <columns>NATT_Serial__c</columns>
+    <columns>NATT_Warranty__c</columns>
+    <columns>NATT_MPR_Tag__c</columns>
+    <columns>NATT_Received_Core__c</columns>
+    <columns>NATT_Accepted_Quantity__c</columns>
+    <columns>NATT_Rejected_Quantity__c</columns>
+    <columns>NATT_Remarks_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Return Items - Processing View</label>
+    <sharedTo>
+        <allInternalUsers></allInternalUsers>
+    </sharedTo>
+</ListView>

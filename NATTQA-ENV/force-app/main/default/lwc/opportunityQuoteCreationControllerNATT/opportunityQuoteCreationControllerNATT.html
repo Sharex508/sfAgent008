@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title={titleName} icon-name="standard:record">
+        <div class="slds-p-around_medium">
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+
+            <template if:false={isLoading}>
+                <template if:true={isOpportunity}>
+                    <!--template if:false={isNattFullAccess}-->
+                        <template if:false={isLoadingChild}>
+                            <lightning-radio-group label="Select Record Type" value={selectedRecordTypeId}
+                                options={recordTypes} onchange={handleRecordTypeChange}>
+                            </lightning-radio-group>
+                            <br/>
+                            <lightning-button class="slds-p-around_medium" variant="submit" label="Next"
+                                onclick={handleNext}></lightning-button>
+                        </template>
+                        <template if:true={isLoadingChild}>
+                            <c-create-natt-opp-lwc record-id={recordId} record-type-id={selectedRecordTypeId} record-type-name={selectedRecordTypeName} object-api-name ={objName}></c-create-natt-opp-lwc>
+                        </template>
+                </template>
+                <template if:true={isQuote}>
+                        <c-create-natt-quote-lwc record-id={recordId} record-type-id={selectedRecordTypeId} record-type-name={selectedRecordTypeName} object-api-name ={objName}></c-create-natt-quote-lwc>
+                </template>
+
+                <template if:true={isNotQuoteOpp}>
+                    <p>No Opportunity or Quote found for the given Record Id.</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

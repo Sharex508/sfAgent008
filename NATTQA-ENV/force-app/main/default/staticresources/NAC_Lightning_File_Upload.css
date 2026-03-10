@@ -1,0 +1,28 @@
+.file-selector-image .slds-file-selector{
+    display: flex;
+}
+
+.file-selector-image .slds-file-selector__dropzone{
+    height: 200px;
+    width: -webkit-fill-available;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.file-selector-image .slds-file-selector__dropzone .slds-file-selector__text{
+    text-indent: -9999px;
+    line-height: 0;
+}
+
+.file-selector-image .slds-file-selector__dropzone .slds-file-selector__text::after{
+    content: "";
+    text-indent: 0;
+    position: absolute;
+}
+
+.file-selector-image .slds-form-element__label{
+    display: none;
+}

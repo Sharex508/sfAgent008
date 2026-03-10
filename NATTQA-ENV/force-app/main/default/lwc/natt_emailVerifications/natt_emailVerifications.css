@@ -1,0 +1,18 @@
+.whoswho {
+    background: #064af4bb;    
+    text-align: center;
+}
+
+	.whoswho a, .whoswho p {
+        color: white !important;
+        font-size: 20px;
+        display: block;
+        width: 100%;
+        font-weight: bold;
+	}
+
+    .large-text {
+        color: white !important;
+        font-size: 15px;
+        font-weight: bold;
+    }

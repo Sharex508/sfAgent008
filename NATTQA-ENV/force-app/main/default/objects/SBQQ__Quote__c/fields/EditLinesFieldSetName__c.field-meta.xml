@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EditLinesFieldSetName__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(RecordType.DeveloperName = &quot;NATT_Units_Quote&quot; &amp;&amp; NATT_Total_EMCC_Amount__c &gt; 0, &quot;NATT_Unit_Line_Editor_W_BluEdge&quot;,
+IF(RecordType.DeveloperName = &quot;NATT_Units_Quote&quot; &amp;&amp; ISPICKVAL(SBQQ__Type__c, &quot;Quote&quot;) &amp;&amp; NATT_Has_Special_Request__c, &quot;NATT_Unit_Line_Editor_W_Special_Request&quot;,
+IF(RecordType.DeveloperName = &quot;NATT_Units_Quote&quot; &amp;&amp; ISPICKVAL(SBQQ__Type__c, &quot;Quote&quot;), &quot;NATT_Unit_Line_Editor&quot;,
+IF(RecordType.DeveloperName = &quot;NATT_Units_Quote_Amendment&quot;, &quot;NATT_Amend_Unit_Line_Editor&quot;,
+IF(RecordType.DeveloperName = &quot;NATT_BluEdge&quot;, &quot;NATT_BluEdge_QLE&quot;,
+IF(RecordType.DeveloperName = &quot;CTBR_BluEdge&quot;, &quot;CTBR_BluEdge_QLE&quot;,
+IF(RecordType.DeveloperName = &quot;NATT_eSolutions&quot;, &quot;NATT_eSolutions_QLE&quot;,
+IF(RecordType.DeveloperName = &quot;MX_Units_Quote&quot;, &quot;CTM_Line_Editor&quot;,
+IF(RecordType.DeveloperName = &quot;CTM_Units_Quote_Approved&quot;, &quot;CTM_Line_Editor&quot;,
+IF(RecordType.DeveloperName = &quot;NATT_Direct_Sales&quot;, &quot;NATT_Direct_Sales&quot;,
+IF(RecordType.DeveloperName = &quot;NATT_Direct_Sales_Quote_Amendment&quot;, &quot;NATT_Direct_Sales_Amend_Line_Editor&quot;,
+IF(OR(RecordType.DeveloperName = &quot;CONTAINER_GENSET_Quote&quot;, RecordType.DeveloperName = &quot;CONTAINER_NT_Quote&quot;), &quot;Container_Line_Editor&quot;,
+&quot;SBQQ__LineEditor&quot;))))))))))))</formula>
+    <label>EditLinesFieldSetName</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
