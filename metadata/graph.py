@@ -32,11 +32,13 @@ def build_graph(docs: List[MetadataDoc]) -> nx.DiGraph:
 
     # Helper sets
     apex_docs = (by_kind.get("ApexClass", []) or []) + (by_kind.get("ApexTrigger", []) or [])
+    apex_trigger_docs = by_kind.get("ApexTrigger", []) or []
     flow_docs = by_kind.get("Flow", []) or []
     field_docs = by_kind.get("Field", []) or []
     object_docs = by_kind.get("Object", []) or []
     profile_docs = by_kind.get("Profile", []) or []
     permset_docs = by_kind.get("PermSet", []) or []
+    approval_docs = by_kind.get("ApprovalProcess", []) or []
 
     # 1) Field -> Apex references via simple string match
     #    Try both `Object.Field` and `Object__c.Field__c` variants
@@ -60,6 +62,36 @@ def build_graph(docs: List[MetadataDoc]) -> nx.DiGraph:
             text = adoc.text or ""
             if any(v and v in text for v in variants):
                 g.add_edge(fdoc.doc_id, adoc.doc_id, kind="references")
+
+    # 1b) Apex -> Apex references via identifier token overlap (best-effort)
+    apex_by_name: Dict[str, MetadataDoc] = {d.name: d for d in apex_docs if d.name}
+    apex_names = set(apex_by_name.keys())
+    ident_re = re.compile(r"\b[A-Za-z_][A-Za-z0-9_]*\b")
+    for src in apex_docs:
+        text = src.text or ""
+        if not text:
+            continue
+        tokens = set(ident_re.findall(text))
+        refs = (tokens & apex_names) - {src.name}
+        for ref_name in refs:
+            target = apex_by_name.get(ref_name)
+            if target is None:
+                continue
+            edge_kind = "calls" if src.kind == "ApexClass" else "uses"
+            g.add_edge(src.doc_id, target.doc_id, kind=edge_kind)
+
+    # 1c) Object -> Trigger edge from trigger declaration: `trigger X on Object (...)`
+    object_by_name = {d.name: d for d in object_docs}
+    trig_decl_re = re.compile(r"\btrigger\s+\w+\s+on\s+([A-Za-z0-9_]+)\s*\(", re.IGNORECASE)
+    for td in apex_trigger_docs:
+        text = td.text or ""
+        m = trig_decl_re.search(text)
+        if not m:
+            continue
+        object_name = m.group(1)
+        od = object_by_name.get(object_name) or object_by_name.get(object_name.replace("__c", ""))
+        if od is not None:
+            g.add_edge(od.doc_id, td.doc_id, kind="acts_on")
 
     # 2) Object -> Flow if flow mentions the object in its extracted objects set or text
     for odoc in object_docs:
@@ -119,6 +151,74 @@ def build_graph(docs: List[MetadataDoc]) -> nx.DiGraph:
 
     for sd in profile_docs + permset_docs:
         _edges_from_security(sd)
+
+    # 4) ApprovalProcess dependencies from raw_snippet metadata
+    def _ref_node(kind: str, name: str) -> str:
+        node_id = f"{kind}:{name}"
+        if not g.has_node(node_id):
+            g.add_node(node_id, kind=kind, name=name, path="")
+        return node_id
+
+    object_by_name = {d.name: d for d in object_docs}
+    field_by_name = {d.name: d for d in field_docs}
+
+    for ap in approval_docs:
+        try:
+            data = json.loads(ap.raw_snippet or "{}")
+        except Exception:
+            data = {}
+
+        object_api = str(data.get("object_api_name") or "").strip()
+        if object_api:
+            od = object_by_name.get(object_api) or object_by_name.get(object_api.replace("__c", ""))
+            if od is not None:
+                g.add_edge(od.doc_id, ap.doc_id, kind="acts_on")
+
+        for fld in data.get("criteria_fields", []) or []:
+            if not isinstance(fld, str) or not fld.strip():
+                continue
+            fd = field_by_name.get(fld.strip())
+            if fd is not None:
+                g.add_edge(fd.doc_id, ap.doc_id, kind="entry_criteria")
+            else:
+                ref = _ref_node("CriteriaField", fld.strip())
+                g.add_edge(ref, ap.doc_id, kind="entry_criteria")
+
+        for apv in data.get("approver_refs", []) or []:
+            if not isinstance(apv, dict):
+                continue
+            name = str(apv.get("name") or "").strip()
+            typ = str(apv.get("type") or "").strip()
+            if not name:
+                continue
+            ref_kind = {
+                "queue": "Queue",
+                "publicGroup": "PublicGroup",
+                "relatedUserField": "RelatedUserField",
+                "user": "User",
+                "role": "Role",
+            }.get(typ, f"ApproverType:{typ or 'unknown'}")
+            ref = _ref_node(ref_kind, name)
+            g.add_edge(ap.doc_id, ref, kind="assigned_approver")
+
+        for template in data.get("email_templates", []) or []:
+            if not isinstance(template, str) or not template.strip():
+                continue
+            ref = _ref_node("EmailTemplate", template.strip())
+            g.add_edge(ap.doc_id, ref, kind="uses_email_template")
+
+        for action in data.get("actions", []) or []:
+            if not isinstance(action, dict):
+                continue
+            action_name = str(action.get("name") or "").strip()
+            action_type = str(action.get("type") or "").strip()
+            scope = str(action.get("scope") or "").strip()
+            if not action_name:
+                continue
+            node_name = f"{action_type}:{action_name}" if action_type else action_name
+            ref = _ref_node("ApprovalAction", node_name)
+            edge_kind = f"has_action:{scope}" if scope else "has_action"
+            g.add_edge(ap.doc_id, ref, kind=edge_kind)
 
     return g
 

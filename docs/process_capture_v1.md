@@ -5,6 +5,7 @@
 - `POST /sf-repo-ai/logs/trace/enable`
 - `POST /sf-repo-ai/logs/trace/disable`
 - `POST /sf-repo-ai/process-capture/start`
+- `POST /sf-repo-ai/process-capture/ui-event`
 - `POST /sf-repo-ai/process-capture/stop`
 - `POST /sf-repo-ai/process/save`
 - `POST /sf-repo-ai/process/video-ingest` (stub)
@@ -45,6 +46,22 @@ curl -X POST http://127.0.0.1:8001/sf-repo-ai/process-capture/stop \
 
 Artifacts are written under `data/artifacts/<capture-id>/`.
 If `llm=true`, `narration.md` is also generated from `trace.json`.
+
+## Example: Record UI Event
+
+```bash
+curl -X POST http://127.0.0.1:8001/sf-repo-ai/process-capture/ui-event \
+  -H "Content-Type: application/json" \
+  -d '{
+    "capture_id": "<capture-id>",
+    "event_type": "BUTTON_CLICK",
+    "component_name": "c:createNattOppLwc",
+    "action_name": "Next",
+    "element_label": "Next",
+    "page_url": "https://carrier-global--nattqa.sandbox.my.salesforce.com/lightning/...",
+    "record_id": "001..."
+  }'
+```
 
 ## Example: Upload + Analyze Video File (from user machine)
 

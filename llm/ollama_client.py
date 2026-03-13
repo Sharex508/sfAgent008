@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import base64
+import os
+import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -10,9 +12,33 @@ import requests
 class OllamaClient:
     """Minimal Ollama chat client."""
 
-    def __init__(self, host: str = "http://localhost:11434", model: str = "llama3.1:70b"):
+    def __init__(self, host: str = "http://localhost:11434", model: str = "gpt-oss:20b"):
         self.host = host.rstrip("/")
         self.model = model
+        # gpt-oss:20b can exceed 120s on multi-step prompts.
+        self.chat_timeout_sec = int(os.getenv("OLLAMA_CHAT_TIMEOUT_SEC", "600"))
+        self.vision_timeout_sec = int(os.getenv("OLLAMA_VISION_TIMEOUT_SEC", "900"))
+        self.keep_alive = os.getenv("OLLAMA_KEEP_ALIVE", "30m")
+        self.chat_retries = int(os.getenv("OLLAMA_CHAT_RETRIES", "2"))
+        self.retry_backoff_sec = float(os.getenv("OLLAMA_RETRY_BACKOFF_SEC", "2"))
+
+    def _post_json(self, url: str, payload: Dict[str, Any], timeout: int) -> Dict[str, Any]:
+        retries = max(self.chat_retries, 0)
+        last_exc: Optional[Exception] = None
+        for attempt in range(retries + 1):
+            try:
+                resp = requests.post(url, json=payload, timeout=timeout)
+                resp.raise_for_status()
+                data = resp.json()
+                return data if isinstance(data, dict) else {"raw": data}
+            except (requests.exceptions.ReadTimeout, requests.exceptions.ConnectionError) as exc:
+                last_exc = exc
+                if attempt >= retries:
+                    raise
+                time.sleep(self.retry_backoff_sec * (attempt + 1))
+        if last_exc:
+            raise last_exc
+        return {}
 
     def chat(self, prompt: str) -> str:
         """Send a single-turn chat prompt and return the model response text."""
@@ -21,10 +47,9 @@ class OllamaClient:
             "model": self.model,
             "messages": [{"role": "user", "content": prompt}],
             "stream": False,
+            "keep_alive": self.keep_alive,
         }
-        resp = requests.post(url, json=payload, timeout=120)
-        resp.raise_for_status()
-        data = resp.json()
+        data = self._post_json(url, payload, self.chat_timeout_sec)
         # Ollama returns {"message": {"content": ...}} or stream events; here we handle the non-streaming case.
         if isinstance(data, dict):
             msg = data.get("message") or {}
@@ -64,10 +89,9 @@ class OllamaClient:
                 }
             ],
             "stream": False,
+            "keep_alive": self.keep_alive,
         }
-        resp = requests.post(url, json=payload, timeout=180)
-        resp.raise_for_status()
-        data = resp.json()
+        data = self._post_json(url, payload, self.vision_timeout_sec)
         if isinstance(data, dict):
             msg = data.get("message") or {}
             if isinstance(msg, dict):

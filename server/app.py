@@ -2,22 +2,26 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import shutil
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException, Header, Security, Depends, UploadFile, File, Form
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import APIKeyHeader
 from pydantic import BaseModel, Field
 
 from agent.runtime import (
     ActionPlan,
+    ToolCall,
     build_final_with_llm,
     build_plan_with_llm,
     execute_plan,
 )
 from llm.ollama_client import OllamaClient
-from process.capture import ingest_video, save_process, start_capture, stop_capture
+from process.capture import ingest_video, record_ui_event, save_process, start_capture, stop_capture
 from process.storage import CaptureStore
 from retrieval.vector_store import search_metadata
 from sfdc.client import SalesforceClient
@@ -39,6 +43,14 @@ class AskRequest(BaseModel):
     use_sfdc: bool = Field(False, description="Enable Salesforce tools (env creds required)")
     hybrid: bool = Field(True, description="Use hybrid retrieval for metadata search")
     k: int = Field(8, description="Number of retrieval results")
+    single_llm_pass: bool = Field(
+        True,
+        description="If true, skip LLM planning and run deterministic metadata retrieval + one final LLM synthesis.",
+    )
+    use_final_llm: bool = Field(
+        False,
+        description="If true, run a final LLM synthesis step. Keep false for fastest/stable responses.",
+    )
 
 
 class AskResponse(BaseModel):
@@ -97,6 +109,14 @@ class SfRepoAskRequest(BaseModel):
     use_sfdc: bool = Field(False, description="Enable Salesforce tools (env creds required)")
     hybrid: bool = Field(True, description="Use hybrid retrieval for metadata search")
     k: int = Field(8, description="Number of retrieval results")
+    single_llm_pass: bool = Field(
+        True,
+        description="If true, skip LLM planning and run deterministic metadata retrieval + one final LLM synthesis.",
+    )
+    use_final_llm: bool = Field(
+        False,
+        description="If true, run a final LLM synthesis step. Keep false for fastest/stable responses.",
+    )
     evidence: Optional[Dict[str, Any]] = Field(
         None,
         description="Optional pre-built evidence JSON from Salesforce Prompt Runner.",
@@ -168,11 +188,17 @@ class SfAuthRequest(BaseModel):
     username: Optional[str] = Field(None, description="Salesforce username")
     password: Optional[str] = Field(None, description="Salesforce password (without token)")
     token: Optional[str] = Field(None, description="Salesforce security token")
+    client_id: Optional[str] = Field(None, description="Connected app client id (consumer key)")
+    client_secret: Optional[str] = Field(None, description="Connected app client secret")
+    auth_mode: Optional[str] = Field(
+        None,
+        description="Auth mode: soap | oauth_password | oauth_client_credentials (auto by default).",
+    )
     api_version: Optional[str] = Field(None, description="Salesforce API version, e.g. 60.0")
 
 
 class TraceEnableRequest(SfAuthRequest):
-    user: str = Field(..., description="Salesforce username or user Id (005...) to trace")
+    user: Optional[str] = Field(None, description="Optional Salesforce username or user Id (005...) to trace")
     minutes: int = Field(30, description="Trace expiration in minutes")
     level: str = Field("FINEST", description="Debug level label hint")
 
@@ -185,7 +211,7 @@ class TraceEnableResponse(BaseModel):
 
 
 class TraceDisableRequest(SfAuthRequest):
-    user: str = Field(..., description="Salesforce username or user Id (005...) to trace")
+    user: Optional[str] = Field(None, description="Optional Salesforce username or user Id (005...) to trace")
 
 
 class TraceDisableResponse(BaseModel):
@@ -194,7 +220,7 @@ class TraceDisableResponse(BaseModel):
 
 
 class ProcessCaptureStartRequest(SfAuthRequest):
-    user: str = Field(..., description="Salesforce username or user Id (005...) to trace")
+    user: Optional[str] = Field(None, description="Optional Salesforce username or user Id (005...) to trace")
     minutes: int = Field(10, description="Trace capture duration in minutes")
     tail_seconds: int = Field(120, description="Extra seconds after stop for async logs")
     filter_text: Optional[str] = Field(None, description="Optional keyword filter for stop-time analysis")
@@ -207,6 +233,42 @@ class ProcessCaptureStartResponse(BaseModel):
     trace_flag_id: str
     debug_level_id: str
     execute_anonymous: Dict[str, Any]
+
+
+class ProcessCaptureStepMarkerRequest(SfAuthRequest):
+    capture_id: str = Field(..., description="Capture id returned by process-capture/start")
+    step_name: str = Field(..., description="Human-readable step name, e.g. Create Account")
+
+
+class ProcessCaptureStepMarkerResponse(BaseModel):
+    capture_id: str
+    step_name: str
+    execute_anonymous: Dict[str, Any]
+
+
+class ProcessCaptureUiEventRequest(BaseModel):
+    capture_id: str = Field(..., description="Capture id returned by process-capture/start")
+    event_type: str = Field(..., description="UI event type, e.g. LWC_CONNECTED, BUTTON_CLICK, NAVIGATE")
+    component_name: Optional[str] = Field(None, description="Component or bundle name, e.g. c:createNattOppLwc")
+    action_name: Optional[str] = Field(None, description="Action label, e.g. Submit or Next")
+    element_label: Optional[str] = Field(None, description="Clicked element label or identifier")
+    page_url: Optional[str] = Field(None, description="Browser page URL at the time of the event")
+    record_id: Optional[str] = Field(None, description="Optional current Salesforce record id")
+    details: Optional[Dict[str, Any]] = Field(None, description="Optional JSON payload with extra UI context")
+    event_ts: Optional[str] = Field(None, description="Optional ISO timestamp from the browser/client")
+
+
+class ProcessCaptureUiEventResponse(BaseModel):
+    event_id: str
+    capture_id: str
+    event_ts: str
+    event_type: str
+    component_name: Optional[str]
+    action_name: Optional[str]
+    element_label: Optional[str]
+    page_url: Optional[str]
+    record_id: Optional[str]
+    details: Dict[str, Any]
 
 
 class ProcessCaptureStopRequest(SfAuthRequest):
@@ -246,6 +308,132 @@ class ProcessSaveResponse(BaseModel):
     graph_hash: str
 
 
+class ProcessListItem(BaseModel):
+    process_id: str
+    name: str
+    description: Optional[str]
+    entry_points: List[str]
+    latest_capture_id: Optional[str]
+    graph_hash: Optional[str]
+    version: int
+    last_verified_at: str
+
+
+class ProcessListResponse(BaseModel):
+    processes: List[ProcessListItem]
+
+
+class ProcessRunListItem(BaseModel):
+    run_id: str
+    process_name: str
+    capture_id: str
+    trace_json_path: str
+    created_ts: str
+    ui_invoker: Optional[str] = None
+    ui_invoker_source: Optional[str] = None
+    ui_invoker_confidence: Optional[str] = None
+    step_count: int
+    component_count: int
+
+
+class ProcessRunListResponse(BaseModel):
+    process_name: Optional[str]
+    runs: List[ProcessRunListItem]
+
+
+class ProcessRunSequenceStep(BaseModel):
+    seq_no: int
+    log_id: Optional[str]
+    details: Dict[str, Any]
+
+
+class ProcessRunSequenceComponent(BaseModel):
+    seq_no: int
+    component_type: str
+    component_name: str
+    log_id: Optional[str]
+    confidence: Optional[str]
+
+
+class ProcessRunSequenceResponse(BaseModel):
+    run_id: str
+    process_name: str
+    capture_id: str
+    trace_json_path: str
+    created_ts: str
+    ui_invoker: Optional[str] = None
+    ui_invoker_source: Optional[str] = None
+    ui_invoker_confidence: Optional[str] = None
+    steps: List[ProcessRunSequenceStep]
+    components: List[ProcessRunSequenceComponent]
+
+
+class CreatedRecordItem(BaseModel):
+    step_no: int
+    log_id: Optional[str]
+    object_api_name: Optional[str]
+    record_id: str
+    source_key: str
+    confidence: str
+
+
+class ProcessRunCreatedRecordsResponse(BaseModel):
+    run_id: str
+    capture_id: str
+    ui_invoker: Optional[str] = None
+    ui_invoker_source: Optional[str] = None
+    ui_invoker_confidence: Optional[str] = None
+    created_records: List[CreatedRecordItem]
+    count: int
+
+
+class ProcessRunReadableComponentItem(BaseModel):
+    seq_no: int
+    step_no: int
+    step_label: Optional[str]
+    start_time: Optional[str]
+    operation: Optional[str]
+    location: Optional[str]
+    component_type: str
+    component_name: str
+    log_id: Optional[str]
+    confidence: Optional[str]
+
+
+class ProcessRunReadableComponentsResponse(BaseModel):
+    run_id: str
+    capture_id: str
+    ui_invoker: Optional[str]
+    ui_invoker_source: Optional[str]
+    ui_invoker_confidence: Optional[str]
+    components: List[ProcessRunReadableComponentItem]
+    count: int
+
+
+class ProcessRunInvokerUpdateRequest(BaseModel):
+    ui_invoker: str = Field(..., description="Invoker component name, e.g. c:createNattOppLwc")
+    ui_invoker_source: str = Field("manual", description="Source label, e.g. manual|artifact_explicit|artifact_heuristic")
+    ui_invoker_confidence: str = Field("HIGH", description="Confidence label, e.g. HIGH|MED|LOW")
+    notes: Optional[str] = Field(None, description="Optional notes")
+
+
+class ProcessRunInvokerUpdateResponse(BaseModel):
+    run_id: str
+    ui_invoker: Optional[str]
+    ui_invoker_source: Optional[str]
+    ui_invoker_confidence: Optional[str]
+    notes: Optional[str]
+    updated_ts: str
+
+
+class ApexExecuteAnonymousRequest(SfAuthRequest):
+    anonymous_body: str = Field(..., description="Apex anonymous block to execute.")
+
+
+class ApexExecuteAnonymousResponse(BaseModel):
+    result: Dict[str, Any]
+
+
 class ProcessVideoIngestRequest(BaseModel):
     capture_id: str = Field(..., description="Capture id for which video is attached")
     video_path: str = Field(..., description="Local video path (phase-2 stub)")
@@ -282,36 +470,488 @@ class ProcessVideoUploadResponse(BaseModel):
 
 def get_ollama_client(model_override: Optional[str] = None) -> OllamaClient:
     host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-    model = model_override or os.getenv("OLLAMA_MODEL", "llama3.1:8b")
+    model = model_override or os.getenv("OLLAMA_MODEL", "gpt-oss:20b")
     return OllamaClient(host=host, model=model)
 
 
 def get_tooling_client(auth: SfAuthRequest) -> SalesforceToolingClient:
+    login_url = auth.login_url or os.getenv("SF_LOGIN_URL") or "https://login.salesforce.com"
+    api_version = auth.api_version or os.getenv("SF_API_VERSION") or "60.0"
+    auth_mode = (auth.auth_mode or "").strip().lower()
+
+    if not auth_mode:
+        if (auth.client_id or os.getenv("SF_CLIENT_ID")) and (auth.client_secret or os.getenv("SF_CLIENT_SECRET")):
+            if auth.username or os.getenv("SF_USERNAME"):
+                auth_mode = "oauth_password"
+            else:
+                auth_mode = "oauth_client_credentials"
+        else:
+            auth_mode = "soap"
+
+    if auth_mode == "oauth_password":
+        return SalesforceToolingClient.from_oauth_password(
+            login_url=login_url,
+            client_id=auth.client_id or os.getenv("SF_CLIENT_ID"),
+            client_secret=auth.client_secret or os.getenv("SF_CLIENT_SECRET"),
+            username=auth.username or os.getenv("SF_USERNAME"),
+            password=auth.password or os.getenv("SF_PASSWORD"),
+            token=auth.token if auth.token is not None else os.getenv("SF_SECURITY_TOKEN"),
+            api_version=api_version,
+        )
+    if auth_mode == "oauth_client_credentials":
+        return SalesforceToolingClient.from_oauth_client_credentials(
+            login_url=login_url,
+            client_id=auth.client_id or os.getenv("SF_CLIENT_ID"),
+            client_secret=auth.client_secret or os.getenv("SF_CLIENT_SECRET"),
+            api_version=api_version,
+        )
+
     return SalesforceToolingClient.from_soap_login(
-        login_url=auth.login_url or os.getenv("SF_LOGIN_URL") or "https://login.salesforce.com",
+        login_url=login_url,
         username=auth.username or os.getenv("SF_USERNAME"),
         password=auth.password or os.getenv("SF_PASSWORD"),
         token=auth.token if auth.token is not None else os.getenv("SF_SECURITY_TOKEN"),
-        api_version=auth.api_version or os.getenv("SF_API_VERSION") or "60.0",
+        api_version=api_version,
     )
 
 
-def run_agent(user_prompt: str, model_override: Optional[str], use_sfdc: bool, hybrid: bool, k: int) -> AskResponse:
-    # Build plan with LLM
+def _resolve_trace_user(client: SalesforceToolingClient, auth: SfAuthRequest, requested_user: Optional[str]) -> str:
+    if requested_user and requested_user.strip():
+        return requested_user.strip()
+    if auth.username and auth.username.strip():
+        return auth.username.strip()
+    env_user = os.getenv("SF_USERNAME")
+    if env_user and env_user.strip():
+        return env_user.strip()
+    me = client.get_current_user()
+    uid = str(me.get("id") or "").strip()
+    if uid:
+        return uid
+    raise RuntimeError("Unable to resolve trace user. Provide `user` once or use oauth_password with username.")
+
+
+def _infer_object_from_source_key(source_key: str) -> Optional[str]:
+    u = (source_key or "").upper()
+    if "ACCOUNT" in u:
+        return "Account"
+    if "OPPORTUNITY" in u:
+        return "Opportunity"
+    if "QUOTE" in u:
+        return "SBQQ__Quote__c"
+    if "CASE" in u:
+        return "Case"
+    if "CONTACT" in u:
+        return "Contact"
+    if "LEAD" in u:
+        return "Lead"
+    if "ORDER" in u:
+        return "Order"
+    return None
+
+
+def _extract_created_records_for_run(run_data: Dict[str, Any]) -> List[Dict[str, Any]]:
+    trace_path = Path(str(run_data.get("trace_json_path") or ""))
+    if not trace_path.exists():
+        return []
+
+    log_to_step: Dict[str, int] = {}
+    for s in run_data.get("steps") or []:
+        log_id = str(s.get("log_id") or "")
+        if log_id:
+            log_to_step[log_id] = int(s.get("seq_no") or 0)
+
+    payload = json.loads(trace_path.read_text(encoding="utf-8"))
+    logs = payload.get("logs") or []
+    ui_events = payload.get("ui_events") or []
+    out: List[Dict[str, Any]] = []
+    seen: set[tuple[int, str, str]] = set()
+
+    for lg in logs:
+        if not isinstance(lg, dict):
+            continue
+        log_id = str(lg.get("log_id") or "")
+        step_no = int(log_to_step.get(log_id, 0))
+
+        # High-confidence: explicit debug markers like VIDEO_REPRO_ACCOUNT_ID=001...
+        for item in lg.get("debug_ids") or []:
+            if not isinstance(item, dict):
+                continue
+            source_key = str(item.get("key") or "").strip()
+            record_id = str(item.get("record_id") or "").strip()
+            if not record_id:
+                continue
+            k = (step_no, log_id, record_id)
+            if k in seen:
+                continue
+            seen.add(k)
+            out.append(
+                {
+                    "step_no": step_no,
+                    "log_id": log_id or None,
+                    "object_api_name": _infer_object_from_source_key(source_key),
+                    "record_id": record_id,
+                    "source_key": source_key or "DEBUG_ID",
+                    "confidence": "HIGH",
+                }
+            )
+
+    for ev in ui_events:
+        if not isinstance(ev, dict):
+            continue
+        event_id = str(ev.get("event_id") or "").strip()
+        log_id = f"UI:{event_id}" if event_id else ""
+        step_no = int(log_to_step.get(log_id, 0))
+        details = ev.get("details") or {}
+        if not isinstance(details, dict):
+            details = {}
+
+        explicit_pairs: List[tuple[Optional[str], str, str]] = []
+        record_id = str(ev.get("record_id") or "").strip()
+        if record_id:
+            explicit_pairs.append((str(details.get("objectApiName") or "").strip() or None, record_id, "UI_EVENT_RECORD_ID"))
+        created_record_id = str(details.get("createdRecordId") or "").strip()
+        if created_record_id:
+            explicit_pairs.append(
+                (
+                    str(details.get("createdObjectApiName") or details.get("objectApiName") or "").strip() or None,
+                    created_record_id,
+                    "UI_EVENT_CREATED_RECORD_ID",
+                )
+            )
+
+        for object_api_name, explicit_record_id, source_key in explicit_pairs:
+            k = (step_no, log_id, explicit_record_id)
+            if k in seen:
+                continue
+            seen.add(k)
+            out.append(
+                {
+                    "step_no": step_no,
+                    "log_id": log_id or None,
+                    "object_api_name": object_api_name,
+                    "record_id": explicit_record_id,
+                    "source_key": source_key,
+                    "confidence": "HIGH",
+                }
+            )
+
+    out.sort(key=lambda r: (int(r.get("step_no") or 0), str(r.get("log_id") or ""), str(r.get("record_id") or "")))
+    return out
+
+
+def _format_dep(dep: Dict[str, Any]) -> str:
+    kind = str(dep.get("kind") or "").strip() or "Unknown"
+    name = str(dep.get("name") or dep.get("doc_id") or "").strip() or "Unknown"
+    return f"{kind}:{name}"
+
+
+def _edge_lines(prefix: str, deps: List[Dict[str, Any]], *, max_items_per_edge: int = 8) -> List[str]:
+    grouped: Dict[str, List[str]] = {}
+    for dep in deps:
+        edge = str(dep.get("edge_kind") or "related_to").strip() or "related_to"
+        grouped.setdefault(edge, []).append(_format_dep(dep))
+
+    lines: List[str] = []
+    for edge in sorted(grouped.keys()):
+        vals = grouped[edge]
+        shown = vals[:max_items_per_edge]
+        suffix = ""
+        if len(vals) > len(shown):
+            suffix = f", +{len(vals) - len(shown)} more"
+        lines.append(f"{prefix}.{edge}: {', '.join(shown)}{suffix}")
+    return lines
+
+
+def _display_path(path_text: str) -> str:
+    if not path_text:
+        return ""
+    try:
+        p = Path(path_text)
+        if p.is_absolute():
+            return str(p.resolve().relative_to(Path.cwd().resolve()))
+        return str(p)
+    except Exception:
+        return path_text
+
+
+def _build_dependency_appendix(
+    tool_results: List[Dict[str, Any]],
+    *,
+    max_components: int = 8,
+    max_neighbors: int = 10,
+) -> str:
+    components: List[Dict[str, Any]] = []
+    seen: set[tuple[str, str]] = set()
+    for tr in tool_results:
+        if tr.get("tool") != "search_metadata":
+            continue
+        result = tr.get("result") or {}
+        if not isinstance(result, dict) or not result.get("ok"):
+            continue
+        for item in result.get("results") or []:
+            if not isinstance(item, dict):
+                continue
+            deps = item.get("dependencies") or {}
+            outbound = deps.get("outbound") or []
+            inbound = deps.get("inbound") or []
+            if not outbound and not inbound:
+                continue
+            key = (str(item.get("kind") or ""), str(item.get("name") or ""))
+            if key in seen:
+                continue
+            seen.add(key)
+            components.append(
+                {
+                    "kind": str(item.get("kind") or ""),
+                    "name": str(item.get("name") or ""),
+                    "path": _display_path(str(item.get("path") or "")),
+                    "outbound": outbound[:max_neighbors],
+                    "inbound": inbound[:max_neighbors],
+                }
+            )
+
+    if not components:
+        return ""
+
+    def _edge_kinds(comp: Dict[str, Any]) -> List[str]:
+        out_kinds = [str(d.get("edge_kind") or "") for d in (comp.get("outbound") or [])]
+        in_kinds = [str(d.get("edge_kind") or "") for d in (comp.get("inbound") or [])]
+        return [k for k in out_kinds + in_kinds if k]
+
+    non_security = [c for c in components if c.get("kind") not in {"Profile", "PermSet"}]
+    if non_security:
+        filtered: List[Dict[str, Any]] = []
+        for c in components:
+            kinds = _edge_kinds(c)
+            only_grants = bool(kinds) and all(k == "grants" for k in kinds)
+            if c.get("kind") in {"Profile", "PermSet"} and only_grants:
+                continue
+            filtered.append(c)
+        if filtered:
+            components = filtered
+
+    kind_rank = {
+        "ApprovalProcess": 0,
+        "Flow": 1,
+        "ApexTrigger": 2,
+        "ApexClass": 3,
+        "Object": 4,
+    }
+    components = sorted(
+        components,
+        key=lambda c: (kind_rank.get(str(c.get("kind") or ""), 99), str(c.get("name") or "")),
+    )
+
+    shown = components[:max_components]
+    lines: List[str] = [
+        "### Dependency Map (metadata graph)",
+        f"- Components shown: {len(shown)} of {len(components)}",
+        "- Graph file: `data/metadata/graph.edgelist`",
+    ]
+    for idx, comp in enumerate(shown, start=1):
+        title = f"{idx}. **{comp.get('kind') or 'Unknown'}: {comp.get('name') or 'Unknown'}**"
+        lines.append(title)
+        if comp.get("path"):
+            lines.append(f"- Path: `{comp.get('path')}`")
+        outbound = comp.get("outbound") or []
+        inbound = comp.get("inbound") or []
+        if outbound:
+            lines.append("- Outbound:")
+            lines.extend([f"  - {line.replace('outbound.', '', 1)}" for line in _edge_lines("outbound", outbound)])
+        if inbound:
+            lines.append("- Inbound:")
+            lines.extend([f"  - {line.replace('inbound.', '', 1)}" for line in _edge_lines("inbound", inbound)])
+        lines.append("")
+
+    return "\n".join(lines).rstrip()
+
+
+def _build_component_appendix(tool_results: List[Dict[str, Any]], *, max_components: int = 8) -> str:
+    rows: List[Dict[str, Any]] = []
+    for tr in tool_results:
+        if tr.get("tool") != "search_metadata":
+            continue
+        result = tr.get("result") or {}
+        if not isinstance(result, dict) or not result.get("ok"):
+            continue
+        for item in result.get("results") or []:
+            if not isinstance(item, dict):
+                continue
+            rows.append(
+                {
+                    "kind": str(item.get("kind") or "Unknown"),
+                    "name": str(item.get("name") or "Unknown"),
+                    "path": _display_path(str(item.get("path") or "")),
+                }
+            )
+    if not rows:
+        return "### Retrieved Components\nNo metadata components found."
+
+    lines = ["### Retrieved Components", "| # | Type | Name | Path |", "|---|---|---|---|"]
+    for i, row in enumerate(rows[:max_components], start=1):
+        path_val = row["path"] or "-"
+        lines.append(f"| {i} | {row['kind']} | {row['name']} | `{path_val}` |")
+    if len(rows) > max_components:
+        lines.append(f"... and {len(rows) - max_components} more")
+    return "\n".join(lines)
+
+
+def _build_deterministic_answer(user_prompt: str, tool_results: List[Dict[str, Any]]) -> str:
+    parts = [f"Question: {user_prompt}", _build_component_appendix(tool_results)]
+    deps = _build_dependency_appendix(tool_results)
+    if deps:
+        parts.append(deps)
+    return "\n\n".join(parts)
+
+
+def _infer_object_scope(user_prompt: str, object_api_name: Optional[str]) -> Optional[str]:
+    if object_api_name and str(object_api_name).strip():
+        return str(object_api_name).strip()
+
+    q = f" {user_prompt.lower()} "
+    # Keep this conservative: auto-scope only for explicit object phrases.
+    if " approval process" in q or " approval processes" in q:
+        if re.search(r"\b(on|for)\s+(the\s+)?case\b", q) or " case approval process" in q or " case approval processes" in q:
+            return "Case"
+    return None
+
+
+def _infer_kind_scope(user_prompt: str) -> Optional[set[str]]:
+    q = f" {user_prompt.lower()} "
+    if re.search(r"\bapproval process(es)?\b", q):
+        # If user explicitly asks for approval processes, default to that kind only.
+        return {"ApprovalProcess"}
+    return None
+
+
+def _matches_object_scope(item: Dict[str, Any], scope: str) -> bool:
+    scope = scope.strip()
+    scope_variants = {scope, f"{scope}__c" if not scope.endswith("__c") else scope}
+
+    kind = str(item.get("kind") or "")
+    name = str(item.get("name") or "")
+    doc_id = str(item.get("doc_id") or "")
+    deps = item.get("dependencies") or {}
+    inbound = deps.get("inbound") or []
+    outbound = deps.get("outbound") or []
+
+    if kind == "ApprovalProcess":
+        for v in scope_variants:
+            if name.startswith(f"{v}.") or doc_id.startswith(f"ApprovalProcess:{v}."):
+                return True
+
+    # Generic dependency-based scope match.
+    for dep in inbound + outbound:
+        if str(dep.get("kind") or "") == "Object" and str(dep.get("name") or "") in scope_variants:
+            return True
+
+    return False
+
+
+def _apply_object_scope_filter(
+    tool_results: List[Dict[str, Any]],
+    object_scope: Optional[str],
+    kind_scope: Optional[set[str]] = None,
+) -> List[Dict[str, Any]]:
+    if not object_scope and not kind_scope:
+        return tool_results
+
+    scoped_results: List[Dict[str, Any]] = []
+    for tr in tool_results:
+        if tr.get("tool") != "search_metadata":
+            scoped_results.append(tr)
+            continue
+        result = tr.get("result") or {}
+        if not isinstance(result, dict) or not result.get("ok"):
+            scoped_results.append(tr)
+            continue
+        items = result.get("results") or []
+        filtered: List[Dict[str, Any]] = []
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            if kind_scope and str(it.get("kind") or "") not in kind_scope:
+                continue
+            if object_scope and not _matches_object_scope(it, object_scope):
+                continue
+            filtered.append(it)
+        scoped_results.append(
+            {
+                **tr,
+                "result": {
+                    **result,
+                    "results": filtered,
+                    "object_scope_applied": object_scope,
+                    "kind_scope_applied": sorted(kind_scope) if kind_scope else None,
+                },
+            }
+        )
+    return scoped_results
+
+
+def run_agent(
+    user_prompt: str,
+    model_override: Optional[str],
+    use_sfdc: bool,
+    hybrid: bool,
+    k: int,
+    single_llm_pass: bool = True,
+    use_final_llm: bool = False,
+    object_api_name: Optional[str] = None,
+) -> AskResponse:
     ollama = get_ollama_client(model_override)
-    plan: ActionPlan = build_plan_with_llm(user_prompt, ollama)
-
-    # Execute tools
     sf_client = SalesforceClient.from_env(dry_run=True) if use_sfdc else None
-    # Inject hybrid flag and k into search calls
-    for tc in plan.tool_calls:
-        if tc.tool == "search_metadata":
-            tc.args.setdefault("hybrid", hybrid)
-            tc.args.setdefault("k", k)
-    results = execute_plan(plan, sf_client=sf_client)
+    object_scope = _infer_object_scope(user_prompt, object_api_name)
+    kind_scope = _infer_kind_scope(user_prompt)
 
-    # Final answer from LLM
-    final_answer = build_final_with_llm(user_prompt, results, ollama)
+    # Default path for repo QA: deterministic retrieval + single synthesis call.
+    if single_llm_pass and not use_sfdc:
+        effective_k = max(k * 2, 12) if object_scope else k
+        retrieval_query = user_prompt
+        if object_scope and kind_scope == {"ApprovalProcess"}:
+            retrieval_query = f"approval process for {object_scope}"
+        elif object_scope:
+            retrieval_query = f"{user_prompt} object {object_scope}"
+        plan = ActionPlan(
+            intent="METADATA_QA",
+            tool_calls=[
+                ToolCall(
+                    "search_metadata",
+                    {
+                        "query": retrieval_query,
+                        "hybrid": hybrid,
+                        "k": effective_k,
+                        "dependency_neighbors": 8,
+                    },
+                )
+            ],
+            needs_approval=False,
+        )
+    else:
+        # Fallback to two-pass orchestration when SFDC tools/planning are needed.
+        plan = build_plan_with_llm(user_prompt, ollama)
+        for tc in plan.tool_calls:
+            if tc.tool == "search_metadata":
+                tc.args.setdefault("hybrid", hybrid)
+                tc.args.setdefault("k", k)
+                tc.args.setdefault("dependency_neighbors", 8)
+
+    results = execute_plan(plan, sf_client=sf_client)
+    results = _apply_object_scope_filter(results, object_scope, kind_scope)
+
+    if use_final_llm:
+        try:
+            final_answer = build_final_with_llm(user_prompt, results, ollama)
+            dep_appendix = _build_dependency_appendix(results)
+            if dep_appendix:
+                final_answer = f"{final_answer}\n\n{dep_appendix}"
+        except Exception as exc:
+            final_answer = (
+                _build_deterministic_answer(user_prompt, results)
+                + f"\n\nNote: final LLM synthesis failed, returned deterministic output. Error: {exc}"
+            )
+    else:
+        final_answer = _build_deterministic_answer(user_prompt, results)
     return AskResponse(
         intent=plan.intent,
         needs_approval=plan.needs_approval,
@@ -492,6 +1132,26 @@ def run_debug_analysis(req: DebugAnalyzeRequest) -> DebugAnalyzeResponse:
 
 
 app = FastAPI(title="SF Agent API")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.on_event("startup")
+def warmup_metadata_retrieval() -> None:
+    # Preload embedding/runtime bits to reduce first-request latency.
+    if os.getenv("WARMUP_RETRIEVAL", "true").lower() not in {"1", "true", "yes", "on"}:
+        return
+    try:
+        # Warm both vector and lexical paths so first user query avoids cold-start timeout.
+        search_metadata("warmup", k=2, hybrid=True)
+    except Exception:
+        # Best-effort warmup only.
+        pass
 
 
 @app.post("/agent", response_model=AskResponse)
@@ -503,6 +1163,9 @@ def ask(req: AskRequest, api_key: str = Depends(get_api_key)):
             use_sfdc=req.use_sfdc,
             hybrid=req.hybrid,
             k=req.k,
+            single_llm_pass=req.single_llm_pass,
+            use_final_llm=req.use_final_llm,
+            object_api_name=None,
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
@@ -617,7 +1280,8 @@ def sf_repo_ai_debug_analyze(req: DebugAnalyzeRequest, api_key: str = Depends(ge
 def sf_repo_ai_trace_enable(req: TraceEnableRequest, api_key: str = Depends(get_api_key)):
     try:
         client = get_tooling_client(req)
-        user_id = client.resolve_user_id(req.user)
+        user_to_trace = _resolve_trace_user(client, req, req.user)
+        user_id = client.resolve_user_id(user_to_trace)
         debug_level_id = client.upsert_debug_level("SF_REPO_AI_FINEST")
         trace_flag_id = client.upsert_trace_flag(user_id=user_id, debug_level_id=debug_level_id, minutes=req.minutes)
         return TraceEnableResponse(
@@ -630,11 +1294,22 @@ def sf_repo_ai_trace_enable(req: TraceEnableRequest, api_key: str = Depends(get_
         raise HTTPException(status_code=500, detail=str(exc))
 
 
+@app.post("/sf-repo-ai/apex/execute-anonymous", response_model=ApexExecuteAnonymousResponse)
+def sf_repo_ai_execute_anonymous(req: ApexExecuteAnonymousRequest, api_key: str = Depends(get_api_key)):
+    try:
+        client = get_tooling_client(req)
+        result = client.execute_anonymous(req.anonymous_body)
+        return ApexExecuteAnonymousResponse(result=result)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
 @app.post("/sf-repo-ai/logs/trace/disable", response_model=TraceDisableResponse)
 def sf_repo_ai_trace_disable(req: TraceDisableRequest, api_key: str = Depends(get_api_key)):
     try:
         client = get_tooling_client(req)
-        user_id = client.resolve_user_id(req.user)
+        user_to_trace = _resolve_trace_user(client, req, req.user)
+        user_id = client.resolve_user_id(user_to_trace)
         updated = client.disable_trace_flag(user_id)
         return TraceDisableResponse(user_id=user_id, trace_flags_updated=updated)
     except Exception as exc:
@@ -645,9 +1320,10 @@ def sf_repo_ai_trace_disable(req: TraceDisableRequest, api_key: str = Depends(ge
 def sf_repo_ai_process_capture_start(req: ProcessCaptureStartRequest, api_key: str = Depends(get_api_key)):
     try:
         client = get_tooling_client(req)
+        user_to_trace = _resolve_trace_user(client, req, req.user)
         result = start_capture(
             client=client,
-            user=req.user,
+            user=user_to_trace,
             minutes=req.minutes,
             filter_text=req.filter_text,
             tail_seconds=req.tail_seconds,
@@ -661,6 +1337,55 @@ def sf_repo_ai_process_capture_start(req: ProcessCaptureStartRequest, api_key: s
             debug_level_id=result.debug_level_id,
             execute_anonymous=result.execute_anonymous,
         )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/process-capture/mark-step", response_model=ProcessCaptureStepMarkerResponse)
+def sf_repo_ai_process_capture_mark_step(req: ProcessCaptureStepMarkerRequest, api_key: str = Depends(get_api_key)):
+    try:
+        client = get_tooling_client(req)
+        cap = CaptureStore().get_capture(req.capture_id)
+        step = (req.step_name or "").strip()
+        if not step:
+            raise HTTPException(status_code=400, detail="step_name is required")
+        safe_step = step.replace("'", "\\'")
+        anon = (
+            f"System.debug('{cap.marker_text}');"
+            f"System.debug('PROCESS_STEP={safe_step}');"
+        )
+        result = client.execute_anonymous(anon)
+        return ProcessCaptureStepMarkerResponse(
+            capture_id=req.capture_id,
+            step_name=step,
+            execute_anonymous=result,
+        )
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/process-capture/ui-event", response_model=ProcessCaptureUiEventResponse)
+def sf_repo_ai_process_capture_ui_event(req: ProcessCaptureUiEventRequest, api_key: str = Depends(get_api_key)):
+    try:
+        result = record_ui_event(
+            capture_id=req.capture_id,
+            event_type=req.event_type,
+            component_name=req.component_name,
+            action_name=req.action_name,
+            element_label=req.element_label,
+            page_url=req.page_url,
+            record_id=req.record_id,
+            details=req.details,
+            event_ts=req.event_ts,
+            store=CaptureStore(),
+        )
+        return ProcessCaptureUiEventResponse(**result.__dict__)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -706,6 +1431,155 @@ def sf_repo_ai_process_save(req: ProcessSaveRequest, api_key: str = Depends(get_
             store=CaptureStore(),
         )
         return ProcessSaveResponse(**saved)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/process-runs/{run_id}/components-readable", response_model=ProcessRunReadableComponentsResponse)
+def sf_repo_ai_process_run_components_readable(run_id: str, api_key: str = Depends(get_api_key)):
+    try:
+        data = CaptureStore().get_process_run_sequence(run_id)
+        log_map: Dict[str, Dict[str, Any]] = {}
+        for s in data.get("steps", []):
+            details = s.get("details") or {}
+            log_id = str(s.get("log_id") or details.get("log_id") or "")
+            if not log_id:
+                continue
+            log_map[log_id] = {
+                "step_no": int(s.get("seq_no") or 0),
+                "step_label": details.get("step_label"),
+                "start_time": details.get("start_time"),
+                "operation": details.get("operation"),
+                "location": details.get("location"),
+            }
+
+        items: List[ProcessRunReadableComponentItem] = []
+        for c in data.get("components", []):
+            log_id = str(c.get("log_id") or "")
+            ctx = log_map.get(log_id, {})
+            items.append(
+                ProcessRunReadableComponentItem(
+                    seq_no=int(c.get("seq_no") or 0),
+                    step_no=int(ctx.get("step_no") or 0),
+                    step_label=ctx.get("step_label"),
+                    start_time=ctx.get("start_time"),
+                    operation=ctx.get("operation"),
+                    location=ctx.get("location"),
+                    component_type=str(c.get("component_type") or ""),
+                    component_name=str(c.get("component_name") or ""),
+                    log_id=c.get("log_id"),
+                    confidence=c.get("confidence"),
+                )
+            )
+        return ProcessRunReadableComponentsResponse(
+            run_id=data["run_id"],
+            capture_id=data["capture_id"],
+            ui_invoker=data.get("ui_invoker"),
+            ui_invoker_source=data.get("ui_invoker_source"),
+            ui_invoker_confidence=data.get("ui_invoker_confidence"),
+            components=items,
+            count=len(items),
+        )
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/processes", response_model=ProcessListResponse)
+def sf_repo_ai_process_list(api_key: str = Depends(get_api_key)):
+    try:
+        rows = CaptureStore().list_process_definitions()
+        return ProcessListResponse(processes=[ProcessListItem(**r) for r in rows])
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/processes/{process_name}/runs", response_model=ProcessRunListResponse)
+def sf_repo_ai_process_runs(
+    process_name: str,
+    limit: int = 50,
+    api_key: str = Depends(get_api_key),
+):
+    try:
+        rows = CaptureStore().list_process_runs(process_name=process_name, limit=limit)
+        return ProcessRunListResponse(
+            process_name=process_name,
+            runs=[ProcessRunListItem(**r) for r in rows],
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/process-runs/{run_id}", response_model=ProcessRunSequenceResponse)
+def sf_repo_ai_process_run_detail(run_id: str, api_key: str = Depends(get_api_key)):
+    try:
+        data = CaptureStore().get_process_run_sequence(run_id)
+        return ProcessRunSequenceResponse(
+            run_id=data["run_id"],
+            process_name=data["process_name"],
+            capture_id=data["capture_id"],
+            trace_json_path=data["trace_json_path"],
+            created_ts=data["created_ts"],
+            ui_invoker=data.get("ui_invoker"),
+            ui_invoker_source=data.get("ui_invoker_source"),
+            ui_invoker_confidence=data.get("ui_invoker_confidence"),
+            steps=[ProcessRunSequenceStep(**s) for s in data["steps"]],
+            components=[ProcessRunSequenceComponent(**c) for c in data["components"]],
+        )
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/process-runs/{run_id}/created-records", response_model=ProcessRunCreatedRecordsResponse)
+def sf_repo_ai_process_run_created_records(run_id: str, api_key: str = Depends(get_api_key)):
+    try:
+        data = CaptureStore().get_process_run_sequence(run_id)
+        records = _extract_created_records_for_run(data)
+        return ProcessRunCreatedRecordsResponse(
+            run_id=data["run_id"],
+            capture_id=data["capture_id"],
+            ui_invoker=data.get("ui_invoker"),
+            ui_invoker_source=data.get("ui_invoker_source"),
+            ui_invoker_confidence=data.get("ui_invoker_confidence"),
+            created_records=[CreatedRecordItem(**r) for r in records],
+            count=len(records),
+        )
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/process-runs/{run_id}/ui-invoker", response_model=ProcessRunInvokerUpdateResponse)
+def sf_repo_ai_process_run_set_invoker(
+    run_id: str,
+    req: ProcessRunInvokerUpdateRequest,
+    api_key: str = Depends(get_api_key),
+):
+    try:
+        # Ensure run exists first.
+        _ = CaptureStore().get_process_run_sequence(run_id)
+        row = CaptureStore().upsert_process_run_context(
+            run_id=run_id,
+            ui_invoker=req.ui_invoker,
+            source=req.ui_invoker_source,
+            confidence=req.ui_invoker_confidence,
+            notes=req.notes,
+            updated_ts=datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+        )
+        return ProcessRunInvokerUpdateResponse(
+            run_id=row["run_id"],
+            ui_invoker=row.get("ui_invoker"),
+            ui_invoker_source=row.get("ui_invoker_source"),
+            ui_invoker_confidence=row.get("ui_invoker_confidence"),
+            notes=row.get("notes"),
+            updated_ts=row["updated_ts"],
+        )
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -804,6 +1678,9 @@ def sf_repo_ai_ask(req: SfRepoAskRequest, api_key: str = Depends(get_api_key)):
                 use_sfdc=req.use_sfdc,
                 hybrid=req.hybrid,
                 k=req.k,
+                single_llm_pass=req.single_llm_pass,
+                use_final_llm=req.use_final_llm,
+                object_api_name=req.object_api_name,
             )
         return SfRepoAskResponse(
             question=req.question,

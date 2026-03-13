@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from process.capture import ingest_video, save_process, start_capture, stop_capture
+from process.capture import ingest_video, record_ui_event, save_process, start_capture, stop_capture
 from process.storage import CaptureStore
 from sfdc.tooling_client import SalesforceToolingClient
 
@@ -78,6 +78,25 @@ def cmd_video_ingest(args):
     print(json.dumps(res, indent=2))
 
 
+def cmd_ui_event(args):
+    details = {}
+    if args.details_json:
+        details = json.loads(args.details_json)
+    res = record_ui_event(
+        capture_id=args.capture_id,
+        event_type=args.event_type,
+        component_name=args.component_name,
+        action_name=args.action_name,
+        element_label=args.element_label,
+        page_url=args.page_url,
+        record_id=args.record_id,
+        details=details,
+        event_ts=args.event_ts,
+        store=CaptureStore(),
+    )
+    print(json.dumps(res.__dict__, indent=2))
+
+
 def add_sf_auth(parser):
     parser.add_argument("--login-url", default=None)
     parser.add_argument("--username", default=None)
@@ -123,6 +142,18 @@ def main():
     p_video.add_argument("--interval-seconds", type=int, default=5)
     p_video.add_argument("--max-frames", type=int, default=80)
     p_video.set_defaults(func=cmd_video_ingest)
+
+    p_ui = sub.add_parser("ui-event", help="Record a UI/browser event against an active capture")
+    p_ui.add_argument("--capture-id", required=True)
+    p_ui.add_argument("--event-type", required=True)
+    p_ui.add_argument("--component-name", default=None)
+    p_ui.add_argument("--action-name", default=None)
+    p_ui.add_argument("--element-label", default=None)
+    p_ui.add_argument("--page-url", default=None)
+    p_ui.add_argument("--record-id", default=None)
+    p_ui.add_argument("--event-ts", default=None)
+    p_ui.add_argument("--details-json", default=None)
+    p_ui.set_defaults(func=cmd_ui_event)
 
     args = p.parse_args()
     args.func(args)

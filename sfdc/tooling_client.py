@@ -7,6 +7,7 @@ from typing import Any, Dict, List, Optional
 
 import requests
 
+from sfdc.auth_oauth import oauth_client_credentials_login, oauth_password_login
 from sfdc.auth_soap import SoapSession, soap_login
 
 
@@ -41,6 +42,46 @@ class SalesforceToolingClient:
             api_version=ver,
         )
         return cls(SalesforceApiConfig(instance_url=sess.instance_url, session_id=sess.session_id, api_version=ver))
+
+    @classmethod
+    def from_oauth_password(
+        cls,
+        *,
+        login_url: Optional[str] = None,
+        client_id: Optional[str] = None,
+        client_secret: Optional[str] = None,
+        username: Optional[str] = None,
+        password: Optional[str] = None,
+        token: Optional[str] = None,
+        api_version: Optional[str] = None,
+    ) -> "SalesforceToolingClient":
+        ver = api_version or os.getenv("SF_API_VERSION") or "60.0"
+        sess = oauth_password_login(
+            login_url=login_url,
+            client_id=client_id,
+            client_secret=client_secret,
+            username=username,
+            password=password,
+            token=token,
+        )
+        return cls(SalesforceApiConfig(instance_url=sess.instance_url, session_id=sess.access_token, api_version=ver))
+
+    @classmethod
+    def from_oauth_client_credentials(
+        cls,
+        *,
+        login_url: Optional[str] = None,
+        client_id: Optional[str] = None,
+        client_secret: Optional[str] = None,
+        api_version: Optional[str] = None,
+    ) -> "SalesforceToolingClient":
+        ver = api_version or os.getenv("SF_API_VERSION") or "60.0"
+        sess = oauth_client_credentials_login(
+            login_url=login_url,
+            client_id=client_id,
+            client_secret=client_secret,
+        )
+        return cls(SalesforceApiConfig(instance_url=sess.instance_url, session_id=sess.access_token, api_version=ver))
 
     @property
     def _headers(self) -> Dict[str, str]:
@@ -151,7 +192,16 @@ class SalesforceToolingClient:
         }
         if rows:
             trace_id = rows[0]["Id"]
-            self.patch(f"/sobjects/TraceFlag/{trace_id}", payload, tooling=True)
+            # TracedEntityId/LogType are not writable on update in many orgs.
+            self.patch(
+                f"/sobjects/TraceFlag/{trace_id}",
+                {
+                    "DebugLevelId": debug_level_id,
+                    "StartDate": start_s,
+                    "ExpirationDate": end_s,
+                },
+                tooling=True,
+            )
             return trace_id
         created = self.post("/sobjects/TraceFlag", payload, tooling=True)
         return created["id"]
@@ -194,3 +244,33 @@ class SalesforceToolingClient:
         if resp.status_code >= 400:
             raise RuntimeError(f"GET {url} failed: HTTP {resp.status_code} {resp.text[:500]}")
         return resp.text
+
+    def get_current_user(self) -> Dict[str, str]:
+        # Preferred path: Chatter "me" endpoint usually resolves to the authenticated user.
+        try:
+            me = self.get("/chatter/users/me", tooling=False)
+            uid = str(me.get("id") or "").strip()
+            uname = str(me.get("username") or me.get("email") or "").strip()
+            if uid:
+                return {"id": uid, "username": uname}
+        except Exception:
+            pass
+
+        # Fallback path: OAuth userinfo endpoint.
+        try:
+            url = f"{self.cfg.instance_url}/services/oauth2/userinfo"
+            resp = requests.get(
+                url,
+                headers={"Authorization": f"Bearer {self.cfg.session_id}"},
+                timeout=self.timeout,
+            )
+            if resp.status_code < 400:
+                data = resp.json()
+                uid = str(data.get("user_id") or "").strip()
+                uname = str(data.get("preferred_username") or data.get("email") or "").strip()
+                if uid:
+                    return {"id": uid, "username": uname}
+        except Exception:
+            pass
+
+        raise RuntimeError("Unable to resolve current Salesforce user from session token.")

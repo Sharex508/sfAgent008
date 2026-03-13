@@ -4,7 +4,9 @@ import re
 from pathlib import Path
 from typing import Optional
 
-ROOT_DIR = Path(__file__).resolve().parent / "NATTQA-ENV"
+from project_paths import DEFAULT_METADATA_REPO_POINTER, resolve_metadata_repo_path
+
+ROOT_DIR = resolve_metadata_repo_path(DEFAULT_METADATA_REPO_POINTER)
 OBJECTS_DIR = ROOT_DIR / "force-app" / "main" / "default" / "objects"
 CLASSES_DIR = ROOT_DIR / "force-app" / "main" / "default" / "classes"
 

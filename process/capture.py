@@ -47,6 +47,20 @@ class CaptureStopResult:
     llm_error: Optional[str] = None
 
 
+@dataclass
+class CaptureUiEventResult:
+    event_id: str
+    capture_id: str
+    event_ts: str
+    event_type: str
+    component_name: Optional[str]
+    action_name: Optional[str]
+    element_label: Optional[str]
+    page_url: Optional[str]
+    record_id: Optional[str]
+    details: Dict[str, Any]
+
+
 def _utc_now() -> datetime:
     return datetime.now(timezone.utc)
 
@@ -221,6 +235,36 @@ def start_capture(
     )
 
 
+def record_ui_event(
+    *,
+    capture_id: str,
+    event_type: str,
+    component_name: Optional[str] = None,
+    action_name: Optional[str] = None,
+    element_label: Optional[str] = None,
+    page_url: Optional[str] = None,
+    record_id: Optional[str] = None,
+    details: Optional[Dict[str, Any]] = None,
+    event_ts: Optional[str] = None,
+    store: Optional[CaptureStore] = None,
+) -> CaptureUiEventResult:
+    db = store or CaptureStore()
+    _ = db.get_capture(capture_id)
+    ts = event_ts or _iso(_utc_now())
+    row = db.add_ui_event(
+        capture_id=capture_id,
+        event_ts=ts,
+        event_type=(event_type or "").strip() or "UI_EVENT",
+        component_name=(component_name or "").strip() or None,
+        action_name=(action_name or "").strip() or None,
+        element_label=(element_label or "").strip() or None,
+        page_url=(page_url or "").strip() or None,
+        record_id=(record_id or "").strip() or None,
+        details=details or {},
+    )
+    return CaptureUiEventResult(**row)
+
+
 def stop_capture(
     *,
     client: SalesforceToolingClient,
@@ -246,23 +290,20 @@ def stop_capture(
     )
 
     parsed_logs: List[Dict[str, Any]] = []
+    parsed_entries: List[Dict[str, Any]] = []
     marker_matches = 0
     for row in rows:
         log_id = row["Id"]
         body = client.get_apex_log_body(log_id)
         parsed = parse_apex_log(log_id, body)
+        parsed["start_time"] = row.get("StartTime")
+        parsed["operation"] = row.get("Operation")
+        parsed["location"] = row.get("Location")
         has_marker = any(capture.marker_text in m for m in parsed.get("markers", [])) or (capture.marker_text in body)
         if has_marker:
             marker_matches += 1
 
-        if analyze:
-            include_log = has_marker
-            if not include_log and capture.filter_text:
-                include_log = capture.filter_text.lower() in body.lower()
-            if not include_log and parsed.get("contains_error"):
-                include_log = True
-            if include_log:
-                parsed_logs.append(parsed)
+        parsed_entries.append({"parsed": parsed, "has_marker": has_marker, "body": body})
 
         db.upsert_capture_log(
             capture_id,
@@ -278,6 +319,22 @@ def stop_capture(
             },
         )
 
+    if analyze:
+        # If we can anchor the capture with at least one marker match, include all logs
+        # in the capture time window for richer dependency extraction.
+        include_all_window_logs = marker_matches > 0
+        for item in parsed_entries:
+            parsed = item["parsed"]
+            has_marker = bool(item["has_marker"])
+            body = str(item["body"])
+            include_log = include_all_window_logs or has_marker
+            if not include_log and capture.filter_text:
+                include_log = capture.filter_text.lower() in body.lower()
+            if not include_log and parsed.get("contains_error"):
+                include_log = True
+            if include_log:
+                parsed_logs.append(parsed)
+
     artifact_paths: List[str] = []
     ghash = ""
     llm_used = False
@@ -288,7 +345,37 @@ def stop_capture(
         artifacts_dir = Path("data/artifacts") / capture_id
         artifacts_dir.mkdir(parents=True, exist_ok=True)
 
-        graph = build_trace_graph(parsed_logs)
+        ui_events = db.list_ui_events(capture_id)
+        seen_ui_keys = {
+            (
+                str(ev.get("event_ts") or ""),
+                str(ev.get("event_type") or ""),
+                str(ev.get("component_name") or ""),
+                str(ev.get("action_name") or ""),
+                str(ev.get("element_label") or ""),
+            )
+            for ev in ui_events
+        }
+        for parsed in parsed_logs:
+            for raw_event in parsed.get("ui_events") or []:
+                if not isinstance(raw_event, dict):
+                    continue
+                event = dict(raw_event)
+                event.setdefault("event_ts", parsed.get("start_time") or _iso(_utc_now()))
+                event.setdefault("event_id", uuid.uuid4().hex)
+                event.setdefault("details", {})
+                key = (
+                    str(event.get("event_ts") or ""),
+                    str(event.get("event_type") or ""),
+                    str(event.get("component_name") or ""),
+                    str(event.get("action_name") or ""),
+                    str(event.get("element_label") or ""),
+                )
+                if key in seen_ui_keys:
+                    continue
+                seen_ui_keys.add(key)
+                ui_events.append(event)
+        graph = build_trace_graph(parsed_logs, ui_events=ui_events)
         ghash = graph_hash(graph)
 
         trace_path = artifacts_dir / "trace.json"
@@ -296,7 +383,7 @@ def stop_capture(
         flow_path = artifacts_dir / "process_flow.mmd"
         summary_path = artifacts_dir / "summary.md"
 
-        trace_path.write_text(json.dumps({"graph": graph, "logs": parsed_logs}, indent=2), encoding="utf-8")
+        trace_path.write_text(json.dumps({"graph": graph, "logs": parsed_logs, "ui_events": ui_events}, indent=2), encoding="utf-8")
         seq_path.write_text(build_mermaid_sequence(graph), encoding="utf-8")
         flow_path.write_text(build_mermaid_flow(graph), encoding="utf-8")
         summary_path.write_text(summarize_trace(graph, parsed_logs), encoding="utf-8")

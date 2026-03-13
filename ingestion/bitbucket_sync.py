@@ -2,6 +2,7 @@ from pathlib import Path
 
 from git import Repo
 from git.exc import GitCommandError
+from project_paths import resolve_metadata_repo_path
 
 
 def sync_repo(clone_url: str, repo_path: str = "./data/repo", branch: str = "main") -> str:
@@ -20,15 +21,15 @@ def sync_repo(clone_url: str, repo_path: str = "./data/repo", branch: str = "mai
     Returns:
         The HEAD commit SHA as a string.
     """
-    p = Path(repo_path)
+    p = resolve_metadata_repo_path(Path(repo_path))
     # Ensure parent directories exist (e.g., ./data)
     p.parent.mkdir(parents=True, exist_ok=True)
 
     if not p.exists():
         # Clone fresh repository and checkout the requested branch
-        Repo.clone_from(clone_url, repo_path, branch=branch)
+        Repo.clone_from(clone_url, str(p), branch=branch)
 
-    repo = Repo(repo_path)
+    repo = Repo(str(p))
 
     # Ensure the desired branch is checked out; if it doesn't exist locally, create it tracking origin
     try:

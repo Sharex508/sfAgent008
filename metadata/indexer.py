@@ -10,6 +10,8 @@ from metadata.parsers.objects_parser import parse_objects
 from metadata.parsers.apex_parser import parse_apex
 from metadata.parsers.flows_parser import parse_flows
 from metadata.parsers.security_parser import parse_security
+from metadata.parsers.approval_parser import parse_approval_processes
+from project_paths import resolve_metadata_repo_path
 
 
 DEFAULT_REPO = Path("./data/repo")
@@ -21,7 +23,7 @@ def index_repo(repo_path: Path = DEFAULT_REPO) -> List[MetadataDoc]:
     Handles common SFDX layout (force-app/**/default/*), but also falls back to
     recursive searches if specific folders are not found.
     """
-    repo_path = Path(repo_path)
+    repo_path = resolve_metadata_repo_path(Path(repo_path))
 
     docs: List[MetadataDoc] = []
 
@@ -48,6 +50,10 @@ def index_repo(repo_path: Path = DEFAULT_REPO) -> List[MetadataDoc]:
 
     # Flows
     docs.extend(parse_flows(root / "flows") if (root / "flows").exists() else parse_flows(root))
+
+    # Approval Processes
+    ap_root = root / "approvalProcesses"
+    docs.extend(parse_approval_processes(ap_root if ap_root.exists() else root))
 
     # Security: Profiles and Permission Sets
     sec_dirs = [root / "profiles", root / "permissionsets"]

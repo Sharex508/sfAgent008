@@ -6,8 +6,9 @@ from typing import Iterable, List, Tuple
 from metadata.indexer import index_repo, write_jsonl
 from metadata.metadata_types import MetadataDoc
 from retrieval.vector_store import index_metadata, search_metadata
+from project_paths import DEFAULT_METADATA_REPO_POINTER, resolve_metadata_repo_path
 
-ROOT_DIR = Path(__file__).resolve().parent / "NATTQA-ENV"
+ROOT_DIR = resolve_metadata_repo_path(DEFAULT_METADATA_REPO_POINTER)
 DOCS_PATH = Path(__file__).resolve().parent / "data" / "metadata" / "docs.jsonl"
 DB_PATH = Path(__file__).resolve().parent / "data" / "chroma"
 
@@ -20,6 +21,7 @@ def ensure_indexes(
     rebuild: bool = False,
 ) -> Tuple[Path, Path]:
     """Ensure docs.jsonl and vector DB exist, rebuilding if requested."""
+    repo_path = resolve_metadata_repo_path(repo_path)
     if rebuild or not docs_path.exists():
         docs = index_repo(repo_path)
         write_jsonl(docs, docs_path)

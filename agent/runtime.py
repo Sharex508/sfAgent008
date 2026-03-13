@@ -4,6 +4,7 @@ import argparse
 import json
 import os
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
@@ -18,6 +19,9 @@ from sfdc.client import (
 )
 from llm.ollama_client import OllamaClient
 
+DEFAULT_GRAPH_PATH = Path("./data/metadata/graph.edgelist")
+DEFAULT_DOCS_PATH = Path("./data/metadata/docs.jsonl")
+
 
 @dataclass
 class ToolCall:
@@ -30,6 +34,93 @@ class ActionPlan:
     intent: str
     tool_calls: List[ToolCall]
     needs_approval: bool = False
+
+
+@lru_cache(maxsize=4)
+def _load_doc_lookup(docs_path: str) -> Dict[str, Dict[str, str]]:
+    path = Path(docs_path)
+    lookup: Dict[str, Dict[str, str]] = {}
+    if not path.exists():
+        return lookup
+
+    with path.open("r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                item = json.loads(line)
+            except Exception:
+                continue
+            doc_id = str(item.get("doc_id") or "")
+            if not doc_id:
+                continue
+            lookup[doc_id] = {
+                "doc_id": doc_id,
+                "kind": str(item.get("kind") or ""),
+                "name": str(item.get("name") or ""),
+                "path": str(item.get("path") or ""),
+            }
+    return lookup
+
+
+@lru_cache(maxsize=4)
+def _load_graph_index(graph_path: str) -> tuple[Dict[str, List[tuple[str, str]]], Dict[str, List[tuple[str, str]]]]:
+    path = Path(graph_path)
+    outgoing: Dict[str, List[tuple[str, str]]] = {}
+    incoming: Dict[str, List[tuple[str, str]]] = {}
+    if not path.exists():
+        return outgoing, incoming
+
+    with path.open("r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            line = line.rstrip("\n")
+            if not line:
+                continue
+            parts = line.split("\t")
+            if len(parts) < 2:
+                continue
+            src = parts[0]
+            dst = parts[1]
+            edge_kind = parts[2] if len(parts) > 2 else ""
+            outgoing.setdefault(src, []).append((dst, edge_kind))
+            incoming.setdefault(dst, []).append((src, edge_kind))
+    return outgoing, incoming
+
+
+def _fallback_doc(doc_id: str) -> Dict[str, str]:
+    if ":" in doc_id:
+        kind, name = doc_id.split(":", 1)
+        return {"doc_id": doc_id, "kind": kind, "name": name, "path": ""}
+    return {"doc_id": doc_id, "kind": "", "name": doc_id, "path": ""}
+
+
+def _neighbors(
+    doc_id: str,
+    *,
+    docs_path: Path,
+    graph_path: Path,
+    max_neighbors: int,
+) -> Dict[str, List[Dict[str, str]]]:
+    if max_neighbors <= 0:
+        return {"outbound": [], "inbound": []}
+
+    lookup = _load_doc_lookup(str(docs_path.resolve()))
+    outgoing, incoming = _load_graph_index(str(graph_path.resolve()))
+    out: List[Dict[str, str]] = []
+    inb: List[Dict[str, str]] = []
+
+    for neighbor_id, edge_kind in outgoing.get(doc_id, [])[:max_neighbors]:
+        d = dict(lookup.get(neighbor_id) or _fallback_doc(neighbor_id))
+        d["edge_kind"] = edge_kind
+        out.append(d)
+
+    for neighbor_id, edge_kind in incoming.get(doc_id, [])[:max_neighbors]:
+        d = dict(lookup.get(neighbor_id) or _fallback_doc(neighbor_id))
+        d["edge_kind"] = edge_kind
+        inb.append(d)
+
+    return {"outbound": out, "inbound": inb}
 
 
 def parse_plan(plan_json: str) -> ActionPlan:
@@ -74,12 +165,29 @@ def execute_tool(
                 persist_dir=persist_dir,
                 hybrid=call.args.get("hybrid", False),
             )
+            docs_path = Path(call.args.get("docs_path", DEFAULT_DOCS_PATH))
+            graph_path = Path(call.args.get("graph_path", DEFAULT_GRAPH_PATH))
+            max_neighbors = int(call.args.get("dependency_neighbors", 6))
             # Keep results compact for LLM consumption
             return {
                 "ok": True,
                 "results": [
-                    {"doc_id": d.doc_id, "kind": d.kind, "name": d.name, "path": d.path} for d in res
+                    {
+                        "doc_id": d.doc_id,
+                        "kind": d.kind,
+                        "name": d.name,
+                        "path": d.path,
+                        "dependencies": _neighbors(
+                            d.doc_id,
+                            docs_path=docs_path,
+                            graph_path=graph_path,
+                            max_neighbors=max_neighbors,
+                        ),
+                    }
+                    for d in res
                 ],
+                "graph_used": graph_path.exists(),
+                "graph_path": str(graph_path),
             }
         elif call.tool == "soql":
             res = tool_soql(call.args["query"], client=sf_client)
@@ -145,6 +253,8 @@ User request:
 """
 
 FINAL_PROMPT_TEMPLATE = """You are an assistant. Given the user request and tool results, produce the final answer.
+If tool results include a `dependencies` block, explicitly list key upstream/downstream dependencies.
+Prefer concrete component names and paths over generic summaries.
 User request:
 {user_prompt}
 
@@ -177,7 +287,7 @@ def main():
     ap.add_argument("--use-sfdc", action="store_true", help="Enable Salesforce client (requires env vars).")
     ap.add_argument("--use-ollama", action="store_true", help="Use local Ollama LLM to generate the plan/final output.")
     ap.add_argument("--ollama-host", type=str, default=None, help="Ollama host (default env OLLAMA_HOST or http://localhost:11434)")
-    ap.add_argument("--ollama-model", type=str, default=None, help="Ollama model (default env OLLAMA_MODEL or llama3.1:70b)")
+    ap.add_argument("--ollama-model", type=str, default=None, help="Ollama model (default env OLLAMA_MODEL or gpt-oss:20b)")
     args = ap.parse_args()
 
     if not args.plan_json and not args.plan_file and not (args.use_ollama and args.user_prompt):
@@ -189,7 +299,7 @@ def main():
 
     if args.use_ollama and args.user_prompt:
         host = args.ollama_host or os.getenv("OLLAMA_HOST", "http://localhost:11434")
-        model = args.ollama_model or os.getenv("OLLAMA_MODEL", "llama3.1:8b")
+        model = args.ollama_model or os.getenv("OLLAMA_MODEL", "gpt-oss:20b")
         ollama_client = OllamaClient(host=host, model=model)
         plan = build_plan_with_llm(user_prompt, ollama_client)
     else:

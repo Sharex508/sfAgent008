@@ -75,6 +75,19 @@ class CaptureStore:
                     PRIMARY KEY (capture_id, artifact_type, path)
                 );
 
+                CREATE TABLE IF NOT EXISTS process_capture_ui_events (
+                    event_id TEXT PRIMARY KEY,
+                    capture_id TEXT NOT NULL,
+                    event_ts TEXT NOT NULL,
+                    event_type TEXT NOT NULL,
+                    component_name TEXT,
+                    action_name TEXT,
+                    element_label TEXT,
+                    page_url TEXT,
+                    record_id TEXT,
+                    details_json TEXT
+                );
+
                 CREATE TABLE IF NOT EXISTS process_definitions (
                     process_id TEXT PRIMARY KEY,
                     name TEXT NOT NULL,
@@ -84,6 +97,41 @@ class CaptureStore:
                     graph_hash TEXT,
                     version INTEGER NOT NULL,
                     last_verified_at TEXT NOT NULL
+                );
+
+                CREATE TABLE IF NOT EXISTS process_run_sequence (
+                    run_id TEXT PRIMARY KEY,
+                    process_name TEXT NOT NULL,
+                    capture_id TEXT NOT NULL,
+                    trace_json_path TEXT NOT NULL,
+                    created_ts TEXT NOT NULL
+                );
+
+                CREATE TABLE IF NOT EXISTS process_step_sequence (
+                    run_id TEXT NOT NULL,
+                    seq_no INTEGER NOT NULL,
+                    log_id TEXT,
+                    details_json TEXT NOT NULL,
+                    PRIMARY KEY (run_id, seq_no)
+                );
+
+                CREATE TABLE IF NOT EXISTS process_component_sequence (
+                    run_id TEXT NOT NULL,
+                    seq_no INTEGER NOT NULL,
+                    component_type TEXT NOT NULL,
+                    component_name TEXT NOT NULL,
+                    log_id TEXT,
+                    confidence TEXT,
+                    PRIMARY KEY (run_id, seq_no)
+                );
+
+                CREATE TABLE IF NOT EXISTS process_run_context (
+                    run_id TEXT PRIMARY KEY,
+                    ui_invoker TEXT,
+                    ui_invoker_source TEXT,
+                    ui_invoker_confidence TEXT,
+                    notes TEXT,
+                    updated_ts TEXT NOT NULL
                 );
                 """
             )
@@ -183,6 +231,78 @@ class CaptureStore:
             ).fetchall()
         return [dict(r) for r in rows]
 
+    def add_ui_event(
+        self,
+        *,
+        capture_id: str,
+        event_ts: str,
+        event_type: str,
+        component_name: Optional[str],
+        action_name: Optional[str],
+        element_label: Optional[str],
+        page_url: Optional[str],
+        record_id: Optional[str],
+        details: Optional[Dict[str, Any]],
+        event_id: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        eid = event_id or str(uuid.uuid4())
+        payload = json.dumps(details or {}, ensure_ascii=False)
+        with self._conn() as conn:
+            conn.execute(
+                """
+                INSERT INTO process_capture_ui_events
+                (event_id, capture_id, event_ts, event_type, component_name, action_name, element_label, page_url, record_id, details_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    eid,
+                    capture_id,
+                    event_ts,
+                    event_type,
+                    component_name,
+                    action_name,
+                    element_label,
+                    page_url,
+                    record_id,
+                    payload,
+                ),
+            )
+        return {
+            "event_id": eid,
+            "capture_id": capture_id,
+            "event_ts": event_ts,
+            "event_type": event_type,
+            "component_name": component_name,
+            "action_name": action_name,
+            "element_label": element_label,
+            "page_url": page_url,
+            "record_id": record_id,
+            "details": details or {},
+        }
+
+    def list_ui_events(self, capture_id: str) -> List[Dict[str, Any]]:
+        with self._conn() as conn:
+            rows = conn.execute(
+                """
+                SELECT event_id, capture_id, event_ts, event_type, component_name, action_name, element_label, page_url, record_id, details_json
+                FROM process_capture_ui_events
+                WHERE capture_id = ?
+                ORDER BY event_ts ASC, event_id ASC
+                """,
+                (capture_id,),
+            ).fetchall()
+
+        out: List[Dict[str, Any]] = []
+        for row in rows:
+            item = dict(row)
+            raw = item.pop("details_json", None)
+            try:
+                item["details"] = json.loads(raw) if raw else {}
+            except Exception:
+                item["details"] = {}
+            out.append(item)
+        return out
+
     def save_process_definition(
         self,
         *,
@@ -243,4 +363,149 @@ class CaptureStore:
             "version": version,
             "latest_capture_id": latest_capture_id,
             "graph_hash": graph_hash,
+        }
+
+    def list_process_definitions(self) -> List[Dict[str, Any]]:
+        with self._conn() as conn:
+            rows = conn.execute(
+                """
+                SELECT process_id, name, description, entry_points_json, latest_capture_id, graph_hash, version, last_verified_at
+                FROM process_definitions
+                ORDER BY name ASC
+                """
+            ).fetchall()
+        out: List[Dict[str, Any]] = []
+        for row in rows:
+            item = dict(row)
+            raw = item.get("entry_points_json")
+            try:
+                item["entry_points"] = json.loads(raw) if raw else []
+            except Exception:
+                item["entry_points"] = []
+            item.pop("entry_points_json", None)
+            out.append(item)
+        return out
+
+    def list_process_runs(self, *, process_name: Optional[str] = None, limit: int = 50) -> List[Dict[str, Any]]:
+        sql = """
+            SELECT prs.run_id, prs.process_name, prs.capture_id, prs.trace_json_path, prs.created_ts,
+                   prc.ui_invoker, prc.ui_invoker_source, prc.ui_invoker_confidence,
+                   COALESCE(ps.step_count, 0) AS step_count,
+                   COALESCE(pc.component_count, 0) AS component_count
+            FROM process_run_sequence prs
+            LEFT JOIN process_run_context prc ON prc.run_id = prs.run_id
+            LEFT JOIN (
+                SELECT run_id, COUNT(*) AS step_count
+                FROM process_step_sequence
+                GROUP BY run_id
+            ) ps ON ps.run_id = prs.run_id
+            LEFT JOIN (
+                SELECT run_id, COUNT(*) AS component_count
+                FROM process_component_sequence
+                GROUP BY run_id
+            ) pc ON pc.run_id = prs.run_id
+        """
+        params: List[Any] = []
+        if process_name:
+            sql += " WHERE prs.process_name = ?"
+            params.append(process_name)
+        sql += " ORDER BY prs.created_ts DESC LIMIT ?"
+        params.append(max(1, int(limit)))
+
+        with self._conn() as conn:
+            rows = conn.execute(sql, params).fetchall()
+        return [dict(r) for r in rows]
+
+    def get_process_run_sequence(self, run_id: str) -> Dict[str, Any]:
+        with self._conn() as conn:
+            row = conn.execute(
+                """
+                SELECT prs.run_id, prs.process_name, prs.capture_id, prs.trace_json_path, prs.created_ts,
+                       prc.ui_invoker, prc.ui_invoker_source, prc.ui_invoker_confidence
+                FROM process_run_sequence
+                prs
+                LEFT JOIN process_run_context prc ON prc.run_id = prs.run_id
+                WHERE prs.run_id = ?
+                """,
+                (run_id,),
+            ).fetchone()
+            if row is None:
+                raise KeyError(f"Process run not found: {run_id}")
+
+            step_rows = conn.execute(
+                """
+                SELECT seq_no, log_id, details_json
+                FROM process_step_sequence
+                WHERE run_id = ?
+                ORDER BY seq_no ASC
+                """,
+                (run_id,),
+            ).fetchall()
+            component_rows = conn.execute(
+                """
+                SELECT seq_no, component_type, component_name, log_id, confidence
+                FROM process_component_sequence
+                WHERE run_id = ?
+                ORDER BY seq_no ASC
+                """,
+                (run_id,),
+            ).fetchall()
+
+        steps: List[Dict[str, Any]] = []
+        for r in step_rows:
+            item = dict(r)
+            raw = item.get("details_json")
+            try:
+                item["details"] = json.loads(raw) if raw else {}
+            except Exception:
+                item["details"] = {}
+            item.pop("details_json", None)
+            steps.append(item)
+
+        return {
+            **dict(row),
+            "steps": steps,
+            "components": [dict(r) for r in component_rows],
+        }
+
+    def upsert_process_run_context(
+        self,
+        *,
+        run_id: str,
+        ui_invoker: Optional[str],
+        source: Optional[str],
+        confidence: Optional[str],
+        notes: Optional[str],
+        updated_ts: str,
+    ) -> Dict[str, Any]:
+        with self._conn() as conn:
+            conn.execute(
+                """
+                INSERT INTO process_run_context
+                (run_id, ui_invoker, ui_invoker_source, ui_invoker_confidence, notes, updated_ts)
+                VALUES (?, ?, ?, ?, ?, ?)
+                ON CONFLICT(run_id) DO UPDATE SET
+                    ui_invoker=excluded.ui_invoker,
+                    ui_invoker_source=excluded.ui_invoker_source,
+                    ui_invoker_confidence=excluded.ui_invoker_confidence,
+                    notes=excluded.notes,
+                    updated_ts=excluded.updated_ts
+                """,
+                (run_id, ui_invoker, source, confidence, notes, updated_ts),
+            )
+            row = conn.execute(
+                """
+                SELECT run_id, ui_invoker, ui_invoker_source, ui_invoker_confidence, notes, updated_ts
+                FROM process_run_context
+                WHERE run_id = ?
+                """,
+                (run_id,),
+            ).fetchone()
+        return dict(row) if row else {
+            "run_id": run_id,
+            "ui_invoker": ui_invoker,
+            "ui_invoker_source": source,
+            "ui_invoker_confidence": confidence,
+            "notes": notes,
+            "updated_ts": updated_ts,
         }

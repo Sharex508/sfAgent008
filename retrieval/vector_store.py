@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
+from functools import lru_cache
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Tuple
 
@@ -17,7 +19,9 @@ COLLECTION_NAME = "metadata"
 EMBED_MODEL = "all-MiniLM-L6-v2"
 
 
-def _load_docs(docs_path: Path) -> List[MetadataDoc]:
+@lru_cache(maxsize=4)
+def _load_docs_cached(path_str: str, mtime_ns: int) -> List[MetadataDoc]:
+    docs_path = Path(path_str)
     docs: List[MetadataDoc] = []
     with docs_path.open("r", encoding="utf-8") as f:
         for line in f:
@@ -26,6 +30,12 @@ def _load_docs(docs_path: Path) -> List[MetadataDoc]:
                 continue
             docs.append(MetadataDoc.model_validate_json(line))
     return docs
+
+
+def _load_docs(docs_path: Path) -> List[MetadataDoc]:
+    docs_path = Path(docs_path)
+    stat = docs_path.stat()
+    return _load_docs_cached(str(docs_path.resolve()), int(stat.st_mtime_ns))
 
 
 def _get_client(persist_dir: Path | str):
@@ -93,16 +103,39 @@ def _vector_search(query: str, k: int, persist_dir: Path) -> List[MetadataDoc]:
 
 
 def _lexical_scores(query: str, docs: List[MetadataDoc], k: int) -> List[Tuple[MetadataDoc, float]]:
-    """Simple lexical scorer: count token matches in name/path/text."""
-    q_tokens = [t for t in query.lower().split() if t]
+    """Lexical scorer with light kind-aware weighting to reduce noisy matches."""
+    q_tokens = re.findall(r"[A-Za-z0-9_.$]+", query.lower())
+    if not q_tokens:
+        return []
+    q_set = set(q_tokens)
     scored: List[Tuple[MetadataDoc, float]] = []
     for d in docs:
-        haystacks = [d.name.lower(), d.path.lower(), d.text.lower()]
+        name_l = d.name.lower()
+        path_l = d.path.lower()
+        text_l = d.text.lower()
         score = 0.0
-        for t in q_tokens:
-            for h in haystacks:
-                if t in h:
-                    score += 1.0
+        for t in q_set:
+            # Prioritize precise matches in name/path over broad text matches.
+            if t in name_l:
+                score += 3.0
+            if t in path_l:
+                score += 2.0
+            if t in text_l:
+                score += 0.25
+
+        # Penalize broad security docs that often match many unrelated tokens.
+        if d.kind in {"Profile", "PermSet"}:
+            score *= 0.35
+
+        # Boost likely intent-specific kinds.
+        if any(t.startswith("approv") for t in q_set) and d.kind == "ApprovalProcess":
+            score *= 2.0
+        if "flow" in q_set and d.kind == "Flow":
+            score *= 1.3
+        if ("trigger" in q_set or "triggers" in q_set) and d.kind == "ApexTrigger":
+            score *= 1.3
+        if ("class" in q_set or "classes" in q_set) and d.kind == "ApexClass":
+            score *= 1.2
         if score > 0:
             scored.append((d, score))
     scored.sort(key=lambda x: x[1], reverse=True)
@@ -115,7 +148,7 @@ def search_metadata(
     persist_dir: Path = DEFAULT_DB,
     hybrid: bool = False,
     docs_path: Path = DEFAULT_DOCS,
-    lexical_weight: float = 1.0,
+    lexical_weight: float = 0.7,
     vector_weight: float = 1.0,
 ) -> List[MetadataDoc]:
     """
@@ -126,21 +159,36 @@ def search_metadata(
     if not hybrid:
         return _vector_search(query, k, persist_dir)
 
-    vec_hits = _vector_search(query, k, persist_dir)
-    vec_scores = {hit.doc_id: vector_weight * (k - idx) for idx, hit in enumerate(vec_hits)}
+    # Retrieve deeper candidate sets and fuse by rank to avoid score-scale skew.
+    vec_k = max(k * 3, 16)
+    lex_k = max(k * 8, 64)
+    vec_hits = _vector_search(query, vec_k, persist_dir)
 
     docs = _load_docs(docs_path)
-    lex_hits = _lexical_scores(query, docs, k)
-    lex_scores = {d.doc_id: lexical_weight * s for d, s in lex_hits}
+    lex_hits = _lexical_scores(query, docs, lex_k)
 
     merged: Dict[str, Dict[str, Any]] = {}
     for hit in vec_hits:
-        merged[hit.doc_id] = {"doc": hit, "score": vec_scores.get(hit.doc_id, 0)}
-    for d, s in lex_hits:
+        merged[hit.doc_id] = {"doc": hit, "score": 0.0}
+    for d, _ in lex_hits:
         if d.doc_id in merged:
-            merged[d.doc_id]["score"] += s
+            continue
         else:
-            merged[d.doc_id] = {"doc": d, "score": s}
+            merged[d.doc_id] = {"doc": d, "score": 0.0}
+
+    # Reciprocal rank fusion (RRF)
+    rrf_k = 60.0
+    vec_rank = {d.doc_id: idx + 1 for idx, d in enumerate(vec_hits)}
+    lex_rank = {d.doc_id: idx + 1 for idx, (d, _) in enumerate(lex_hits)}
+    for doc_id, item in merged.items():
+        score = 0.0
+        vr = vec_rank.get(doc_id)
+        lr = lex_rank.get(doc_id)
+        if vr is not None:
+            score += vector_weight * (1.0 / (rrf_k + vr))
+        if lr is not None:
+            score += lexical_weight * (1.0 / (rrf_k + lr))
+        item["score"] = score
 
     ranked = sorted(merged.values(), key=lambda x: x["score"], reverse=True)
     return [item["doc"] for item in ranked[:k]]

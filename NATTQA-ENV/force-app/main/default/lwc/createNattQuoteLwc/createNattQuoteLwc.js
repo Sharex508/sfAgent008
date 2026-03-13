@@ -7,6 +7,7 @@ import getScheduledPickDates from '@salesforce/apex/OpportunityQuoteCreationCont
 import getOpportunityProducts from '@salesforce/apex/OpportunityQuoteCreationController.getOpportunityProducts'; // Import new Apex method
 import { refreshApex } from '@salesforce/apex';
 import addressFromAccount from '@salesforce/apex/OpportunityQuoteCreationController.addressFromAccount';
+import trackUiEvent from '@salesforce/apex/SfRepoAiUiCaptureController.trackUiEvent';
 //Added by khushmeet
 import getUserInfo from '@salesforce/apex/OpportunityQuoteCreationController.getUserInfo';
 //End
@@ -78,10 +79,26 @@ export default class CreateNattQuoteLwc extends NavigationMixin(LightningElement
         { label: 'Scheduled Date', fieldName: 'Scheduled_Date__c', type: 'date' }
     ];
 
+    trackUi(eventType, actionName, elementLabel, details = {}) {
+        trackUiEvent({
+            eventType,
+            componentName: 'c:createNattQuoteLwc',
+            actionName,
+            elementLabel,
+            pageUrl: window.location.href,
+            recordId: this.recordId,
+            detailsJson: JSON.stringify(details || {})
+        }).catch(() => {});
+    }
+
     /* 
     Wire Adapter to Fetch Record Types for SBQQ__Quote__c Object
     */
     connectedCallback() {
+        this.trackUi('LWC_CONNECTED', 'connectedCallback', 'Create Quote page', {
+            recordId: this.recordId,
+            objectApiName: this.objectApiName
+        });
         console.log('isRecordTypeSelection'+this.isRecordTypeSelection);
         console.log('selectedRecordTypeId'+this.selectedRecordTypeId);
         console.log('objectApiName'+this.objectApiName);
@@ -262,6 +279,9 @@ wiredOpportuntiyProducts(result) {
     Handler for 'Next' Button Click
     */
     handleNextClick() {
+        this.trackUi('BUTTON_CLICK', 'Next', 'Next', {
+            selectedRecordTypeId: this.selectedRecordTypeId
+        });
         if (this.selectedRecordTypeId) {
             this.showSpinner = true;
             this.isRecordTypeSelection = false;
@@ -279,6 +299,7 @@ wiredOpportuntiyProducts(result) {
     Handler for 'Back' Button Click
     */
     handleBackClick() {
+        this.trackUi('BUTTON_CLICK', 'Back', 'Back');
         if (this.selectedRecordTypeId) {
             this.isOpportunityLoaded = false;
             this.isRecordTypeSelection = true;
@@ -298,6 +319,10 @@ wiredOpportuntiyProducts(result) {
     Handler for 'Submit' Button Click
     */
     handleSubmit(event) {
+        this.trackUi('BUTTON_CLICK', 'Submit for Approval', 'Submit', {
+            selectedRecordTypeId: this.selectedRecordTypeId,
+            opportunityStage: this.opportunityStage
+        });
         this.showSpinner = true;
         event.preventDefault();
 
@@ -346,6 +371,9 @@ wiredOpportuntiyProducts(result) {
         createRecord(recordInput)
             .then(quote => {
                 this.createdRecordId = quote.id;
+                this.trackUi('UI_STATE_CHANGE', 'Quote Created', 'Quote created', {
+                    createdRecordId: quote.id
+                });
                 this.showToast('Success', 'Quote created successfully!', 'success');
                 // Navigate to the record page after a short delay
                 setTimeout(() => {
@@ -392,6 +420,10 @@ wiredOpportuntiyProducts(result) {
     */
     navigateToRecordPage() {
         this.showSpinner = false;
+        this.trackUi('NAVIGATE', 'Navigate To Record', 'Quote record page', {
+            createdRecordId: this.createdRecordId,
+            objectApiName: this.objectApiName
+        });
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {

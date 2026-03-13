@@ -4,6 +4,7 @@ import { CloseActionScreenEvent } from 'lightning/actions';
 import { NavigationMixin } from 'lightning/navigation';
 import updatePricebookOnOpportunity from '@salesforce/apex/OpportunityQuoteCreationController.updatePricebookOnOpportunity';
 import getAddresses from '@salesforce/apex/AccountDetailsBillingShippingController.getRelatedAddresses';
+import trackUiEvent from '@salesforce/apex/SfRepoAiUiCaptureController.trackUiEvent';
 
 import getAccountDetails from '@salesforce/apex/AccountDetailsBillingShippingController.getAccountInfo';
 import OPPORTUNITY_OBJECT from '@salesforce/schema/Opportunity';
@@ -33,7 +34,23 @@ export default class CreateNattOppLwc extends NavigationMixin(LightningElement) 
 
     createdRecordId;
 
+    trackUi(eventType, actionName, elementLabel, details = {}) {
+        trackUiEvent({
+            eventType,
+            componentName: 'c:createNattOppLwc',
+            actionName,
+            elementLabel,
+            pageUrl: window.location.href,
+            recordId: this.recordId,
+            detailsJson: JSON.stringify(details || {})
+        }).catch(() => {});
+    }
+
    connectedCallback() {
+    this.trackUi('LWC_CONNECTED', 'connectedCallback', 'Create Opportunity page', {
+        recordId: this.recordId,
+        objectApiName: this.objectApiName
+    });
     this.opportunity[STAGE_FIELD.fieldApiName] = 'Prospecting';
     if (this.recordId) {
         getAccountDetails({ accountId: this.recordId })
@@ -133,6 +150,10 @@ export default class CreateNattOppLwc extends NavigationMixin(LightningElement) 
 
 
     handleSubmit(event) {
+        this.trackUi('BUTTON_CLICK', 'Submit', 'Create Opportunity', {
+            accountId: this.recordId,
+            recordTypeId: this.recordTypeId
+        });
         // Prevent default form submission
         event.preventDefault();
 
@@ -194,6 +215,9 @@ console.log('before Save--'+ JSON.stringify(recordInput));
     }
 
     handleSuccess() {
+        this.trackUi('UI_STATE_CHANGE', 'Create Success', 'Opportunity created', {
+            createdRecordId: this.createdRecordId
+        });
 
         updatePricebookOnOpportunity({ oppId: this.createdRecordId, recordTypeId: this.recordTypeId })
             .then(result => {
@@ -227,6 +251,10 @@ console.log('before Save--'+ JSON.stringify(recordInput));
     }
 
     navigateToRecordPage() {
+        this.trackUi('NAVIGATE', 'Navigate To Record', 'Opportunity record page', {
+            createdRecordId: this.createdRecordId,
+            objectApiName: this.objectApiName
+        });
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
