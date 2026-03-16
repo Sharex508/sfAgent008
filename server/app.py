@@ -6,7 +6,7 @@ import re
 import shutil
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException, Header, Security, Depends, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
@@ -21,6 +21,15 @@ from agent.runtime import (
     execute_plan,
 )
 from llm.ollama_client import OllamaClient
+from orchestration import (
+    OrchestrationStore,
+    apex_run_test,
+    default_project_dir,
+    deploy_start,
+    list_orgs,
+    login_access_token,
+    retrieve_start,
+)
 from process.capture import ingest_video, record_ui_event, save_process, start_capture, stop_capture
 from process.storage import CaptureStore
 from retrieval.vector_store import search_metadata
@@ -468,10 +477,240 @@ class ProcessVideoUploadResponse(BaseModel):
     llm_model: Optional[str]
 
 
+class WorkItemCreateRequest(BaseModel):
+    title: Optional[str] = Field(None, description="Short work item title")
+    story: str = Field(..., description="User story or enhancement request")
+    model: Optional[str] = Field(None, description="Ollama model override")
+    metadata_project_dir: Optional[str] = Field(None, description="SFDX project directory; defaults to NATTQA-ENV")
+    target_org_alias: Optional[str] = Field(None, description="Preferred Salesforce CLI org alias")
+
+
+class WorkItemResponse(BaseModel):
+    work_item_id: str
+    title: Optional[str]
+    story: str
+    status: str
+    llm_model: Optional[str]
+    metadata_project_dir: Optional[str]
+    target_org_alias: Optional[str]
+    analysis: Optional[Dict[str, Any]]
+    impacted_components: Optional[List[Dict[str, Any]]]
+    changed_components: Optional[Any]
+    deployment_result: Optional[Dict[str, Any]]
+    test_result: Optional[Dict[str, Any]]
+    debug_result: Optional[Dict[str, Any]]
+    final_summary: Optional[str]
+    created_ts: str
+    updated_ts: str
+
+
+class WorkItemListResponse(BaseModel):
+    items: List[WorkItemResponse]
+
+
+class WorkItemExecutionResponse(BaseModel):
+    execution_id: str
+    work_item_id: Optional[str]
+    operation_type: str
+    status: str
+    command_summary: Optional[str]
+    request: Optional[Dict[str, Any]]
+    result: Optional[Dict[str, Any]]
+    exit_code: Optional[int]
+    created_ts: str
+    updated_ts: str
+
+
+class WorkItemExecutionListResponse(BaseModel):
+    executions: List[WorkItemExecutionResponse]
+
+
+class WorkItemAnalyzeRequest(BaseModel):
+    model: Optional[str] = Field(None, description="Ollama model override")
+    k: int = Field(8, description="Number of retrieved components")
+    hybrid: bool = Field(True, description="Use hybrid retrieval")
+    logs: Optional[Any] = Field(None, description="Optional log payload to include in analysis")
+
+
+class SfCliLoginRequest(SfAuthRequest):
+    alias: str = Field(..., description="CLI alias to create/update")
+    set_default: bool = Field(False, description="Set the alias as default org in CLI")
+
+
+class SfCliDeployRequest(BaseModel):
+    work_item_id: Optional[str] = Field(None, description="Optional work item to attach execution to")
+    target_org: str = Field(..., description="Salesforce CLI alias or username")
+    project_dir: Optional[str] = Field(None, description="SFDX project directory; defaults to NATTQA-ENV")
+    source_dirs: Optional[List[str]] = Field(None, description="Source paths to deploy")
+    metadata: Optional[List[str]] = Field(None, description="Metadata members to deploy")
+    manifest: Optional[str] = Field(None, description="package.xml path to deploy")
+    wait_minutes: int = Field(30, description="CLI wait time in minutes")
+    api_version: Optional[str] = Field(None, description="API version override")
+    dry_run: bool = Field(False, description="Validate only")
+    ignore_conflicts: bool = Field(False, description="Pass through CLI conflict ignore flag")
+    ignore_warnings: bool = Field(False, description="Pass through CLI ignore warnings flag")
+    ignore_errors: bool = Field(False, description="Pass through CLI ignore errors flag")
+    test_level: Optional[str] = Field(None, description="Deployment test level")
+    tests: Optional[List[str]] = Field(None, description="Specified Apex tests")
+
+
+class SfCliRetrieveRequest(BaseModel):
+    work_item_id: Optional[str] = Field(None, description="Optional work item to attach execution to")
+    target_org: str = Field(..., description="Salesforce CLI alias or username")
+    project_dir: Optional[str] = Field(None, description="SFDX project directory; defaults to NATTQA-ENV")
+    source_dirs: Optional[List[str]] = Field(None, description="Source paths to retrieve")
+    metadata: Optional[List[str]] = Field(None, description="Metadata members to retrieve")
+    manifest: Optional[str] = Field(None, description="package.xml path to retrieve")
+    output_dir: Optional[str] = Field(None, description="Optional retrieve output dir")
+    wait_minutes: int = Field(33, description="CLI wait time in minutes")
+    api_version: Optional[str] = Field(None, description="API version override")
+    ignore_conflicts: bool = Field(False, description="Pass through CLI conflict ignore flag")
+
+
+class SfCliTestRequest(BaseModel):
+    work_item_id: Optional[str] = Field(None, description="Optional work item to attach execution to")
+    target_org: str = Field(..., description="Salesforce CLI alias or username")
+    project_dir: Optional[str] = Field(None, description="SFDX project directory; defaults to NATTQA-ENV")
+    wait_minutes: int = Field(30, description="CLI wait time in minutes")
+    api_version: Optional[str] = Field(None, description="API version override")
+    test_level: Optional[str] = Field("RunLocalTests", description="Apex test level")
+    tests: Optional[List[str]] = Field(None, description="Specific tests to run")
+    class_names: Optional[List[str]] = Field(None, description="Specific Apex test classes to run")
+    suite_names: Optional[List[str]] = Field(None, description="Specific Apex test suites to run")
+    code_coverage: bool = Field(True, description="Request coverage")
+    detailed_coverage: bool = Field(False, description="Request detailed coverage")
+    synchronous: bool = Field(False, description="Run tests synchronously")
+    output_dir: Optional[str] = Field(None, description="Optional test output directory")
+
+
+class SfCliCommandResponse(BaseModel):
+    execution_id: str
+    work_item_id: Optional[str]
+    operation_type: str
+    status: str
+    exit_code: Optional[int]
+    command: Optional[str]
+    workdir: Optional[str]
+    data: Optional[Dict[str, Any]]
+    stdout: str
+    stderr: str
+    created_ts: str
+    updated_ts: str
+
+
 def get_ollama_client(model_override: Optional[str] = None) -> OllamaClient:
     host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
     model = model_override or os.getenv("OLLAMA_MODEL", "gpt-oss:20b")
     return OllamaClient(host=host, model=model)
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def _project_dir_or_default(project_dir: Optional[str]) -> str:
+    return str(Path(project_dir).resolve()) if project_dir else str(default_project_dir())
+
+
+def _work_item_response(row: Dict[str, Any]) -> WorkItemResponse:
+    return WorkItemResponse(
+        work_item_id=row["work_item_id"],
+        title=row.get("title"),
+        story=row["story"],
+        status=row["status"],
+        llm_model=row.get("llm_model"),
+        metadata_project_dir=row.get("metadata_project_dir"),
+        target_org_alias=row.get("target_org_alias"),
+        analysis=row.get("analysis_json"),
+        impacted_components=row.get("impacted_components_json"),
+        changed_components=row.get("changed_components_json"),
+        deployment_result=row.get("deployment_result_json"),
+        test_result=row.get("test_result_json"),
+        debug_result=row.get("debug_result_json"),
+        final_summary=row.get("final_summary"),
+        created_ts=row["created_ts"],
+        updated_ts=row["updated_ts"],
+    )
+
+
+def _execution_response(row: Dict[str, Any]) -> WorkItemExecutionResponse:
+    return WorkItemExecutionResponse(
+        execution_id=row["execution_id"],
+        work_item_id=row.get("work_item_id"),
+        operation_type=row["operation_type"],
+        status=row["status"],
+        command_summary=row.get("command_summary"),
+        request=row.get("request_json"),
+        result=row.get("result_json"),
+        exit_code=row.get("exit_code"),
+        created_ts=row["created_ts"],
+        updated_ts=row["updated_ts"],
+    )
+
+
+def _run_cli_operation(
+    *,
+    operation_type: str,
+    work_item_id: Optional[str],
+    request_payload: Dict[str, Any],
+    runner: Callable[[], Any],
+    store: Optional[OrchestrationStore] = None,
+) -> SfCliCommandResponse:
+    db = store or OrchestrationStore()
+    created_ts = _utc_now_iso()
+    execution = db.create_execution(
+        operation_type=operation_type,
+        work_item_id=work_item_id,
+        created_ts=created_ts,
+        request_payload=request_payload,
+    )
+    try:
+        result = runner()
+        result_payload = {
+            "status": result.status,
+            "command": result.command,
+            "workdir": result.workdir,
+            "stdout": result.stdout,
+            "stderr": result.stderr,
+            "data": result.data,
+        }
+        execution = db.update_execution(
+            execution["execution_id"],
+            status=result.status,
+            updated_ts=_utc_now_iso(),
+            command_summary=result.command,
+            result_payload=result_payload,
+            exit_code=result.exit_code,
+        )
+        return SfCliCommandResponse(
+            execution_id=execution["execution_id"],
+            work_item_id=execution.get("work_item_id"),
+            operation_type=execution["operation_type"],
+            status=execution["status"],
+            exit_code=execution.get("exit_code"),
+            command=result.command,
+            workdir=result.workdir,
+            data=result.data,
+            stdout=result.stdout,
+            stderr=result.stderr,
+            created_ts=execution["created_ts"],
+            updated_ts=execution["updated_ts"],
+        )
+    except Exception as exc:
+        execution = db.update_execution(
+            execution["execution_id"],
+            status="FAILED",
+            updated_ts=_utc_now_iso(),
+            result_payload={"error": str(exc)},
+        )
+        raise HTTPException(
+            status_code=500,
+            detail={
+                "execution_id": execution["execution_id"],
+                "operation_type": operation_type,
+                "error": str(exc),
+            },
+        )
 
 
 def get_tooling_client(auth: SfAuthRequest) -> SalesforceToolingClient:
@@ -1650,6 +1889,247 @@ def sf_repo_ai_process_video_upload(
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/work-items", response_model=WorkItemResponse)
+def sf_repo_ai_work_item_create(req: WorkItemCreateRequest, api_key: str = Depends(get_api_key)):
+    try:
+        row = OrchestrationStore().create_work_item(
+            story=req.story,
+            title=req.title,
+            llm_model=req.model or os.getenv("OLLAMA_MODEL", "gpt-oss:20b"),
+            metadata_project_dir=_project_dir_or_default(req.metadata_project_dir),
+            target_org_alias=req.target_org_alias,
+            created_ts=_utc_now_iso(),
+        )
+        return _work_item_response(row)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/work-items", response_model=WorkItemListResponse)
+def sf_repo_ai_work_item_list(limit: int = 50, api_key: str = Depends(get_api_key)):
+    try:
+        rows = OrchestrationStore().list_work_items(limit=limit)
+        return WorkItemListResponse(items=[_work_item_response(r) for r in rows])
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/work-items/{work_item_id}", response_model=WorkItemResponse)
+def sf_repo_ai_work_item_get(work_item_id: str, api_key: str = Depends(get_api_key)):
+    try:
+        row = OrchestrationStore().get_work_item(work_item_id)
+        return _work_item_response(row)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/work-items/{work_item_id}/executions", response_model=WorkItemExecutionListResponse)
+def sf_repo_ai_work_item_executions(work_item_id: str, limit: int = 100, api_key: str = Depends(get_api_key)):
+    try:
+        rows = OrchestrationStore().list_executions(work_item_id=work_item_id, limit=limit)
+        return WorkItemExecutionListResponse(executions=[_execution_response(r) for r in rows])
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/work-items/{work_item_id}/analyze", response_model=WorkItemResponse)
+def sf_repo_ai_work_item_analyze(
+    work_item_id: str,
+    req: WorkItemAnalyzeRequest,
+    api_key: str = Depends(get_api_key),
+):
+    try:
+        store = OrchestrationStore()
+        row = store.get_work_item(work_item_id)
+        analysis = run_user_story_analysis(
+            UserStoryAnalyzeRequest(
+                story=row["story"],
+                model=req.model or row.get("llm_model"),
+                k=req.k,
+                hybrid=req.hybrid,
+                logs=req.logs,
+            )
+        )
+        updated = store.update_work_item(
+            work_item_id,
+            updated_ts=_utc_now_iso(),
+            status="ANALYZED",
+            llm_model=analysis.model,
+            analysis_json={
+                "model": analysis.model,
+                "initial_analysis": analysis.initial_analysis,
+                "final_answer": analysis.final_answer,
+            },
+            impacted_components_json=analysis.components,
+        )
+        return _work_item_response(updated)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/sf-cli/orgs", response_model=WorkItemExecutionResponse)
+def sf_repo_ai_cli_orgs(api_key: str = Depends(get_api_key)):
+    response = _run_cli_operation(
+        operation_type="sf_cli_list_orgs",
+        work_item_id=None,
+        request_payload={"all_orgs": True},
+        runner=lambda: list_orgs(all_orgs=True),
+    )
+    return WorkItemExecutionResponse(
+        execution_id=response.execution_id,
+        work_item_id=response.work_item_id,
+        operation_type=response.operation_type,
+        status=response.status,
+        command_summary=response.command,
+        request={"all_orgs": True},
+        result={
+            "workdir": response.workdir,
+            "data": response.data,
+            "stdout": response.stdout,
+            "stderr": response.stderr,
+        },
+        exit_code=response.exit_code,
+        created_ts=response.created_ts,
+        updated_ts=response.updated_ts,
+    )
+
+
+@app.post("/sf-repo-ai/sf-cli/login", response_model=SfCliCommandResponse)
+def sf_repo_ai_cli_login(req: SfCliLoginRequest, api_key: str = Depends(get_api_key)):
+    try:
+        client = get_tooling_client(req)
+        response = _run_cli_operation(
+            operation_type="sf_cli_login",
+            work_item_id=None,
+            request_payload={
+                "alias": req.alias,
+                "instance_url": client.cfg.instance_url,
+                "set_default": req.set_default,
+            },
+            runner=lambda: login_access_token(
+                alias=req.alias,
+                instance_url=client.cfg.instance_url,
+                access_token=client.cfg.session_id,
+                set_default=req.set_default,
+            ),
+        )
+        return response
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/sf-cli/deploy", response_model=SfCliCommandResponse)
+def sf_repo_ai_cli_deploy(req: SfCliDeployRequest, api_key: str = Depends(get_api_key)):
+    store = OrchestrationStore()
+    response = _run_cli_operation(
+        operation_type="sf_cli_deploy",
+        work_item_id=req.work_item_id,
+        request_payload=req.model_dump(),
+        runner=lambda: deploy_start(
+            target_org=req.target_org,
+            project_dir=Path(_project_dir_or_default(req.project_dir)),
+            source_dirs=req.source_dirs,
+            metadata=req.metadata,
+            manifest=req.manifest,
+            wait_minutes=req.wait_minutes,
+            api_version=req.api_version,
+            dry_run=req.dry_run,
+            ignore_conflicts=req.ignore_conflicts,
+            ignore_warnings=req.ignore_warnings,
+            ignore_errors=req.ignore_errors,
+            test_level=req.test_level,
+            tests=req.tests,
+        ),
+        store=store,
+    )
+    if req.work_item_id:
+        store.update_work_item(
+            req.work_item_id,
+            updated_ts=_utc_now_iso(),
+            status="DEPLOYED" if response.status == "SUCCEEDED" else "DEPLOY_FAILED",
+            target_org_alias=req.target_org,
+            metadata_project_dir=_project_dir_or_default(req.project_dir),
+            deployment_result_json={
+                "execution_id": response.execution_id,
+                "status": response.status,
+                "exit_code": response.exit_code,
+                "command": response.command,
+                "workdir": response.workdir,
+                "data": response.data,
+                "stderr": response.stderr,
+            },
+        )
+    return response
+
+
+@app.post("/sf-repo-ai/sf-cli/retrieve", response_model=SfCliCommandResponse)
+def sf_repo_ai_cli_retrieve(req: SfCliRetrieveRequest, api_key: str = Depends(get_api_key)):
+    return _run_cli_operation(
+        operation_type="sf_cli_retrieve",
+        work_item_id=req.work_item_id,
+        request_payload=req.model_dump(),
+        runner=lambda: retrieve_start(
+            target_org=req.target_org,
+            project_dir=Path(_project_dir_or_default(req.project_dir)),
+            source_dirs=req.source_dirs,
+            metadata=req.metadata,
+            manifest=req.manifest,
+            output_dir=req.output_dir,
+            wait_minutes=req.wait_minutes,
+            api_version=req.api_version,
+            ignore_conflicts=req.ignore_conflicts,
+        ),
+        store=OrchestrationStore(),
+    )
+
+
+@app.post("/sf-repo-ai/sf-cli/test", response_model=SfCliCommandResponse)
+def sf_repo_ai_cli_test(req: SfCliTestRequest, api_key: str = Depends(get_api_key)):
+    store = OrchestrationStore()
+    response = _run_cli_operation(
+        operation_type="sf_cli_test",
+        work_item_id=req.work_item_id,
+        request_payload=req.model_dump(),
+        runner=lambda: apex_run_test(
+            target_org=req.target_org,
+            project_dir=Path(_project_dir_or_default(req.project_dir)),
+            wait_minutes=req.wait_minutes,
+            api_version=req.api_version,
+            test_level=req.test_level,
+            tests=req.tests,
+            class_names=req.class_names,
+            suite_names=req.suite_names,
+            code_coverage=req.code_coverage,
+            detailed_coverage=req.detailed_coverage,
+            synchronous=req.synchronous,
+            output_dir=req.output_dir,
+        ),
+        store=store,
+    )
+    if req.work_item_id:
+        store.update_work_item(
+            req.work_item_id,
+            updated_ts=_utc_now_iso(),
+            status="TESTED" if response.status == "SUCCEEDED" else "TEST_FAILED",
+            test_result_json={
+                "execution_id": response.execution_id,
+                "status": response.status,
+                "exit_code": response.exit_code,
+                "command": response.command,
+                "workdir": response.workdir,
+                "data": response.data,
+                "stderr": response.stderr,
+            },
+        )
+    return response
 
 
 @app.get("/health")
