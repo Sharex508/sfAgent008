@@ -355,7 +355,129 @@ def validate_generated_files(project_dir: Path, changed_files: List[Dict[str, An
         except Exception as exc:
             overall = _merge_status(overall, "FAILED")
             checks.append({"name": str(path), "status": "FAILED", "message": str(exc)})
+
+        ext_checks = validate_salesforce_file(path)
+        for check in ext_checks:
+            checks.append(check)
+            overall = _merge_status(overall, str(check.get("status") or "SKIPPED"))
     return {"status": overall, "checks": checks}
+
+
+def _balanced_pairs(text: str, left: str, right: str) -> bool:
+    count = 0
+    for ch in text:
+        if ch == left:
+            count += 1
+        elif ch == right:
+            count -= 1
+            if count < 0:
+                return False
+    return count == 0
+
+
+def _validate_apex_file(path: Path) -> List[Dict[str, Any]]:
+    checks: List[Dict[str, Any]] = []
+    text = _read_text(path)
+    lower = text.lower()
+    expected = "class" if path.suffix.lower() == ".cls" else "trigger"
+    if expected not in lower:
+        checks.append(
+            {
+                "name": str(path),
+                "status": "FAILED",
+                "message": f"Apex file does not appear to contain a {expected} declaration.",
+            }
+        )
+    else:
+        checks.append(
+            {
+                "name": str(path),
+                "status": "SUCCEEDED",
+                "message": f"Apex {expected} declaration detected.",
+            }
+        )
+
+    if _balanced_pairs(text, "{", "}"):
+        checks.append({"name": str(path), "status": "SUCCEEDED", "message": "Balanced curly braces"})
+    else:
+        checks.append({"name": str(path), "status": "FAILED", "message": "Unbalanced curly braces"})
+
+    meta_path = path.with_name(path.name + "-meta.xml")
+    if meta_path.exists():
+        checks.append({"name": str(meta_path), "status": "SUCCEEDED", "message": "Companion metadata file exists"})
+    else:
+        checks.append({"name": str(meta_path), "status": "FAILED", "message": "Missing companion metadata file"})
+    return checks
+
+
+def _validate_lwc_bundle(path: Path) -> List[Dict[str, Any]]:
+    checks: List[Dict[str, Any]] = []
+    parts = list(path.parts)
+    if "lwc" not in parts:
+        return checks
+    idx = parts.index("lwc")
+    if len(parts) <= idx + 1:
+        return checks
+    bundle_dir = Path(*parts[: idx + 2])
+    bundle_name = bundle_dir.name
+    js_path = bundle_dir / f"{bundle_name}.js"
+    html_path = bundle_dir / f"{bundle_name}.html"
+    meta_path = bundle_dir / f"{bundle_name}.js-meta.xml"
+
+    if js_path.exists() or html_path.exists():
+        checks.append({"name": str(bundle_dir), "status": "SUCCEEDED", "message": "LWC bundle has view/controller file"})
+    else:
+        checks.append({"name": str(bundle_dir), "status": "FAILED", "message": "LWC bundle is missing both .js and .html files"})
+
+    if meta_path.exists():
+        checks.append({"name": str(meta_path), "status": "SUCCEEDED", "message": "LWC bundle metadata file exists"})
+    else:
+        checks.append({"name": str(meta_path), "status": "FAILED", "message": "LWC bundle metadata file is missing"})
+    return checks
+
+
+def _validate_aura_bundle(path: Path) -> List[Dict[str, Any]]:
+    checks: List[Dict[str, Any]] = []
+    parts = list(path.parts)
+    if "aura" not in parts:
+        return checks
+    idx = parts.index("aura")
+    if len(parts) <= idx + 1:
+        return checks
+    bundle_dir = Path(*parts[: idx + 2])
+    cmp_files = list(bundle_dir.glob("*.cmp")) + list(bundle_dir.glob("*.app")) + list(bundle_dir.glob("*.auradoc"))
+    if cmp_files:
+        checks.append({"name": str(bundle_dir), "status": "SUCCEEDED", "message": "Aura bundle root file detected"})
+    else:
+        checks.append({"name": str(bundle_dir), "status": "FAILED", "message": "Aura bundle is missing a root component/application file"})
+    return checks
+
+
+def _validate_metadata_xml(path: Path) -> List[Dict[str, Any]]:
+    checks: List[Dict[str, Any]] = []
+    if not path.name.endswith("-meta.xml"):
+        return checks
+    root = ElementTree.fromstring(_read_text(path))
+    tag = root.tag.split("}")[-1]
+    if tag:
+        checks.append({"name": str(path), "status": "SUCCEEDED", "message": f"Metadata root element detected: {tag}"})
+    else:
+        checks.append({"name": str(path), "status": "FAILED", "message": "Metadata XML root element is empty"})
+    return checks
+
+
+def validate_salesforce_file(path: Path) -> List[Dict[str, Any]]:
+    suffix = path.suffix.lower()
+    checks: List[Dict[str, Any]] = []
+    if suffix in {".cls", ".trigger"}:
+        checks.extend(_validate_apex_file(path))
+    if "lwc" in path.parts:
+        checks.extend(_validate_lwc_bundle(path))
+    if "aura" in path.parts:
+        checks.extend(_validate_aura_bundle(path))
+    if suffix == ".xml":
+        checks.extend(_validate_metadata_xml(path))
+    return checks
 
 
 def _normalize_deploy_path(project_dir: Path, path: Path) -> str:

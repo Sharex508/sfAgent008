@@ -570,6 +570,49 @@ class WorkItemApproveGenerationRequest(BaseModel):
     org_validation_test_level: Optional[str] = Field(None, description="Optional test level for org validation")
 
 
+class WorkItemRunRequest(BaseModel):
+    title: Optional[str] = Field(None, description="Optional work item title")
+    story: str = Field(..., description="User story or implementation request")
+    model: Optional[str] = Field(None, description="Ollama model override")
+    metadata_project_dir: Optional[str] = Field(None, description="Metadata project directory")
+    target_org_alias: Optional[str] = Field(None, description="Salesforce CLI target org alias")
+    analyze: bool = Field(True, description="Run story analysis")
+    generate: bool = Field(True, description="Run generation step")
+    generate_mode: str = Field("apply", description="plan_only or apply")
+    auto_approve_generation: bool = Field(False, description="If true, auto-apply a plan_only generation plan")
+    instructions: Optional[str] = Field(None, description="Extra implementation instructions for generation")
+    target_components: Optional[List[Dict[str, Any]]] = Field(None, description="Optional explicit target components")
+    create_missing_components: bool = Field(True, description="Allow creation of missing components")
+    run_local_validation: bool = Field(True, description="Run local generation validators")
+    run_org_validation: bool = Field(False, description="Run org dry-run validation on generated changes")
+    org_validation_test_level: Optional[str] = Field(None, description="Test level for org dry-run validation")
+    retrieve_before_deploy: bool = Field(False, description="Retrieve metadata before deployment")
+    retrieve_metadata: Optional[List[str]] = Field(None, description="Optional retrieve metadata members")
+    retrieve_source_dirs: Optional[List[str]] = Field(None, description="Optional retrieve source dirs")
+    retrieve_manifest: Optional[str] = Field(None, description="Optional retrieve manifest")
+    retrieve_wait_minutes: int = Field(20, description="Retrieve wait time in minutes")
+    deploy: bool = Field(False, description="Deploy after generation")
+    deploy_source_dirs: Optional[List[str]] = Field(None, description="Optional explicit deploy source dirs")
+    deploy_metadata: Optional[List[str]] = Field(None, description="Optional deploy metadata members")
+    deploy_manifest: Optional[str] = Field(None, description="Optional deploy manifest")
+    deploy_wait_minutes: int = Field(30, description="Deploy wait time in minutes")
+    deploy_test_level: Optional[str] = Field("RunLocalTests", description="Deployment test level")
+    deploy_tests: Optional[List[str]] = Field(None, description="Specific deployment tests")
+    deploy_ignore_conflicts: bool = Field(True, description="Ignore conflicts during deploy")
+    deploy_dry_run: bool = Field(False, description="Use deployment validate-only mode")
+    run_tests: bool = Field(False, description="Run Apex tests after deploy")
+    test_wait_minutes: int = Field(30, description="Test wait time in minutes")
+    test_level: Optional[str] = Field("RunLocalTests", description="Apex test level")
+    test_names: Optional[List[str]] = Field(None, description="Specific Apex tests")
+    test_class_names: Optional[List[str]] = Field(None, description="Specific Apex test classes")
+    test_suite_names: Optional[List[str]] = Field(None, description="Specific Apex test suites")
+
+
+class WorkItemRunResponse(BaseModel):
+    work_item: WorkItemResponse
+    stages: List[Dict[str, Any]]
+
+
 class SfCliLoginRequest(SfAuthRequest):
     alias: str = Field(..., description="CLI alias to create/update")
     set_default: bool = Field(False, description="Set the alias as default org in CLI")
@@ -684,6 +727,34 @@ def _execution_response(row: Dict[str, Any]) -> WorkItemExecutionResponse:
         created_ts=row["created_ts"],
         updated_ts=row["updated_ts"],
     )
+
+
+def _normalize_source_dir(project_dir: Path, rel_path: str) -> str:
+    path = (project_dir / rel_path).resolve()
+    relative = path.relative_to(project_dir)
+    parts = relative.parts
+    for bundle_dir in ("lwc", "aura"):
+        if bundle_dir in parts:
+            idx = parts.index(bundle_dir)
+            if len(parts) > idx + 1:
+                return str(Path(*parts[: idx + 2]))
+    return str(relative)
+
+
+def _derive_source_dirs_from_changed_components(project_dir: Path, changed_components: List[Dict[str, Any]]) -> List[str]:
+    source_dirs: List[str] = []
+    seen: set[str] = set()
+    for item in changed_components:
+        rel_path = str(item.get("path") or "").strip()
+        if not rel_path:
+            continue
+        normalized = _normalize_source_dir(project_dir, rel_path)
+        key = normalized.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        source_dirs.append(normalized)
+    return source_dirs
 
 
 def _run_cli_operation(
@@ -2282,6 +2353,211 @@ def sf_repo_ai_work_item_approve_generation(
         raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/work-items/run", response_model=WorkItemRunResponse)
+def sf_repo_ai_work_item_run(req: WorkItemRunRequest, api_key: str = Depends(get_api_key)):
+    if req.generate and not req.analyze:
+        raise HTTPException(status_code=400, detail="analyze must be true when generate is requested on a new work item")
+    store = OrchestrationStore()
+    row = store.create_work_item(
+        story=req.story,
+        title=req.title,
+        llm_model=req.model or os.getenv("OLLAMA_MODEL", "gpt-oss:20b"),
+        metadata_project_dir=_project_dir_or_default(req.metadata_project_dir),
+        target_org_alias=req.target_org_alias,
+        created_ts=_utc_now_iso(),
+    )
+    work_item_id = row["work_item_id"]
+    stages: List[Dict[str, Any]] = []
+
+    try:
+        if req.analyze:
+            analyzed = sf_repo_ai_work_item_analyze(
+                work_item_id,
+                WorkItemAnalyzeRequest(model=req.model, k=12, hybrid=True),
+                api_key="",
+            )
+            stages.append(
+                {
+                    "stage": "analyze",
+                    "status": analyzed.status,
+                    "analysis_model": analyzed.llm_model,
+                    "impacted_components": len(analyzed.impacted_components or []),
+                }
+            )
+
+        generated_response: Optional[WorkItemGenerateResponse] = None
+        if req.generate:
+            generate_response = sf_repo_ai_work_item_generate_or_update_components(
+                work_item_id,
+                WorkItemGenerateRequest(
+                    model=req.model,
+                    mode=req.generate_mode,
+                    target_components=req.target_components,
+                    instructions=req.instructions,
+                    create_missing_components=req.create_missing_components,
+                    run_local_validation=req.run_local_validation,
+                    run_org_validation=req.run_org_validation,
+                    org_validation_test_level=req.org_validation_test_level,
+                    write_changes=req.generate_mode.strip().lower() != "plan_only",
+                ),
+                api_key="",
+            )
+            stages.append(
+                {
+                    "stage": "generate",
+                    "status": generate_response.status,
+                    "changed_components": len(generate_response.changed_components or []),
+                    "validation": generate_response.validation,
+                    "artifacts": generate_response.artifacts,
+                }
+            )
+            generated_response = generate_response
+
+            if req.generate_mode.strip().lower() == "plan_only" and req.auto_approve_generation:
+                approved = sf_repo_ai_work_item_approve_generation(
+                    work_item_id,
+                    WorkItemApproveGenerationRequest(
+                        run_local_validation=req.run_local_validation,
+                        run_org_validation=req.run_org_validation,
+                        org_validation_test_level=req.org_validation_test_level,
+                    ),
+                    api_key="",
+                )
+                stages.append(
+                    {
+                        "stage": "approve_generation",
+                        "status": approved.status,
+                        "changed_components": len(approved.changed_components or []),
+                        "validation": approved.validation,
+                        "artifacts": approved.artifacts,
+                    }
+                )
+                generated_response = approved
+
+        project_dir = Path(_project_dir_or_default(req.metadata_project_dir)).resolve()
+        if req.retrieve_before_deploy:
+            if not req.target_org_alias:
+                raise HTTPException(status_code=400, detail="target_org_alias is required for retrieve_before_deploy")
+            retrieve_response = sf_repo_ai_cli_retrieve(
+                SfCliRetrieveRequest(
+                    work_item_id=work_item_id,
+                    target_org=req.target_org_alias,
+                    project_dir=str(project_dir),
+                    source_dirs=req.retrieve_source_dirs,
+                    metadata=req.retrieve_metadata,
+                    manifest=req.retrieve_manifest,
+                    wait_minutes=req.retrieve_wait_minutes,
+                    ignore_conflicts=True,
+                ),
+                api_key="",
+            )
+            stages.append(
+                {
+                    "stage": "retrieve",
+                    "status": retrieve_response.status,
+                    "execution_id": retrieve_response.execution_id,
+                    "stderr": retrieve_response.stderr,
+                }
+            )
+
+        if req.deploy:
+            if not req.target_org_alias:
+                raise HTTPException(status_code=400, detail="target_org_alias is required for deploy")
+            deploy_source_dirs = req.deploy_source_dirs
+            current = store.get_work_item(work_item_id)
+            if not deploy_source_dirs and current.get("changed_components_json"):
+                deploy_source_dirs = _derive_source_dirs_from_changed_components(
+                    Path(current.get("metadata_project_dir") or str(project_dir)),
+                    current.get("changed_components_json") or [],
+                )
+            if not deploy_source_dirs and not req.deploy_metadata and not req.deploy_manifest:
+                raise HTTPException(
+                    status_code=400,
+                    detail="No deployable source paths found. Provide deploy_source_dirs/metadata/manifest or generate and approve changes first.",
+                )
+            deploy_response = sf_repo_ai_cli_deploy(
+                SfCliDeployRequest(
+                    work_item_id=work_item_id,
+                    target_org=req.target_org_alias,
+                    project_dir=str(project_dir),
+                    source_dirs=deploy_source_dirs,
+                    metadata=req.deploy_metadata,
+                    manifest=req.deploy_manifest,
+                    wait_minutes=req.deploy_wait_minutes,
+                    dry_run=req.deploy_dry_run,
+                    ignore_conflicts=req.deploy_ignore_conflicts,
+                    test_level=req.deploy_test_level,
+                    tests=req.deploy_tests,
+                ),
+                api_key="",
+            )
+            stages.append(
+                {
+                    "stage": "deploy",
+                    "status": deploy_response.status,
+                    "execution_id": deploy_response.execution_id,
+                    "command": deploy_response.command,
+                    "stderr": deploy_response.stderr,
+                }
+            )
+
+        if req.run_tests:
+            if not req.target_org_alias:
+                raise HTTPException(status_code=400, detail="target_org_alias is required for run_tests")
+            test_response = sf_repo_ai_cli_test(
+                SfCliTestRequest(
+                    work_item_id=work_item_id,
+                    target_org=req.target_org_alias,
+                    project_dir=str(project_dir),
+                    wait_minutes=req.test_wait_minutes,
+                    test_level=req.test_level,
+                    tests=req.test_names,
+                    class_names=req.test_class_names,
+                    suite_names=req.test_suite_names,
+                    code_coverage=True,
+                ),
+                api_key="",
+            )
+            stages.append(
+                {
+                    "stage": "test",
+                    "status": test_response.status,
+                    "execution_id": test_response.execution_id,
+                    "command": test_response.command,
+                    "stderr": test_response.stderr,
+                }
+            )
+
+        final_row = store.get_work_item(work_item_id)
+        final_status = final_row.get("status")
+        if stages and all(str(stage.get("status") or "").upper() in {"ANALYZED", "AWAITING_APPROVAL", "GENERATED", "DEPLOYED", "TESTED", "SUCCEEDED"} for stage in stages):
+            if final_status in {"GENERATED", "DEPLOYED", "TESTED"}:
+                final_row = store.update_work_item(
+                    work_item_id,
+                    updated_ts=_utc_now_iso(),
+                    status="COMPLETED",
+                )
+        return WorkItemRunResponse(work_item=_work_item_response(final_row), stages=stages)
+    except HTTPException as exc:
+        raise HTTPException(
+            status_code=exc.status_code,
+            detail={
+                "work_item_id": work_item_id,
+                "stages": stages,
+                "error": exc.detail,
+            },
+        )
+    except Exception as exc:
+        raise HTTPException(
+            status_code=500,
+            detail={
+                "work_item_id": work_item_id,
+                "stages": stages,
+                "error": str(exc),
+            },
+        )
 
 
 @app.get("/sf-repo-ai/sf-cli/orgs", response_model=WorkItemExecutionResponse)
