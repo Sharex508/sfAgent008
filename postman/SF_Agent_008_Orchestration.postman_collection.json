@@ -1,0 +1,540 @@
+{
+  "info": {
+    "name": "SF Agent 008 Orchestration API",
+    "_postman_id": "6d463e9d-cdb4-4d61-b637-b3f2bb8f72c6",
+    "description": "Postman collection for SF Agent 008 health, work item orchestration, Salesforce CLI orchestration, and process capture endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "SF Repo AI Health",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/health",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "health"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Root Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Work Item Orchestration",
+      "item": [
+        {
+          "name": "Run End To End",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Quick Start Story\",\n  \"story\": \"As a business user, I want a Salesforce enhancement analyzed and generated.\",\n  \"model\": \"gpt-oss:20b\",\n  \"metadata_project_dir\": \"C:\\\\Users\\\\narendra\\\\Downloads\\\\sf\\\\sfAgent008\\\\NATTQA-ENV\",\n  \"target_org_alias\": \"nattqa\",\n  \"analyze\": true,\n  \"generate\": true,\n  \"generate_mode\": \"plan_only\",\n  \"auto_approve_generation\": true,\n  \"run_local_validation\": true,\n  \"run_org_validation\": false,\n  \"deploy\": false,\n  \"run_tests\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/work-items/run",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "work-items",
+                "run"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Work Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Generic Salesforce Story\",\n  \"story\": \"As a business user, I want a Salesforce enhancement analyzed and implemented.\",\n  \"model\": \"gpt-oss:20b\",\n  \"metadata_project_dir\": \"C:\\\\Users\\\\narendra\\\\Downloads\\\\sf\\\\sfAgent008\\\\NATTQA-ENV\",\n  \"target_org_alias\": \"nattqa\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/work-items",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "work-items"
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Work Items",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/work-items",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "work-items"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Work Item",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/work-items/{{work_item_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "work-items",
+                "{{work_item_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Analyze Work Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"gpt-oss:20b\",\n  \"k\": 12,\n  \"hybrid\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/work-items/{{work_item_id}}/analyze",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "work-items",
+                "{{work_item_id}}",
+                "analyze"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Generate Or Update Components",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"gpt-oss:20b\",\n  \"mode\": \"plan_only\",\n  \"create_missing_components\": true,\n  \"run_local_validation\": true,\n  \"run_org_validation\": false,\n  \"write_changes\": false,\n  \"max_targets\": 12\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/work-items/{{work_item_id}}/generate-or-update-components",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "work-items",
+                "{{work_item_id}}",
+                "generate-or-update-components"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Approve Generation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"run_local_validation\": true,\n  \"run_org_validation\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/work-items/{{work_item_id}}/approve-generation",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "work-items",
+                "{{work_item_id}}",
+                "approve-generation"
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Work Item Executions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/work-items/{{work_item_id}}/executions",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "work-items",
+                "{{work_item_id}}",
+                "executions"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Salesforce CLI",
+      "item": [
+        {
+          "name": "List CLI Orgs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/sf-cli/orgs",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "sf-cli",
+                "orgs"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Deploy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"work_item_id\": \"{{work_item_id}}\",\n  \"target_org\": \"{{target_org_alias}}\",\n  \"project_dir\": \"{{project_dir}}\",\n  \"source_dirs\": [\n    \"force-app/main/default/classes\",\n    \"force-app/main/default/lwc\"\n  ],\n  \"wait_minutes\": 30,\n  \"ignore_conflicts\": true,\n  \"test_level\": \"RunLocalTests\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/sf-cli/deploy",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "sf-cli",
+                "deploy"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Retrieve",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"work_item_id\": \"{{work_item_id}}\",\n  \"target_org\": \"{{target_org_alias}}\",\n  \"project_dir\": \"{{project_dir}}\",\n  \"metadata\": [\n    \"ApexClass:*\",\n    \"LightningComponentBundle:*\"\n  ],\n  \"wait_minutes\": 20,\n  \"ignore_conflicts\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/sf-cli/retrieve",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "sf-cli",
+                "retrieve"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Run Tests",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"work_item_id\": \"{{work_item_id}}\",\n  \"target_org\": \"{{target_org_alias}}\",\n  \"project_dir\": \"{{project_dir}}\",\n  \"wait_minutes\": 30,\n  \"test_level\": \"RunLocalTests\",\n  \"code_coverage\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/sf-cli/test",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "sf-cli",
+                "test"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Process Capture",
+      "item": [
+        {
+          "name": "Start Capture",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login_url\": \"{{login_url}}\",\n  \"client_id\": \"{{client_id}}\",\n  \"client_secret\": \"{{client_secret}}\",\n  \"auth_mode\": \"oauth_client_credentials\",\n  \"minutes\": 10,\n  \"tail_seconds\": 120\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/process-capture/start",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "process-capture",
+                "start"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Stop Capture",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-API-Key",
+                "value": "{{api_key}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"login_url\": \"{{login_url}}\",\n  \"client_id\": \"{{client_id}}\",\n  \"client_secret\": \"{{client_secret}}\",\n  \"auth_mode\": \"oauth_client_credentials\",\n  \"capture_id\": \"{{capture_id}}\",\n  \"analyze\": true,\n  \"llm\": false,\n  \"llm_model\": \"gpt-oss:20b\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/sf-repo-ai/process-capture/stop",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "sf-repo-ai",
+                "process-capture",
+                "stop"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8001"
+    },
+    {
+      "key": "api_key",
+      "value": ""
+    },
+    {
+      "key": "work_item_id",
+      "value": ""
+    },
+    {
+      "key": "capture_id",
+      "value": ""
+    },
+    {
+      "key": "target_org_alias",
+      "value": "nattqa"
+    },
+    {
+      "key": "project_dir",
+      "value": "C:\\Users\\narendra\\Downloads\\sf\\sfAgent008\\NATTQA-ENV"
+    },
+    {
+      "key": "login_url",
+      "value": "https://carrier-global--nattqa.sandbox.my.salesforce.com"
+    },
+    {
+      "key": "client_id",
+      "value": ""
+    },
+    {
+      "key": "client_secret",
+      "value": ""
+    }
+  ]
+}
