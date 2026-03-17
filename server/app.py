@@ -22,10 +22,12 @@ from agent.runtime import (
 )
 from llm.ollama_client import OllamaClient
 from orchestration import (
+    GenerationResult,
     OrchestrationStore,
     apex_run_test,
     default_project_dir,
     deploy_start,
+    generate_or_update_components,
     list_orgs,
     login_access_token,
     retrieve_start,
@@ -530,6 +532,42 @@ class WorkItemAnalyzeRequest(BaseModel):
     k: int = Field(8, description="Number of retrieved components")
     hybrid: bool = Field(True, description="Use hybrid retrieval")
     logs: Optional[Any] = Field(None, description="Optional log payload to include in analysis")
+
+
+class WorkItemGenerateRequest(BaseModel):
+    model: Optional[str] = Field(None, description="Ollama model override")
+    mode: str = Field("apply", description="plan_only or apply")
+    target_components: Optional[List[Dict[str, Any]]] = Field(
+        None,
+        description="Optional narrowed target components; each item can include kind, name, and path.",
+    )
+    instructions: Optional[str] = Field(None, description="Additional implementation instructions")
+    create_missing_components: bool = Field(True, description="Allow creation of missing files/components")
+    run_local_validation: bool = Field(True, description="Run local generic validators after writing files")
+    run_org_validation: bool = Field(False, description="Run Salesforce dry-run validation using target_org_alias")
+    org_validation_test_level: Optional[str] = Field(None, description="Optional test level for dry-run org validation")
+    write_changes: bool = Field(True, description="When false, only generate a plan")
+    max_targets: int = Field(12, description="Maximum components to load into context")
+
+
+class WorkItemGenerateResponse(BaseModel):
+    work_item_id: str
+    status: str
+    model: str
+    generation_summary: str
+    changed_components: List[Dict[str, Any]]
+    artifacts: Dict[str, str]
+    validation: Dict[str, Any]
+    plan: Dict[str, Any]
+    updated_work_item: WorkItemResponse
+
+
+class WorkItemApproveGenerationRequest(BaseModel):
+    execution_id: Optional[str] = Field(None, description="Optional plan-only generation execution to approve")
+    model: Optional[str] = Field(None, description="Optional model override for file generation")
+    run_local_validation: bool = Field(True, description="Run local validators after applying approved generation")
+    run_org_validation: bool = Field(False, description="Run Salesforce dry-run validation after applying approved generation")
+    org_validation_test_level: Optional[str] = Field(None, description="Optional test level for org validation")
 
 
 class SfCliLoginRequest(SfAuthRequest):
@@ -1969,6 +2007,279 @@ def sf_repo_ai_work_item_analyze(
         return _work_item_response(updated)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post(
+    "/sf-repo-ai/work-items/{work_item_id}/generate-or-update-components",
+    response_model=WorkItemGenerateResponse,
+)
+def sf_repo_ai_work_item_generate_or_update_components(
+    work_item_id: str,
+    req: WorkItemGenerateRequest,
+    api_key: str = Depends(get_api_key),
+):
+    store = OrchestrationStore()
+    try:
+        row = store.get_work_item(work_item_id)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+
+    mode = (req.mode or "apply").strip().lower()
+    if mode not in {"apply", "plan_only"}:
+        raise HTTPException(status_code=400, detail="mode must be one of: apply, plan_only")
+
+    if not row.get("analysis_json"):
+        raise HTTPException(
+            status_code=400,
+            detail="Work item analysis is required before generation. Run /work-items/{id}/analyze first.",
+        )
+
+    if not row.get("impacted_components_json") and not req.target_components:
+        raise HTTPException(
+            status_code=400,
+            detail="No impacted components are available. Provide target_components or run analysis again.",
+        )
+
+    project_dir = Path(row.get("metadata_project_dir") or _project_dir_or_default(None)).resolve()
+    if not project_dir.exists():
+        raise HTTPException(status_code=400, detail=f"Metadata project directory not found: {project_dir}")
+
+    created_ts = _utc_now_iso()
+    command_summary = f"model={req.model or row.get('llm_model') or os.getenv('OLLAMA_MODEL', 'gpt-oss:20b')} mode={mode}"
+    execution = store.create_execution(
+        operation_type="generate_or_update_components",
+        work_item_id=work_item_id,
+        created_ts=created_ts,
+        command_summary=command_summary,
+        request_payload=req.model_dump(),
+    )
+
+    artifact_root = Path("data/work_items") / work_item_id / "generation" / execution["execution_id"]
+    store.update_work_item(
+        work_item_id,
+        updated_ts=_utc_now_iso(),
+        status="GENERATING",
+    )
+
+    try:
+        result = generate_or_update_components(
+            project_dir=project_dir,
+            work_item=row,
+            model=req.model or row.get("llm_model"),
+            mode=mode,
+            target_components=req.target_components,
+            instructions=req.instructions,
+            create_missing_components=req.create_missing_components,
+            run_local_validation=req.run_local_validation,
+            run_org_validation=req.run_org_validation,
+            org_validation_test_level=req.org_validation_test_level,
+            write_changes=req.write_changes,
+            artifact_root=artifact_root,
+            target_org_alias=row.get("target_org_alias"),
+            max_targets=req.max_targets,
+        )
+
+        result_payload = {
+            "model": result.model,
+            "status": result.status,
+            "generation_summary": result.generation_summary,
+            "changed_components": result.changed_components,
+            "artifacts": result.artifacts,
+            "validation": result.validation,
+            "plan": result.plan,
+        }
+        store.update_execution(
+            execution["execution_id"],
+            status=result.status,
+            updated_ts=_utc_now_iso(),
+            command_summary=command_summary,
+            result_payload=result_payload,
+            exit_code=0 if result.status != "GENERATION_FAILED" else 1,
+        )
+        updated = store.update_work_item(
+            work_item_id,
+            updated_ts=_utc_now_iso(),
+            status=result.status,
+            llm_model=result.model,
+            changed_components_json=result.changed_components,
+            final_summary=result.generation_summary,
+        )
+        return WorkItemGenerateResponse(
+            work_item_id=work_item_id,
+            status=result.status,
+            model=result.model,
+            generation_summary=result.generation_summary,
+            changed_components=result.changed_components,
+            artifacts=result.artifacts,
+            validation=result.validation,
+            plan=result.plan,
+            updated_work_item=_work_item_response(updated),
+        )
+    except Exception as exc:
+        store.update_execution(
+            execution["execution_id"],
+            status="FAILED",
+            updated_ts=_utc_now_iso(),
+            command_summary=command_summary,
+            result_payload={"error": str(exc), "artifact_root": str(artifact_root)},
+            exit_code=1,
+        )
+        store.update_work_item(
+            work_item_id,
+            updated_ts=_utc_now_iso(),
+            status="GENERATION_FAILED",
+        )
+        raise HTTPException(
+            status_code=500,
+            detail={
+                "execution_id": execution["execution_id"],
+                "operation_type": "generate_or_update_components",
+                "error": str(exc),
+            },
+        )
+
+
+@app.post(
+    "/sf-repo-ai/work-items/{work_item_id}/approve-generation",
+    response_model=WorkItemGenerateResponse,
+)
+def sf_repo_ai_work_item_approve_generation(
+    work_item_id: str,
+    req: WorkItemApproveGenerationRequest,
+    api_key: str = Depends(get_api_key),
+):
+    store = OrchestrationStore()
+    try:
+        row = store.get_work_item(work_item_id)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+
+    try:
+        selected_execution: Optional[Dict[str, Any]] = None
+        if req.execution_id:
+            selected_execution = store.get_execution(req.execution_id)
+            if selected_execution.get("work_item_id") != work_item_id:
+                raise HTTPException(status_code=400, detail="Execution does not belong to the specified work item.")
+        else:
+            for execution in store.list_executions(work_item_id=work_item_id, limit=100):
+                request_json = execution.get("request_json") or {}
+                result_json = execution.get("result_json") or {}
+                if execution.get("operation_type") != "generate_or_update_components":
+                    continue
+                if str(request_json.get("mode") or "").lower() != "plan_only":
+                    continue
+                if not result_json.get("plan"):
+                    continue
+                selected_execution = execution
+                break
+
+        if not selected_execution:
+            raise HTTPException(
+                status_code=404,
+                detail="No plan-only generation execution found to approve.",
+            )
+
+        request_json = selected_execution.get("request_json") or {}
+        result_json = selected_execution.get("result_json") or {}
+        plan = result_json.get("plan")
+        if not isinstance(plan, dict) or not isinstance(plan.get("changes"), list):
+            raise HTTPException(status_code=400, detail="Selected execution does not contain an approvable plan.")
+
+        project_dir = Path(row.get("metadata_project_dir") or _project_dir_or_default(None)).resolve()
+        if not project_dir.exists():
+            raise HTTPException(status_code=400, detail=f"Metadata project directory not found: {project_dir}")
+
+        created_ts = _utc_now_iso()
+        command_summary = f"approve execution={selected_execution['execution_id']}"
+        execution = store.create_execution(
+            operation_type="approve_generation",
+            work_item_id=work_item_id,
+            created_ts=created_ts,
+            command_summary=command_summary,
+            request_payload={
+                "source_execution_id": selected_execution["execution_id"],
+                "run_local_validation": req.run_local_validation,
+                "run_org_validation": req.run_org_validation,
+                "org_validation_test_level": req.org_validation_test_level,
+            },
+        )
+        artifact_root = Path("data/work_items") / work_item_id / "generation" / execution["execution_id"]
+        store.update_work_item(work_item_id, updated_ts=_utc_now_iso(), status="GENERATING")
+        try:
+            result = generate_or_update_components(
+                project_dir=project_dir,
+                work_item=row,
+                model=req.model or request_json.get("model") or row.get("llm_model"),
+                mode="apply",
+                target_components=request_json.get("target_components"),
+                instructions=request_json.get("instructions"),
+                create_missing_components=bool(request_json.get("create_missing_components", True)),
+                run_local_validation=req.run_local_validation,
+                run_org_validation=req.run_org_validation,
+                org_validation_test_level=req.org_validation_test_level or request_json.get("org_validation_test_level"),
+                write_changes=True,
+                artifact_root=artifact_root,
+                target_org_alias=row.get("target_org_alias"),
+                plan_override=plan,
+                max_targets=int(request_json.get("max_targets") or 12),
+            )
+
+            result_payload = {
+                "model": result.model,
+                "status": result.status,
+                "generation_summary": result.generation_summary,
+                "changed_components": result.changed_components,
+                "artifacts": result.artifacts,
+                "validation": result.validation,
+                "plan": result.plan,
+                "source_execution_id": selected_execution["execution_id"],
+            }
+            store.update_execution(
+                execution["execution_id"],
+                status=result.status,
+                updated_ts=_utc_now_iso(),
+                command_summary=command_summary,
+                result_payload=result_payload,
+                exit_code=0 if result.status != "GENERATION_FAILED" else 1,
+            )
+            updated = store.update_work_item(
+                work_item_id,
+                updated_ts=_utc_now_iso(),
+                status=result.status,
+                llm_model=result.model,
+                changed_components_json=result.changed_components,
+                final_summary=result.generation_summary,
+            )
+            return WorkItemGenerateResponse(
+                work_item_id=work_item_id,
+                status=result.status,
+                model=result.model,
+                generation_summary=result.generation_summary,
+                changed_components=result.changed_components,
+                artifacts=result.artifacts,
+                validation=result.validation,
+                plan=result.plan,
+                updated_work_item=_work_item_response(updated),
+            )
+        except Exception as exc:
+            store.update_execution(
+                execution["execution_id"],
+                status="FAILED",
+                updated_ts=_utc_now_iso(),
+                command_summary=command_summary,
+                result_payload={"error": str(exc), "artifact_root": str(artifact_root)},
+                exit_code=1,
+            )
+            store.update_work_item(
+                work_item_id,
+                updated_ts=_utc_now_iso(),
+                status="GENERATION_FAILED",
+            )
+            raise
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
