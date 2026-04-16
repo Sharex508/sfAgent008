@@ -1,0 +1,16 @@
+repo_root: "data/repo"
+sfdx_root: "force-app/main/default"
+sqlite_path: "data/index.sqlite"
+
+ollama:
+  base_url: "http://localhost:11434"
+  gen_model: "gpt-oss:20b"
+  embed_model: "all-minilm"
+  temperature: 0.2
+  top_p: 0.9
+
+rag:
+  enabled: true
+  chroma_dir: "data/chroma"
+  top_k: 12
+  max_evidence_chars: 120000

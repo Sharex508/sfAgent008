@@ -1,0 +1,14 @@
+PyYAML>=6.0
+requests>=2.31.0
+chromadb>=0.5.5
+pytest>=8.0.0
+rapidfuzz>=3.10.1
+fastapi
+uvicorn
+pydantic
+python-dotenv
+gitpython
+lxml
+networkx
+simple-salesforce
+sentence-transformers

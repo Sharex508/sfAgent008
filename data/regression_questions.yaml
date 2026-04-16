@@ -1,0 +1,11 @@
+tests:
+  - name: flows on account
+    question: "How many flows are on Account?"
+    expect:
+      intent: "count_type_on_object"
+      entity_object: "Account"
+      min_count: 0
+  - name: impact opportunity stage
+    question: "what breaks if I change Opportunity.StageName"
+    expect:
+      allow_not_found: false
