@@ -1,0 +1,103 @@
+from __future__ import annotations
+
+from fastapi.testclient import TestClient
+
+from server.app import app
+import server.app as app_module
+
+
+client = TestClient(app)
+
+
+def test_bitbucket_connect_status_needs_auth(monkeypatch):
+    monkeypatch.delenv("BITBUCKET_ACCESS_TOKEN", raising=False)
+    monkeypatch.delenv("BITBUCKET_TOKEN", raising=False)
+    monkeypatch.delenv("BITBUCKET_OAUTH_TOKEN", raising=False)
+    monkeypatch.delenv("BITBUCKET_USERNAME", raising=False)
+    monkeypatch.delenv("BITBUCKET_APP_PASSWORD", raising=False)
+    monkeypatch.setenv("BITBUCKET_CONNECT_URL", "https://bitbucket.example.com/connect")
+
+    response = client.get("/sf-repo-ai/repos/connect/bitbucket/status")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["provider"] == "bitbucket"
+    assert payload["connected"] is False
+    assert payload["status"] == "needs_auth"
+    assert payload["login_url"] == "https://bitbucket.example.com/connect"
+
+
+def test_repo_initialize_reports_missing_inputs(monkeypatch):
+    monkeypatch.delenv("BITBUCKET_ACCESS_TOKEN", raising=False)
+    monkeypatch.delenv("BITBUCKET_TOKEN", raising=False)
+    monkeypatch.delenv("BITBUCKET_OAUTH_TOKEN", raising=False)
+    monkeypatch.delenv("BITBUCKET_USERNAME", raising=False)
+    monkeypatch.delenv("BITBUCKET_APP_PASSWORD", raising=False)
+    monkeypatch.setenv("BITBUCKET_CONNECT_URL", "https://bitbucket.example.com/connect")
+
+    response = client.post("/sf-repo-ai/repos/initialize", json={"provider": "bitbucket"})
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["status"] == "MISSING_INPUTS"
+    assert "clone_url" in payload["missing_inputs"]
+    assert "bitbucket_connection" in payload["missing_inputs"]
+
+
+def test_repo_initialize_returns_source_when_ready(monkeypatch):
+    monkeypatch.setenv("BITBUCKET_ACCESS_TOKEN", "token-123")
+
+    captured = {}
+
+    def fake_register_and_sync_repo(**kwargs):
+        captured.update(kwargs)
+        return {
+            "source_id": "src-1",
+            "provider": kwargs["provider"],
+            "name": kwargs["name"],
+            "clone_url": kwargs["clone_url"],
+            "branch": kwargs.get("branch"),
+            "local_path": "/tmp/repos/bitbucket/demo",
+            "is_active": 1,
+            "sync_enabled": 1,
+            "sync_interval_minutes": kwargs.get("sync_interval_minutes", 1440),
+            "repo_kind": "sfdx",
+            "has_sfdx_project": 1,
+            "has_force_app": 1,
+            "metadata_root": "/tmp/repos/bitbucket/demo/force-app/main/default",
+            "validation_status": "VALID",
+            "validation_error": None,
+            "last_synced_ts": "2026-04-17T00:00:00+00:00",
+            "last_synced_commit": "abc123",
+            "last_sync_status": "SUCCEEDED",
+            "last_sync_error": None,
+            "last_indexed_ts": "2026-04-17T00:01:00+00:00",
+            "last_indexed_commit": "abc123",
+            "last_index_status": "SUCCEEDED",
+            "last_index_error": None,
+            "docs_count": 10,
+            "objects_count": 2,
+            "fields_count": 5,
+            "classes_count": 1,
+            "triggers_count": 0,
+            "flows_count": 1,
+            "cleanup_exempt": 0,
+            "created_ts": "2026-04-17T00:00:00+00:00",
+            "updated_ts": "2026-04-17T00:01:00+00:00",
+        }
+
+    monkeypatch.setattr(app_module, "register_and_sync_repo", fake_register_and_sync_repo)
+
+    response = client.post(
+        "/sf-repo-ai/repos/initialize",
+        json={
+            "provider": "bitbucket",
+            "clone_url": "https://bitbucket.org/workspace/demo.git",
+            "branch": "atlasqa",
+            "name": "demo-project"
+        },
+    )
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["status"] == "INITIALIZED"
+    assert payload["source"]["name"] == "demo-project"
+    assert captured["provider"] == "bitbucket"
+    assert captured["branch"] == "atlasqa"

@@ -69,6 +69,22 @@ sf org login web --alias my-sandbox
 python -m uvicorn server.app:app --host 0.0.0.0 --port 8001 --reload
 ```
 
+## Repo Setup API
+
+The backend now exposes setup-oriented repo onboarding endpoints for UI-driven flows:
+
+- `GET /sf-repo-ai/repos/connect/bitbucket/status`
+  Returns whether backend Bitbucket credentials/session are available.
+- `POST /sf-repo-ai/repos/connect/bitbucket/start`
+  Returns the configured Bitbucket connect URL or auth status for the UI connect button.
+- `POST /sf-repo-ai/repos/initialize`
+  Validates missing inputs, checks Bitbucket connection readiness, then registers/syncs/activates the repo when ready.
+- `GET /sf-repo-ai/repos/active`
+  Returns the active repo summary for the current backend runtime.
+
+Current limitation:
+- `connect/bitbucket/start` is a backend auth-status/connect bootstrap endpoint. Full OAuth callback handling is still a separate next step.
+
 ## Managed Repo Commands
 
 ```bash
@@ -90,6 +106,10 @@ python scripts/sync_repos.py cleanup --max-age-days 30 --delete-local
 Current API families exposed by `server/app.py` include:
 
 - `/sf-repo-ai/repos`
+- `/sf-repo-ai/repos/active`
+- `/sf-repo-ai/repos/connect/bitbucket/status`
+- `/sf-repo-ai/repos/connect/bitbucket/start`
+- `/sf-repo-ai/repos/initialize`
 - `/sf-repo-ai/repos/register`
 - `/sf-repo-ai/repos/register/bitbucket`
 - `/sf-repo-ai/repos/{source_id}/activate`

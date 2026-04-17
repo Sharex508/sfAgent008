@@ -497,6 +497,42 @@ class RepoCleanupResponse(BaseModel):
     removed: List[RepoSourceResponse]
 
 
+class BitbucketConnectStatusResponse(BaseModel):
+    provider: str
+    connected: bool
+    status: str
+    auth_mode: str
+    login_url: Optional[str] = None
+    message: str
+    has_client_config: bool = False
+
+
+class RepoInitializeRequest(BaseModel):
+    provider: Optional[str] = Field(None, description="Repo provider, defaults to bitbucket")
+    clone_url: Optional[str] = Field(None, description="Git clone URL for the Salesforce repository")
+    branch: Optional[str] = Field(None, description="Optional branch to clone or sync")
+    name: Optional[str] = Field(None, description="Optional local logical repo name")
+    active: bool = Field(True, description="Activate this repo immediately after sync")
+    sync_enabled: bool = Field(True, description="Include this repo in due-sync processing")
+    sync_interval_minutes: int = Field(1440, description="Minutes between automatic syncs")
+
+
+class RepoInitializeResponse(BaseModel):
+    status: str
+    provider: str
+    connected: bool
+    missing_inputs: List[str]
+    message: str
+    defaults: Dict[str, Any]
+    next_actions: List[str]
+    source: Optional[RepoSourceResponse] = None
+
+
+class ActiveRepoResponse(BaseModel):
+    active_repo_path: str
+    source: Optional[RepoSourceResponse] = None
+
+
 class IndexStatsResponse(BaseModel):
     active_repo_path: str
     validation_status: str
@@ -588,6 +624,73 @@ def _repo_source_response(row: Dict[str, Any]) -> RepoSourceResponse:
         cleanup_exempt=bool(row.get("cleanup_exempt")),
         created_ts=row["created_ts"],
         updated_ts=row["updated_ts"],
+    )
+
+
+def _clone_url_has_inline_credentials(clone_url: Optional[str]) -> bool:
+    if not clone_url:
+        return False
+    lowered = clone_url.lower()
+    return "@bitbucket.org" in lowered and "://" in lowered
+
+
+def _bitbucket_connection_snapshot() -> BitbucketConnectStatusResponse:
+    access_token = (os.getenv("BITBUCKET_ACCESS_TOKEN") or os.getenv("BITBUCKET_TOKEN") or os.getenv("BITBUCKET_OAUTH_TOKEN") or "").strip()
+    username = (os.getenv("BITBUCKET_USERNAME") or "").strip()
+    app_password = (os.getenv("BITBUCKET_APP_PASSWORD") or "").strip()
+    client_id = (os.getenv("BITBUCKET_CLIENT_ID") or "").strip()
+    connect_url = (os.getenv("BITBUCKET_CONNECT_URL") or "").strip()
+
+    connected = False
+    auth_mode = "none"
+    if access_token:
+        connected = True
+        auth_mode = "token"
+    elif username and app_password:
+        connected = True
+        auth_mode = "app_password"
+
+    if not connect_url and client_id:
+        connect_url = f"https://bitbucket.org/site/oauth2/authorize?client_id={client_id}&response_type=code"
+
+    if connected:
+        status = "connected"
+        message = "Bitbucket credentials are available on the backend."
+    elif connect_url:
+        status = "needs_auth"
+        message = "Bitbucket authentication is not active yet. Start the connect flow before initializing a private repo."
+    else:
+        status = "not_configured"
+        message = "Bitbucket connect is not configured on the backend yet. Set BITBUCKET_CONNECT_URL or backend credentials."
+
+    return BitbucketConnectStatusResponse(
+        provider="bitbucket",
+        connected=connected,
+        status=status,
+        auth_mode=auth_mode,
+        login_url=connect_url or None,
+        message=message,
+        has_client_config=bool(client_id or connect_url),
+    )
+
+
+def _suggest_repo_name(clone_url: Optional[str]) -> Optional[str]:
+    if not clone_url:
+        return None
+    cleaned = clone_url.rstrip('/')
+    name = cleaned.rsplit('/', 1)[-1]
+    if name.endswith('.git'):
+        name = name[:-4]
+    name = re.sub(r"[^A-Za-z0-9._-]+", "-", name.strip()).strip("-")
+    return name or None
+
+
+def _active_repo_response(registry: Optional[RepoRegistry] = None) -> ActiveRepoResponse:
+    registry = registry or RepoRegistry()
+    active_row = registry.active_source()
+    return ActiveRepoResponse(
+        active_repo_path=str(resolve_active_repo()),
+        source=_repo_source_response(active_row) if active_row else None,
     )
 
 
@@ -2262,6 +2365,83 @@ def sf_repo_ai_cli_test(req: SfCliTestRequest, api_key: str = Depends(get_api_ke
             },
         )
     return response
+
+
+@app.get("/sf-repo-ai/repos/connect/bitbucket/status", response_model=BitbucketConnectStatusResponse)
+def sf_repo_ai_bitbucket_connect_status(api_key: str = Depends(get_api_key)):
+    return _bitbucket_connection_snapshot()
+
+
+@app.post("/sf-repo-ai/repos/connect/bitbucket/start", response_model=BitbucketConnectStatusResponse)
+def sf_repo_ai_bitbucket_connect_start(api_key: str = Depends(get_api_key)):
+    return _bitbucket_connection_snapshot()
+
+
+@app.post("/sf-repo-ai/repos/initialize", response_model=RepoInitializeResponse)
+def sf_repo_ai_initialize_repo(req: RepoInitializeRequest, api_key: str = Depends(get_api_key)):
+    provider = (req.provider or "bitbucket").strip().lower()
+    connection = _bitbucket_connection_snapshot() if provider == "bitbucket" else None
+    missing_inputs: List[str] = []
+    next_actions: List[str] = []
+
+    clone_url = (req.clone_url or "").strip()
+    if not clone_url:
+        missing_inputs.append("clone_url")
+        next_actions.append("Provide the repository clone URL.")
+
+    if provider == "bitbucket" and not _clone_url_has_inline_credentials(clone_url):
+        if connection and not connection.connected:
+            missing_inputs.append("bitbucket_connection")
+            if connection.login_url:
+                next_actions.append("Start Bitbucket connect and complete SSO/OAuth before cloning the repo.")
+            else:
+                next_actions.append("Configure backend Bitbucket credentials or connect URL before cloning a private Bitbucket repo.")
+
+    defaults = {
+        "provider": provider,
+        "branch": (req.branch or "").strip() or None,
+        "name": (req.name or "").strip() or _suggest_repo_name(clone_url),
+        "sync_enabled": req.sync_enabled,
+        "sync_interval_minutes": req.sync_interval_minutes,
+        "active": req.active,
+    }
+
+    if missing_inputs:
+        return RepoInitializeResponse(
+            status="MISSING_INPUTS",
+            provider=provider,
+            connected=bool(connection.connected) if connection else True,
+            missing_inputs=missing_inputs,
+            message="Repo initialization is blocked until the missing setup inputs are provided.",
+            defaults=defaults,
+            next_actions=next_actions,
+            source=None,
+        )
+
+    row = register_and_sync_repo(
+        clone_url=clone_url,
+        branch=defaults["branch"],
+        provider=provider,
+        name=defaults["name"],
+        active=req.active,
+        sync_enabled=req.sync_enabled,
+        sync_interval_minutes=req.sync_interval_minutes,
+    )
+    return RepoInitializeResponse(
+        status="INITIALIZED",
+        provider=provider,
+        connected=bool(connection.connected) if connection else True,
+        missing_inputs=[],
+        message="Repository registered, synced, and processed successfully.",
+        defaults=defaults,
+        next_actions=["Review repo status in the console.", "Start metadata-dependent analysis or development flows."],
+        source=_repo_source_response(row),
+    )
+
+
+@app.get("/sf-repo-ai/repos/active", response_model=ActiveRepoResponse)
+def sf_repo_ai_active_repo(api_key: str = Depends(get_api_key)):
+    return _active_repo_response()
 
 
 @app.get("/sf-repo-ai/repos", response_model=RepoSourceListResponse)
