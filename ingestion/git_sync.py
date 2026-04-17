@@ -12,6 +12,7 @@ from repo_index import DOCS_PATH, ensure_indexes
 from repo_runtime import MANAGED_REPOS_ROOT, set_active_repo
 from repo_inventory import validate_repo_structure
 from ingestion.repo_registry import RepoRegistry
+from ingestion.bitbucket_auth import get_authenticated_clone_url
 
 
 def _utc_now_iso() -> str:
@@ -82,6 +83,7 @@ def clone_or_update_repo(*, clone_url: str, local_path: Path, branch: Optional[s
     local_path.parent.mkdir(parents=True, exist_ok=True)
 
     provider_name = _provider_from_url(clone_url)
+    effective_clone_url = get_authenticated_clone_url(clone_url, provider_name)
     if provider_name == "local":
         source_path = _resolve_local_source(clone_url)
         if not source_path.exists() or not source_path.is_dir():
@@ -95,11 +97,15 @@ def clone_or_update_repo(*, clone_url: str, local_path: Path, branch: Optional[s
         args = ["clone"]
         if branch:
             args.extend(["--branch", branch])
-        args.extend([clone_url, str(local_path)])
+        args.extend([effective_clone_url, str(local_path)])
         code, out, err = _run_git(args)
         if code != 0:
             raise RuntimeError((err or out or f"git clone failed for {clone_url}").strip())
+        if effective_clone_url != clone_url:
+            _run_git(["remote", "set-url", "origin", clone_url], cwd=local_path)
     else:
+        if effective_clone_url != clone_url:
+            _run_git(["remote", "set-url", "origin", effective_clone_url], cwd=local_path)
         code, out, err = _run_git(["fetch", "--all", "--prune"], cwd=local_path)
         if code != 0:
             raise RuntimeError((err or out or f"git fetch failed for {local_path}").strip())
@@ -108,6 +114,8 @@ def clone_or_update_repo(*, clone_url: str, local_path: Path, branch: Optional[s
             code, out, err = _run_git(["pull", "origin", branch], cwd=local_path)
         else:
             code, out, err = _run_git(["pull"], cwd=local_path)
+        if effective_clone_url != clone_url:
+            _run_git(["remote", "set-url", "origin", clone_url], cwd=local_path)
         if code != 0:
             raise RuntimeError((err or out or f"git pull failed for {local_path}").strip())
 

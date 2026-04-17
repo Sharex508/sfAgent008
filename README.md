@@ -73,6 +73,32 @@ python -m uvicorn server.app:app --host 0.0.0.0 --port 8001 --reload
 
 The backend now exposes setup-oriented repo onboarding endpoints for UI-driven flows:
 
+### Bitbucket OAuth Configuration
+
+For full Bitbucket SSO/OAuth repo onboarding, configure these backend environment variables:
+
+- `BITBUCKET_CLIENT_ID`
+- `BITBUCKET_CLIENT_SECRET`
+- `BITBUCKET_REDIRECT_URI`
+
+Recommended callback path:
+
+- `/sf-repo-ai/repos/connect/bitbucket/callback`
+
+Optional alternatives:
+
+- `BITBUCKET_CONNECT_URL`
+  Use this when you already have an external OAuth/connect page and only want the backend to expose that URL to the Salesforce UI.
+- `BITBUCKET_ACCESS_TOKEN`
+- `BITBUCKET_USERNAME` + `BITBUCKET_APP_PASSWORD`
+
+When OAuth is configured, the backend now:
+- generates a Bitbucket authorize URL
+- validates callback state
+- exchanges the code for tokens
+- persists the session in `data/bitbucket_auth.json`
+- reuses that token during Bitbucket `git clone` / `git pull` without storing credentials in the repo registry
+
 - `GET /sf-repo-ai/repos/connect/bitbucket/status`
   Returns whether backend Bitbucket credentials/session are available.
 - `POST /sf-repo-ai/repos/connect/bitbucket/start`
@@ -83,7 +109,7 @@ The backend now exposes setup-oriented repo onboarding endpoints for UI-driven f
   Returns the active repo summary for the current backend runtime.
 
 Current limitation:
-- `connect/bitbucket/start` is a backend auth-status/connect bootstrap endpoint. Full OAuth callback handling is still a separate next step.
+- Salesforce UI is now wired for repo onboarding, but users still need the backend server to be reachable publicly for the Bitbucket OAuth callback when using ngrok or another public URL.
 
 ## Managed Repo Commands
 
@@ -109,6 +135,7 @@ Current API families exposed by `server/app.py` include:
 - `/sf-repo-ai/repos/active`
 - `/sf-repo-ai/repos/connect/bitbucket/status`
 - `/sf-repo-ai/repos/connect/bitbucket/start`
+- `/sf-repo-ai/repos/connect/bitbucket/callback`
 - `/sf-repo-ai/repos/initialize`
 - `/sf-repo-ai/repos/register`
 - `/sf-repo-ai/repos/register/bitbucket`

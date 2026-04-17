@@ -4,10 +4,12 @@ import json
 import os
 from pathlib import Path
 import re
+from html import escape
 from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException, Header, Security, Depends
+from fastapi.responses import HTMLResponse
 from fastapi.security import APIKeyHeader
 from pydantic import BaseModel, Field
 
@@ -20,6 +22,7 @@ from agent.runtime import (
 )
 from llm.ollama_client import OllamaClient
 from ingestion import RepoRegistry, register_and_sync_repo, sync_due_repos, sync_repo_by_id
+from ingestion.bitbucket_auth import connection_status as bitbucket_connection_status, start_connect_flow as bitbucket_start_connect_flow, complete_connect_flow as bitbucket_complete_connect_flow
 from repo_inventory import build_metadata_inventory, list_fields, list_objects, load_metadata_inventory, validate_repo_structure, write_metadata_inventory
 from orchestration import (
     GenerationResult,
@@ -635,43 +638,8 @@ def _clone_url_has_inline_credentials(clone_url: Optional[str]) -> bool:
 
 
 def _bitbucket_connection_snapshot() -> BitbucketConnectStatusResponse:
-    access_token = (os.getenv("BITBUCKET_ACCESS_TOKEN") or os.getenv("BITBUCKET_TOKEN") or os.getenv("BITBUCKET_OAUTH_TOKEN") or "").strip()
-    username = (os.getenv("BITBUCKET_USERNAME") or "").strip()
-    app_password = (os.getenv("BITBUCKET_APP_PASSWORD") or "").strip()
-    client_id = (os.getenv("BITBUCKET_CLIENT_ID") or "").strip()
-    connect_url = (os.getenv("BITBUCKET_CONNECT_URL") or "").strip()
-
-    connected = False
-    auth_mode = "none"
-    if access_token:
-        connected = True
-        auth_mode = "token"
-    elif username and app_password:
-        connected = True
-        auth_mode = "app_password"
-
-    if not connect_url and client_id:
-        connect_url = f"https://bitbucket.org/site/oauth2/authorize?client_id={client_id}&response_type=code"
-
-    if connected:
-        status = "connected"
-        message = "Bitbucket credentials are available on the backend."
-    elif connect_url:
-        status = "needs_auth"
-        message = "Bitbucket authentication is not active yet. Start the connect flow before initializing a private repo."
-    else:
-        status = "not_configured"
-        message = "Bitbucket connect is not configured on the backend yet. Set BITBUCKET_CONNECT_URL or backend credentials."
-
-    return BitbucketConnectStatusResponse(
-        provider="bitbucket",
-        connected=connected,
-        status=status,
-        auth_mode=auth_mode,
-        login_url=connect_url or None,
-        message=message,
-        has_client_config=bool(client_id or connect_url),
-    )
+    data = bitbucket_connection_status()
+    return BitbucketConnectStatusResponse(**data)
 
 
 def _suggest_repo_name(clone_url: Optional[str]) -> Optional[str]:
@@ -2374,7 +2342,20 @@ def sf_repo_ai_bitbucket_connect_status(api_key: str = Depends(get_api_key)):
 
 @app.post("/sf-repo-ai/repos/connect/bitbucket/start", response_model=BitbucketConnectStatusResponse)
 def sf_repo_ai_bitbucket_connect_start(api_key: str = Depends(get_api_key)):
-    return _bitbucket_connection_snapshot()
+    return BitbucketConnectStatusResponse(**bitbucket_start_connect_flow())
+
+
+@app.get("/sf-repo-ai/repos/connect/bitbucket/callback", response_class=HTMLResponse)
+def sf_repo_ai_bitbucket_connect_callback(code: Optional[str] = None, state: Optional[str] = None, error: Optional[str] = None, error_description: Optional[str] = None):
+    if error:
+        detail = escape(error_description or error)
+        return HTMLResponse(f"<html><body><h1>Bitbucket connection failed</h1><p>{detail}</p></body></html>", status_code=400)
+    try:
+        result = bitbucket_complete_connect_flow(code or "", state)
+        message = escape(str(result.get("message") or "Bitbucket connection completed."))
+        return HTMLResponse(f"<html><body><h1>Bitbucket connected</h1><p>{message}</p><p>You can close this window and return to Salesforce.</p></body></html>")
+    except Exception as exc:
+        return HTMLResponse(f"<html><body><h1>Bitbucket connection failed</h1><p>{escape(str(exc))}</p></body></html>", status_code=400)
 
 
 @app.post("/sf-repo-ai/repos/initialize", response_model=RepoInitializeResponse)
