@@ -69,6 +69,9 @@ class RepoRegistry:
                 "last_index_status": "TEXT",
                 "last_index_error": "TEXT",
                 "docs_count": "INTEGER DEFAULT 0",
+                "meta_files": "INTEGER DEFAULT 0",
+                "graph_nodes": "INTEGER DEFAULT 0",
+                "graph_edges": "INTEGER DEFAULT 0",
                 "objects_count": "INTEGER DEFAULT 0",
                 "fields_count": "INTEGER DEFAULT 0",
                 "classes_count": "INTEGER DEFAULT 0",
@@ -137,10 +140,11 @@ class RepoRegistry:
                     repo_kind, has_sfdx_project, has_force_app, metadata_root,
                     validation_status, validation_error,
                     last_indexed_ts, last_indexed_commit, last_index_status, last_index_error,
-                    docs_count, objects_count, fields_count, classes_count, triggers_count, flows_count,
+                    docs_count, meta_files, graph_nodes, graph_edges,
+                    objects_count, fields_count, classes_count, triggers_count, flows_count,
                     cleanup_exempt,
                     created_ts, updated_ts
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, ?, ?)
                 """,
                 (
                     source_id,

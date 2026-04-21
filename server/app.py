@@ -38,7 +38,7 @@ from orchestration import (
     retrieve_start,
     start_environment_setup,
 )
-from repo_index import ensure_indexes
+from repo_index import ensure_indexes, ensure_runtime_indexes
 from retrieval.vector_store import search_metadata
 from repo_runtime import METADATA_INVENTORY_PATH, resolve_active_repo, set_active_repo
 from sfdc.client import SalesforceClient
@@ -59,6 +59,13 @@ def get_api_key(api_key: str = Security(api_key_header)):
 
 def _default_meta_root() -> Path:
     return resolve_active_repo() / "force-app" / "main" / "default"
+
+
+def _require_non_empty_text(value: Optional[str], field_name: str) -> str:
+    text = (value or "").strip()
+    if not text:
+        raise HTTPException(status_code=400, detail=f"{field_name} must not be blank.")
+    return text
 
 class AskRequest(BaseModel):
     user_prompt: str = Field(..., description="Natural language request")
@@ -480,6 +487,9 @@ class RepoSourceResponse(BaseModel):
     last_index_status: Optional[str]
     last_index_error: Optional[str]
     docs_count: int = 0
+    meta_files: int = 0
+    graph_nodes: int = 0
+    graph_edges: int = 0
     objects_count: int = 0
     fields_count: int = 0
     classes_count: int = 0
@@ -670,6 +680,9 @@ def _repo_source_response(row: Dict[str, Any]) -> RepoSourceResponse:
         last_index_status=row.get("last_index_status"),
         last_index_error=row.get("last_index_error"),
         docs_count=int(row.get("docs_count") or 0),
+        meta_files=int(row.get("meta_files") or 0),
+        graph_nodes=int(row.get("graph_nodes") or 0),
+        graph_edges=int(row.get("graph_edges") or 0),
         objects_count=int(row.get("objects_count") or 0),
         fields_count=int(row.get("fields_count") or 0),
         classes_count=int(row.get("classes_count") or 0),
@@ -1436,13 +1449,16 @@ app = FastAPI(title="SF Agent API")
 @app.post("/agent", response_model=AskResponse)
 def ask(req: AskRequest, api_key: str = Depends(get_api_key)):
     try:
+        user_prompt = _require_non_empty_text(req.user_prompt, "user_prompt")
         return run_agent(
-            user_prompt=req.user_prompt,
+            user_prompt=user_prompt,
             model_override=req.model,
             use_sfdc=req.use_sfdc,
             hybrid=req.hybrid,
             k=req.k,
         )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1450,9 +1466,10 @@ def ask(req: AskRequest, api_key: str = Depends(get_api_key)):
 @app.post("/repo/search-explain", response_model=RepoSearchResponse)
 def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_key)):
     try:
+        query = _require_non_empty_text(req.query, "query")
         ollama = get_ollama_client(req.model)
         context, source = auto_context(
-            req.query,
+            query,
             max_lines=req.max_lines,
             k=req.k,
             hybrid=req.hybrid,
@@ -1462,15 +1479,17 @@ def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_k
             "You are analyzing the active Salesforce metadata repo. "
             "Based ONLY on the context snippets, explain where the query appears "
             "and what it likely does. If the query is not in context, say so.\n\n"
-            f"Query: {req.query}\n\nContext snippets (file:line):\n{context_text}"
+            f"Query: {query}\n\nContext snippets (file:line):\n{context_text}"
         )
         explanation = ollama.chat(prompt)
         return RepoSearchResponse(
-            query=req.query,
+            query=query,
             context_source=source,
             context_lines=len(context),
             explanation=explanation,
         )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1478,9 +1497,10 @@ def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_k
 @app.post("/repo/user-story", response_model=UserStoryResponse)
 def repo_user_story(req: UserStoryRequest, api_key: str = Depends(get_api_key)):
     try:
+        story = _require_non_empty_text(req.story, "story")
         ollama = get_ollama_client(req.model)
         context, source = auto_context(
-            req.story,
+            story,
             max_lines=req.max_lines,
             k=req.k,
             hybrid=req.hybrid,
@@ -1491,15 +1511,17 @@ def repo_user_story(req: UserStoryRequest, api_key: str = Depends(get_api_key)):
             "Given the user story and ONLY the context snippets, list impacted components "
             "(flows, Apex classes/triggers, LWCs, objects, layouts, approvals) and "
             "recommend next steps, risks, and tests. If context is insufficient, say so.\n\n"
-            f"User story: {req.story}\n\nContext snippets (file:line):\n{context_text}"
+            f"User story: {story}\n\nContext snippets (file:line):\n{context_text}"
         )
         recommendations = ollama.chat(prompt)
         return UserStoryResponse(
-            story=req.story,
+            story=story,
             context_source=source,
             context_lines=len(context),
             recommendations=recommendations,
         )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1507,14 +1529,17 @@ def repo_user_story(req: UserStoryRequest, api_key: str = Depends(get_api_key)):
 @app.post("/repo/data-prompt", response_model=DataPromptResponse)
 def repo_data_prompt(req: DataPromptRequest, api_key: str = Depends(get_api_key)):
     try:
+        prompt_text = _require_non_empty_text(req.prompt, "prompt")
         ollama = get_ollama_client(req.model)
         prompt = (
             "Use ONLY the data provided to answer the prompt. "
             "If data is insufficient, say so.\n\n"
-            f"Prompt: {req.prompt}\n\nData:\n{req.data}"
+            f"Prompt: {prompt_text}\n\nData:\n{req.data}"
         )
         response = ollama.chat(prompt)
-        return DataPromptResponse(prompt=req.prompt, response=response)
+        return DataPromptResponse(prompt=prompt_text, response=response)
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1529,6 +1554,7 @@ def sf_repo_ai_feature_explain(req: FeatureExplainRequest, api_key: str = Depend
                 status_code=400,
                 detail="Provide prompt/question and data/evidence.",
             )
+        prompt_text = _require_non_empty_text(prompt_text, "prompt")
         return run_feature_explain(prompt_text, payload, req.model)
     except HTTPException:
         raise
@@ -1539,7 +1565,10 @@ def sf_repo_ai_feature_explain(req: FeatureExplainRequest, api_key: str = Depend
 @app.post("/sf-repo-ai/user-story-analyze", response_model=UserStoryAnalyzeResponse)
 def sf_repo_ai_user_story_analyze(req: UserStoryAnalyzeRequest, api_key: str = Depends(get_api_key)):
     try:
+        req.story = _require_non_empty_text(req.story, "story")
         return run_user_story_analysis(req)
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1547,7 +1576,10 @@ def sf_repo_ai_user_story_analyze(req: UserStoryAnalyzeRequest, api_key: str = D
 @app.post("/sf-repo-ai/debug-analyze", response_model=DebugAnalyzeResponse)
 def sf_repo_ai_debug_analyze(req: DebugAnalyzeRequest, api_key: str = Depends(get_api_key)):
     try:
+        req.input_text = _require_non_empty_text(req.input_text, "input_text")
         return run_debug_analysis(req)
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1555,6 +1587,7 @@ def sf_repo_ai_debug_analyze(req: DebugAnalyzeRequest, api_key: str = Depends(ge
 @app.post("/sf-repo-ai/development/analyze", response_model=DevelopmentAnalyzeResponse)
 def sf_repo_ai_development_analyze(req: DevelopmentAnalyzeRequest, api_key: str = Depends(get_api_key)):
     try:
+        req.story = _require_non_empty_text(req.story, "story")
         store = OrchestrationStore()
         row = _resolve_or_create_work_item(
             store=store,
@@ -1583,6 +1616,7 @@ def sf_repo_ai_development_analyze(req: DevelopmentAnalyzeRequest, api_key: str 
 @app.post("/sf-repo-ai/development/plan", response_model=DevelopmentPlanResponse)
 def sf_repo_ai_development_plan(req: DevelopmentPlanRequest, api_key: str = Depends(get_api_key)):
     try:
+        req.story = _require_non_empty_text(req.story, "story")
         store = OrchestrationStore()
         row = _resolve_or_create_work_item(
             store=store,
@@ -1630,6 +1664,7 @@ def sf_repo_ai_development_plan(req: DevelopmentPlanRequest, api_key: str = Depe
 @app.post("/sf-repo-ai/development/run", response_model=DevelopmentRunResponse)
 def sf_repo_ai_development_run(req: DevelopmentRunRequest, api_key: str = Depends(get_api_key)):
     try:
+        req.story = _require_non_empty_text(req.story, "story")
         result = sf_repo_ai_work_item_run(req, api_key="")
         return DevelopmentRunResponse(
             work_item=result.work_item,
@@ -2610,11 +2645,7 @@ def sf_repo_ai_activate_repo(source_id: str, api_key: str = Depends(get_api_key)
             last_index_error=validation.get("validation_error"),
         )
         raise HTTPException(status_code=400, detail={"message": "Repo validation failed", "source": _repo_source_response(updated).model_dump()})
-    ensure_indexes(repo_path=repo_path, docs_path=DEFAULT_DOCS_PATH, db_path=DEFAULT_DB_PATH, rebuild=True)
-    docs_count = 0
-    if DEFAULT_DOCS_PATH.exists():
-        with DEFAULT_DOCS_PATH.open("r", encoding="utf-8") as handle:
-            docs_count = sum(1 for line in handle if line.strip())
+    index_info = ensure_runtime_indexes(repo_path=repo_path, rebuild=True)
     set_active_repo(repo_path)
     updated = registry.update_source(
         source_id,
@@ -2636,7 +2667,10 @@ def sf_repo_ai_activate_repo(source_id: str, api_key: str = Depends(get_api_key)
         last_indexed_commit=row.get("last_synced_commit"),
         last_index_status="SUCCEEDED",
         last_index_error=None,
-        docs_count=docs_count,
+        docs_count=int(index_info.get("docs_count") or 0),
+        meta_files=int(index_info.get("meta_files") or 0),
+        graph_nodes=int(index_info.get("graph_nodes") or 0),
+        graph_edges=int(index_info.get("graph_edges") or 0),
     )
     return _repo_source_response(updated)
 
@@ -2702,6 +2736,7 @@ def sf_repo_ai_health():
 @app.post("/sf-repo-ai/ask", response_model=SfRepoAskResponse)
 def sf_repo_ai_ask(req: SfRepoAskRequest, api_key: str = Depends(get_api_key)):
     try:
+        req.question = _require_non_empty_text(req.question, "question")
         object_hint = req.object_api_name if req.object_api_name else None
         ap_inventory = _approval_process_inventory_response(req.question, object_hint=object_hint)
         if ap_inventory is not None:
@@ -2729,5 +2764,7 @@ def sf_repo_ai_ask(req: SfRepoAskRequest, api_key: str = Depends(get_api_key)):
             tool_results=response.tool_results,
             final_answer=response.final_answer,
         )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))

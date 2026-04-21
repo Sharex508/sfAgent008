@@ -8,7 +8,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from repo_index import DOCS_PATH, ensure_indexes
+from repo_index import ensure_runtime_indexes
 from repo_runtime import MANAGED_REPOS_ROOT, set_active_repo
 from repo_inventory import validate_repo_structure
 from ingestion.repo_registry import RepoRegistry
@@ -96,12 +96,7 @@ def _resolve_local_source(source: str) -> Path:
 
 
 def _index_repo(repo_path: Path) -> Dict[str, Any]:
-    ensure_indexes(repo_path=repo_path, rebuild=True)
-    docs_count = 0
-    if DOCS_PATH.exists():
-        with DOCS_PATH.open("r", encoding="utf-8") as handle:
-            docs_count = sum(1 for line in handle if line.strip())
-    return {"docs_count": docs_count}
+    return ensure_runtime_indexes(repo_path=repo_path, rebuild=True)
 
 
 def clone_or_update_repo(*, clone_url: str, local_path: Path, branch: Optional[str] = None) -> Dict[str, Any]:
@@ -219,6 +214,9 @@ def sync_repo_by_id(source_id: str, *, activate: bool = False, registry: Optiona
                     "last_index_status": "FAILED",
                     "last_index_error": validation.get("validation_error"),
                     "docs_count": 0,
+                    "meta_files": 0,
+                    "graph_nodes": 0,
+                    "graph_edges": 0,
                 }
             )
             return registry.update_source(source_id, updated_ts=ts, **updates)
@@ -232,6 +230,9 @@ def sync_repo_by_id(source_id: str, *, activate: bool = False, registry: Optiona
             updates["last_index_status"] = "SUCCEEDED"
             updates["last_index_error"] = None
             updates["docs_count"] = int(index_info.get("docs_count") or 0)
+            updates["meta_files"] = int(index_info.get("meta_files") or 0)
+            updates["graph_nodes"] = int(index_info.get("graph_nodes") or 0)
+            updates["graph_edges"] = int(index_info.get("graph_edges") or 0)
         source = registry.update_source(source_id, updated_ts=ts, **updates)
         return source
     except Exception as exc:

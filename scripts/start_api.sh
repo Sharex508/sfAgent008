@@ -25,11 +25,17 @@ if [[ -x "${ROOT_DIR}/.venv/bin/python" ]]; then
 fi
 
 if [[ "${PREWARM_INDEX}" == "1" ]]; then
-  echo "Prewarming metadata indexes (safe no-op if already built)..."
+  echo "Prewarming runtime indexes (safe no-op if already built)..."
   if ! "${PYTHON_BIN}" - <<'PY'
-from repo_index import ensure_indexes
-docs, db = ensure_indexes(rebuild=False)
-print(f"Metadata indexes ready: docs={docs} db={db}")
+from repo_index import ensure_runtime_indexes
+stats = ensure_runtime_indexes(rebuild=False)
+print(
+    "Runtime indexes ready: "
+    f"docs={stats['docs_count']} "
+    f"meta_files={stats['meta_files']} "
+    f"graph_nodes={stats['graph_nodes']} "
+    f"graph_edges={stats['graph_edges']}"
+)
 PY
   then
     echo "Index prewarm failed; continuing with lazy on-demand indexing."
