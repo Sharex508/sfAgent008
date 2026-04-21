@@ -8,7 +8,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from repo_index import DOCS_PATH, ensure_indexes
+from repo_index import ensure_runtime_indexes
 from repo_runtime import MANAGED_REPOS_ROOT, set_active_repo
 from repo_inventory import validate_repo_structure
 from ingestion.repo_registry import RepoRegistry
@@ -96,12 +96,13 @@ def _resolve_local_source(source: str) -> Path:
 
 
 def _index_repo(repo_path: Path) -> Dict[str, Any]:
-    ensure_indexes(repo_path=repo_path, rebuild=True)
-    docs_count = 0
-    if DOCS_PATH.exists():
-        with DOCS_PATH.open("r", encoding="utf-8") as handle:
-            docs_count = sum(1 for line in handle if line.strip())
-    return {"docs_count": docs_count}
+    summary = ensure_runtime_indexes(repo_path=repo_path, rebuild=True)
+    return {
+        "docs_count": int(summary.get("docs_count") or 0),
+        "meta_files": int(summary.get("meta_files") or 0),
+        "graph_nodes": int(summary.get("graph_nodes") or 0),
+        "graph_edges": int(summary.get("graph_edges") or 0),
+    }
 
 
 def clone_or_update_repo(*, clone_url: str, local_path: Path, branch: Optional[str] = None) -> Dict[str, Any]:

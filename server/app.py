@@ -57,6 +57,13 @@ def get_api_key(api_key: str = Security(api_key_header)):
     return api_key
 
 
+def _require_non_empty_text(value: Optional[str], field_name: str) -> str:
+    text = str(value or "").strip()
+    if not text:
+        raise HTTPException(status_code=400, detail=f"{field_name} is required")
+    return text
+
+
 def _default_meta_root() -> Path:
     return resolve_active_repo() / "force-app" / "main" / "default"
 
@@ -1116,6 +1123,7 @@ def _components_block(components: List[Dict[str, Any]]) -> str:
 
 
 def run_user_story_analysis(req: UserStoryAnalyzeRequest) -> UserStoryAnalyzeResponse:
+    story = _require_non_empty_text(req.story, "story")
     ollama = get_ollama_client(req.model)
     logs_text = _to_json_text(req.logs) if req.logs is not None else "No logs provided."
 
@@ -1123,12 +1131,12 @@ def run_user_story_analysis(req: UserStoryAnalyzeRequest) -> UserStoryAnalyzeRes
         "You are a Salesforce architect.\n"
         "Analyze the user story and optional logs.\n"
         "Return concise analysis with likely impacted component keywords and risk/test notes.\n\n"
-        f"USER STORY:\n{req.story}\n\n"
+        f"USER STORY:\n{story}\n\n"
         f"LOGS:\n{logs_text}"
     )
     initial_analysis = ollama.chat(first_prompt)
 
-    retrieval_query = f"{req.story}\n{initial_analysis}"
+    retrieval_query = f"{story}\n{initial_analysis}"
     components = _retrieve_components(retrieval_query, k=req.k, hybrid=req.hybrid)
     comp_text = _components_block(components)
 
@@ -1137,13 +1145,13 @@ def run_user_story_analysis(req: UserStoryAnalyzeRequest) -> UserStoryAnalyzeRes
         "Use the user story, first analysis, and retrieved components to produce an implementation plan.\n"
         "Include impacted components, why they are impacted, likely root cause/risks, and resolution steps.\n"
         "If data is insufficient, say what is missing.\n\n"
-        f"USER STORY:\n{req.story}\n\n"
+        f"USER STORY:\n{story}\n\n"
         f"FIRST ANALYSIS:\n{initial_analysis}\n\n"
         f"RETRIEVED COMPONENTS:\n{comp_text}"
     )
     final_answer = ollama.chat(second_prompt)
     return UserStoryAnalyzeResponse(
-        story=req.story,
+        story=story,
         model=ollama.model,
         initial_analysis=initial_analysis,
         components=components,
@@ -1152,6 +1160,7 @@ def run_user_story_analysis(req: UserStoryAnalyzeRequest) -> UserStoryAnalyzeRes
 
 
 def run_debug_analysis(req: DebugAnalyzeRequest) -> DebugAnalyzeResponse:
+    input_text = _require_non_empty_text(req.input_text, "input_text")
     ollama = get_ollama_client(req.model)
     logs_text = _to_json_text(req.logs)
 
@@ -1159,12 +1168,12 @@ def run_debug_analysis(req: DebugAnalyzeRequest) -> DebugAnalyzeResponse:
         "You are a Salesforce production support engineer.\n"
         "Analyze the error/symptom and logs.\n"
         "Identify likely failure point, suspected component keywords, and probable cause categories.\n\n"
-        f"INPUT:\n{req.input_text}\n\n"
+        f"INPUT:\n{input_text}\n\n"
         f"LOGS:\n{logs_text}"
     )
     initial_analysis = ollama.chat(first_prompt)
 
-    retrieval_query = f"{req.input_text}\n{initial_analysis}"
+    retrieval_query = f"{input_text}\n{initial_analysis}"
     components = _retrieve_components(retrieval_query, k=req.k, hybrid=req.hybrid)
     comp_text = _components_block(components)
 
@@ -1175,14 +1184,14 @@ def run_debug_analysis(req: DebugAnalyzeRequest) -> DebugAnalyzeResponse:
         "2) why it is happening\n"
         "3) concrete fix steps\n"
         "4) validation tests.\n\n"
-        f"INPUT:\n{req.input_text}\n\n"
+        f"INPUT:\n{input_text}\n\n"
         f"INITIAL ANALYSIS:\n{initial_analysis}\n\n"
         f"RETRIEVED COMPONENTS:\n{comp_text}\n\n"
         f"LOGS:\n{logs_text}"
     )
     final_answer = ollama.chat(second_prompt)
     return DebugAnalyzeResponse(
-        input_text=req.input_text,
+        input_text=input_text,
         model=ollama.model,
         initial_analysis=initial_analysis,
         components=components,
@@ -1436,13 +1445,16 @@ app = FastAPI(title="SF Agent API")
 @app.post("/agent", response_model=AskResponse)
 def ask(req: AskRequest, api_key: str = Depends(get_api_key)):
     try:
+        user_prompt = _require_non_empty_text(req.user_prompt, "user_prompt")
         return run_agent(
-            user_prompt=req.user_prompt,
+            user_prompt=user_prompt,
             model_override=req.model,
             use_sfdc=req.use_sfdc,
             hybrid=req.hybrid,
             k=req.k,
         )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1450,9 +1462,10 @@ def ask(req: AskRequest, api_key: str = Depends(get_api_key)):
 @app.post("/repo/search-explain", response_model=RepoSearchResponse)
 def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_key)):
     try:
+        query = _require_non_empty_text(req.query, "query")
         ollama = get_ollama_client(req.model)
         context, source = auto_context(
-            req.query,
+            query,
             max_lines=req.max_lines,
             k=req.k,
             hybrid=req.hybrid,
@@ -1462,15 +1475,17 @@ def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_k
             "You are analyzing the active Salesforce metadata repo. "
             "Based ONLY on the context snippets, explain where the query appears "
             "and what it likely does. If the query is not in context, say so.\n\n"
-            f"Query: {req.query}\n\nContext snippets (file:line):\n{context_text}"
+            f"Query: {query}\n\nContext snippets (file:line):\n{context_text}"
         )
         explanation = ollama.chat(prompt)
         return RepoSearchResponse(
-            query=req.query,
+            query=query,
             context_source=source,
             context_lines=len(context),
             explanation=explanation,
         )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1478,9 +1493,10 @@ def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_k
 @app.post("/repo/user-story", response_model=UserStoryResponse)
 def repo_user_story(req: UserStoryRequest, api_key: str = Depends(get_api_key)):
     try:
+        story = _require_non_empty_text(req.story, "story")
         ollama = get_ollama_client(req.model)
         context, source = auto_context(
-            req.story,
+            story,
             max_lines=req.max_lines,
             k=req.k,
             hybrid=req.hybrid,
@@ -1491,15 +1507,17 @@ def repo_user_story(req: UserStoryRequest, api_key: str = Depends(get_api_key)):
             "Given the user story and ONLY the context snippets, list impacted components "
             "(flows, Apex classes/triggers, LWCs, objects, layouts, approvals) and "
             "recommend next steps, risks, and tests. If context is insufficient, say so.\n\n"
-            f"User story: {req.story}\n\nContext snippets (file:line):\n{context_text}"
+            f"User story: {story}\n\nContext snippets (file:line):\n{context_text}"
         )
         recommendations = ollama.chat(prompt)
         return UserStoryResponse(
-            story=req.story,
+            story=story,
             context_source=source,
             context_lines=len(context),
             recommendations=recommendations,
         )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1540,6 +1558,8 @@ def sf_repo_ai_feature_explain(req: FeatureExplainRequest, api_key: str = Depend
 def sf_repo_ai_user_story_analyze(req: UserStoryAnalyzeRequest, api_key: str = Depends(get_api_key)):
     try:
         return run_user_story_analysis(req)
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1548,6 +1568,8 @@ def sf_repo_ai_user_story_analyze(req: UserStoryAnalyzeRequest, api_key: str = D
 def sf_repo_ai_debug_analyze(req: DebugAnalyzeRequest, api_key: str = Depends(get_api_key)):
     try:
         return run_debug_analysis(req)
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1646,8 +1668,9 @@ def sf_repo_ai_development_run(req: DevelopmentRunRequest, api_key: str = Depend
 @app.post("/sf-repo-ai/work-items", response_model=WorkItemResponse)
 def sf_repo_ai_work_item_create(req: WorkItemCreateRequest, api_key: str = Depends(get_api_key)):
     try:
+        story = _require_non_empty_text(req.story, "story")
         row = OrchestrationStore().create_work_item(
-            story=req.story,
+            story=story,
             title=req.title,
             llm_model=req.model or os.getenv("OLLAMA_MODEL", "gpt-oss:20b"),
             metadata_project_dir=_project_dir_or_default(req.metadata_project_dir),
@@ -1655,6 +1678,8 @@ def sf_repo_ai_work_item_create(req: WorkItemCreateRequest, api_key: str = Depen
             created_ts=_utc_now_iso(),
         )
         return _work_item_response(row)
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -1719,6 +1744,8 @@ def sf_repo_ai_work_item_analyze(
             impacted_components_json=analysis.components,
         )
         return _work_item_response(updated)
+    except HTTPException:
+        raise
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc))
     except Exception as exc:
@@ -2702,26 +2729,27 @@ def sf_repo_ai_health():
 @app.post("/sf-repo-ai/ask", response_model=SfRepoAskResponse)
 def sf_repo_ai_ask(req: SfRepoAskRequest, api_key: str = Depends(get_api_key)):
     try:
+        question = _require_non_empty_text(req.question, "question")
         object_hint = req.object_api_name if req.object_api_name else None
-        ap_inventory = _approval_process_inventory_response(req.question, object_hint=object_hint)
+        ap_inventory = _approval_process_inventory_response(question, object_hint=object_hint)
         if ap_inventory is not None:
             response = ap_inventory
         elif req.evidence_only and req.evidence is not None:
             response = run_evidence_prompt(
-                question=req.question,
+                question=question,
                 model_override=req.model,
                 evidence=req.evidence,
             )
         else:
             response = run_agent(
-                user_prompt=req.question,
+                user_prompt=question,
                 model_override=req.model,
                 use_sfdc=req.use_sfdc,
                 hybrid=req.hybrid,
                 k=req.k,
             )
         return SfRepoAskResponse(
-            question=req.question,
+            question=question,
             record_id=req.record_id,
             object_api_name=req.object_api_name,
             intent=response.intent,
@@ -2729,5 +2757,7 @@ def sf_repo_ai_ask(req: SfRepoAskRequest, api_key: str = Depends(get_api_key)):
             tool_results=response.tool_results,
             final_answer=response.final_answer,
         )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
