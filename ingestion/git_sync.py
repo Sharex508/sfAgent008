@@ -58,6 +58,32 @@ def _run_git(args: List[str], *, cwd: Optional[Path] = None) -> Tuple[int, str, 
     return proc.returncode, proc.stdout or "", proc.stderr or ""
 
 
+def probe_clone_access(*, clone_url: str, provider: Optional[str] = None) -> Dict[str, Any]:
+    provider_name = _provider_from_url(clone_url, provider)
+    if provider_name == "local":
+        source_path = _resolve_local_source(clone_url)
+        return {
+            "ok": source_path.exists() and source_path.is_dir(),
+            "auth_mode": "local_path",
+            "message": f"Local source path {'found' if source_path.exists() else 'not found'}: {source_path}",
+        }
+
+    code, out, err = _run_git(["ls-remote", clone_url])
+    if code == 0:
+        return {
+            "ok": True,
+            "auth_mode": "local_git",
+            "message": "Repository access succeeded using local machine Git credentials.",
+        }
+
+    detail = (err or out or "").strip() or "git ls-remote failed."
+    return {
+        "ok": False,
+        "auth_mode": "unknown",
+        "message": detail,
+    }
+
+
 def _current_commit(repo_dir: Path) -> Optional[str]:
     code, out, _ = _run_git(["rev-parse", "HEAD"], cwd=repo_dir)
     return out.strip() if code == 0 and out.strip() else None

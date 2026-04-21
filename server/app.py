@@ -23,16 +23,20 @@ from agent.runtime import (
 from llm.ollama_client import OllamaClient
 from ingestion import RepoRegistry, register_and_sync_repo, sync_due_repos, sync_repo_by_id
 from ingestion.bitbucket_auth import connection_status as bitbucket_connection_status, start_connect_flow as bitbucket_start_connect_flow, complete_connect_flow as bitbucket_complete_connect_flow
+from ingestion.git_sync import probe_clone_access
 from repo_inventory import build_metadata_inventory, list_fields, list_objects, load_metadata_inventory, validate_repo_structure, write_metadata_inventory
 from orchestration import (
     GenerationResult,
     OrchestrationStore,
     apex_run_test,
+    continue_environment_setup,
     default_project_dir,
     deploy_start,
+    get_environment_setup_status,
     generate_or_update_components,
     list_orgs,
     retrieve_start,
+    start_environment_setup,
 )
 from repo_index import ensure_indexes
 from retrieval.vector_store import search_metadata
@@ -536,6 +540,48 @@ class ActiveRepoResponse(BaseModel):
     source: Optional[RepoSourceResponse] = None
 
 
+class SetupStepResponse(BaseModel):
+    key: str
+    label: str
+    status: str
+    message: str
+    updated_ts: Optional[str] = None
+    started_ts: Optional[str] = None
+    finished_ts: Optional[str] = None
+    details: Optional[Dict[str, Any]] = None
+
+
+class EnvironmentSetupRequest(BaseModel):
+    provider: Optional[str] = Field(None, description="Repo provider, defaults to bitbucket")
+    clone_url: Optional[str] = Field(None, description="Git clone URL for the Salesforce repository")
+    branch: Optional[str] = Field(None, description="Optional branch to clone or sync")
+    name: Optional[str] = Field(None, description="Optional local logical repo name")
+    start_ngrok: bool = Field(True, description="Start or reuse ngrok after setup completes")
+    run_id: Optional[str] = Field(None, description="Optional existing setup run to continue")
+
+
+class EnvironmentSetupStatusResponse(BaseModel):
+    run_id: Optional[str]
+    status: str
+    message: str
+    provider: Optional[str] = None
+    clone_url: Optional[str] = None
+    branch: Optional[str] = None
+    name: Optional[str] = None
+    start_ngrok: Optional[bool] = None
+    current_step: Optional[str] = None
+    requires_user_input: bool = False
+    missing_inputs: List[str] = Field(default_factory=list)
+    next_actions: List[str] = Field(default_factory=list)
+    active_repo_path: Optional[str] = None
+    health_url: Optional[str] = None
+    ngrok_public_url: Optional[str] = None
+    steps: List[SetupStepResponse] = Field(default_factory=list)
+    logs: List[Dict[str, Any]] = Field(default_factory=list)
+    created_ts: Optional[str] = None
+    updated_ts: Optional[str] = None
+
+
 class IndexStatsResponse(BaseModel):
     active_repo_path: str
     validation_status: str
@@ -659,6 +705,31 @@ def _active_repo_response(registry: Optional[RepoRegistry] = None) -> ActiveRepo
     return ActiveRepoResponse(
         active_repo_path=str(resolve_active_repo()),
         source=_repo_source_response(active_row) if active_row else None,
+    )
+
+
+def _environment_setup_response(payload: Dict[str, Any]) -> EnvironmentSetupStatusResponse:
+    steps = [SetupStepResponse(**step) for step in payload.get("steps", [])]
+    return EnvironmentSetupStatusResponse(
+        run_id=payload.get("run_id"),
+        status=str(payload.get("status") or "UNKNOWN"),
+        message=str(payload.get("message") or ""),
+        provider=payload.get("provider"),
+        clone_url=payload.get("clone_url"),
+        branch=payload.get("branch"),
+        name=payload.get("name"),
+        start_ngrok=payload.get("start_ngrok"),
+        current_step=payload.get("current_step"),
+        requires_user_input=bool(payload.get("requires_user_input")),
+        missing_inputs=list(payload.get("missing_inputs") or []),
+        next_actions=list(payload.get("next_actions") or []),
+        active_repo_path=payload.get("active_repo_path"),
+        health_url=payload.get("health_url"),
+        ngrok_public_url=payload.get("ngrok_public_url"),
+        steps=steps,
+        logs=list(payload.get("logs") or []),
+        created_ts=payload.get("created_ts"),
+        updated_ts=payload.get("updated_ts"),
     )
 
 
@@ -2370,8 +2441,12 @@ def sf_repo_ai_initialize_repo(req: RepoInitializeRequest, api_key: str = Depend
         missing_inputs.append("clone_url")
         next_actions.append("Provide the repository clone URL.")
 
+    local_git_access = None
+    if clone_url:
+        local_git_access = probe_clone_access(clone_url=clone_url, provider=provider)
+
     if provider == "bitbucket" and not _clone_url_has_inline_credentials(clone_url):
-        if connection and not connection.connected:
+        if not (local_git_access and local_git_access.get("ok")) and connection and not connection.connected:
             missing_inputs.append("bitbucket_connection")
             if connection.login_url:
                 next_actions.append("Start Bitbucket connect and complete SSO/OAuth before cloning the repo.")
@@ -2395,9 +2470,9 @@ def sf_repo_ai_initialize_repo(req: RepoInitializeRequest, api_key: str = Depend
             missing_inputs=missing_inputs,
             message="Repo initialization is blocked until the missing setup inputs are provided.",
             defaults=defaults,
-            next_actions=next_actions,
-            source=None,
-        )
+        next_actions=next_actions,
+        source=None,
+    )
 
     row = register_and_sync_repo(
         clone_url=clone_url,
@@ -2423,6 +2498,33 @@ def sf_repo_ai_initialize_repo(req: RepoInitializeRequest, api_key: str = Depend
 @app.get("/sf-repo-ai/repos/active", response_model=ActiveRepoResponse)
 def sf_repo_ai_active_repo(api_key: str = Depends(get_api_key)):
     return _active_repo_response()
+
+
+@app.post("/sf-repo-ai/setup/start", response_model=EnvironmentSetupStatusResponse)
+def sf_repo_ai_environment_setup_start(req: EnvironmentSetupRequest, api_key: str = Depends(get_api_key)):
+    if req.run_id:
+        payload = continue_environment_setup(
+            run_id=req.run_id,
+            provider=req.provider,
+            clone_url=req.clone_url,
+            branch=req.branch,
+            name=req.name,
+            start_ngrok=req.start_ngrok,
+        )
+    else:
+        payload = start_environment_setup(
+            provider=req.provider or "bitbucket",
+            clone_url=req.clone_url,
+            branch=req.branch,
+            name=req.name,
+            start_ngrok=req.start_ngrok,
+        )
+    return _environment_setup_response(payload)
+
+
+@app.get("/sf-repo-ai/setup/status", response_model=EnvironmentSetupStatusResponse)
+def sf_repo_ai_environment_setup_status(run_id: Optional[str] = None, api_key: str = Depends(get_api_key)):
+    return _environment_setup_response(get_environment_setup_status(run_id))
 
 
 @app.get("/sf-repo-ai/repos", response_model=RepoSourceListResponse)
