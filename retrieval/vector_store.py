@@ -87,6 +87,9 @@ def index_metadata(
 
 
 def _vector_search(query: str, k: int, persist_dir: Path) -> List[MetadataDoc]:
+    query = (query or "").strip()
+    if not query:
+        return []
     persist_dir = Path(persist_dir)
     if not persist_dir.exists():
         return []
@@ -148,6 +151,10 @@ def search_metadata(
     - If hybrid=False: vector only.
     - If hybrid=True: blend vector results with a simple lexical scorer over docs.jsonl.
     """
+    query = (query or "").strip()
+    if not query:
+        return []
+
     if not hybrid:
         return _vector_search(query, k, persist_dir)
 
