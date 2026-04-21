@@ -7,6 +7,7 @@ import re
 from html import escape
 from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
+import xml.etree.ElementTree as ET
 
 from fastapi import FastAPI, HTTPException, Header, Security, Depends
 from fastapi.responses import HTMLResponse
@@ -997,6 +998,117 @@ def _approval_process_inventory_response(question: str, object_hint: Optional[st
         intent="APPROVAL_PROCESS_INVENTORY",
         needs_approval=False,
         tool_results=[{"tool": "approval_process_inventory", "args": {"object": obj}, "result": {"ok": True, "items": items}}],
+        final_answer="\n".join(lines),
+    )
+
+
+def _extract_object_name_from_question(question: str) -> Optional[str]:
+    q = question.strip()
+    patterns = [
+        r"\bon\s+the\s+([A-Za-z][A-Za-z0-9_]+)\s+object\b",
+        r"\bon\s+([A-Za-z][A-Za-z0-9_]+)\s+object\b",
+        r"\bfor\s+the\s+([A-Za-z][A-Za-z0-9_]+)\s+object\b",
+        r"\bfor\s+([A-Za-z][A-Za-z0-9_]+)\s+object\b",
+        r"\bon\s+the\s+([A-Za-z][A-Za-z0-9_]+)\b",
+        r"\bon\s+([A-Za-z][A-Za-z0-9_]+)\b",
+        r"\bfor\s+the\s+([A-Za-z][A-Za-z0-9_]+)\b",
+        r"\bfor\s+([A-Za-z][A-Za-z0-9_]+)\b",
+    ]
+    for pattern in patterns:
+        m = re.search(pattern, q, re.IGNORECASE)
+        if m:
+            return m.group(1)
+    return None
+
+
+def _flow_inventory_response(question: str, object_hint: Optional[str]) -> Optional[AskResponse]:
+    q = question.strip()
+    q_lower = q.lower()
+    if "flow" not in q_lower:
+        return None
+    if "approval process" in q_lower:
+        return None
+    if not any(token in q_lower for token in ["list", "how many", "count", "number of", "inventory"]):
+        return None
+
+    obj = (object_hint or _extract_object_name_from_question(q) or "").strip()
+    if not obj:
+        return None
+
+    active_only = "active" in q_lower
+    flows_root = _default_meta_root() / "flows"
+    if not flows_root.exists():
+        return None
+
+    items: List[Dict[str, Any]] = []
+    ns = {"m": "http://soap.sforce.com/2006/04/metadata"}
+    for flow_file in sorted(flows_root.glob("*.flow-meta.xml")):
+        try:
+            root = ET.parse(flow_file).getroot()
+        except ET.ParseError:
+            continue
+        start = root.find("m:start", ns)
+        if start is None:
+            continue
+        flow_object = start.findtext("m:object", default="", namespaces=ns).strip()
+        if flow_object != obj:
+            continue
+        status = root.findtext("m:status", default="", namespaces=ns).strip() or "Unknown"
+        if active_only and status.lower() != "active":
+            continue
+        label = root.findtext("m:label", default="", namespaces=ns).strip() or flow_file.stem.replace(".flow-meta", "")
+        trigger_type = start.findtext("m:triggerType", default="", namespaces=ns).strip()
+        record_trigger_type = start.findtext("m:recordTriggerType", default="", namespaces=ns).strip()
+        items.append(
+            {
+                "type": "FLOW",
+                "object": flow_object,
+                "label": label,
+                "name": flow_file.name.replace(".flow-meta.xml", ""),
+                "status": status,
+                "trigger_type": trigger_type,
+                "record_trigger_type": record_trigger_type,
+                "path": str(flow_file),
+            }
+        )
+
+    if not items:
+        qualifier = "active " if active_only else ""
+        return AskResponse(
+            intent="FLOW_INVENTORY",
+            needs_approval=False,
+            tool_results=[
+                {
+                    "tool": "flow_inventory",
+                    "args": {"object": obj, "active_only": active_only},
+                    "result": {"ok": True, "items": []},
+                }
+            ],
+            final_answer=f"No {qualifier}record-triggered flows found in repo metadata for object {obj}.",
+        )
+
+    lines: List[str] = []
+    qualifier = "active " if active_only else ""
+    lines.append(f"{len(items)} {qualifier}record-triggered flow(s) found in repo metadata for object {obj}:")
+    for item in items:
+        details = [item["status"]]
+        if item.get("trigger_type"):
+            details.append(item["trigger_type"])
+        if item.get("record_trigger_type"):
+            details.append(item["record_trigger_type"])
+        lines.append(f"- {item['label']} ({', '.join(details)})")
+        lines.append(f"  {item['path']}")
+
+    return AskResponse(
+        intent="FLOW_INVENTORY",
+        needs_approval=False,
+        tool_results=[
+            {
+                "tool": "flow_inventory",
+                "args": {"object": obj, "active_only": active_only},
+                "result": {"ok": True, "items": items},
+            }
+        ],
         final_answer="\n".join(lines),
     )
 
@@ -2741,20 +2853,24 @@ def sf_repo_ai_ask(req: SfRepoAskRequest, api_key: str = Depends(get_api_key)):
         ap_inventory = _approval_process_inventory_response(req.question, object_hint=object_hint)
         if ap_inventory is not None:
             response = ap_inventory
-        elif req.evidence_only and req.evidence is not None:
-            response = run_evidence_prompt(
-                question=req.question,
-                model_override=req.model,
-                evidence=req.evidence,
-            )
         else:
-            response = run_agent(
-                user_prompt=req.question,
-                model_override=req.model,
-                use_sfdc=req.use_sfdc,
-                hybrid=req.hybrid,
-                k=req.k,
-            )
+            flow_inventory = _flow_inventory_response(req.question, object_hint=object_hint)
+            if flow_inventory is not None:
+                response = flow_inventory
+            elif req.evidence_only and req.evidence is not None:
+                response = run_evidence_prompt(
+                    question=req.question,
+                    model_override=req.model,
+                    evidence=req.evidence,
+                )
+            else:
+                response = run_agent(
+                    user_prompt=req.question,
+                    model_override=req.model,
+                    use_sfdc=req.use_sfdc,
+                    hybrid=req.hybrid,
+                    k=req.k,
+                )
         return SfRepoAskResponse(
             question=req.question,
             record_id=req.record_id,
