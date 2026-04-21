@@ -23,6 +23,7 @@ from agent.runtime import (
     execute_plan,
 )
 from llm.ollama_client import OllamaClient
+from llm.openai_client import OpenAIResponsesClient
 from ingestion import RepoRegistry, register_and_sync_repo, sync_due_repos, sync_repo_by_id
 from ingestion.bitbucket_auth import connection_status as bitbucket_connection_status, start_connect_flow as bitbucket_start_connect_flow, complete_connect_flow as bitbucket_complete_connect_flow
 from ingestion.git_sync import probe_clone_access
@@ -799,10 +800,42 @@ def _active_metadata_inventory() -> MetadataInventoryResponse:
     )
 
 
-def get_ollama_client(model_override: Optional[str] = None) -> OllamaClient:
-    host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-    model = model_override or os.getenv("OLLAMA_MODEL", "gpt-oss:20b")
-    return OllamaClient(host=host, model=model)
+def _normalize_model_name(model_override: Optional[str] = None) -> str:
+    model = (model_override or os.getenv("OLLAMA_MODEL", "gpt-oss:20b")).strip()
+    aliases = {
+        "codex": "gpt-5.1-codex",
+        "gpt-5.1-mini": "gpt-5-mini",
+    }
+    return aliases.get(model.lower(), model)
+
+
+def _is_openai_model(model_name: str) -> bool:
+    model = (model_name or "").strip().lower()
+    if not model:
+        return False
+    if model.startswith("gpt-oss:"):
+        return False
+    if ":" in model:
+        return False
+    return model.startswith("gpt-") or model.startswith("o")
+
+
+def get_llm_client(model_override: Optional[str] = None):
+    model = _normalize_model_name(model_override)
+    if _is_openai_model(model):
+        api_key = os.getenv("OPENAI_API_KEY", "").strip()
+        if not api_key:
+            raise HTTPException(status_code=500, detail=f"OPENAI_API_KEY is not configured for model '{model}'.")
+        return OpenAIResponsesClient(
+            api_key=api_key,
+            model=model,
+            base_url=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1"),
+            timeout_seconds=int(os.getenv("OPENAI_TIMEOUT_SECONDS", "300")),
+        )
+    return OllamaClient(
+        host=os.getenv("OLLAMA_HOST", "http://localhost:11434"),
+        model=model,
+    )
 
 def _ensure_metadata_indexes() -> None:
     global _INDEX_READY
@@ -1189,8 +1222,8 @@ def _deterministic_router_response(question: str) -> Optional[AskResponse]:
 
 def run_agent(user_prompt: str, model_override: Optional[str], use_sfdc: bool, hybrid: bool, k: int) -> AskResponse:
     # Build plan with LLM
-    ollama = get_ollama_client(model_override)
-    plan: ActionPlan = build_plan_with_llm(user_prompt, ollama)
+    llm = get_llm_client(model_override)
+    plan: ActionPlan = build_plan_with_llm(user_prompt, llm)
 
     # Execute tools
     sf_client = SalesforceClient.from_env(dry_run=True) if use_sfdc else None
@@ -1208,7 +1241,7 @@ def run_agent(user_prompt: str, model_override: Optional[str], use_sfdc: bool, h
     results = execute_plan(plan, sf_client=sf_client)
 
     # Final answer from LLM
-    final_answer = build_final_with_llm(user_prompt, results, ollama)
+    final_answer = build_final_with_llm(user_prompt, results, llm)
     return AskResponse(
         intent=plan.intent,
         needs_approval=plan.needs_approval,
@@ -1223,7 +1256,7 @@ def run_evidence_prompt(
     model_override: Optional[str],
     evidence: Dict[str, Any],
 ) -> AskResponse:
-    ollama = get_ollama_client(model_override)
+    llm = get_llm_client(model_override)
 
     evidence_steps = evidence.get("steps", [])
     rows_summary: Dict[str, int] = {}
@@ -1246,7 +1279,7 @@ def run_evidence_prompt(
         f"Question:\n{question}\n\n"
         f"Evidence JSON:\n{json.dumps(evidence, ensure_ascii=False)}"
     )
-    final_answer = ollama.chat(prompt)
+    final_answer = llm.chat(prompt)
 
     return AskResponse(
         intent="EVIDENCE_PROMPT",
@@ -1263,7 +1296,7 @@ def run_evidence_prompt(
 
 
 def run_feature_explain(prompt_text: str, payload: Any, model_override: Optional[str]) -> FeatureExplainResponse:
-    ollama = get_ollama_client(model_override)
+    llm = get_llm_client(model_override)
     if isinstance(payload, str):
         data_text = payload
     else:
@@ -1275,8 +1308,8 @@ def run_feature_explain(prompt_text: str, payload: Any, model_override: Optional
         "DATA:\n"
         f"{data_text}"
     )
-    response = ollama.chat(llm_input)
-    return FeatureExplainResponse(prompt=prompt_text, response=response, model=ollama.model)
+    response = llm.chat(llm_input)
+    return FeatureExplainResponse(prompt=prompt_text, response=response, model=llm.model)
 
 
 def _to_json_text(payload: Any) -> str:
@@ -1315,7 +1348,7 @@ def _components_block(components: List[Dict[str, Any]]) -> str:
 
 
 def run_user_story_analysis(req: UserStoryAnalyzeRequest) -> UserStoryAnalyzeResponse:
-    ollama = get_ollama_client(req.model)
+    llm = get_llm_client(req.model)
     logs_text = _to_json_text(req.logs) if req.logs is not None else "No logs provided."
 
     first_prompt = (
@@ -1325,7 +1358,7 @@ def run_user_story_analysis(req: UserStoryAnalyzeRequest) -> UserStoryAnalyzeRes
         f"USER STORY:\n{req.story}\n\n"
         f"LOGS:\n{logs_text}"
     )
-    initial_analysis = ollama.chat(first_prompt)
+    initial_analysis = llm.chat(first_prompt)
 
     retrieval_query = f"{req.story}\n{initial_analysis}"
     components = _retrieve_components(retrieval_query, k=req.k, hybrid=req.hybrid)
@@ -1340,10 +1373,10 @@ def run_user_story_analysis(req: UserStoryAnalyzeRequest) -> UserStoryAnalyzeRes
         f"FIRST ANALYSIS:\n{initial_analysis}\n\n"
         f"RETRIEVED COMPONENTS:\n{comp_text}"
     )
-    final_answer = ollama.chat(second_prompt)
+    final_answer = llm.chat(second_prompt)
     return UserStoryAnalyzeResponse(
         story=req.story,
-        model=ollama.model,
+        model=llm.model,
         initial_analysis=initial_analysis,
         components=components,
         final_answer=final_answer,
@@ -1351,7 +1384,7 @@ def run_user_story_analysis(req: UserStoryAnalyzeRequest) -> UserStoryAnalyzeRes
 
 
 def run_debug_analysis(req: DebugAnalyzeRequest) -> DebugAnalyzeResponse:
-    ollama = get_ollama_client(req.model)
+    llm = get_llm_client(req.model)
     logs_text = _to_json_text(req.logs)
 
     first_prompt = (
@@ -1361,7 +1394,7 @@ def run_debug_analysis(req: DebugAnalyzeRequest) -> DebugAnalyzeResponse:
         f"INPUT:\n{req.input_text}\n\n"
         f"LOGS:\n{logs_text}"
     )
-    initial_analysis = ollama.chat(first_prompt)
+    initial_analysis = llm.chat(first_prompt)
 
     retrieval_query = f"{req.input_text}\n{initial_analysis}"
     components = _retrieve_components(retrieval_query, k=req.k, hybrid=req.hybrid)
@@ -1379,10 +1412,10 @@ def run_debug_analysis(req: DebugAnalyzeRequest) -> DebugAnalyzeResponse:
         f"RETRIEVED COMPONENTS:\n{comp_text}\n\n"
         f"LOGS:\n{logs_text}"
     )
-    final_answer = ollama.chat(second_prompt)
+    final_answer = llm.chat(second_prompt)
     return DebugAnalyzeResponse(
         input_text=req.input_text,
-        model=ollama.model,
+        model=llm.model,
         initial_analysis=initial_analysis,
         components=components,
         final_answer=final_answer,
@@ -1528,7 +1561,7 @@ def _resolve_or_create_work_item(
     return store.create_work_item(
         story=story.strip(),
         title=title,
-        llm_model=model or os.getenv("OLLAMA_MODEL", "gpt-oss:20b"),
+        llm_model=_normalize_model_name(model),
         metadata_project_dir=_project_dir_or_default(metadata_project_dir),
         target_org_alias=target_org_alias,
         created_ts=_utc_now_iso(),
@@ -1653,7 +1686,7 @@ def ask(req: AskRequest, api_key: str = Depends(get_api_key)):
 def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_key)):
     try:
         query = _require_non_empty_text(req.query, "query")
-        ollama = get_ollama_client(req.model)
+        llm = get_llm_client(req.model)
         context, source = auto_context(
             query,
             max_lines=req.max_lines,
@@ -1667,7 +1700,7 @@ def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_k
             "and what it likely does. If the query is not in context, say so.\n\n"
             f"Query: {query}\n\nContext snippets (file:line):\n{context_text}"
         )
-        explanation = ollama.chat(prompt)
+        explanation = llm.chat(prompt)
         return RepoSearchResponse(
             query=query,
             context_source=source,
@@ -1684,7 +1717,7 @@ def repo_search_explain(req: RepoSearchRequest, api_key: str = Depends(get_api_k
 def repo_user_story(req: UserStoryRequest, api_key: str = Depends(get_api_key)):
     try:
         story = _require_non_empty_text(req.story, "story")
-        ollama = get_ollama_client(req.model)
+        llm = get_llm_client(req.model)
         context, source = auto_context(
             story,
             max_lines=req.max_lines,
@@ -1699,7 +1732,7 @@ def repo_user_story(req: UserStoryRequest, api_key: str = Depends(get_api_key)):
             "recommend next steps, risks, and tests. If context is insufficient, say so.\n\n"
             f"User story: {story}\n\nContext snippets (file:line):\n{context_text}"
         )
-        recommendations = ollama.chat(prompt)
+        recommendations = llm.chat(prompt)
         return UserStoryResponse(
             story=story,
             context_source=source,
@@ -1716,13 +1749,13 @@ def repo_user_story(req: UserStoryRequest, api_key: str = Depends(get_api_key)):
 def repo_data_prompt(req: DataPromptRequest, api_key: str = Depends(get_api_key)):
     try:
         prompt_text = _require_non_empty_text(req.prompt, "prompt")
-        ollama = get_ollama_client(req.model)
+        llm = get_llm_client(req.model)
         prompt = (
             "Use ONLY the data provided to answer the prompt. "
             "If data is insufficient, say so.\n\n"
             f"Prompt: {prompt_text}\n\nData:\n{req.data}"
         )
-        response = ollama.chat(prompt)
+        response = llm.chat(prompt)
         return DataPromptResponse(prompt=prompt_text, response=response)
     except HTTPException:
         raise
@@ -1870,7 +1903,7 @@ def sf_repo_ai_work_item_create(req: WorkItemCreateRequest, api_key: str = Depen
         row = OrchestrationStore().create_work_item(
             story=req.story,
             title=req.title,
-            llm_model=req.model or os.getenv("OLLAMA_MODEL", "gpt-oss:20b"),
+            llm_model=_normalize_model_name(req.model),
             metadata_project_dir=_project_dir_or_default(req.metadata_project_dir),
             target_org_alias=req.target_org_alias,
             created_ts=_utc_now_iso(),
@@ -1982,7 +2015,7 @@ def sf_repo_ai_work_item_generate_or_update_components(
         raise HTTPException(status_code=400, detail=f"Metadata project directory not found: {project_dir}")
 
     created_ts = _utc_now_iso()
-    command_summary = f"model={req.model or row.get('llm_model') or os.getenv('OLLAMA_MODEL', 'gpt-oss:20b')} mode={mode}"
+    command_summary = f"model={_normalize_model_name(req.model or row.get('llm_model') or os.getenv('OLLAMA_MODEL', 'gpt-oss:20b'))} mode={mode}"
     execution = store.create_execution(
         operation_type="generate_or_update_components",
         work_item_id=work_item_id,
@@ -2313,7 +2346,7 @@ def sf_repo_ai_work_item_run(req: WorkItemRunRequest, api_key: str = Depends(get
     row = store.create_work_item(
         story=req.story,
         title=req.title,
-        llm_model=req.model or os.getenv("OLLAMA_MODEL", "gpt-oss:20b"),
+        llm_model=_normalize_model_name(req.model),
         metadata_project_dir=_project_dir_or_default(req.metadata_project_dir),
         target_org_alias=req.target_org_alias,
         created_ts=_utc_now_iso(),
