@@ -8,6 +8,7 @@ from html import escape
 from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
 import xml.etree.ElementTree as ET
+import sqlite3
 
 from fastapi import FastAPI, HTTPException, Header, Security, Depends
 from fastapi.responses import HTMLResponse
@@ -44,6 +45,7 @@ from retrieval.vector_store import search_metadata
 from repo_runtime import METADATA_INVENTORY_PATH, resolve_active_repo, set_active_repo
 from sfdc.client import SalesforceClient
 from server.repo_context import auto_context
+from sf_repo_ai.ask_router import route_ask_question
 
 API_KEY_NAME = "X-API-Key"
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=False)
@@ -1110,6 +1112,78 @@ def _flow_inventory_response(question: str, object_hint: Optional[str]) -> Optio
             }
         ],
         final_answer="\n".join(lines),
+    )
+
+
+def _deterministic_router_response(question: str) -> Optional[AskResponse]:
+    db_path = Path("./data/index.sqlite")
+    if not db_path.exists():
+        return None
+
+    conn = sqlite3.connect(str(db_path))
+    conn.row_factory = sqlite3.Row
+    try:
+        routed = route_ask_question(conn, question)
+    finally:
+        conn.close()
+
+    family = str(routed.get("routing_family") or "")
+    intent = str(routed.get("intent") or "")
+    handler = str(routed.get("handler") or "")
+    error = routed.get("error")
+    answer_lines = list(routed.get("answer_lines") or [])
+    if error or not answer_lines:
+        return None
+
+    deterministic_families = {
+        "meta_inventory",
+        "validation_rules_queries",
+        "approval_process_inventory",
+        "endpoints_inventory",
+        "security_queries",
+        "ui_queries",
+        "lwc_queries",
+    }
+    deterministic_intents = {
+        "count_type_on_object",
+        "list_type_on_object",
+        "meta_inventory_count",
+        "meta_inventory_list",
+        "validation_rule_list",
+    }
+    deterministic_handlers = {
+        "GenericMetaHandler",
+        "validation_rules",
+        "approval_process_inventory",
+        "named_credentials_inventory",
+        "endpoints_inventory",
+        "evidence_by_object",
+    }
+
+    if family not in deterministic_families and intent not in deterministic_intents and handler not in deterministic_handlers:
+        return None
+
+    evidence = list(routed.get("evidence") or [])
+    items = list(routed.get("items") or [])
+    return AskResponse(
+        intent=str(intent or family or "DETERMINISTIC_REPO_QUERY").upper(),
+        needs_approval=False,
+        tool_results=[
+            {
+                "tool": "deterministic_router",
+                "args": {"question": question},
+                "result": {
+                    "ok": True,
+                    "routing_family": family,
+                    "handler": handler,
+                    "count": int(routed.get("count") or len(items)),
+                    "items": items,
+                    "evidence": evidence,
+                    "resolved": routed.get("resolved") or {},
+                },
+            }
+        ],
+        final_answer="\n".join(answer_lines),
     )
 
 
@@ -2857,20 +2931,24 @@ def sf_repo_ai_ask(req: SfRepoAskRequest, api_key: str = Depends(get_api_key)):
             flow_inventory = _flow_inventory_response(req.question, object_hint=object_hint)
             if flow_inventory is not None:
                 response = flow_inventory
-            elif req.evidence_only and req.evidence is not None:
-                response = run_evidence_prompt(
-                    question=req.question,
-                    model_override=req.model,
-                    evidence=req.evidence,
-                )
             else:
-                response = run_agent(
-                    user_prompt=req.question,
-                    model_override=req.model,
-                    use_sfdc=req.use_sfdc,
-                    hybrid=req.hybrid,
-                    k=req.k,
-                )
+                deterministic = _deterministic_router_response(req.question)
+                if deterministic is not None:
+                    response = deterministic
+                elif req.evidence_only and req.evidence is not None:
+                    response = run_evidence_prompt(
+                        question=req.question,
+                        model_override=req.model,
+                        evidence=req.evidence,
+                    )
+                else:
+                    response = run_agent(
+                        user_prompt=req.question,
+                        model_override=req.model,
+                        use_sfdc=req.use_sfdc,
+                        hybrid=req.hybrid,
+                        k=req.k,
+                    )
         return SfRepoAskResponse(
             question=req.question,
             record_id=req.record_id,

@@ -98,3 +98,31 @@ def test_sf_repo_ai_ask_flow_inventory_is_deterministic(tmp_path, monkeypatch):
     assert "Account Draft Flow" not in payload["final_answer"]
     assert payload["tool_results"][0]["tool"] == "flow_inventory"
     assert len(payload["tool_results"][0]["result"]["items"]) == 1
+
+
+def test_sf_repo_ai_ask_uses_deterministic_router_for_generic_metadata(monkeypatch):
+    monkeypatch.setattr(
+        app_module,
+        "_deterministic_router_response",
+        lambda question: app_module.AskResponse(
+            intent="META_INVENTORY_LIST",
+            needs_approval=False,
+            tool_results=[
+                {
+                    "tool": "deterministic_router",
+                    "args": {"question": question},
+                    "result": {"ok": True, "routing_family": "meta_inventory", "handler": "GenericMetaHandler"},
+                }
+            ],
+            final_answer="QuickAction on Account: 3",
+        ),
+    )
+    monkeypatch.setattr(app_module, "_approval_process_inventory_response", lambda question, object_hint=None: None)
+    monkeypatch.setattr(app_module, "_flow_inventory_response", lambda question, object_hint=None: None)
+
+    response = client.post("/sf-repo-ai/ask", json={"question": "List quick actions on Account"})
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["intent"] == "META_INVENTORY_LIST"
+    assert payload["final_answer"] == "QuickAction on Account: 3"
+    assert payload["tool_results"][0]["tool"] == "deterministic_router"
