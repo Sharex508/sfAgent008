@@ -556,12 +556,14 @@ class EnvironmentSetupRequest(BaseModel):
     clone_url: Optional[str] = Field(None, description="Git clone URL for the Salesforce repository")
     branch: Optional[str] = Field(None, description="Optional branch to clone or sync")
     name: Optional[str] = Field(None, description="Optional local logical repo name")
+    project_namespace: Optional[str] = Field(None, description="Stable namespace used to isolate this project's setup and health state")
     start_ngrok: bool = Field(True, description="Start or reuse ngrok after setup completes")
     run_id: Optional[str] = Field(None, description="Optional existing setup run to continue")
 
 
 class EnvironmentSetupStatusResponse(BaseModel):
     run_id: Optional[str]
+    project_namespace: Optional[str] = None
     status: str
     message: str
     provider: Optional[str] = None
@@ -570,6 +572,9 @@ class EnvironmentSetupStatusResponse(BaseModel):
     name: Optional[str] = None
     start_ngrok: Optional[bool] = None
     current_step: Optional[str] = None
+    backend_reachable: bool = True
+    run_exists: bool = False
+    backend_instance: Optional[str] = None
     requires_user_input: bool = False
     missing_inputs: List[str] = Field(default_factory=list)
     next_actions: List[str] = Field(default_factory=list)
@@ -712,6 +717,7 @@ def _environment_setup_response(payload: Dict[str, Any]) -> EnvironmentSetupStat
     steps = [SetupStepResponse(**step) for step in payload.get("steps", [])]
     return EnvironmentSetupStatusResponse(
         run_id=payload.get("run_id"),
+        project_namespace=payload.get("project_namespace"),
         status=str(payload.get("status") or "UNKNOWN"),
         message=str(payload.get("message") or ""),
         provider=payload.get("provider"),
@@ -720,6 +726,9 @@ def _environment_setup_response(payload: Dict[str, Any]) -> EnvironmentSetupStat
         name=payload.get("name"),
         start_ngrok=payload.get("start_ngrok"),
         current_step=payload.get("current_step"),
+        backend_reachable=bool(payload.get("backend_reachable", True)),
+        run_exists=bool(payload.get("run_exists", False)),
+        backend_instance=payload.get("backend_instance"),
         requires_user_input=bool(payload.get("requires_user_input")),
         missing_inputs=list(payload.get("missing_inputs") or []),
         next_actions=list(payload.get("next_actions") or []),
@@ -2509,6 +2518,7 @@ def sf_repo_ai_environment_setup_start(req: EnvironmentSetupRequest, api_key: st
             clone_url=req.clone_url,
             branch=req.branch,
             name=req.name,
+            project_namespace=req.project_namespace,
             start_ngrok=req.start_ngrok,
         )
     else:
@@ -2517,14 +2527,31 @@ def sf_repo_ai_environment_setup_start(req: EnvironmentSetupRequest, api_key: st
             clone_url=req.clone_url,
             branch=req.branch,
             name=req.name,
+            project_namespace=req.project_namespace,
             start_ngrok=req.start_ngrok,
         )
     return _environment_setup_response(payload)
 
 
 @app.get("/sf-repo-ai/setup/status", response_model=EnvironmentSetupStatusResponse)
-def sf_repo_ai_environment_setup_status(run_id: Optional[str] = None, api_key: str = Depends(get_api_key)):
-    return _environment_setup_response(get_environment_setup_status(run_id))
+def sf_repo_ai_environment_setup_status(run_id: Optional[str] = None, project_namespace: Optional[str] = None, api_key: str = Depends(get_api_key)):
+    return _environment_setup_response(get_environment_setup_status(run_id, project_namespace))
+
+
+@app.post("/sf-repo-ai/projects/{project_namespace}/setup/start", response_model=EnvironmentSetupStatusResponse)
+def sf_repo_ai_project_environment_setup_start(project_namespace: str, req: EnvironmentSetupRequest, api_key: str = Depends(get_api_key)):
+    request = req.model_copy(update={"project_namespace": project_namespace})
+    return sf_repo_ai_environment_setup_start(request, api_key)
+
+
+@app.get("/sf-repo-ai/projects/{project_namespace}/setup/status", response_model=EnvironmentSetupStatusResponse)
+def sf_repo_ai_project_environment_setup_status(project_namespace: str, run_id: Optional[str] = None, api_key: str = Depends(get_api_key)):
+    return _environment_setup_response(get_environment_setup_status(run_id, project_namespace))
+
+
+@app.get("/sf-repo-ai/projects/{project_namespace}/health", response_model=EnvironmentSetupStatusResponse)
+def sf_repo_ai_project_health(project_namespace: str, api_key: str = Depends(get_api_key)):
+    return _environment_setup_response(get_environment_setup_status(None, project_namespace))
 
 
 @app.get("/sf-repo-ai/repos", response_model=RepoSourceListResponse)

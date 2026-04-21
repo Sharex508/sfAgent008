@@ -174,11 +174,15 @@ def test_repo_initialize_returns_source_when_ready(monkeypatch):
 
 
 def test_environment_setup_status_default(monkeypatch):
-    monkeypatch.setattr(app_module, "get_environment_setup_status", lambda run_id=None: {
+    monkeypatch.setattr(app_module, "get_environment_setup_status", lambda run_id=None, project_namespace=None: {
         "run_id": None,
+        "project_namespace": project_namespace,
         "status": "NOT_STARTED",
         "message": "Environment setup has not been started yet.",
         "steps": [],
+        "backend_reachable": True,
+        "run_exists": False,
+        "backend_instance": "test-host",
         "requires_user_input": False,
         "missing_inputs": [],
         "next_actions": ["Provide a repository URL and start environment setup."],
@@ -193,6 +197,7 @@ def test_environment_setup_status_default(monkeypatch):
 def test_environment_setup_start_returns_waiting_input(monkeypatch):
     monkeypatch.setattr(app_module, "start_environment_setup", lambda **kwargs: {
         "run_id": "setup-1",
+        "project_namespace": kwargs.get("project_namespace"),
         "status": "WAITING_INPUT",
         "message": "Repository URL is required before setup can start.",
         "provider": "bitbucket",
@@ -201,6 +206,9 @@ def test_environment_setup_start_returns_waiting_input(monkeypatch):
         "name": "",
         "start_ngrok": True,
         "current_step": "repo_access",
+        "backend_reachable": True,
+        "run_exists": True,
+        "backend_instance": "test-host",
         "requires_user_input": True,
         "missing_inputs": ["clone_url"],
         "next_actions": ["Enter the Salesforce repository clone URL and start setup again."],
@@ -217,3 +225,25 @@ def test_environment_setup_start_returns_waiting_input(monkeypatch):
     payload = response.json()
     assert payload["status"] == "WAITING_INPUT"
     assert payload["missing_inputs"] == ["clone_url"]
+
+
+def test_project_environment_setup_status_uses_namespace(monkeypatch):
+    monkeypatch.setattr(app_module, "get_environment_setup_status", lambda run_id=None, project_namespace=None: {
+        "run_id": None,
+        "project_namespace": project_namespace,
+        "status": "NO_ACTIVE_RUN",
+        "message": "No active setup run for this project.",
+        "steps": [],
+        "backend_reachable": True,
+        "run_exists": False,
+        "backend_instance": "test-host",
+        "requires_user_input": False,
+        "missing_inputs": [],
+        "next_actions": [],
+        "logs": [],
+    })
+    response = client.get("/sf-repo-ai/projects/natt-qa/health")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["project_namespace"] == "natt-qa"
+    assert payload["status"] == "NO_ACTIVE_RUN"

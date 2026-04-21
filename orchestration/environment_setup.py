@@ -2,11 +2,15 @@ from __future__ import annotations
 
 import json
 import os
+import re
+import socket
+import sqlite3
 import subprocess
 import sys
 import threading
 import time
 import uuid
+import importlib.util
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -19,7 +23,9 @@ from repo_index import DOCS_PATH
 from repo_runtime import ROOT, set_active_repo
 
 RUNS_DIR = ROOT / "data" / "setup_runs"
+PROJECTS_DIR = ROOT / "data" / "projects"
 LATEST_PATH = RUNS_DIR / "latest.json"
+SQLITE_INDEX_PATH = ROOT / "data" / "index.sqlite"
 _LOCK = threading.Lock()
 _THREADS: dict[str, threading.Thread] = {}
 
@@ -32,22 +38,57 @@ def _run_path(run_id: str) -> Path:
     return RUNS_DIR / f"{run_id}.json"
 
 
+def _normalize_project_namespace(value: Optional[str]) -> str:
+    cleaned = re.sub(r"[^A-Za-z0-9._-]+", "-", (value or "").strip().lower()).strip("-")
+    return cleaned or "default"
+
+
+def _project_dir(project_namespace: Optional[str]) -> Path:
+    return PROJECTS_DIR / _normalize_project_namespace(project_namespace)
+
+
+def _project_runs_dir(project_namespace: Optional[str]) -> Path:
+    return _project_dir(project_namespace) / "setup_runs"
+
+
+def _project_latest_path(project_namespace: Optional[str]) -> Path:
+    return _project_dir(project_namespace) / "latest.json"
+
+
+def _project_run_path(project_namespace: Optional[str], run_id: str) -> Path:
+    return _project_runs_dir(project_namespace) / f"{run_id}.json"
+
+
 def _write_state(state: Dict[str, Any]) -> Dict[str, Any]:
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    _project_runs_dir(state.get("project_namespace")).mkdir(parents=True, exist_ok=True)
     payload = json.dumps(state, indent=2, sort_keys=True)
     _run_path(state["run_id"]).write_text(payload, encoding="utf-8")
     LATEST_PATH.write_text(payload, encoding="utf-8")
+    _project_run_path(state.get("project_namespace"), state["run_id"]).write_text(payload, encoding="utf-8")
+    _project_latest_path(state.get("project_namespace")).write_text(payload, encoding="utf-8")
     return state
 
 
-def _read_state(run_id: Optional[str] = None) -> Optional[Dict[str, Any]]:
-    path = _run_path(run_id) if run_id else LATEST_PATH
-    if not path.exists():
-        return None
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return None
+def _read_state(run_id: Optional[str] = None, project_namespace: Optional[str] = None) -> Optional[Dict[str, Any]]:
+    candidate_paths: List[Path] = []
+    if run_id and project_namespace:
+        candidate_paths.append(_project_run_path(project_namespace, run_id))
+    elif run_id:
+        candidate_paths.append(_run_path(run_id))
+        candidate_paths.extend(PROJECTS_DIR.glob(f"*/setup_runs/{run_id}.json"))
+    elif project_namespace:
+        candidate_paths.append(_project_latest_path(project_namespace))
+    else:
+        candidate_paths.append(LATEST_PATH)
+    for path in candidate_paths:
+        if not path.exists():
+            continue
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+    return None
 
 
 def _initial_steps(start_ngrok: bool) -> List[Dict[str, Any]]:
@@ -65,10 +106,11 @@ def _initial_steps(start_ngrok: bool) -> List[Dict[str, Any]]:
     return steps
 
 
-def _new_state(*, provider: str, clone_url: str, branch: str, name: str, start_ngrok: bool) -> Dict[str, Any]:
+def _new_state(*, provider: str, clone_url: str, branch: str, name: str, start_ngrok: bool, project_namespace: Optional[str]) -> Dict[str, Any]:
     run_id = str(uuid.uuid4())
     return {
         "run_id": run_id,
+        "project_namespace": _normalize_project_namespace(project_namespace or name or clone_url),
         "status": "NEW",
         "message": "Environment setup is ready to start.",
         "provider": provider,
@@ -79,6 +121,9 @@ def _new_state(*, provider: str, clone_url: str, branch: str, name: str, start_n
         "created_ts": _utc_now_iso(),
         "updated_ts": _utc_now_iso(),
         "current_step": None,
+        "backend_reachable": True,
+        "run_exists": True,
+        "backend_instance": socket.gethostname(),
         "requires_user_input": False,
         "missing_inputs": [],
         "next_actions": [],
@@ -204,7 +249,130 @@ def _prepare_repo_source(state: Dict[str, Any]) -> Dict[str, Any]:
     )
     state["name"] = source["name"]
     state["branch"] = source.get("branch") or state["branch"]
+    state["project_namespace"] = _normalize_project_namespace(state.get("project_namespace") or source["name"])
     return sync_repo_by_id(source["source_id"], activate=False, registry=registry)
+
+
+def _find_source_for_namespace(project_namespace: Optional[str], state: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
+    namespace = _normalize_project_namespace(project_namespace)
+    registry = RepoRegistry()
+    for row in registry.list_sources():
+        if _normalize_project_namespace(str(row.get("name") or "")) == namespace:
+            return row
+    clone_url = (state or {}).get("clone_url")
+    if clone_url:
+        for row in registry.list_sources():
+            if str(row.get("clone_url") or "").strip() == str(clone_url).strip():
+                return row
+    return None
+
+
+def _dependencies_ready() -> bool:
+    for module_name in ("fastapi", "requests", "yaml"):
+        if importlib.util.find_spec(module_name) is None:
+            return False
+    return True
+
+
+def _graph_counts() -> Dict[str, int]:
+    if not SQLITE_INDEX_PATH.exists():
+        return {"nodes": 0, "edges": 0}
+    try:
+        conn = sqlite3.connect(str(SQLITE_INDEX_PATH))
+        try:
+            nodes = int(conn.execute("SELECT COUNT(*) FROM graph_nodes").fetchone()[0])
+            edges = int(conn.execute("SELECT COUNT(*) FROM graph_edges").fetchone()[0])
+            return {"nodes": nodes, "edges": edges}
+        finally:
+            conn.close()
+    except Exception:
+        return {"nodes": 0, "edges": 0}
+
+
+def _probe_project_health(project_namespace: Optional[str], state: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    namespace = _normalize_project_namespace(project_namespace or (state or {}).get("project_namespace"))
+    health_url = _determine_health_url()
+    ngrok_url = None
+    tunnels = _ngrok_api_tunnels()
+    for tunnel in tunnels:
+        public_url = str(tunnel.get("public_url") or "")
+        if public_url.startswith("https://"):
+            ngrok_url = public_url
+            break
+
+    source = _find_source_for_namespace(namespace, state)
+    local_path = Path(str(source.get("local_path") or "")).expanduser() if source else None
+    clone_ready = bool(source and local_path and local_path.exists() and (local_path / ".git").exists())
+    index_ready = bool(source and str(source.get("last_index_status") or "").upper() == "SUCCEEDED" and int(source.get("docs_count") or 0) > 0)
+    active_source = RepoRegistry().active_source()
+    active_matches = bool(active_source and _normalize_project_namespace(str(active_source.get("name") or "")) == namespace)
+    graph_counts = _graph_counts() if active_matches else {"nodes": 0, "edges": 0}
+    graph_ready = bool(graph_counts["nodes"] > 0 and graph_counts["edges"] > 0)
+
+    api_ready = False
+    try:
+        response = requests.get(health_url, timeout=3)
+        api_ready = response.ok
+    except Exception:
+        api_ready = False
+
+    return {
+        "project_namespace": namespace,
+        "backend_instance": socket.gethostname(),
+        "backend_ready": bool((ROOT / "requirements.txt").exists()),
+        "dependencies": _dependencies_ready(),
+        "repo_access": bool(clone_ready or source),
+        "clone_repo": clone_ready,
+        "build_index": index_ready,
+        "build_graph": graph_ready,
+        "api_health": api_ready,
+        "ngrok": bool(ngrok_url),
+        "health_url": health_url,
+        "ngrok_public_url": ngrok_url,
+        "source": source,
+        "graph_counts": graph_counts,
+    }
+
+
+def _apply_live_probe(state: Dict[str, Any]) -> Dict[str, Any]:
+    probe = _probe_project_health(state.get("project_namespace"), state)
+    state["project_namespace"] = probe["project_namespace"]
+    state["backend_reachable"] = True
+    state["backend_instance"] = probe["backend_instance"]
+    state["health_url"] = state.get("health_url") or probe["health_url"]
+    state["ngrok_public_url"] = state.get("ngrok_public_url") or probe["ngrok_public_url"]
+    run_exists = bool(state.get("run_id"))
+    state["run_exists"] = run_exists
+
+    step_messages = {
+        "backend_ready": "Running backend workspace detected." if probe["backend_ready"] else "Backend workspace is not ready on this machine.",
+        "dependencies": "Required backend dependencies are installed." if probe["dependencies"] else "Required backend dependencies are missing.",
+        "repo_access": "Project namespace is mapped to a registered repository." if probe["repo_access"] else "No registered repository was detected for this namespace.",
+        "clone_repo": "Salesforce repository clone is present on disk." if probe["clone_repo"] else "Salesforce repository clone was not found for this namespace.",
+        "build_index": "Metadata index artifacts are present." if probe["build_index"] else "Metadata index is not ready for this namespace.",
+        "build_graph": "Dependency graph is populated for the active project." if probe["build_graph"] else "Dependency graph is not ready for this namespace.",
+        "api_health": "Backend API health check succeeded." if probe["api_health"] else "Backend API health check is failing.",
+        "ngrok": "Public ngrok tunnel is active." if probe["ngrok"] else "No active ngrok tunnel was detected.",
+    }
+
+    if not run_exists:
+        state["steps"] = _initial_steps(bool(probe["ngrok"] or state.get("start_ngrok", True)))
+        for step in state["steps"]:
+            key = step["key"]
+            step["status"] = "SUCCEEDED" if probe.get(key) else "PENDING"
+            step["message"] = step_messages.get(key, step["message"])
+        ready_keys = ["backend_ready", "dependencies", "repo_access", "clone_repo", "build_index", "build_graph", "api_health"]
+        if all(probe.get(key) for key in ready_keys):
+            state["status"] = "DETECTED_READY"
+            state["message"] = "No active setup run for this project. Live health checks show the environment is ready."
+        else:
+            state["status"] = "NO_ACTIVE_RUN"
+            state["message"] = "No active setup run for this project. Showing live project health for the selected namespace."
+        state["current_step"] = None
+        state["requires_user_input"] = False
+        state["missing_inputs"] = []
+        state["next_actions"] = ["Start setup for this namespace if you want the backend to create or refresh the environment state."]
+    return state
 
 
 def _activate_repo(source: Dict[str, Any]) -> Dict[str, Any]:
@@ -341,6 +509,7 @@ def start_environment_setup(
     clone_url: Optional[str],
     branch: Optional[str],
     name: Optional[str],
+    project_namespace: Optional[str] = None,
     start_ngrok: bool = True,
 ) -> Dict[str, Any]:
     state = _new_state(
@@ -349,6 +518,7 @@ def start_environment_setup(
         branch=(branch or "").strip(),
         name=(name or "").strip(),
         start_ngrok=bool(start_ngrok),
+        project_namespace=project_namespace,
     )
     if not state["clone_url"]:
         state["status"] = "WAITING_INPUT"
@@ -373,9 +543,10 @@ def continue_environment_setup(
     clone_url: Optional[str] = None,
     branch: Optional[str] = None,
     name: Optional[str] = None,
+    project_namespace: Optional[str] = None,
     start_ngrok: Optional[bool] = None,
 ) -> Dict[str, Any]:
-    state = _read_state(run_id)
+    state = _read_state(run_id, project_namespace)
     if not state:
         raise KeyError(f"Environment setup run not found: {run_id}")
     if provider is not None:
@@ -386,6 +557,8 @@ def continue_environment_setup(
         state["branch"] = branch.strip()
     if name is not None:
         state["name"] = name.strip()
+    if project_namespace is not None:
+        state["project_namespace"] = _normalize_project_namespace(project_namespace)
     if start_ngrok is not None:
         state["start_ngrok"] = bool(start_ngrok)
     state["message"] = "Environment setup resumed."
@@ -400,17 +573,24 @@ def continue_environment_setup(
     return state
 
 
-def get_environment_setup_status(run_id: Optional[str] = None) -> Dict[str, Any]:
-    return _read_state(run_id) or {
-        "run_id": None,
-        "status": "NOT_STARTED",
-        "message": "Environment setup has not been started yet.",
-        "steps": _initial_steps(True),
-        "requires_user_input": False,
-        "missing_inputs": [],
-        "next_actions": ["Provide a repository URL and start environment setup."],
-        "active_repo_path": None,
-        "health_url": None,
-        "ngrok_public_url": None,
-        "logs": [],
-    }
+def get_environment_setup_status(run_id: Optional[str] = None, project_namespace: Optional[str] = None) -> Dict[str, Any]:
+    state = _read_state(run_id, project_namespace)
+    if not state:
+        state = {
+            "run_id": None,
+            "project_namespace": _normalize_project_namespace(project_namespace),
+            "status": "NOT_STARTED",
+            "message": "Environment setup has not been started yet.",
+            "steps": _initial_steps(True),
+            "backend_reachable": True,
+            "run_exists": False,
+            "backend_instance": socket.gethostname(),
+            "requires_user_input": False,
+            "missing_inputs": [],
+            "next_actions": ["Provide a repository URL and start environment setup."],
+            "active_repo_path": None,
+            "health_url": None,
+            "ngrok_public_url": None,
+            "logs": [],
+        }
+    return _apply_live_probe(state)
