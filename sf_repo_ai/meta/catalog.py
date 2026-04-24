@@ -5,6 +5,7 @@ import re
 import sqlite3
 from typing import Any
 
+from sf_repo_ai.phrase_utils import has_phrase
 from sf_repo_ai.query_interpreter import normalize
 
 
@@ -186,11 +187,11 @@ def _entry_aliases(entry: MetadataCatalogEntry) -> set[str]:
 
 def _intent_from_question_norm(question_norm: str) -> str | None:
     q = question_norm
-    if any(x in q for x in ("how many", "count", "number of")):
+    if has_phrase(q, "how many", "count", "number of"):
         return "meta_inventory_count"
-    if any(x in q for x in ("list", "show", "give me", "what are")):
+    if has_phrase(q, "list", "show", "give me", "what are", "names of", "name of"):
         return "meta_inventory_list"
-    if any(x in q for x in ("explain", "describe", "what is")):
+    if has_phrase(q, "explain", "describe", "what is"):
         return "meta_inventory_explain"
     return None
 

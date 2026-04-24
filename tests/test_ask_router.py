@@ -189,6 +189,88 @@ def test_ask_list_record_types_on_opportunity_lists_paths() -> None:
     assert payload["items"], "Expected record type list items"
     assert any("/objects/Opportunity/recordTypes/" in str(i.get("path")) for i in payload["items"])
     assert not any("/flows/" in str(e.get("path") or "") for e in payload.get("evidence", []))
+    assert len(payload.get("answer_lines", [])) > 1
+    assert any(f"- {str(i.get('name'))}" in payload["answer_lines"] for i in payload["items"][:3])
+
+
+def test_ask_validation_rules_names_on_object_lists_rule_names() -> None:
+    db_path = _ensure_index()
+    conn = sqlite3.connect(db_path)
+    row = conn.execute(
+        """
+        SELECT object_name, rule_name
+        FROM validation_rules
+        WHERE object_name IS NOT NULL AND object_name <> ''
+        ORDER BY object_name, rule_name
+        LIMIT 1
+        """
+    ).fetchone()
+    conn.close()
+    if not row:
+        return
+
+    obj, rule_name = row
+    out_file = PROJECT_ROOT / "data" / "ask_validation_rules_names.json"
+    res = _run("ask", "--question", f"give me the names of validation rules on {obj}", "--json-out", str(out_file))
+    assert res.returncode == 0, res.stderr
+    payload = json.loads(out_file.read_text(encoding="utf-8"))
+    assert payload["intent"] in {"meta_inventory_list", "validation_rule_list"}
+    assert payload["count"] >= 1
+    assert any(str(line).strip() == f"- {rule_name}" for line in payload.get("answer_lines", []))
+
+
+def test_ask_layout_names_on_account_lists_layout_names() -> None:
+    db_path = _ensure_index()
+    conn = sqlite3.connect(db_path)
+    row = conn.execute(
+        """
+        SELECT api_name
+        FROM meta_files
+        WHERE lower(folder)='layouts'
+          AND lower(path) LIKE '%/layouts/account-%'
+        ORDER BY api_name
+        LIMIT 1
+        """
+    ).fetchone()
+    conn.close()
+    if not row:
+        return
+
+    layout_name = row[0]
+    out_file = PROJECT_ROOT / "data" / "ask_layout_names.json"
+    res = _run("ask", "--question", "give me the names of layouts on account", "--json-out", str(out_file))
+    assert res.returncode == 0, res.stderr
+    payload = json.loads(out_file.read_text(encoding="utf-8"))
+    assert payload["intent"] == "list_type_on_object"
+    assert payload["count"] >= 1
+    assert any(str(line).strip() == f"- {layout_name}" for line in payload.get("answer_lines", []))
+
+
+def test_ask_field_names_on_account_lists_field_names() -> None:
+    db_path = _ensure_index()
+    conn = sqlite3.connect(db_path)
+    row = conn.execute(
+        """
+        SELECT api_name
+        FROM meta_files
+        WHERE lower(folder)='fields'
+          AND lower(path) LIKE '%/objects/account/fields/%'
+        ORDER BY api_name
+        LIMIT 1
+        """
+    ).fetchone()
+    conn.close()
+    if not row:
+        return
+
+    field_name = row[0]
+    out_file = PROJECT_ROOT / "data" / "ask_field_names.json"
+    res = _run("ask", "--question", "give me the names of fields on account", "--json-out", str(out_file))
+    assert res.returncode == 0, res.stderr
+    payload = json.loads(out_file.read_text(encoding="utf-8"))
+    assert payload["intent"] == "meta_inventory_list"
+    assert payload["count"] >= 1
+    assert any(str(line).strip() == f"- {field_name}" for line in payload.get("answer_lines", []))
 
 
 def test_ask_explain_record_type_on_opportunity() -> None:

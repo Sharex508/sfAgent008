@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
 import xml.etree.ElementTree as ET
 import sqlite3
+import requests
 
 from fastapi import FastAPI, HTTPException, Header, Security, Depends
 from fastapi.responses import HTMLResponse
@@ -47,12 +48,19 @@ from repo_runtime import METADATA_INVENTORY_PATH, resolve_active_repo, set_activ
 from sfdc.client import SalesforceClient
 from server.repo_context import auto_context
 from sf_repo_ai.ask_router import route_ask_question
+from sf_repo_ai.phrase_utils import has_phrase
 
 API_KEY_NAME = "X-API-Key"
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=False)
 DEFAULT_DOCS_PATH = Path("./data/metadata/docs.jsonl")
 DEFAULT_DB_PATH = Path("./data/chroma")
 _INDEX_READY = False
+SUPPORTED_MODEL_CATALOG = [
+    {"value": "gpt-oss:20b", "label": "GPT OSS 20B", "provider": "ollama", "default": True},
+    {"value": "gpt-5.1-codex", "label": "GPT-5.1 Codex", "provider": "openai", "default": False},
+    {"value": "gpt-5.4-mini", "label": "GPT-5.4 mini", "provider": "openai", "default": False},
+    {"value": "gpt-4.1", "label": "GPT 4.1", "provider": "openai", "default": False},
+]
 
 def get_api_key(api_key: str = Security(api_key_header)):
     expected_key = os.getenv("AGENT_API_KEY")
@@ -63,6 +71,30 @@ def get_api_key(api_key: str = Security(api_key_header)):
 
 def _default_meta_root() -> Path:
     return resolve_active_repo() / "force-app" / "main" / "default"
+
+
+def _normalize_object_token(value: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", (value or "").lower())
+
+
+def _resolve_canonical_object_name(value: Optional[str]) -> Optional[str]:
+    raw = (value or "").strip()
+    if not raw:
+        return None
+
+    target = _normalize_object_token(raw)
+    objects_dir = _default_meta_root() / "objects"
+    if objects_dir.exists():
+        try:
+            for child in objects_dir.iterdir():
+                if child.is_dir() and _normalize_object_token(child.name) == target:
+                    return child.name
+        except OSError:
+            pass
+
+    if "__c" in raw or "__mdt" in raw:
+        return raw
+    return raw[0].upper() + raw[1:]
 
 
 def _require_non_empty_text(value: Optional[str], field_name: str) -> str:
@@ -273,6 +305,7 @@ class WorkItemGenerateRequest(BaseModel):
 
 
 class WorkItemGenerateResponse(BaseModel):
+    execution_id: str
     work_item_id: str
     status: str
     model: str
@@ -385,13 +418,48 @@ class DevelopmentPlanResponse(BaseModel):
     next_actions: List[str]
 
 
-class DevelopmentRunRequest(WorkItemRunRequest):
-    pass
+class DevelopmentRunRequest(BaseModel):
+    work_item_id: Optional[str] = Field(None, description="Existing work item to reuse")
+    execution_id: Optional[str] = Field(None, description="Optional plan-only generation execution to approve and apply")
+    title: Optional[str] = Field(None, description="Short work item title")
+    story: Optional[str] = Field(None, description="User story or enhancement request when work_item_id is not supplied")
+    model: Optional[str] = Field(None, description="Ollama model override")
+    metadata_project_dir: Optional[str] = Field(None, description="SFDX project directory; defaults to the active registered repo")
+    target_org_alias: Optional[str] = Field(None, description="Preferred Salesforce CLI org alias")
+    k: int = Field(8, description="Number of retrieved components")
+    hybrid: bool = Field(True, description="Use hybrid retrieval")
+    logs: Optional[Any] = Field(None, description="Optional log payload to include in analysis")
+    run_local_validation: bool = Field(True, description="Run local validators after applying approved generation")
+    run_org_validation: bool = Field(False, description="Run Salesforce dry-run validation after applying approved generation")
+    org_validation_test_level: Optional[str] = Field(None, description="Optional test level for org validation")
 
 
 class DevelopmentRunResponse(BaseModel):
     work_item: WorkItemResponse
-    stages: List[Dict[str, Any]]
+    generation: WorkItemGenerateResponse
+    next_actions: List[str]
+
+
+class DevelopmentDeployRequest(BaseModel):
+    work_item_id: str = Field(..., description="Existing work item to deploy")
+    execution_id: Optional[str] = Field(None, description="Optional applied generation execution to approve for deploy")
+    target_org_alias: Optional[str] = Field(None, description="Salesforce CLI target org alias")
+    source_dirs: Optional[List[str]] = Field(None, description="Optional explicit source dirs to deploy")
+    metadata: Optional[List[str]] = Field(None, description="Optional explicit metadata members to deploy")
+    manifest: Optional[str] = Field(None, description="Optional manifest path to deploy")
+    wait_minutes: int = Field(30, description="CLI wait time in minutes")
+    dry_run: bool = Field(False, description="Run deploy in validate-only mode")
+    ignore_conflicts: bool = Field(True, description="Ignore conflicts during deploy")
+    ignore_warnings: bool = Field(False, description="Ignore warnings during deploy")
+    ignore_errors: bool = Field(False, description="Ignore errors during deploy")
+    test_level: Optional[str] = Field("RunLocalTests", description="Deployment test level")
+    tests: Optional[List[str]] = Field(None, description="Specific Apex tests to run during deploy")
+    notes: Optional[str] = Field(None, description="Optional deployment approval notes")
+
+
+class DevelopmentDeployResponse(BaseModel):
+    work_item: WorkItemResponse
+    deployment: Dict[str, Any]
     next_actions: List[str]
 
 
@@ -658,6 +726,19 @@ class MetadataInventoryResponse(BaseModel):
     object_child_types: List[Dict[str, Any]]
 
 
+class SupportedModelInfoResponse(BaseModel):
+    value: str
+    label: str
+    provider: str
+    available: bool
+    reason: Optional[str] = None
+    is_default: bool = False
+
+
+class SupportedModelsResponse(BaseModel):
+    models: List[SupportedModelInfoResponse]
+
+
 def _repo_source_response(row: Dict[str, Any]) -> RepoSourceResponse:
     return RepoSourceResponse(
         source_id=row["source_id"],
@@ -837,6 +918,65 @@ def get_llm_client(model_override: Optional[str] = None):
         model=model,
     )
 
+
+def _probe_ollama_models() -> Dict[str, Any]:
+    host = os.getenv("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
+    try:
+        response = requests.get(f"{host}/api/tags", timeout=5)
+        response.raise_for_status()
+        payload = response.json()
+        models = payload.get("models") if isinstance(payload, dict) else []
+        names = set()
+        if isinstance(models, list):
+            for item in models:
+                if isinstance(item, dict):
+                    name = str(item.get("name") or "").strip()
+                    if name:
+                        names.add(name)
+        return {"reachable": True, "names": names, "reason": None}
+    except Exception as exc:
+        return {"reachable": False, "names": set(), "reason": str(exc)}
+
+
+def _get_supported_models() -> List[SupportedModelInfoResponse]:
+    ollama_state = _probe_ollama_models()
+    openai_key_set = bool(os.getenv("OPENAI_API_KEY", "").strip())
+    models: List[SupportedModelInfoResponse] = []
+    for entry in SUPPORTED_MODEL_CATALOG:
+        provider = str(entry["provider"])
+        value = str(entry["value"])
+        label = str(entry["label"])
+        is_default = bool(entry.get("default"))
+        available = False
+        reason: Optional[str] = None
+
+        if provider == "ollama":
+            if not ollama_state["reachable"]:
+                reason = "Ollama is not reachable."
+            elif value not in ollama_state["names"]:
+                reason = f"Model '{value}' is not installed in Ollama."
+            else:
+                available = True
+        elif provider == "openai":
+            if not openai_key_set:
+                reason = "OPENAI_API_KEY is not configured."
+            else:
+                available = True
+        else:
+            reason = "Unknown provider."
+
+        models.append(
+            SupportedModelInfoResponse(
+                value=value,
+                label=label,
+                provider=provider,
+                available=available,
+                reason=reason,
+                is_default=is_default,
+            )
+        )
+    return models
+
 def _ensure_metadata_indexes() -> None:
     global _INDEX_READY
     if _INDEX_READY and DEFAULT_DOCS_PATH.exists() and DEFAULT_DB_PATH.exists():
@@ -936,18 +1076,22 @@ def _scan_approval_related_usage(
 
 def _approval_process_inventory_response(question: str, object_hint: Optional[str]) -> Optional[AskResponse]:
     q = question.lower()
-    if "approval process" not in q and "approval processes" not in q:
+    if not has_phrase(q, "approval process", "approval processes"):
         return None
-    if not any(k in q for k in ["list", "show", "give me", "what are", "how many"]):
+    if not has_phrase(q, "list", "show", "give me", "what are", "how many", "names of", "name of"):
         return None
 
-    obj = object_hint or _extract_object_from_question(question)
+    obj = _resolve_canonical_object_name(object_hint or _extract_object_from_question(question))
     ap_dir = _default_meta_root() / "approvalProcesses"
     if not ap_dir.exists():
         return None
 
     if obj:
-        approval_files = sorted(ap_dir.glob(f"{obj}.*.approvalProcess-meta.xml"))
+        obj_norm = _normalize_object_token(obj)
+        approval_files = sorted(
+            f for f in ap_dir.glob("*.approvalProcess-meta.xml")
+            if _normalize_object_token(f.name.split(".", 1)[0]) == obj_norm
+        )
     else:
         approval_files = sorted(ap_dir.glob("*.approvalProcess-meta.xml"))
 
@@ -1006,6 +1150,10 @@ def _approval_process_inventory_response(question: str, object_hint: Optional[st
         )
 
     target = obj or "all objects"
+    if approval_files:
+        first_stem = approval_files[0].name.replace(".approvalProcess-meta.xml", "")
+        if "." in first_stem:
+            target = first_stem.split(".", 1)[0]
     lines: List[str] = []
     lines.append(f"Approval processes on {target}: {len(approval_files)}")
     if approval_files:
@@ -1059,18 +1207,19 @@ def _extract_object_name_from_question(question: str) -> Optional[str]:
 def _flow_inventory_response(question: str, object_hint: Optional[str]) -> Optional[AskResponse]:
     q = question.strip()
     q_lower = q.lower()
-    if "flow" not in q_lower:
+    if not has_phrase(q_lower, "flow", "flows"):
         return None
-    if "approval process" in q_lower:
+    if has_phrase(q_lower, "approval process", "approval processes"):
         return None
-    if not any(token in q_lower for token in ["list", "how many", "count", "number of", "inventory"]):
+    if not has_phrase(q_lower, "list", "how many", "count", "number of", "inventory", "names of", "name of"):
         return None
 
-    obj = (object_hint or _extract_object_name_from_question(q) or "").strip()
+    obj = (object_hint or _extract_object_name_from_question(q) or _extract_object_from_question(q) or "").strip()
     if not obj:
         return None
+    obj_lower = obj.lower()
 
-    active_only = "active" in q_lower
+    active_only = has_phrase(q_lower, "active")
     flows_root = _default_meta_root() / "flows"
     if not flows_root.exists():
         return None
@@ -1086,7 +1235,7 @@ def _flow_inventory_response(question: str, object_hint: Optional[str]) -> Optio
         if start is None:
             continue
         flow_object = start.findtext("m:object", default="", namespaces=ns).strip()
-        if flow_object != obj:
+        if flow_object.lower() != obj_lower:
             continue
         status = root.findtext("m:status", default="", namespaces=ns).strip() or "Unknown"
         if active_only and status.lower() != "active":
@@ -1123,6 +1272,7 @@ def _flow_inventory_response(question: str, object_hint: Optional[str]) -> Optio
         )
 
     lines: List[str] = []
+    obj = str(items[0].get("object") or obj)
     qualifier = "active " if active_only else ""
     lines.append(f"{len(items)} {qualifier}record-triggered flow(s) found in repo metadata for object {obj}:")
     for item in items:
@@ -1511,6 +1661,20 @@ def _latest_applied_generation_execution(executions: List[Dict[str, Any]]) -> Op
     return None
 
 
+def _latest_plan_only_generation_execution(executions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    for execution in executions:
+        request_json = execution.get("request_json") or {}
+        result_json = execution.get("result_json") or {}
+        if str(execution.get("operation_type") or "").strip().lower() != "generate_or_update_components":
+            continue
+        if str(request_json.get("mode") or "").strip().lower() != "plan_only":
+            continue
+        if not result_json.get("plan"):
+            continue
+        return execution
+    return None
+
+
 def _latest_deploy_approval_execution(executions: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
     for execution in executions:
         if str(execution.get("operation_type") or "").strip().lower() == "approve_deploy" and str(
@@ -1594,6 +1758,50 @@ def _derive_source_dirs_from_changed_components(project_dir: Path, changed_compo
         seen.add(key)
         source_dirs.append(normalized)
     return source_dirs
+
+
+def _default_target_org_alias_for_project(project_dir: Path) -> Optional[str]:
+    config_path = project_dir / ".sf" / "config.json"
+    if not config_path.exists():
+        return None
+    try:
+        payload = json.loads(config_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    target_org = str(payload.get("target-org") or "").strip()
+    return target_org or None
+
+
+def _resolve_target_org_alias(*, requested_alias: Optional[str], row: Dict[str, Any], project_dir: Path) -> Optional[str]:
+    value = str(requested_alias or row.get("target_org_alias") or "").strip()
+    if value:
+        return value
+    return _default_target_org_alias_for_project(project_dir)
+
+
+def _safe_resolve_under_root(root: Path, raw_path: str) -> Path:
+    candidate = Path(raw_path)
+    resolved = candidate.resolve() if candidate.is_absolute() else (root / candidate).resolve()
+    if resolved != root and root not in resolved.parents:
+        raise HTTPException(status_code=400, detail="Requested path is outside the allowed root.")
+    return resolved
+
+
+def _render_text_file_preview(*, title: str, subtitle: str, content: str) -> HTMLResponse:
+    body = (
+        "<!DOCTYPE html><html><head><meta charset='utf-8'>"
+        f"<title>{escape(title)}</title>"
+        "<style>"
+        "body{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#0f172a;color:#e2e8f0;margin:0;padding:24px;}"
+        "h1{font-size:20px;margin:0 0 8px;}p{margin:0 0 20px;color:#94a3b8;}"
+        "pre{white-space:pre-wrap;word-break:break-word;background:#111827;border:1px solid #334155;border-radius:12px;padding:16px;overflow:auto;}"
+        "</style></head><body>"
+        f"<h1>{escape(title)}</h1>"
+        f"<p>{escape(subtitle)}</p>"
+        f"<pre>{escape(content)}</pre>"
+        "</body></html>"
+    )
+    return HTMLResponse(content=body)
 
 
 def _run_cli_operation(
@@ -1806,7 +2014,8 @@ def sf_repo_ai_debug_analyze(req: DebugAnalyzeRequest, api_key: str = Depends(ge
 @app.post("/sf-repo-ai/development/analyze", response_model=DevelopmentAnalyzeResponse)
 def sf_repo_ai_development_analyze(req: DevelopmentAnalyzeRequest, api_key: str = Depends(get_api_key)):
     try:
-        req.story = _require_non_empty_text(req.story, "story")
+        if not req.work_item_id:
+            req.story = _require_non_empty_text(req.story, "story")
         store = OrchestrationStore()
         row = _resolve_or_create_work_item(
             store=store,
@@ -1835,7 +2044,8 @@ def sf_repo_ai_development_analyze(req: DevelopmentAnalyzeRequest, api_key: str 
 @app.post("/sf-repo-ai/development/plan", response_model=DevelopmentPlanResponse)
 def sf_repo_ai_development_plan(req: DevelopmentPlanRequest, api_key: str = Depends(get_api_key)):
     try:
-        req.story = _require_non_empty_text(req.story, "story")
+        if not req.work_item_id:
+            req.story = _require_non_empty_text(req.story, "story")
         store = OrchestrationStore()
         row = _resolve_or_create_work_item(
             store=store,
@@ -1883,12 +2093,123 @@ def sf_repo_ai_development_plan(req: DevelopmentPlanRequest, api_key: str = Depe
 @app.post("/sf-repo-ai/development/run", response_model=DevelopmentRunResponse)
 def sf_repo_ai_development_run(req: DevelopmentRunRequest, api_key: str = Depends(get_api_key)):
     try:
-        req.story = _require_non_empty_text(req.story, "story")
-        result = sf_repo_ai_work_item_run(req, api_key="")
+        if not req.work_item_id:
+            req.story = _require_non_empty_text(req.story, "story")
+        store = OrchestrationStore()
+        row = _resolve_or_create_work_item(
+            store=store,
+            work_item_id=req.work_item_id,
+            title=req.title,
+            story=req.story,
+            model=req.model,
+            metadata_project_dir=req.metadata_project_dir,
+            target_org_alias=req.target_org_alias,
+        )
+        work_item_id = row["work_item_id"]
+        if not row.get("analysis_json"):
+            sf_repo_ai_work_item_analyze(
+                work_item_id,
+                WorkItemAnalyzeRequest(model=req.model, k=req.k, hybrid=req.hybrid, logs=req.logs),
+                api_key="",
+            )
+            row = store.get_work_item(work_item_id)
+
+        execution_id = req.execution_id
+        if not execution_id:
+            latest_plan = _latest_plan_only_generation_execution(store.list_executions(work_item_id=work_item_id, limit=100))
+            if latest_plan:
+                execution_id = latest_plan["execution_id"]
+        if not execution_id:
+            planned = sf_repo_ai_development_plan(
+                DevelopmentPlanRequest(
+                    work_item_id=work_item_id,
+                    story=row["story"],
+                    model=req.model or row.get("llm_model"),
+                    metadata_project_dir=row.get("metadata_project_dir"),
+                    target_org_alias=req.target_org_alias or row.get("target_org_alias"),
+                    k=req.k,
+                    hybrid=req.hybrid,
+                    logs=req.logs,
+                ),
+                api_key="",
+            )
+            execution_id = planned.generation.execution_id
+
+        generated = sf_repo_ai_work_item_approve_generation(
+            work_item_id,
+            WorkItemApproveGenerationRequest(
+                execution_id=execution_id,
+                model=req.model,
+                run_local_validation=req.run_local_validation,
+                run_org_validation=req.run_org_validation,
+                org_validation_test_level=req.org_validation_test_level,
+            ),
+            api_key="",
+        )
+        refreshed = _work_item_response(store.get_work_item(work_item_id))
         return DevelopmentRunResponse(
-            work_item=result.work_item,
-            stages=result.stages,
-            next_actions=_development_next_actions(work_item=result.work_item, stages=result.stages),
+            work_item=refreshed,
+            generation=generated,
+            next_actions=_development_next_actions(work_item=refreshed, generation=generated),
+        )
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/development/deploy", response_model=DevelopmentDeployResponse)
+def sf_repo_ai_development_deploy(req: DevelopmentDeployRequest, api_key: str = Depends(get_api_key)):
+    try:
+        store = OrchestrationStore()
+        row = store.get_work_item(req.work_item_id)
+        project_dir = Path(row.get("metadata_project_dir") or _project_dir_or_default(None)).resolve()
+        target_org_alias = _resolve_target_org_alias(requested_alias=req.target_org_alias, row=row, project_dir=project_dir)
+        if not target_org_alias:
+            raise HTTPException(
+                status_code=400,
+                detail="target_org_alias is required for deploy when the work item and project config do not define a default target org.",
+            )
+
+        approved = sf_repo_ai_work_item_approve_deploy(
+            req.work_item_id,
+            WorkItemApproveDeployRequest(execution_id=req.execution_id, notes=req.notes),
+            api_key="",
+        )
+        changed_components = approved.changed_components or []
+        source_dirs = req.source_dirs or _derive_source_dirs_from_changed_components(project_dir, changed_components)
+        if not source_dirs and not req.metadata and not req.manifest:
+            raise HTTPException(
+                status_code=400,
+                detail="No deployable source paths found for the approved work item.",
+            )
+
+        deployment = sf_repo_ai_cli_deploy(
+            SfCliDeployRequest(
+                work_item_id=req.work_item_id,
+                target_org=target_org_alias,
+                project_dir=str(project_dir),
+                source_dirs=source_dirs,
+                metadata=req.metadata,
+                manifest=req.manifest,
+                wait_minutes=req.wait_minutes,
+                dry_run=req.dry_run,
+                ignore_conflicts=req.ignore_conflicts,
+                ignore_warnings=req.ignore_warnings,
+                ignore_errors=req.ignore_errors,
+                test_level=req.test_level,
+                tests=req.tests,
+            ),
+            api_key="",
+        )
+        refreshed = _work_item_response(store.get_work_item(req.work_item_id))
+        return DevelopmentDeployResponse(
+            work_item=refreshed,
+            deployment=deployment.model_dump(),
+            next_actions=[
+                "Review the deployment output and changed components before promotion.",
+                "Run targeted Apex tests with /sf-repo-ai/sf-cli/test if additional verification is required.",
+            ],
         )
     except HTTPException:
         raise
@@ -1929,6 +2250,47 @@ def sf_repo_ai_work_item_get(work_item_id: str, api_key: str = Depends(get_api_k
         return _work_item_response(row)
     except KeyError as exc:
         raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/work-items/{work_item_id}/repo-file", response_class=HTMLResponse)
+def sf_repo_ai_work_item_repo_file(work_item_id: str, path: str, api_key: str = Depends(get_api_key)):
+    try:
+        row = OrchestrationStore().get_work_item(work_item_id)
+        project_dir = Path(row.get("metadata_project_dir") or _project_dir_or_default(None)).resolve()
+        resolved = _safe_resolve_under_root(project_dir, path)
+        if not resolved.exists() or not resolved.is_file():
+            raise HTTPException(status_code=404, detail=f"File not found: {path}")
+        content = resolved.read_text(encoding="utf-8", errors="ignore")
+        return _render_text_file_preview(
+            title=resolved.name,
+            subtitle=f"Repo file for work item {work_item_id}: {resolved.relative_to(project_dir)}",
+            content=content,
+        )
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/work-items/{work_item_id}/artifact-file", response_class=HTMLResponse)
+def sf_repo_ai_work_item_artifact_file(work_item_id: str, path: str, api_key: str = Depends(get_api_key)):
+    try:
+        artifact_root = (Path("data/work_items") / work_item_id).resolve()
+        if not artifact_root.exists():
+            raise HTTPException(status_code=404, detail=f"No artifacts found for work item {work_item_id}")
+        resolved = _safe_resolve_under_root(artifact_root, path)
+        if not resolved.exists() or not resolved.is_file():
+            raise HTTPException(status_code=404, detail=f"Artifact not found: {path}")
+        content = resolved.read_text(encoding="utf-8", errors="ignore")
+        return _render_text_file_preview(
+            title=resolved.name,
+            subtitle=f"Artifact for work item {work_item_id}: {resolved.relative_to(artifact_root)}",
+            content=content,
+        )
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
 
@@ -2075,6 +2437,7 @@ def sf_repo_ai_work_item_generate_or_update_components(
             final_summary=result.generation_summary,
         )
         return WorkItemGenerateResponse(
+            execution_id=execution["execution_id"],
             work_item_id=work_item_id,
             status=result.status,
             model=result.model,
@@ -2221,6 +2584,7 @@ def sf_repo_ai_work_item_approve_generation(
                 final_summary=result.generation_summary,
             )
             return WorkItemGenerateResponse(
+                execution_id=execution["execution_id"],
                 work_item_id=work_item_id,
                 status=result.status,
                 model=result.model,
@@ -2926,6 +3290,11 @@ def sf_repo_ai_index_stats(api_key: str = Depends(get_api_key)):
 @app.get("/sf-repo-ai/index/metadata", response_model=MetadataInventoryResponse)
 def sf_repo_ai_index_metadata(api_key: str = Depends(get_api_key)):
     return _active_metadata_inventory()
+
+
+@app.get("/sf-repo-ai/models", response_model=SupportedModelsResponse)
+def sf_repo_ai_supported_models(api_key: str = Depends(get_api_key)):
+    return SupportedModelsResponse(models=_get_supported_models())
 
 
 @app.get("/sf-repo-ai/index/objects", response_model=IndexedObjectsResponse)

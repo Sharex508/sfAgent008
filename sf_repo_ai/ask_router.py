@@ -19,6 +19,7 @@ from sf_repo_ai.meta.universal_inventory import (
     find_inventory_by_name,
     list_inventory,
 )
+from sf_repo_ai.phrase_utils import has_all_phrases, has_phrase, starts_with_phrase
 from sf_repo_ai.query_interpreter import resolve_field_phrase, resolve_object_phrase
 from sf_repo_ai.risk_tools import detect_collisions, what_breaks
 from sf_repo_ai.util import read_text
@@ -93,7 +94,7 @@ def _field_needed(question: str, q_norm: str) -> bool:
         return True
     if re.search(r"\b(field|column|fls)\b", q_norm):
         return True
-    if any(k in q_norm for k in ["where is", "where used", "used", "update", "updates", "write", "writes", "fls for"]):
+    if has_phrase(q_norm, "where is", "where used", "used", "update", "updates", "write", "writes", "fls for"):
         return True
     return False
 
@@ -247,16 +248,16 @@ def _infer_intent(q_norm: str, e: ResolvedEntities) -> str:
     if any(k in q_norm for k in EXPLAIN_KEYWORDS):
         return "explain_component"
 
-    if any(k in q_norm for k in ["where used", "used in", "references", "referenced", "where is"]):
+    if has_phrase(q_norm, "where used", "used in", "references", "referenced", "where is"):
         return "where_used_any"
 
-    if any(k in q_norm for k in ["what breaks", "impact", "dependencies", "depends on", "dependency"]):
+    if has_phrase(q_norm, "what breaks", "impact", "dependencies", "depends on", "dependency"):
         return "impact_or_deps"
 
-    has_count = any(k in q_norm for k in ["how many", "count", "number of"])
-    has_list = any(k in q_norm for k in ["list", "show", "which", "what are"])
+    has_count = has_phrase(q_norm, "how many", "count", "number of")
+    has_list = has_phrase(q_norm, "list", "show", "which", "what are", "names of", "name of")
 
-    has_all_inventory_phrase = (" all " in f" {q_norm} ") or ("objects they are on" in q_norm)
+    has_all_inventory_phrase = has_phrase(q_norm, "all", "objects they are on")
 
     if has_type and has_on_object and has_count and (has_object or not has_all_inventory_phrase):
         return "count_type_on_object"
@@ -416,122 +417,118 @@ def _resolve_lwc_bundle(conn: sqlite3.Connection, candidate: str | None) -> str 
 
 
 def _dispatch_family(question: str, q_norm: str, e: ResolvedEntities) -> tuple[str, str]:
-    has_write = any(v in q_norm for v in WRITE_VERBS)
+    has_write = has_phrase(q_norm, *WRITE_VERBS)
     has_flow_word = bool(re.search(r"\bflows?\b", q_norm))
     has_class_word = bool(re.search(r"\b(apex\s+classes?|classes?)\b", q_norm))
     has_trigger_word = bool(re.search(r"\btriggers?\b", q_norm))
-    has_vr_word = "validation rule" in q_norm or "validation rules" in q_norm
-    has_explain = any(k in q_norm for k in EXPLAIN_KEYWORDS)
+    has_vr_word = has_phrase(q_norm, "validation rule", "validation rules")
+    has_explain = has_phrase(q_norm, *EXPLAIN_KEYWORDS)
     has_field_token = bool(DIRECT_FIELD_PATTERN.search(question)) or bool(e.requested_field) or bool(e.full_field_name)
 
     if has_explain:
         return "explain_component", "explain_component"
 
-    if "approval process" in q_norm and ("where is" in q_norm or "referenced" in q_norm or "references" in q_norm):
+    if has_phrase(q_norm, "approval process") and has_phrase(q_norm, "where is", "referenced", "references"):
         return "approval_process_references", "approval_process_references"
 
-    if "approval process" in q_norm and ("list all" in q_norm or "objects they are on" in q_norm):
+    if has_phrase(q_norm, "approval process") and has_phrase(q_norm, "list all", "objects they are on"):
         return "approval_process_inventory", "approval_process_inventory"
 
-    if has_flow_word and has_write and has_field_token and not any(x in q_norm for x in ["duplicate", "duplicating", "same updates"]):
+    if has_flow_word and has_write and has_field_token and not has_phrase(q_norm, "duplicate", "duplicating", "same updates"):
         return "flows_write_field", "flows_write_field"
     if has_class_word and has_write and has_field_token:
         return "apex_write_field", "apex_write_field"
-    if (("writers for" in q_norm or "automations write" in q_norm) and has_field_token) or (
-        "single source of truth" in q_norm and has_field_token
-    ):
+    if ((has_phrase(q_norm, "writers for", "automations write") and has_field_token) or (has_phrase(q_norm, "single source of truth") and has_field_token)):
         return "field_writers_query", "writers_for_field"
 
-    if re.search(r"\b(show|list)\b", q_norm) and ("endpoint" in q_norm or "callout" in q_norm) and (
-        "who calls" in q_norm or "callers" in q_norm or "used by" in q_norm
-    ):
+    if has_phrase(q_norm, "show", "list") and has_phrase(q_norm, "endpoint", "callout") and has_phrase(q_norm, "who calls", "callers", "used by"):
         return "endpoints_inventory", "endpoints_inventory"
-    if "what endpoints does" in q_norm and " call" in q_norm:
+    if has_phrase(q_norm, "what endpoints does") and has_phrase(q_norm, "call"):
         return "class_endpoints", "class_endpoints"
-    if "named credential" in q_norm:
+    if has_phrase(q_norm, "named credential"):
         return "endpoints_inventory", "named_credentials_inventory"
 
-    if "dml in loop" in q_norm or "dml in loops" in q_norm:
+    if has_phrase(q_norm, "dml in loop", "dml in loops"):
         return "apex_smell_query", "apex_smell_dml_in_loop"
-    if "dynamic soql" in q_norm:
+    if has_phrase(q_norm, "dynamic soql"):
         return "apex_smell_query", "apex_smell_dynamic_soql"
-    if ("class" in q_norm or "classes" in q_norm) and ("callout" in q_norm or "call out" in q_norm):
+    if has_phrase(q_norm, "class", "classes") and has_phrase(q_norm, "callout", "call out"):
         return "apex_smell_query", "apex_smell_callout"
 
-    if "what classes does trigger" in q_norm and " call" in q_norm:
+    if has_phrase(q_norm, "what classes does trigger") and has_phrase(q_norm, "call"):
         return "trigger_deps", "trigger_deps"
-    if has_trigger_word and ("what breaks" in q_norm or "impact" in q_norm):
+    if has_trigger_word and has_phrase(q_norm, "what breaks", "impact"):
         return "trigger_impact", "trigger_impact"
     if has_trigger_word and has_explain:
         return "trigger_explain", "trigger_explain"
 
-    if ("collisions" in q_norm or "multiple writers" in q_norm or "conflicting updates" in q_norm) and has_field_token:
+    if has_phrase(q_norm, "collisions", "multiple writers", "conflicting updates") and has_field_token:
         return "collisions_query", "collisions_query"
 
     if has_vr_word and has_explain:
         return "validation_rules_queries", "validation_rule_explain"
-    if has_vr_word and ("block" in q_norm or "status change" in q_norm):
+    if has_vr_word and has_phrase(q_norm, "block", "status change"):
         return "validation_rules_queries", "validation_rule_filter"
-    if has_vr_word and ("list" in q_norm or "show" in q_norm or "which" in q_norm):
+    if has_vr_word and has_phrase(q_norm, "list", "show", "which", "names of", "name of"):
         return "validation_rules_queries", "validation_rule_list"
 
-    if "view all data" in q_norm or "modify all data" in q_norm:
+    if has_phrase(q_norm, "view all data", "modify all data"):
         return "security_queries", "security_global_power_users"
-    if "permission set" in q_norm and has_explain:
+    if has_phrase(q_norm, "permission set") and has_explain:
         return "security_queries", "permission_set_explain"
-    if ("permission set" in q_norm or "permission sets" in q_norm) and "modify all" in q_norm:
+    if has_phrase(q_norm, "permission set", "permission sets") and has_phrase(q_norm, "modify all"):
         return "security_queries", "security_modify_all_on_object"
-    if ("profile" in q_norm or "profiles" in q_norm) and "modify all" in q_norm:
+    if has_phrase(q_norm, "profile", "profiles") and has_phrase(q_norm, "modify all"):
         return "security_queries", "security_profiles_modify_all_on_object"
-    if (("most restricted fields" in q_norm or "restricted fields" in q_norm) or ("most restricted" in q_norm and "field" in q_norm)) and e.object_name:
+    if ((has_phrase(q_norm, "most restricted fields", "restricted fields")) or has_all_phrases(q_norm, "most restricted", "field")) and e.object_name:
         return "security_queries", "restricted_fields"
 
-    if "shown in the ui" in q_norm or "shown in ui" in q_norm or "exposed" in q_norm:
+    if has_phrase(q_norm, "shown in the ui", "shown in ui", "exposed"):
         return "ui_queries", "ui_where_shown"
 
-    if "explain lwc" in q_norm:
+    if has_phrase(q_norm, "explain lwc"):
         return "lwc_queries", "lwc_explain"
-    if "which lwc components call apex methods" in q_norm:
+    if has_phrase(q_norm, "which lwc components call apex methods"):
         return "lwc_queries", "lwc_calling_apex_bundles"
-    if "lwc" in q_norm and "reference" in q_norm and ("field" in q_norm or (e.object_name and "object" not in q_norm)):
+    if has_phrase(q_norm, "lwc") and has_phrase(q_norm, "reference") and (has_phrase(q_norm, "field") or (e.object_name and not has_phrase(q_norm, "object"))):
         return "lwc_queries", "lwc_reference_fields"
-    if "apex methods are called by lwc" in q_norm or ("lwc" in q_norm and "apex methods" in q_norm):
+    if has_phrase(q_norm, "apex methods are called by lwc") or (has_phrase(q_norm, "lwc") and has_phrase(q_norm, "apex methods")):
         return "lwc_queries", "lwc_apex_methods"
 
-    if "tech debt summary" in q_norm:
+    if has_phrase(q_norm, "tech debt summary"):
         return "advisor_queries", "techdebt_summary_org"
-    if q_norm.startswith("optimize ") and "object" in q_norm:
+    if starts_with_phrase(q_norm, "optimize") and has_phrase(q_norm, "object"):
         return "advisor_queries", "optimize_object"
-    if "top 20 most risky automations" in q_norm:
+    if has_phrase(q_norm, "top 20 most risky automations"):
         return "advisor_queries", "top_risky_automations"
-    if "top 20 most complex apex classes" in q_norm:
+    if has_phrase(q_norm, "top 20 most complex apex classes"):
         return "advisor_queries", "top_complex_apex"
-    if "top 10 fields with the most writers" in q_norm or "top fields with the most writers" in q_norm:
+    if has_phrase(q_norm, "top 10 fields with the most writers", "top fields with the most writers"):
         return "advisor_queries", "top_fields_by_writers"
-    if "over-automated" in q_norm or "over automated" in q_norm:
+    if has_phrase(q_norm, "over-automated", "over automated"):
         return "advisor_queries", "over_automated_objects"
-    if "duplicating logic" in q_norm or "same updates" in q_norm or "duplicate flows" in q_norm:
+    if has_phrase(q_norm, "duplicating logic", "same updates", "duplicate flows"):
         return "advisor_queries", "duplication_flows_same_writes"
-    if "permission sprawl" in q_norm:
+    if has_phrase(q_norm, "permission sprawl"):
         return "advisor_queries", "permission_sprawl"
-    if "who can see" in q_norm or "visibility is granted" in q_norm or ("summarize" in q_norm and "visibility" in q_norm):
+    if has_phrase(q_norm, "who can see", "visibility is granted") or has_all_phrases(q_norm, "summarize", "visibility"):
         return "advisor_queries", "access_model_summary"
 
-    if q_norm.startswith("given this story:") or "where should we implement" in q_norm:
+    if starts_with_phrase(q_norm, "given this story") or has_phrase(q_norm, "where should we implement"):
         return "story_planner", "plan_story"
 
-    if "flows touch" in q_norm and "not triggered" in q_norm:
+    if has_all_phrases(q_norm, "flows touch", "not triggered"):
         return "flows_touch_not_triggered", "flows_touch_object_not_triggered"
 
-    if "approval process" in q_norm and ("what breaks" in q_norm or "impact" in q_norm):
+    if has_phrase(q_norm, "approval process") and has_phrase(q_norm, "what breaks", "impact"):
         return "approval_process_impact", "approval_process_impact"
 
-    if ("tighten sharing" in q_norm or "restrict sharing" in q_norm or "sharing change" in q_norm) and e.object_name:
+    if has_phrase(q_norm, "tighten sharing", "restrict sharing", "sharing change") and e.object_name:
         return "sharing_impact", "sharing_impact"
 
-    if "what breaks" in q_norm or "impact" in q_norm or "dependencies" in q_norm:
+    if has_phrase(q_norm, "what breaks", "impact", "dependencies"):
         return "impact_or_deps", "impact_or_deps"
-    if any(k in q_norm for k in ["where used", "used in", "references", "referenced", "where is"]):
+    if has_phrase(q_norm, "where used", "used in", "references", "referenced", "where is"):
         return "where_used_any", "where_used_any"
 
     return "generic", _infer_intent(q_norm, e)
@@ -558,6 +555,12 @@ class BaseTypeHandler:
 
 
 class GenericMetaHandler(BaseTypeHandler):
+    @staticmethod
+    def _list_answer_lines(heading: str, rows: list[dict[str, Any]]) -> list[str]:
+        lines = [heading]
+        lines.extend(f"- {r.get('api_name') or r.get('name') or ''}" for r in rows)
+        return lines
+
     def _meta_where(self) -> tuple[str, tuple[str, str]]:
         return "(lower(folder)=lower(?) OR lower(type_guess)=lower(?))", (self.folder, self.type_name)
 
@@ -583,11 +586,12 @@ class GenericMetaHandler(BaseTypeHandler):
             """,
             params,
         ).fetchall()
+        items = [dict(r) for r in rows]
         return {
-            "answer_lines": [f"{self.type_name} count: {len(rows)}"],
+            "answer_lines": self._list_answer_lines(f"{self.type_name} count: {len(rows)}", items),
             "evidence": [{"path": r["path"], "line": None, "snippet": r["api_name"]} for r in rows[:5]],
             "count": len(rows),
-            "items": [dict(r) for r in rows],
+            "items": items,
         }
 
     def count_on_object(self, object_name: str) -> dict[str, Any]:
@@ -602,7 +606,7 @@ class GenericMetaHandler(BaseTypeHandler):
     def list_on_object(self, object_name: str) -> dict[str, Any]:
         rows = self._list_on_object_rows(object_name, limit=200)
         return {
-            "answer_lines": [f"{self.type_name} on {object_name}: {len(rows)}"],
+            "answer_lines": self._list_answer_lines(f"{self.type_name} on {object_name}: {len(rows)}", rows),
             "evidence": [{"path": r["path"], "line": None, "snippet": r.get("api_name") or r.get("name") or ""} for r in rows[:5]],
             "count": len(rows),
             "items": rows,
@@ -1977,6 +1981,9 @@ def _handle_validation_rule_query(conn: sqlite3.Connection, question: str, q_nor
             (obj,),
         ).fetchall()
         lines = [f"Validation rules on {obj}: {len(rows)}"]
+    lines.extend(f"- {r['rule_name']}" for r in rows[:50])
+    if len(rows) > 50:
+        lines.append(f"... and {len(rows) - 50} more")
     evidence = [{"path": r["path"], "line_no": None, "snippet": r["rule_name"], "confidence": 1.0} for r in rows[:50]]
     return {"answer_lines": lines, "evidence": evidence, "items": [dict(r) for r in rows], "count": len(rows), "object_name": obj}
 

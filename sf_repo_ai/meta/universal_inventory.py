@@ -124,9 +124,14 @@ def list_inventory(
         line = f"{entry.type_key} total: {len(rows)}"
     items = _rows_to_items(rows, entry)
     evidence = [{"path": x["path"], "line_no": None, "snippet": x["name"], "confidence": 1.0} for x in items[:50]]
+    shown = items[: max(limit, 50)]
+    answer_lines = [line]
+    answer_lines.extend(f"- {item['name']}" for item in shown)
+    if len(items) > len(shown):
+        answer_lines.append(f"... and {len(items) - len(shown)} more")
     return {
-        "answer_lines": [line],
-        "items": items[: max(limit, 50)],
+        "answer_lines": answer_lines,
+        "items": shown,
         "evidence": evidence[:50],
         "count": len(items),
     }
@@ -197,4 +202,3 @@ def find_inventory_by_name(
             if it["name"] == best:
                 return it
     return None
-
