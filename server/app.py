@@ -7,12 +7,13 @@ import re
 from html import escape
 from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
+from urllib.parse import quote
 import xml.etree.ElementTree as ET
 import sqlite3
 import requests
 
 from fastapi import FastAPI, HTTPException, Header, Security, Depends
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.security import APIKeyHeader
 from pydantic import BaseModel, Field
 
@@ -40,6 +41,8 @@ from orchestration import (
     generate_or_update_components,
     list_orgs,
     retrieve_start,
+    org_display,
+    run_ui_feature_session,
     start_environment_setup,
 )
 from repo_index import ensure_indexes, ensure_runtime_indexes
@@ -61,6 +64,29 @@ SUPPORTED_MODEL_CATALOG = [
     {"value": "gpt-5.4-mini", "label": "GPT-5.4 mini", "provider": "openai", "default": False},
     {"value": "gpt-4.1", "label": "GPT 4.1", "provider": "openai", "default": False},
 ]
+UI_FEATURE_INFERENCE_ALLOWED_KINDS = {
+    "ApexClass",
+    "ApexTrigger",
+    "Aura",
+    "ApprovalProcess",
+    "CustomApplication",
+    "CustomField",
+    "CustomLabel",
+    "CustomMetadata",
+    "CustomObject",
+    "CustomTab",
+    "EmailTemplate",
+    "FlexiPage",
+    "Flow",
+    "Layout",
+    "LightningComponentBundle",
+    "PermissionSet",
+    "QuickAction",
+    "RecordType",
+    "Report",
+    "ValidationRule",
+    "Workflow",
+}
 
 def get_api_key(api_key: str = Security(api_key_header)):
     expected_key = os.getenv("AGENT_API_KEY")
@@ -279,6 +305,168 @@ class WorkItemExecutionResponse(BaseModel):
 
 class WorkItemExecutionListResponse(BaseModel):
     executions: List[WorkItemExecutionResponse]
+
+
+class UiFeatureComponentRef(BaseModel):
+    component_type: Optional[str] = Field(None, description="Metadata kind, e.g. ApexClass, Flow, LightningComponentBundle")
+    component_name: Optional[str] = Field(None, description="Component name")
+    path: Optional[str] = Field(None, description="Repo-relative path when known")
+    source: Optional[str] = Field(None, description="How this component reference was discovered")
+    metadata: Optional[Dict[str, Any]] = Field(None, description="Optional extra context")
+
+
+class UiFeatureStep(BaseModel):
+    name: Optional[str] = Field(None, description="Human-friendly step name")
+    action: str = Field(..., description="Action type: goto, click, fill, press, select, wait_for, expect_visible, expect_text, screenshot")
+    selector: Optional[str] = Field(None, description="CSS/text selector for the target element")
+    url: Optional[str] = Field(None, description="Target URL for goto steps")
+    value: Optional[Any] = Field(None, description="Typed value, key, or option for the step")
+    text: Optional[str] = Field(None, description="Expected text for expect_text steps")
+    timeout_ms: Optional[int] = Field(None, description="Optional per-step timeout in milliseconds")
+    screenshot_after: bool = Field(False, description="Capture a screenshot after the step succeeds")
+    notes: Optional[str] = Field(None, description="Optional notes for the step")
+
+
+class UiFeatureCreateRequest(BaseModel):
+    name: str = Field(..., description="Reusable feature name, e.g. NPS Feedback regression")
+    description: Optional[str] = Field(None, description="Business purpose and scope")
+    target_org_alias: Optional[str] = Field(None, description="Preferred Salesforce org alias")
+    metadata_project_dir: Optional[str] = Field(None, description="SFDX project directory; defaults to active repo")
+    app_name: Optional[str] = Field(None, description="Lightning app name")
+    page_context: Optional[str] = Field(None, description="Page or object context, e.g. Account record page")
+    start_url: Optional[str] = Field(None, description="Optional starting URL or relative path")
+    login_mode: Optional[str] = Field("cli_access_token", description="cli_access_token, manual, storage_state, or sso")
+    steps: List[UiFeatureStep] = Field(..., description="Saved browser actions to replay")
+    expected_outcomes: List[str] = Field(default_factory=list, description="Expected business results")
+    tags: List[str] = Field(default_factory=list, description="Search/filter tags")
+    notes: Optional[str] = Field(None, description="Additional implementation notes")
+    related_components: Optional[List[UiFeatureComponentRef]] = Field(None, description="Explicit related repo components")
+    infer_related_components: bool = Field(False, description="Infer repo components from the feature text and steps")
+    infer_k: int = Field(8, description="Number of inferred components to capture")
+    infer_hybrid: bool = Field(True, description="Use hybrid retrieval when inferring components")
+
+
+class UiFeatureUpdateRequest(BaseModel):
+    name: Optional[str] = Field(None, description="Updated feature name")
+    description: Optional[str] = Field(None, description="Updated description")
+    status: Optional[str] = Field(None, description="ACTIVE, PAUSED, or ARCHIVED")
+    target_org_alias: Optional[str] = Field(None, description="Preferred Salesforce org alias")
+    metadata_project_dir: Optional[str] = Field(None, description="SFDX project directory")
+    app_name: Optional[str] = Field(None, description="Lightning app name")
+    page_context: Optional[str] = Field(None, description="Page or object context")
+    start_url: Optional[str] = Field(None, description="Optional starting URL")
+    login_mode: Optional[str] = Field(None, description="cli_access_token, manual, storage_state, or sso")
+    steps: Optional[List[UiFeatureStep]] = Field(None, description="Replacement step list")
+    expected_outcomes: Optional[List[str]] = Field(None, description="Replacement expected outcomes")
+    tags: Optional[List[str]] = Field(None, description="Replacement tag list")
+    notes: Optional[str] = Field(None, description="Updated notes")
+    related_components: Optional[List[UiFeatureComponentRef]] = Field(None, description="Replacement component refs")
+    infer_related_components: bool = Field(False, description="Recompute inferred component refs")
+    infer_k: int = Field(8, description="Number of inferred components to capture")
+    infer_hybrid: bool = Field(True, description="Use hybrid retrieval when inferring components")
+
+
+class UiFeatureResponse(BaseModel):
+    feature_id: str
+    name: str
+    description: Optional[str]
+    status: str
+    target_org_alias: Optional[str]
+    metadata_project_dir: Optional[str]
+    app_name: Optional[str]
+    page_context: Optional[str]
+    start_url: Optional[str]
+    login_mode: Optional[str]
+    steps: List[Dict[str, Any]]
+    expected_outcomes: List[str]
+    tags: List[str]
+    notes: Optional[str]
+    related_components: List[UiFeatureComponentRef]
+    last_run_id: Optional[str]
+    last_run_status: Optional[str]
+    last_run_ts: Optional[str]
+    created_ts: str
+    updated_ts: str
+
+
+class UiFeatureListResponse(BaseModel):
+    items: List[UiFeatureResponse]
+
+
+class UiFeatureRunRequest(BaseModel):
+    target_org_alias: Optional[str] = Field(None, description="Override Salesforce org alias")
+    base_url: Optional[str] = Field(None, description="Salesforce domain, used with relative step URLs")
+    start_url: Optional[str] = Field(None, description="Override starting URL")
+    browser_name: str = Field("chromium", description="Browser engine to use")
+    headless: bool = Field(True, description="Run browser headlessly")
+    slow_mo_ms: int = Field(0, description="Optional slow motion delay for debugging")
+    timeout_ms: int = Field(15000, description="Default step timeout")
+    storage_state_path: Optional[str] = Field(None, description="Optional Playwright storage state JSON file")
+    record_video: bool = Field(True, description="Capture Playwright video")
+    record_trace: bool = Field(True, description="Capture Playwright trace")
+    locale: str = Field("en-US", description="Browser locale")
+    timezone_id: str = Field("UTC", description="Browser timezone id")
+
+
+class UiFeatureStepResultResponse(BaseModel):
+    step_index: int
+    step_name: Optional[str]
+    action_type: Optional[str]
+    status: str
+    selector: Optional[str]
+    expected_text: Optional[str]
+    actual_text: Optional[str]
+    screenshot_path: Optional[str]
+    error_text: Optional[str]
+    result: Optional[Dict[str, Any]]
+    started_ts: Optional[str]
+    finished_ts: Optional[str]
+
+
+class UiFeatureRunResponse(BaseModel):
+    run_id: str
+    feature_id: str
+    status: str
+    target_org_alias: Optional[str]
+    base_url: Optional[str]
+    start_url: Optional[str]
+    browser_name: Optional[str]
+    headless: bool
+    storage_state_path: Optional[str]
+    artifact_root: Optional[str]
+    video_path: Optional[str]
+    trace_path: Optional[str]
+    request: Optional[Dict[str, Any]]
+    result: Optional[Dict[str, Any]]
+    error_text: Optional[str]
+    step_results: List[UiFeatureStepResultResponse]
+    created_ts: str
+    updated_ts: str
+
+
+class UiFeatureRunListResponse(BaseModel):
+    runs: List[UiFeatureRunResponse]
+
+
+class UiFeatureArtifactRef(BaseModel):
+    category: str
+    name: str
+    path: str
+    size_bytes: Optional[int]
+    url_path: Optional[str] = None
+
+
+class UiFeatureArtifactsResponse(BaseModel):
+    feature_id: str
+    run_id: str
+    artifact_root: Optional[str]
+    summary_path: Optional[str]
+    summary_url_path: Optional[str]
+    video_path: Optional[str]
+    video_url_path: Optional[str]
+    trace_path: Optional[str]
+    trace_url_path: Optional[str]
+    screenshots: List[UiFeatureArtifactRef]
 
 
 class WorkItemAnalyzeRequest(BaseModel):
@@ -1580,6 +1768,258 @@ def _project_dir_or_default(project_dir: Optional[str]) -> str:
     return str(Path(project_dir).resolve()) if project_dir else str(default_project_dir())
 
 
+def _ui_feature_component_refs_from_request(
+    *,
+    related_components: Optional[List[UiFeatureComponentRef]],
+    infer_related_components: bool,
+    infer_k: int,
+    infer_hybrid: bool,
+    name: str,
+    description: Optional[str],
+    page_context: Optional[str],
+    expected_outcomes: Optional[List[str]],
+    steps: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    refs: List[Dict[str, Any]] = [c.model_dump() for c in (related_components or [])]
+    if not infer_related_components:
+        return refs
+
+    text_parts: List[str] = [name, description or "", page_context or ""]
+    text_parts.extend(expected_outcomes or [])
+    for step in steps:
+        text_parts.extend(
+            [
+                str(step.get("name") or ""),
+                str(step.get("action") or ""),
+                str(step.get("selector") or ""),
+                str(step.get("url") or ""),
+                str(step.get("value") or ""),
+                str(step.get("text") or ""),
+                str(step.get("notes") or ""),
+            ]
+        )
+
+    query_text = "\n".join(part for part in text_parts if part).strip()
+    if not query_text:
+        return refs
+
+    inferred = _retrieve_components(query_text, k=infer_k, hybrid=infer_hybrid)
+    for item in inferred:
+        component_type = str(item.get("kind") or "").strip()
+        component_name = str(item.get("name") or "").strip()
+        if not component_type or not component_name:
+            continue
+        if component_type not in UI_FEATURE_INFERENCE_ALLOWED_KINDS:
+            continue
+        refs.append(
+            {
+                "component_type": component_type,
+                "component_name": component_name,
+                "path": item.get("path"),
+                "source": "repo_index",
+                "metadata": item,
+            }
+        )
+    deduped: List[Dict[str, Any]] = []
+    seen: set[tuple[str, str, str]] = set()
+    for ref in refs:
+        key = (
+            str(ref.get("component_type") or ""),
+            str(ref.get("component_name") or ""),
+            str(ref.get("path") or ""),
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(ref)
+    return deduped
+
+
+def _ui_feature_response(row: Dict[str, Any]) -> UiFeatureResponse:
+    return UiFeatureResponse(
+        feature_id=row["feature_id"],
+        name=row["name"],
+        description=row.get("description"),
+        status=row["status"],
+        target_org_alias=row.get("target_org_alias"),
+        metadata_project_dir=row.get("metadata_project_dir"),
+        app_name=row.get("app_name"),
+        page_context=row.get("page_context"),
+        start_url=row.get("start_url"),
+        login_mode=row.get("login_mode"),
+        steps=row.get("steps") or [],
+        expected_outcomes=row.get("expected_outcomes") or [],
+        tags=row.get("tags") or [],
+        notes=row.get("notes"),
+        related_components=[UiFeatureComponentRef(**ref) for ref in (row.get("component_refs") or [])],
+        last_run_id=row.get("last_run_id"),
+        last_run_status=row.get("last_run_status"),
+        last_run_ts=row.get("last_run_ts"),
+        created_ts=row["created_ts"],
+        updated_ts=row["updated_ts"],
+    )
+
+
+def _ui_feature_run_response(row: Dict[str, Any]) -> UiFeatureRunResponse:
+    return UiFeatureRunResponse(
+        run_id=row["run_id"],
+        feature_id=row["feature_id"],
+        status=row["status"],
+        target_org_alias=row.get("target_org_alias"),
+        base_url=row.get("base_url"),
+        start_url=row.get("start_url"),
+        browser_name=row.get("browser_name"),
+        headless=bool(row.get("headless")),
+        storage_state_path=row.get("storage_state_path"),
+        artifact_root=row.get("artifact_root"),
+        video_path=row.get("video_path"),
+        trace_path=row.get("trace_path"),
+        request=row.get("request"),
+        result=row.get("result"),
+        error_text=row.get("error_text"),
+        step_results=[UiFeatureStepResultResponse(**step) for step in (row.get("step_results") or [])],
+        created_ts=row["created_ts"],
+        updated_ts=row["updated_ts"],
+    )
+
+
+def _resolve_org_session_context(target_org_alias: Optional[str]) -> Optional[Dict[str, str]]:
+    alias = (target_org_alias or "").strip()
+    if not alias:
+        return None
+    result = org_display(target_org=alias, verbose=True)
+    data = result.data or {}
+    payload = data.get("result") if isinstance(data.get("result"), dict) else data
+    if result.exit_code != 0 or not isinstance(payload, dict):
+        return None
+    instance_url = payload.get("instanceUrl") or payload.get("instance_url")
+    access_token = payload.get("accessToken") or payload.get("access_token")
+    if not isinstance(instance_url, str) or not instance_url.strip():
+        return None
+    session_context: Dict[str, str] = {"instance_url": instance_url.strip().rstrip("/")}
+    if isinstance(access_token, str) and access_token.strip():
+        session_context["access_token"] = access_token.strip()
+    return session_context
+
+
+def _resolve_org_instance_url(target_org_alias: Optional[str]) -> Optional[str]:
+    context = _resolve_org_session_context(target_org_alias)
+    if not context:
+        return None
+    return context.get("instance_url")
+
+
+def _build_frontdoor_start_url(
+    *,
+    target_org_alias: Optional[str],
+    requested_start_url: Optional[str],
+    fallback_start_url: Optional[str],
+) -> Optional[str]:
+    context = _resolve_org_session_context(target_org_alias)
+    if not context:
+        return None
+    access_token = context.get("access_token")
+    instance_url = context.get("instance_url")
+    if not access_token or not instance_url:
+        return None
+    ret_url = (requested_start_url or fallback_start_url or "/lightning/page/home").strip()
+    if ret_url.startswith("http://") or ret_url.startswith("https://"):
+        if ret_url.startswith(instance_url):
+            ret_url = ret_url[len(instance_url) :]
+        else:
+            ret_url = "/lightning/page/home"
+    if not ret_url.startswith("/"):
+        ret_url = f"/{ret_url}"
+    return f"{instance_url}/secur/frontdoor.jsp?sid={quote(access_token, safe='')}&retURL={quote(ret_url, safe='/')}"
+
+
+def _artifact_ref(category: str, path: Path) -> UiFeatureArtifactRef:
+    return UiFeatureArtifactRef(
+        category=category,
+        name=path.name,
+        path=str(path.resolve()),
+        size_bytes=path.stat().st_size if path.exists() else None,
+        url_path=None,
+    )
+
+
+def _ui_feature_artifact_url(feature_id: str, run_id: str, category: str, name: Optional[str] = None) -> str:
+    base = f"/sf-repo-ai/ui-features/{feature_id}/runs/{run_id}/artifact-file?category={category}"
+    if name:
+        base += f"&name={name}"
+    return base
+
+
+def _ui_feature_artifacts_response(run_row: Dict[str, Any]) -> UiFeatureArtifactsResponse:
+    artifact_root_raw = run_row.get("artifact_root")
+    artifact_root = Path(artifact_root_raw).resolve() if artifact_root_raw else None
+    screenshots: List[UiFeatureArtifactRef] = []
+    summary_path: Optional[str] = None
+    summary_url_path: Optional[str] = None
+    if artifact_root and artifact_root.exists():
+        summary_file = artifact_root / "summary.json"
+        if summary_file.exists():
+            summary_path = str(summary_file.resolve())
+            summary_url_path = _ui_feature_artifact_url(run_row["feature_id"], run_row["run_id"], "summary")
+        screenshot_root = artifact_root / "screenshots"
+        if screenshot_root.exists():
+            screenshots = []
+            for screenshot in sorted(screenshot_root.glob("*.png")):
+                ref = _artifact_ref("screenshot", screenshot)
+                ref.url_path = _ui_feature_artifact_url(run_row["feature_id"], run_row["run_id"], "screenshot", screenshot.name)
+                screenshots.append(ref)
+    video_path = run_row.get("video_path")
+    trace_path = run_row.get("trace_path")
+    return UiFeatureArtifactsResponse(
+        feature_id=run_row["feature_id"],
+        run_id=run_row["run_id"],
+        artifact_root=str(artifact_root) if artifact_root else artifact_root_raw,
+        summary_path=summary_path,
+        summary_url_path=summary_url_path,
+        video_path=video_path,
+        video_url_path=_ui_feature_artifact_url(run_row["feature_id"], run_row["run_id"], "video") if video_path else None,
+        trace_path=trace_path,
+        trace_url_path=_ui_feature_artifact_url(run_row["feature_id"], run_row["run_id"], "trace") if trace_path else None,
+        screenshots=screenshots,
+    )
+
+
+def _resolve_ui_feature_artifact_file(run_row: Dict[str, Any], category: str, name: Optional[str]) -> Path:
+    artifact_root_raw = run_row.get("artifact_root")
+    if not artifact_root_raw:
+        raise HTTPException(status_code=404, detail="No artifacts recorded for this run.")
+    artifact_root = Path(artifact_root_raw).resolve()
+    if category == "summary":
+        candidate = artifact_root / "summary.json"
+    elif category == "video":
+        video_path = run_row.get("video_path")
+        if not video_path:
+            raise HTTPException(status_code=404, detail="Video artifact not found.")
+        candidate = Path(video_path).resolve()
+    elif category == "trace":
+        trace_path = run_row.get("trace_path")
+        if not trace_path:
+            raise HTTPException(status_code=404, detail="Trace artifact not found.")
+        candidate = Path(trace_path).resolve()
+    elif category == "screenshot":
+        safe_name = (name or "").strip()
+        if not safe_name:
+            raise HTTPException(status_code=400, detail="Screenshot name is required.")
+        candidate = (artifact_root / "screenshots" / safe_name).resolve()
+    else:
+        raise HTTPException(status_code=400, detail="Unsupported artifact category.")
+
+    try:
+        candidate.relative_to(artifact_root)
+    except ValueError:
+        if category not in {"video", "trace"}:
+            raise HTTPException(status_code=400, detail="Artifact path escapes artifact root.")
+
+    if not candidate.exists() or not candidate.is_file():
+        raise HTTPException(status_code=404, detail="Artifact file not found.")
+    return candidate
+
+
 def _work_item_response(row: Dict[str, Any]) -> WorkItemResponse:
     return WorkItemResponse(
         work_item_id=row["work_item_id"],
@@ -2215,6 +2655,257 @@ def sf_repo_ai_development_deploy(req: DevelopmentDeployRequest, api_key: str = 
         raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/ui-features", response_model=UiFeatureResponse)
+def sf_repo_ai_ui_feature_create(req: UiFeatureCreateRequest, api_key: str = Depends(get_api_key)):
+    try:
+        store = OrchestrationStore()
+        steps = [step.model_dump() for step in req.steps]
+        refs = _ui_feature_component_refs_from_request(
+            related_components=req.related_components,
+            infer_related_components=req.infer_related_components,
+            infer_k=req.infer_k,
+            infer_hybrid=req.infer_hybrid,
+            name=req.name,
+            description=req.description,
+            page_context=req.page_context,
+            expected_outcomes=req.expected_outcomes,
+            steps=steps,
+        )
+        row = store.create_ui_feature(
+            name=req.name.strip(),
+            description=req.description,
+            target_org_alias=req.target_org_alias,
+            metadata_project_dir=_project_dir_or_default(req.metadata_project_dir),
+            app_name=req.app_name,
+            page_context=req.page_context,
+            start_url=req.start_url,
+            login_mode=req.login_mode,
+            steps=steps,
+            expected_outcomes=req.expected_outcomes,
+            tags=req.tags,
+            notes=req.notes,
+            component_refs=refs,
+            created_ts=_utc_now_iso(),
+        )
+        return _ui_feature_response(row)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/ui-features", response_model=UiFeatureListResponse)
+def sf_repo_ai_ui_feature_list(limit: int = 100, api_key: str = Depends(get_api_key)):
+    try:
+        rows = OrchestrationStore().list_ui_features(limit=limit)
+        return UiFeatureListResponse(items=[_ui_feature_response(row) for row in rows])
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/ui-features/{feature_id}", response_model=UiFeatureResponse)
+def sf_repo_ai_ui_feature_get(feature_id: str, api_key: str = Depends(get_api_key)):
+    try:
+        row = OrchestrationStore().get_ui_feature(feature_id)
+        return _ui_feature_response(row)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.put("/sf-repo-ai/ui-features/{feature_id}", response_model=UiFeatureResponse)
+def sf_repo_ai_ui_feature_update(feature_id: str, req: UiFeatureUpdateRequest, api_key: str = Depends(get_api_key)):
+    try:
+        store = OrchestrationStore()
+        existing = store.get_ui_feature(feature_id)
+        steps = [step.model_dump() for step in req.steps] if req.steps is not None else existing.get("steps") or []
+        component_payload: Optional[List[Dict[str, Any]]] = None
+        if req.infer_related_components or req.related_components is not None:
+            component_payload = _ui_feature_component_refs_from_request(
+                related_components=req.related_components,
+                infer_related_components=req.infer_related_components,
+                infer_k=req.infer_k,
+                infer_hybrid=req.infer_hybrid,
+                name=req.name or existing["name"],
+                description=req.description if req.description is not None else existing.get("description"),
+                page_context=req.page_context if req.page_context is not None else existing.get("page_context"),
+                expected_outcomes=req.expected_outcomes if req.expected_outcomes is not None else existing.get("expected_outcomes"),
+                steps=steps,
+            )
+        row = store.update_ui_feature(
+            feature_id,
+            updated_ts=_utc_now_iso(),
+            component_refs=component_payload,
+            name=req.name,
+            description=req.description,
+            status=req.status,
+            target_org_alias=req.target_org_alias,
+            metadata_project_dir=_project_dir_or_default(req.metadata_project_dir) if req.metadata_project_dir else None,
+            app_name=req.app_name,
+            page_context=req.page_context,
+            start_url=req.start_url,
+            login_mode=req.login_mode,
+            steps_json=steps if req.steps is not None else None,
+            expected_outcomes_json=req.expected_outcomes,
+            tags_json=req.tags,
+            notes=req.notes,
+        )
+        return _ui_feature_response(row)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/ui-features/{feature_id}/runs", response_model=UiFeatureRunListResponse)
+def sf_repo_ai_ui_feature_runs(feature_id: str, limit: int = 50, api_key: str = Depends(get_api_key)):
+    try:
+        rows = OrchestrationStore().list_ui_feature_runs(feature_id=feature_id, limit=limit)
+        return UiFeatureRunListResponse(runs=[_ui_feature_run_response(row) for row in rows])
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/ui-features/{feature_id}/runs/{run_id}", response_model=UiFeatureRunResponse)
+def sf_repo_ai_ui_feature_run_get(feature_id: str, run_id: str, api_key: str = Depends(get_api_key)):
+    try:
+        row = OrchestrationStore().get_ui_feature_run(run_id)
+        if row.get("feature_id") != feature_id:
+            raise HTTPException(status_code=404, detail="UI feature run not found for feature.")
+        return _ui_feature_run_response(row)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/ui-features/{feature_id}/runs/{run_id}/artifacts", response_model=UiFeatureArtifactsResponse)
+def sf_repo_ai_ui_feature_run_artifacts(feature_id: str, run_id: str, api_key: str = Depends(get_api_key)):
+    try:
+        row = OrchestrationStore().get_ui_feature_run(run_id)
+        if row.get("feature_id") != feature_id:
+            raise HTTPException(status_code=404, detail="UI feature run not found for feature.")
+        return _ui_feature_artifacts_response(row)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/sf-repo-ai/ui-features/{feature_id}/runs/{run_id}/artifact-file")
+def sf_repo_ai_ui_feature_run_artifact_file(
+    feature_id: str,
+    run_id: str,
+    category: str,
+    name: Optional[str] = None,
+    api_key: str = Depends(get_api_key),
+):
+    try:
+        row = OrchestrationStore().get_ui_feature_run(run_id)
+        if row.get("feature_id") != feature_id:
+            raise HTTPException(status_code=404, detail="UI feature run not found for feature.")
+        artifact_file = _resolve_ui_feature_artifact_file(row, category=category, name=name)
+        media_type = None
+        suffix = artifact_file.suffix.lower()
+        if suffix == ".png":
+            media_type = "image/png"
+        elif suffix == ".zip":
+            media_type = "application/zip"
+        elif suffix == ".webm":
+            media_type = "video/webm"
+        elif suffix == ".json":
+            media_type = "application/json"
+        return FileResponse(path=str(artifact_file), media_type=media_type, filename=artifact_file.name)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.post("/sf-repo-ai/ui-features/{feature_id}/run", response_model=UiFeatureRunResponse)
+def sf_repo_ai_ui_feature_run(feature_id: str, req: UiFeatureRunRequest, api_key: str = Depends(get_api_key)):
+    store = OrchestrationStore()
+    try:
+        feature = store.get_ui_feature(feature_id)
+    except KeyError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+
+    effective_target_org = req.target_org_alias or feature.get("target_org_alias")
+    effective_base_url = req.base_url or _resolve_org_instance_url(effective_target_org)
+    effective_login_mode = str(feature.get("login_mode") or "manual").strip().lower()
+    effective_start_url = req.start_url or feature.get("start_url")
+    if effective_login_mode == "cli_access_token" and not req.storage_state_path:
+        frontdoor_start_url = _build_frontdoor_start_url(
+            target_org_alias=effective_target_org,
+            requested_start_url=req.start_url,
+            fallback_start_url=feature.get("start_url"),
+        )
+        if frontdoor_start_url:
+            effective_start_url = frontdoor_start_url
+
+    run = store.create_ui_feature_run(
+        feature_id=feature_id,
+        status="RUNNING",
+        target_org_alias=effective_target_org,
+        base_url=effective_base_url,
+        start_url=effective_start_url,
+        browser_name=req.browser_name,
+        headless=req.headless,
+        storage_state_path=req.storage_state_path,
+        artifact_root=None,
+        request_payload=req.model_dump(),
+        created_ts=_utc_now_iso(),
+    )
+    artifact_root = Path("data/ui_features") / feature_id / "runs" / run["run_id"]
+    with store._conn() as conn:
+        conn.execute("UPDATE ui_feature_runs SET artifact_root = ? WHERE run_id = ?", (str(artifact_root), run["run_id"]))
+
+    try:
+        summary = run_ui_feature_session(
+            feature=feature,
+            run_id=run["run_id"],
+            artifact_root=artifact_root,
+            target_org_alias=effective_target_org,
+            base_url=effective_base_url,
+            start_url=effective_start_url,
+            browser_name=req.browser_name,
+            headless=req.headless,
+            slow_mo_ms=req.slow_mo_ms,
+            timeout_ms=req.timeout_ms,
+            storage_state_path=req.storage_state_path,
+            record_video=req.record_video,
+            record_trace=req.record_trace,
+            locale=req.locale,
+            timezone_id=req.timezone_id,
+        )
+        updated = store.update_ui_feature_run(
+            run["run_id"],
+            status=summary.get("status") or "COMPLETED",
+            updated_ts=_utc_now_iso(),
+            video_path=((summary.get("artifacts") or {}).get("video_path")),
+            trace_path=((summary.get("artifacts") or {}).get("trace_path")),
+            result_payload=summary,
+            error_text=summary.get("error"),
+            step_results=summary.get("step_results") or [],
+        )
+        return _ui_feature_run_response(updated)
+    except Exception as exc:
+        updated = store.update_ui_feature_run(
+            run["run_id"],
+            status="FAILED",
+            updated_ts=_utc_now_iso(),
+            result_payload={"error": str(exc)},
+            error_text=str(exc),
+            step_results=[],
+        )
+        return _ui_feature_run_response(updated)
 
 
 

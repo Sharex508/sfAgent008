@@ -105,6 +105,13 @@ def list_orgs(*, all_orgs: bool = True) -> CliCommandResult:
     return _run_sf(args, workdir=ROOT, timeout_sec=300)
 
 
+def org_display(*, target_org: str, verbose: bool = True) -> CliCommandResult:
+    args = ["org", "display", "--target-org", target_org]
+    if verbose:
+        args.append("--verbose")
+    return _run_sf(args, workdir=ROOT, timeout_sec=300)
+
+
 def login_access_token(
     *,
     alias: str,

@@ -5,6 +5,7 @@ from orchestration.cli import (
     deploy_start,
     list_orgs,
     login_access_token,
+    org_display,
     retrieve_start,
 )
 from orchestration.environment_setup import (
@@ -14,6 +15,7 @@ from orchestration.environment_setup import (
 )
 from orchestration.generator import GenerationResult, generate_or_update_components
 from orchestration.store import OrchestrationStore
+from orchestration.ui_features import run_ui_feature_session
 
 __all__ = [
     "CliCommandResult",
@@ -27,6 +29,8 @@ __all__ = [
     "get_environment_setup_status",
     "list_orgs",
     "login_access_token",
+    "org_display",
     "retrieve_start",
+    "run_ui_feature_session",
     "start_environment_setup",
 ]

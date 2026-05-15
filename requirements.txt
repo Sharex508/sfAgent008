@@ -12,3 +12,4 @@ lxml
 networkx
 simple-salesforce
 sentence-transformers
+playwright>=1.52.0

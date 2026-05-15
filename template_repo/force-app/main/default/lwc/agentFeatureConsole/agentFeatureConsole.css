@@ -1,0 +1,141 @@
+.console-shell {
+    background: linear-gradient(180deg, #eef3f8 0%, #f8fbff 100%);
+    padding: 1rem;
+    color: #16325c;
+}
+
+.hero,
+.grid,
+.button-row,
+.toggle-row,
+.artifact-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.hero {
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.eyebrow,
+.section-label,
+.feature-meta,
+.muted {
+    color: #5c6f8a;
+}
+
+.eyebrow,
+.section-label {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-size: 1.6rem;
+    margin: 0.2rem 0;
+}
+
+.hero-copy {
+    max-width: 48rem;
+}
+
+.grid {
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 23rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #d8e1ec;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 10px 24px rgba(22, 50, 92, 0.06);
+}
+
+.button-gap {
+    margin-top: 0.75rem;
+}
+
+.feature-row {
+    width: 100%;
+    text-align: left;
+    border: 1px solid #d8e1ec;
+    border-radius: 0.75rem;
+    background: #f8fbff;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.run-row {
+    border-bottom: 1px solid #eef3f8;
+    padding: 0.45rem 0;
+}
+
+.feature-name,
+.run-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.toggle-row {
+    flex-wrap: wrap;
+    margin: 0.75rem 0;
+}
+
+.button-row {
+    justify-content: flex-end;
+    margin-top: 0.75rem;
+}
+
+.artifact-links,
+.screenshot-grid {
+    flex-wrap: wrap;
+}
+
+.artifact-links a,
+.screenshot-link {
+    border: 1px solid #c6d4e5;
+    border-radius: 999px;
+    padding: 0.45rem 0.75rem;
+    text-decoration: none;
+    color: #0b5cab;
+    background: #f8fbff;
+}
+
+@media (max-width: 960px) {
+    .grid {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

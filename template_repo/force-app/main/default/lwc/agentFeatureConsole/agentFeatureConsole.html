@@ -1,0 +1,126 @@
+<template>
+    <section class="console-shell">
+        <div class="hero">
+            <div>
+                <p class="eyebrow">UI Feature Replay</p>
+                <h1>Agent Feature Console</h1>
+                <p class="hero-copy">Save repeatable Salesforce UI flows, replay them through Playwright, and inspect evidence from the same workspace.</p>
+            </div>
+            <template if:true={isLoading}>
+                <lightning-spinner size="small" alternative-text="Loading"></lightning-spinner>
+            </template>
+            <template if:true={isRunning}>
+                <lightning-spinner size="small" alternative-text="Running"></lightning-spinner>
+            </template>
+        </div>
+
+        <div class="grid">
+            <aside class="sidebar">
+                <div class="card">
+                    <p class="section-label">Environment</p>
+                    <p class="strong">{environmentOrgLabel}</p>
+                    <p class="muted">{environmentDomainLabel}</p>
+                    <lightning-input name="endpointBase" label="Backend Endpoint Base" value={endpointBase} onchange={handleInputChange} placeholder="https://your-ngrok-or-host"></lightning-input>
+                    <lightning-input name="apiKey" label="API Key (optional)" type="password" value={apiKey} onchange={handleInputChange}></lightning-input>
+                    <lightning-button class="button-gap" label="Refresh Features" variant="neutral" onclick={handleRefreshFeatures}></lightning-button>
+                </div>
+
+                <div class="card">
+                    <p class="section-label">Saved Features</p>
+                    <template if:true={hasFeatures}>
+                        <template for:each={featureList} for:item="feature">
+                            <button key={feature.feature_id} class="feature-row" data-id={feature.feature_id} onclick={handleSelectFeature}>
+                                <span class="feature-name">{feature.name}</span>
+                                <span class="feature-meta">{feature.status}</span>
+                            </button>
+                        </template>
+                    </template>
+                    <template if:false={hasFeatures}>
+                        <p class="muted">No saved UI features yet.</p>
+                    </template>
+                </div>
+
+                <div class="card">
+                    <p class="section-label">Run History</p>
+                    <template if:true={hasRuns}>
+                        <template for:each={runList} for:item="run">
+                            <div key={run.run_id} class="run-row">
+                                <span class="feature-name">{run.status}</span>
+                                <span class="feature-meta">{run.updated_ts}</span>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={hasRuns}>
+                        <p class="muted">No runs recorded.</p>
+                    </template>
+                </div>
+            </aside>
+
+            <div class="main">
+                <div class="card">
+                    <p class="section-label">Feature Definition</p>
+                    <div class="form-grid">
+                        <lightning-input name="featureName" label="Feature Name" value={featureName} onchange={handleInputChange}></lightning-input>
+                        <lightning-input name="targetOrgAlias" label="Target Org Alias" value={targetOrgAlias} onchange={handleInputChange} placeholder="ATT Dev"></lightning-input>
+                        <lightning-input name="appName" label="Lightning App" value={appName} onchange={handleInputChange} placeholder="Carrier Assets"></lightning-input>
+                        <lightning-input name="pageContext" label="Page Context" value={pageContext} onchange={handleInputChange} placeholder="Account record page"></lightning-input>
+                        <lightning-input name="startUrl" label="Start URL" value={startUrl} onchange={handleInputChange} placeholder="/lightning/r/Account/..."></lightning-input>
+                        <lightning-combobox name="loginMode" label="Login Mode" value={loginMode} options={loginModeOptions} onchange={handleInputChange}></lightning-combobox>
+                    </div>
+                    <lightning-input name="metadataProjectDir" label="Metadata Project Directory (optional)" value={metadataProjectDir} onchange={handleInputChange}></lightning-input>
+                    <lightning-textarea name="featureDescription" label="Description" value={featureDescription} onchange={handleInputChange}></lightning-textarea>
+                    <lightning-textarea name="expectedOutcomesText" label="Expected Outcomes (one per line)" value={expectedOutcomesText} onchange={handleInputChange}></lightning-textarea>
+                    <lightning-input name="tagsText" label="Tags (comma separated)" value={tagsText} onchange={handleInputChange}></lightning-input>
+                    <lightning-textarea name="notes" label="Notes" value={notes} onchange={handleInputChange}></lightning-textarea>
+                    <lightning-textarea name="stepsJsonText" label="Steps JSON" value={stepsJsonText} onchange={handleInputChange}></lightning-textarea>
+                    <div class="button-row">
+                        <lightning-button label={saveButtonLabel} variant="brand" onclick={handleSaveFeature}></lightning-button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <p class="section-label">Run Configuration</p>
+                    <div class="form-grid">
+                        <lightning-input name="runBaseUrl" label="Override Base URL (optional)" value={runBaseUrl} onchange={handleInputChange} placeholder="https://carrier.example.com"></lightning-input>
+                        <lightning-input name="runTimeoutMs" type="number" label="Timeout (ms)" value={runTimeoutMs} onchange={handleInputChange}></lightning-input>
+                    </div>
+                    <div class="toggle-row">
+                        <lightning-input name="runHeadless" type="toggle" label="Headless" checked={runHeadless} onchange={handleInputChange}></lightning-input>
+                        <lightning-input name="runRecordVideo" type="toggle" label="Record Video" checked={runRecordVideo} onchange={handleInputChange}></lightning-input>
+                        <lightning-input name="runRecordTrace" type="toggle" label="Record Trace" checked={runRecordTrace} onchange={handleInputChange}></lightning-input>
+                    </div>
+                    <div class="button-row">
+                        <lightning-button label="Run Feature" variant="brand" onclick={handleRunFeature}></lightning-button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <p class="section-label">Artifacts</p>
+                    <template if:true={artifacts}>
+                        <div class="artifact-links">
+                            <template if:true={artifacts.summaryUrl}>
+                                <a href={artifacts.summaryUrl} target="_blank">Open Summary</a>
+                            </template>
+                            <template if:true={artifacts.videoUrl}>
+                                <a href={artifacts.videoUrl} target="_blank">Open Video</a>
+                            </template>
+                            <template if:true={artifacts.traceUrl}>
+                                <a href={artifacts.traceUrl} target="_blank">Open Trace</a>
+                            </template>
+                        </div>
+                        <template if:true={hasScreenshots}>
+                            <div class="screenshot-grid">
+                                <template for:each={screenshotArtifacts} for:item="shot">
+                                    <a key={shot.path} href={shot.resolvedUrl} target="_blank" class="screenshot-link">{shot.name}</a>
+                                </template>
+                            </div>
+                        </template>
+                    </template>
+                    <template if:false={artifacts}>
+                        <p class="muted">Run a feature to collect screenshots, video, and trace artifacts.</p>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
